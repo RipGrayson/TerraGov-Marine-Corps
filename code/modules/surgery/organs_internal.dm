@@ -74,9 +74,10 @@
 		if(affected.body_part == HEAD)//brain and eye damage is fixed by a separate surgery
 			return 0
 		for(var/datum/internal_organ/I in affected.internal_organs)
+			if(I && I.functioning == FALSE)
+				continue
 			if(I.damage > 0 && I.robotic != ORGAN_ROBOT)
 				return 1
-
 
 /datum/surgery_step/internal/fix_organ/begin_step(mob/user, mob/living/carbon/human/target, target_zone, obj/item/tool, datum/limb/affected)
 	var/tool_name = "\the [tool]"
@@ -86,10 +87,12 @@
 		tool_name = "the bandaid"
 
 	for(var/datum/internal_organ/I in affected.internal_organs)
+		if(I && I.functioning == FALSE)
+			continue
 		if(I && I.damage > 0 && I.robotic != ORGAN_ROBOT)
 			user.visible_message(span_notice("[user] starts treating damage to [target]'s [I.name] with [tool_name]."), \
 			span_notice("You start treating damage to [target]'s [I.name] with [tool_name].") )
-
+		
 	target.custom_pain("The pain in your [affected.display_name] is living hell!", 1)
 	..()
 
@@ -101,6 +104,8 @@
 		tool_name = "the bandaid"
 
 	for(var/datum/internal_organ/I in affected.internal_organs)
+		if(I && I.functioning == FALSE)
+			continue
 		if(I && I.damage > 0 && I.robotic != ORGAN_ROBOT)
 			user.visible_message(span_notice("[user] treats damage to [target]'s [I.name] with [tool_name]."), \
 			span_notice("You treat damage to [target]'s [I.name] with [tool_name].") )
@@ -177,11 +182,11 @@
 
 
 /datum/surgery_step/internal/detach_organ
-	allowed_tools = list()/*
-	/obj/item/tool/surgery/scalpel = 100,		\
-	/obj/item/tool/kitchen/knife = 75,	\
-	/obj/item/shard = 50, 		\
-	)*/
+	allowed_tools = list(
+	/obj/item/tool/surgery/scalpel = 100,		
+	/obj/item/tool/kitchen/knife = 75,	
+	/obj/item/shard = 50, 	
+	)
 
 	min_duration = 60
 	max_duration = 80
@@ -199,7 +204,7 @@
 		var/list/attached_organs = list()
 		for(var/organ in target.internal_organs_by_name)
 			var/datum/internal_organ/I = target.internal_organs_by_name[organ]
-			if(!I.cut_away && I.parent_limb == target_zone)
+			if(!I.cut_away && !I.functioning && I.parent_limb == target_zone)
 				attached_organs |= organ
 
 		var/organ_to_detach = tgui_input_list(user, "Which organ do you want to prepare for removal?", null, attached_organs)
@@ -241,11 +246,11 @@
 
 
 /datum/surgery_step/internal/remove_organ
-	allowed_tools = list()
-	/*/obj/item/tool/surgery/hemostat = 100,           \
+	allowed_tools = list(
+	/obj/item/tool/surgery/hemostat = 100,           \
 	/obj/item/tool/wirecutters = 75,         \
 	/obj/item/tool/kitchen/utensil/fork = 20
-	)*/
+	)
 
 	min_duration = 60
 	max_duration = 80

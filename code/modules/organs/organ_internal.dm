@@ -22,6 +22,7 @@
 	var/list/transplant_data
 	var/germ_level = 0		// INTERNAL germs inside the organ, this is BAD if it's greater than INFECTION_LEVEL_ONE
 	var/organ_id
+	var/functioning = TRUE //is the organ functional?
 
 /datum/internal_organ/process()
 		return 0
@@ -77,11 +78,15 @@
 	SIGNAL_HANDLER
 	owner = null
 
-/datum/internal_organ/process()
-
+/datum/internal_organ/process(delta_time, times_fired)
+	on_death(delta_time, times_fired) 
 	//Process infections
 	if (robotic >= 2 || (owner.species && owner.species.species_flags & IS_PLANT))	//TODO make robotic internal and external organs separate types of organ instead of a flag
 		germ_level = 0
+		return
+	
+	if (damage >= ORGAN_DESTRUCTION_THRESHOLD && name != "brain")	//Damaged organs over 50 are nonfunctional, brains are never nonfunctional.
+		functioning = FALSE
 		return
 
 	if(owner.bodytemperature >= 170)	//cryo stops germs from moving and doing their bad stuffs
@@ -107,6 +112,11 @@
 
 			if (prob(3))	//about once every 30 seconds
 				take_damage(1, prob(30))
+
+/datum/internal_organ/proc/on_death(delta_time, times_fired) //runs decay when outside of a person
+	if(robotic == ORGAN_ROBOT) //synthetic organs never decay
+		return
+	damage += TERMINAL_DECAY_RATE_MAX
 
 /datum/internal_organ/proc/take_damage(amount, silent= FALSE)
 	if(amount <= 0)
