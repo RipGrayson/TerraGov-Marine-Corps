@@ -3,7 +3,7 @@
 /obj/item/shard
 	name = "glass shard"
 	icon = 'icons/obj/items/shards.dmi'
-	icon_state = ""
+	icon_state = "medium"
 	sharp = IS_SHARP_ITEM_SIMPLE
 	edge = 1
 	desc = "Could probably be used as ... a throwing weapon?"
@@ -14,7 +14,6 @@
 	materials = list(/datum/material/glass = 3750)
 	attack_verb = list("stabbed", "slashed", "sliced", "cut")
 	var/source_sheet_type = /obj/item/stack/sheet/glass
-	var/shardsize
 
 /obj/item/shard/suicide_act(mob/user)
 	user.visible_message(span_danger("[user] is slitting [user.p_their()] [pick("wrists", "throat")] with [src]! It looks like [user.p_theyre()] trying to commit suicide."))
@@ -27,8 +26,8 @@
 
 /obj/item/shard/Initialize()
 	. = ..()
-	shardsize = pick("large", "medium", "small")
-	switch(shardsize)
+	icon_state = pick("large", "medium", "small")
+	switch(icon_state)
 		if("small")
 			pixel_x = rand(-12, 12)
 			pixel_y = rand(-12, 12)
@@ -38,7 +37,6 @@
 		if("large")
 			pixel_x = rand(-5, 5)
 			pixel_y = rand(-5, 5)
-	icon_state += shardsize
 	var/static/list/connections = list(
 		COMSIG_ATOM_ENTERED = .proc/on_cross,
 	)
@@ -117,7 +115,7 @@
 
 /obj/item/shard/shrapnel
 	name = "shrapnel"
-	icon_state = "shrapnel"
+	icon_state = "shrapnelmedium"
 	desc = "A bunch of tiny bits of shattered metal."
 	materials = list(/datum/material/metal = 50)
 	source_sheet_type = null
@@ -126,6 +124,17 @@
 
 /obj/item/shard/shrapnel/Initialize(mapload, new_name, new_desc)
 	. = ..()
+	icon_state = pick("shrapnellarge", "shrapnelmedium", "shrapnelsmall")
+	switch(icon_state) //randomize position a little based off size
+		if("shrapnelsmall")
+			pixel_x = rand(-12, 12)
+			pixel_y = rand(-12, 12)
+		if("shrapnelmedium")
+			pixel_x = rand(-8, 8)
+			pixel_y = rand(-8, 8)
+		if("shrapnellarge")
+			pixel_x = rand(-5, 5)
+			pixel_y = rand(-5, 5)
 	if(!isnull(new_name))
 		name = new_name
 	if(!isnull(new_desc))
@@ -137,5 +146,19 @@
 	desc = "A shard of phoron glass. Considerably tougher then normal glass shards. Apparently not tough enough to be a window."
 	force = 8
 	throwforce = 15
-	icon_state = "phoron"
+	icon_state = "phoronmedium"
 	source_sheet_type = /obj/item/stack/sheet/glass/phoronglass
+
+/obj/item/shard/phoron/Initialize()
+	. = ..()
+	icon_state = pick("phoronlarge", "phoronmedium", "phoronsmall") //pick a random size
+	switch(icon_state) //randomize position a little based off size
+		if("phoronsmall")
+			pixel_x = rand(-12, 12)
+			pixel_y = rand(-12, 12)
+		if("phoronmedium")
+			pixel_x = rand(-8, 8)
+			pixel_y = rand(-8, 8)
+		if("phoronlarge")
+			pixel_x = rand(-5, 5)
+			pixel_y = rand(-5, 5)

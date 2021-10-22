@@ -43,7 +43,7 @@
 
 /obj/machinery/miner/damaged	//mapping and all that shebang
 	miner_status = MINER_DESTROYED
-	icon_state = "mining_drill_error"
+	icon_state = "mining_drill_error_"
 
 /obj/machinery/miner/damaged/platinum
 	name = "\improper Nanotrasen platinum Mining Well"

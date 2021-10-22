@@ -8,7 +8,7 @@
 /obj/machinery/mining/drill
 	name = "mining drill head"
 	desc = "An enormous drill."
-	icon_state = "mining_drill"
+	icon_state = "drill_handheld"
 
 /obj/machinery/mining/drill/braced
 	anchored = TRUE

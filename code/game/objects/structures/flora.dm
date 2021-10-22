@@ -435,7 +435,7 @@
 /obj/structure/jungle/vines
 	name = "vines"
 	desc = "A mass of twisted vines."
-	icon = 'icons/effects/spacevines.dmi'
+	icon_state = "Light2" //mostly used for generating a vine icon while map editing
 
 /obj/structure/jungle/vines/attackby(obj/item/I, mob/user, params)
 	. = ..()
