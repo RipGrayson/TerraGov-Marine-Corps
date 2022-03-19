@@ -7,7 +7,6 @@
 	pass_flags_self = PASSMACHINE | LETPASSTHROW
 	pixel_z = 8
 	obj_flags = CAN_BE_HIT | UNIQUE_RENAME
-	circuit = /obj/item/circuitboard/machine/hydroponics
 	idle_power_usage = 5000
 	use_power = NO_POWER_USE
 	///The amount of water in the tray (max 100)
@@ -788,41 +787,6 @@
 				name = initial(name)
 				desc = initial(desc)
 			set_weedlevel(0) //Has a side effect of cleaning up those nasty weeds
-			return
-	else if(istype(O, /obj/item/storage/part_replacer))
-		RefreshParts()
-		return
-	else if(istype(O, /obj/item/gun/energy/floragun))
-		var/obj/item/gun/energy/floragun/flowergun = O
-		if(flowergun.cell.charge < flowergun.cell.maxcharge)
-			to_chat(user, span_notice("[flowergun] must be fully charged to lock in a mutation!"))
-			return
-		if(!myseed)
-			to_chat(user, span_warning("[src] is empty!"))
-			return
-		if(myseed.endurance <= 20)
-			to_chat(user, span_warning("[myseed.plantname] isn't hardy enough to sequence it's mutation!"))
-			return
-		if(!LAZYLEN(myseed.mutatelist))
-			to_chat(user, span_warning("[myseed.plantname] has nothing else to mutate into!"))
-			return
-		else
-			var/list/fresh_mut_list = list()
-			for(var/muties in myseed.mutatelist)
-				var/obj/item/seeds/another_mut = new muties
-				fresh_mut_list[another_mut.plantname] = muties
-			var/locked_mutation = tgui_input_list(user, "Mutation to lock", "Plant Mutation Locks", sort_list(fresh_mut_list))
-			if(isnull(locked_mutation))
-				return
-			if(isnull(fresh_mut_list[locked_mutation]))
-				return
-			if(!user.canUseTopic(src)
-				return
-			myseed.mutatelist = list(fresh_mut_list[locked_mutation])
-			myseed.set_endurance(myseed.endurance/2)
-			flowergun.cell.use(flowergun.cell.charge)
-			flowergun.update_appearance()
-			to_chat(user, span_notice("[myseed.plantname]'s mutation was set to [locked_mutation], depleting [flowergun]'s cell!"))
 			return
 	else
 		return ..()
