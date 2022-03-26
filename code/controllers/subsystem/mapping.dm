@@ -289,9 +289,11 @@ SUBSYSTEM_DEF(mapping)
 		var/datum/map_template/modular/M = new modular_type()
 
 		LAZYINITLIST(modular_templates[M.modular_id])
+		if(M.required_game_mode != null)
+			log_world("Map[M.name] has been rejected!")
 		if(M.min_player_num == null || M.max_player_num == null) //maps without an assigned max or min player count are always added to the modular map list
 			modular_templates[M.modular_id] += M
-		else if (last_round_player_count >= M.min_player_num && last_round_player_count <= M.max_player_num) //if we exceed the minimum or maximum players numbers for a modular map don't add it to our list of valid modules that can be loaded
+		else if(last_round_player_count >= M.min_player_num && last_round_player_count <= M.max_player_num) //if we exceed the minimum or maximum players numbers for a modular map don't add it to our list of valid modules that can be loaded
 			modular_templates[M.modular_id] += M
 		map_templates[M.type] = M
 

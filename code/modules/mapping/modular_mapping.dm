@@ -9,10 +9,12 @@
 	var/template_width = 0
 	///Bool for whether we want to to be spawning from the middle or to the topright of the spawner (true is centered)
 	var/keepcentered = FALSE
-	//minimum player number for a modular map template to be added to the list of potential modular map spawns.
+	///minimum player number for a modular map template to be added to the list of potential modular map spawns.
 	var/min_player_num
-	//maximum player number for a modular map template to be added to the list of potential modular map spawns.
+	///maximum player number for a modular map template to be added to the list of potential modular map spawns.
 	var/max_player_num
+	///required game mode for an insert to load
+	var/required_game_mode //valid modes are; "Civil War", "Crash", "Distress Signal", "Extended", "Nuclear War", "Off-Duty", "Zombie Crash", this list might not be current, do your homework.
 
 	//FOR MIN AND MAX PLAYER COUNTS TO WORK YOUR MODULAR MAP MUST HAVE BOTH FIELDS, MAPS WITH UNINITIALIZED MIN/MAX VALUES OR WITH JUST ONE OF EITHER VAR WILL ENTER THE MODULAR LIST REGARDLESS OF POP
 
@@ -385,6 +387,7 @@
 	modular_id = "brlz2"
 	template_width = 43
 	template_height = 38
+	required_game_mode = "Crash"
 
 /datum/map_template/modular/bigred/lz2two
 	name = "Big red landing zone two"
