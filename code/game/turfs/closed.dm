@@ -5,10 +5,6 @@
 	density = TRUE
 	opacity = TRUE
 
-///Base state, for icon_state updates.
-	var/walltype
-	///The neighbours
-	var/junctiontype = NONE
 	///used for plasmacutter deconstruction
 	var/open_turf_type = /turf/open/floor/plating
 

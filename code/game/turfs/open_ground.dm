@@ -98,6 +98,17 @@
 	L.apply_damage(55, TOX)
 	UPDATEHEALTH(L)
 
+/turf/open/ground/river/autoturf
+	icon = 'icons/turf/autoturf/river.dmi'
+	icon_state = "river-4-4-4-4"
+	walltype = "river"
+	smoothing_behavior = DIAGONAL_SMOOTHING
+	smoothing_groups = SMOOTH_OPEN_TURFS
+
+/turf/open/ground/river/autoturf/Initialize()
+	. = ..()
+	if(!has_catwalk)
+		return
 
 /turf/open/ground/coast
 	name = "coastline"

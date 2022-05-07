@@ -123,7 +123,7 @@
 /atom/proc/diagonal_smooth_self()
 	return
 
-/turf/closed/diagonal_smooth_self()
+/turf/diagonal_smooth_self()
 	if(smoothing_behavior != DIAGONAL_SMOOTHING || !smoothing_groups)
 		CRASH("diagonal_smooth_self() called without smoothing behavior defined")
 	junctiontype = NONE
@@ -158,7 +158,7 @@
 
 
 ///Diagonal smoothing system, based on corner states.
-/turf/closed/proc/update_corners()
+/turf/proc/update_corners()
 	var/ne = CONVEX //Initial values are those of the wall without neighbors.
 	var/se = CONVEX
 	var/sw = CONVEX

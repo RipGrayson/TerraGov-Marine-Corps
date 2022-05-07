@@ -55,6 +55,10 @@
 	var/directional_opacity = NONE
 	///Lazylist of movable atoms providing opacity sources.
 	var/list/atom/movable/opacity_sources
+	///Base state, for icon_state updates.
+	var/walltype
+	///The neighbours
+	var/junctiontype = NONE
 
 
 /turf/Initialize(mapload)

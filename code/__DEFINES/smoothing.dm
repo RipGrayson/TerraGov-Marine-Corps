@@ -8,6 +8,7 @@
 #define SMOOTH_CANTERBURY (1<<2) //TGS Canterbury
 #define SMOOTH_FLORA (1<<3) //Vegetation walls
 #define SMOOTH_MINERAL_STRUCTURES (1<<4) //Caves
+#define SMOOTH_OPEN_TURFS (1<<5) //Open turfs
 
 
 //Redefinitions of the diagonal directions so they can be stored in one var without conflicts

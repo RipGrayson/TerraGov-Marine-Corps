@@ -2279,9 +2279,6 @@
 	dir = 1
 	},
 /area/lv624/ground/river3)
-"aKN" = (
-/turf/open/floor/plating/ground/dirtgrassborder/corner,
-/area/lv624/ground/compound/c)
 "aKO" = (
 /turf/open/floor/plating/warning{
 	dir = 8
@@ -2766,11 +2763,6 @@
 	dir = 2
 	},
 /area/lv624/lazarus/sleep_male)
-"aRs" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/obj/machinery/floodlight/colony,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/compound/c)
 "aRw" = (
 /obj/structure/girder,
 /turf/open/floor/plating/ground/dirt,
@@ -3138,12 +3130,6 @@
 	dir = 5
 	},
 /area/lv624/lazarus/research)
-"aXI" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/open/floor/plating/ground/dirtgrassborder{
-	dir = 8
-	},
-/area/lv624/ground/compound/c)
 "aXL" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -3477,11 +3463,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand9)
-"bde" = (
-/obj/structure/flora/grass/green,
-/obj/structure/jungle/vines,
-/turf/open/ground/grass,
-/area/lv624/ground/jungle9)
 "bdh" = (
 /turf/open/ground/grass,
 /area/lv624/ground/jungle1)
@@ -4208,12 +4189,6 @@
 	dir = 1
 	},
 /area/lv624/lazarus/hydroponics)
-"boU" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/open/floor/plating/ground/dirtgrassborder/corner{
-	dir = 8
-	},
-/area/lv624/ground/compound/c)
 "boW" = (
 /obj/structure/jungle/vines,
 /turf/closed/wall/r_wall,
@@ -4241,12 +4216,6 @@
 /obj/effect/ai_node,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
-"bps" = (
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/open/floor/plating/ground/dirtgrassborder{
-	dir = 1
-	},
-/area/lv624/ground/compound/c)
 "bpx" = (
 /turf/open/ground/grass,
 /area/lv624/ground/jungle2)
@@ -4653,12 +4622,6 @@
 	dir = 8
 	},
 /area/lv624/lazarus/secure_storage)
-"bzK" = (
-/obj/structure/jungle/vines,
-/turf/open/floor/plating/ground/dirtgrassborder/corner{
-	dir = 4
-	},
-/area/lv624/ground/compound/c)
 "bzL" = (
 /obj/structure/table/reinforced/flipped{
 	dir = 4
@@ -7654,11 +7617,6 @@
 /obj/structure/window_frame/colony,
 /turf/open/floor/plating/platebotc,
 /area/lv624/lazarus/quartstorage/outdoors)
-"fgy" = (
-/obj/structure/jungle/vines/heavy,
-/obj/effect/ai_node,
-/turf/open/ground/grass,
-/area/lv624/ground/jungle9)
 "fht" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/grille,
@@ -10528,11 +10486,6 @@
 "iFE" = (
 /turf/closed/wall,
 /area/lv624/ground/compound/n)
-"iFJ" = (
-/obj/structure/jungle/plantbot1,
-/obj/structure/jungle/vines,
-/turf/open/ground/grass,
-/area/lv624/ground/jungle9)
 "iFQ" = (
 /obj/effect/decal/warning_stripes/thin{
 	dir = 8
@@ -12712,11 +12665,6 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/ground/coast,
 /area/lv624/ground/river1)
-"ljz" = (
-/obj/structure/jungle/plantbot1,
-/obj/structure/flora/ausbushes/fullgrass,
-/turf/open/ground/grass,
-/area/lv624/ground/jungle9)
 "ljY" = (
 /obj/effect/landmark/xeno_silo_spawn,
 /turf/open/floor/plating/ground/dirt,
@@ -13237,14 +13185,6 @@
 	dir = 4
 	},
 /area/lv624/ground/jungle10)
-"lPt" = (
-/obj/structure/cable,
-/obj/effect/ai_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
-	dir = 5
-	},
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/compound/c)
 "lPC" = (
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
@@ -17913,11 +17853,6 @@
 	icon_state = "whiteyellowfull"
 	},
 /area/lv624/lazarus/sandtemple)
-"rEp" = (
-/turf/open/floor/plating/ground/dirtgrassborder/corner2{
-	dir = 8
-	},
-/area/lv624/ground/compound/c)
 "rEL" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/bcircuit/off,
@@ -19257,9 +19192,8 @@
 /turf/open/floor/cult/clock,
 /area/lv624/lazarus/bar)
 "thL" = (
-/obj/structure/flora/tree/jungle,
-/turf/open/ground/grass,
-/area/lv624/ground/jungle9)
+/turf/open/ground/river/autoturf,
+/area/space)
 "thT" = (
 /obj/effect/ai_node,
 /turf/open/ground/grass,
@@ -44907,18 +44841,18 @@ xMl
 xKv
 xKv
 ygp
-xKv
-pXB
-hde
-pOJ
-xnf
-aES
-aES
-xMs
-aES
-xMs
-aES
-aES
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 xMs
 aES
 aES
@@ -45084,18 +45018,18 @@ uxW
 uxW
 fux
 ygp
-xKv
-pXB
-xfO
-kiW
-hYO
-aES
-xMs
-aES
-nkE
-ljz
-mOs
-aES
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 aES
 aES
 aET
@@ -45261,18 +45195,18 @@ mhV
 xMl
 xKv
 ygp
-xKv
-weB
-xVL
-rYb
-sHO
-mOs
-aES
-aES
-aET
-mOs
-mOs
-mOs
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 aES
 aES
 xMs
@@ -45438,18 +45372,18 @@ iqI
 pQq
 xhp
 wRi
-xKv
-pXB
-aES
-aES
-mOs
-mOs
-mOs
-oOU
-aET
-mOs
-mOs
-mOs
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 mOs
 mOs
 hde
@@ -45615,18 +45549,18 @@ fEC
 xMl
 hXk
 xFI
-xTE
-pXB
-aES
-mOs
-mOs
-mOs
-aET
-aET
-aET
-aES
-mOs
-mOs
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 mOs
 aES
 xfO
@@ -45792,18 +45726,18 @@ uxW
 uxW
 aQq
 sGu
-sGu
-weB
-aES
-aET
-mOs
-mOs
-aET
-aES
-aES
-aES
-mOs
-mOs
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 aET
 aET
 xVL
@@ -45969,18 +45903,18 @@ xMl
 aES
 aES
 aES
-aES
-aES
-aES
-mOs
-mOs
-mOs
-aES
-aES
 thL
-aES
-mOs
-mOs
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 rSR
 rSR
 ojP
@@ -46146,18 +46080,18 @@ xMl
 aES
 aES
 aES
-xMs
-wTT
-aET
-mOs
-mOs
-mOs
-aES
-aES
-aES
-aES
-mOs
-aET
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 aZI
 baw
 bcd
@@ -46323,18 +46257,18 @@ xMl
 aES
 mOs
 aES
-xRH
-aET
-wSP
-mOs
-mOs
-mOs
-mOs
-aET
-aET
-aET
-mOs
-bde
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 aZI
 bax
 nxu
@@ -46500,18 +46434,18 @@ aJL
 mOs
 mOs
 aET
-xRH
-wSP
-aET
-xRH
-xRH
-aET
-mOs
-aET
-aES
-naG
-aES
-xMs
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 rSR
 bCC
 xbL
@@ -46677,18 +46611,18 @@ xRH
 mOs
 aET
 aET
-fgy
-aET
-xRH
-xMs
-aES
-aET
-aES
-aES
-aES
-aES
-xMs
-iJa
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 wqT
 vkA
 xbL
@@ -46854,18 +46788,18 @@ aET
 mOs
 wSP
 bjV
-iFJ
-aET
-xRH
-aES
-weB
-pWs
-pWs
-pWs
-weB
-pWs
-pWs
-pWs
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 vAv
 vAv
 qem
@@ -47031,18 +46965,18 @@ xRH
 aET
 wSP
 wSP
-aET
-aES
-aES
-aES
-trb
-xKv
-xKv
-xTE
-xKv
-xKv
-xKv
-xKv
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 bCC
 qGH
 nxu
@@ -47208,18 +47142,18 @@ aET
 aET
 mOs
 mOs
-aES
-wTT
-xMs
-wWN
-trb
-xKv
-xTE
-xKv
-xKv
-xFI
-xKv
-xKv
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 fhJ
 nxu
 aXz
@@ -47385,18 +47319,18 @@ bEf
 dDC
 aES
 mOs
-aES
-aES
-xMs
-xMs
-trb
-xKv
-xFI
-xKv
-xKv
-xKv
-xKv
-xKv
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 vkA
 xbL
 nxu
@@ -47562,18 +47496,18 @@ wZn
 dDC
 aES
 mOs
-xTV
-pOJ
-emJ
-aES
-weB
-xKv
-xKv
-xKv
-weB
-sGu
-sGu
-sGu
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 rvn
 vAv
 nxu
@@ -47739,18 +47673,18 @@ ldV
 yjF
 aES
 aES
-xfO
-nAz
-msZ
-wWN
-trb
-xKv
-xKv
-xKv
-pXB
-aKN
-qrw
-boU
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 rSR
 vkA
 xbL
@@ -47916,18 +47850,18 @@ wZn
 yjF
 aES
 aES
-xVL
-inZ
-sHO
-xMs
-trb
-xKv
-xFI
-xKv
-pXB
-uQM
-aRs
-bps
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 rSR
 vkA
 iKK
@@ -48093,18 +48027,18 @@ ygV
 ygV
 weB
 pWs
-pWs
-weB
-pWs
-pWs
-weB
-xKv
-xKv
-xKv
-pXB
-xMJ
-aXI
-bzK
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 rSR
 vMu
 vzi
@@ -48270,18 +48204,18 @@ knO
 wZn
 xKv
 xKv
-xTE
-xKv
-xKv
-xKv
-xKv
-xKv
-xKv
-xKv
-weB
-xcz
-xcz
-jUy
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 jal
 vAv
 eYN
@@ -48447,18 +48381,18 @@ kDA
 kFe
 xhp
 wSD
-xhp
-hKN
-xhp
-xhp
-xhp
-hKN
-lPt
-xKv
-rEp
-qrw
-qrw
-qrw
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
+thL
 qrw
 qrw
 sIO
