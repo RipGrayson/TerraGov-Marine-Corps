@@ -172,6 +172,10 @@
 	desc = "A lightweight foamed metal wall."
 	resistance_flags = XENO_DAMAGEABLE
 	max_integrity = 120
+	smoothing_behavior = DIAGONAL_SMOOTHING
+	smoothing_groups = SMOOTH_MINERAL_STRUCTURES
+	icon_state = "foamwall-0-0-0-0"
+	walltype = "foamwall"
 
 /obj/structure/foamedmetal/fire_act() //flamerwallhacks go BRRR
 	take_damage(10, BURN, "fire")
