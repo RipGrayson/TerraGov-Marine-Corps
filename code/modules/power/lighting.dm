@@ -495,6 +495,17 @@
 			if (prob(50))
 				broken()
 
+/obj/machinery/light/mainship/Initialize(mapload)
+	. = ..()
+	RegisterSignal(src, COMSIG_SHIP_ALERT_RED, .proc/shiplevelred)
+
+/obj/machinery/light/mainship/Destroy()
+	UnregisterSignal(src, COMSIG_SHIP_ALERT_RED, .proc/shiplevelred)
+
+/obj/machinery/light/mainship/proc/shiplevelred()
+	SIGNAL_HANDLER
+	light_color = LIGHT_COLOR_RED
+	set_light()
 
 //timed process
 //use power

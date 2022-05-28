@@ -105,7 +105,6 @@
 	if(href_list["silicon_activate_event"])
 		trigger_event(event)
 		log_game("[key_name(event_triggered_by)] triggered event [event].")
-		message_admins("[ADMIN_TPMONTY(event_triggered_by)] triggered event [event].")
 		reset()
 
 	if(href_list["reset"])

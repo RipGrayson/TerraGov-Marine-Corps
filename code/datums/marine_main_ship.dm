@@ -24,12 +24,15 @@ GLOBAL_DATUM_INIT(marine_main_ship, /datum/marine_main_ship, new)
 	switch(level)
 		if("green")
 			level = SEC_LEVEL_GREEN
+			SEND_SIGNAL(src, COMSIG_SHIP_ALERT_GREEN)
 		if("blue")
 			level = SEC_LEVEL_BLUE
+			SEND_SIGNAL(src, COMSIG_SHIP_ALERT_BLUE)
 		if("red")
 			level = SEC_LEVEL_RED
 		if("delta")
 			level = SEC_LEVEL_DELTA
+			SEND_SIGNAL(src, COMSIG_SHIP_ALERT_DELTA)
 
 
 	//Will not be announced if you try to set to the same level as it already is
@@ -55,6 +58,7 @@ GLOBAL_DATUM_INIT(marine_main_ship, /datum/marine_main_ship, new)
 						SD.set_picture("default")
 			if(SEC_LEVEL_RED)
 				if(security_level < SEC_LEVEL_RED)
+					SEND_GLOBAL_SIGNAL(src, COMSIG_SHIP_ALERT_RED)
 					if(announce)
 						priority_announce("Attention: Security level elevated to RED - there is an immediate threat to the ship.", "Priority Alert", sound = 'sound/AI/code_red_elevated.ogg')
 				else

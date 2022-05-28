@@ -789,3 +789,9 @@
 
 //Signals for ais
 #define ESCORTING_ATOM_BEHAVIOUR_CHANGED "escorting_behaviour_changed"
+
+//Signals for ship alert levels
+#define COMSIG_SHIP_ALERT_GREEN "ship_alert_level_now_green"
+#define COMSIG_SHIP_ALERT_BLUE "ship_alert_level_now_blue"
+#define COMSIG_SHIP_ALERT_RED "ship_alert_level_now_red"
+#define COMSIG_SHIP_ALERT_DELTA "ship_alert_level_now_delta"
