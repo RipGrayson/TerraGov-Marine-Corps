@@ -20904,10 +20904,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/sw)
-"vqf" = (
-/obj/machinery/miner/damaged,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/jungle10)
 "vqq" = (
 /obj/effect/ai_node,
 /obj/structure/cable,
@@ -25537,7 +25533,7 @@ oPb
 liw
 cOs
 xLz
-vqf
+xLz
 xLz
 aAu
 nmn
@@ -26585,7 +26581,7 @@ jdc
 kBt
 miq
 vTe
-vqf
+xLz
 xLz
 lZZ
 wTy
@@ -27488,7 +27484,7 @@ uzl
 aRD
 mmx
 neU
-vqf
+xLz
 xLz
 qpS
 ubU
@@ -27815,7 +27811,7 @@ xSB
 cAu
 tKK
 cAu
-cAu
+xGi
 cAu
 tZS
 are
