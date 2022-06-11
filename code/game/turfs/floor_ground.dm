@@ -304,3 +304,7 @@
 	name = "cave"
 	icon_state = "inner_cavesides"
 
+/turf/open/floor/plating/ground/clfmap/darkdirt
+	name = "dirt"
+	icon_state = "darkdirt"
+	icon = 'icons/turf/floors.dmi'

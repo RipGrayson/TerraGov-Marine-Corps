@@ -552,6 +552,9 @@
 /turf/open/floor/tile/yellow/full
 	icon_state = "yellowfull"
 
+/turf/open/floor/tile/yellow/corner2
+	icon_state = "yellowcorner2"
+
 /turf/open/floor/tile/whiteyellow
 	icon_state = "whiteyellow"
 
@@ -666,6 +669,36 @@
 
 /turf/open/floor/tile/darkgreen/darkgreen2/corner
 	icon_state = "darkgreencorners2"
+
+/turf/open/floor/tile/darkgreen/darkgreen3
+	icon_state = "darkgreen3"
+
+/turf/open/floor/tile/darkgreen/darkgreen3/corner
+	icon_state = "darkgreen3corner"
+
+/turf/open/floor/tile/yellowgreen
+	icon_state = "darkgreenyellow"
+
+/turf/open/floor/tile/yellowgreen/corner
+	icon_state = "darkgreenyellowcorner"
+
+/turf/open/floor/tile/darkgreenorange
+	icon_state = "darkgreenorange"
+
+/turf/open/floor/tile/darkgreenorange/corner
+	icon_state = "darkgreenorangecorner"
+
+/turf/open/floor/tile/darkgreenorangelight
+	icon_state = "darkgreenorangelight"
+
+/turf/open/floor/tile/darkgreenorangelight/corner
+	icon_state = "darkgreenorangelightcorner"
+
+/turf/open/floor/tile/darkgreenpurple
+	icon_state = "darkgreenpurple"
+
+/turf/open/floor/tile/darkgreenpurple/corner
+	icon_state = "darkgreenpurplecorner"
 
 /turf/open/floor/tile/white/warningstripe
 	icon_state = "warnwhite"
@@ -929,8 +962,10 @@
 	color = "#41292e"
 
 /turf/open/floor/grayscale/darkgray
-	color = "#818181"
+	color = "#747474"
 
+/turf/open/floor/grayscale/blacker
+	color = "#4b4b4b"
 /turf/open/floor/grayscale/lightgray
 	color = "#ffffff"
 

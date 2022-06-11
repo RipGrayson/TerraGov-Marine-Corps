@@ -409,3 +409,7 @@
 				icon_state = "wood_variant"
 	else
 		icon_state = "[walltype][junction]"
+
+/turf/closed/wall/bamboo
+	walltype = "bwall"
+	icon_state = "bwall0"

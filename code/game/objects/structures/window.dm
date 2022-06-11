@@ -478,6 +478,9 @@
 	reinf = 1
 	window_frame = /obj/structure/window_frame/colony/reinforced
 
+/obj/structure/window/framed/colony/reinforced/extratough
+	max_integrity = 3000 //twice as tough as extra tough glass walls
+
 /obj/structure/window/framed/colony/reinforced/tinted
 	name =  "tinted reinforced window"
 	desc = "A glass window with a special rod matrice inside a wall frame. It looks rather strong. Might take a few good hits to shatter it. This one is opaque. You have an uneasy feeling someone might be watching from the other side."
