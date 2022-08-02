@@ -10,7 +10,7 @@
 	plasma_cost = 100
 	buildable_structures = list(
 		/turf/closed/wall/resin/regenerating/thick,
-		/obj/effect/alien/resin/sticky,
+		/obj/alien/resin/sticky,
 		/obj/structure/mineral_door/resin/thick,
 	)
 	///the maximum range of the ability
@@ -77,7 +77,7 @@
 /datum/action/xeno_action/toggle_speed/proc/resinwalk_on_moved(datum/source, atom/oldloc, direction, Forced = FALSE)
 	SIGNAL_HANDLER
 	var/mob/living/carbon/xenomorph/walker = owner
-	if(!isturf(walker.loc) || !walker.check_plasma(10, TRUE))
+	if(!isturf(walker.loc) || walker.plasma_stored < 10)
 		owner.balloon_alert(owner, "Resin walk ended, no plasma")
 		resinwalk_off(TRUE)
 		return

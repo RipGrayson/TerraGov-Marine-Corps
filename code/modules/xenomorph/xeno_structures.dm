@@ -699,7 +699,7 @@ TUNNEL
 		START_PROCESSING(SSslowprocess, src)
 
 /obj/structure/xeno/silo
-	name = "resin silo"
+	name = "Resin silo"
 	icon = 'icons/Xeno/resin_silo.dmi'
 	icon_state = "weed_silo"
 	desc = "A slimy, oozy resin bed filled with foul-looking egg-like ...things."
@@ -743,8 +743,8 @@ TUNNEL
 
 /obj/structure/xeno/silo/LateInitialize()
 	. = ..()
-	if(!locate(/obj/effect/alien/weeds) in center_turf)
-		new /obj/effect/alien/weeds/node(center_turf)
+	if(!locate(/obj/alien/weeds) in center_turf)
+		new /obj/alien/weeds/node(center_turf)
 	associated_hive = GLOB.hive_datums[XENO_HIVE_NORMAL]
 	if(associated_hive)
 		RegisterSignal(associated_hive, list(COMSIG_HIVE_XENO_MOTHER_PRE_CHECK, COMSIG_HIVE_XENO_MOTHER_CHECK), .proc/is_burrowed_larva_host)
@@ -848,7 +848,7 @@ TUNNEL
 /obj/structure/xeno/xeno_turret
 	icon = 'icons/Xeno/acidturret.dmi'
 	icon_state = XENO_TURRET_ACID_ICONSTATE
-	name = "acid turret"
+	name = "Acid turret"
 	desc = "A menacing looking construct of resin, it seems to be alive. It fires acid against intruders."
 	bound_width = 32
 	bound_height = 32
@@ -1080,7 +1080,7 @@ TUNNEL
 		newshot.color = initial(hugger_ammo.hugger_type.color)
 
 /obj/structure/xeno/xeno_turret/sticky
-	name = "sticky resin turret"
+	name = "Sticky resin turret"
 	icon = 'icons/Xeno/acidturret.dmi'
 	icon_state = XENO_TURRET_STICKY_ICONSTATE
 	desc = "A menacing looking construct of resin, it seems to be alive. It fires resin against intruders."
@@ -1133,7 +1133,7 @@ TUNNEL
 			take_damage(300)
 
 /obj/structure/xeno/maturitytower
-	name = "maturity tower"
+	name = "Maturity tower"
 	desc = "A sickly outcrop from the ground. It seems to ooze a strange chemical that makes the vegetation around it grow faster."
 	icon = 'icons/Xeno/2x2building.dmi'
 	icon_state = "maturitytower"

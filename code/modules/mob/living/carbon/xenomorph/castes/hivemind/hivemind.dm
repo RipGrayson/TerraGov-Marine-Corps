@@ -32,7 +32,7 @@
 	hud_type = /datum/hud/hivemind
 	hud_possible = list(PLASMA_HUD, HEALTH_HUD_XENO, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD)
 	///The core of our hivemind
-	var/obj/effect/alien/hivemindcore/core
+	var/obj/alien/hivemindcore/core
 	///The minimum health we can have
 	var/minimum_health = -300
 
@@ -161,7 +161,7 @@
 	. = TRUE
 	if(locate(/obj/flamer_fire) in T)
 		return FALSE
-	for(var/obj/effect/alien/weeds/W in range(strict_turf_check ? 0 : 1, T ? T : get_turf(src)))
+	for(var/obj/alien/weeds/W in range(strict_turf_check ? 0 : 1, T ? T : get_turf(src)))
 		if(QDESTROYING(W))
 			continue
 		return
@@ -226,13 +226,17 @@
 		var/mob/living/carbon/xenomorph/xeno = locate(href_list["hivemind_jump"])
 		if(!istype(xeno))
 			return
-		if(!check_weeds(get_turf(xeno), TRUE))
-			to_chat(src, span_warning("They are not near any weeds we can jump to."))
-			return
-		if(!(status_flags & INCORPOREAL))
-			start_teleport(get_turf(xeno))
-			return
-		abstract_move(get_turf(xeno))
+		jump(xeno)
+
+/// Jump hivemind's camera to the passed xeno, if they are on/near weeds
+/mob/living/carbon/xenomorph/hivemind/proc/jump(mob/living/carbon/xenomorph/xeno)
+	if(!check_weeds(get_turf(xeno), TRUE))
+		balloon_alert(src, "No nearby weeds")
+		return
+	if(!(status_flags & INCORPOREAL))
+		start_teleport(get_turf(xeno))
+		return
+	abstract_move(get_turf(xeno))
 
 /// Hivemind just doesn't have any icons to update, disabled for now
 /mob/living/carbon/xenomorph/hivemind/update_icon()
@@ -299,7 +303,7 @@
 
 // =================
 // hivemind core
-/obj/effect/alien/hivemindcore
+/obj/alien/hivemindcore
 	name = "hivemind core"
 	desc = "A very weird, pulsating node. This looks almost alive."
 	max_integrity = 600
@@ -308,12 +312,12 @@
 	var/mob/living/carbon/xenomorph/hivemind/parent
 	ignore_weed_destruction = TRUE
 
-/obj/effect/alien/hivemindcore/Initialize(mapload)
+/obj/alien/hivemindcore/Initialize(mapload)
 	. = ..()
-	new /obj/effect/alien/weeds/node(loc)
+	new /obj/alien/weeds/node(loc)
 	set_light(7, 5, LIGHT_COLOR_PURPLE)
 
-/obj/effect/alien/hivemindcore/Destroy()
+/obj/alien/hivemindcore/Destroy()
 	if(isnull(parent))
 		return ..()
 	parent.playsound_local(parent, get_sfx("alien_help"), 30, TRUE)
@@ -330,7 +334,7 @@
 
 //hivemind cores
 
-/obj/effect/alien/hivemindcore/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/obj/alien/hivemindcore/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(isxenoqueen(X))
 		var/choice = tgui_alert(X, "Are you sure you want to destroy the hivemind?", "Destroy hivemind", list("Yes", "Cancel"))
 		if(choice == "Yes")
@@ -340,7 +344,7 @@
 	X.visible_message(span_danger("[X] nudges its head against [src]."), \
 	span_danger("You nudge your head against [src]."))
 
-/obj/effect/alien/hivemindcore/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
+/obj/alien/hivemindcore/take_damage(damage_amount, damage_type, damage_flag, sound_effect, attack_dir, armour_penetration)
 	. = ..()
 	if(isnull(parent))
 		return

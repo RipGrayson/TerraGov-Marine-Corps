@@ -1,6 +1,6 @@
 #define DEBUG_STAGGER_SLOWDOWN 0
 
-GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/facehugger, /obj/effect/alien/egg, /obj/structure/mineral_door, /obj/effect/alien/resin, /obj/structure/bed/nest))) //For sticky/acid spit
+GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/facehugger, /obj/alien/egg, /obj/structure/mineral_door, /obj/alien/resin, /obj/structure/bed/nest))) //For sticky/acid spit
 
 /datum/ammo
 	var/name 		= "generic bullet"
@@ -59,6 +59,8 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	var/deflagrate_multiplier = 1
 	///Flat damage caused if fire_burst is triggered by deflagrate
 	var/fire_burst_damage = 10
+	///Base fire stacks added on hit if the projectile has AMMO_INCENDIARY
+	var/incendiary_strength = 10
 
 /datum/ammo/proc/do_at_max_range(obj/projectile/proj)
 	return
@@ -76,7 +78,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	return
 
 ///Special effects for leaving a turf. Only called if the projectile has AMMO_LEAVE_TURF enabled
-/datum/ammo/proc/on_leave_turf(turf/T, atom/firer)
+/datum/ammo/proc/on_leave_turf(turf/T, atom/firer, obj/projectile/proj)
 	return
 
 /datum/ammo/proc/knockback(mob/victim, obj/projectile/proj, max_range = 2)
@@ -102,7 +104,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 		CRASH("staggerstun called without a mob target")
 	if(!isliving(victim))
 		return
-	if(shake && (proj.distance_travelled > max_range || victim.lying_angle))
+	if(proj.distance_travelled > max_range)
 		return
 	var/impact_message = ""
 	if(isxeno(victim))
@@ -127,7 +129,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 			impact_message += span_warning("You are shaken by the sudden impact!")
 
 	//Check for and apply hard CC.
-	if((victim.mob_size == MOB_SIZE_BIG && hard_size_threshold > 2) || (victim.mob_size == MOB_SIZE_XENO && hard_size_threshold > 1) || (ishuman(victim) && hard_size_threshold > 0))
+	if(hard_size_threshold >= victim.mob_size)
 		var/mob/living/living_victim = victim
 		if(!living_victim.IsStun() && !living_victim.IsParalyzed()) //Prevent chain stunning.
 			living_victim.apply_effects(stun,weaken)
@@ -142,15 +144,10 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	//Check for and apply soft CC
 	if(iscarbon(victim))
 		var/mob/living/carbon/carbon_victim = victim
-		var/stagger_immune = FALSE
-		if(isxeno(carbon_victim))
-			var/mob/living/carbon/xenomorph/xeno_victim = victim
-			if(isxenoqueen(xeno_victim)) //Stagger too powerful vs the Queen, so she's immune.
-				stagger_immune = TRUE
 		#if DEBUG_STAGGER_SLOWDOWN
 		to_chat(world, span_debuginfo("Damage: Initial stagger is: <b>[target.stagger]</b>"))
 		#endif
-		if(!stagger_immune)
+		if(!isxenoqueen(carbon_victim)) //Stagger too powerful vs the Queen, so she's immune.
 			carbon_victim.adjust_stagger(stagger)
 		#if DEBUG_STAGGER_SLOWDOWN
 		to_chat(world, span_debuginfo("Damage: Final stagger is: <b>[target.stagger]</b>"))
@@ -182,9 +179,12 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 		CRASH("deflagrate() error: target [isnull(target) ? "null" : target] | proj [isnull(proj) ? "null" : proj]")
 	if(!istype(target, /mob/living))
 		return
+	var/effective_damage = max(0, proj.damage - round(proj.distance_travelled * proj.damage_falloff)) //we want to take falloff into account
+	if(!effective_damage)
+		return
 	var/mob/living/victim = target
 	var/armor_block = victim.get_soft_armor("fire") //checks fire armour across the victim's whole body
-	var/deflagrate_chance = (proj.damage * deflagrate_multiplier * (100 + min(0, proj.penetration - armor_block)) / 100)
+	var/deflagrate_chance = (effective_damage * deflagrate_multiplier * (100 + min(0, proj.penetration - armor_block)) / 100)
 	if(prob(deflagrate_chance))
 		playsound(target, 'sound/effects/incendiary_explode.ogg', 45, falloff = 5)
 		fire_burst(target, proj)
@@ -203,7 +203,7 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 		var/armor_block = victim.get_soft_armor("fire") //checks fire armour across the victim's whole body
 		victim.apply_damage(fire_burst_damage, BURN, null, armor_block, updating_health = TRUE) //Placeholder damage, will be a ammo var
 
-		staggerstun(victim, proj, stagger = 0.5, slowdown = 0.5)
+		staggerstun(victim, proj, 30, stagger = 0.5, slowdown = 0.5, shake = 0)
 
 		var/living_hard_armor = victim.hard_armor.getRating("fire")
 		if(victim.get_fire_resist() > 0 && living_hard_armor < 100) //won't ignite fully fireproof mobs
@@ -555,6 +555,14 @@ datum/ammo/bullet/revolver/tp44
 	damage = 15
 	penetration = 30
 	sundering = 3
+
+/datum/ammo/bullet/smg/incendiary
+	name = "incendiary submachinegun bullet"
+	hud_state = "smg_fire"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_INCENDIARY
+	damage = 18
+	penetration = 0
+
 
 /*
 //================================================
@@ -1172,6 +1180,27 @@ datum/ammo/bullet/revolver/tp44
 	shrapnel_chance = 25
 	sundering = 2.5
 
+/datum/ammo/bullet/dual_cannon
+	name = "dualcannon bullet"
+	hud_state = "minigun"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING|AMMO_PASS_THROUGH_TURF|AMMO_PASS_THROUGH_MOVABLE
+	accuracy_var_low = 3
+	accuracy_var_high = 3
+	accurate_range = 5
+	damage = 25
+	penetration = 100
+	sundering = 7
+	max_range = 30
+
+/datum/ammo/bullet/dual_cannon/on_hit_turf(turf/T, obj/projectile/P)
+	P.proj_max_range -= 20
+
+/datum/ammo/bullet/dual_cannon/on_hit_mob(mob/M, obj/projectile/P)
+	P.proj_max_range -= 15
+
+/datum/ammo/bullet/dual_cannon/on_hit_obj(obj/O, obj/projectile/P)
+	P.proj_max_range -= 10
+
 /datum/ammo/bullet/railgun
 	name = "armor piercing railgun slug"
 	hud_state = "alloy_spike"
@@ -1298,7 +1327,7 @@ datum/ammo/bullet/revolver/tp44
 		return
 	T.ignite(5, 10)
 
-/datum/ammo/bullet/tx54_spread/incendiary/on_leave_turf(turf/T, atom/firer)
+/datum/ammo/bullet/tx54_spread/incendiary/on_leave_turf(turf/T, atom/firer, obj/projectile/proj)
 	drop_flame(T)
 
 /datum/ammo/tx54/he
@@ -1322,6 +1351,189 @@ datum/ammo/bullet/revolver/tp44
 	drop_nade(T)
 
 /datum/ammo/tx54/he/do_at_max_range(obj/projectile/P)
+	drop_nade(get_turf(P))
+
+
+//10-gauge Micro rail shells - aka micronades
+/datum/ammo/bullet/micro_rail
+	hud_state_empty = "grenade_empty_flash"
+	handful_icon_state = "micro_grenade_airburst"
+	flags_ammo_behavior = AMMO_BALLISTIC
+	shell_speed = 2
+	handful_amount = 3
+	max_range = 3 //failure to detonate if the target is too close
+	damage = 15
+	bonus_projectiles_scatter = 12
+	///How many bonus projectiles to generate. New var so it doesn't trigger on firing
+	var/bonus_projectile_quantity = 5
+	///Max range for the bonus projectiles
+	var/bonus_projectile_range = 7
+	///projectile speed for the bonus projectiles
+	var/bonus_projectile_speed = 3
+
+/datum/ammo/bullet/micro_rail/do_at_max_range(obj/projectile/proj)
+	bonus_projectiles_amount = bonus_projectile_quantity
+	playsound(proj, sound(get_sfx("explosion_small")), 30, falloff = 5)
+	var/datum/effect_system/smoke_spread/smoke = new
+	smoke.set_up(0, get_turf(proj), 1)
+	smoke.start()
+	fire_directionalburst(proj, proj.firer, proj.shot_from, bonus_projectile_range, bonus_projectile_speed, Get_Angle(proj.firer, get_turf(proj)) )
+	bonus_projectiles_amount = 0
+
+//piercing scatter shot
+/datum/ammo/bullet/micro_rail/airburst
+	name = "micro grenade"
+	handful_icon_state = "micro_grenade_airburst"
+	hud_state = "grenade_airburst"
+	bonus_projectiles_type = /datum/ammo/bullet/micro_rail_spread
+
+//incendiary piercing scatter shot
+/datum/ammo/bullet/micro_rail/dragonbreath
+	name = "micro grenade"
+	handful_icon_state = "micro_grenade_incendiary"
+	hud_state = "grenade_fire"
+	bonus_projectiles_type = /datum/ammo/bullet/micro_rail_spread/incendiary
+	bonus_projectile_range = 6
+
+//cluster grenade. Bomblets explode in a rough cone pattern
+/datum/ammo/bullet/micro_rail/cluster
+	name = "micro grenade"
+	handful_icon_state = "micro_grenade_cluster"
+	hud_state = "grenade_he"
+	bonus_projectiles_type = /datum/ammo/micro_rail_cluster
+	bonus_projectile_quantity = 7
+	bonus_projectile_range = 6
+	bonus_projectile_speed = 2
+
+//creates a literal smokescreen
+/datum/ammo/bullet/micro_rail/smoke_burst
+	name = "micro grenade"
+	handful_icon_state = "micro_grenade_smoke"
+	hud_state = "grenade_smoke"
+	bonus_projectiles_type = /datum/ammo/smoke_burst
+	bonus_projectiles_scatter = 20
+	bonus_projectile_range = 6
+	bonus_projectile_speed = 2
+
+//submunitions for micro grenades
+/datum/ammo/bullet/micro_rail_spread
+	name = "Shrapnel"
+	icon_state = "flechette"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING|AMMO_PASS_THROUGH_MOB
+	accuracy_var_low = 15
+	accuracy_var_high = 5
+	max_range = 7
+	damage = 20
+	penetration = 20
+	sundering = 3
+	damage_falloff = 1
+
+/datum/ammo/micro_rail_spread/on_hit_mob(mob/M, obj/projectile/proj)
+	staggerstun(M, proj, max_range = 5, stagger = 0.3, slowdown = 0.3, shake = 0)
+
+/datum/ammo/bullet/micro_rail_spread/incendiary
+	name = "incendiary flechette"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_SUNDERING|AMMO_PASS_THROUGH_MOB|AMMO_INCENDIARY|AMMO_LEAVE_TURF
+	damage = 15
+	penetration = 5
+	sundering = 1.5
+	max_range = 6
+
+/datum/ammo/micro_rail_spread/incendiary/on_hit_mob(mob/M, obj/projectile/proj)
+	staggerstun(M, proj, max_range = 5, stagger = 0.1, slowdown = 0.1, shake = 0)
+
+/datum/ammo/bullet/micro_rail_spread/incendiary/drop_flame(turf/T)
+	if(!istype(T))
+		return
+	T.ignite(5, 10)
+
+/datum/ammo/bullet/micro_rail_spread/incendiary/on_leave_turf(turf/T, atom/firer, obj/projectile/proj)
+	if(prob(40))
+		drop_flame(T)
+
+/datum/ammo/micro_rail_cluster
+	name = "bomblet"
+	icon_state = "bullet"
+	flags_ammo_behavior = AMMO_BALLISTIC|AMMO_LEAVE_TURF
+	sound_hit 	 = "ballistic_hit"
+	sound_armor  = "ballistic_armor"
+	sound_miss	 = "ballistic_miss"
+	sound_bounce = "ballistic_bounce"
+	shell_speed = 2
+	damage = 5
+	accuracy = -60 //stop you from just emptying all the bomblets into one guys face for big damage
+	shrapnel_chance = 0
+	max_range = 6
+	bullet_color = COLOR_VERY_SOFT_YELLOW
+	///the smoke effect at the point of detonation
+	var/datum/effect_system/smoke_spread/smoketype = /datum/effect_system/smoke_spread
+
+///handles the actual bomblet detonation
+/datum/ammo/micro_rail_cluster/proc/detonate(turf/T, obj/projectile/P)
+	playsound(T, sound(get_sfx("explosion_small")), 30, falloff = 5)
+	var/datum/effect_system/smoke_spread/smoke = new smoketype()
+	smoke.set_up(0, T, rand(1,2))
+	smoke.start()
+	for(var/mob/living/carbon/victim in range(1, T))
+		victim.visible_message(span_danger("[victim] is hit by the bomblet blast!"),
+			isxeno(victim) ? span_xenodanger("We are hit by the bomblet blast!") : span_highdanger("you are hit by the bomblet blast!"))
+		var/armor_block = victim.get_soft_armor("bomb")
+		victim.apply_damage(10, BRUTE, null, armor_block, updating_health = FALSE)
+		victim.apply_damage(10, BURN, null, armor_block, updating_health = TRUE)
+		staggerstun(victim, P, stagger = 0.5, slowdown = 0.5)
+
+/datum/ammo/micro_rail_cluster/on_leave_turf(turf/T, atom/firer, obj/projectile/proj)
+	///chance to detonate early, scales with distance and capped, to avoid lots of immediate detonations, and nothing reach max range respectively.
+	var/detonate_probability = min(proj.distance_travelled * 4, 16)
+	if(prob(detonate_probability))
+		proj.proj_max_range = proj.distance_travelled
+
+/datum/ammo/micro_rail_cluster/on_hit_mob(mob/M, obj/projectile/P)
+	detonate(get_turf(M), P)
+
+/datum/ammo/micro_rail_cluster/on_hit_obj(obj/O, obj/projectile/P)
+	detonate(get_turf(O), P)
+
+/datum/ammo/micro_rail_cluster/on_hit_turf(turf/T, obj/projectile/P)
+	detonate(T, P)
+
+/datum/ammo/micro_rail_cluster/do_at_max_range(obj/projectile/P)
+	detonate(get_turf(P), P)
+
+/datum/ammo/smoke_burst
+	name = "micro smoke canister"
+	icon_state = "bullet" //PLACEHOLDER
+	flags_ammo_behavior = AMMO_BALLISTIC
+	sound_hit 	 = "ballistic_hit"
+	sound_armor  = "ballistic_armor"
+	sound_miss	 = "ballistic_miss"
+	sound_bounce = "ballistic_bounce"
+	shell_speed = 2
+	damage = 5
+	shrapnel_chance = 0
+	max_range = 6
+	bullet_color = COLOR_VERY_SOFT_YELLOW
+	/// smoke type created when the projectile detonates
+	var/datum/effect_system/smoke_spread/smoketype = /datum/effect_system/smoke_spread/bad
+	///radius this smoke will encompass
+	var/smokeradius = 1
+
+/datum/ammo/smoke_burst/drop_nade(turf/T)
+	var/datum/effect_system/smoke_spread/smoke = new smoketype()
+	playsound(T, 'sound/effects/smoke.ogg', 25, 1, 4)
+	smoke.set_up(smokeradius, T, rand(5,9))
+	smoke.start()
+
+/datum/ammo/smoke_burst/on_hit_mob(mob/M, obj/projectile/P)
+	drop_nade(get_turf(M))
+
+/datum/ammo/smoke_burst/on_hit_obj(obj/O, obj/projectile/P)
+	drop_nade(get_turf(O))
+
+/datum/ammo/smoke_burst/on_hit_turf(turf/T, obj/projectile/P)
+	drop_nade(T)
+
+/datum/ammo/smoke_burst/do_at_max_range(obj/projectile/P)
 	drop_nade(get_turf(P))
 
 /*
@@ -1386,6 +1598,24 @@ datum/ammo/bullet/revolver/tp44
 
 /datum/ammo/rocket/ltb/drop_nade(turf/T)
 	explosion(T, 0, 4, 6, 7)
+
+/datum/ammo/rocket/heavy_rr
+	name = "75mm round"
+	icon_state = "heavyrr"
+	hud_state = "shell_he"
+	hud_state_empty = "shell_empty"
+	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_SUNDERING
+	accuracy = 40
+	accurate_range = 15
+	max_range = 40
+	shell_speed = 3
+	penetration = 200
+	damage = 200
+	sundering = 50
+	handful_amount = 1
+
+/datum/ammo/rocket/heavy_rr/drop_nade(turf/T)
+	explosion(T, 0, 2, 3, 4)
 
 /datum/ammo/rocket/wp
 	name = "white phosphorous rocket"
@@ -1862,6 +2092,32 @@ datum/ammo/bullet/revolver/tp44
 	max_range = 10
 	hitscan_effect_icon = "xray_beam"
 
+/datum/ammo/energy/lasgun/marine/heavy_laser
+	flags_ammo_behavior = AMMO_EXPLOSIVE|AMMO_ROCKET|AMMO_ENERGY|AMMO_SUNDERING|AMMO_HITSCAN|AMMO_INCENDIARY
+	damage = 60
+	penetration = 10
+	sundering = 1
+	max_range = 30
+	hitscan_effect_icon = "beam_incen"
+
+/datum/ammo/energy/lasgun/marine/heavy_laser/drop_nade(turf/T, radius = 1)
+	if(!T || !isturf(T))
+		return
+	playsound(T, 'sound/weapons/guns/fire/flamethrower2.ogg', 50, 1, 4)
+	flame_radius(radius, T, 3, 3, 3, 3)
+
+/datum/ammo/energy/lasgun/marine/heavy_laser/on_hit_mob(mob/M, obj/projectile/P)
+	drop_nade(get_turf(M))
+
+/datum/ammo/energy/lasgun/marine/heavy_laser/on_hit_obj(obj/O, obj/projectile/P)
+	drop_nade(get_turf(O))
+
+/datum/ammo/energy/lasgun/marine/heavy_laser/on_hit_turf(turf/T, obj/projectile/P)
+	drop_nade(T)
+
+/datum/ammo/energy/lasgun/marine/heavy_laser/do_at_max_range(obj/projectile/P)
+	drop_nade(get_turf(P))
+
 // Plasma //
 
 /datum/ammo/energy/plasma
@@ -1934,11 +2190,12 @@ datum/ammo/bullet/revolver/tp44
 	shell_speed = 4
 	accuracy_var_low = 5
 	accuracy_var_high = 5
+	accuracy = 5
 	point_blank_range = 2
 	damage = 20
-	penetration = 15
-	sundering = 3
-	fire_burst_damage = 20
+	penetration = 10
+	sundering = 2
+	fire_burst_damage = 15
 
 	//inherited, could use some changes
 	ping = "ping_s"
@@ -1951,17 +2208,24 @@ datum/ammo/bullet/revolver/tp44
 
 /datum/ammo/energy/volkite/medium
 	max_range = 25
-	accurate_range = 15
+	accurate_range = 12
 	damage = 30
 	accuracy_var_low = 3
 	accuracy_var_high = 3
-	fire_burst_damage = 25
+	fire_burst_damage = 20
 
 /datum/ammo/energy/volkite/heavy
 	max_range = 35
-	accurate_range = 18
+	accurate_range = 12
 	damage = 25
-	fire_burst_damage = 25
+	fire_burst_damage = 20
+
+/datum/ammo/energy/volkite/light
+	max_range = 25
+	accurate_range = 12
+	accuracy_var_low = 3
+	accuracy_var_high = 3
+	penetration = 5
 
 /*
 //================================================
@@ -2092,7 +2356,7 @@ datum/ammo/bullet/revolver/tp44
 	spit_cost = 100
 	damage = 40
 	smoke_strength = 0.9
-	reagent_transfer_amount = 9.5
+	reagent_transfer_amount = 8.5
 
 /datum/ammo/xeno/toxin/heavy/upgrade1
 	smoke_strength = 0.9
@@ -2164,7 +2428,7 @@ datum/ammo/bullet/revolver/tp44
 		if(is_type_in_typecache(O, GLOB.no_sticky_resin))
 			return
 
-	new /obj/effect/alien/resin/sticky(T)
+	new /obj/alien/resin/sticky(T)
 
 /datum/ammo/xeno/sticky/turret
 	max_range = 9
@@ -2281,6 +2545,7 @@ datum/ammo/bullet/revolver/tp44
 	max_range = 30
 	damage = 50
 	damage_type = STAMINA
+	damage_falloff = 0
 	penetration = 40
 	bullet_color = BOILER_LUMINOSITY_AMMO_NEUROTOXIN_COLOR
 	reagent_transfer_amount = 30
@@ -2297,7 +2562,7 @@ datum/ammo/bullet/revolver/tp44
 	///We're going to reuse one smoke spread system repeatedly to cut down on processing.
 	var/datum/effect_system/smoke_spread/xeno/trail_spread_system
 
-/datum/ammo/xeno/boiler_gas/on_leave_turf(turf/T, atom/firer)
+/datum/ammo/xeno/boiler_gas/on_leave_turf(turf/T, atom/firer, obj/projectile/proj)
 	if(isxeno(firer))
 		var/mob/living/carbon/xenomorph/X = firer
 		trail_spread_system.strength = X.xeno_caste.bomb_strength
@@ -2550,19 +2815,21 @@ datum/ammo/bullet/revolver/tp44
 	hud_state = "flame"
 	hud_state_empty = "flame_empty"
 	damage_type = BURN
-	flags_ammo_behavior = AMMO_INCENDIARY|AMMO_IGNORE_ARMOR|AMMO_FLAME|AMMO_EXPLOSIVE
+	flags_ammo_behavior = AMMO_INCENDIARY|AMMO_FLAME|AMMO_EXPLOSIVE
 	armor_type = "fire"
 	max_range = 7
-	damage = 0
+	damage = 31
+	damage_falloff = 0
+	incendiary_strength = 30 //Firestacks cap at 20, but that's after armor.
 	bullet_color = LIGHT_COLOR_FIRE
 	var/fire_color = "red"
-	var/burnlevel = 31
 	var/burntime = 17
+	var/burnlevel = 31
 
 /datum/ammo/flamethrower/drop_flame(turf/T)
 	if(!istype(T))
 		return
-	T.ignite(burntime, burnlevel, fire_color, burnlevel)
+	T.ignite(burntime, burnlevel, fire_color)
 
 /datum/ammo/flamethrower/on_hit_mob(mob/M,obj/projectile/P)
 	drop_flame(get_turf(M))
@@ -2586,8 +2853,8 @@ datum/ammo/bullet/revolver/tp44
 	hud_state = "flame_blue"
 	max_range = 7
 	fire_color = "blue"
-	burnlevel = 46
 	burntime = 40
+	burnlevel = 46
 	bullet_color = COLOR_NAVY
 
 /datum/ammo/water

@@ -129,7 +129,7 @@
 	. = ..()
 	update_icon()
 
-/obj/item/clothing/suit/modular/apply_custom(image/standing)
+/obj/item/clothing/suit/modular/apply_custom(mutable_appearance/standing)
 	. = ..()
 	if(!attachments_by_slot[ATTACHMENT_SLOT_STORAGE] || !istype(attachments_by_slot[ATTACHMENT_SLOT_STORAGE], /obj/item/armor_module/storage))
 		return standing
@@ -137,7 +137,7 @@
 	if(!storage_module.show_storage)
 		return standing
 	for(var/obj/item/stored AS in storage_module.storage.contents)
-		standing.overlays += image(storage_module.show_storage_icon, icon_state = initial(stored.icon_state))
+		standing.overlays += mutable_appearance(storage_module.show_storage_icon, icon_state = initial(stored.icon_state))
 	return standing
 
 /obj/item/clothing/suit/modular/mob_can_equip(mob/user, slot, warning)
@@ -262,6 +262,12 @@
 
 	allowed_uniform_type = /obj/item/clothing/under
 
+/obj/item/clothing/suit/modular/xenonauten/engineer
+	starting_attachments = list(/obj/item/armor_module/module/better_shoulder_lamp, /obj/item/armor_module/storage/engineering)
+
+/obj/item/clothing/suit/modular/xenonauten/mimir
+	starting_attachments = list(/obj/item/armor_module/module/mimir_environment_protection/mark1)
+
 // Thank Jeff for providing sprites to color flak jacket
 /obj/item/clothing/suit/modular/xenonauten/pilot
 	name = "\improper TerraGov standard flak jacket"
@@ -272,6 +278,9 @@
 	flags_item = NONE
 	soft_armor = list("melee" = 40, "bullet" = 50, "laser" = 50, "energy" = 25, "bomb" = 30, "bio" = 5, "rad" = 5, "fire" = 25, "acid" = 30)
 	slowdown = 0.25
+
+	attachments_allowed = list()
+
 	allowed = list(
 		/obj/item/weapon/gun,
 		/obj/item/tank/emergency_oxygen,
@@ -298,6 +307,9 @@
 	item_state = "light"
 	slowdown = 0.3
 
+/obj/item/clothing/suit/modular/xenonauten/light/shield
+	starting_attachments = list(/obj/item/armor_module/module/eshield)
+
 /obj/item/clothing/suit/modular/xenonauten/heavy
 	name = "\improper Xenonauten-H pattern armored vest"
 	desc = "A XN-H vest, also known as Xenonauten, a set vest with modular attachments made to work in many enviroments. This one seems to be a heavy variant. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
@@ -305,6 +317,12 @@
 	icon_state = "heavy"
 	item_state = "heavy"
 	slowdown = 0.7
+
+/obj/item/clothing/suit/modular/xenonauten/heavy/leader
+	starting_attachments = list(/obj/item/armor_module/module/valkyrie_autodoc, /obj/item/armor_module/storage/general)
+
+/obj/item/clothing/suit/modular/xenonauten/heavy/tyr_one
+	starting_attachments = list(/obj/item/armor_module/module/tyr_extra_armor/mark1)
 
 /** Core helmet module */
 /obj/item/clothing/head/modular
@@ -540,13 +558,13 @@
 	if(armor_storage.storage.handle_mousedrop(usr, over_object))
 		return ..()
 
-/obj/item/clothing/head/modular/apply_custom(image/standing)
+/obj/item/clothing/head/modular/apply_custom(mutable_appearance/standing)
 	. = ..()
 	if(attachments_by_slot[ATTACHMENT_SLOT_STORAGE] && istype(attachments_by_slot[ATTACHMENT_SLOT_STORAGE], /obj/item/armor_module/storage))
 		var/obj/item/armor_module/storage/storage_module = attachments_by_slot[ATTACHMENT_SLOT_STORAGE]
 		if(storage_module.show_storage)
 			for(var/obj/item/stored AS in storage_module.storage.contents)
-				standing.overlays += image(storage_module.show_storage_icon, icon_state = initial(stored.icon_state))
+				standing.overlays += mutable_appearance(storage_module.show_storage_icon, icon_state = initial(stored.icon_state))
 	if(attachments_by_slot[ATTACHMENT_SLOT_VISOR])
 		return standing
 	standing.pixel_x = visorless_offset_x
@@ -785,6 +803,15 @@
 
 	current_variant = "black"
 
+/obj/item/clothing/head/modular/marine/m10x/welding
+	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/module/welding)
+
+/obj/item/clothing/head/modular/marine/m10x/mimir
+	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1)
+
+/obj/item/clothing/head/modular/marine/m10x/tyr
+	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/module/tyr_head)
+
 /obj/item/clothing/head/modular/marine/m10x/heavy
 	name = "\improper M10XE pattern marine helmet"
 	desc = "A standard M10XE Pattern Helmet. This is a modified version of the M10X helmet, offering an enclosed visor apparatus."
@@ -801,7 +828,7 @@
 /obj/item/clothing/suit/modular/som
 	name = "\improper SOM light battle armor"
 	desc = "The M-21 battle armor is typically used by SOM light infantry, or other specialists that require more mobility at the cost of some protection. Provides good protection without minor impairment to the users mobility. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
-	soft_armor = list("melee" = 45, "bullet" = 70, "laser" = 60, "energy" = 60, "bomb" = 55, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 45)
+	soft_armor = list("melee" = 45, "bullet" = 70, "laser" = 60, "energy" = 60, "bomb" = 50, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 45)
 	icon_state = "som_medium"
 	item_state = "som_medium"
 	slowdown = 0.5
@@ -817,6 +844,7 @@
 		/obj/item/armor_module/module/hlin_explosive_armor,
 		/obj/item/armor_module/module/ballistic_armor,
 		/obj/item/armor_module/module/chemsystem,
+		/obj/item/armor_module/module/eshield/som,
 		/obj/item/armor_module/storage/general,
 		/obj/item/armor_module/storage/ammo_mag,
 		/obj/item/armor_module/storage/engineering,
@@ -834,32 +862,39 @@
 
 	allowed_uniform_type = /obj/item/clothing/under
 
+/obj/item/clothing/suit/modular/som/engineer
+	starting_attachments = list(/obj/item/armor_module/storage/engineering)
+
 /obj/item/clothing/suit/modular/som/light
 	name = "\improper SOM scout armor"
 	desc = "The M-11 scout armor is a lightweight suit that that allows for minimal encumberance while still providing reasonable protection. Often seen on scouts or other specialist units that aren't normally getting shot at. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
-	soft_armor = list("melee" = 40, "bullet" = 65, "laser" = 55, "energy" = 55, "bomb" = 50, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 45)
+	soft_armor = list("melee" = 40, "bullet" = 65, "laser" = 55, "energy" = 55, "bomb" = 45, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 45)
 	icon_state = "som_light"
 	item_state = "som_light"
 	slowdown = 0.3
 
+/obj/item/clothing/suit/modular/som/light/shield
+	starting_attachments = list(/obj/item/armor_module/module/eshield/som)
+
+
 /obj/item/clothing/suit/modular/som/heavy
 	name = "\improper SOM heavy battle armor"
 	desc = "A standard suit of M-31 heavy duty combat armor worn by SOM shock troops. Provides excellent protection however it does reduce mobility somewhat. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
-	soft_armor = list("melee" = 50, "bullet" = 75, "laser" = 65, "energy" = 65, "bomb" = 60, "bio" = 50, "rad" = 65, "fire" = 70, "acid" = 50)
+	soft_armor = list("melee" = 50, "bullet" = 75, "laser" = 65, "energy" = 65, "bomb" = 55, "bio" = 50, "rad" = 65, "fire" = 60, "acid" = 50)
 	icon_state = "som_heavy"
 	item_state = "som_heavy"
 	slowdown = 0.7
 
-	siemens_coefficient = 0.4
-	permeability_coefficient = 0.5
-	gas_transfer_coefficient = 0.5
-
 /obj/item/clothing/suit/modular/som/heavy/leader
 	name = "\improper SOM Gorgon pattern assault armor"
 	desc = "A bulky suit of heavy combat armor, the M-35 'Gorgon' armour provides the user with superior protection without severely impacting mobility. Typically seen on SOM leaders or their most elite combat units due to the significant construction and maintenance requirements. You'll need serious firepower to punch through this. Alt-Click to remove attached items. Use it to toggle the built-in flashlight."
-	soft_armor = list("melee" = 60, "bullet" = 80, "laser" = 70, "energy" = 70, "bomb" = 70, "bio" = 55, "rad" = 70, "fire" = 80, "acid" = 50)
+	soft_armor = list("melee" = 60, "bullet" = 80, "laser" = 70, "energy" = 70, "bomb" = 65, "bio" = 55, "rad" = 70, "fire" = 70, "acid" = 55)
 	icon_state = "som_leader"
 	item_state = "som_leader"
+
+	siemens_coefficient = 0.4
+	permeability_coefficient = 0.5
+	gas_transfer_coefficient = 0.5
 
 /obj/item/clothing/suit/modular/som/heavy/leader/valk
 	starting_attachments = list(
@@ -879,7 +914,7 @@
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',)
 	icon_state = "som_helmet"
 	item_state = "som_helmet"
-	soft_armor = list("melee" = 45, "bullet" = 70, "laser" = 60, "energy" = 60, "bomb" = 55, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 45)
+	soft_armor = list("melee" = 45, "bullet" = 70, "laser" = 60, "energy" = 60, "bomb" = 50, "bio" = 50, "rad" = 50, "fire" = 50, "acid" = 45)
 	accuracy_mod = 0
 	greyscale_config = null
 	greyscale_colors = null
@@ -894,8 +929,6 @@
 		/obj/item/armor_module/module/binoculars,
 		/obj/item/armor_module/module/antenna,
 		/obj/item/armor_module/storage/helmet,
-		/obj/item/armor_module/storage/helmet/som_leader,
-		/obj/item/armor_module/storage/helmet/som_vet,
 		/obj/item/armor_module/storage/helmet/som,
 		/obj/item/armor_module/armor/visor/marine,
 		/obj/item/armor_module/armor/badge,
@@ -911,11 +944,8 @@
 	current_variant = "black"
 	colorable_colors = list()
 
-/obj/item/clothing/head/modular/som/medic
-	starting_attachments = list(/obj/item/armor_module/storage/helmet/som_vet)
-
-/obj/item/clothing/head/modular/som/standard
-	starting_attachments = list(/obj/item/armor_module/storage/helmet/som)
+/obj/item/clothing/head/modular/som/welder
+	starting_attachments = list(/obj/item/armor_module/storage/helmet, /obj/item/armor_module/module/welding)
 
 /obj/item/clothing/head/modular/som/veteran
 	name = "\improper SOM veteran helmet"
@@ -927,10 +957,4 @@
 		slot_r_hand_str = 'icons/mob/items_righthand_1.dmi',)
 	icon_state = "som_helmet"
 	item_state = "som_helmet"
-	soft_armor = list("melee" = 50, "bullet" = 75, "laser" = 65, "energy" = 65, "bomb" = 60, "bio" = 50, "rad" = 65, "fire" = 70, "acid" = 50)
-
-/obj/item/clothing/head/modular/som/veteran/leader
-	starting_attachments = list(/obj/item/armor_module/storage/helmet/som_leader)
-
-/obj/item/clothing/head/modular/som/veteran/vet
-	starting_attachments = list(/obj/item/armor_module/storage/helmet/som_vet)
+	soft_armor = list("melee" = 50, "bullet" = 75, "laser" = 65, "energy" = 65, "bomb" = 55, "bio" = 50, "rad" = 65, "fire" = 70, "acid" = 50)

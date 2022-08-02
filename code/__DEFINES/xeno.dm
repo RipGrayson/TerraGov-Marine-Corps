@@ -44,16 +44,16 @@
 
 //List of weed types
 GLOBAL_LIST_INIT(weed_type_list, typecacheof(list(
-		/obj/effect/alien/weeds/node,
-		/obj/effect/alien/weeds/node/sticky,
-		/obj/effect/alien/weeds/node/resting,
+		/obj/alien/weeds/node,
+		/obj/alien/weeds/node/sticky,
+		/obj/alien/weeds/node/resting,
 		)))
 
 //List of weeds with probability of spawning
 GLOBAL_LIST_INIT(weed_prob_list, list(
-		/obj/effect/alien/weeds/node = 80,
-		/obj/effect/alien/weeds/node/sticky = 5,
-		/obj/effect/alien/weeds/node/resting = 10,
+		/obj/alien/weeds/node = 80,
+		/obj/alien/weeds/node/sticky = 5,
+		/obj/alien/weeds/node/resting = 10,
 		))
 
 //List of weed images
@@ -71,20 +71,21 @@ GLOBAL_LIST_INIT(pheromone_images_list, list(
 		FRENZY = image('icons/mob/actions.dmi', icon_state = FRENZY),
 		))
 
-//List of Defiler toxin types
+//List of Defiler toxin types available for selection
 GLOBAL_LIST_INIT(defiler_toxin_type_list, list(
-		/datum/reagent/toxin/xeno_neurotoxin,
+		/datum/reagent/toxin/xeno_ozelomelyn,
 		/datum/reagent/toxin/xeno_hemodile,
 		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_ozelomelyn,
+		/datum/reagent/toxin/xeno_neurotoxin,
 		))
 
 //List of toxins improving defile's damage
-GLOBAL_LIST_INIT(defile_purge_list, typecacheof(list(
+GLOBAL_LIST_INIT(defiler_toxins_typecache_list, typecacheof(list(
 		/datum/reagent/toxin/xeno_ozelomelyn,
 		/datum/reagent/toxin/xeno_hemodile,
 		/datum/reagent/toxin/xeno_transvitox,
-		/datum/reagent/toxin/xeno_neurotoxin
+		/datum/reagent/toxin/xeno_neurotoxin,
+		/datum/reagent/toxin/xeno_sanguinal,
 		)))
 
 //List of plant types
