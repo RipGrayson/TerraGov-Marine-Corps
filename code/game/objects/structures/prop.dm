@@ -1070,3 +1070,19 @@
 
 /obj/structure/prop/vehicle/apc/decoration/emptyfuelcell
 	icon_state = "emptyfuelcell"
+
+/obj/structure/prop/clfmap
+	icon = 'icons/Marine/mainship_props.dmi'
+	density = FALSE
+
+/obj/structure/prop/clfmap/bambooone
+	icon_state = "bpole1"
+
+/obj/structure/prop/clfmap/bambootwo
+	icon_state = "bpole2"
+
+/obj/structure/prop/clfmap/bamboothree
+	icon_state = "bpole3"
+
+/obj/structure/prop/clfmap/bamboofour
+	icon_state = "bpole4"

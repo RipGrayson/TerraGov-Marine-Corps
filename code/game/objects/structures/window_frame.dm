@@ -18,6 +18,8 @@
 	var/basestate = "window"
 	var/junction = 0
 	var/reinforced = FALSE
+	//does our window_frame have a glass state?
+	var/haswindow = TRUE
 	coverage = 50
 
 /obj/structure/window_frame/CanAllowThrough(atom/movable/mover, turf/target)
@@ -59,6 +61,8 @@
 	. = ..()
 
 	if(istype(I, sheet_type))
+		if!(haswindow)
+			return
 		var/obj/item/stack/sheet/sheet = I
 		if(sheet.get_amount() < 2)
 			to_chat(user, span_warning("You need more [I] to install a new window."))
@@ -152,3 +156,13 @@
 	throwpass = FALSE
 	reinforced = TRUE
 	resistance_flags = INDESTRUCTIBLE|UNACIDABLE
+
+/obj/structure/window_frame/bamboo
+	max_integrity = 750
+	haswindow = FALSE
+	icon_state = "bamboo0_frame"
+	basestate = "bamboo0_frame" //bamboo window frames have no glass counterparts
+
+/obj/structure/window_frame/bamboo/alt
+	icon_state = "bamboo0alt_frame"
+	basestate = "bamboo0alt_frame"
