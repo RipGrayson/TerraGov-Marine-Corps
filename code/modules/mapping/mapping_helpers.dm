@@ -149,6 +149,19 @@
 	if(!mapload)
 		log_world("### MAP WARNING, [src] spawned outside of mapload!")
 		return
+
+/obj/effect/mapping_helpers/airlock/invincible
+	name = "airlock invulnerable helper"
+	icon_state = "invulnerable"
+
+/obj/effect/mapping_helpers/airlock/invincible/Initialize(mapload)
+	. = ..()
+	if(!mapload)
+		log_world("### MAP WARNING, [src] spawned outside of mapload!")
+		return
+	for(var/obj/invincibleobject in loc)
+		invincibleobject.resistance_flags = RESIST_ALL
+
 //	var/obj/machinery/door/airlock/airlock = locate(/obj/machinery/door/airlock) in loc
 //	if(airlock)
 //		airlock.unres_sides ^= dir

@@ -322,3 +322,12 @@
 	name = "dirt"
 	icon_state = "darkdirt"
 	icon = 'icons/turf/floors.dmi'
+
+
+/turf/open/floor/plating/ground/clfmap/dirtalt
+	icon_state = "dirtalt"
+	icon = 'icons/turf/ground_map.dmi'
+
+/turf/open/floor/plating/ground/clfmap/void
+	icon_state = "blackvoid"
+	icon = 'icons/turf/ground_map.dmi'

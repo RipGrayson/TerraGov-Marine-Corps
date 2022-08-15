@@ -1075,14 +1075,80 @@
 	icon = 'icons/Marine/mainship_props.dmi'
 	density = FALSE
 
-/obj/structure/prop/clfmap/bambooone
-	icon_state = "bpole1"
+/obj/structure/prop/clfmap/bamboopole
+	icon_state = "bpole"
 
-/obj/structure/prop/clfmap/bambootwo
-	icon_state = "bpole2"
+/obj/structure/prop/clfmap/crucifix
+	icon_state = "crucifix"
 
-/obj/structure/prop/clfmap/bamboothree
-	icon_state = "bpole3"
+/obj/structure/prop/clfmap/crucifixmultiple
+	icon_state = "crucifixm"
 
-/obj/structure/prop/clfmap/bamboofour
-	icon_state = "bpole4"
+/obj/structure/prop/clfmap/crucifixmemorial
+	icon_state = "crucifixmemorial"
+	density = TRUE
+
+/obj/structure/prop/clfmap/rustytable
+	icon_state = "rtable"
+
+/obj/structure/prop/clfmap/lineone
+	icon_state = "wire1"
+
+/obj/structure/prop/clfmap/linetwo
+	icon_state = "wire2"
+
+/obj/structure/prop/clfmap/linethree
+	icon_state = "wire3"
+
+/obj/structure/prop/clfmap/linefour
+	icon_state = "wire4"
+
+/obj/structure/prop/clfmap/lineonenorth
+	icon_state = "wire_north1"
+
+/obj/structure/prop/clfmap/linetwonorth
+	icon_state = "wire_north2"
+
+/obj/structure/prop/clfmap/linethreenorth
+	icon_state = "wire_north3"
+
+/obj/structure/prop/clfmap/linefournorth
+	icon_state = "wire_north4"
+
+/obj/structure/prop/clfmap/bamboopipe
+	icon_state = "bamboopipe"
+
+/obj/structure/prop/clfmap/bamboopipeend
+	icon_state = "bamboopipehorizontalend"
+
+/obj/structure/prop/clfmap/bamboopipe/alt/short
+	icon_state = "bamboopipeverticalshort"
+
+/obj/structure/prop/clfmap/bamboopipeend/alt
+	icon_state = "bamboopipeverticalend"
+
+/obj/structure/prop/clfmap/thinbamboowall
+	icon_state = "thinwall"
+	density = TRUE
+
+/obj/structure/prop/clfmap/thinbamboowall/shortcompleter/Destroy()
+	. = ..()
+	for(var/obj/structure/prop/clfmap/thinbamboowall/shortcompleter/extrawalls in loc) //remove the "completers" if the parent wall is destroyed by some means
+		qdel(extrawalls)
+
+/obj/structure/prop/clfmap/thinbamboowall/shortcompleter
+	icon_state = "thinwallshort"
+	density = FALSE
+
+/obj/structure/prop/clfmap/thinbamboowall/shortcompleter/horizontal
+	icon_state = "thinwallshorth"
+	density = FALSE
+
+/obj/structure/prop/clfmap/doorright
+	icon_state = "dooright"
+
+/obj/structure/prop/clfmap/doorleft
+	icon_state = "doorleft"
+
+/obj/structure/prop/clfmap/grate
+	icon_state = "grate"

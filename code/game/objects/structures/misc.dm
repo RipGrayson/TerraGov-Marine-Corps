@@ -196,6 +196,30 @@ obj/item/alienjar
 	icon = 'icons/obj/structures/railstairs.dmi'
 	icon_state = "stairdownrailright"
 
+/obj/structure/stairs/bamboostairs
+	icon_state = "bstairs1"
+
+/obj/structure/stairs/bamboostairs/cornerone
+	icon_state = "bstairs2"
+
+/obj/structure/stairs/bamboostairs/cornertwo
+	icon_state = "bstairs3"
+
+/obj/structure/stairs/bamboostairs/cornerthree
+	icon_state = "bstairs4"
+
+/obj/structure/stairs/bamboostairs/cornerfour
+	icon_state = "bstairs5"
+
+/obj/structure/stairs/bamboostairs/cornerfive
+	icon_state = "bstairs6"
+
+/obj/structure/stairs/bamboostairs/cornersix
+	icon_state = "bstairs7"
+
+/obj/structure/stairs/bamboostairs/alt1
+	icon_state = "bstairsaltone"
+
 /obj/structure/plasticflaps //HOW DO YOU CALL THOSE THINGS ANYWAY
 	name = "\improper plastic flaps"
 	desc = "Completely impassable - or are they?"

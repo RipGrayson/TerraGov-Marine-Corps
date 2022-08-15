@@ -81,3 +81,12 @@ obj/structure/platform_decoration
 			layer = ABOVE_MOB_LAYER
 		if (SOUTHWEST)
 			layer = ABOVE_MOB_LAYER
+
+obj/structure/platform_decoration/bamboodecoration
+	icon_state = "bamboo_deco"
+/obj/structure/platform/bamboo
+	icon_state = "bamboo"
+
+/obj/structure/platform/bambootwo
+	icon_state = "bamboo2"
+

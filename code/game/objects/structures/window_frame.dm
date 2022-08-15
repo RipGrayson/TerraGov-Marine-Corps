@@ -61,7 +61,7 @@
 	. = ..()
 
 	if(istype(I, sheet_type))
-		if!(haswindow)
+		if(!haswindow)
 			return
 		var/obj/item/stack/sheet/sheet = I
 		if(sheet.get_amount() < 2)
