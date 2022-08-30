@@ -32,7 +32,7 @@
 
 /obj/structure/bed/nometal
 	dropmetal = FALSE
-	
+
 /obj/structure/bed/bunkbed
 	name = "bunk bed"
 	icon_state = "bunkbed"
@@ -204,6 +204,10 @@ obj/structure/bed/Destroy()
 
 /obj/structure/bed/alien
 	icon_state = "abed"
+
+
+/obj/structure/bed/clfmap
+	icon_state = "vietbed2"
 
 /obj/structure/bed/fancy
 	name = "fancy bed"

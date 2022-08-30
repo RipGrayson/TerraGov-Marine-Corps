@@ -1152,3 +1152,21 @@
 
 /obj/structure/prop/clfmap/grate
 	icon_state = "grate"
+
+/obj/structure/prop/clfmap/shirt/white
+	icon_state = "whiteshirt"
+
+/obj/structure/prop/clfmap/shirt/red
+	icon_state = "redshirt"
+
+/obj/structure/prop/clfmap/shirt/yellow
+	icon_state = "yellowshirt"
+
+/obj/structure/prop/clfmap/shirt/green
+	icon_state = "greenshirt"
+
+/obj/structure/prop/clfmap/shirt/purple
+	icon_state = "purpleshirt"
+
+/obj/structure/prop/clfmap/shirt/blue
+	icon_state = "blueshirt"
