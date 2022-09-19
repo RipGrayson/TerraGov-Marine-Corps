@@ -368,6 +368,47 @@
 		span_warning("You repair \the [src]."))
 		chair_state = DROPSHIP_CHAIR_FOLDED
 
+/obj/structure/bed/chair/dropship/passenger/vehicle
+	icon_state = "vehicle_seat"
+
+/obj/structure/bed/chair/dropship/passenger/vehicle/Initialize()
+	. = ..()
+	chairbar = image("icons/obj/objects.dmi", "vehicle_bars")
+	chairbar.layer = ABOVE_MOB_LAYER
+
+/obj/structure/bed/chair/dropship/passenger/vehicle/post_buckle_mob(mob/buckling_mob)
+	icon_state = "vehicle_seat_buckled"
+	overlays += chairbar
+
+/obj/structure/bed/chair/dropship/passenger/vehicle/attackby(obj/item/I, mob/user, params)
+	. = ..()
+	if(iswrench(I))
+		return
+	else if(iswelder(I))
+		return
+
+/obj/structure/bed/chair/dropship/passenger/vehicle/post_unbuckle_mob(mob/buckled_mob)
+	. = ..()
+	icon_state = "shuttle_chair"
+	overlays -= chairbar
+
+/obj/structure/bed/chair/dropship/passenger/vehicle/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+	if(X.status_flags & INCORPOREAL)
+		return FALSE
+	if(chair_state != DROPSHIP_CHAIR_BROKEN)
+		X.visible_message(span_warning("[X] smashes \the [src], shearing the bolts!"),
+		span_warning("We smash \the [src], shearing the bolts!"))
+	if(chair_state == DROPSHIP_CHAIR_UNFOLDED)
+		if(LAZYLEN(buckled_mobs))
+			unbuckle_mob(buckled_mobs[1])
+			chair_state = DROPSHIP_CHAIR_BROKEN
+			icon_state = "vehicle_seat_broken"
+
+/obj/structure/bed/chair/dropship/passenger/vehicle/CanAllowThrough(atom/movable/mover, turf/target, height = 0, air_group = 0)
+	. = ..()
+	if(chair_state == DROPSHIP_CHAIR_UNFOLDED && istype(mover, /obj/vehicle/multitile) && !is_animating)
+		visible_message(span_danger("[mover] slams into [src] and breaks it!"))
+		return FALSE
 
 /obj/structure/bed/chair/ob_chair
 	name = "seat"

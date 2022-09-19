@@ -239,3 +239,8 @@
 	mapid = "EORG"
 	spawner_height = 46
 	spawner_width = 46
+
+/obj/effect/spawner/modularmap/shuttle/alamo
+	mapid = "alamomod"
+	spawner_width = 11
+	spawner_height = 21

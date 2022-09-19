@@ -1195,3 +1195,17 @@ datum/map_template/modular/bigred/southetafive
 	modular_id = "EORG"
 	template_width = 46
 	template_height = 46
+
+/datum/map_template/modular/shuttle/alamoone
+	name = "alamomodular"
+	mappath = "_maps/modularmaps/shuttles/alamovar1.dmm"
+	modular_id = "alamomod"
+	template_width = 11
+	template_height = 21
+
+/datum/map_template/modular/shuttle/alamotwo
+	name = "alamomodular"
+	mappath = "_maps/modularmaps/shuttles/alamovar2.dmm"
+	modular_id = "alamomod"
+	template_width = 11
+	template_height = 21
