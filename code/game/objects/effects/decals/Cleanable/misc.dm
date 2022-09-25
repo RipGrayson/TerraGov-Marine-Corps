@@ -124,3 +124,13 @@
 	layer = TURF_LAYER
 	icon = 'icons/effects/effects.dmi'
 	icon_state = "smashed_pie"
+
+/obj/effect/decal/ocean
+	name = "smashed pie"
+	desc = "It's pie cream from a cream pie."
+	density = FALSE
+	anchored = TRUE
+	layer = HIGH_LANDMARK_LAYER
+	icon = 'icons/effects/effects.dmi'
+	icon_state = "oceanoverlay"
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT

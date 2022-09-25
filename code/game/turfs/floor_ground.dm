@@ -15,6 +15,11 @@
 /turf/open/floor/plating/ground/is_plating() //Temporary hack until we re-implement baseturfs, /tg/ plating and change_turf.dm.
 	return FALSE
 
+/turf/open/floor/plating/ground/underwater
+	icon_state = "underwater_sand"
+
+/turf/open/floor/plating/ground/underwater/alt
+	icon_state = "underwater_sand_alt"
 
 /turf/open/floor/plating/ground/dirt
 	name = "dirt"

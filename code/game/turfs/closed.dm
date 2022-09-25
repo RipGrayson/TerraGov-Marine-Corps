@@ -64,6 +64,14 @@
 /turf/closed/mineral/smooth/bigred/indestructible
 	resistance_flags = RESIST_ALL
 
+/turf/closed/mineral/smooth/underwater
+	icon = 'icons/turf/walls/oceanwall.dmi'
+	icon_state = "oceanwall-0-0-0-0"
+	walltype = "oceanwall"
+
+/turf/closed/mineral/smooth/underwater/indestructible
+	resistance_flags = RESIST_ALL
+
 /turf/closed/mineral/bigred
 	name = "rock"
 	icon = 'icons/turf/walls.dmi'
