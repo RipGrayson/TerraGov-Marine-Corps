@@ -9273,7 +9273,7 @@
 /area/ice_colony/surface/hangar/alpha)
 "aRz" = (
 /obj/machinery/light,
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/alpha)
 "aRE" = (
 /turf/closed/shuttle{
@@ -9296,7 +9296,7 @@
 "aRH" = (
 /obj/machinery/light,
 /obj/item/weapon/gun/pistol/holdout,
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/beta)
 "aRK" = (
 /obj/machinery/door/airlock/mainship/engineering/free_access{
@@ -9397,7 +9397,7 @@
 /area/ice_colony/surface/hangar/alpha)
 "aSi" = (
 /obj/machinery/door/airlock/unpowered/shuttle,
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/alpha)
 "aSj" = (
 /turf/closed/shuttle{
@@ -9434,7 +9434,7 @@
 /area/ice_colony/surface/hangar/beta)
 "aSr" = (
 /obj/machinery/door/airlock/unpowered/shuttle,
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/beta)
 "aSs" = (
 /turf/closed/shuttle{
@@ -9448,7 +9448,7 @@
 /area/ice_colony/surface/hangar/beta)
 "aSv" = (
 /obj/structure/computerframe,
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/alpha)
 "aSw" = (
 /obj/structure/cable,
@@ -9460,7 +9460,7 @@
 /area/ice_colony/surface/hangar/hallway)
 "aSz" = (
 /obj/structure/computerframe,
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/beta)
 "aSB" = (
 /turf/closed/wall,
@@ -9528,7 +9528,7 @@
 	},
 /area/ice_colony/surface/research)
 "aSV" = (
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/alpha)
 "aSX" = (
 /obj/machinery/space_heater,
@@ -9546,7 +9546,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/ice_colony/exterior/surface/clearing/south)
 "aSZ" = (
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/beta)
 "aTa" = (
 /obj/structure/table,
@@ -9620,7 +9620,7 @@
 /obj/structure/bed/chair{
 	dir = 1
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/alpha)
 "aTt" = (
 /obj/structure/cable,
@@ -9641,7 +9641,7 @@
 /area/ice_colony/surface/hangar/beta)
 "aTv" = (
 /obj/machinery/light,
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/beta)
 "aTx" = (
 /obj/structure/disposalpipe/segment/corner{
@@ -10340,7 +10340,7 @@
 	pixel_x = 6;
 	pixel_y = -4
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/beta)
 "aWG" = (
 /obj/structure/reagent_dispensers/watertank,
@@ -13857,7 +13857,7 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/alpha)
 "bmJ" = (
 /obj/machinery/light{
@@ -13866,7 +13866,7 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/alpha)
 "bmK" = (
 /obj/machinery/disposal,
@@ -14057,7 +14057,7 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/beta)
 "bns" = (
 /turf/closed/ice/straight,
@@ -14084,13 +14084,13 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/beta)
 "bny" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/alpha)
 "bnz" = (
 /turf/open/floor/tile/darkgreen/darkgreen2{
@@ -14114,19 +14114,19 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/alpha)
 "bnD" = (
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/beta)
 "bnE" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/beta)
 "bnI" = (
 /obj/structure/cable,
@@ -31934,7 +31934,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/start/job/survivor,
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/ice_colony/surface/hangar/beta)
 "rsg" = (
 /obj/effect/decal/cleanable/blood/gibs,

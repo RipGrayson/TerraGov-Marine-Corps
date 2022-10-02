@@ -10126,7 +10126,7 @@
 /area/desert_dam/interior/dam_interior/hanger)
 "bjb" = (
 /obj/structure/computerframe,
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/desert_dam/interior/dam_interior/hanger)
 "bjd" = (
 /obj/machinery/light{
@@ -10156,13 +10156,13 @@
 /area/desert_dam/building/security/lobby)
 "bjl" = (
 /obj/machinery/light,
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/desert_dam/interior/dam_interior/hanger)
 "bjm" = (
 /obj/structure/bed/chair{
 	dir = 1
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/desert_dam/interior/dam_interior/hanger)
 "bjn" = (
 /obj/machinery/light,
@@ -10210,7 +10210,7 @@
 /area/desert_dam/building/water_treatment_two/lobby)
 "bjA" = (
 /obj/machinery/door/airlock/unpowered/shuttle,
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/desert_dam/interior/dam_interior/hanger)
 "bjB" = (
 /obj/effect/decal/cleanable/dirt,
@@ -10332,7 +10332,7 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/desert_dam/interior/dam_interior/hanger)
 "bke" = (
 /obj/machinery/light{
@@ -10341,7 +10341,7 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/desert_dam/interior/dam_interior/hanger)
 "bkj" = (
 /turf/open/floor/plating/ground/desertdam/asphalt,
@@ -10364,13 +10364,13 @@
 /obj/structure/bed/chair{
 	dir = 4
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/desert_dam/interior/dam_interior/hanger)
 "bkp" = (
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/desert_dam/interior/dam_interior/hanger)
 "bkw" = (
 /obj/structure/flora/desert/cactus,
@@ -38243,7 +38243,7 @@
 "iqx" = (
 /obj/structure/xenoautopsy/tank/broken,
 /obj/effect/landmark/lv624/fog_blocker,
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/desert_dam/interior/caves/temple)
 "iqz" = (
 /obj/structure/cable,
@@ -65154,7 +65154,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/desert_dam/exterior/valley/valley_crashsite)
 "xlV" = (
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/desert_dam/interior/dam_interior/hanger)
 "xlW" = (
 /obj/machinery/landinglight/ds2/delaythree,

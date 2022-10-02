@@ -6224,7 +6224,7 @@
 /obj/structure/stairs/seamless{
 	dir = 4
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/lv624/lazarus/sandtemple)
 "eKd" = (
 /obj/structure/jungle/vines,
@@ -10295,7 +10295,7 @@
 /obj/structure/stairs/seamless{
 	dir = 4
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/lv624/lazarus/sandtemple)
 "jDK" = (
 /turf/open/ground/coast/corner{
@@ -14501,7 +14501,7 @@
 /obj/structure/stairs/seamless{
 	dir = 4
 	},
-/turf/open/shuttle/dropship/fourteen,
+/turf/open/floor/prison/redfloor,
 /area/lv624/lazarus/sandtemple)
 "org" = (
 /obj/structure/barricade/wooden,
