@@ -228,8 +228,6 @@
 	switch(X.selected_resin)
 		if(/obj/alien/resin/sticky)
 			build_resin_modifier = 0.5
-		if(/obj/structure/mineral_door/resin)
-			build_resin_modifier = 2
 
 	return (base_wait + scaling_wait - max(0, (scaling_wait * X.health / X.maxHealth))) * build_resin_modifier
 
@@ -328,8 +326,6 @@
 	switch(X.selected_resin)
 		if(/obj/alien/resin/sticky)
 			plasma_cost = initial(plasma_cost) / 3
-		if(/obj/structure/mineral_door/resin)
-			plasma_cost = initial(plasma_cost) * 3
 
 	if(new_resin)
 		add_cooldown(SSmonitor.gamestate == SHUTTERS_CLOSED ? get_cooldown()/2 : get_cooldown())
@@ -347,16 +343,16 @@
 /datum/action/xeno_action/pheromones/proc/apply_pheros(phero_choice)
 	var/mob/living/carbon/xenomorph/X = owner
 
-	if(X.current_aura == phero_choice)
+	if(X.current_aura && X.current_aura.aura_types[1] == phero_choice)
 		X.balloon_alert(X, "Stop emitting")
-		X.current_aura = null
+		QDEL_NULL(X.current_aura)
 		if(isxenoqueen(X))
 			X.hive?.update_leader_pheromones()
 		X.hud_set_pheromone()
 		return fail_activate()
-
-	X.current_aura = phero_choice
-	X.balloon_alert(X, "[X.current_aura]")
+	QDEL_NULL(X.current_aura)
+	X.current_aura = SSaura.add_emitter(X, phero_choice, 6 + X.xeno_caste.aura_strength * 2, X.xeno_caste.aura_strength, -1, X.faction)
+	X.balloon_alert(X, "[phero_choice]")
 	playsound(X.loc, "alien_drool", 25)
 
 	if(isxenoqueen(X))
@@ -376,7 +372,7 @@
 	keybind_signal = COMSIG_XENOABILITY_EMIT_RECOVERY
 
 /datum/action/xeno_action/pheromones/emit_recovery/action_activate()
-	apply_pheros(RECOVERY)
+	apply_pheros(AURA_XENO_RECOVERY)
 
 /datum/action/xeno_action/pheromones/emit_recovery/should_show()
 	return FALSE
@@ -387,7 +383,7 @@
 	keybind_signal = COMSIG_XENOABILITY_EMIT_WARDING
 
 /datum/action/xeno_action/pheromones/emit_warding/action_activate()
-	apply_pheros(WARDING)
+	apply_pheros(AURA_XENO_WARDING)
 
 /datum/action/xeno_action/pheromones/emit_warding/should_show()
 	return FALSE
@@ -398,7 +394,7 @@
 	keybind_signal = COMSIG_XENOABILITY_EMIT_FRENZY
 
 /datum/action/xeno_action/pheromones/emit_frenzy/action_activate()
-	apply_pheros(FRENZY)
+	apply_pheros(AURA_XENO_FRENZY)
 
 /datum/action/xeno_action/pheromones/emit_frenzy/should_show()
 	return FALSE
@@ -798,7 +794,6 @@
 	var/obj/projectile/newspit = new /obj/projectile(current_turf)
 	plasma_cost = X.ammo.spit_cost
 	newspit.generate_bullet(X.ammo, X.ammo.damage * SPIT_UPGRADE_BONUS(X))
-	newspit.permutated += X
 	newspit.def_zone = X.get_limbzone_target()
 	newspit.fire_at(current_target, X, null, X.ammo.max_range, X.ammo.shell_speed)
 
@@ -1060,7 +1055,7 @@
 	var/mob/living/carbon/xenomorph/xenoowner = owner
 	var/datum/action/xeno_action/set_agressivity/set_agressivity = xenoowner.actions_by_path[/datum/action/xeno_action/set_agressivity]
 	if(set_agressivity)
-		SEND_SIGNAL(owner, ESCORTING_ATOM_BEHAVIOUR_CHANGED, set_agressivity.minions_agressive) //New escorting ais should have the same behaviour as old one
+		SEND_SIGNAL(owner, COMSIG_ESCORTING_ATOM_BEHAVIOUR_CHANGED, set_agressivity.minions_agressive) //New escorting ais should have the same behaviour as old one
 
 /datum/action/xeno_action/set_agressivity
 	name = "Set minions behavior"
@@ -1076,7 +1071,7 @@
 
 /datum/action/xeno_action/set_agressivity/action_activate()
 	minions_agressive = !minions_agressive
-	SEND_SIGNAL(owner, ESCORTING_ATOM_BEHAVIOUR_CHANGED, minions_agressive)
+	SEND_SIGNAL(owner, COMSIG_ESCORTING_ATOM_BEHAVIOUR_CHANGED, minions_agressive)
 	update_button_icon()
 
 /datum/action/xeno_action/set_agressivity/update_button_icon()

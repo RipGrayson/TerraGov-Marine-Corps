@@ -131,9 +131,7 @@
 		to_chat(user, "[icon2html(src, user)] You [overcharge? "<B>disable</b>" : "<B>enable</b>" ] [src]'s overcharge mode.")
 		overcharge = FALSE
 
-	//load_into_chamber()
-
-	user?.hud_used.update_ammo_hud(user, src)
+	user?.hud_used.update_ammo_hud(src, get_ammo_list(), get_display_ammo_count())
 
 	return TRUE
 
@@ -326,7 +324,7 @@
 	base_gun_icon = initial(choice.icon_state)
 	update_icon()
 	to_chat(user, initial(choice.message_to_user))
-	user?.hud_used.update_ammo_hud(user, src)
+	user?.hud_used.update_ammo_hud(src, get_ammo_list(), get_display_ammo_count())
 
 	if(!in_chamber || !length(chamber_items))
 		return
@@ -893,10 +891,11 @@
 	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_ENERGY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 13,"rail_x" = 6, "rail_y" = 20, "under_x" = 26, "under_y" = 10, "stock_x" = 22, "stock_y" = 12)
 	scatter = 3
+	accuracy_mult = 1.05
 	accuracy_mult_unwielded = 0.9
-	scatter_unwielded = 10
+	scatter_unwielded = 8
 	recoil_unwielded = 1
-	movement_acc_penalty_mult = 4
+	movement_acc_penalty_mult = 3
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/charger/magharness
 	starting_attachment_types = list(/obj/item/attachable/magnetic_harness)

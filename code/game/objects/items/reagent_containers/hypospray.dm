@@ -19,6 +19,8 @@
 	var/inject_mode = HYPOSPRAY_INJECT_MODE_INJECT
 	var/core_name = "hypospray"
 	var/label = null
+	/// Small description appearing as an overlay
+	var/description_overlay = ""
 
 /obj/item/reagent_containers/hypospray/advanced
 	name = "Advanced hypospray"
@@ -193,6 +195,16 @@
 	icon_state = "hypo_d"
 
 
+/obj/item/reagent_containers/hypospray/update_overlays()
+	. = ..()
+	if(isturf(loc) || !description_overlay)
+		return
+	var/mutable_appearance/desc = mutable_appearance('icons/misc/12x12.dmi')
+	desc.pixel_x = 16
+	desc.maptext = MAPTEXT(description_overlay)
+	desc.maptext_width = 16
+	. += desc
+
 /obj/item/reagent_containers/hypospray/advanced
 	icon_state = "hypo"
 	init_reagent_flags = REFILLABLE|DRAINABLE
@@ -343,6 +355,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/bicaridine = 60,
 	)
+	description_overlay = "Bi"
 
 /obj/item/reagent_containers/hypospray/advanced/kelotane
 	name = "Kelotane hypospray"
@@ -350,6 +363,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/kelotane = 60,
 	)
+	description_overlay = "Ke"
 
 /obj/item/reagent_containers/hypospray/advanced/tramadol
 	name = "Tramadol hypospray"
@@ -357,6 +371,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/tramadol = 60,
 	)
+	description_overlay = "Ta"
 
 /obj/item/reagent_containers/hypospray/advanced/tricordrazine
 	name = "Tricordrazine hypospray"
@@ -364,6 +379,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/tricordrazine = 60,
 	)
+	description_overlay = "Ti"
 
 /obj/item/reagent_containers/hypospray/advanced/dylovene
 	name = "Dylovene hypospray"
@@ -371,6 +387,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/dylovene = 60,
 	)
+	description_overlay = "Dy"
 
 /obj/item/reagent_containers/hypospray/advanced/inaprovaline
 	name = "Inaprovaline hypospray"
@@ -378,6 +395,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/inaprovaline = 60,
 	)
+	description_overlay = "In"
 
 /obj/item/reagent_containers/hypospray/advanced/meralyne
 	name = "Meralyne hypospray"
@@ -386,6 +404,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/meralyne = 60,
 	)
+	description_overlay = "Mr"
 
 /obj/item/reagent_containers/hypospray/advanced/dermaline
 	name = "Dermaline hypospray"
@@ -394,6 +413,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/dermaline = 60,
 	)
+	description_overlay = "Dr"
 
 /obj/item/reagent_containers/hypospray/advanced/combat_advanced
 	name = "Advanced combat hypospray"
@@ -403,6 +423,7 @@
 		/datum/reagent/medicine/dermaline = 20,
 		/datum/reagent/medicine/tramadol = 20,
 	)
+	description_overlay = "Av"
 
 /obj/item/reagent_containers/hypospray/advanced/meraderm
 	name = "Meraderm hypospray"
@@ -411,11 +432,13 @@
 		/datum/reagent/medicine/meralyne = 30,
 		/datum/reagent/medicine/dermaline = 30,
 	)
+	description_overlay = "MD"
 
 /obj/item/reagent_containers/hypospray/advanced/oxycodone
 	name = "oxycodone hypospray"
 	desc = "A hypospray loaded with oxycodone. An advanced but highly addictive chemical which almost entirely negates pain and shock."
 	list_reagents = list(/datum/reagent/medicine/oxycodone = 60)
+	description_overlay = "Ox"
 
 /obj/item/reagent_containers/hypospray/advanced/hypervene
 	name = "Hypervene hypospray"
@@ -424,6 +447,7 @@
 	list_reagents = list(
 		/datum/reagent/hypervene = 60,
 	)
+	description_overlay = "Ht"
 
 /obj/item/reagent_containers/hypospray/advanced/nanoblood
 	name = "Nanoblood hypospray"
@@ -432,6 +456,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/nanoblood = 60,
 	)
+	description_overlay = "Na"
 
 /obj/item/reagent_containers/hypospray/advanced/big
 	name = "Big hypospray"
@@ -445,6 +470,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/bicaridine = 120,
 	)
+	description_overlay = "Bi"
 
 /obj/item/reagent_containers/hypospray/advanced/big/kelotane
 	name = "Big kelotane hypospray"
@@ -452,6 +478,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/kelotane = 120,
 	)
+	description_overlay = "Ke"
 
 /obj/item/reagent_containers/hypospray/advanced/big/tramadol
 	name = "Big tramadol hypospray"
@@ -459,6 +486,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/tramadol = 120,
 	)
+	description_overlay = "Ta"
 
 /obj/item/reagent_containers/hypospray/advanced/big/tricordrazine
 	name = "Big tricordrazine hypospray"
@@ -466,6 +494,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/tricordrazine = 120,
 	)
+	description_overlay = "Ti"
 
 /obj/item/reagent_containers/hypospray/advanced/big/dylovene
 	name = "Big dylovene hypospray"
@@ -473,6 +502,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/dylovene = 120,
 	)
+	description_overlay = "Dy"
 
 /obj/item/reagent_containers/hypospray/advanced/big/inaprovaline
 	name = "Big inaprovaline hypospray"
@@ -481,6 +511,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/inaprovaline = 120,
 	)
+	description_overlay = "In"
 
 /obj/item/reagent_containers/hypospray/advanced/big/dexalin
 	name = "Big dexalin hypospray"
@@ -488,6 +519,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/dexalin = 120,
 	)
+	description_overlay = "Dx"
 
 /obj/item/reagent_containers/hypospray/advanced/big/spaceacillin
 	name = "Big spaceacillin hypospray"
@@ -495,6 +527,7 @@
 	list_reagents = list(
 		/datum/reagent/medicine/spaceacillin = 120,
 	)
+	description_overlay = "Sp"
 
 /obj/item/reagent_containers/hypospray/advanced/big/imialky
 	name = "Big imialky hypospray"
@@ -503,6 +536,7 @@
 		/datum/reagent/medicine/imidazoline = 60,
 		/datum/reagent/medicine/alkysine = 60,
 	)
+	description_overlay = "Im"
 
 /obj/item/reagent_containers/hypospray/advanced/big/quickclot
 	name = "Big quick clot hypospray"
@@ -510,3 +544,4 @@
 	list_reagents = list(
 		/datum/reagent/medicine/quickclot = 120,
 	)
+	description_overlay = "Qk"

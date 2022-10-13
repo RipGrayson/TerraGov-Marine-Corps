@@ -140,7 +140,7 @@ SUBSYSTEM_DEF(vote)
 				deltimer(shipmap_timer_id)
 				var/datum/map_config/VM = config.maplist[SHIP_MAP]["Twin Pillars"]
 				SSmapping.changemap(VM, SHIP_MAP)
-			else if(. == "Combat Patrol")
+			else if(. == "Combat Patrol" || . == "Sensor Capture")
 				deltimer(shipmap_timer_id)
 				var/datum/map_config/VM = config.maplist[SHIP_MAP]["Combat Patrol Base"]
 				SSmapping.changemap(VM, SHIP_MAP)
@@ -255,10 +255,6 @@ SUBSYSTEM_DEF(vote)
 				if(!lower_admin && SSmapping.groundmap_voted)
 					to_chat(usr, span_warning("The next ground map has already been selected."))
 					return FALSE
-				var/datum/game_mode/next_gamemode = config.pick_mode(GLOB.master_mode)
-				if(next_gamemode.flags_round_type & MODE_SPECIFIC_SHIP_MAP)
-					to_chat(usr, span_warning("No other valid maps for [next_gamemode.name]."))
-					return FALSE
 				var/list/maps = list()
 				if(!config.maplist)
 					return
@@ -280,6 +276,10 @@ SUBSYSTEM_DEF(vote)
 				multiple_vote = TRUE
 				if(!lower_admin && SSmapping.shipmap_voted)
 					to_chat(usr, span_warning("The next ship map has already been selected."))
+					return FALSE
+				var/datum/game_mode/next_gamemode = config.pick_mode(trim(file2text("data/mode.txt")))
+				if(next_gamemode.flags_round_type & MODE_SPECIFIC_SHIP_MAP)
+					to_chat(usr, span_warning("No other valid maps for [next_gamemode.name]."))
 					return FALSE
 				var/list/maps = list()
 				if(!config.maplist)

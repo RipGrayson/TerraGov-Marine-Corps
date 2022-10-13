@@ -23,10 +23,6 @@
 	mouse_opacity = initial(mouse_opacity)
 	..()
 
-
-
-
-
 /obj/item/storage/belt/champion
 	name = "championship belt"
 	desc = "Proves to the world that you are the strongest!"
@@ -37,14 +33,8 @@
 		/obj/item/clothing/mask/luchador,
 	)
 
-
-
-
-
-
 /*============================//MARINE BELTS\\==================================
 =======================================================================*/
-
 
 /obj/item/storage/belt/utility
 	name = "\improper M276 pattern toolbelt rig" //Carn: utility belt is nicer, but it bamboozles the text parsing.
@@ -104,6 +94,7 @@
 		/obj/item/storage/syringe_case,
 		/obj/item/reagent_containers/hypospray/autoinjector,
 		/obj/item/stack/medical,
+		/obj/item/tool/surgery/solderingtool,
 	)
 
 /obj/item/storage/belt/lifesaver/full/Initialize()  //The belt, with all it's magic inside!
@@ -133,8 +124,8 @@
 /obj/item/storage/belt/lifesaver/full/upp
 	name ="\improper Type 41 pattern lifesaver bag"
 	desc = "The Type 41 load rig is the standard-issue LBE of the UPP military. This configuration mounts a satchel filled with a range of injectors and light medical supplies, common among medics and partisans."
-	icon_state = "medicalbag_u"
-	item_state = "medicbag_u"
+	icon_state = "medicbag_upp"
+	item_state = "medicbag_upp"
 
 
 /obj/item/storage/belt/lifesaver/som
@@ -656,7 +647,9 @@
 		/obj/item/weapon/gun/pistol,
 		/obj/item/ammo_magazine/pistol,
 		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta,
 		/obj/item/cell/lasgun/lasrifle,
+		/obj/item/cell/lasgun/volkite/small,
 	)
 
 /obj/item/storage/belt/gun/Destroy()
@@ -694,7 +687,10 @@
 		sure that we don't have to do any extra calculations.
 		*/
 		playsound(src,drawSound, 15, 1)
-		gun_underlay = image(icon, src, current_gun.icon_state)
+		if(current_gun.greyscale_config && current_gun.greyscale_colors)
+			gun_underlay = image(SSgreyscale.GetColoredIconByType(current_gun.greyscale_config, current_gun.greyscale_colors), current_gun.rounds ? "belt" : "belt_empty")
+		else
+			gun_underlay = image(icon, src, current_gun.icon_state)
 		icon_state += "_g"
 		item_state = icon_state
 		underlays += gun_underlay
@@ -803,13 +799,20 @@
 	desc = "A belt with origins dating back to old colony security holster rigs."
 	icon_state = "som_belt_pistol"
 	item_state = "som_belt_pistol"
+	can_hold = list(
+		/obj/item/weapon/gun/pistol,
+		/obj/item/ammo_magazine/pistol,
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/standard_marine_pistol,
+		/obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/serpenta,
+		/obj/item/cell/lasgun/lasrifle,
+		/obj/item/cell/lasgun/volkite/small,
+	)
 
-//No overlays, sprite not positioned to allow for it
-/obj/item/storage/belt/gun/pistol/m4a3/som/update_gun_icon()
-	if(current_gun)
-		playsound(src,drawSound, 15, 1)
-	else
-		playsound(src,sheatheSound, 15, 1)
+/obj/item/storage/belt/gun/pistol/m4a3/som/fancy
+	name = "\improper S19-B holster rig"
+	desc = "A quality pistol belt of a style typically seen worn by SOM officers. It looks old, but well looked after."
+	icon_state = "som_belt_pistol_fancy"
+	item_state = "som_belt_pistol_fancy"
 
 /obj/item/storage/belt/gun/pistol/stand
 	name = "\improper M276 pattern M4A3 holster rig"
@@ -966,18 +969,6 @@
 	. = ..()
 	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/shotgun/double/marine(src)
 	new /obj/item/ammo_magazine/shotgun/buckshot(src)
-	INVOKE_ASYNC(src, .proc/handle_item_insertion, new_gun)
-
-
-/obj/item/storage/belt/gun/pistol/m4a3/officer/Initialize()
-	. = ..()
-	var/obj/item/weapon/gun/new_gun = new /obj/item/weapon/gun/pistol/rt3(src)
-	new /obj/item/ammo_magazine/pistol/hp(src)
-	new /obj/item/ammo_magazine/pistol/hp(src)
-	new /obj/item/ammo_magazine/pistol/ap(src)
-	new /obj/item/ammo_magazine/pistol/ap(src)
-	new /obj/item/ammo_magazine/pistol/ap(src)
-	new /obj/item/ammo_magazine/pistol/ap(src)
 	INVOKE_ASYNC(src, .proc/handle_item_insertion, new_gun)
 
 /obj/item/storage/belt/gun/pistol/smart_pistol

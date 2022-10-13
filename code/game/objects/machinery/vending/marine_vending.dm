@@ -107,6 +107,7 @@
 			/obj/item/explosive/grenade/m15 = 30,
 			/obj/item/explosive/grenade/sticky = 125,
 			/obj/item/explosive/grenade/incendiary = 50,
+			/obj/item/explosive/grenade/smokebomb = 25,
 			/obj/item/explosive/grenade/smokebomb/cloak = 25,
 			/obj/item/explosive/grenade/smokebomb/drain = 10,
 			/obj/item/explosive/grenade/mirage = 100,
@@ -119,8 +120,8 @@
 			/obj/item/weapon/gun/flamer/big_flamer/marinestandard = 4,
 			/obj/item/ammo_magazine/flamer_tank/large = 30,
 			/obj/item/ammo_magazine/flamer_tank/backtank = 4,
-			/obj/item/storage/holster/backholster/rpg/full = 2,
 			/obj/item/jetpack_marine = 3,
+			/obj/item/bodybag/tarp = 10,
 		),
 		"Heavy Weapons" = list(
 			/obj/structure/closet/crate/mortar_ammo/mortar_kit = 1,
@@ -130,6 +131,12 @@
 			/obj/item/storage/box/tl102 = 1,
 			/obj/item/weapon/gun/heavymachinegun = 1,
 			/obj/item/ammo_magazine/heavymachinegun = 10,
+			/obj/item/storage/holster/backholster/rpg/full = 2,
+			/obj/item/ammo_magazine/rocket/recoilless = 4,
+			/obj/item/ammo_magazine/rocket/recoilless/light = 4,
+			/obj/item/ammo_magazine/rocket/recoilless/heat = 16,
+			/obj/item/ammo_magazine/rocket/recoilless/cloak = 16,
+			/obj/item/ammo_magazine/rocket/recoilless/smoke = 16,
 		),
 		"Attachments" = list(
 			/obj/item/attachable/bayonet = -1,
@@ -164,6 +171,7 @@
 		),
 		"Boxes" = list(
 			/obj/item/ammo_magazine/packet/p9mm = -1,
+			/obj/item/ammo_magazine/packet/p9mmap = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
 			/obj/item/ammo_magazine/packet/magnum = -1,
 			/obj/item/ammo_magazine/packet/p10x20mm = -1,
@@ -338,6 +346,7 @@
 		),
 		"Boxes" = list(
 			/obj/item/ammo_magazine/packet/p9mm = -1,
+			/obj/item/ammo_magazine/packet/p9mmap = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
 			/obj/item/ammo_magazine/packet/magnum = -1,
 			/obj/item/ammo_magazine/packet/p10x20mm = -1,
@@ -526,6 +535,7 @@
 		),
 		"Boxes" = list(
 			/obj/item/ammo_magazine/packet/p9mm = -1,
+			/obj/item/ammo_magazine/packet/p9mmap = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
 			/obj/item/ammo_magazine/packet/magnum = -1,
 			/obj/item/ammo_magazine/packet/p10x20mm = -1,
@@ -690,6 +700,7 @@
 		),
 		"Boxes" = list(
 			/obj/item/ammo_magazine/packet/p9mm = -1,
+			/obj/item/ammo_magazine/packet/p9mmap = -1,
 			/obj/item/ammo_magazine/packet/acp = -1,
 			/obj/item/ammo_magazine/packet/magnum = -1,
 			/obj/item/ammo_magazine/packet/p10x20mm = -1,
@@ -784,7 +795,6 @@
 			/obj/item/ammo_magazine/rocket/sadar = 3,
 			/obj/item/ammo_magazine/minigun_powerpack = 2,
 			/obj/item/ammo_magazine/shotgun/mbx900 = 2,
-			/obj/item/bodybag/tarp = 10,
 			/obj/item/explosive/plastique = 5,
 			/obj/item/fulton_extraction_pack = 2,
 			/obj/item/clothing/suit/storage/marine/harness/boomvest = 20,
@@ -805,7 +815,7 @@
 			/obj/machinery/factory/flatter = 1,
 			/obj/machinery/factory/former = 1,
 			/obj/machinery/factory/reconstructor = 1,
-			/obj/machinery/outputter = 1,
+			/obj/machinery/unboxer = 1,
 		),
 		"Grenade Boxes" = list(
 			/obj/item/storage/box/visual/grenade/frag = 2,
@@ -952,6 +962,14 @@
 	//product_slogans = "Standard Issue Marine food!;It's good for you, and not the worst thing in the world.;Just fucking eat it.;"
 	product_ads = "Try the cornbread.;Try the pizza.;Try the pasta.;Try the tofu, wimp.;Try the pork.; 9 Flavors of Protein!; You'll never guess the mystery flavor!"
 
+/obj/machinery/vending/marineFood/som
+	name = "\improper SOM Food and Drinks Vendor"
+	faction = FACTION_SOM
+	products = list(
+		/obj/item/reagent_containers/food/snacks/protein_pack/som = -1,
+		/obj/item/storage/box/MRE/som = -1,
+		/obj/item/reagent_containers/food/drinks/flask/marine = -1,
+	)
 
 /obj/machinery/vending/MarineMed
 	name = "\improper MarineMed"
@@ -1029,10 +1047,6 @@
 			/obj/item/reagent_containers/hypospray/autoinjector/isotonic = -1,
 			/obj/item/reagent_containers/hypospray/autoinjector/quickclot = -1,
 			/obj/item/reagent_containers/hypospray/autoinjector/medicalnanites = -1,
-			/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = -1,
-			/obj/item/reagent_containers/hypospray/autoinjector/virilyth = -1,
-			/obj/item/reagent_containers/hypospray/autoinjector/roulettium = -1,
-			/obj/item/reagent_containers/hypospray/autoinjector/rezadone = -1,
 		),
 		"Heal Pack" = list(
 			/obj/item/stack/medical/heal_pack/gauze = -1,
@@ -1045,6 +1059,17 @@
 			/obj/item/healthanalyzer = -1,
 			/obj/item/bodybag/cryobag = -1,
 		),
+		"Valhalla" = list(
+			/obj/item/reagent_containers/hypospray/autoinjector/virilyth = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/roulettium = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/rezadone = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/spaceacillin = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/combat = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/synaptizine = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/neuraline = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/peridaxon_plus = -1,
+			/obj/item/reagent_containers/hypospray/autoinjector/quickclotplus = -1,
+		)
 	)
 
 /obj/machinery/vending/MarineMed/Blood
@@ -1152,6 +1177,7 @@
 			/obj/item/armor_module/storage/engineering = -1,
 			/obj/item/armor_module/storage/medical = -1,
 			/obj/item/armor_module/storage/injector = -1,
+			/obj/item/armor_module/storage/grenade = -1,
 			/obj/item/armor_module/module/welding = -1,
 			/obj/item/armor_module/module/binoculars = -1,
 			/obj/item/armor_module/module/tyr_head = -1,
@@ -1221,6 +1247,7 @@
 			/obj/item/storage/belt/sparepouch = -1,
 			/obj/item/storage/belt/gun/pistol/standard_pistol = -1,
 			/obj/item/storage/belt/gun/revolver/standard_revolver = -1,
+			/obj/item/storage/holster/t19 = -1,
 			/obj/item/storage/holster/blade/machete/full = -1,
 			/obj/item/storage/holster/blade/machete/full_harvester = -1,
 			/obj/item/storage/belt/utility/full =-1,
@@ -1467,6 +1494,14 @@
 			/obj/item/ammo_magazine/rifle/type71 = -1,
 			/obj/item/weapon/gun/rifle/alf_machinecarbine = -1,
 			/obj/item/ammo_magazine/rifle/alf_machinecarbine = -1,
+			/obj/item/weapon/gun/rifle/som = -1,
+			/obj/item/ammo_magazine/rifle/som = -1,
+			/obj/item/ammo_magazine/handful/micro_grenade = -1,
+			/obj/item/ammo_magazine/handful/micro_grenade/cluster = -1,
+			/obj/item/ammo_magazine/handful/micro_grenade/smoke_burst = -1,
+			/obj/item/weapon/gun/smg/som = -1,
+			/obj/item/ammo_magazine/smg/som = -1,
+			/obj/item/weapon/gun/shotgun/som = -1,
 		)
 	)
 

@@ -345,6 +345,14 @@
 /obj/effect/decal/tracks/wheels/bloody
 	color = "#860707"
 
+/obj/effect/decal/apocrune
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "apoccolored"
+
+/obj/effect/decal/large_rune
+	icon = 'icons/effects/96x96.dmi'
+	icon_state = "rune_large_colored"
+
 /obj/effect/decal/darkdirtedge
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "dirtedge"
