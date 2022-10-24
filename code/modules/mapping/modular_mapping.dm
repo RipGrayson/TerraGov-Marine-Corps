@@ -1203,3 +1203,108 @@ datum/map_template/modular/bigred/southetafive
 	modular_id = "EORG"
 	template_width = 46
 	template_height = 46
+
+/datum/map_template/modular/sectoid/randomspawnone
+	name = "random spawn one"
+	mappath = "_maps/modularmaps/sectoid/alienvar1.dmm"
+	modular_id = "sectoidspawner"
+	template_width = 9
+	template_height = 9
+
+/datum/map_template/modular/sectoid/randomspawntwo
+	name = "random spawn two"
+	mappath = "_maps/modularmaps/sectoid/alienvar1.dmm"
+	modular_id = "sectoidspawner"
+	template_width = 9
+	template_height = 9
+
+/datum/map_template/modular/sectoid/randomspawnthree
+	name = "random spawn three"
+	mappath = "_maps/modularmaps/sectoid/alienvar1.dmm"
+	modular_id = "sectoidspawner"
+	template_width = 9
+	template_height = 9
+
+/datum/map_template/modular/sectoid/randomspawnfour
+	name = "random spawn four"
+	mappath = "_maps/modularmaps/sectoid/alienvar1.dmm"
+	modular_id = "sectoidspawner"
+	template_width = 9
+	template_height = 9
+
+/datum/map_template/modular/sectoid/randomspawnfive
+	name = "random spawn five"
+	mappath = "_maps/modularmaps/sectoid/alienvar1.dmm"
+	modular_id = "sectoidspawner"
+	template_width = 9
+	template_height = 9
+
+/datum/map_template/modular/sectoid/randomspawnsix
+	name = "random spawn six"
+	mappath = "_maps/modularmaps/sectoid/alienvar1.dmm"
+	modular_id = "sectoidspawner"
+	template_width = 9
+	template_height = 9
+
+/datum/map_template/modular/sectoid/randomspawnseven
+	name = "random spawn seven"
+	mappath = "_maps/modularmaps/sectoid/alienvar1.dmm"
+	modular_id = "sectoidspawner"
+	template_width = 9
+	template_height = 9
+
+/datum/map_template/modular/sectoid/randomspawneight
+	name = "random spawn eight"
+	mappath = "_maps/modularmaps/sectoid/alienvar1.dmm"
+	modular_id = "sectoidspawner"
+	template_width = 9
+	template_height = 9
+
+/datum/map_template/modular/sectoid/randomspawnnine
+	name = "random spawn nine"
+	mappath = "_maps/modularmaps/sectoid/alienvar1.dmm"
+	modular_id = "sectoidspawner"
+	template_width = 9
+	template_height = 9
+
+/datum/map_template/modular/sectoid/randomspawnten
+	name = "random spawn ten"
+	mappath = "_maps/modularmaps/sectoid/alienvar1.dmm"
+	modular_id = "sectoidspawner"
+	template_width = 9
+	template_height = 9
+
+/datum/map_template/modular/sectoid/randomspawneleven
+	name = "random spawn eleven"
+	mappath = "_maps/modularmaps/sectoid/alienvar1.dmm"
+	modular_id = "sectoidspawner"
+	template_width = 9
+	template_height = 9
+
+/datum/map_template/modular/sectoid/randomspawntwelve
+	name = "random spawn twelve"
+	mappath = "_maps/modularmaps/sectoid/alienvar1.dmm"
+	modular_id = "sectoidspawner"
+	template_width = 9
+	template_height = 9
+
+/datum/map_template/modular/sectoid/randomspawnthirteen
+	name = "random spawn thirteen"
+	mappath = "_maps/modularmaps/sectoid/alienvar1.dmm"
+	modular_id = "sectoidspawner"
+	template_width = 9
+	template_height = 9
+
+/datum/map_template/modular/sectoid/randomspawnfourteen
+	name = "random spawn fourteen"
+	mappath = "_maps/modularmaps/sectoid/alienvar1.dmm"
+	modular_id = "sectoidspawner"
+	template_width = 9
+	template_height = 9
+
+/datum/map_template/modular/sectoid/randomspawnfifteen
+	name = "random spawn fifteen"
+	mappath = "_maps/modularmaps/sectoid/alienvar1.dmm"
+	modular_id = "sectoidspawner"
+	template_width = 9
+	template_height = 9

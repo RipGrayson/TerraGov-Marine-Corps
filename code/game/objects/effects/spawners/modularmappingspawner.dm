@@ -239,3 +239,10 @@
 	mapid = "EORG"
 	spawner_height = 46
 	spawner_width = 46
+
+/************SECTOID**********/
+
+/obj/effect/spawner/modularmap/sectoid
+	mapid = "sectoidspawner"
+	spawner_height = 9
+	spawner_width = 9

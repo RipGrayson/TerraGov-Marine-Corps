@@ -64,6 +64,14 @@
 /turf/closed/mineral/smooth/bigred/indestructible
 	resistance_flags = RESIST_ALL
 
+/turf/closed/mineral/smooth/alien
+	icon = 'icons/turf/walls/alienwall.dmi'
+	icon_state = "alienwall-0-0-0-0"
+	walltype = "alienwall"
+
+/turf/closed/mineral/smooth/alien/indestructible
+	resistance_flags = RESIST_ALL
+
 /turf/closed/mineral/bigred
 	name = "rock"
 	icon = 'icons/turf/walls.dmi'

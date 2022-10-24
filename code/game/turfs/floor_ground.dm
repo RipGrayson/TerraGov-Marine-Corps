@@ -327,3 +327,10 @@
 	name = "cave"
 	icon_state = "inner_cavesides"
 
+/turf/open/floor/plating/ground/alienone
+	name = "plating"
+	icon_state = "alien"
+
+/turf/open/floor/plating/ground/alientwo
+	name = "plating"
+	icon_state = "alien2"
