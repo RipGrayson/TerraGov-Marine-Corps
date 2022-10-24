@@ -68,6 +68,7 @@
 	icon = 'icons/turf/walls/alienwall.dmi'
 	icon_state = "alienwall-0-0-0-0"
 	walltype = "alienwall"
+	open_turf_type = /turf/open/floor/plating/ground/alientwo
 
 /turf/closed/mineral/smooth/alien/indestructible
 	resistance_flags = RESIST_ALL
