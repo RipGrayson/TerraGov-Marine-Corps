@@ -71,7 +71,8 @@
 	open_turf_type = /turf/open/floor/plating/ground/alientwo
 
 /turf/closed/mineral/smooth/alien/indestructible
-	resistance_flags = RESIST_ALL
+	resistance_flags = RESIST_ALL | ALIENBATON_IMMUNE
+
 
 /turf/closed/mineral/bigred
 	name = "rock"

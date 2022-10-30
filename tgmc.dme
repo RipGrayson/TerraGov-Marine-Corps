@@ -12,6 +12,7 @@
 // BEGIN_INCLUDE
 #include "_maps\_basemap.dm"
 #include "_maps\map_files\generic\Admin_Level.dmm"
+#include "_maps\map_files\sectoid\alienmap.dmm"
 #include "code\_compile_options.dm"
 #include "code\world.dm"
 #include "code\__DEFINES\__game.dm"
@@ -734,6 +735,7 @@
 #include "code\game\objects\items\tools\misc_tools.dm"
 #include "code\game\objects\items\tools\policetape.dm"
 #include "code\game\objects\items\tools\research_tools.dm"
+#include "code\game\objects\items\tools\sectoid_tools.dm"
 #include "code\game\objects\items\tools\shovel_tools.dm"
 #include "code\game\objects\items\tools\soldering_tool.dm"
 #include "code\game\objects\items\tools\surgery_tools.dm"
