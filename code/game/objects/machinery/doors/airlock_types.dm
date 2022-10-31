@@ -666,6 +666,9 @@
 /obj/machinery/door/airlock/mainship/generic/pilot/quarters
 	name = "\improper Pilot's Quarters"
 
+/obj/machinery/door/airlock/mainship/generic/pilot/fabroom
+	name = "\improper Dropship Fabrication Room"
+
 /obj/machinery/door/airlock/mainship/generic/pilot/rebel/quarters
 	name = "\improper Pilot's Quarters"
 

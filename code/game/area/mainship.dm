@@ -219,6 +219,11 @@
 
 /area/mainship/hull/lower_hull/rebel
 
+/area/mainship/hallways/central_hallway
+	name = "Central Primary Hallway"
+	icon_state = "central"
+	fake_zlevel = 1 // upperdeck
+
 /area/mainship/hull/upper_hull
 	name = "Hull Upper"
 	icon_state = "upperhull"
@@ -230,6 +235,26 @@
 /area/mainship/hull/starboard_hull
 	name = "Hull Starboard"
 	icon_state = "upperhull"
+
+/area/mainship/maintenance/bow_starboard
+	name = "Bow Starboard Maintenance"
+	icon_state = "maint_bow_starboard"
+	fake_zlevel = 1 // upperdeck
+
+/area/mainship/maintenance/bow_port
+	name = "Bow Port Maintenance"
+	icon_state = "maint_bow_port"
+	fake_zlevel = 1 // upperdeck
+
+/area/mainship/maintenance/starboard
+	name = "Starboard Maintenance"
+	icon_state = "maint_starboard"
+	fake_zlevel = 1 // upperdeck
+
+/area/mainship/maintenance/port
+	name = "Port Maintenance"
+	icon_state = "maint_port"
+	fake_zlevel = 1 // upperdeck
 
 /area/mainship/living/cryo_cells
 	name = "Cryo Cells"
