@@ -149,7 +149,6 @@
 	if(!mapload)
 		log_world("### MAP WARNING, [src] spawned outside of mapload!")
 		return
-
 /obj/effect/mapping_helpers/airlock/invincible
 	name = "airlock invulnerable helper"
 	icon_state = "invulnerable"
@@ -157,10 +156,38 @@
 /obj/effect/mapping_helpers/airlock/invincible/Initialize(mapload)
 	. = ..()
 	if(!mapload)
-		log_world("### MAP WARNING, [src] spawned outside of mapload!")
 		return
 	for(var/obj/invincibleobject in loc)
 		invincibleobject.resistance_flags = RESIST_ALL
+		log_world("### MAP WARNING, [src] spawned outside of mapload!")
+
+
+/obj/effect/mapping_helpers/area_flag_injector
+	name = "Area flag Injector"
+	icon_state = "area_flag_injector"
+	/// flags to inject to the area this is placed in
+	var/flag_type = NONE
+
+/obj/effect/mapping_helpers/area_flag_injector/Initialize(mapload)
+	. = ..()
+	var/area/area = get_area(src)
+	area.flags_area |= flag_type
+
+/obj/effect/mapping_helpers/area_flag_injector/marine_base
+	flag_type = MARINE_BASE
+
+/obj/effect/mapping_helpers/area_flag_injector/no_weeding
+	flag_type = DISALLOW_WEEDING
+
+/obj/effect/mapping_helpers/area_flag_injector/ob_immune
+	flag_type = OB_CAS_IMMUNE
+
+/obj/effect/mapping_helpers/area_flag_injector/droppod_immune
+	flag_type = NO_DROPPOD
+
+/obj/effect/mapping_helpers/area_flag_injector/near_fob
+	flag_type = NEAR_FOB
+
 
 //	var/obj/machinery/door/airlock/airlock = locate(/obj/machinery/door/airlock) in loc
 //	if(airlock)

@@ -41,12 +41,22 @@
 	var/burst_amount = 0
 	///fire mode to use for autofire
 	var/fire_mode = GUN_FIREMODE_AUTOMATIC
+	///how many seconds automatic rearming takes
+	var/rearm_time = 2 SECONDS
 
 /obj/item/mecha_parts/mecha_equipment/weapon/Initialize(mapload)
 	. = ..()
 	AddComponent(/datum/component/automatedfire/autofire, projectile_delay, projectile_delay, projectile_burst_delay, burst_amount, fire_mode, CALLBACK(src, .proc/set_bursting), CALLBACK(src, .proc/reset_fire), CALLBACK(src, .proc/fire))
 	equip_cooldown = projectile_delay
 	muzzle_flash = new(src, muzzle_iconstate)
+
+/obj/item/mecha_parts/mecha_equipment/weapon/action_checks(atom/target, ignore_cooldown)
+	. = ..()
+	if(!.)
+		return
+	if(HAS_TRAIT(chassis, TRAIT_MELEE_CORE))
+		to_chat(chassis.occupants, span_warning("Error -- Melee Core active."))
+		return FALSE
 
 /obj/item/mecha_parts/mecha_equipment/weapon/action(mob/source, atom/target, list/modifiers)
 	if(!action_checks(target))
@@ -134,7 +144,7 @@
 			holding = grey.limbs[MECH_GREY_R_ARM]
 		else
 			holding = grey.limbs[MECH_GREY_L_ARM]
-		projectile_to_fire.scatter = variance + holding?.scatter_mod
+		projectile_to_fire.scatter = max(variance + holding?.scatter_mod, 0)
 	projectile_to_fire.projectile_speed = projectile_to_fire.ammo.shell_speed
 	if(projectile_to_fire.ammo.flags_ammo_behavior & AMMO_IFF)
 		var/iff_signal
@@ -147,10 +157,10 @@
 ///actually executes firing when autofire asks for it, returns TRUE to keep firing FALSE to stop
 /obj/item/mecha_parts/mecha_equipment/weapon/proc/fire()
 	if(!action_checks(current_target, TRUE))
-		return FALSE
+		return NONE
 	var/dir_target_diff = get_between_angles(Get_Angle(chassis, current_target), dir2angle(chassis.dir))
 	if(dir_target_diff > (MECH_FIRE_CONE_ALLOWED / 2))
-		return TRUE
+		return AUTOFIRE_CONTINUE
 
 	var/type_to_spawn = (initial(ammotype.flags_ammo_behavior) & AMMO_HITSCAN) ? /obj/projectile/hitscan : /obj/projectile
 	var/obj/projectile/projectile_to_fire = new type_to_spawn(get_turf(src))
@@ -162,10 +172,11 @@
 	playsound(chassis, fire_sound, 25, TRUE)
 	projectile_to_fire.fire_at(current_target, chassis, null, projectile_to_fire.ammo.max_range, projectile_to_fire.projectile_speed, firing_angle, suppress_light = HAS_TRAIT(src, TRAIT_GUN_SILENCED))
 
+	chassis.use_power(energy_drain)
 	chassis.log_message("Fired from [name], targeting [current_target] at [AREACOORD(current_target)].", LOG_ATTACK)
 
 	if(!muzzle_flash || muzzle_flash.applied)
-		return TRUE
+		return AUTOFIRE_CONTINUE|AUTOFIRE_SUCCESS
 
 	var/prev_light = light_range
 	if(!light_on && (light_range <= muzzle_flash_lum))
@@ -188,7 +199,7 @@
 	muzzle_flash.applied = TRUE
 
 	addtimer(CALLBACK(src, .proc/remove_flash, muzzle_flash), 0.2 SECONDS)
-	return TRUE
+	return AUTOFIRE_CONTINUE|AUTOFIRE_SUCCESS
 
 /obj/item/mecha_parts/mecha_equipment/weapon/proc/reset_light_range(lightrange)
 	set_light_range(lightrange)
@@ -269,7 +280,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/fire()
 	. = ..()
-	if(!.)
+	if(!(. & AUTOFIRE_SUCCESS))
 		return
 	projectiles--
 	for(var/mob/occupant AS in chassis.occupants)
@@ -277,6 +288,11 @@
 	if(projectiles > 0)
 		return
 	playsound(src, 'sound/weapons/guns/misc/empty_alarm.ogg', 25, 1)
+	if(LAZYACCESS(current_firer.do_actions, src) || projectiles_cache < 1)
+		return
+	if(!do_after(current_firer, rearm_time, FALSE, chassis, BUSY_ICON_GENERIC))
+		return
+	rearm()
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/carbine
 	name = "\improper FNX-99 \"Hades\" Carbine"
@@ -352,7 +368,7 @@
 
 /obj/item/mecha_parts/mecha_equipment/weapon/ballistic/launcher/action(mob/source, atom/target, list/modifiers)
 	if(!action_checks(target))
-		return
+		return FALSE
 	var/dir_target_diff = get_between_angles(Get_Angle(chassis, target), dir2angle(chassis.dir))
 	if(dir_target_diff > (MECH_FIRE_CONE_ALLOWED / 2))
 		return TRUE
@@ -362,6 +378,13 @@
 	projectiles--
 	proj_init(O, source)
 	O.throw_at(target, missile_range, missile_speed, source, FALSE)
+	TIMER_COOLDOWN_START(chassis, COOLDOWN_MECHA_EQUIPMENT(type), equip_cooldown)
+	chassis.use_power(energy_drain)
+	for(var/mob/occupant AS in chassis.occupants)
+		occupant.hud_used.update_ammo_hud(src, hud_icons, projectiles)
+	if(projectiles > 0)
+		return TRUE
+	playsound(src, 'sound/weapons/guns/misc/empty_alarm.ogg', 25, 1)
 	return TRUE
 
 //used for projectile initilisation (priming flashbang) and additional logging
