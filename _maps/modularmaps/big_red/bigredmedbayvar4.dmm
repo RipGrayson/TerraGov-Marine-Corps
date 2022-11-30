@@ -737,11 +737,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/medical)
-"vl" = (
-/obj/effect/mapping_helpers/simple_pipes/green/hidden,
-/obj/structure/cable,
-/turf/open/floor/tile/white,
-/area/bigredv2/outside/medical)
 "vs" = (
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 8
@@ -1390,7 +1385,7 @@
 	},
 /area/bigredv2/outside/medical)
 "LQ" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 5
 	},
 /turf/open/floor/tile/white,
@@ -1601,7 +1596,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "Rg" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 9
 	},
 /turf/open/floor/tile/blue/whitebluefull,
@@ -1711,7 +1706,7 @@
 /turf/open/floor/tile/green/whitegreen,
 /area/bigredv2/outside/medical)
 "TP" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible,
+/obj/structure/prop/mainship/pipeprop/manifold,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "TT" = (
@@ -2224,7 +2219,7 @@ Il
 DK
 Il
 pZ
-vl
+GY
 TH
 OI
 EV
@@ -2274,7 +2269,7 @@ dZ
 he
 pZ
 Mn
-vl
+GY
 Hm
 PK
 OI
@@ -2565,7 +2560,7 @@ jp
 do
 NW
 jh
-vl
+GY
 Hm
 lS
 SR
@@ -2711,7 +2706,7 @@ GY
 qG
 rB
 wk
-vl
+GY
 SR
 PK
 mE

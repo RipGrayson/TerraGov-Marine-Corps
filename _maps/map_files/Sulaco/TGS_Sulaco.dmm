@@ -1588,16 +1588,20 @@
 /turf/open/floor/engine/nitrogen,
 /area/sulaco/engineering/atmos)
 "afe" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible,
 /obj/machinery/meter,
+/obj/structure/prop/mainship/pipeprop{
+	dir = 1
+	},
 /turf/open/floor/engine/nitrogen,
 /area/sulaco/engineering/atmos)
 "aff" = (
 /turf/open/floor/engine,
 /area/sulaco/engineering/atmos)
 "afg" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible,
 /obj/machinery/meter,
+/obj/structure/prop/mainship/pipeprop{
+	dir = 1
+	},
 /turf/open/floor/engine,
 /area/sulaco/engineering/atmos)
 "afh" = (
@@ -7343,12 +7347,6 @@
 	},
 /turf/open/floor/mainship/ai,
 /area/sulaco/command/ai)
-"aKB" = (
-/obj/structure/cable,
-/obj/effect/mapping_helpers/simple_pipes/cyan/hidden/layer1,
-/obj/effect/mapping_helpers/simple_pipes/yellow/hidden,
-/turf/open/floor/prison/sterilewhite,
-/area/sulaco/cafeteria)
 "aKC" = (
 /obj/structure/cable,
 /obj/effect/mapping_helpers/simple_pipes/yellow/hidden{
@@ -7358,16 +7356,6 @@
 	dir = 5
 	},
 /obj/machinery/power/apc/mainship{
-	dir = 4
-	},
-/turf/open/floor/prison/sterilewhite,
-/area/sulaco/cafeteria)
-"aKD" = (
-/obj/structure/cable,
-/obj/effect/mapping_helpers/simple_pipes/cyan/hidden/layer1{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/simple_pipes/yellow/hidden{
 	dir = 4
 	},
 /turf/open/floor/prison/sterilewhite,
@@ -10483,7 +10471,7 @@
 /area/sulaco/cargo/prep)
 "bwn" = (
 /obj/effect/attach_point/weapon/dropship1{
-	dir = 8;
+	dir = 8
 	},
 /turf/open/floor/plating/icefloor/warnplate{
 	dir = 8
@@ -12371,12 +12359,6 @@
 /obj/structure/closet/crate/ammo,
 /turf/open/floor/prison,
 /area/sulaco/cargo/prep)
-"edm" = (
-/obj/structure/cable,
-/obj/effect/mapping_helpers/simple_pipes/cyan/hidden/layer1,
-/obj/effect/mapping_helpers/simple_pipes/yellow/hidden,
-/turf/open/floor/plating/plating_catwalk/prison,
-/area/sulaco/hallway/central_hall)
 "efY" = (
 /obj/machinery/marine_selector/gear/medic,
 /obj/item/radio/intercom/general{
@@ -12887,7 +12869,7 @@
 /area/sulaco/hallway/central_hall)
 "eNh" = (
 /obj/effect/attach_point/weapon/dropship2{
-	dir = 4;
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/sulaco/hangar/cas)
@@ -16294,7 +16276,7 @@
 /area/sulaco/maintenance/upperdeck_north_maint)
 "jBs" = (
 /turf/open/floor/plating/icefloor/warnplate/corner{
-	dir = 4;
+	dir = 4
 	},
 /area/sulaco/hangar)
 "jBX" = (
@@ -23430,7 +23412,7 @@
 /area/sulaco/hangar)
 "sYa" = (
 /obj/effect/attach_point/weapon/dropship2{
-	dir = 8;
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/sulaco/hangar/cas)
@@ -26148,7 +26130,7 @@
 /area/sulaco/cafeteria)
 "wKu" = (
 /turf/open/floor/plating/icefloor/warnplate/corner{
-	dir = 8;
+	dir = 8
 	},
 /area/sulaco/hangar)
 "wKB" = (
@@ -44718,7 +44700,7 @@ aaH
 mVj
 anw
 wKl
-aKD
+aKW
 oRM
 oRM
 wjT
@@ -45746,7 +45728,7 @@ nrh
 eAP
 anw
 acD
-aKD
+aKW
 adZ
 adZ
 tfx
@@ -46003,7 +45985,7 @@ vbW
 agZ
 anw
 jtQ
-aKD
+aKW
 yfM
 yfM
 uhf
@@ -46260,7 +46242,7 @@ aaY
 aba
 anw
 lAn
-aKD
+aKW
 afG
 afG
 afG
@@ -46517,7 +46499,7 @@ aHY
 aHY
 pAt
 qhI
-aKD
+aKW
 oRM
 fZX
 oRM
@@ -47031,7 +47013,7 @@ iNW
 aaH
 aJy
 tMt
-aKD
+aKW
 adZ
 adZ
 adZ
@@ -47288,7 +47270,7 @@ iNW
 iTc
 anw
 eHj
-aKD
+aKW
 ptE
 qDX
 mnO
@@ -47545,7 +47527,7 @@ aaF
 pVC
 anw
 hfH
-aKD
+aKW
 pjA
 wyw
 uwG
@@ -47802,7 +47784,7 @@ iNW
 aaH
 anw
 abS
-aKD
+aKW
 afG
 afG
 afG
@@ -48059,7 +48041,7 @@ iNW
 aaH
 anw
 lpg
-aKD
+aKW
 aKX
 oRM
 buz
@@ -48573,7 +48555,7 @@ aaY
 aaY
 abQ
 oRM
-aKD
+aKW
 oRM
 riF
 aLc
@@ -48829,10 +48811,10 @@ xVA
 epB
 aGY
 aJU
-aKB
+aKE
 aKW
-aKB
-aKB
+aKE
+aKE
 jHI
 rgf
 yiz
@@ -53870,7 +53852,7 @@ fVN
 alQ
 aag
 aol
-edm
+kLk
 arc
 avr
 niS

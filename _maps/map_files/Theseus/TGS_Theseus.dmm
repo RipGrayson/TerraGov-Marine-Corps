@@ -745,10 +745,10 @@
 	},
 /area/mainship/hull/port_hull)
 "acI" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/machinery/meter,
+/obj/structure/prop/mainship/pipeprop{
 	dir = 10
 	},
-/obj/machinery/meter,
 /turf/open/floor/mainship/orange{
 	dir = 1
 	},
@@ -765,31 +765,32 @@
 	},
 /area/mainship/hull/port_hull)
 "acN" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 4
 	},
 /turf/open/floor/mainship/orange,
 /area/mainship/hull/port_hull)
 "acO" = (
-/obj/machinery/atmospherics/components/trinary/mixer{
-	dir = 4;
-	name = "Gas mixer N2/O2";
-	on = 1
+/obj/machinery/atmospherics/components/trinary/filter{
+	dir = 4
+	},
+/obj/structure/prop/mainship/pipeprop/manifold{
+	dir = 1
 	},
 /turf/open/floor/mainship/orange,
 /area/mainship/hull/port_hull)
 "acP" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/machinery/meter,
+/obj/structure/prop/mainship/pipeprop{
 	dir = 10
 	},
-/obj/machinery/meter,
 /turf/open/floor/mainship/orange,
 /area/mainship/hull/port_hull)
 "acQ" = (
 /turf/open/floor/mainship/orange,
 /area/mainship/hull/port_hull)
 "acR" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible,
+/obj/structure/prop/mainship/pipeprop,
 /turf/open/floor/mainship/orange,
 /area/mainship/hull/port_hull)
 "acS" = (
@@ -8184,7 +8185,7 @@
 /obj/machinery/door/poddoor/mainship/open{
 	dir = 2;
 	id = "CIC Lockdown";
-	name = "\improper Combat Information Center Blast Door";
+	name = "\improper Combat Information Center Blast Door"
 	},
 /obj/machinery/door/firedoor/mainship{
 	dir = 2
@@ -9968,10 +9969,10 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/hallways/repair_bay)
 "fLo" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/machinery/meter,
+/obj/structure/prop/mainship/pipeprop{
 	dir = 6
 	},
-/obj/machinery/meter,
 /turf/open/floor/mainship/orange,
 /area/mainship/hull/port_hull)
 "fLQ" = (
@@ -11996,7 +11997,7 @@
 /area/mainship/hallways/bow_hallway)
 "jjN" = (
 /obj/effect/attach_point/weapon/dropship1{
-	dir = 8;
+	dir = 8
 	},
 /turf/open/floor/plating/icefloor/warnplate{
 	dir = 8
@@ -13188,7 +13189,7 @@
 "lto" = (
 /obj/machinery/door/poddoor/mainship/open{
 	id = "CIC Lockdown";
-	name = "\improper Combat Information Center Blast Door";
+	name = "\improper Combat Information Center Blast Door"
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
@@ -13838,6 +13839,11 @@
 	dir = 8
 	},
 /area/mainship/command/cic)
+"mwy" = (
+/obj/structure/window/framed/mainship/requisitions,
+/obj/structure/prop/mainship/pipeprop,
+/turf/open/floor/plating,
+/area/mainship/hull/port_hull)
 "mwW" = (
 /obj/structure/cable,
 /obj/machinery/light/mainship{
@@ -14167,7 +14173,7 @@
 /obj/machinery/door/poddoor/mainship/open{
 	dir = 2;
 	id = "Brig Lockdown";
-	name = "\improper Brig Lockdown Podlocks";
+	name = "\improper Brig Lockdown Podlocks"
 	},
 /turf/open/floor/plating,
 /area/mainship/living/tankerbunks)
@@ -15892,7 +15898,7 @@
 "pTq" = (
 /obj/machinery/door/poddoor/mainship/open{
 	id = "CIC Lockdown";
-	name = "\improper Combat Information Center Blast Door";
+	name = "\improper Combat Information Center Blast Door"
 	},
 /obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
@@ -17000,7 +17006,7 @@
 /obj/structure/window/framed/mainship/requisitions,
 /obj/machinery/door/poddoor/mainship/open{
 	id = "CIC Lockdown";
-	name = "\improper Combat Information Center Blast Door";
+	name = "\improper Combat Information Center Blast Door"
 	},
 /obj/machinery/door/firedoor/mainship,
 /turf/open/floor/plating,
@@ -19848,7 +19854,7 @@
 /area/space)
 "wQl" = (
 /turf/open/floor/plating/icefloor/warnplate/corner{
-	dir = 4;
+	dir = 4
 	},
 /area/mainship/hallways/hangar)
 "wQK" = (
@@ -19895,7 +19901,7 @@
 /area/space)
 "wVm" = (
 /turf/open/floor/plating/icefloor/warnplate/corner{
-	dir = 8;
+	dir = 8
 	},
 /area/mainship/hallways/hangar)
 "wVv" = (
@@ -74149,7 +74155,7 @@ jFy
 aVs
 acC
 fLo
-adb
+mwy
 vPj
 aVk
 aaa
@@ -75434,7 +75440,7 @@ jFy
 aVs
 acF
 acP
-adb
+mwy
 adi
 aVk
 aaa
@@ -75948,7 +75954,7 @@ kbS
 aVs
 acI
 acR
-adb
+mwy
 adj
 aVk
 aaa

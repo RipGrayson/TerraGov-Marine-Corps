@@ -1047,12 +1047,12 @@
 /turf/open/floor/mainship,
 /area/mainship/squads/general)
 "cZ" = (
-/obj/machinery/atmospherics/components/binary/valve/digital/on{
-	dir = 4
-	},
 /obj/effect/ai_node,
 /obj/machinery/camera/autoname/mainship{
 	dir = 1
+	},
+/obj/structure/prop/mainship/pipeprop{
+	dir = 4
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/port_atmos)
@@ -1429,8 +1429,10 @@
 /turf/open/floor/mainship/black,
 /area/mainship/squads/general)
 "ed" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible,
 /obj/structure/window/framed/mainship/hull,
+/obj/structure/prop/mainship/pipeprop{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/mainship/engineering/port_atmos)
 "ee" = (
@@ -1869,6 +1871,9 @@
 /obj/machinery/atmospherics/components/trinary/mixer{
 	dir = 4;
 	on = 1
+	},
+/obj/structure/prop/mainship/pipeprop/manifold{
+	dir = 1
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/port_atmos)
@@ -4995,7 +5000,9 @@
 /area/mainship/living/grunt_rnr)
 "om" = (
 /obj/structure/window/framed/mainship/requisitions,
-/obj/effect/mapping_helpers/simple_pipes/general/visible/layer1,
+/obj/structure/prop/mainship/pipeprop{
+	dir = 1
+	},
 /turf/open/floor/plating,
 /area/mainship/engineering/port_atmos)
 "on" = (
@@ -6226,12 +6233,6 @@
 	dir = 1
 	},
 /area/mainship/medical/operating_room_two)
-"rM" = (
-/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/living/bridgebunks)
 "rN" = (
 /turf/open/floor/mainship/green{
 	dir = 8
@@ -6750,13 +6751,13 @@
 	},
 /area/mainship/living/briefing)
 "tn" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
-	dir = 6
-	},
-/obj/machinery/meter,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
+/obj/structure/prop/mainship/pipeprop{
+	dir = 6
+	},
+/obj/structure/prop/mainship/meterprop/random,
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/port_atmos)
 "to" = (
@@ -7761,10 +7762,10 @@
 	},
 /area/mainship/medical/lower_medical)
 "vU" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 10
 	},
-/obj/machinery/meter,
+/obj/structure/prop/mainship/meterprop/random,
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/port_atmos)
 "vV" = (
@@ -14434,10 +14435,10 @@
 	},
 /area/mainship/hallways/hangar)
 "OT" = (
-/obj/machinery/meter,
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 6
 	},
+/obj/structure/prop/mainship/meterprop/random,
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/port_atmos)
 "OU" = (
@@ -15633,11 +15634,11 @@
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/airoom)
 "Sn" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
-	dir = 4
-	},
 /obj/structure/disposalpipe/segment/corner{
 	dir = 8
+	},
+/obj/structure/prop/mainship/pipeprop{
+	dir = 4
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/port_atmos)
@@ -15935,7 +15936,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/lower_hull)
 "Tc" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -16550,10 +16551,10 @@
 	},
 /area/mainship/living/briefing)
 "UJ" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/effect/ai_node,
+/obj/structure/prop/mainship/pipeprop{
 	dir = 10
 	},
-/obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/port_atmos)
 "UK" = (
@@ -42068,7 +42069,7 @@ DA
 Nj
 sh
 fs
-jB
+om
 lg
 XD
 Ci
@@ -42582,7 +42583,7 @@ jK
 Nj
 xj
 vU
-jB
+om
 bG
 XD
 Ci
@@ -43593,7 +43594,7 @@ an
 pp
 QQ
 Fx
-rM
+Xe
 Rv
 vv
 VA
@@ -44381,7 +44382,7 @@ sP
 Nj
 je
 UJ
-jB
+om
 lg
 XD
 Ci

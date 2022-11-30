@@ -406,7 +406,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "kQ" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 5
 	},
 /turf/open/floor/tile/white,
@@ -598,7 +598,7 @@
 	},
 /area/bigredv2/outside/medical)
 "qN" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 9
 	},
 /turf/open/floor/tile/blue/whitebluefull,
@@ -1173,7 +1173,7 @@
 	},
 /area/bigredv2/outside/medical)
 "EZ" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible,
+/obj/structure/prop/mainship/pipeprop/manifold,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "Fb" = (
@@ -1184,11 +1184,6 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/ai_node,
-/turf/open/floor/tile/white,
-/area/bigredv2/outside/medical)
-"Ff" = (
-/obj/effect/mapping_helpers/simple_pipes/green/hidden,
-/obj/structure/cable,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "Fg" = (
@@ -2700,7 +2695,7 @@ ek
 qH
 hn
 hp
-Ff
+ZM
 hL
 ZD
 DQ

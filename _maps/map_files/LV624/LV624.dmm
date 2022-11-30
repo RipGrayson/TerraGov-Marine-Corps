@@ -4207,11 +4207,6 @@
 	dir = 5
 	},
 /area/lv624/lazarus/research)
-"cBb" = (
-/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
-/obj/structure/cable,
-/turf/open/floor/tile/bar,
-/area/lv624/lazarus/canteen)
 "cBi" = (
 /obj/effect/decal/remains/human,
 /turf/open/floor/plating,
@@ -4283,10 +4278,6 @@
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
-"cGa" = (
-/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/compound/n)
 "cGS" = (
 /obj/structure/sink,
 /obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
@@ -5591,12 +5582,6 @@
 	dir = 9
 	},
 /area/lv624/lazarus/sleep_female)
-"ecj" = (
-/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
-/obj/structure/cable,
-/obj/effect/ai_node,
-/turf/open/floor/plating/ground/dirt,
-/area/lv624/ground/jungle10)
 "edi" = (
 /obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
@@ -7075,15 +7060,6 @@
 /obj/structure/jungle/vines,
 /turf/closed/wall,
 /area/lv624/ground/jungle3)
-"fXp" = (
-/obj/structure/barricade/wooden{
-	dir = 1
-	},
-/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/tile/white,
-/area/lv624/lazarus/main_hall)
 "fXu" = (
 /obj/effect/decal/remains/human,
 /turf/open/floor/plating/ground/dirt,
@@ -8915,12 +8891,6 @@
 	},
 /turf/open/floor/freezer,
 /area/lv624/lazarus/toilet)
-"ieH" = (
-/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/tile/white,
-/area/lv624/lazarus/main_hall)
 "ieJ" = (
 /obj/structure/flora/ausbushes/leafybush,
 /obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
@@ -10406,7 +10376,7 @@
 /area/lv624/ground/jungle1)
 "jRU" = (
 /obj/effect/attach_point/weapon/dropship1{
-	dir = 8;
+	dir = 8
 	},
 /turf/open/floor/plating/icefloor/warnplate{
 	dir = 8
@@ -16547,14 +16517,6 @@
 "rdX" = (
 /turf/open/ground/coast,
 /area/lv624/ground/jungle9)
-"reF" = (
-/obj/structure/cable,
-/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
-/obj/effect/ai_node,
-/turf/open/floor/tile/purple/whitepurplecorner{
-	dir = 4
-	},
-/area/lv624/lazarus/fitness)
 "reH" = (
 /obj/item/tool/shovel,
 /turf/open/floor/tile/green/greentaupe{
@@ -18239,6 +18201,8 @@
 	dir = 1;
 	name = "\improper Leisure Dome"
 	},
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/structure/cable,
 /turf/open/floor/tile/purple/whitepurple{
 	dir = 5
 	},
@@ -18963,15 +18927,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central4)
-"tUl" = (
-/obj/structure/bed/chair/wood/normal{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
-	dir = 4
-	},
-/turf/open/floor/cult/clock,
-/area/lv624/lazarus/bar)
 "tUt" = (
 /obj/structure/window/framed/colony,
 /turf/open/floor/tile/vault{
@@ -26702,13 +26657,13 @@ jqp
 gew
 jqp
 xNR
-tUl
+wkG
 xNR
 lDf
 rxW
 aRD
 mmx
-ecj
+hic
 xLz
 xLz
 qpS
@@ -44921,7 +44876,7 @@ vCy
 vCy
 vCy
 vCy
-cGa
+nOY
 exl
 uYP
 rdh
@@ -46514,7 +46469,7 @@ fhs
 nOY
 nOY
 nOY
-cGa
+nOY
 exl
 uYP
 uYP
@@ -47412,7 +47367,7 @@ qZD
 rXm
 aJp
 kDA
-reF
+rXm
 kDA
 kDA
 aJp
@@ -51661,7 +51616,7 @@ vCy
 vCy
 vCy
 vCy
-fXp
+pTs
 wjy
 urg
 wjy
@@ -51873,7 +51828,7 @@ lno
 rNJ
 jij
 wRN
-ieH
+rnr
 tHL
 dLJ
 eMv
@@ -53632,7 +53587,7 @@ sqy
 qSG
 wFW
 fwI
-cBb
+fwI
 fdF
 ruA
 fPN

@@ -22,8 +22,8 @@
 	},
 /area/lv624/lazarus/medbay)
 "cQ" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
-	dir = 4
+/obj/structure/prop/mainship/pipeprop{
+	dir = 9
 	},
 /turf/open/floor/tile/blue/whitebluecorner{
 	dir = 2
@@ -128,7 +128,7 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/medbay)
 "pi" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible,
+/obj/structure/prop/mainship/pipeprop/manifold,
 /turf/open/floor/tile/blue/whitebluecorner{
 	dir = 2
 	},
@@ -183,7 +183,7 @@
 /obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "OR2";
-	name = "\improper Shutters";
+	name = "\improper Shutters"
 	},
 /turf/open/floor/tile/blue/whitebluecorner{
 	dir = 2
@@ -255,7 +255,7 @@
 /obj/machinery/door/poddoor/shutters/mainship/open{
 	dir = 2;
 	id = "OR2";
-	name = "\improper Shutters";
+	name = "\improper Shutters"
 	},
 /turf/open/floor/plating,
 /area/lv624/lazarus/medbay)
@@ -635,7 +635,7 @@
 	},
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 5
 	},
 /turf/open/floor/tile/blue/whitebluecorner{

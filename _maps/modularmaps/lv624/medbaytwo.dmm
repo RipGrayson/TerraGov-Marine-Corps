@@ -52,6 +52,7 @@
 /area/lv624/lazarus/medbay)
 "eq" = (
 /obj/machinery/atmospherics/components/unary/cryo_cell,
+/obj/structure/prop/mainship/pipeprop,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/lv624/lazarus/medbay)
 "fr" = (
@@ -71,7 +72,7 @@
 	},
 /area/lv624/lazarus/medbay)
 "gO" = (
-/obj/machinery/atmospherics/pipe/simple,
+/obj/structure/prop/mainship/pipeprop,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/medbay)
 "hI" = (
@@ -298,7 +299,7 @@
 	},
 /area/lv624/lazarus/medbay)
 "yH" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 5
 	},
 /turf/open/floor/tile/blue/whitebluecorner{
@@ -314,7 +315,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/lv624/lazarus/medbay)
 "zj" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible,
+/obj/structure/prop/mainship/pipeprop/manifold,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/medbay)
 "zF" = (
@@ -388,7 +389,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/lv624/lazarus/medbay)
 "Jy" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop/manifold{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whitebluecorner{

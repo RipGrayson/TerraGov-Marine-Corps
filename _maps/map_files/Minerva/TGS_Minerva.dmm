@@ -329,16 +329,6 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/port_hull)
-"aW" = (
-/obj/structure/cable,
-/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
-	dir = 4
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/hallways/hangar)
 "aX" = (
 /obj/structure/sign/securearea,
 /turf/closed/wall/mainship,
@@ -552,12 +542,6 @@
 	dir = 2
 	},
 /turf/open/floor/plating,
-/area/mainship/hallways/hangar)
-"bw" = (
-/obj/structure/cable,
-/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
-/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
-/turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/hangar)
 "by" = (
 /turf/open/floor/plating/plating_catwalk,
@@ -1001,12 +985,6 @@
 /obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/hangar)
-"cL" = (
-/obj/structure/cable,
-/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
-/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/hallways/starboard_hallway)
 "cM" = (
 /obj/structure/cable,
 /obj/structure/cable,
@@ -2128,17 +2106,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/starboard_hull)
-"ga" = (
-/obj/structure/cable,
-/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
-	dir = 4
-	},
-/obj/effect/ai_node,
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/hull/port_hull)
 "gb" = (
 /obj/structure/cable,
 /obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
@@ -3213,7 +3180,7 @@
 /turf/closed/wall/mainship,
 /area/mainship/hallways/hangar)
 "jc" = (
-/obj/machinery/atmospherics/pipe/manifold/cyan/visible{
+/obj/structure/prop/mainship/pipeprop/manifold{
 	dir = 1
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -5241,7 +5208,7 @@
 	},
 /area/mainship/living/briefing)
 "pj" = (
-/obj/effect/mapping_helpers/simple_pipes/cyan/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 10
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -6860,14 +6827,6 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/starboard_hull)
-"uv" = (
-/obj/structure/cable,
-/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
-/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
-/obj/structure/disposalpipe/segment,
-/obj/effect/ai_node,
-/turf/open/floor/plating/plating_catwalk,
-/area/mainship/squads/general)
 "uw" = (
 /obj/machinery/door/airlock/mainship/marine/general/sl,
 /turf/open/floor/mainship/mono,
@@ -7355,7 +7314,7 @@
 	},
 /area/mainship/medical/lower_medical)
 "vK" = (
-/obj/effect/mapping_helpers/simple_pipes/cyan/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -7366,7 +7325,7 @@
 /obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
-/obj/effect/mapping_helpers/simple_pipes/cyan/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -7639,15 +7598,15 @@
 /obj/machinery/atmospherics/components/unary/tank/oxygen{
 	pixel_x = -6
 	},
-/obj/effect/mapping_helpers/simple_pipes/cyan/visible{
-	dir = 8
+/obj/structure/prop/mainship/pipeprop{
+	dir = 4
 	},
 /turf/open/floor/mainship/sterile/side{
 	dir = 8
 	},
 /area/mainship/medical/lower_medical)
 "wz" = (
-/obj/effect/mapping_helpers/simple_pipes/cyan/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 9
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -9229,7 +9188,7 @@
 /area/mainship/living/pilotbunks)
 "AU" = (
 /obj/effect/attach_point/weapon/dropship2{
-	dir = 8;
+	dir = 8
 	},
 /turf/open/floor/plating,
 /area/mainship/hallways/hangar)
@@ -9250,7 +9209,7 @@
 /area/mainship/command/self_destruct)
 "AY" = (
 /obj/effect/attach_point/weapon/dropship2{
-	dir = 4;
+	dir = 4
 	},
 /turf/open/floor/plating,
 /area/mainship/hallways/hangar)
@@ -10463,13 +10422,6 @@
 /turf/open/floor/mainship/orange{
 	dir = 5
 	},
-/area/mainship/hull/port_hull)
-"EL" = (
-/obj/structure/cable,
-/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
-/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
-/obj/effect/ai_node,
-/turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/port_hull)
 "EM" = (
 /turf/closed/wall/mainship,
@@ -12308,7 +12260,7 @@
 /area/mainship/living/bridgebunks)
 "JZ" = (
 /turf/closed/shuttle/ert/engines/right{
-	dir = 1;
+	dir = 1
 	},
 /area/space)
 "Ka" = (
@@ -12814,7 +12766,7 @@
 /area/mainship/living/numbertwobunks)
 "LB" = (
 /obj/effect/attach_point/weapon/dropship1{
-	dir = 8;
+	dir = 8
 	},
 /turf/open/floor/plating/icefloor/warnplate{
 	dir = 8
@@ -14716,7 +14668,7 @@
 /area/mainship/engineering/engineering_workshop)
 "Rb" = (
 /turf/closed/shuttle/ert/engines/left{
-	dir = 1;
+	dir = 1
 	},
 /area/space)
 "Rc" = (
@@ -14968,7 +14920,7 @@
 /area/mainship/living/tankerbunks)
 "RQ" = (
 /turf/open/floor/plating/icefloor/warnplate/corner{
-	dir = 4;
+	dir = 4
 	},
 /area/mainship/hallways/hangar)
 "RR" = (
@@ -14990,7 +14942,7 @@
 /area/mainship/living/grunt_rnr)
 "RU" = (
 /turf/open/floor/plating/icefloor/warnplate/corner{
-	dir = 8;
+	dir = 8
 	},
 /area/mainship/hallways/hangar)
 "RV" = (
@@ -19123,7 +19075,7 @@ bs
 bD
 bD
 bD
-EL
+ZZ
 bs
 bD
 bD
@@ -19131,7 +19083,7 @@ bD
 bD
 bs
 bD
-EL
+ZZ
 LV
 bD
 bD
@@ -19831,7 +19783,7 @@ nT
 Wa
 Ye
 LX
-ga
+gb
 fD
 XE
 hr
@@ -19980,7 +19932,7 @@ XE
 XE
 XE
 va
-ga
+gb
 gP
 ht
 ht
@@ -21930,7 +21882,7 @@ dQ
 bY
 eB
 av
-aW
+Ow
 OS
 VC
 NA
@@ -22223,7 +22175,7 @@ an
 az
 dP
 cW
-aW
+Ow
 aZ
 VC
 VC
@@ -22419,7 +22371,7 @@ AR
 mR
 aj
 eC
-aW
+Ow
 ba
 NA
 NA
@@ -22519,9 +22471,9 @@ aj
 eC
 aC
 bb
-bw
-bw
-bw
+cK
+cK
+cK
 fS
 VC
 OS
@@ -22620,7 +22572,7 @@ aZ
 VC
 VC
 VC
-aW
+Ow
 VC
 OS
 OS
@@ -22713,12 +22665,12 @@ ag
 dV
 dV
 VC
-aW
+Ow
 aZ
 VC
 VC
 VC
-aW
+Ow
 VC
 Cd
 MF
@@ -22816,7 +22768,7 @@ OS
 OS
 bP
 cC
-aW
+Ow
 VC
 OS
 OS
@@ -22914,7 +22866,7 @@ bc
 OS
 bQ
 cD
-aW
+Ow
 jq
 OS
 ff
@@ -23012,7 +22964,7 @@ hT
 OS
 bT
 Ss
-aW
+Ow
 VC
 OS
 mR
@@ -23110,7 +23062,7 @@ sR
 QM
 bU
 VC
-aW
+Ow
 VC
 OS
 iE
@@ -23132,7 +23084,7 @@ kq
 kq
 tT
 uX
-jc
+vK
 jt
 xJ
 yy
@@ -23208,7 +23160,7 @@ ID
 QM
 eR
 cD
-aW
+Ow
 VC
 OS
 jv
@@ -23306,7 +23258,7 @@ EH
 QM
 bW
 cE
-aW
+Ow
 VC
 OS
 jw
@@ -23404,7 +23356,7 @@ ID
 Hr
 VC
 VC
-aW
+Ow
 VC
 OS
 Dy
@@ -23413,7 +23365,7 @@ cD
 Dy
 OS
 VC
-aW
+Ow
 VC
 kt
 rT
@@ -23502,7 +23454,7 @@ ID
 Hr
 VC
 VC
-aW
+Ow
 VC
 OS
 pe
@@ -23511,7 +23463,7 @@ cD
 pe
 OS
 VC
-aW
+Ow
 VC
 kt
 lh
@@ -23600,7 +23552,7 @@ ID
 Hr
 VC
 VC
-aW
+Ow
 VC
 OS
 qR
@@ -23609,7 +23561,7 @@ VC
 tZ
 OS
 VC
-aW
+Ow
 VC
 kt
 tx
@@ -23698,7 +23650,7 @@ ID
 Hr
 VC
 VC
-aW
+Ow
 jq
 OS
 pe
@@ -23707,7 +23659,7 @@ VC
 wI
 OS
 bO
-aW
+Ow
 jo
 kt
 CV
@@ -23796,7 +23748,7 @@ ID
 Hr
 VC
 VC
-aW
+Ow
 iB
 OS
 sl
@@ -23805,7 +23757,7 @@ sl
 sl
 OS
 VC
-aW
+Ow
 jq
 kt
 kt
@@ -23894,7 +23846,7 @@ bf
 Hr
 VC
 VC
-aW
+Ow
 VC
 VC
 VC
@@ -23903,7 +23855,7 @@ VC
 VC
 xP
 VC
-aW
+Ow
 VC
 dt
 VC
@@ -23993,14 +23945,14 @@ Bb
 bX
 Ry
 gn
-bw
-bw
-bw
-bw
+cK
+cK
+cK
+cK
 BK
-bw
-bw
-bw
+cK
+cK
+cK
 vo
 Or
 je
@@ -24108,12 +24060,12 @@ ey
 ey
 Hq
 VC
-aW
+Ow
 VC
 VC
 VC
 VC
-aW
+Ow
 VC
 Vi
 ey
@@ -24206,12 +24158,12 @@ ez
 ez
 Kx
 iF
-aW
+Ow
 VC
 tW
 tW
 VC
-aW
+Ow
 iF
 is
 ez
@@ -25186,12 +25138,12 @@ ez
 ez
 Kx
 mp
-aW
+Ow
 VC
 Pu
 VC
 VC
-aW
+Ow
 mp
 is
 ez
@@ -25284,12 +25236,12 @@ eA
 eA
 Oi
 VC
-aW
+Ow
 VC
 VC
 VC
 VC
-aW
+Ow
 VC
 Wr
 eA
@@ -25365,45 +25317,45 @@ Bb
 bX
 cK
 ic
-bw
-bw
-bw
-bw
+cK
+cK
+cK
+cK
 BK
-bw
-bw
-bw
-bw
-bw
+cK
+cK
+cK
+cK
+cK
 pK
 Bw
-bw
-bw
-bw
+cK
+cK
+cK
 BK
-bw
+cK
 Ow
 Al
-bw
-bw
-bw
+cK
+cK
+cK
 Vg
-bw
+cK
 BK
-bw
-bw
+cK
+cK
 Ry
-bw
-bw
-bw
+cK
+cK
+cK
 BK
-bw
+cK
 Wp
 Wp
-bw
-bw
-bw
-bw
+cK
+cK
+cK
+cK
 Mn
 js
 js
@@ -25473,7 +25425,7 @@ VC
 VC
 VC
 VC
-aW
+Ow
 VC
 VC
 VC
@@ -25490,7 +25442,7 @@ ey
 ey
 Hq
 Cj
-aW
+Ow
 VC
 VC
 VC
@@ -25588,7 +25540,7 @@ hu
 hu
 Kx
 Cj
-aW
+Ow
 Nf
 qB
 Jx
@@ -25686,7 +25638,7 @@ WF
 hu
 Kx
 Cj
-aW
+Ow
 wK
 Cg
 pi
@@ -25784,7 +25736,7 @@ em
 hu
 Kx
 Cj
-aW
+Ow
 dM
 Cg
 zD
@@ -25882,7 +25834,7 @@ hu
 hu
 Kx
 Cj
-aW
+Ow
 nJ
 vx
 bm
@@ -25980,7 +25932,7 @@ Jf
 CZ
 Kx
 Cj
-aW
+Ow
 nJ
 Ci
 Ci
@@ -26078,7 +26030,7 @@ hu
 hu
 Kx
 Cj
-aW
+Ow
 nJ
 Ci
 Fc
@@ -26147,7 +26099,7 @@ Hr
 ID
 QM
 bO
-aW
+Ow
 VC
 dz
 mA
@@ -26176,7 +26128,7 @@ eA
 eA
 Oi
 Cj
-aW
+Ow
 nJ
 Ci
 Ci
@@ -26931,7 +26883,7 @@ aM
 bq
 Ec
 Ec
-cL
+En
 Jo
 dA
 ea
@@ -28716,7 +28668,7 @@ qe
 rn
 st
 st
-uv
+yM
 st
 st
 st

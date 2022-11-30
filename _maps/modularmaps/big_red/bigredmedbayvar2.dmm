@@ -273,11 +273,6 @@
 	dir = 10
 	},
 /area/bigredv2/outside/medical)
-"jE" = (
-/obj/effect/mapping_helpers/simple_pipes/green/hidden,
-/obj/structure/cable,
-/turf/open/floor/tile/white,
-/area/bigredv2/outside/medical)
 "kl" = (
 /obj/machinery/atmospherics/components/unary/vent_pump{
 	dir = 8;
@@ -461,7 +456,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "qk" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible,
+/obj/structure/prop/mainship/pipeprop/manifold,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "qG" = (
@@ -1601,7 +1596,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "QZ" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 9
 	},
 /turf/open/floor/tile/blue/whitebluefull,
@@ -1741,7 +1736,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "Uq" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 5
 	},
 /turf/open/floor/tile/white,
@@ -2258,7 +2253,7 @@ ty
 Pn
 ty
 Hz
-jE
+lN
 Wh
 CK
 yC
@@ -2308,7 +2303,7 @@ DL
 Or
 yB
 ab
-jE
+lN
 Le
 IH
 CK
@@ -2538,7 +2533,7 @@ DV
 tT
 VP
 Oq
-jE
+lN
 sX
 Le
 Le
@@ -2599,7 +2594,7 @@ BM
 QN
 aB
 aB
-jE
+lN
 Le
 wX
 Mf
@@ -2745,7 +2740,7 @@ lN
 vA
 OL
 aN
-jE
+lN
 Mf
 IH
 mN

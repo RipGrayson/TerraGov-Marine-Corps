@@ -460,7 +460,7 @@
 	},
 /area/bigredv2/outside/medical)
 "mo" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 5
 	},
 /turf/open/floor/tile/white,
@@ -803,11 +803,6 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/medical)
-"vI" = (
-/obj/effect/mapping_helpers/simple_pipes/green/hidden,
-/obj/structure/cable,
-/turf/open/floor/tile/white,
-/area/bigredv2/outside/medical)
 "vW" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/corpsespawner/doctor,
@@ -993,7 +988,7 @@
 	},
 /area/bigredv2/outside/medical)
 "Br" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible,
+/obj/structure/prop/mainship/pipeprop/manifold,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "Bs" = (
@@ -1627,7 +1622,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "Qw" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 9
 	},
 /turf/open/floor/tile/blue/whitebluefull,
@@ -2265,7 +2260,7 @@ Lc
 dd
 Lc
 SX
-vI
+HC
 cZ
 rP
 tO
@@ -2315,7 +2310,7 @@ QL
 Gv
 lV
 FM
-vI
+HC
 oz
 Yh
 rP
@@ -2545,7 +2540,7 @@ Mf
 tn
 eg
 Di
-vI
+HC
 qk
 oz
 oz
@@ -2606,7 +2601,7 @@ Pn
 zD
 Vd
 Tj
-vI
+HC
 oz
 GT
 tn
@@ -2752,7 +2747,7 @@ HC
 Ga
 Qu
 Ao
-vI
+HC
 tn
 Yh
 Jx

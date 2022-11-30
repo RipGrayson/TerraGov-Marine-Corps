@@ -480,7 +480,7 @@
 /turf/open/floor/tile/green/whitegreen,
 /area/bigredv2/outside/medical)
 "jE" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible,
+/obj/structure/prop/mainship/pipeprop/manifold,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "jI" = (
@@ -688,7 +688,7 @@
 	},
 /area/bigredv2/outside/medical)
 "ng" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible,
+/obj/structure/prop/mainship/pipeprop/manifold,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
@@ -1121,7 +1121,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "xP" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 9
 	},
 /turf/open/floor/tile/blue/whitebluefull,
@@ -2050,7 +2050,7 @@
 	},
 /area/bigredv2/outside/medical)
 "Qo" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 5
 	},
 /turf/open/floor/tile/white,

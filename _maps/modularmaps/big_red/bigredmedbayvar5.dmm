@@ -1,9 +1,4 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
-"ak" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible,
-/obj/effect/decal/cleanable/dirt,
-/turf/open/floor/tile/blue/whitebluefull,
-/area/bigredv2/outside/medical)
 "ar" = (
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
@@ -98,8 +93,8 @@
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/medical)
 "cJ" = (
+/obj/effect/ai_node,
 /obj/effect/mapping_helpers/simple_pipes/green/hidden,
-/obj/structure/cable,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "cM" = (
@@ -214,10 +209,7 @@
 /area/bigredv2/outside/medical)
 "gi" = (
 /obj/effect/decal/cleanable/blood,
-/obj/effect/mapping_helpers/simple_pipes/green/hidden{
-	dir = 4
-	},
-/obj/effect/mapping_helpers/simple_pipes/general/visible,
+/obj/structure/prop/mainship/pipeprop,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "gj" = (
@@ -389,14 +381,6 @@
 	},
 /obj/effect/ai_node,
 /turf/open/floor/tile/white,
-/area/bigredv2/outside/medical)
-"kX" = (
-/obj/structure/table,
-/obj/effect/spawner/random/bomb_supply,
-/obj/effect/spawner/random/bomb_supply,
-/turf/open/floor/tile/blue/whiteblue{
-	dir = 9
-	},
 /area/bigredv2/outside/medical)
 "lb" = (
 /turf/open/floor/tile/green/whitegreen{
@@ -702,7 +686,7 @@
 	},
 /area/bigredv2/outside/medical)
 "rx" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible,
+/obj/structure/prop/mainship/pipeprop/manifold,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "rJ" = (
@@ -723,9 +707,6 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "sa" = (
-/obj/effect/mapping_helpers/simple_pipes/green/hidden{
-	dir = 4
-	},
 /obj/effect/landmark/weed_node,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/blue/whitebluefull,
@@ -777,7 +758,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/medical)
 "tU" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 5
 	},
 /turf/open/floor/tile/white,
@@ -826,9 +807,10 @@
 /turf/open/floor/tile/green/whitegreencorner,
 /area/bigredv2/outside/medical)
 "vk" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
-	dir = 4
+/obj/structure/prop/mainship/pipeprop{
+	dir = 9
 	},
+/obj/structure/prop/mainship/pipeprop,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "vl" = (
@@ -843,6 +825,7 @@
 /area/bigredv2/outside/medical)
 "vV" = (
 /obj/structure/bed/roller,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 8
 	},
@@ -1111,10 +1094,10 @@
 	},
 /area/bigredv2/outside/medical)
 "DT" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/effect/decal/cleanable/dirt,
+/obj/structure/prop/mainship/pipeprop/manifold{
 	dir = 8
 	},
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "Et" = (
@@ -1175,7 +1158,7 @@
 	},
 /area/bigredv2/outside/medical)
 "FQ" = (
-/obj/effect/mapping_helpers/simple_pipes/general/visible{
+/obj/structure/prop/mainship/pipeprop{
 	dir = 5
 	},
 /turf/open/floor/tile/blue/whitebluefull,
@@ -1216,14 +1199,6 @@
 "GZ" = (
 /obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/blood,
-/turf/open/floor/tile/white,
-/area/bigredv2/outside/medical)
-"Hb" = (
-/obj/effect/mapping_helpers/simple_pipes/green/hidden{
-	dir = 4
-	},
-/obj/effect/landmark/weed_node,
-/obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "Hf" = (
@@ -2055,7 +2030,7 @@ Yn
 lv
 HT
 gj
-gL
+Id
 na
 oG
 IT
@@ -2083,7 +2058,7 @@ Zu
 Ko
 Uv
 fI
-gj
+cJ
 MO
 KD
 GW
@@ -2408,7 +2383,7 @@ KG
 "}
 (16,1,1) = {"
 Zl
-kX
+ZO
 xT
 HT
 HT
@@ -2466,7 +2441,7 @@ KG
 Zl
 da
 rx
-LD
+zP
 Uh
 HT
 gt
@@ -2493,8 +2468,8 @@ Us
 (19,1,1) = {"
 Zl
 IC
-ak
-uE
+rx
+Uh
 zP
 kU
 Zu
@@ -2550,7 +2525,7 @@ Us
 Zl
 UX
 HT
-Hb
+BW
 Rq
 Uu
 oG
@@ -2759,7 +2734,7 @@ oG
 Sn
 Cv
 oU
-cJ
+wd
 aL
 fI
 Af
