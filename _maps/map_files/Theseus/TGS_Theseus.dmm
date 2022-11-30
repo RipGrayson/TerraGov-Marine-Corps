@@ -10,26 +10,26 @@
 /area/mainship/shipboard/starboard_point_defense)
 "aad" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/alpha)
 "aae" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/alpha)
 "aaf" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -305,7 +305,7 @@
 	},
 /area/mainship/hull/starboard_hull)
 "abk" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/effect/mapping_helpers/simple_pipes/general/visible,
 /obj/structure/window/framed/mainship/requisitions,
 /turf/open/floor/plating,
 /area/mainship/hull/starboard_hull)
@@ -458,7 +458,7 @@
 /turf/open/floor/mainship/orange,
 /area/mainship/hull/starboard_hull)
 "abM" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/effect/mapping_helpers/simple_pipes/general/visible{
 	dir = 5
 	},
 /obj/machinery/meter,
@@ -474,7 +474,7 @@
 /area/mainship/hull/starboard_hull)
 "abO" = (
 /obj/structure/window/framed/mainship/hull,
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/effect/mapping_helpers/simple_pipes/general/visible{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -585,7 +585,7 @@
 /area/mainship/command/telecomms)
 "aci" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /turf/open/floor/mainship/mono,
@@ -612,13 +612,13 @@
 	},
 /area/mainship/squads/req)
 "acm" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/squads/req)
 "acn" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/req)
@@ -626,13 +626,13 @@
 /obj/machinery/door/firedoor/mainship{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/hallways/port_hallway)
 "acp" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/port_hallway)
@@ -683,10 +683,10 @@
 	},
 /area/mainship/hull/port_hull)
 "acB" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -702,7 +702,7 @@
 	},
 /area/mainship/hull/port_hull)
 "acD" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/mainship/floor,
@@ -721,7 +721,7 @@
 	output_tag = "oxygen_lower_out";
 	sensors = list("oxy_sensor" = "Tank")
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/orange{
@@ -737,7 +737,7 @@
 	output_tag = "nit_lower_out";
 	sensors = list("nit_sensor" = "Tank")
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/orange{
@@ -745,7 +745,7 @@
 	},
 /area/mainship/hull/port_hull)
 "acI" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/effect/mapping_helpers/simple_pipes/general/visible{
 	dir = 10
 	},
 /obj/machinery/meter,
@@ -765,7 +765,7 @@
 	},
 /area/mainship/hull/port_hull)
 "acN" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/effect/mapping_helpers/simple_pipes/general/visible{
 	dir = 4
 	},
 /turf/open/floor/mainship/orange,
@@ -779,7 +779,7 @@
 /turf/open/floor/mainship/orange,
 /area/mainship/hull/port_hull)
 "acP" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/effect/mapping_helpers/simple_pipes/general/visible{
 	dir = 10
 	},
 /obj/machinery/meter,
@@ -789,7 +789,7 @@
 /turf/open/floor/mainship/orange,
 /area/mainship/hull/port_hull)
 "acR" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/effect/mapping_helpers/simple_pipes/general/visible,
 /turf/open/floor/mainship/orange,
 /area/mainship/hull/port_hull)
 "acS" = (
@@ -817,7 +817,7 @@
 /turf/open/floor/mainship/cargo,
 /area/mainship/command/telecomms)
 "acX" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/mainship/purple{
@@ -825,7 +825,7 @@
 	},
 /area/mainship/squads/delta)
 "acY" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/roomba,
@@ -834,19 +834,19 @@
 	},
 /area/mainship/squads/delta)
 "acZ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/delta)
 "ada" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/purple{
@@ -854,7 +854,7 @@
 	},
 /area/mainship/squads/delta)
 "adb" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible,
+/obj/effect/mapping_helpers/simple_pipes/general/visible,
 /obj/structure/window/framed/mainship/requisitions,
 /turf/open/floor/plating,
 /area/mainship/hull/port_hull)
@@ -865,10 +865,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/starboard_umbilical)
 "add" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/machinery/holopad,
@@ -976,10 +976,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -1006,8 +1006,8 @@
 /area/mainship/shipboard/port_point_defense)
 "adu" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/starboard_hull)
 "adv" = (
@@ -1023,10 +1023,10 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -1238,9 +1238,9 @@
 	},
 /area/mainship/shipboard/port_point_defense)
 "ael" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/floor,
@@ -1248,8 +1248,8 @@
 "aey" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/floor,
 /area/mainship/hallways/bow_hallway)
 "aeB" = (
@@ -1338,7 +1338,7 @@
 	name = "\improper Extended Operations Bunks"
 	},
 /obj/machinery/door/firedoor/mainship,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -1347,7 +1347,7 @@
 /obj/machinery/door/firedoor/mainship{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/hallways/hangar)
 "alj" = (
@@ -1381,8 +1381,8 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/bow_hallway)
 "ann" = (
@@ -1664,8 +1664,8 @@
 	},
 /area/mainship/medical/medical_science)
 "avL" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
@@ -1819,10 +1819,10 @@
 "azl" = (
 /obj/machinery/door/airlock/mainship/engineering,
 /obj/machinery/door/firedoor/mainship,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -1830,10 +1830,10 @@
 /area/mainship/engineering/lower_engineering)
 "azR" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -1849,7 +1849,7 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/medical_science)
 "aAn" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
@@ -1866,7 +1866,7 @@
 /turf/open/floor/mainship/orange/corner,
 /area/mainship/hallways/hangar)
 "aAP" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/marine/requisitions{
@@ -1907,19 +1907,19 @@
 /area/mainship/command/self_destruct)
 "aCh" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/officer_study)
 "aCq" = (
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -2021,7 +2021,7 @@
 	name = "\improper Extended Operations Bunks"
 	},
 /obj/machinery/door/firedoor/mainship,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -2061,10 +2061,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -2111,10 +2111,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/side{
@@ -2125,10 +2125,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -2139,7 +2139,7 @@
 	dir = 2;
 	name = "\improper Engineering Workshop"
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/lower_engineering)
 "aLt" = (
@@ -2153,7 +2153,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/hull/starboard_hull)
 "aLI" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -2242,7 +2242,7 @@
 /area/mainship/squads/delta)
 "aRY" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/effect/ai_node,
@@ -2290,8 +2290,8 @@
 /area/mainship/hallways/hangar/droppod)
 "aUG" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment/corner{
@@ -2361,7 +2361,7 @@
 	},
 /area/mainship/hallways/hangar/droppod)
 "aWl" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/machinery/door/airlock/multi_tile/mainship/generic,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
@@ -2456,7 +2456,7 @@
 /area/mainship/hallways/starboard_hallway)
 "aXV" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -2521,8 +2521,8 @@
 /area/mainship/living/starboard_emb)
 "aZD" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/starboard_hull)
@@ -2534,11 +2534,11 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/door/firedoor/mainship,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -2550,7 +2550,7 @@
 /area/mainship/living/starboard_emb)
 "aZJ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/red/corner{
@@ -2565,13 +2565,13 @@
 /area/mainship/shipboard/firing_range)
 "aZL" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/hallways/starboard_hallway)
 "aZM" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -2583,7 +2583,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/alpha)
 "aZR" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/red{
 	dir = 4
 	},
@@ -2602,8 +2602,8 @@
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/telecomms)
 "baB" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
@@ -2639,7 +2639,7 @@
 	},
 /area/mainship/shipboard/firing_range)
 "baU" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engineering)
 "baV" = (
@@ -2720,13 +2720,13 @@
 /area/mainship/living/commandbunks)
 "bbR" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -2852,10 +2852,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -2919,7 +2919,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/shipboard/firing_range)
 "bei" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /obj/effect/ai_node,
@@ -3013,7 +3013,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/alpha)
 "bfO" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -3053,7 +3053,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/commandbunks)
 "bgw" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/floor,
 /area/mainship/living/basketball)
 "bgx" = (
@@ -3065,9 +3065,9 @@
 /turf/open/floor/carpet/side,
 /area/mainship/living/commandbunks)
 "bgF" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 10
 	},
 /obj/structure/disposalpipe/junction,
@@ -3080,7 +3080,7 @@
 	},
 /area/mainship/living/starboard_emb)
 "bgT" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /turf/open/floor/mainship/red{
@@ -3172,9 +3172,9 @@
 	},
 /area/mainship/hallways/starboard_hallway)
 "bhB" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/starboard_hallway)
@@ -3262,15 +3262,15 @@
 /area/mainship/squads/alpha)
 "biy" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/holopad,
 /turf/open/floor/mainship/floor,
 /area/mainship/living/basketball)
 "biB" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/mainship/red{
 	dir = 4
@@ -3300,10 +3300,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3312,8 +3312,8 @@
 "bjm" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/red{
 	dir = 4
 	},
@@ -3346,10 +3346,10 @@
 /obj/machinery/holosign/surgery{
 	id = "or1sign"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -3359,10 +3359,10 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/hallways/hangar)
 "bjM" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3373,10 +3373,10 @@
 /turf/open/floor/mainship/orange,
 /area/mainship/squads/alpha)
 "bjU" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -3389,20 +3389,20 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/starboard_hallway)
 "bjX" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3413,10 +3413,10 @@
 /area/mainship/hallways/starboard_hallway)
 "bjY" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/disposalpipe/junction/flipped{
@@ -3450,7 +3450,7 @@
 /area/mainship/living/starboard_emb)
 "bkd" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/lower_medical)
 "bke" = (
@@ -3458,10 +3458,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/starboard_hallway)
 "bkf" = (
@@ -3476,10 +3476,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/alpha)
 "bkh" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3493,10 +3493,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3506,10 +3506,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3521,9 +3521,9 @@
 /obj/structure/disposalpipe/junction/flipped{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/red{
 	dir = 4
 	},
@@ -3532,18 +3532,18 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/starboard_hallway)
 "bko" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 10
 	},
 /turf/open/floor/mainship/floor,
@@ -3592,8 +3592,8 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /turf/open/floor/mainship/floor,
@@ -3735,7 +3735,7 @@
 	},
 /area/mainship/hallways/bow_hallway)
 "bkZ" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3747,7 +3747,7 @@
 /area/mainship/hull/starboard_hull)
 "blb" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/floor,
 /area/mainship/living/basketball)
 "bld" = (
@@ -3755,10 +3755,10 @@
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
 "ble" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 5
 	},
 /obj/effect/ai_node,
@@ -3894,7 +3894,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/living/cryo_cells)
 "bmd" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/cryo_cells)
 "bmw" = (
@@ -3935,8 +3935,8 @@
 /area/mainship/living/officer_rnr)
 "bnx" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/sterile/side{
 	dir = 4
 	},
@@ -3981,8 +3981,8 @@
 /area/mainship/squads/req)
 "bnH" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
 "bnI" = (
@@ -4068,8 +4068,8 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/command/telecomms)
 "boJ" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/wood,
@@ -4089,10 +4089,10 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 5
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -4196,8 +4196,8 @@
 /area/mainship/living/starboard_garden)
 "bpt" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/req)
 "bpw" = (
@@ -4317,10 +4317,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -4368,19 +4368,19 @@
 /area/mainship/squads/alpha)
 "brk" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/req)
 "brl" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -4439,17 +4439,17 @@
 	},
 /area/mainship/living/cryo_cells)
 "bry" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/red{
 	dir = 4
 	},
 /area/mainship/living/cryo_cells)
 "brB" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/engineering/free_access,
@@ -4457,20 +4457,20 @@
 /area/mainship/engineering/lower_engineering)
 "brD" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/engineering/lower_engineering)
 "brJ" = (
 /obj/structure/disposalpipe/segment/corner,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
@@ -4481,7 +4481,7 @@
 /turf/open/floor/mainship/tcomms,
 /area/mainship/engineering/lower_engine_monitoring)
 "brO" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment/corner{
 	dir = 4
@@ -4530,8 +4530,8 @@
 /area/mainship/living/commandbunks)
 "bsr" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /turf/open/floor/mainship/floor,
@@ -4592,10 +4592,10 @@
 /obj/structure/disposalpipe/junction{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
 /turf/open/floor/mainship/mono,
@@ -4627,7 +4627,7 @@
 /area/mainship/living/officer_study)
 "btF" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/port_hull)
 "btW" = (
@@ -4656,8 +4656,8 @@
 "buo" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/sterile/side{
 	dir = 5
 	},
@@ -4677,8 +4677,8 @@
 /turf/open/floor/mainship/orange,
 /area/mainship/living/starboard_emb)
 "buB" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
 /turf/open/floor/mainship/floor,
@@ -4688,8 +4688,8 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/surgery_hallway)
 "buH" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/structure/disposalpipe/junction/flipped{
 	dir = 4
@@ -4710,7 +4710,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/red{
 	dir = 4
 	},
@@ -4734,7 +4734,7 @@
 	name = "\improper Engineering Workshop"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/lower_engineering)
 "buR" = (
@@ -4752,7 +4752,7 @@
 	name = "\improper Core Hatch"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -4806,10 +4806,10 @@
 	id = "or2sign"
 	},
 /obj/machinery/door/airlock/mainship/medical/or/or2,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -4873,14 +4873,14 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/red{
 	dir = 4
 	},
 /area/mainship/living/cryo_cells)
 "bwy" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engineering)
 "bwz" = (
@@ -4900,10 +4900,10 @@
 "bwB" = (
 /obj/machinery/door/airlock/mainship/engineering,
 /obj/machinery/door/firedoor/mainship,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -4957,8 +4957,8 @@
 /obj/machinery/door/firedoor/mainship{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/numbertwobunks)
 "bxX" = (
@@ -4968,7 +4968,7 @@
 	},
 /area/mainship/squads/req)
 "byf" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/machinery/door/firedoor/mainship{
 	dir = 2
 	},
@@ -5082,7 +5082,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -5214,7 +5214,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/cryo_cells)
 "bAU" = (
@@ -5294,7 +5294,7 @@
 	},
 /area/mainship/medical/surgery_hallway)
 "bBX" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
@@ -5304,10 +5304,10 @@
 /area/mainship/living/cryo_cells)
 "bCf" = (
 /obj/effect/landmark/start/latejoin,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -5383,10 +5383,10 @@
 /area/mainship/hallways/hangar/droppod)
 "bCW" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -5426,7 +5426,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/cryo_cells)
@@ -5505,7 +5505,7 @@
 /obj/machinery/door/airlock/mainship/engineering{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/lower_engine_monitoring)
@@ -5539,8 +5539,8 @@
 	dir = 2
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/commandbunks)
 "bGd" = (
@@ -5590,7 +5590,7 @@
 /area/mainship/squads/req)
 "bGq" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engineering)
@@ -5599,7 +5599,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "bGu" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -5633,13 +5633,13 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/side{
@@ -5668,7 +5668,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
@@ -5684,7 +5684,7 @@
 /turf/open/floor/mainship/orange,
 /area/mainship/engineering/lower_engineering)
 "bHF" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engineering)
@@ -5762,7 +5762,7 @@
 	dir = 2;
 	name = "\improper Engineering Workshop"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/lower_engineering)
@@ -5770,7 +5770,7 @@
 /obj/machinery/door/airlock/mainship/maint{
 	name = "\improper Core Hatch"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -5916,10 +5916,10 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -5955,10 +5955,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/engineering/free_access,
@@ -5966,10 +5966,10 @@
 /area/mainship/engineering/lower_engineering)
 "bLb" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -5978,10 +5978,10 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engineering)
 "bLc" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -5992,10 +5992,10 @@
 /area/mainship/hallways/port_hallway)
 "bLd" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment/corner{
@@ -6007,8 +6007,8 @@
 /obj/structure/disposalpipe/junction/flipped{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
@@ -6022,10 +6022,10 @@
 /area/mainship/hull/starboard_hull)
 "bLi" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -6051,13 +6051,13 @@
 /area/mainship/hallways/hangar)
 "bLt" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/basketball)
 "bLv" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/starboard_hull)
 "bLD" = (
@@ -6065,8 +6065,8 @@
 	dir = 2
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/starboard_hull)
 "bLG" = (
@@ -6216,7 +6216,7 @@
 /turf/open/floor/mainship/orange,
 /area/mainship/engineering/lower_engineering)
 "bMT" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/orange,
@@ -6249,7 +6249,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/mainship/blue{
 	dir = 4
@@ -6264,7 +6264,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "bOE" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/port_hallway)
 "bOR" = (
@@ -6289,10 +6289,10 @@
 /area/mainship/hallways/hangar)
 "bPk" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/structure/disposalpipe/segment/corner{
@@ -6344,9 +6344,9 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "bPt" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/floor,
 /area/mainship/living/starboard_garden)
 "bPw" = (
@@ -6355,21 +6355,21 @@
 /area/mainship/hallways/port_hallway)
 "bPB" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/hangar)
 "bPC" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/disposalpipe/junction/flipped{
 	dir = 4
 	},
@@ -6377,30 +6377,30 @@
 /area/mainship/hallways/hangar)
 "bPG" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "bPH" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "bPI" = (
-/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
 /obj/structure/disposalpipe/junction/flipped{
@@ -6412,10 +6412,10 @@
 /area/mainship/hallways/port_hallway)
 "bPQ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -6438,10 +6438,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -6508,10 +6508,10 @@
 /area/mainship/living/basketball)
 "bQu" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/structure/disposalpipe/segment/corner,
@@ -6522,10 +6522,10 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -6535,10 +6535,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -6548,10 +6548,10 @@
 /area/mainship/hallways/starboard_hallway)
 "bQA" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -6567,8 +6567,8 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/living/cafeteria_starboard)
 "bQC" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating/plating_catwalk,
@@ -6660,16 +6660,16 @@
 	},
 /area/mainship/living/cafeteria_port)
 "bRn" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/cafeteria_port)
 "bRC" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/starboard_hallway)
 "bRE" = (
@@ -6701,8 +6701,8 @@
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/floor,
 /area/mainship/living/grunt_rnr)
 "bRN" = (
@@ -6722,8 +6722,8 @@
 "bRP" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/starboard_hallway)
 "bRQ" = (
@@ -6737,8 +6737,8 @@
 /turf/open/floor/plating,
 /area/mainship/living/cafeteria_port)
 "bRT" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
@@ -6762,12 +6762,12 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/living/bridgebunks)
 "bSf" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/repair_bay)
 "bSh" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/mainship/mono,
@@ -6802,10 +6802,10 @@
 /area/mainship/living/officer_study)
 "bSG" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
@@ -6840,10 +6840,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/living/cafeteria_port)
 "bST" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/mainship/blue{
 	dir = 4
@@ -6884,10 +6884,10 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -6898,7 +6898,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "bTG" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -6912,10 +6912,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -6923,8 +6923,8 @@
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/hallways/starboard_hallway)
 "bTQ" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/structure/disposalpipe/junction/flipped{
 	dir = 4
@@ -6951,10 +6951,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/starboard_hallway)
 "bUa" = (
@@ -6969,9 +6969,9 @@
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
 "bUd" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/disposalpipe/junction/flipped{
 	dir = 4
 	},
@@ -7110,9 +7110,9 @@
 /area/mainship/living/officer_study)
 "bVH" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/wood,
 /area/mainship/living/officer_study)
 "bVJ" = (
@@ -7120,10 +7120,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "bVL" = (
@@ -7191,16 +7191,16 @@
 /obj/machinery/light/mainship{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/wood,
 /area/mainship/living/officer_study)
 "bWL" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/starboard_hallway)
 "bXa" = (
@@ -7307,7 +7307,7 @@
 /obj/machinery/door/firedoor/mainship{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/hallways/hangar)
 "bYz" = (
@@ -7337,10 +7337,10 @@
 /area/mainship/command/cic)
 "bYU" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /obj/machinery/vending/nanomed,
@@ -7348,8 +7348,8 @@
 /area/mainship/living/bridgebunks)
 "bYW" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
@@ -7539,7 +7539,7 @@
 	},
 /area/mainship/medical/surgery_hallway)
 "cbO" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/orange/corner{
 	dir = 4
 	},
@@ -7630,8 +7630,8 @@
 /area/mainship/shipboard/port_point_defense)
 "ccE" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/bow_hallway)
@@ -7728,10 +7728,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "cfd" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -7743,7 +7743,7 @@
 /area/mainship/hallways/starboard_hallway)
 "cfe" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/red{
@@ -7946,7 +7946,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/tcomms,
@@ -7959,10 +7959,10 @@
 /area/mainship/hull/port_hull)
 "csh" = (
 /obj/machinery/camera/autoname/mainship,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -7987,7 +7987,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "cuY" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/orange,
@@ -8006,7 +8006,7 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/medical_science)
 "cvB" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
 /turf/open/floor/mainship/mono,
@@ -8018,7 +8018,7 @@
 /area/mainship/hull/port_hull)
 "cvV" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/mainship/orange/corner{
 	dir = 1
@@ -8080,7 +8080,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/starboard_hull)
 "cye" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -8223,8 +8223,8 @@
 /area/mainship/command/bridge)
 "cNr" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "cNE" = (
@@ -8236,7 +8236,7 @@
 	},
 /area/mainship/hallways/bow_hallway)
 "cNZ" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
 /turf/open/floor/mainship/mono,
@@ -8297,10 +8297,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/side{
@@ -8318,16 +8318,16 @@
 /area/mainship/hallways/port_hallway)
 "cUz" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/engineering/lower_engineering)
 "cUM" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/aft_umbilical)
@@ -8336,8 +8336,8 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/sterile/side{
 	dir = 4
 	},
@@ -8445,7 +8445,7 @@
 /area/mainship/hull/port_hull)
 "dew" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/mainship/floor,
@@ -8492,16 +8492,16 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/medical_science)
 "dkW" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
@@ -8509,10 +8509,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/aft_umbilical)
 "dlC" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -8620,15 +8620,15 @@
 "dxe" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/sterile/side{
 	dir = 4
 	},
 /area/mainship/medical/surgery_hallway)
 "dzm" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/blue/corner{
@@ -8639,10 +8639,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -8665,16 +8665,16 @@
 /area/mainship/medical/operating_room_one)
 "dDa" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/lower_medical)
 "dDQ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/squads/req)
 "dDZ" = (
@@ -8706,8 +8706,8 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/green/corner,
 /area/mainship/living/basketball)
 "dFd" = (
@@ -8790,7 +8790,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -8821,10 +8821,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -8857,10 +8857,10 @@
 "dOe" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment/corner,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 10
 	},
 /turf/open/floor/mainship/sterile/corner,
@@ -8933,10 +8933,10 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 5
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -8945,7 +8945,7 @@
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	name = "\improper Escape Pods"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -9079,8 +9079,8 @@
 /area/mainship/hallways/starboard_hallway)
 "eiU" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/floor,
 /area/mainship/hallways/bow_hallway)
 "elP" = (
@@ -9109,7 +9109,7 @@
 	},
 /area/mainship/hallways/bow_hallway)
 "eoi" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/stairs/rampbottom{
@@ -9228,10 +9228,10 @@
 /obj/machinery/light/mainship{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -9245,7 +9245,7 @@
 /area/space)
 "eCj" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -9298,11 +9298,11 @@
 	},
 /area/mainship/hallways/starboard_hallway)
 "eKg" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/structure/disposalpipe/junction/flipped,
@@ -9369,7 +9369,7 @@
 	},
 /area/mainship/command/bridge)
 "ePj" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/blue,
@@ -9444,11 +9444,11 @@
 /obj/machinery/status_display{
 	pixel_y = 30
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/effect/ai_node,
@@ -9469,14 +9469,14 @@
 /area/mainship/hallways/hangar)
 "eXn" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/silver/corner{
 	dir = 8
 	},
 /area/mainship/hallways/aft_hallway)
 "eZN" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/door/airlock/mainship/maint{
 	dir = 2
 	},
@@ -9530,10 +9530,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_umbilical)
 "fim" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -9603,10 +9603,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -9618,8 +9618,8 @@
 /area/mainship/engineering/engine_core)
 "foR" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/pilotbunks)
 "foW" = (
@@ -9627,16 +9627,16 @@
 /turf/closed/wall/mainship,
 /area/mainship/command/corporateliaison)
 "fpi" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/command/bridge)
 "fpO" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/structure/disposalpipe/junction{
@@ -9742,8 +9742,8 @@
 "fvx" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
 /turf/open/floor/mainship/mono,
@@ -9770,7 +9770,7 @@
 /turf/open/floor/plating,
 /area/mainship/shipboard/firing_range)
 "fxK" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 8
 	},
 /turf/open/floor/mainship/orange,
@@ -9821,7 +9821,7 @@
 /area/mainship/hallways/starboard_hallway)
 "fCi" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -9891,7 +9891,7 @@
 /area/mainship/squads/delta)
 "fEX" = (
 /obj/machinery/holopad,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -9958,8 +9958,8 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/mainship/living/commandbunks)
@@ -9968,7 +9968,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/hallways/repair_bay)
 "fLo" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/effect/mapping_helpers/simple_pipes/general/visible{
 	dir = 6
 	},
 /obj/machinery/meter,
@@ -10028,7 +10028,7 @@
 "fQN" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/wood,
 /area/mainship/command/corporateliaison)
 "fRS" = (
@@ -10068,10 +10068,10 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 10
 	},
 /turf/open/floor/mainship/tcomms,
@@ -10143,10 +10143,10 @@
 /area/mainship/squads/req)
 "gaW" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/generic/bathroom,
@@ -10180,7 +10180,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -10233,10 +10233,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -10339,8 +10339,8 @@
 /area/mainship/living/basketball)
 "gpG" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/bow_hallway)
@@ -10396,7 +10396,7 @@
 /area/mainship/living/officer_rnr)
 "gyz" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /obj/effect/ai_node,
@@ -10406,7 +10406,7 @@
 /obj/machinery/door/airlock/mainship/engineering{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/lower_engine_monitoring)
 "gyC" = (
@@ -10436,7 +10436,7 @@
 /area/mainship/living/numbertwobunks)
 "gAi" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/machinery/light/mainship/small{
@@ -10449,10 +10449,10 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/door/firedoor/mainship,
@@ -10514,7 +10514,7 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/silver/corner{
@@ -10522,7 +10522,7 @@
 	},
 /area/mainship/command/bridge)
 "gHw" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/starboard_hallway)
 "gHT" = (
@@ -10545,10 +10545,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "gJi" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/medical_science)
 "gLI" = (
@@ -10582,8 +10582,8 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "gNV" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -10607,7 +10607,7 @@
 /area/mainship/engineering/lower_engineering)
 "gPG" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 10
 	},
 /obj/effect/ai_node,
@@ -10645,7 +10645,7 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/medical_science)
 "gSF" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -10681,10 +10681,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -10705,10 +10705,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/command/corporateliaison)
 "gYz" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -10755,7 +10755,7 @@
 /turf/open/floor/mainship/ai,
 /area/mainship/living/numbertwobunks)
 "hcq" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /obj/machinery/camera/autoname/mainship{
 	dir = 4
@@ -10779,8 +10779,8 @@
 "hey" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/officer_study)
 "hfD" = (
@@ -10842,10 +10842,10 @@
 /area/mainship/hallways/aft_umbilical)
 "hjx" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
@@ -10884,7 +10884,7 @@
 /turf/open/floor/mainship/blue/full,
 /area/mainship/command/cic)
 "hkM" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -10912,10 +10912,10 @@
 "hmg" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment/corner,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 10
 	},
 /obj/machinery/light/mainship/small{
@@ -10924,7 +10924,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/starboard_hull)
 "hnw" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/floor,
@@ -10944,10 +10944,10 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/living/cafeteria_starboard)
 "hql" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -10976,8 +10976,8 @@
 /area/mainship/command/cic)
 "hru" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/bow_hallway)
@@ -11056,7 +11056,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -11124,7 +11124,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "hFz" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/aft_umbilical)
@@ -11135,7 +11135,7 @@
 /area/mainship/living/port_emb)
 "hGP" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/bridge)
 "hHj" = (
@@ -11147,13 +11147,13 @@
 /area/mainship/hallways/hangar)
 "hIv" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -11165,7 +11165,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/command/telecomms)
 "hKi" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -11194,7 +11194,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/red{
 	dir = 4
 	},
@@ -11208,7 +11208,7 @@
 /area/mainship/squads/alpha)
 "hPY" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/stairs/rampbottom{
@@ -11278,12 +11278,12 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/living/officer_study)
 "hWJ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment/corner,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -11297,10 +11297,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -11326,7 +11326,7 @@
 /area/mainship/living/cafeteria_port)
 "iev" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/effect/ai_node,
@@ -11342,7 +11342,7 @@
 /area/mainship/living/grunt_rnr)
 "ihG" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 10
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -11380,10 +11380,10 @@
 	},
 /area/mainship/medical/medical_science)
 "ikx" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -11421,10 +11421,10 @@
 /turf/closed/wall/mainship,
 /area/mainship/command/cic)
 "inN" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -11436,10 +11436,10 @@
 "ioN" = (
 /obj/structure/cable,
 /obj/machinery/light/mainship,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
@@ -11484,9 +11484,9 @@
 /area/mainship/squads/req)
 "iug" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/wood,
 /area/mainship/living/officer_study)
@@ -11495,11 +11495,11 @@
 /obj/machinery/door/airlock/mainship/maint{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/starboard_hull)
 "ivT" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -11523,37 +11523,37 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_hallway)
 "iyx" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/disposalpipe/junction/flipped{
 	dir = 1
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_hallway)
 "izl" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/orange,
 /area/mainship/engineering/lower_engine_monitoring)
 "izT" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 5
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/hallways/bow_hallway)
 "iBq" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
@@ -11579,10 +11579,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -11622,7 +11622,7 @@
 /turf/open/floor/mainship/silver,
 /area/mainship/command/bridge)
 "iGs" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -11632,14 +11632,14 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/lower_medical)
 "iGE" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/aft_umbilical)
 "iHo" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
 	},
@@ -11660,8 +11660,8 @@
 "iIi" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
@@ -11684,8 +11684,8 @@
 /area/mainship/living/tankerbunks)
 "iLa" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/bow_hallway)
 "iLr" = (
@@ -11729,10 +11729,10 @@
 	name = "Containment Lockdown"
 	},
 /obj/structure/disposalpipe/segment/corner,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
 /turf/open/floor/mainship/sterile/side{
@@ -11745,7 +11745,7 @@
 	},
 /area/mainship/medical/lower_medical)
 "iRr" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -11753,8 +11753,8 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/starboard_hull)
 "iTa" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/mainship/blue{
@@ -11784,8 +11784,8 @@
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment/corner,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/green{
 	dir = 4
 	},
@@ -11794,7 +11794,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/req)
 "iXa" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/orange/corner{
@@ -11826,7 +11826,7 @@
 /obj/structure/bed/chair/nometal{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/green{
 	dir = 4
 	},
@@ -11840,7 +11840,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/req)
 "iYA" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -11985,10 +11985,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -12098,7 +12098,7 @@
 /area/mainship/hull/port_hull)
 "jxr" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/starboard_hull)
 "jxM" = (
@@ -12112,7 +12112,7 @@
 /area/mainship/shipboard/firing_range)
 "jyd" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/silver{
 	dir = 8
 	},
@@ -12160,7 +12160,7 @@
 	},
 /area/mainship/living/tankerbunks)
 "jFy" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -12187,8 +12187,8 @@
 /area/mainship/command/corporateliaison)
 "jGy" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -12207,14 +12207,14 @@
 /turf/open/floor/mainship/ai,
 /area/mainship/living/numbertwobunks)
 "jIP" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/starboard_hallway)
 "jJv" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_hallway)
@@ -12285,8 +12285,8 @@
 "jSi" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_hallway)
 "jSM" = (
@@ -12305,7 +12305,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -12350,10 +12350,10 @@
 	},
 /area/mainship/living/numbertwobunks)
 "jZv" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -12393,7 +12393,7 @@
 /turf/open/floor/prison/kitchen,
 /area/mainship/living/officer_rnr)
 "kbS" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -12410,7 +12410,7 @@
 /turf/open/floor/plating,
 /area/mainship/squads/req)
 "khr" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -12442,7 +12442,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/engineering/ce_room)
 "kkG" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/mainship/blue{
 	dir = 4
@@ -12463,7 +12463,7 @@
 "kmv" = (
 /obj/structure/cable,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -12534,10 +12534,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -12656,7 +12656,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/camera/autoname/mainship{
@@ -12669,10 +12669,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/machinery/camera/autoname/mainship,
@@ -12820,10 +12820,10 @@
 /area/mainship/engineering/engine_core)
 "kLW" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment/corner,
@@ -12832,10 +12832,10 @@
 "kMC" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment/corner,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/floor,
 /area/mainship/living/numbertwobunks)
 "kMY" = (
@@ -12843,8 +12843,8 @@
 /area/mainship/squads/alpha)
 "kNl" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/disposalpipe/junction{
 	dir = 8
 	},
@@ -12854,10 +12854,10 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -13002,7 +13002,7 @@
 /area/mainship/living/cafeteria_starboard)
 "ler" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -13045,10 +13045,10 @@
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
 "lgU" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/orange/corner{
@@ -13098,7 +13098,7 @@
 "lkO" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 5
 	},
 /obj/machinery/holopad,
@@ -13140,10 +13140,10 @@
 /area/mainship/engineering/engine_core)
 "lqN" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -13175,10 +13175,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/side{
@@ -13193,7 +13193,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/door/firedoor/mainship,
@@ -13253,15 +13253,15 @@
 "lyK" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/sterile/side{
 	dir = 4
 	},
 /area/mainship/medical/lower_medical)
 "lza" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/mainship/mono,
@@ -13326,7 +13326,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -13340,10 +13340,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -13361,11 +13361,11 @@
 /area/mainship/engineering/ce_room)
 "lEP" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/cryo_cells)
 "lGB" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/command/cic,
@@ -13379,7 +13379,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/hallways/hangar)
 "lHe" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
 /obj/effect/ai_node,
@@ -13397,14 +13397,14 @@
 /turf/open/floor/wood,
 /area/mainship/living/officer_study)
 "lHP" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -13421,7 +13421,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/delta)
 "lIX" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/mainship/floor,
@@ -13462,10 +13462,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -13480,7 +13480,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -13520,10 +13520,10 @@
 	},
 /area/mainship/command/cic)
 "lOP" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -13541,8 +13541,8 @@
 /area/mainship/hull/port_hull)
 "lPI" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/disposalpipe/junction{
 	dir = 8
 	},
@@ -13565,8 +13565,8 @@
 /area/mainship/command/cic)
 "lTb" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 8
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -13625,7 +13625,7 @@
 /area/mainship/living/grunt_rnr)
 "lYK" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/silver/corner{
 	dir = 1
 	},
@@ -13659,18 +13659,18 @@
 /turf/open/floor/mainship/cargo,
 /area/mainship/living/officer_rnr)
 "mds" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engine_monitoring)
 "mdD" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
 /obj/machinery/firealarm,
@@ -13682,7 +13682,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/mainship/blue{
 	dir = 4
@@ -13716,10 +13716,10 @@
 /area/mainship/command/cic)
 "mlM" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -13736,10 +13736,10 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/living/officer_study)
 "mmj" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -13859,7 +13859,7 @@
 	},
 /area/mainship/squads/req)
 "mxO" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment/corner{
@@ -13868,8 +13868,8 @@
 /turf/open/floor/mainship/orange/corner,
 /area/mainship/living/starboard_emb)
 "mxR" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating/plating_catwalk,
@@ -13912,10 +13912,10 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -13936,7 +13936,7 @@
 	},
 /area/mainship/hallways/repair_bay)
 "mCX" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -13973,10 +13973,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -14016,7 +14016,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/pilotbunks)
 "mIL" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -14048,7 +14048,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/mainship/blue{
 	dir = 4
@@ -14056,7 +14056,7 @@
 /area/mainship/living/cryo_cells)
 "mKX" = (
 /obj/effect/landmark/start/job/squadleader,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -14082,10 +14082,10 @@
 /area/mainship/squads/delta)
 "mNj" = (
 /obj/structure/disposalpipe/segment/corner,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -14124,8 +14124,8 @@
 "mQC" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/surgery_hallway)
 "mQL" = (
@@ -14148,8 +14148,8 @@
 /turf/open/floor/mainship/red,
 /area/mainship/shipboard/port_point_defense)
 "mSj" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/floor,
 /area/mainship/command/cic)
 "mTD" = (
@@ -14197,7 +14197,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/starboard_hallway)
 "mWj" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -14215,8 +14215,8 @@
 "mXe" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/sterile/side{
 	dir = 4
 	},
@@ -14252,7 +14252,7 @@
 	},
 /area/mainship/hallways/aft_hallway)
 "nbh" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -14290,8 +14290,8 @@
 /area/mainship/living/officer_study)
 "neQ" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/starboard_hallway)
@@ -14344,7 +14344,7 @@
 /area/mainship/hallways/hangar)
 "nhU" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/tankerbunks)
 "nib" = (
@@ -14374,7 +14374,7 @@
 /turf/open/floor/mainship/cargo,
 /area/mainship/squads/req)
 "nmg" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -14382,7 +14382,7 @@
 /area/mainship/living/cafeteria_port)
 "nmm" = (
 /obj/machinery/door/poddoor/shutters/mainship/selfdestruct,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -14477,14 +14477,14 @@
 	},
 /area/mainship/hallways/bow_hallway)
 "nuO" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/command/cic)
 "nwy" = (
 /obj/effect/landmark/start/job/squadcorpsman,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -14531,8 +14531,8 @@
 /area/mainship/hallways/hangar)
 "nAt" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/starboard_hallway)
 "nAX" = (
@@ -14559,7 +14559,7 @@
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	name = "\improper Escape Pods"
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -14602,8 +14602,8 @@
 	dir = 2
 	},
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/door/airlock/mainship/generic/corporate{
 	dir = 2
 	},
@@ -14657,8 +14657,8 @@
 /turf/open/floor/plating,
 /area/mainship/squads/req)
 "nMM" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /turf/open/floor/mainship/floor,
@@ -14672,8 +14672,8 @@
 /area/mainship/command/self_destruct)
 "nNe" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/bow_hallway)
 "nNB" = (
@@ -14692,10 +14692,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -14731,14 +14731,14 @@
 	},
 /area/mainship/living/pilotbunks)
 "nQl" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
 /obj/structure/disposalpipe/junction/flipped{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/effect/ai_node,
@@ -14771,8 +14771,8 @@
 /area/mainship/shipboard/starboard_point_defense)
 "nRV" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -14789,7 +14789,7 @@
 	},
 /area/mainship/hallways/starboard_hallway)
 "nTz" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -14799,7 +14799,7 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -14817,7 +14817,7 @@
 /area/mainship/living/numbertwobunks)
 "nVC" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/silver{
 	dir = 8
 	},
@@ -14860,10 +14860,10 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 10
 	},
 /turf/open/floor/mainship/sterile/side{
@@ -14906,7 +14906,7 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/silver,
@@ -14935,7 +14935,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -14990,8 +14990,8 @@
 	},
 /area/mainship/shipboard/port_point_defense)
 "ojD" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/basketball)
 "ojL" = (
@@ -15089,10 +15089,10 @@
 /area/mainship/medical/lower_medical)
 "oxX" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -15103,7 +15103,7 @@
 /area/mainship/hallways/port_hallway)
 "oyL" = (
 /obj/machinery/door/airlock/mainship/maint,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -15214,7 +15214,7 @@
 	},
 /area/mainship/engineering/lower_engine_monitoring)
 "oHy" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -15393,11 +15393,11 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/port_hallway)
 "oZZ" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/command/bridge)
 "paD" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "pbV" = (
@@ -15419,14 +15419,14 @@
 	},
 /area/mainship/medical/lower_medical)
 "peh" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment/corner{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/aft_hallway)
@@ -15438,8 +15438,8 @@
 /area/mainship/living/tankerbunks)
 "pfj" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/orange,
@@ -15452,13 +15452,13 @@
 /area/mainship/hallways/starboard_hallway)
 "phl" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/port_hull)
 "phq" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -15489,8 +15489,8 @@
 /area/mainship/medical/medical_science)
 "pjU" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/machinery/light/mainship{
 	dir = 8
 	},
@@ -15511,10 +15511,10 @@
 /area/mainship/hallways/hangar)
 "pka" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/disposalpipe/junction/flipped{
 	dir = 8
 	},
@@ -15525,7 +15525,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/port_hull)
 "plZ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating/plating_catwalk,
@@ -15542,7 +15542,7 @@
 /area/mainship/living/officer_rnr)
 "pmD" = (
 /obj/machinery/door/airlock/mainship/maint,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -15550,7 +15550,7 @@
 /area/mainship/hull/port_hull)
 "pns" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
 /obj/effect/ai_node,
@@ -15687,7 +15687,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/command/cic)
 "pAc" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/disposalpipe/segment,
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	on = 1
@@ -15708,7 +15708,7 @@
 	},
 /area/mainship/engineering/lower_engineering)
 "pBp" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/port_hull)
@@ -15740,10 +15740,10 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/lower_medical)
 "pDu" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -15817,7 +15817,7 @@
 /obj/machinery/door/firedoor/mainship{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/hallways/starboard_hallway)
 "pNB" = (
@@ -15894,7 +15894,7 @@
 	id = "CIC Lockdown";
 	name = "\improper Combat Information Center Blast Door";
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/machinery/door/firedoor/mainship,
@@ -15921,7 +15921,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "pUF" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
@@ -15960,10 +15960,10 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -15978,7 +15978,7 @@
 	},
 /area/mainship/command/cic)
 "pYe" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -16021,7 +16021,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "qcF" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/machinery/door/airlock/mainship/engineering/atmos{
 	dir = 2
 	},
@@ -16063,14 +16063,14 @@
 /turf/closed/wall/mainship,
 /area/mainship/command/self_destruct)
 "qfM" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/camera/autoname/mainship,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engine_monitoring)
 "qgE" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/machinery/camera/autoname/mainship{
 	dir = 4
@@ -16082,11 +16082,11 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_hallway)
 "qij" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -16102,7 +16102,7 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/medical_science)
 "qiB" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -16168,10 +16168,10 @@
 /area/mainship/engineering/engine_core)
 "qos" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/machinery/firealarm,
@@ -16188,7 +16188,7 @@
 	},
 /area/mainship/living/port_emb)
 "qpI" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -16225,8 +16225,8 @@
 "qrv" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/floor,
 /area/mainship/hallways/bow_hallway)
 "qrI" = (
@@ -16285,10 +16285,10 @@
 	},
 /area/mainship/medical/lower_medical)
 "qwa" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -16315,13 +16315,13 @@
 /area/mainship/living/officer_study)
 "qxD" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/lower_medical)
 "qxG" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_hallway)
@@ -16357,10 +16357,10 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -16388,7 +16388,7 @@
 /area/mainship/command/corporateliaison)
 "qAW" = (
 /obj/machinery/door/poddoor/shutters/mainship/selfdestruct,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -16443,10 +16443,10 @@
 /area/mainship/command/corporateliaison)
 "qFH" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 5
 	},
 /obj/structure/disposalpipe/segment/corner{
@@ -16581,7 +16581,7 @@
 	},
 /area/mainship/engineering/lower_engineering)
 "qPs" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "qPN" = (
@@ -16596,7 +16596,7 @@
 /turf/open/floor/mainship/black,
 /area/mainship/living/tankerbunks)
 "qQJ" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/stairs/seamless{
@@ -16605,13 +16605,13 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/engineering/engine_core)
 "qQK" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engine_monitoring)
 "qRg" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -16646,14 +16646,14 @@
 /area/mainship/command/telecomms)
 "qVk" = (
 /obj/machinery/door/window,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 10
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/living/basketball)
 "qVw" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/machinery/light/mainship/small{
 	dir = 8
 	},
@@ -16752,8 +16752,8 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/starboard_hull)
 "rcm" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/medical_science)
 "rcQ" = (
@@ -16765,7 +16765,7 @@
 /turf/open/floor/mainship/stripesquare,
 /area/mainship/engineering/engine_core)
 "rdK" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -16877,11 +16877,11 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "rpv" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 5
 	},
 /turf/open/floor/mainship/mono,
@@ -16966,8 +16966,8 @@
 "ryJ" = (
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/mainship/mono,
@@ -16978,20 +16978,20 @@
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/surgery_hallway)
 "rBm" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_hallway)
 "rBJ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -17025,7 +17025,7 @@
 /area/mainship/hallways/aft_hallway)
 "rHG" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/port_hallway)
@@ -17058,7 +17058,7 @@
 /area/mainship/living/commandbunks)
 "rKC" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 5
 	},
 /obj/effect/ai_node,
@@ -17069,10 +17069,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_hallway)
 "rMv" = (
@@ -17207,7 +17207,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/shipboard/firing_range)
 "rYp" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -17260,7 +17260,7 @@
 /area/mainship/command/self_destruct)
 "sdL" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/door/firedoor/mainship{
 	dir = 2
 	},
@@ -17306,8 +17306,8 @@
 	},
 /area/mainship/living/tankerbunks)
 "siJ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -17396,19 +17396,19 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/lower_medical)
 "soO" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/side{
@@ -17450,7 +17450,7 @@
 /turf/open/floor/wood,
 /area/mainship/medical/surgery_hallway)
 "sqW" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/structure/disposalpipe/segment/corner,
@@ -17497,7 +17497,7 @@
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/telecomms)
 "svt" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -17553,7 +17553,7 @@
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/self_destruct)
 "szj" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/port_hallway)
 "szr" = (
@@ -17568,10 +17568,10 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/silver/corner{
@@ -17599,7 +17599,7 @@
 /area/mainship/living/cryo_cells)
 "sLD" = (
 /obj/machinery/light/mainship/small,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
@@ -17627,7 +17627,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/hallways/hangar)
 "sMK" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -17663,10 +17663,10 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /turf/open/floor/mainship/sterile/side{
@@ -17690,11 +17690,11 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/side{
@@ -17715,7 +17715,7 @@
 /turf/open/floor/mainship/green,
 /area/mainship/command/cic)
 "sTe" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -17734,7 +17734,7 @@
 /area/mainship/squads/delta)
 "sWs" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /obj/effect/ai_node,
@@ -17757,18 +17757,18 @@
 /area/mainship/medical/medical_science)
 "sYL" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/port_hallway)
 "sYW" = (
 /obj/structure/disposalpipe/junction,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
 /turf/open/floor/mainship/mono,
@@ -17782,10 +17782,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/side{
@@ -17824,10 +17824,10 @@
 /turf/open/floor/mainship/ai,
 /area/mainship/living/numbertwobunks)
 "tgH" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -17863,7 +17863,7 @@
 /area/mainship/engineering/lower_engineering)
 "tih" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/port_hull)
 "tjn" = (
@@ -17909,10 +17909,10 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/command/cic)
 "tnj" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -17967,10 +17967,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/aft_umbilical)
 "trp" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -17990,12 +17990,12 @@
 /obj/machinery/holosign/surgery{
 	id = "eorsign"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/research/or,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -18005,11 +18005,11 @@
 /turf/open/floor/mainship/sterile,
 /area/mainship/medical/surgery_hallway)
 "tur" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/disposalpipe/segment/corner{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/mainship/red/corner,
 /area/mainship/shipboard/firing_range)
@@ -18028,10 +18028,10 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -18040,7 +18040,7 @@
 	},
 /area/mainship/squads/delta)
 "twq" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/marine/requisitions{
@@ -18133,8 +18133,8 @@
 /turf/open/floor/plating,
 /area/mainship/medical/surgery_hallway)
 "tHB" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 8
 	},
 /obj/effect/ai_node,
@@ -18186,7 +18186,7 @@
 /area/mainship/engineering/lower_engine_monitoring)
 "tKz" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/effect/ai_node,
@@ -18241,10 +18241,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/port_hull)
 "tRg" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -18295,7 +18295,7 @@
 /area/mainship/living/starboard_garden)
 "tUM" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
@@ -18343,8 +18343,8 @@
 "tZb" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/sterile/dark,
 /area/mainship/medical/lower_medical)
 "tZc" = (
@@ -18372,7 +18372,7 @@
 /area/mainship/hallways/port_hallway)
 "uaA" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/light/mainship/small,
@@ -18397,7 +18397,7 @@
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/telecomms)
 "ueH" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/door/airlock/mainship/engineering/atmos{
 	dir = 2
 	},
@@ -18474,8 +18474,8 @@
 /area/mainship/hull/starboard_hull)
 "unL" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/sterile/side{
 	dir = 6
 	},
@@ -18574,8 +18574,8 @@
 /area/mainship/hull/port_hull)
 "uze" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/machinery/door/firedoor/mainship{
 	dir = 2
 	},
@@ -18626,10 +18626,10 @@
 "uEy" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment/corner,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/mainship/sterile/side{
@@ -18659,7 +18659,7 @@
 /turf/open/floor/mainship/floor,
 /area/mainship/hallways/hangar)
 "uGj" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
@@ -18686,11 +18686,11 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
 /turf/open/floor/mainship/mono,
@@ -18787,8 +18787,8 @@
 "uQx" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/sterile/side{
 	dir = 6
 	},
@@ -18848,10 +18848,10 @@
 "uXw" = (
 /obj/machinery/power/apc/mainship,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/side{
@@ -18863,10 +18863,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_hallway)
 "uYg" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -18942,11 +18942,11 @@
 /area/mainship/living/numbertwobunks)
 "veY" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
 /turf/open/floor/mainship/floor,
@@ -19015,7 +19015,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/living/numbertwobunks)
 "vmW" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/camera/autoname/mainship,
@@ -19070,10 +19070,10 @@
 	},
 /area/mainship/living/commandbunks)
 "vtE" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -19103,7 +19103,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -19117,10 +19117,10 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/port_hull)
 "vxC" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -19135,7 +19135,7 @@
 /area/mainship/squads/delta)
 "vyf" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -19171,8 +19171,8 @@
 	},
 /area/mainship/hallways/aft_hallway)
 "vBI" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/floor,
 /area/mainship/living/bridgebunks)
 "vCC" = (
@@ -19252,7 +19252,7 @@
 /area/mainship/medical/medical_science)
 "vKY" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/req)
@@ -19323,7 +19323,7 @@
 	},
 /area/mainship/medical/upper_medical)
 "vSO" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 5
 	},
 /turf/open/floor/mainship/blue{
@@ -19389,7 +19389,7 @@
 /area/mainship/living/numbertwobunks)
 "vXD" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/silver/corner{
 	dir = 8
 	},
@@ -19449,7 +19449,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -19481,7 +19481,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/port_hull)
 "wfH" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/start/job/shiptech,
@@ -19506,8 +19506,8 @@
 	},
 /area/mainship/command/cic)
 "wgW" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating/plating_catwalk,
@@ -19549,7 +19549,7 @@
 /obj/machinery/light/mainship/small{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -19602,7 +19602,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /mob/living/simple_animal/corgi/ranger,
 /turf/open/floor/mainship/red{
 	dir = 4
@@ -19648,10 +19648,10 @@
 /turf/open/floor/wood,
 /area/mainship/living/grunt_rnr)
 "wxQ" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -19669,7 +19669,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/repair_bay)
 "wBE" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/silver{
@@ -19766,10 +19766,10 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/silver/corner{
@@ -19816,7 +19816,7 @@
 	},
 /area/mainship/shipboard/firing_range)
 "wNj" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/disposalpipe/segment,
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
@@ -19852,7 +19852,7 @@
 	},
 /area/mainship/hallways/hangar)
 "wQK" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -19913,10 +19913,10 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/side{
@@ -19938,10 +19938,10 @@
 	},
 /area/mainship/shipboard/firing_range)
 "wXB" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -20017,10 +20017,10 @@
 	},
 /area/mainship/hallways/hangar)
 "xgX" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -20042,10 +20042,10 @@
 /area/mainship/squads/req)
 "xik" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/effect/ai_node,
@@ -20069,7 +20069,7 @@
 /area/mainship/hallways/hangar)
 "xjw" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -20115,7 +20115,7 @@
 /area/mainship/medical/lower_medical)
 "xpm" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/purple{
@@ -20197,7 +20197,7 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/living/port_emb)
 "xAd" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/floor,
@@ -20207,17 +20207,17 @@
 /obj/structure/disposalpipe/junction/flipped{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/manifold4w/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_hallway)
 "xAX" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/side{
@@ -20248,19 +20248,19 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/hangar)
 "xCV" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/hull/port_hull)
 "xDQ" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/starboard_hull)
 "xDZ" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/mainship/floor,
 /area/mainship/engineering/lower_engine_monitoring)
@@ -20275,8 +20275,8 @@
 /area/mainship/shipboard/port_point_defense)
 "xGb" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_hallway)
@@ -20286,9 +20286,9 @@
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/aft_hallway)
 "xGI" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/cafeteria_starboard)
@@ -20302,9 +20302,9 @@
 /area/mainship/living/basketball)
 "xGY" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -20321,16 +20321,16 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/floor,
 /area/mainship/living/pilotbunks)
 "xKa" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/disposalpipe/segment/corner{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/mainship/red{
 	dir = 4
@@ -20345,7 +20345,7 @@
 /area/mainship/living/numbertwobunks)
 "xKX" = (
 /obj/machinery/door/window,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /turf/open/floor/mainship/floor,
@@ -20366,8 +20366,8 @@
 /area/mainship/medical/chemistry)
 "xOx" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_hallway)
 "xON" = (
@@ -20392,10 +20392,10 @@
 /area/mainship/engineering/lower_engineering)
 "xQe" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/disposalpipe/segment{
@@ -20437,7 +20437,7 @@
 /area/mainship/command/cic)
 "xRU" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/silver/corner{
 	dir = 1
 	},
@@ -20474,8 +20474,8 @@
 /area/mainship/engineering/ce_room)
 "xUq" = (
 /obj/structure/disposalpipe/segment,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /obj/effect/ai_node,
@@ -20495,7 +20495,7 @@
 	},
 /area/mainship/living/pilotbunks)
 "xVf" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -20516,7 +20516,7 @@
 /area/mainship/hallways/bow_hallway)
 "xZF" = (
 /obj/effect/landmark/start/latejoin_cryo,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -20542,15 +20542,15 @@
 /turf/open/floor/plating,
 /area/mainship/hallways/hangar)
 "yaC" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/aft_hallway)
 "yaP" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/disposalpipe/segment,
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk,
@@ -20589,10 +20589,10 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/mainship/sterile/side{
@@ -20622,7 +20622,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -20631,7 +20631,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/command/cic,
@@ -20643,10 +20643,10 @@
 /obj/structure/disposalpipe/junction{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 8
 	},
 /turf/open/floor/mainship/sterile/dark,
@@ -20661,8 +20661,8 @@
 /turf/open/floor/mainship/sterile/side,
 /area/mainship/medical/lower_medical)
 "yfJ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/disposalpipe/junction/flipped,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/tankerbunks)
@@ -20698,10 +20698,10 @@
 /obj/structure/disposalpipe/junction{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
 /turf/open/floor/mainship/sterile/side{
@@ -20731,8 +20731,8 @@
 /area/mainship/hallways/hangar)
 "ykQ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/disposalpipe/segment,
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk,

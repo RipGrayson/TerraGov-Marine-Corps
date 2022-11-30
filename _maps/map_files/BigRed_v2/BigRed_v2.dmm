@@ -108,7 +108,7 @@
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/north)
 "acd" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/blue2{
@@ -134,7 +134,7 @@
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/marshal_office)
 "acq" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/blue2{
@@ -167,7 +167,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "acx" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/blue2{
@@ -503,7 +503,7 @@
 	},
 /area/bigredv2/outside/marshal_office)
 "agC" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/red/redtaupecorner{
 	dir = 4
 	},
@@ -599,7 +599,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/virology)
 "ahr" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/marshal_office)
 "ahs" = (
@@ -685,7 +685,7 @@
 /turf/open/floor/tile/red/redtaupecorner,
 /area/bigredv2/outside/marshal_office)
 "aih" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/security/glass/free_access{
 	dir = 1;
 	name = "\improper Marshal Office Armory"
@@ -743,7 +743,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/caves/lambda_lab)
 "aix" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/nw)
 "aiy" = (
@@ -836,7 +836,7 @@
 	},
 /area/bigredv2/outside/marshal_office)
 "ajc" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/red/redtaupecorner,
 /area/bigredv2/outside/marshal_office)
 "aje" = (
@@ -882,7 +882,7 @@
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/bigredv2/caves/lambda_lab)
-"ajp" = (
+"ajp" = (pers/simple_pipes/supply/hidden/layer1
 /obj/structure/cable,
 /obj/machinery/alarm{
 	dir = 4
@@ -896,10 +896,10 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "ajq" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /turf/open/floor/tile/dark/purple2/corner,
@@ -940,13 +940,13 @@
 	},
 /area/bigredv2/outside/marshal_office)
 "ajJ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/marshal_office)
 "ajK" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/security/glass/free_access{
@@ -955,14 +955,14 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/marshal_office)
 "ajL" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
 "ajO" = (
 /obj/structure/table,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
@@ -970,7 +970,7 @@
 "ajP" = (
 /obj/structure/table,
 /obj/item/trash/kepler,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
@@ -978,7 +978,7 @@
 "ajQ" = (
 /obj/structure/table,
 /obj/machinery/recharger,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
@@ -1000,17 +1000,17 @@
 /turf/open/floor/marking/delivery,
 /area/bigredv2/caves/lambda_lab)
 "ajW" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/marking/delivery,
 /area/bigredv2/caves/lambda_lab)
 "ajX" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /turf/open/floor/asteroidfloor,
@@ -1089,7 +1089,7 @@
 	dir = 1;
 	name = "\improper Marshal Office"
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
 "akx" = (
@@ -1142,10 +1142,10 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "akE" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/tile/dark/purple2{
@@ -1214,7 +1214,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
 "akT" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/wood,
 /area/bigredv2/outside/marshal_office)
 "akU" = (
@@ -1290,7 +1290,7 @@
 	},
 /area/bigredv2/outside/marshal_office)
 "alr" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
 "alv" = (
@@ -1329,7 +1329,7 @@
 /turf/open/floor/grimy,
 /area/bigredv2/outside/marshal_office)
 "alC" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/grimy,
 /area/bigredv2/outside/marshal_office)
 "alD" = (
@@ -1398,7 +1398,7 @@
 	},
 /area/bigredv2/outside/nw)
 "amc" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -1406,7 +1406,7 @@
 /area/bigredv2/outside/nw)
 "amd" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/red/redtaupe{
@@ -1415,7 +1415,7 @@
 /area/bigredv2/outside/marshal_office)
 "ame" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/red/redtaupecorner{
@@ -1424,13 +1424,13 @@
 /area/bigredv2/outside/marshal_office)
 "amj" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
 "amt" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/security/glass/free_access{
@@ -1490,10 +1490,10 @@
 /turf/open/floor/marking/delivery,
 /area/bigredv2/caves/lambda_lab)
 "amQ" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/tile/darkgreen/darkgreen2{
@@ -1611,10 +1611,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/tile/dark/purple2{
@@ -1681,7 +1681,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/general_offices)
 "anK" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -1736,10 +1736,10 @@
 /area/bigredv2/caves/lambda_lab)
 "anZ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/tile/darkgreen/darkgreen2{
@@ -1795,10 +1795,10 @@
 /area/bigredv2/caves/lambda_lab)
 "aoL" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/tile/dark/purple2{
@@ -1881,10 +1881,10 @@
 /area/bigredv2/caves/lambda_lab)
 "apy" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/purple2{
@@ -1905,7 +1905,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "apH" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper Marshal Office"
@@ -1969,10 +1969,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
 /turf/open/floor/tile/dark/purple2{
@@ -2007,21 +2007,21 @@
 /area/bigredv2/caves/lambda_lab)
 "aqG" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/n)
 "aqH" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/n)
 "aqI" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -2030,14 +2030,14 @@
 /area/bigredv2/outside/n)
 "aqJ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/outside/n)
 "aqK" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -2123,10 +2123,10 @@
 /area/bigredv2/caves/lambda_lab)
 "arc" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/purple2{
@@ -2182,10 +2182,10 @@
 /area/bigredv2/caves/lambda_lab)
 "arK" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/marking/delivery,
@@ -2273,10 +2273,10 @@
 /area/bigredv2/caves/lambda_lab)
 "asv" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/tile/darkish,
@@ -2291,7 +2291,7 @@
 /turf/closed/wall,
 /area/bigredv2/outside/dorms)
 "asI" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper Dormitories"
@@ -2346,10 +2346,10 @@
 /area/bigredv2/caves/lambda_lab)
 "ati" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/tile/dark/purple2,
@@ -2416,10 +2416,10 @@
 /area/bigredv2/caves/lambda_lab)
 "atN" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/structure/window/reinforced,
@@ -2494,10 +2494,10 @@
 /turf/open/floor/tile/darkish,
 /area/bigredv2/caves/lambda_lab)
 "auw" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/structure/prop/mainship/protolathe/engi,
@@ -2545,28 +2545,28 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/caves/lambda_lab)
 "avb" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/tile/dark,
 /area/bigredv2/caves/lambda_lab)
 "avd" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
 /area/bigredv2/caves/lambda_lab)
 "ave" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/door/airlock/multi_tile/mainship/medidoor{
@@ -2576,10 +2576,10 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/caves/lambda_lab)
 "avh" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/window/reinforced{
@@ -2593,19 +2593,19 @@
 "avi" = (
 /obj/structure/showcase,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/darkish,
 /area/bigredv2/caves/lambda_lab)
 "avj" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/structure/prop/mainship/telecomms,
@@ -2694,7 +2694,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "aws" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
@@ -2741,10 +2741,10 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "awI" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/purple2{
@@ -2771,7 +2771,7 @@
 "axj" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "axl" = (
@@ -2788,10 +2788,10 @@
 /turf/open/floor/carpet,
 /area/bigredv2/caves/lambda_lab)
 "axs" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/tile/darkish,
@@ -2817,7 +2817,7 @@
 /area/bigredv2/caves/northeast)
 "axW" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -2838,10 +2838,10 @@
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/lambda_lab)
 "ayD" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -2851,7 +2851,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/lambda_lab)
 "ayV" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/item/weapon/twohanded/fireaxe,
 /turf/open/floor,
@@ -2907,7 +2907,7 @@
 /area/bigredv2/caves/north)
 "aAc" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/maint/free_access{
@@ -2916,7 +2916,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/dorms)
 "aAe" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -2940,7 +2940,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "aAD" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/generic{
 	dir = 1;
 	name = "\improper Dormitories Restroom"
@@ -3019,7 +3019,7 @@
 /obj/structure/urinal{
 	pixel_y = 32
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/freezer,
@@ -3028,7 +3028,7 @@
 /obj/structure/urinal{
 	pixel_y = 32
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/freezer,
@@ -3037,19 +3037,19 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/freezer,
 /area/bigredv2/outside/dorms)
 "aBo" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/freezer,
 /area/bigredv2/outside/dorms)
 "aBp" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/freezer,
@@ -3072,7 +3072,7 @@
 /area/bigredv2/outside/dorms)
 "aBt" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/plating,
 /area/bigredv2/outside/dorms)
 "aBv" = (
@@ -3182,7 +3182,7 @@
 /area/bigredv2/caves/lambda_lab)
 "aCB" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/effect/ai_node,
@@ -3209,7 +3209,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/dorms)
 "aCU" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/maint/free_access{
 	dir = 1;
@@ -3218,7 +3218,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/bar)
 "aCX" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -3258,10 +3258,10 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "aDo" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/tile/dark/purple2{
@@ -3344,21 +3344,21 @@
 /area/bigredv2/outside/bar)
 "aDW" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
 "aDY" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
 "aDZ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/generic{
@@ -3368,7 +3368,7 @@
 /area/bigredv2/outside/bar)
 "aEa" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /turf/open/floor/wood,
@@ -3378,7 +3378,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
 "aEd" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor,
 /area/bigredv2/outside/hydroponics)
@@ -3410,10 +3410,10 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "aEr" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/purple2{
@@ -3424,7 +3424,7 @@
 /turf/closed/wall/r_wall,
 /area/bigredv2/caves/northeast)
 "aEH" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3454,11 +3454,11 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
 "aER" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
 "aEV" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3466,7 +3466,7 @@
 /area/bigredv2/outside/hydroponics)
 "aEY" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
@@ -3530,7 +3530,7 @@
 	},
 /area/bigredv2/outside/c)
 "aFO" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/generic{
@@ -3584,7 +3584,7 @@
 	dir = 1;
 	name = "\improper Greenhouse Storage"
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3594,10 +3594,10 @@
 /obj/machinery/light/built{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/tile/dark/purple2{
@@ -3619,7 +3619,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/dorms)
 "aGG" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
@@ -3645,7 +3645,7 @@
 /area/bigredv2/outside/hydroponics)
 "aGM" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/hydroponics)
 "aGW" = (
@@ -3712,7 +3712,7 @@
 /area/bigredv2/outside/bar)
 "aHL" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper Kitchen Storage"
 	},
@@ -3720,20 +3720,20 @@
 /area/bigredv2/outside/hydroponics)
 "aHP" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/tile/darkish,
 /area/bigredv2/caves/lambda_lab)
 "aHQ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /turf/open/floor/tile/darkish,
@@ -3786,7 +3786,7 @@
 /turf/open/floor/plating/ground/mars/dirttosand,
 /area/bigredv2/outside/virology)
 "aIa" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -3795,7 +3795,7 @@
 	},
 /area/bigredv2/outside/virology)
 "aIb" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3803,13 +3803,13 @@
 /area/bigredv2/outside/virology)
 "aIc" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/virology)
 "aIe" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3817,7 +3817,7 @@
 /area/bigredv2/outside/virology)
 "aIf" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -3826,7 +3826,7 @@
 /area/bigredv2/outside/virology)
 "aIh" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/poddoor/two_tile_ver{
@@ -3836,7 +3836,7 @@
 /area/bigredv2/outside/virology)
 "aIi" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -3904,7 +3904,7 @@
 /area/bigredv2/outside/hydroponics)
 "aIB" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/freezer,
 /area/bigredv2/outside/hydroponics)
 "aID" = (
@@ -4010,7 +4010,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
 "aJu" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/generic{
@@ -4019,13 +4019,13 @@
 /turf/open/floor/freezer,
 /area/bigredv2/outside/hydroponics)
 "aJv" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/freezer,
 /area/bigredv2/outside/hydroponics)
 "aJz" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -4035,7 +4035,7 @@
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/hydroponics)
 "aJA" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -4053,10 +4053,10 @@
 /turf/open/floor/tile/dark/purple2/corner,
 /area/bigredv2/caves/lambda_lab)
 "aJI" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -4064,65 +4064,65 @@
 /area/bigredv2/caves/lambda_lab)
 "aJJ" = (
 /obj/machinery/light/built,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/purple2,
 /area/bigredv2/caves/lambda_lab)
 "aJK" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/purple2,
 /area/bigredv2/caves/lambda_lab)
 "aJM" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/damaged/three,
 /area/bigredv2/caves/lambda_lab)
 "aJN" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/dark/purple2,
 /area/bigredv2/caves/lambda_lab)
 "aJO" = (
 /obj/structure/cable,
 /obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/purple2,
 /area/bigredv2/caves/lambda_lab)
 "aJQ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/purple2,
 /area/bigredv2/caves/lambda_lab)
 "aJT" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/door/airlock/multi_tile/mainship/medidoor{
@@ -4134,10 +4134,10 @@
 /area/bigredv2/caves/lambda_lab)
 "aJU" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/green/whitegreen{
@@ -4146,20 +4146,20 @@
 /area/bigredv2/caves/lambda_lab)
 "aJV" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
 /area/bigredv2/caves/lambda_lab)
 "aJW" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/green/whitegreen{
@@ -4172,10 +4172,10 @@
 	dir = 8
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/darkgreen/darkgreen2{
@@ -4183,10 +4183,10 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "aKb" = (
-/obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /turf/open/floor/tile/darkish,
@@ -4286,7 +4286,7 @@
 /turf/open/floor/freezer,
 /area/bigredv2/outside/hydroponics)
 "aKJ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/hydroponics)
@@ -4305,8 +4305,8 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "aKX" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/tile/darkgreen/darkgreen2/corner{
@@ -4314,7 +4314,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "aKY" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/tile/darkgreen/darkgreen2/corner,
@@ -4448,7 +4448,7 @@
 /obj/structure/window/reinforced/toughened{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/structure/window/reinforced/toughened,
 /turf/open/floor/tile/darkgreen/darkgreen2{
 	dir = 10
@@ -4459,7 +4459,7 @@
 	dir = 4
 	},
 /obj/machinery/computer/pandemic,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/window/reinforced/toughened,
 /turf/open/floor/tile/darkgreen/darkgreen2{
 	dir = 6
@@ -4496,7 +4496,7 @@
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/hydroponics)
 "aMo" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -4525,7 +4525,7 @@
 /area/bigredv2/outside/virology)
 "aMA" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/research/free_access{
 	dir = 1;
 	name = "\improper Virology Lab Decontamination"
@@ -4583,7 +4583,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "aMX" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/machinery/door/airlock/multi_tile/mainship/medidoor{
 	name = "\improper Lambda Lab Virology Quarantine"
 	},
@@ -4591,7 +4591,7 @@
 /turf/open/floor/marking/delivery,
 /area/bigredv2/caves/lambda_lab)
 "aMY" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/marking/delivery,
 /area/bigredv2/caves/lambda_lab)
 "aMZ" = (
@@ -4676,7 +4676,7 @@
 /turf/open/floor/bcircuit/anim,
 /area/bigredv2/caves/lambda_lab)
 "aOq" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/light/small{
 	dir = 4
 	},
@@ -4692,7 +4692,7 @@
 /area/bigredv2/outside/virology)
 "aOL" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/effect/ai_node,
@@ -4725,7 +4725,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/hydroponics)
 "aPg" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -4746,12 +4746,12 @@
 /area/bigredv2/caves/lambda_lab)
 "aPr" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/caves/lambda_lab)
 "aPt" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/research/free_access{
 	dir = 1;
 	name = "\improper Virology Lab Decontamination"
@@ -4794,7 +4794,7 @@
 /area/bigredv2/outside/hydroponics)
 "aQx" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/machinery/door/airlock/multi_tile/mainship/medidoor{
 	name = "\improper Lambda Lab Virology Quarantine"
 	},
@@ -4812,7 +4812,7 @@
 /area/bigredv2/outside/virology)
 "aQA" = (
 /obj/item/frame/table,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/virology)
@@ -4882,13 +4882,13 @@
 /area/bigredv2/caves/lambda_lab)
 "aRA" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 1
 	},
 /area/bigredv2/caves/lambda_lab)
 "aRB" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 1
 	},
@@ -4978,7 +4978,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/virology)
 "aSx" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/virology)
 "aSy" = (
@@ -5006,14 +5006,14 @@
 /area/bigredv2/caves/northeast)
 "aTf" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/c)
 "aTg" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/sign/double/barsign{
@@ -5024,7 +5024,7 @@
 	},
 /area/bigredv2/outside/c)
 "aTh" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -5032,13 +5032,13 @@
 /area/bigredv2/outside/c)
 "aTi" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/c)
 "aTk" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -5046,12 +5046,12 @@
 /area/bigredv2/outside/e)
 "aTm" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/e)
 "aTn" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning,
@@ -5099,7 +5099,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "aTJ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -5120,7 +5120,7 @@
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/nw)
 "aUo" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -5132,7 +5132,7 @@
 /turf/open/space/basic,
 /area/bigredv2/caves/lambda_lab)
 "aUy" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -5140,7 +5140,7 @@
 /area/bigredv2/caves/lambda_lab)
 "aUz" = (
 /obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -5148,7 +5148,7 @@
 /area/bigredv2/caves/lambda_lab)
 "aUB" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -5199,7 +5199,7 @@
 /area/bigredv2/outside/c)
 "aVp" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "aVr" = (
@@ -5213,7 +5213,7 @@
 	},
 /area/bigredv2/outside/e)
 "aVu" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
@@ -5278,7 +5278,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/virology)
 "aWh" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/white/warningstripe{
 	dir = 9
 	},
@@ -5316,7 +5316,7 @@
 /turf/open/floor/plating/ground/mars/dirttosand,
 /area/bigredv2/outside/c)
 "aWP" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/research/glass/free_access{
@@ -5325,7 +5325,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/virology)
 "aWQ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/barricade/wooden{
@@ -5365,7 +5365,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/virology)
 "aXw" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/white/warningstripe{
 	dir = 8
 	},
@@ -5404,7 +5404,7 @@
 /area/bigredv2/outside/w)
 "aYv" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -5413,7 +5413,7 @@
 /area/bigredv2/outside/e)
 "aYx" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -5443,7 +5443,7 @@
 /area/bigredv2/outside/w)
 "aYH" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -5453,13 +5453,13 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating,
 /area/bigredv2/outside/cargo)
 "aZk" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/research/free_access{
@@ -5469,7 +5469,7 @@
 /area/bigredv2/outside/virology)
 "aZl" = (
 /obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/tile/white/warningstripe{
@@ -5477,7 +5477,7 @@
 	},
 /area/bigredv2/outside/virology)
 "aZm" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/plating,
 /area/bigredv2/outside/cargo)
 "aZn" = (
@@ -5518,7 +5518,7 @@
 /area/bigredv2/outside/c)
 "aZF" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/red/redtaupecorner{
 	dir = 8
 	},
@@ -5541,7 +5541,7 @@
 /area/bigredv2/outside/cargo)
 "ban" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/effect/ai_node,
@@ -5550,7 +5550,7 @@
 	},
 /area/bigredv2/outside/office_complex)
 "bay" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /obj/structure/barricade/wooden{
@@ -5559,7 +5559,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "baA" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /turf/open/floor,
@@ -5587,7 +5587,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/cargo)
 "bbe" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "bbp" = (
@@ -5679,14 +5679,14 @@
 	},
 /area/bigredv2/outside/cargo)
 "beB" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "beD" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning,
@@ -5738,7 +5738,7 @@
 	},
 /area/bigredv2/outside/se)
 "bfI" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
@@ -5769,23 +5769,23 @@
 	},
 /area/bigredv2/outside/se)
 "bhP" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "bhQ" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "bhR" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "bhS" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -5796,7 +5796,7 @@
 /turf/open/floor/tile/lightred/full,
 /area/bigredv2/outside/cargo)
 "bil" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -5804,18 +5804,18 @@
 /area/bigredv2/outside/cargo)
 "biv" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "biB" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "biK" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -5828,7 +5828,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "biZ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
@@ -5869,7 +5869,7 @@
 /area/bigredv2/outside/office_complex)
 "bjL" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/red/redtaupecorner{
@@ -5878,7 +5878,7 @@
 /area/bigredv2/outside/office_complex)
 "bjM" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor,
@@ -5928,7 +5928,7 @@
 /turf/closed/wall,
 /area/bigredv2/outside/filtration_plant)
 "bku" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/engineering/free_access{
 	dir = 1;
@@ -5948,7 +5948,7 @@
 /area/bigredv2/outside/filtration_plant)
 "bkx" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/engineering/free_access{
 	dir = 1;
 	name = "\improper Atmospherics Condenser"
@@ -6169,7 +6169,7 @@
 /area/bigredv2/outside/filtration_plant)
 "bnk" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
@@ -6200,7 +6200,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "bnC" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -6237,7 +6237,7 @@
 /area/bigredv2/outside/engineering)
 "bod" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "boe" = (
@@ -6262,14 +6262,14 @@
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
 "bor" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
 "bot" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/engineering/free_access{
 	dir = 1;
 	name = "\improper Atmospherics Condenser"
@@ -6317,19 +6317,19 @@
 /turf/open/floor/wood,
 /area/bigredv2/caves/lambda_lab)
 "bpn" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "bpo" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "bpp" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor,
@@ -6361,7 +6361,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
 "bpT" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/engineering/free_access{
@@ -6504,7 +6504,7 @@
 /area/bigredv2/outside/filtration_plant)
 "bsw" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -6559,13 +6559,13 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "btl" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/s)
 "btm" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning,
@@ -6592,7 +6592,7 @@
 	},
 /area/bigredv2/outside/se)
 "btJ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -6601,7 +6601,7 @@
 /area/bigredv2/outside/engineering)
 "btN" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/machinery/light{
@@ -6620,7 +6620,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/engineering)
 "bua" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper Engineering Complex"
 	},
@@ -6668,7 +6668,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
 "bvo" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 1
 	},
@@ -6680,7 +6680,7 @@
 	},
 /area/bigredv2/outside/s)
 "bvz" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/poddoor/two_tile_hor{
 	name = "\improper Eta Lab Lockdown"
 	},
@@ -6693,7 +6693,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/s)
 "bvC" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/s)
 "bvD" = (
@@ -6740,7 +6740,7 @@
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bwG" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/multi_tile/mainship/medidoor{
 	name = "\improper Eta Lab Storage Bay"
 	},
@@ -6762,25 +6762,25 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bwL" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /turf/open/floor/marking/delivery,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bwM" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/delivery,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bwN" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bwO" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /turf/open/floor,
@@ -6831,7 +6831,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bxf" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bxg" = (
@@ -6858,7 +6858,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bxr" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/research/glass/free_access{
@@ -6867,7 +6867,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bxt" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/blue2{
@@ -6987,7 +6987,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "byE" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/research/glass/free_access{
 	dir = 1;
 	name = "\improper Eta Lab Technical Storage"
@@ -6995,7 +6995,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "byF" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/generic{
 	dir = 1;
 	name = "\improper Eta Lab Dormitories"
@@ -7011,13 +7011,13 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "byM" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "byO" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/tile/dark,
@@ -7039,7 +7039,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "byZ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/research/glass/free_access{
 	dir = 1;
 	name = "\improper Eta Lab Robotics"
@@ -7055,7 +7055,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bzf" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/darkgreen/darkgreen2/corner{
@@ -7063,7 +7063,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bzj" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/yellow2{
@@ -7079,7 +7079,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bzs" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/research/glass/free_access{
 	dir = 1;
 	name = "\improper Eta Lab Armory"
@@ -7106,7 +7106,7 @@
 /turf/open/floor/tile/darkgreen/darkgreen2/corner,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bzC" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/darkgreen/darkgreen2/corner,
@@ -7147,7 +7147,7 @@
 /turf/open/floor/tile/darkish,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bzR" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/security/glass/free_access{
 	dir = 1;
 	name = "\improper Eta Lab Security Office"
@@ -7204,7 +7204,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bAm" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bAo" = (
@@ -7260,7 +7260,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bAD" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/research/glass/free_access{
@@ -7389,7 +7389,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bBF" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/research/glass/free_access{
@@ -7483,7 +7483,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bCA" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -7500,7 +7500,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bCR" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/multi_tile/mainship/medidoor{
 	name = "\improper Eta Lab"
 	},
@@ -7590,7 +7590,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bDv" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/wood,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bDx" = (
@@ -7650,7 +7650,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bDO" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/research/glass/free_access{
 	dir = 1;
 	name = "\improper Eta Lab Research Office"
@@ -7674,13 +7674,13 @@
 /turf/open/floor/freezer,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bDY" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/yellow2/corner,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bEh" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark/yellow2/corner,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bEj" = (
@@ -7696,7 +7696,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bEo" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark/yellow2/corner{
 	dir = 8
 	},
@@ -7738,7 +7738,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bEH" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/research/glass/free_access{
@@ -7753,7 +7753,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "bEM" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/yellow2/corner{
@@ -7827,7 +7827,7 @@
 "bOB" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -7893,7 +7893,7 @@
 /area/bigredv2/outside/c)
 "cbA" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold4w/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
@@ -7906,7 +7906,7 @@
 /turf/open/floor/tile/dark/yellow2/corner,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "ccS" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/plating,
@@ -7916,7 +7916,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/e)
 "cfg" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
@@ -7945,7 +7945,7 @@
 /area/bigredv2/outside/sw)
 "cku" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,
@@ -7963,7 +7963,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
 "cny" = (
-/obj/machinery/atmospherics/pipe/manifold4w/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
@@ -7980,7 +7980,7 @@
 /area/bigredv2/outside/n)
 "cpW" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -7993,7 +7993,7 @@
 	},
 /area/bigredv2/outside/se)
 "cqT" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
 /turf/open/floor/marking/asteroidwarning{
@@ -8015,7 +8015,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "cuW" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning,
@@ -8025,7 +8025,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/c)
 "czb" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -8052,7 +8052,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "cCE" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -8078,7 +8078,7 @@
 /turf/open/floor/tile/red/redtaupecorner,
 /area/bigredv2/outside/office_complex)
 "cFC" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -8091,7 +8091,7 @@
 /area/bigredv2/caves/lambda_lab)
 "cHh" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -8116,7 +8116,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "cLe" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
@@ -8141,7 +8141,7 @@
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/hydroponics)
 "cNG" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
@@ -8175,7 +8175,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "cRb" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -8189,7 +8189,7 @@
 /area/space)
 "cSl" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/virology)
@@ -8200,7 +8200,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "cVB" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/effect/landmark/weed_node,
@@ -8254,7 +8254,7 @@
 /area/bigredv2/outside/virology)
 "ddm" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -8262,13 +8262,13 @@
 /area/bigredv2/outside/virology)
 "dgo" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
 "dgG" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/darkgreen/darkgreen2/corner,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "djb" = (
@@ -8278,7 +8278,7 @@
 /area/bigredv2/outside/c)
 "djD" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -8311,10 +8311,10 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -8327,7 +8327,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southwest)
 "doV" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -8374,7 +8374,7 @@
 "duy" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/item/frame/table,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/red/redtaupecorner,
 /area/bigredv2/outside/marshal_office)
@@ -8390,7 +8390,7 @@
 "dwe" = (
 /obj/structure/table,
 /obj/item/reagent_containers/spray/cleaner,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -8407,7 +8407,7 @@
 /area/bigredv2/outside/filtration_plant)
 "dCD" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /obj/effect/ai_node,
@@ -8419,7 +8419,7 @@
 /area/bigredv2/outside/se)
 "dDT" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor,
@@ -8521,7 +8521,7 @@
 /area/bigredv2/outside/nw)
 "dXF" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
@@ -8570,10 +8570,10 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/sign/biohazard,
@@ -8604,7 +8604,7 @@
 /area/bigredv2/caves/lambda_lab)
 "ehI" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -8689,7 +8689,7 @@
 /turf/open/floor/tile/darkish,
 /area/bigredv2/caves/lambda_lab)
 "eps" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/wood,
@@ -8742,7 +8742,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
 "eBw" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /turf/open/floor,
@@ -8798,7 +8798,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/filtration_plant)
 "eKd" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/red/redtaupecorner,
 /area/bigredv2/outside/marshal_office)
@@ -8808,14 +8808,14 @@
 /area/bigredv2/caves/lambda_lab)
 "eNF" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "eNR" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/darkgreen/darkgreen2/corner{
 	dir = 1
 	},
@@ -8825,7 +8825,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/s)
 "ePH" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -8850,7 +8850,7 @@
 /area/bigredv2/outside/cargo)
 "eQK" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark/blue2{
 	dir = 6
 	},
@@ -8861,7 +8861,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/hydroponics)
 "eVx" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
@@ -8871,7 +8871,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "eVY" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -8907,7 +8907,7 @@
 /area/bigredv2/caves/lambda_lab)
 "fbn" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/nw)
@@ -8917,7 +8917,7 @@
 /area/bigredv2/outside/virology)
 "fdl" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "fdZ" = (
@@ -8927,7 +8927,7 @@
 	},
 /area/bigredv2/outside/w)
 "feN" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/landmark/corpsespawner/doctor,
 /turf/open/floor,
@@ -8950,7 +8950,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/e)
 "fgy" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -8958,7 +8958,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
 "fgJ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
@@ -9027,7 +9027,7 @@
 /area/bigredv2/outside/e)
 "foH" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning,
@@ -9047,7 +9047,7 @@
 "fsN" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/e)
@@ -9117,7 +9117,7 @@
 /area/bigredv2/outside/general_offices)
 "fCK" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -9146,7 +9146,7 @@
 	},
 /area/bigredv2/caves/southwest)
 "fIq" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
@@ -9186,7 +9186,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/engineering)
 "fOe" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -9229,7 +9229,7 @@
 /area/bigredv2/outside/se)
 "fSl" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -9238,19 +9238,19 @@
 	},
 /area/bigredv2/outside/nw)
 "fST" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "fTd" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/s)
 "fUq" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -9260,7 +9260,7 @@
 /area/bigredv2/outside/marshal_office)
 "fVM" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -9318,7 +9318,7 @@
 /area/bigredv2/outside/marshal_office)
 "gdl" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -9378,17 +9378,17 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/ne)
 "gqw" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "grD" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/xeno_resin_door,
@@ -9471,7 +9471,7 @@
 /turf/open/floor/tile/red/full,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "gDJ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor,
 /area/bigredv2/outside/dorms)
@@ -9515,7 +9515,7 @@
 	},
 /area/bigredv2/outside/ne)
 "gHJ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "gJd" = (
@@ -9576,7 +9576,7 @@
 /area/bigredv2/outside/ne)
 "gNw" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark/yellow2,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "gNA" = (
@@ -9601,7 +9601,7 @@
 /area/bigredv2/outside/engineering)
 "gQd" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/effect/landmark/weed_node,
@@ -9632,7 +9632,7 @@
 /area/bigredv2/outside/nw)
 "gVm" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
@@ -9651,7 +9651,7 @@
 /area/bigredv2/outside/engineering)
 "gVQ" = (
 /obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -9710,7 +9710,7 @@
 /area/storage/testroom)
 "hbp" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
@@ -9743,7 +9743,7 @@
 /turf/open/floor/tile/darkish,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "hkN" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -9800,7 +9800,7 @@
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/west)
 "hsr" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -9822,7 +9822,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/cargo)
 "hxI" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -9830,7 +9830,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "hya" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -9847,7 +9847,7 @@
 /obj/structure/bed/chair/wood/normal{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -9912,7 +9912,7 @@
 /area/bigredv2/outside/cargo)
 "hNs" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -9948,7 +9948,7 @@
 /area/bigredv2/outside/engineering)
 "hVt" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
@@ -9976,7 +9976,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "hZH" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -9988,10 +9988,10 @@
 /turf/open/floor/tile/darkgreen/darkgreen2/corner,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "ibA" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/effect/decal/sandedge,
@@ -10052,7 +10052,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "ioB" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -10088,7 +10088,7 @@
 /area/bigredv2/caves/lambda_lab)
 "iyX" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/virology)
@@ -10123,10 +10123,10 @@
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/hydroponics)
 "iEp" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/structure/window/reinforced{
@@ -10138,7 +10138,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "iEw" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -10156,7 +10156,7 @@
 	},
 /area/bigredv2/outside/office_complex)
 "iFA" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /turf/open/floor/asteroidfloor,
@@ -10167,7 +10167,7 @@
 /area/bigredv2/outside/n)
 "iId" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 1
@@ -10183,7 +10183,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "iMb" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
@@ -10223,7 +10223,7 @@
 /area/bigredv2/outside/bar)
 "iSu" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/effect/ai_node,
@@ -10242,7 +10242,7 @@
 	},
 /area/bigredv2/outside/nw)
 "iWB" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -10368,7 +10368,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "jhO" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
@@ -10393,7 +10393,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/caves/southwest)
 "jjL" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /obj/effect/landmark/corpsespawner/colonist,
@@ -10487,7 +10487,7 @@
 "jwo" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning,
@@ -10510,7 +10510,7 @@
 /area/bigredv2/caves/lambda_lab)
 "jzk" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -10518,7 +10518,7 @@
 /area/bigredv2/outside/e)
 "jzH" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
 "jAB" = (
@@ -10611,7 +10611,7 @@
 /area/bigredv2/caves/lambda_lab)
 "jLr" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/decal/cleanable/blood/gibs/down,
@@ -10626,7 +10626,7 @@
 /area/bigredv2/caves/lambda_lab)
 "jNo" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -10713,10 +10713,10 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southwest)
 "kdT" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/machinery/alarm{
@@ -10729,12 +10729,12 @@
 /area/bigredv2/caves/lambda_lab)
 "kec" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/e)
 "kes" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
@@ -10768,7 +10768,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "kks" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/virology)
@@ -10841,7 +10841,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "kvK" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -10867,7 +10867,7 @@
 /area/bigredv2/outside/engineering)
 "kCr" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -10878,7 +10878,7 @@
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/outside/s)
 "kCN" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/marshal_office)
@@ -10897,7 +10897,7 @@
 	dir = 1
 	},
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
@@ -10911,7 +10911,7 @@
 /area/space)
 "kII" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
@@ -10972,7 +10972,7 @@
 /area/space)
 "kUV" = (
 /obj/effect/decal/cleanable/blood,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -11076,7 +11076,7 @@
 /turf/open/floor/tile/purple/whitepurplefull,
 /area/bigredv2/caves/lambda_lab)
 "lnx" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/effect/ai_node,
@@ -11085,7 +11085,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "lnz" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -11146,7 +11146,7 @@
 /turf/open/floor/freezer,
 /area/bigredv2/outside/virology)
 "lxP" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood,
@@ -11237,7 +11237,7 @@
 "lOs" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/nw)
@@ -11315,7 +11315,7 @@
 /area/bigredv2/caves/northeast)
 "lYl" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -11389,7 +11389,7 @@
 /area/bigredv2/outside/nw)
 "mig" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -11406,7 +11406,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "mmd" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark/yellow2/corner,
 /area/bigredv2/outside/nanotrasen_lab/inside)
@@ -11465,7 +11465,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/west)
 "mwX" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -11551,7 +11551,7 @@
 /turf/open/space/basic,
 /area/space)
 "mHJ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
@@ -11588,7 +11588,7 @@
 /turf/open/space/basic,
 /area/space)
 "mQi" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/maint/free_access{
 	dir = 1;
 	name = "\improper General Store Maintenance"
@@ -11602,14 +11602,14 @@
 /turf/open/floor/tile/purple/whitepurplefull,
 /area/bigredv2/caves/lambda_lab)
 "mQv" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
 "mQP" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -11623,7 +11623,7 @@
 /area/bigredv2/outside/cargo)
 "mRt" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -11665,7 +11665,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "mZO" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/virology)
@@ -11692,7 +11692,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "ncW" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
@@ -11703,10 +11703,10 @@
 /area/bigredv2/outside/cargo)
 "ngv" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -11728,7 +11728,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/caves/lambda_lab)
 "nkc" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -11761,7 +11761,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/hydroponics)
 "nmV" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -11778,7 +11778,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "npt" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
@@ -11799,7 +11799,7 @@
 /turf/open/space/basic,
 /area/space)
 "nrC" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/s)
 "nrL" = (
@@ -11817,10 +11817,10 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "ntn" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/effect/ai_node,
@@ -11881,7 +11881,7 @@
 /area/bigredv2/outside/s)
 "nDZ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -11957,10 +11957,10 @@
 /area/bigredv2/caves/south)
 "nOl" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/corpsespawner/scientist,
@@ -12027,7 +12027,7 @@
 /area/bigredv2/outside/e)
 "obD" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
@@ -12076,7 +12076,7 @@
 /area/bigredv2/caves/lambda_lab)
 "oit" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
@@ -12094,7 +12094,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "ojx" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -12121,16 +12121,16 @@
 /area/bigredv2/outside/general_offices)
 "onZ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/e)
 "oof" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -12155,7 +12155,7 @@
 /area/bigredv2/outside/virology)
 "osg" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
@@ -12167,7 +12167,7 @@
 /turf/open/floor/tile/dark/red2,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "ote" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -12198,7 +12198,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/nw)
 "oxg" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
@@ -12207,7 +12207,7 @@
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/outside/c)
 "ozk" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -12319,14 +12319,14 @@
 /turf/open/floor/marking/bot,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "oRK" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
 /area/bigredv2/outside/s)
 "oTp" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -12408,7 +12408,7 @@
 /area/bigredv2/caves/lambda_lab)
 "ply" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/tile/dark,
@@ -12424,7 +12424,7 @@
 /area/bigredv2/caves/lambda_lab)
 "ppX" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "pqo" = (
@@ -12438,12 +12438,12 @@
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
 "pqy" = (
-/obj/machinery/atmospherics/pipe/manifold4w/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "prH" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/corpsespawner/scientist,
 /turf/open/floor/tile/dark,
@@ -12470,14 +12470,14 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/engineering)
 "pwE" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "pxc" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/freezer,
@@ -12548,7 +12548,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
 "pJe" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -12565,7 +12565,7 @@
 /area/bigredv2/outside/sw)
 "pMs" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/effect/landmark/weed_node,
@@ -12578,7 +12578,7 @@
 "pNT" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/tile/dark,
@@ -12589,7 +12589,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "pPJ" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -12613,7 +12613,7 @@
 /area/bigredv2/outside/marshal_office)
 "pXA" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -12626,7 +12626,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "pZN" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -12638,7 +12638,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "qbg" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/tile/darkgreen/darkgreen2/corner{
 	dir = 8
@@ -12671,13 +12671,13 @@
 	dir = 1;
 	name = "\improper Cargo Bay"
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "qfk" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -12717,7 +12717,7 @@
 /turf/open/floor/tile/damaged/five,
 /area/bigredv2/caves/south)
 "qlj" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
@@ -12731,7 +12731,7 @@
 	dir = 1
 	},
 /obj/effect/landmark/weed_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/green/whitegreen,
 /area/bigredv2/caves/lambda_lab)
 "qnW" = (
@@ -12756,7 +12756,7 @@
 	},
 /area/bigredv2/outside/e)
 "qss" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/tile/dark,
@@ -12827,7 +12827,7 @@
 /area/bigredv2/outside/s)
 "qFc" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/nw)
 "qJf" = (
@@ -12842,7 +12842,7 @@
 /area/bigredv2/outside/c)
 "qJw" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -12870,7 +12870,7 @@
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/c)
 "qPv" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/xeno,
@@ -12888,7 +12888,7 @@
 /area/bigredv2/caves/north)
 "qUm" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -12916,7 +12916,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/nw)
 "qYI" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/grimy,
 /area/bigredv2/outside/marshal_office)
@@ -12924,13 +12924,13 @@
 /obj/structure/bed/chair/wood/normal{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
 "qZV" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/marking/asteroidwarning{
@@ -12961,7 +12961,7 @@
 /area/bigredv2/caves/lambda_lab)
 "rci" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
@@ -12972,7 +12972,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "rek" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/effect/ai_node,
@@ -12999,7 +12999,7 @@
 /area/bigredv2/caves/south)
 "rgb" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -13008,7 +13008,7 @@
 /area/bigredv2/outside/filtration_plant)
 "rgz" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
@@ -13087,7 +13087,7 @@
 /area/bigredv2/outside/cargo)
 "rrc" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -13096,7 +13096,7 @@
 "rtg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,
@@ -13178,7 +13178,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "rJo" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /obj/effect/ai_node,
@@ -13204,7 +13204,7 @@
 "rLb" = (
 /obj/item/tool/hatchet,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -13226,7 +13226,7 @@
 /area/bigredv2/caves/east)
 "rOr" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -13294,7 +13294,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/cargo)
 "sax" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/landmark/corpsespawner/security,
@@ -13360,7 +13360,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/dorms)
 "son" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/marking/delivery,
 /area/bigredv2/caves/lambda_lab)
@@ -13369,13 +13369,13 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/nw)
 "spx" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
 "sqr" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/effect/ai_node,
@@ -13421,7 +13421,7 @@
 "sxU" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/nw)
 "szi" = (
@@ -13516,7 +13516,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/tile/green/whitegreen,
 /area/bigredv2/caves/lambda_lab)
@@ -13526,7 +13526,7 @@
 /area/bigredv2/caves/northeast)
 "sTm" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -13535,7 +13535,7 @@
 	},
 /area/bigredv2/outside/marshal_office)
 "sXc" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
 /area/bigredv2/outside/nanotrasen_lab/inside)
@@ -13585,7 +13585,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/e)
 "teq" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -13598,7 +13598,7 @@
 /area/bigredv2/outside/cargo)
 "tfx" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -13636,7 +13636,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
 "toN" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -13651,7 +13651,7 @@
 	},
 /area/bigredv2/outside/c)
 "tqt" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/landmark/start/job/xenomorph,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/green/whitegreenfull,
@@ -13685,14 +13685,14 @@
 /area/bigredv2/outside/cargo)
 "twh" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/nw)
 "twH" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/grimy,
 /area/bigredv2/outside/marshal_office)
@@ -13776,7 +13776,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/north)
 "tIy" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/drip,
@@ -13857,7 +13857,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/west)
 "tQE" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -13873,7 +13873,7 @@
 /area/bigredv2/outside/engineering)
 "tST" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "tTq" = (
@@ -13911,10 +13911,10 @@
 /turf/open/floor/tile/dark/purple2,
 /area/bigredv2/caves/lambda_lab)
 "tXY" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/effect/landmark/weed_node,
@@ -13959,14 +13959,14 @@
 "ufO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "uhh" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -13974,7 +13974,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/cargo)
 "uhp" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor,
@@ -13986,7 +13986,7 @@
 "ukO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/gibs,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -14016,7 +14016,7 @@
 /turf/open/floor/tile/darkish,
 /area/bigredv2/caves/lambda_lab)
 "umL" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor,
@@ -14041,14 +14041,14 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "uon" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/c)
 "upe" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/effect/ai_node,
@@ -14056,18 +14056,18 @@
 /area/bigredv2/outside/virology)
 "upY" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/darkgreen/darkgreen2/corner,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "urz" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "urU" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -14115,7 +14115,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
 "uwD" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -14127,7 +14127,7 @@
 "uwS" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
@@ -14139,7 +14139,7 @@
 /area/bigredv2/caves/lambda_lab)
 "uCj" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,
@@ -14150,7 +14150,7 @@
 /area/bigredv2/caves/northeast)
 "uFe" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
@@ -14160,7 +14160,7 @@
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/hydroponics)
 "uGk" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/marking/asteroidwarning{
@@ -14267,7 +14267,7 @@
 "uXp" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning{
@@ -14293,14 +14293,14 @@
 /turf/open/floor/freezer,
 /area/bigredv2/outside/dorms)
 "vbt" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /obj/effect/ai_node,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/virology)
 "vbY" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -14396,7 +14396,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/c)
 "vpT" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark/blue2{
 	dir = 4
 	},
@@ -14442,7 +14442,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "vtt" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -14450,7 +14450,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/dorms)
 "vvJ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
@@ -14465,7 +14465,7 @@
 /area/bigredv2/outside/filtration_plant)
 "vwb" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -14490,7 +14490,7 @@
 "vzg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
@@ -14567,7 +14567,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/caves/lambda_lab)
 "vJn" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/weed_node,
@@ -14592,7 +14592,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/sw)
 "vNe" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -14604,7 +14604,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "vNV" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -14624,7 +14624,7 @@
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "vRL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper Marshal Office"
@@ -14638,10 +14638,10 @@
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
 "vSH" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -14700,10 +14700,10 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/effect/ai_node,
@@ -14726,7 +14726,7 @@
 "wbh" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /turf/open/floor/asteroidfloor,
@@ -14759,7 +14759,7 @@
 	},
 /area/bigredv2/outside/s)
 "wdZ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -14796,7 +14796,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/caves/lambda_lab)
 "wmV" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/effect/ai_node,
@@ -14826,7 +14826,7 @@
 "woJ" = (
 /obj/structure/barricade/wooden,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
 /area/bigredv2/outside/bar)
@@ -14918,7 +14918,7 @@
 /turf/closed/wall/r_wall,
 /area/bigredv2/caves/rock)
 "wDd" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /turf/open/floor,
@@ -14931,7 +14931,7 @@
 "wDU" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
@@ -14954,7 +14954,7 @@
 "wFx" = (
 /obj/effect/decal/cleanable/blood/gibs/xeno/body,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,
@@ -14975,7 +14975,7 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/northeast)
 "wOh" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -15015,7 +15015,7 @@
 /area/bigredv2/outside/filtration_plant)
 "wSJ" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/marking/asteroidwarning,
@@ -15037,7 +15037,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/c)
 "wWX" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -15058,7 +15058,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/caves/west)
 "xax" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -15084,7 +15084,7 @@
 /area/bigredv2/caves/lambda_lab)
 "xdP" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
@@ -15159,7 +15159,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/hydroponics)
 "xqA" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor,
 /area/bigredv2/outside/engineering)
@@ -15212,7 +15212,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "xye" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -15254,7 +15254,7 @@
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "xFB" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -15275,7 +15275,7 @@
 "xIL" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -15339,7 +15339,7 @@
 	},
 /area/bigredv2/outside/nanotrasen_lab/inside)
 "xPS" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/blood/drip,
 /turf/open/floor/tile/dark,
@@ -15356,7 +15356,7 @@
 /turf/open/floor/tile/darkish,
 /area/bigredv2/caves/lambda_lab)
 "xRk" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark/yellow2/corner,
@@ -15395,7 +15395,7 @@
 /area/bigredv2/outside/filtration_plant)
 "xUV" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/landmark/corpsespawner/chef,
 /turf/open/floor/freezer,
@@ -15406,7 +15406,7 @@
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/c)
 "xVu" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/barricade/wooden{
@@ -15447,7 +15447,7 @@
 	},
 /area/bigredv2/caves/lambda_lab)
 "xZD" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -15456,7 +15456,7 @@
 /area/bigredv2/outside/filtration_plant)
 "yap" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -15493,7 +15493,7 @@
 /area/bigredv2/outside/virology)
 "yfK" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -15540,10 +15540,10 @@
 /turf/open/floor,
 /area/bigredv2/outside/filtration_plant)
 "ylB" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,

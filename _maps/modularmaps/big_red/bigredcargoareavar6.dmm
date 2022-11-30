@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "ab" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 1
@@ -94,7 +94,7 @@
 /area/bigredv2/outside/virology)
 "hl" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/plating,
 /area/bigredv2/outside/nw)
 "iV" = (
@@ -113,7 +113,7 @@
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/nw)
 "kx" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
@@ -130,7 +130,7 @@
 /area/bigredv2/outside/virology)
 "lf" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
 	},
@@ -162,7 +162,7 @@
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/outside/virology)
 "nq" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/bigredv2/outside/nw)
@@ -181,7 +181,7 @@
 /area/bigredv2/caves/northwest)
 "oo" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,
@@ -194,7 +194,7 @@
 	},
 /area/bigredv2/outside/nw)
 "oC" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/plating/warning{
 	dir = 1
 	},
@@ -232,7 +232,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/nw)
 "sB" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -250,7 +250,7 @@
 /area/bigredv2/outside/nw)
 "th" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /turf/open/floor/asteroidfloor,
@@ -318,7 +318,7 @@
 	},
 /area/bigredv2/outside/nw)
 "xZ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 4
@@ -373,7 +373,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/virology)
 "As" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -383,7 +383,7 @@
 /area/bigredv2/outside/nw)
 "AF" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/effect/ai_node,
@@ -401,7 +401,7 @@
 	},
 /area/bigredv2/outside/virology)
 "Bu" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -423,7 +423,7 @@
 	},
 /area/bigredv2/outside/nw)
 "BW" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/marking/asteroidwarning{
@@ -465,7 +465,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/nw)
 "EE" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -478,7 +478,7 @@
 	},
 /area/bigredv2/caves/northwest)
 "Fn" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -515,7 +515,7 @@
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/nw)
 "HY" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -546,7 +546,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/nw)
 "JA" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -628,7 +628,7 @@
 /area/bigredv2/outside/nw)
 "PU" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating/warning{
@@ -683,7 +683,7 @@
 	},
 /area/bigredv2/outside/nw)
 "Vv" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/bigredv2/outside/nw)
@@ -692,7 +692,7 @@
 /area/bigredv2/outside/virology)
 "Wk" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/nw)
@@ -730,7 +730,7 @@
 	},
 /area/bigredv2/outside/nw)
 "YI" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 1
 	},

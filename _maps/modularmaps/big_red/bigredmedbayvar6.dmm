@@ -22,7 +22,7 @@
 /area/bigredv2/outside/medical)
 "au" = (
 /obj/structure/table/reinforced,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
@@ -70,7 +70,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "br" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -128,13 +128,13 @@
 /area/bigredv2/outside/medical)
 "cz" = (
 /obj/effect/decal/cleanable/blood,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "cB" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/white,
@@ -166,7 +166,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "dI" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -197,7 +197,7 @@
 /area/bigredv2/outside/medical)
 "ee" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
@@ -265,21 +265,21 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "fu" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/white/warningstripe{
 	dir = 1
 	},
 /area/bigredv2/outside/medical)
 "fA" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/xeno_resin_wall,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "fG" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -293,7 +293,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "gf" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -302,7 +302,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "gw" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
@@ -320,7 +320,7 @@
 /turf/open/floor/tile/green/whitegreencorner,
 /area/bigredv2/outside/medical)
 "gN" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -363,7 +363,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "hH" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
@@ -384,7 +384,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/medical)
 "hX" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/white/warningstripe{
@@ -402,7 +402,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/medical)
 "ii" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -410,7 +410,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "ij" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/xeno_resin_door,
@@ -418,7 +418,7 @@
 /area/bigredv2/outside/medical)
 "il" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/effect/landmark/weed_node,
@@ -429,7 +429,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "ix" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/corpsespawner/doctor{
@@ -480,7 +480,7 @@
 /turf/open/floor/tile/green/whitegreen,
 /area/bigredv2/outside/medical)
 "jE" = (
-/obj/machinery/atmospherics/pipe/manifold/general/visible,
+/obj/effect/mapping_helpers/simple_pipes/general/visible,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "jI" = (
@@ -490,7 +490,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "jJ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/medical)
@@ -513,19 +513,19 @@
 /area/bigredv2/outside/medical)
 "jT" = (
 /obj/effect/decal/cleanable/blood,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "ki" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/spawner/random/trash,
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "kj" = (
 /obj/structure/bed/chair,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/purple/whitepurplecorner{
 	dir = 4
 	},
@@ -536,7 +536,7 @@
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/medical)
 "kx" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/effect/landmark/weed_node,
@@ -570,7 +570,7 @@
 "kY" = (
 /obj/item/trash/chips,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "lb" = (
@@ -583,7 +583,7 @@
 /area/bigredv2/outside/medical)
 "lr" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /obj/structure/barricade/plasteel{
 	dir = 1
@@ -623,7 +623,7 @@
 /area/bigredv2/outside/medical)
 "lQ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/white,
@@ -635,7 +635,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "ml" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -671,7 +671,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "mS" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/docking_port/stationary/crashmode,
@@ -688,7 +688,7 @@
 	},
 /area/bigredv2/outside/medical)
 "ng" = (
-/obj/machinery/atmospherics/pipe/manifold/general/visible,
+/obj/effect/mapping_helpers/simple_pipes/general/visible,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
@@ -725,7 +725,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "oy" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	dir = 1;
 	name = "\improper Medical Clinic"
@@ -810,7 +810,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/medical)
 "rg" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
@@ -820,7 +820,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "rv" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -829,7 +829,7 @@
 /area/bigredv2/outside/medical)
 "rA" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/barricade/plasteel,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
@@ -858,7 +858,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "sL" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
@@ -878,7 +878,7 @@
 	},
 /area/bigredv2/outside/medical)
 "tb" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/purple/whitepurplecorner{
 	dir = 4
 	},
@@ -955,7 +955,7 @@
 	},
 /area/bigredv2/outside/medical)
 "uO" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/machinery/door/airlock/multi_tile/mainship/medidoor{
 	name = "\improper Medical Clinic"
@@ -966,7 +966,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/medical)
 "uW" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/light{
@@ -1004,7 +1004,7 @@
 	},
 /area/bigredv2/outside/medical)
 "vG" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/multi_tile/mainship/medidoor{
 	name = "\improper Medical Clinic Treatment"
 	},
@@ -1032,7 +1032,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "wF" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/item/stack/sheet/metal,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
@@ -1052,7 +1052,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "wN" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1071,12 +1071,12 @@
 /area/bigredv2/outside/medical)
 "wY" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "xi" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/item/stack/sheet/metal,
 /turf/open/floor/tile/white,
@@ -1092,7 +1092,7 @@
 /turf/open/floor/tile/purple/whitepurplefull,
 /area/bigredv2/outside/medical)
 "xn" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -1121,7 +1121,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "xP" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/effect/mapping_helpers/simple_pipes/general/visible{
 	dir = 9
 	},
 /turf/open/floor/tile/blue/whitebluefull,
@@ -1188,7 +1188,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "zn" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1214,7 +1214,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "zH" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/green/whitegreen{
@@ -1237,7 +1237,7 @@
 /area/bigredv2/outside/medical)
 "zZ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -1256,7 +1256,7 @@
 	},
 /area/bigredv2/outside/medical)
 "Ax" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood,
@@ -1284,7 +1284,7 @@
 	},
 /area/bigredv2/outside/medical)
 "AM" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
@@ -1293,7 +1293,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "AN" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -1311,7 +1311,7 @@
 	},
 /area/bigredv2/outside/medical)
 "AP" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -1335,7 +1335,7 @@
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/medical)
 "Bh" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /turf/open/floor/tile/green/whitegreenfull,
@@ -1355,7 +1355,7 @@
 /turf/open/floor/tile/blue/whiteblue,
 /area/bigredv2/outside/medical)
 "BC" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1377,7 +1377,7 @@
 	},
 /area/bigredv2/outside/medical)
 "BZ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/xeno_resin_door,
 /obj/effect/decal/tracks/wheels/bloody,
 /turf/open/floor/tile/dark,
@@ -1389,7 +1389,7 @@
 /turf/open/floor/tile/darkish,
 /area/bigredv2/outside/medical)
 "CJ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/ai_node,
 /turf/open/floor/tile/white,
@@ -1427,7 +1427,7 @@
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/medical)
 "Dj" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/spawner/random/trash,
 /turf/open/floor/tile/white,
@@ -1437,7 +1437,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "Dw" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/item/shard,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
@@ -1453,7 +1453,7 @@
 	},
 /area/bigredv2/outside/medical)
 "DZ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1487,7 +1487,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "EE" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -1519,12 +1519,12 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "Fh" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "Fj" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
@@ -1554,7 +1554,7 @@
 	},
 /area/bigredv2/outside/medical)
 "FK" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/landmark/xeno_resin_wall,
@@ -1562,7 +1562,7 @@
 /area/bigredv2/outside/medical)
 "FM" = (
 /obj/effect/decal/cleanable/blood,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -1584,7 +1584,7 @@
 /turf/open/floor/tile/green/whitegreen,
 /area/bigredv2/outside/medical)
 "Gc" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -1603,7 +1603,7 @@
 /turf/open/floor/tile/green/whitegreencorner,
 /area/bigredv2/outside/medical)
 "GA" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -1660,7 +1660,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "Hp" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/corpsespawner/security,
 /obj/item/ammo_casing/bullet,
 /obj/effect/decal/cleanable/blood,
@@ -1670,7 +1670,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "Ht" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -1704,7 +1704,7 @@
 	},
 /area/bigredv2/outside/medical)
 "Ic" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/white,
@@ -1745,7 +1745,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "Ja" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/effect/landmark/weed_node,
@@ -1806,7 +1806,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "Kg" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/landmark/excavation_site_spawner,
@@ -1826,7 +1826,7 @@
 	},
 /area/bigredv2/outside/medical)
 "Kl" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -1857,13 +1857,13 @@
 /area/bigredv2/outside/medical)
 "KK" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/white/warningstripe{
 	dir = 1
 	},
 /area/bigredv2/outside/medical)
 "KS" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/weed_node,
 /obj/item/ammo_casing/bullet,
@@ -1895,7 +1895,7 @@
 "LE" = (
 /obj/effect/decal/cleanable/blood,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -1924,7 +1924,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "MZ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/corpsespawner/security,
 /obj/effect/ai_node,
 /obj/effect/decal/tracks/wheels/bloody{
@@ -1969,7 +1969,7 @@
 /area/bigredv2/outside/medical)
 "Ob" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2034,7 +2034,7 @@
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/medical)
 "Pu" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -2050,14 +2050,14 @@
 	},
 /area/bigredv2/outside/medical)
 "Qo" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/effect/mapping_helpers/simple_pipes/general/visible{
 	dir = 5
 	},
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "Qp" = (
 /obj/machinery/chem_master,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/purple/whitepurplecorner{
 	dir = 4
@@ -2085,7 +2085,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "QD" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -2101,7 +2101,7 @@
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/c)
 "QZ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/medical)
 "Rm" = (
@@ -2117,7 +2117,7 @@
 /area/bigredv2/outside/medical)
 "RG" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
@@ -2150,7 +2150,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "SH" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/xeno_resin_door,
 /obj/effect/decal/tracks/wheels/bloody,
 /turf/open/floor/tile/white,
@@ -2184,7 +2184,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "TL" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -2196,7 +2196,7 @@
 "TV" = (
 /obj/effect/decal/cleanable/blood,
 /obj/item/trash/chips,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/medical)
@@ -2207,7 +2207,7 @@
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/medical)
 "Ub" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whitebluefull,
@@ -2243,7 +2243,7 @@
 	},
 /area/bigredv2/outside/medical)
 "Uv" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/blood,
 /obj/structure/cable,
 /turf/open/floor/tile/green/whitegreen{
@@ -2291,7 +2291,7 @@
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "Vo" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2364,7 +2364,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/medical)
 "Wb" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/purple/whitepurplecorner{
@@ -2388,7 +2388,7 @@
 /area/bigredv2/outside/medical)
 "Wo" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
@@ -2483,12 +2483,12 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/medical)
 "YV" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "YZ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -2504,13 +2504,13 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/medical)
 "Zt" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/medical)
 "ZG" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,

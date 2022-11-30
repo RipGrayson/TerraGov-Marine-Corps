@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aq" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/effect/landmark/weed_node,
@@ -17,7 +17,7 @@
 /area/bigredv2/outside/general_store)
 "ci" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whitebluefull,
@@ -101,7 +101,7 @@
 /area/bigredv2/outside/general_store)
 "gL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/effect/ai_node,
@@ -161,7 +161,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/cargo)
 "jS" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
 "ke" = (
@@ -250,7 +250,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "oN" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
@@ -339,7 +339,7 @@
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
 "sA" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -438,7 +438,7 @@
 /area/bigredv2/outside/general_store)
 "zj" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor,
@@ -449,7 +449,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/cargo)
 "zq" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -502,7 +502,7 @@
 /area/bigredv2/outside/general_store)
 "Ef" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "Ev" = (
@@ -536,7 +536,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "Fk" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
@@ -562,7 +562,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "HC" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/effect/landmark/corpsespawner/doctor,
@@ -584,7 +584,7 @@
 /area/bigredv2/outside/general_store)
 "IO" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "IV" = (
@@ -597,7 +597,7 @@
 /area/bigredv2/outside/general_store)
 "JI" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/corpsespawner/colonist,
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
@@ -617,7 +617,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/general_store)
 "KK" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -660,7 +660,7 @@
 /area/bigredv2/outside/general_store)
 "Ng" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /obj/effect/landmark/weed_node,
@@ -694,7 +694,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "Os" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -702,7 +702,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "Ox" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor,
@@ -741,7 +741,7 @@
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
 "QV" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
 "QZ" = (
@@ -777,7 +777,7 @@
 /area/bigredv2/outside/general_store)
 "Sx" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor,
 /area/bigredv2/outside/general_store)
@@ -818,7 +818,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/bigredv2/outside/general_store)
 "UB" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/yellow/full,
@@ -857,20 +857,20 @@
 /area/bigredv2/outside/cargo)
 "Wo" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
 "Wp" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /turf/open/floor/tile/yellow/full,
 /area/bigredv2/outside/general_store)
 "WG" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -903,7 +903,7 @@
 /area/bigredv2/outside/general_store)
 "ZW" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/maint/free_access{
 	dir = 1;
 	name = "\improper General Store Maintenance"

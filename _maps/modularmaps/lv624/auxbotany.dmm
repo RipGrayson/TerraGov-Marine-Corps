@@ -40,7 +40,7 @@
 /turf/open/floor/engine,
 /area/lv624/lazarus/hydroponics/aux)
 "cU" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -49,7 +49,7 @@
 	},
 /area/lv624/lazarus/hydroponics/aux)
 "dr" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	dir = 1;
@@ -58,7 +58,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/hydroponics/aux)
 "dA" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/hydroponics/aux)
@@ -100,7 +100,7 @@
 /turf/open/floor/engine,
 /area/lv624/lazarus/hydroponics/aux)
 "gi" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/effect/decal/warning_stripes/thick,
@@ -125,7 +125,7 @@
 /turf/closed/wall,
 /area/lv624/lazarus/hydroponics/aux)
 "jW" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -138,7 +138,7 @@
 	},
 /area/lv624/lazarus/hydroponics/aux)
 "kI" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /obj/effect/decal/warning_stripes/thin{
@@ -171,7 +171,7 @@
 	},
 /area/lv624/lazarus/hydroponics/aux)
 "mZ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 1
@@ -286,7 +286,7 @@
 /turf/open/floor/tile/green/whitegreen,
 /area/lv624/lazarus/hydroponics/aux)
 "xV" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/hydroponics/aux)
@@ -296,7 +296,7 @@
 	},
 /area/lv624/lazarus/hydroponics/aux)
 "ym" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -349,7 +349,7 @@
 	},
 /area/lv624/lazarus/hydroponics/aux)
 "BW" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -384,7 +384,7 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/hydroponics/aux)
 "DW" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/decal/cleanable/blood,
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -395,7 +395,7 @@
 /turf/open/floor/tile/green/whitegreen,
 /area/lv624/lazarus/hydroponics/aux)
 "Ep" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/white,
@@ -404,7 +404,7 @@
 /turf/open/floor/tile/green/whitegreencorner,
 /area/lv624/lazarus/hydroponics/aux)
 "Gi" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/item/reagent_containers/glass/bucket,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 1
@@ -420,12 +420,12 @@
 "Hy" = (
 /obj/structure/cable,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/hydroponics/aux)
 "IT" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -459,7 +459,7 @@
 	},
 /area/lv624/lazarus/hydroponics/aux)
 "Ln" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/effect/decal/warning_stripes/thick,
@@ -531,13 +531,13 @@
 /turf/open/floor/engine,
 /area/lv624/lazarus/hydroponics/aux)
 "QR" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/hydroponics/aux)
 "Rn" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/tile/white,
@@ -554,7 +554,7 @@
 	},
 /area/lv624/lazarus/hydroponics/aux)
 "SU" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 1
 	},
@@ -569,7 +569,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/hydroponics/aux)
 "TS" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/decal/cleanable/blood/drip,
 /obj/structure/cable,
 /turf/open/floor/tile/green/whitegreen,
@@ -582,7 +582,7 @@
 	},
 /area/lv624/lazarus/hydroponics/aux)
 "Vq" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/effect/decal/warning_stripes/thin{

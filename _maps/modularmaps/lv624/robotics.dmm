@@ -71,7 +71,7 @@
 /turf/open/floor/plating/warning,
 /area/lv624/lazarus/robotics)
 "jP" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/vault{
 	dir = 8
@@ -86,7 +86,7 @@
 /area/lv624/lazarus/robotics)
 "kf" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/warning{
@@ -119,7 +119,7 @@
 /turf/open/floor/tile/vault,
 /area/lv624/lazarus/robotics)
 "oe" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/vault{
@@ -147,7 +147,7 @@
 /turf/open/floor/plating/platebot,
 /area/lv624/lazarus/robotics)
 "so" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/vault{
@@ -163,14 +163,14 @@
 /obj/machinery/door/airlock/mainship/engineering/free_access{
 	name = "\improper Robotics Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/lv624/lazarus/robotics)
 "uk" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/warning{
 	dir = 1
@@ -267,12 +267,12 @@
 	dir = 1;
 	name = "\improper Robotics Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/lv624/lazarus/robotics)
 "Id" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/warning,
 /area/lv624/lazarus/robotics)
@@ -336,7 +336,7 @@
 /area/lv624/lazarus/robotics)
 "Rv" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -346,7 +346,7 @@
 /area/lv624/lazarus/robotics)
 "TB" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/vault{
@@ -377,7 +377,7 @@
 /area/lv624/lazarus/robotics)
 "Yr" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/tile/vault{
 	dir = 8

@@ -8,13 +8,13 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/chapel)
 "cb" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/grayscale/darkred,
 /area/bigredv2/outside/chapel)
 "gy" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -96,7 +96,7 @@
 	},
 /area/bigredv2/outside/chapel)
 "rc" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/six{
@@ -146,7 +146,7 @@
 /turf/open/floor/tile/chapel,
 /area/bigredv2/outside/chapel)
 "vg" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/blood/six{
 	dir = 4;
@@ -154,7 +154,7 @@
 /turf/open/floor/grayscale/darkred,
 /area/bigredv2/outside/chapel)
 "vJ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/item/tool/candle,
 /turf/open/floor/tile/chapel{
@@ -188,7 +188,7 @@
 /turf/open/floor/grayscale/darkred,
 /area/bigredv2/outside/chapel)
 "zI" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/item/tool/candle,
@@ -205,7 +205,7 @@
 /area/bigredv2/outside/chapel)
 "By" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper Chapel"
 	},
@@ -234,7 +234,7 @@
 /turf/open/floor/tile/darkish,
 /area/bigredv2/outside/chapel)
 "Ei" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/table/woodentable,
@@ -285,7 +285,7 @@
 /turf/open/floor/plating,
 /area/bigredv2/outside/chapel)
 "OL" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/chapel{
 	dir = 8
@@ -300,7 +300,7 @@
 	},
 /area/bigredv2/outside/chapel)
 "Qt" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -319,7 +319,7 @@
 /turf/open/floor/engine/cult,
 /area/bigredv2/outside/chapel)
 "SE" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/grayscale/darkred,
 /area/bigredv2/outside/chapel)
@@ -327,7 +327,7 @@
 /turf/open/floor/grayscale/darkred,
 /area/bigredv2/outside/chapel)
 "TT" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/item/trash/candle,

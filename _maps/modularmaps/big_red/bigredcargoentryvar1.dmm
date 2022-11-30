@@ -22,7 +22,7 @@
 /area/bigredv2/outside/cargo)
 "E" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/barricade/wooden{
@@ -42,7 +42,7 @@
 /area/bigredv2/outside/cargo)
 "T" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,

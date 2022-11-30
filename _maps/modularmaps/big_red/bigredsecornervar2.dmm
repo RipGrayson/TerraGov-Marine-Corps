@@ -12,7 +12,7 @@
 /turf/open/floor/mainship/mono,
 /area/bigredv2/caves/rustedpreparea)
 "aP" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 6
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -47,10 +47,10 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/bigredv2/caves/rustedpreparea)
 "bZ" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/cave/rock,
@@ -92,7 +92,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -129,10 +129,10 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/southeast)
 "fn" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -160,10 +160,10 @@
 /turf/open/floor/mainship/orange,
 /area/bigredv2/caves/rustedpreparea)
 "fz" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -541,10 +541,10 @@
 /turf/open/floor/mainship,
 /area/bigredv2/caves/rustedpreparea)
 "pR" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -595,7 +595,7 @@
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/rustedpreparea)
 "rh" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/effect/ai_node,
@@ -606,7 +606,7 @@
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/rustedpreparea)
 "rT" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -1092,10 +1092,10 @@
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -1527,7 +1527,7 @@
 /turf/open/floor/mainship/mono,
 /area/bigredv2/caves/rustedpreparea)
 "ST" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/mars/random/cave,

@@ -63,7 +63,7 @@
 /turf/open/floor/tile/neutral,
 /area/lv624/lazarus/quartstorage)
 "ji" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/largecrate/random/case/double,
 /turf/open/floor/tile/neutral,
 /area/lv624/lazarus/quartstorage)
@@ -79,7 +79,7 @@
 	},
 /area/lv624/lazarus/quartstorage)
 "kx" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/closed/wall,
 /area/lv624/lazarus/quartstorage)
 "kz" = (
@@ -128,7 +128,7 @@
 /turf/open/floor/tile/neutral,
 /area/lv624/lazarus/quartstorage)
 "pF" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/brown{
 	dir = 1
@@ -139,7 +139,7 @@
 /turf/open/floor/plating/platebotc,
 /area/lv624/lazarus/quartstorage)
 "rF" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -157,7 +157,7 @@
 	},
 /area/lv624/lazarus/quartstorage)
 "vk" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -190,16 +190,16 @@
 	dir = 1;
 	name = "\improper Storage Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/quartstorage)
 "zv" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/neutral,
 /area/lv624/lazarus/quartstorage)
 "Ad" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/structure/reagent_dispensers/fueltank/barrel,
 /turf/open/floor/tile/neutral,
@@ -216,7 +216,7 @@
 /turf/open/floor/tile/neutral,
 /area/lv624/lazarus/quartstorage)
 "Ct" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -258,7 +258,7 @@
 	},
 /area/lv624/lazarus/quartstorage)
 "GS" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -266,7 +266,7 @@
 /turf/open/floor/tile/neutral,
 /area/lv624/lazarus/quartstorage)
 "HO" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/tile/brown/corner{
@@ -288,7 +288,7 @@
 /turf/template_noop,
 /area/template_noop)
 "IF" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/neutral,
@@ -306,7 +306,7 @@
 	},
 /area/lv624/lazarus/quartstorage)
 "JF" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/reagent_dispensers/fueltank/barrel,
 /obj/machinery/light/small{
 	dir = 1
@@ -362,7 +362,7 @@
 	},
 /area/lv624/lazarus/quartstorage)
 "OT" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -390,7 +390,7 @@
 /turf/open/floor/tile/neutral,
 /area/lv624/lazarus/quartstorage)
 "Qj" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/sign/poster,
 /turf/closed/wall,
 /area/lv624/lazarus/quartstorage)
@@ -412,13 +412,13 @@
 /turf/open/floor/tile/neutral,
 /area/lv624/lazarus/quartstorage)
 "SB" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/tile/neutral,
 /area/lv624/lazarus/quartstorage)
 "Vs" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -426,7 +426,7 @@
 /turf/open/floor/tile/neutral,
 /area/lv624/lazarus/quartstorage)
 "VF" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -442,7 +442,7 @@
 /turf/closed/wall,
 /area/lv624/lazarus/quartstorage)
 "XK" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/neutral,
 /area/lv624/lazarus/quartstorage)
@@ -450,14 +450,14 @@
 /obj/machinery/door/airlock/mainship/engineering/free_access{
 	name = "\improper Storage Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/quartstorage)
 "Yo" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/brown{
 	dir = 0
@@ -470,7 +470,7 @@
 /turf/open/floor/tile/neutral,
 /area/lv624/lazarus/quartstorage)
 "YT" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/closed/wall,
 /area/lv624/lazarus/quartstorage)

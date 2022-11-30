@@ -53,14 +53,14 @@
 /turf/open/shuttle/elevator/grating,
 /area/bigredv2/outside/space_port)
 "bi" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/red/redtaupecorner{
 	dir = 4
 	},
 /area/bigredv2/outside/marshal_office)
 "bj" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/security/glass/free_access{
 	dir = 1;
 	name = "\improper Marshal Office Armory"
@@ -404,7 +404,7 @@
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/nw)
 "iz" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/marshal_office)
 "iE" = (
@@ -542,7 +542,7 @@
 	},
 /area/bigredv2/outside/space_port)
 "lu" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /obj/effect/ai_node,
@@ -662,7 +662,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/space_port)
 "nZ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/marshal_office)
 "ok" = (
@@ -913,7 +913,7 @@
 "vN" = (
 /obj/structure/table,
 /obj/effect/spawner/random/technology_scanner,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -982,7 +982,7 @@
 /turf/open/floor/tile/red/redtaupecorner,
 /area/bigredv2/outside/marshal_office)
 "xY" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/marking/delivery,
 /area/bigredv2/outside/marshal_office)
 "ye" = (
@@ -1116,7 +1116,7 @@
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/marshal_office)
 "AS" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/red/redtaupecorner,
 /area/bigredv2/outside/marshal_office)
@@ -1513,7 +1513,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
 "Jq" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/item/shard,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/marshal_office)
@@ -1522,7 +1522,7 @@
 /turf/closed/wall/r_wall,
 /area/bigredv2/outside/space_port)
 "JC" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/white,
@@ -1751,7 +1751,7 @@
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
 "PI" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	dir = 1;
 	locked = 1;
@@ -1778,7 +1778,7 @@
 /turf/open/floor/freezer,
 /area/bigredv2/outside/marshal_office)
 "Qa" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/mainship/security/glass/free_access{
 	dir = 1;
 	name = "\improper Marshal Office Prison"
@@ -1803,7 +1803,7 @@
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
 "QW" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/effect/ai_node,
@@ -1837,7 +1837,7 @@
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/marshal_office)
 "RJ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2017,7 +2017,7 @@
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/space_port)
 "WU" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -2046,7 +2046,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
 "XZ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/marshal_office)
@@ -2088,7 +2088,7 @@
 /turf/open/floor/plating/warning,
 /area/bigredv2/outside/space_port)
 "YU" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/dirt,

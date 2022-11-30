@@ -181,7 +181,7 @@
 	name = "Simple Pipes"
 	late = TRUE
 	icon_state = "pipe-3"
-	var/piping_layer = 3
+	var/piping_layer = 2.35
 	var/pipe_color = ""
 	var/connection_num = 0
 	var/hide = FALSE

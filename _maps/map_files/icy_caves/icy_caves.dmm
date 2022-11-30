@@ -24,7 +24,7 @@
 /area/icy_caves/caves/crashed_ship)
 "af" = (
 /obj/effect/decal/cleanable/blood,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /turf/open/floor/cult,
@@ -59,7 +59,7 @@
 "am" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "an" = (
@@ -86,7 +86,7 @@
 /turf/open/floor/cult,
 /area/icy_caves/caves/south)
 "at" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -124,7 +124,7 @@
 /turf/open/floor/plating/mainship,
 /area/icy_caves/caves/crashed_ship)
 "az" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -231,7 +231,7 @@
 /turf/open/floor/plating/mainship,
 /area/icy_caves/caves/crashed_ship)
 "aT" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/medbay)
@@ -252,14 +252,14 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/icy_caves/caves/northwestmonorail)
 "ba" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/refinery)
 "bb" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/refinery)
@@ -274,7 +274,7 @@
 /turf/closed/ice/thin/end,
 /area/icy_caves/caves/rock)
 "bf" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/dorms)
@@ -301,11 +301,11 @@
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/northern)
 "bm" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/LZ1)
 "bn" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -338,7 +338,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/icy_caves/outpost/LZ1)
 "br" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/brown2/corner{
@@ -378,7 +378,7 @@
 /turf/open/floor/plating/mainship,
 /area/icy_caves/caves/crashed_ship)
 "bv" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 8
@@ -404,7 +404,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/garage)
@@ -420,7 +420,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -475,7 +475,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/northern)
 "ch" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/shuttle/dropship/floor,
@@ -517,7 +517,7 @@
 /area/icy_caves/caves/northern)
 "cr" = (
 /obj/effect/decal/cleanable/blood/drip,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -554,7 +554,7 @@
 /area/icy_caves/caves/northwestmonorail/breakroom)
 "cx" = (
 /obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
@@ -573,11 +573,11 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/hallway)
 "cB" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/prison,
 /area/icy_caves/caves/cavesbrig)
 "cC" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -604,11 +604,11 @@
 /turf/open/shuttle/escapepod/plain,
 /area/icy_caves/caves/northwestmonorail)
 "cG" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/tile/dark/red2{
@@ -653,7 +653,7 @@
 	},
 /area/icy_caves/caves/northern)
 "cR" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/hallway)
 "cT" = (
@@ -672,7 +672,7 @@
 /turf/open/space/basic,
 /area/space)
 "cX" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -691,7 +691,7 @@
 /area/icy_caves/caves/underground_cafeteria)
 "dd" = (
 /obj/effect/decal/cleanable/blood/xtracks,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -754,7 +754,7 @@
 /turf/closed/wall/r_wall,
 /area/icy_caves/caves/west)
 "dz" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -787,7 +787,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/hallway)
 "dO" = (
@@ -870,7 +870,7 @@
 /area/icy_caves/caves/west)
 "ek" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/cult,
@@ -894,7 +894,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/south)
 "eo" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/south)
 "ep" = (
@@ -907,14 +907,14 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/south)
 "er" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/east)
 "es" = (
 /obj/effect/decal/cleanable/blood,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/tile/dark,
@@ -925,14 +925,14 @@
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/east)
 "ew" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/hallway)
 "ex" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -946,7 +946,7 @@
 "eA" = (
 /obj/effect/decal/cleanable/blood,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/tile/dark,
@@ -970,7 +970,7 @@
 /area/icy_caves/caves/rock)
 "eG" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/tile/dark,
@@ -980,7 +980,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -992,7 +992,7 @@
 	},
 /obj/effect/ai_node,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/tile/dark,
@@ -1032,7 +1032,7 @@
 	},
 /area/icy_caves/caves/northwestmonorail/medbay)
 "eP" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/tile/dark,
@@ -1061,7 +1061,7 @@
 /area/icy_caves/caves/cavesbrig)
 "eW" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/south)
 "eX" = (
@@ -1074,7 +1074,7 @@
 	},
 /area/icy_caves/caves)
 "eZ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -1083,7 +1083,7 @@
 "fa" = (
 /obj/machinery/power/apc/drained,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /turf/open/floor/tile/dark,
@@ -1137,7 +1137,7 @@
 /area/icy_caves/caves/northwestmonorail/hallway)
 "fk" = (
 /obj/effect/decal/cleanable/blood,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/south)
@@ -1223,7 +1223,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/LZ1)
 "ga" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/green2,
@@ -1265,20 +1265,20 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/medbay)
 "gF" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/east)
 "gG" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/south)
 "gH" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /turf/open/floor/tile/dark/brown2/corner{
@@ -1317,7 +1317,7 @@
 /turf/open/floor/mainship/cargo,
 /area/icy_caves/caves/northwestmonorail)
 "gN" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/east)
@@ -1357,7 +1357,7 @@
 /area/icy_caves/caves/west)
 "gZ" = (
 /obj/effect/decal/cleanable/blood,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/purple/whitepurplefull,
 /area/icy_caves/caves/northwestmonorail/medbay)
 "hd" = (
@@ -1446,7 +1446,7 @@
 /area/icy_caves/caves/east)
 "hP" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/tile/dark/blue2{
@@ -1494,7 +1494,7 @@
 "hZ" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/machinery/atmospherics/pipe/manifold4w/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/south)
 "ia" = (
@@ -1525,13 +1525,13 @@
 /area/icy_caves/caves/west)
 "if" = (
 /obj/effect/ai_node,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/tile/dark/brown2/corner,
 /area/icy_caves/caves/weapon_vault)
 "ig" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -1571,7 +1571,7 @@
 /obj/machinery/door/airlock/mainship/maint{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
@@ -1587,7 +1587,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/breakroom)
 "iu" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -1609,7 +1609,7 @@
 /area/icy_caves/caves/northwestmonorail/hallway)
 "iy" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/south)
 "iz" = (
@@ -1640,7 +1640,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northern)
 "iI" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -1662,7 +1662,7 @@
 /area/icy_caves/caves/west)
 "iN" = (
 /obj/structure/window/framed/colony/reinforced,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "iO" = (
@@ -1682,7 +1682,7 @@
 	},
 /area/icy_caves/caves/northern)
 "iQ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
@@ -1809,7 +1809,7 @@
 /area/icy_caves/caves/northern)
 "jD" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/effect/decal/remains/human,
@@ -1890,7 +1890,7 @@
 /turf/open/floor/plating,
 /area/icy_caves/outpost/LZ2)
 "jU" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -1906,14 +1906,14 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northern)
 "jY" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -1937,7 +1937,7 @@
 /turf/open/floor/plating,
 /area/icy_caves/outpost/LZ2)
 "kd" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
@@ -1959,7 +1959,7 @@
 "km" = (
 /obj/effect/decal/cleanable/blood,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/tile/dark,
@@ -2048,7 +2048,7 @@
 	},
 /area/icy_caves/caves/alienstuff)
 "kG" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark/green2/corner,
 /area/icy_caves/outpost/medbay)
@@ -2056,14 +2056,14 @@
 /turf/open/floor/wood,
 /area/icy_caves/caves/underground_cafeteria)
 "kJ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside/center)
 "kK" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -2135,7 +2135,7 @@
 	},
 /area/icy_caves/caves/weapon_vault)
 "lg" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /obj/effect/landmark/start/job/survivor,
@@ -2154,7 +2154,7 @@
 /area/icy_caves/outpost/outside/center)
 "lk" = (
 /obj/effect/decal/cleanable/blood/drip,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -2193,7 +2193,7 @@
 /turf/closed/wall/r_wall,
 /area/icy_caves/caves/northwestmonorail/medbay)
 "lt" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/medbay)
 "lv" = (
@@ -2216,7 +2216,7 @@
 "lz" = (
 /obj/effect/ai_node,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /turf/open/floor/prison,
@@ -2282,17 +2282,17 @@
 /area/icy_caves/outpost/research)
 "lO" = (
 /obj/effect/decal/cleanable/blood/xtracks,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/prison/bright_clean/two,
 /area/icy_caves/caves/northwestmonorail)
 "lP" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/LZ2)
 "lQ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -2319,7 +2319,7 @@
 	},
 /area/icy_caves/caves)
 "lZ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -2357,7 +2357,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -2414,13 +2414,13 @@
 	dir = 1;
 	name = "\improper Cargo Bay Offices"
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/brown2,
 /area/icy_caves/outpost/refinery)
 "ms" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -2428,7 +2428,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "mt" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -2461,7 +2461,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside/center)
 "mz" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northern)
@@ -2510,14 +2510,14 @@
 /turf/open/floor/plating/mainship,
 /area/icy_caves/caves/crashed_ship)
 "mM" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside/center)
 "mN" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/alienstuff)
 "mO" = (
@@ -2539,7 +2539,7 @@
 /area/icy_caves/outpost/LZ2)
 "mV" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northern)
 "mX" = (
@@ -2624,27 +2624,27 @@
 /turf/open/floor/plating/ground/snow/layer1,
 /area/icy_caves/outpost/outside)
 "nr" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/cult,
 /area/icy_caves/caves/chapel)
 "ns" = (
 /obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/morgue)
 "nu" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside/center)
 "nv" = (
 /obj/structure/table,
 /obj/item/corncob,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -2668,7 +2668,7 @@
 /area/icy_caves/outpost/outside)
 "nA" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/tile/dark,
@@ -2684,7 +2684,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/hallway)
 "nE" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -2699,7 +2699,7 @@
 /turf/open/floor/prison/bright_clean/two,
 /area/icy_caves/caves/northwestmonorail)
 "nH" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -2733,7 +2733,7 @@
 /turf/open/floor/plating/dmg1,
 /area/icy_caves/caves/crashed_ship)
 "nU" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -2742,7 +2742,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/research)
 "nX" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/docking_port/mobile/crashmode/bigbury,
 /turf/open/floor/tile/dark,
@@ -2778,7 +2778,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/icy_caves/outpost/mining/west)
 "og" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/tile/dark,
@@ -2814,7 +2814,7 @@
 /turf/closed/wall/r_wall,
 /area/icy_caves/outpost/LZ2)
 "oo" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
@@ -2925,13 +2925,13 @@
 /turf/open/floor/prison/bright_clean/two,
 /area/icy_caves/caves/northwestmonorail)
 "oR" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/prison/bright_clean/two,
 /area/icy_caves/caves/northwestmonorail)
 "oS" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/engineering)
 "oT" = (
@@ -2969,7 +2969,7 @@
 "pd" = (
 /obj/effect/ai_node,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/tile/dark,
@@ -2979,7 +2979,7 @@
 	locked = 1
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -2991,7 +2991,7 @@
 	},
 /area/icy_caves/outpost/refinery)
 "pg" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -2999,7 +2999,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside/center)
 "ph" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/tile/dark,
@@ -3015,7 +3015,7 @@
 /obj/effect/decal/cleanable/blood/drip,
 /obj/structure/cable,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -3097,7 +3097,7 @@
 /turf/open/floor/plating/ground/snow/layer2,
 /area/icy_caves/outpost/outside)
 "pE" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
@@ -3130,7 +3130,7 @@
 /area/icy_caves/caves/northern)
 "pL" = (
 /obj/effect/decal/cleanable/blood/xtracks,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -3158,26 +3158,26 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/icy_caves/outpost/outside)
 "pU" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/icy_caves/outpost/mining/west)
 "pW" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/breakroom)
 "pX" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/plating,
 /area/icy_caves/outpost/mining/west)
 "pY" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -3248,7 +3248,7 @@
 /turf/open/floor/plating,
 /area/icy_caves/outpost/mining/east)
 "qk" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -3261,7 +3261,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/research)
 "qn" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3285,13 +3285,13 @@
 	mobname = "Shaft Miner";
 	name = "Shaft Miner"
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/plating,
 /area/icy_caves/outpost/mining/west)
 "qq" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -3323,7 +3323,7 @@
 /turf/closed/ice_rock/single,
 /area/icy_caves/caves)
 "qA" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
@@ -3352,7 +3352,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/research)
 "qK" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside/center)
@@ -3384,7 +3384,7 @@
 /turf/closed/ice_rock/northWall,
 /area/icy_caves/caves/rock)
 "qS" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -3397,7 +3397,7 @@
 "qW" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/landmark/start/job/survivor,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -3427,7 +3427,7 @@
 /turf/open/floor/plating,
 /area/icy_caves/outpost/mining/east)
 "rc" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -3435,7 +3435,7 @@
 /area/icy_caves/outpost/mining/east)
 "rd" = (
 /obj/effect/landmark/start/job/survivor,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3579,7 +3579,7 @@
 	},
 /area/icy_caves/outpost/medbay)
 "rG" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/icy_caves/outpost/mining/east)
@@ -3612,7 +3612,7 @@
 	},
 /area/icy_caves/outpost/engineering)
 "rN" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/tile/dark,
@@ -3627,7 +3627,7 @@
 	},
 /area/icy_caves/outpost/engineering)
 "rP" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3663,17 +3663,17 @@
 /area/icy_caves/outpost/engineering)
 "rU" = (
 /obj/effect/decal/cleanable/blood,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/refinery)
 "rV" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/medbay)
 "rW" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -3696,7 +3696,7 @@
 /area/icy_caves/caves/northwestmonorail)
 "sa" = (
 /obj/machinery/door/airlock/mainship/medical/free_access,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -3707,14 +3707,14 @@
 /area/icy_caves/caves/rock)
 "sc" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/medbay)
 "sd" = (
 /obj/item/reagent_containers/glass/beaker/bluespace,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -3774,7 +3774,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/medbay)
 "so" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -3878,7 +3878,7 @@
 /turf/open/floor/wood,
 /area/icy_caves/outpost/dorms)
 "sG" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/closed/wall/r_wall,
 /area/icy_caves/caves/northwestmonorail)
 "sH" = (
@@ -3965,7 +3965,7 @@
 /area/icy_caves/outpost/mining/east)
 "ti" = (
 /obj/machinery/door/airlock/mainship/engineering/free_access,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3978,7 +3978,7 @@
 /turf/open/floor/wood,
 /area/icy_caves/outpost/dorms)
 "tm" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -4003,7 +4003,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/south)
 "ts" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -4040,12 +4040,12 @@
 /turf/closed/ice/thin/junction,
 /area/icy_caves/caves/rock)
 "tA" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/closed/wall/r_wall,
 /area/icy_caves/caves/northwestmonorail/hallway)
 "tB" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /turf/open/floor/tile/dark,
@@ -4056,7 +4056,7 @@
 /turf/open/floor/plating,
 /area/icy_caves/outpost/garage)
 "tD" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -4085,7 +4085,7 @@
 /turf/closed/wall/r_wall,
 /area/icy_caves/outpost/research)
 "tI" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -4100,7 +4100,7 @@
 /area/icy_caves/outpost/refinery)
 "tK" = (
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/security)
 "tL" = (
@@ -4108,7 +4108,7 @@
 /area/icy_caves/outpost/LZ2)
 "tM" = (
 /obj/effect/landmark/start/job/survivor,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/icy_caves/outpost/outside)
@@ -4116,7 +4116,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -4159,7 +4159,7 @@
 /area/icy_caves/caves/underground_cafeteria)
 "tW" = (
 /obj/effect/landmark/corpsespawner/colonist,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/refinery)
 "tX" = (
@@ -4180,7 +4180,7 @@
 /area/icy_caves/caves)
 "ua" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/cult,
@@ -4207,7 +4207,7 @@
 "uf" = (
 /obj/item/ammo_casing,
 /obj/item/weapon/gun/pistol/g22,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/dorms)
@@ -4240,11 +4240,11 @@
 /area/icy_caves/caves/weapon_vault)
 "un" = (
 /obj/effect/decal/cleanable/blood/xtracks,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/hallway)
 "uo" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/docking_port/mobile/crashmode/bigbury,
 /obj/effect/ai_node,
@@ -4266,7 +4266,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/icy_caves/outpost/LZ2)
 "ur" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/prison/red{
 	dir = 1
 	},
@@ -4306,7 +4306,7 @@
 "uz" = (
 /obj/effect/landmark/weed_node,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -4320,7 +4320,7 @@
 	},
 /area/icy_caves/caves)
 "uC" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/table,
 /obj/item/reagent_containers/glass/beaker/vial,
 /turf/open/floor/tile/dark,
@@ -4389,7 +4389,7 @@
 "uQ" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/landmark/start/job/survivor,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/medbay)
 "uR" = (
@@ -4412,7 +4412,7 @@
 /area/icy_caves/caves/northern)
 "uT" = (
 /obj/effect/landmark/weed_node,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -4432,7 +4432,7 @@
 	},
 /area/icy_caves/outpost/medbay)
 "vb" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/effect/mapping_helpers/simple_pipes/general/visible{
 	dir = 6
 	},
 /turf/open/floor/tile/dark/green2/corner{
@@ -4440,7 +4440,7 @@
 	},
 /area/icy_caves/outpost/medbay)
 "vc" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/effect/landmark/excavation_site_spawner,
@@ -4472,7 +4472,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/icy_caves/outpost/outside/center)
 "vi" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -4504,7 +4504,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/dorms)
 "vp" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/snow/layer0,
@@ -4522,7 +4522,7 @@
 /turf/closed/ice/thin/straight,
 /area/icy_caves/outpost/outside)
 "vs" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/tile/dark,
@@ -4532,7 +4532,7 @@
 /turf/open/floor/tile/dark/green2,
 /area/icy_caves/outpost/medbay)
 "vv" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
@@ -4544,12 +4544,12 @@
 /turf/open/floor/tile/dark/yellow2,
 /area/icy_caves/outpost/engineering)
 "vy" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside)
 "vz" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/corpsespawner/colonist,
@@ -4577,7 +4577,7 @@
 /area/icy_caves/outpost/mining/east)
 "vF" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/south)
@@ -4628,7 +4628,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/dorms)
 "vT" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -4643,7 +4643,7 @@
 /area/icy_caves/outpost/LZ2)
 "vX" = (
 /obj/item/flashlight,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/refinery)
 "vY" = (
@@ -4667,12 +4667,12 @@
 /area/icy_caves/outpost/medbay)
 "wc" = (
 /obj/effect/decal/cleanable/blood,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/security)
 "wd" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /turf/open/floor/tile/dark/green2,
@@ -4717,7 +4717,7 @@
 /area/icy_caves/outpost/dorms)
 "wp" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/effect/ai_node,
@@ -4744,7 +4744,7 @@
 	dir = 1;
 	name = "\improper Medical Clinic"
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/green2,
@@ -4759,7 +4759,7 @@
 /area/icy_caves/outpost/refinery)
 "wz" = (
 /obj/effect/decal/cleanable/blood/gibs/limb,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/brown2,
@@ -4802,7 +4802,7 @@
 /turf/open/floor/tile/dark/brown2,
 /area/icy_caves/outpost/refinery)
 "wI" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -4818,7 +4818,7 @@
 /turf/open/floor/mech_bay_recharge_floor,
 /area/icy_caves/outpost/LZ1)
 "wM" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /turf/open/floor/tile/dark,
@@ -4834,7 +4834,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 6
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark/brown2/corner{
 	dir = 1
@@ -4885,7 +4885,7 @@
 	},
 /area/icy_caves/caves/south)
 "xc" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /turf/open/floor/tile/dark/brown2/corner{
@@ -4912,7 +4912,7 @@
 /turf/open/floor/tile/dark/green2,
 /area/icy_caves/outpost/medbay)
 "xk" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/effect/mapping_helpers/simple_pipes/general/visible{
 	dir = 5
 	},
 /turf/open/floor/tile/dark,
@@ -4926,7 +4926,7 @@
 	},
 /area/icy_caves/outpost/refinery)
 "xm" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -4971,7 +4971,7 @@
 /turf/open/floor/plating,
 /area/icy_caves/outpost/garage)
 "xv" = (
-/obj/machinery/atmospherics/pipe/manifold/general/visible,
+/obj/effect/mapping_helpers/simple_pipes/general/visible,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/medbay)
 "xw" = (
@@ -5031,7 +5031,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/LZ1)
 "xK" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/hallway)
@@ -5147,7 +5147,7 @@
 /area/icy_caves/caves/chapel)
 "yr" = (
 /obj/effect/ai_node,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/cult,
@@ -5167,7 +5167,7 @@
 /turf/closed/wall,
 /area/icy_caves/outpost/engineering)
 "yz" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/breakroom)
@@ -5247,7 +5247,7 @@
 /turf/open/floor/tile/dark/brown2/corner,
 /area/icy_caves/caves/weapon_vault)
 "yR" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -5274,7 +5274,7 @@
 /area/icy_caves/outpost/garage)
 "yV" = (
 /obj/effect/spawner/gibspawner/human,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -5292,7 +5292,7 @@
 /obj/machinery/door/airlock/mainship/maint{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/hallway)
 "zc" = (
@@ -5324,7 +5324,7 @@
 /turf/closed/ice_rock/singleEnd,
 /area/icy_caves/caves/rock)
 "zh" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -5340,7 +5340,7 @@
 	},
 /area/icy_caves/caves)
 "zj" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/alienstuff)
@@ -5365,7 +5365,7 @@
 /area/icy_caves/outpost/security)
 "zo" = (
 /obj/effect/decal/cleanable/blood/gibs/robot,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/refinery)
 "zp" = (
@@ -5378,17 +5378,17 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark/brown2/corner,
 /area/icy_caves/outpost/garage)
 "zq" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/tile/dark/blue2{
@@ -5396,7 +5396,7 @@
 	},
 /area/icy_caves/outpost/LZ2)
 "zr" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -5410,7 +5410,7 @@
 /turf/open/floor/mainship/red/full,
 /area/prison/monorail/west)
 "zw" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /turf/open/floor/wood,
@@ -5471,7 +5471,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/dorms)
 "zH" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/breakroom)
 "zI" = (
@@ -5537,7 +5537,7 @@
 	},
 /area/icy_caves/outpost/medbay)
 "zU" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
@@ -5575,7 +5575,7 @@
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -5584,7 +5584,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark/brown2{
 	dir = 8
 	},
@@ -5618,7 +5618,7 @@
 	},
 /area/icy_caves/outpost/medbay)
 "Al" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
@@ -5673,7 +5673,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark/brown2/corner{
 	dir = 1
 	},
@@ -5693,7 +5693,7 @@
 /area/icy_caves/caves/rock)
 "Az" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark/green2{
 	dir = 6
 	},
@@ -5716,7 +5716,7 @@
 	},
 /area/icy_caves/outpost/garage)
 "AE" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -5730,7 +5730,7 @@
 /area/icy_caves/outpost/garage)
 "AG" = (
 /obj/machinery/door/airlock/mainship/command/free_access,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -5754,7 +5754,7 @@
 "AM" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -5765,7 +5765,7 @@
 /area/icy_caves/caves/crashed_ship)
 "AQ" = (
 /obj/machinery/disposal,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -5810,7 +5810,7 @@
 /turf/open/floor/plating/ground/snow/layer2,
 /area/icy_caves/outpost/outside)
 "AX" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -5821,7 +5821,7 @@
 "AY" = (
 /obj/effect/decal/cleanable/blood/xeno,
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/security)
 "AZ" = (
@@ -5842,7 +5842,7 @@
 /area/icy_caves/caves/rock)
 "Bd" = (
 /obj/machinery/door/airlock/multi_tile/mainship/secdoor/glass,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark/red2{
 	dir = 8
@@ -5858,7 +5858,7 @@
 /area/icy_caves/outpost/kitchen)
 "Bm" = (
 /obj/structure/bed/chair,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/prison,
@@ -5906,7 +5906,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/dorms)
 "Bz" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -5927,7 +5927,7 @@
 /area/icy_caves/caves/cavesbrig)
 "BF" = (
 /obj/structure/window/framed/colony/reinforced,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -5946,7 +5946,7 @@
 "BI" = (
 /obj/machinery/power/apc/drained,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -6012,7 +6012,7 @@
 /area/icy_caves/caves/northwestmonorail/breakroom)
 "BX" = (
 /obj/effect/decal/cleanable/blood/xeno,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -6029,7 +6029,7 @@
 /turf/open/shuttle/escapepod/plain,
 /area/space)
 "BZ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -6067,7 +6067,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "Cm" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -6076,7 +6076,7 @@
 /area/icy_caves/caves/west)
 "Cn" = (
 /obj/effect/decal/cleanable/blood/xtracks,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -6097,7 +6097,7 @@
 /area/icy_caves/caves/northern)
 "Cv" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -6109,7 +6109,7 @@
 /area/icy_caves/outpost/engineering)
 "Cz" = (
 /obj/structure/curtain/black,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/cult,
@@ -6135,7 +6135,7 @@
 /turf/open/floor/wood,
 /area/icy_caves/outpost/dorms)
 "CG" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/brown2,
@@ -6158,7 +6158,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/hallway)
 "CL" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /turf/open/floor/cult,
@@ -6176,14 +6176,14 @@
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/hallway)
 "CV" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -6203,7 +6203,7 @@
 "CY" = (
 /obj/machinery/door/airlock/prison,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/prison/red/full,
@@ -6269,7 +6269,7 @@
 /turf/open/floor/prison/bright_clean/two,
 /area/icy_caves/caves/northwestmonorail)
 "Dn" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -6384,7 +6384,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -6422,7 +6422,7 @@
 	dir = 4
 	},
 /obj/effect/landmark/start/job/survivor,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark/brown2{
 	dir = 8
 	},
@@ -6455,7 +6455,7 @@
 /obj/effect/landmark/corpsespawner/security,
 /obj/item/ammo_casing,
 /obj/item/ammo_magazine/pistol/g22,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -6465,7 +6465,7 @@
 /obj/effect/decal/remains/human,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/ai_node,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/prison,
 /area/icy_caves/caves/cavesbrig)
 "Eh" = (
@@ -6571,7 +6571,7 @@
 "EG" = (
 /obj/effect/landmark/excavation_site_spawner,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -6588,7 +6588,7 @@
 	},
 /area/icy_caves/outpost/medbay)
 "EJ" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -6596,7 +6596,7 @@
 /area/icy_caves/outpost/medbay)
 "EK" = (
 /obj/effect/landmark/corpsespawner/colonist,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -6655,7 +6655,7 @@
 /turf/open/floor/freezer,
 /area/icy_caves/outpost/dorms)
 "Fc" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -6721,7 +6721,7 @@
 /turf/open/floor/cult,
 /area/icy_caves/caves/chapel)
 "Fp" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -6748,7 +6748,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 5
 	},
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -6757,7 +6757,7 @@
 	},
 /area/icy_caves/outpost/garage)
 "Ft" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/tile/dark,
@@ -6798,7 +6798,7 @@
 "FI" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/machinery/light{
@@ -6810,7 +6810,7 @@
 	},
 /area/icy_caves/caves/weapon_vault)
 "FJ" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -6818,13 +6818,13 @@
 /area/icy_caves/outpost/office)
 "FK" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/prison,
 /area/icy_caves/caves/cavesbrig)
 "FL" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -6854,7 +6854,7 @@
 "FT" = (
 /obj/effect/ai_node,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -6864,7 +6864,7 @@
 /turf/open/floor/plating,
 /area/icy_caves/outpost/garage)
 "FV" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -6894,7 +6894,7 @@
 /area/icy_caves/outpost/office)
 "Gc" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -6923,7 +6923,7 @@
 /area/icy_caves/caves/northwestmonorail)
 "Gi" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark/green2{
 	dir = 4
 	},
@@ -6934,7 +6934,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/morgue)
 "Gk" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -6951,7 +6951,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/garage)
 "Gn" = (
@@ -6964,7 +6964,7 @@
 	},
 /area/icy_caves/outpost/research)
 "Gp" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/green2/corner{
@@ -6985,7 +6985,7 @@
 /area/icy_caves/caves/northern)
 "Gv" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/tile/dark,
@@ -6994,7 +6994,7 @@
 /turf/closed/wall,
 /area/icy_caves/outpost/refinery)
 "Gx" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -7051,7 +7051,7 @@
 /obj/machinery/power/apc/drained{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -7087,14 +7087,14 @@
 /turf/open/floor/prison/bright_clean/two,
 /area/icy_caves/caves/northwestmonorail)
 "GR" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/dorms)
 "GS" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -7104,7 +7104,7 @@
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -7116,7 +7116,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/LZ1)
 "GV" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/green2{
@@ -7152,7 +7152,7 @@
 /turf/closed/wall,
 /area/icy_caves/outpost/dorms)
 "Hg" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/refinery)
 "Hi" = (
@@ -7202,7 +7202,7 @@
 /obj/structure/bed/chair{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "Hx" = (
@@ -7217,7 +7217,7 @@
 /turf/open/floor/plating/ground/snow/layer2,
 /area/icy_caves/outpost/LZ2)
 "HA" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -7249,7 +7249,7 @@
 /turf/open/floor/mainship/red/full,
 /area/icy_caves/caves/northern)
 "HI" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -7292,7 +7292,7 @@
 /turf/open/floor/wood,
 /area/icy_caves/outpost/dorms)
 "HP" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -7301,7 +7301,7 @@
 /obj/structure/bed/chair/comfy{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -7315,7 +7315,7 @@
 	},
 /area/icy_caves/caves)
 "HS" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -7329,7 +7329,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "HU" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -7368,7 +7368,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "Ib" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -7419,11 +7419,11 @@
 /area/icy_caves/caves/rock)
 "In" = (
 /obj/effect/decal/cleanable/blood/xeno,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/refinery)
 "Ip" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -7458,7 +7458,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside/center)
 "Ix" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -7482,7 +7482,7 @@
 /turf/closed/ice/thin/intersection,
 /area/icy_caves/caves/rock)
 "ID" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -7495,7 +7495,7 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/icy_caves/outpost/outside/center)
 "IG" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/prison/kitchen,
@@ -7521,7 +7521,7 @@
 /area/icy_caves/outpost/security)
 "IK" = (
 /obj/structure/table,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -7535,7 +7535,7 @@
 /turf/open/floor/wood,
 /area/icy_caves/caves/underground_cafeteria)
 "IN" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
@@ -7583,7 +7583,7 @@
 /area/icy_caves/outpost/LZ2)
 "Jc" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -7601,12 +7601,12 @@
 /area/icy_caves/outpost/medbay)
 "Ji" = (
 /obj/effect/landmark/start/job/survivor,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside)
 "Jk" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/security)
 "Jl" = (
@@ -7635,7 +7635,7 @@
 	dir = 1;
 	name = "\improper Colony Power Substation"
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/engineering)
 "Jp" = (
@@ -7669,7 +7669,7 @@
 /turf/open/floor/mainship/green/full,
 /area/icy_caves/caves/alienstuff)
 "Jv" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -7813,20 +7813,20 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/cult,
 /area/icy_caves/caves/chapel)
 "Ka" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/office)
 "Kb" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/office)
 "Kd" = (
@@ -7835,7 +7835,7 @@
 	},
 /area/icy_caves/outpost/LZ2)
 "Ke" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
@@ -7858,7 +7858,7 @@
 /turf/closed/ice/intersection,
 /area/icy_caves/caves/rock)
 "Kj" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
@@ -8020,7 +8020,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/dorms)
 "Lc" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -8141,7 +8141,7 @@
 	},
 /area/icy_caves/outpost/refinery)
 "LA" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -8159,7 +8159,7 @@
 /area/icy_caves/outpost/dorms)
 "LD" = (
 /obj/effect/decal/cleanable/blood/xeno,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -8188,7 +8188,7 @@
 /area/icy_caves/outpost/dorms)
 "LI" = (
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -8228,7 +8228,7 @@
 	},
 /area/icy_caves/outpost/outside)
 "LQ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
@@ -8257,7 +8257,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -8274,7 +8274,7 @@
 /area/icy_caves/outpost/outside/center)
 "LX" = (
 /obj/effect/decal/cleanable/blood/xeno,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
@@ -8284,7 +8284,7 @@
 /turf/open/floor/plating,
 /area/icy_caves/outpost/LZ2)
 "LZ" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -8370,7 +8370,7 @@
 /area/icy_caves/outpost/security)
 "Mu" = (
 /obj/machinery/door/airlock/mainship/security/free_access,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -8382,7 +8382,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/morgue)
 "Mx" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -8427,7 +8427,7 @@
 /area/icy_caves/caves/rock)
 "MF" = (
 /obj/effect/landmark/excavation_site_spawner,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/cult,
@@ -8481,7 +8481,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/LZ1)
 "MP" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/dorms)
 "MQ" = (
@@ -8512,7 +8512,7 @@
 /turf/open/floor/plating,
 /area/icy_caves/outpost/office)
 "MW" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -8520,7 +8520,7 @@
 /area/icy_caves/outpost/security)
 "MY" = (
 /obj/item/reagent_containers/spray/pepper,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -8531,7 +8531,7 @@
 	dir = 1;
 	name = "\improper Colony Administration Office"
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/wood,
 /area/icy_caves/outpost/office)
 "Na" = (
@@ -8563,7 +8563,7 @@
 	},
 /area/icy_caves/caves/weapon_vault)
 "Ni" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -8587,14 +8587,14 @@
 /turf/open/floor/wood,
 /area/icy_caves/caves/underground_cafeteria)
 "Nn" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside)
 "No" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/remains/human,
 /obj/machinery/light{
 	dir = 8
@@ -8605,7 +8605,7 @@
 	},
 /area/icy_caves/caves/weapon_vault)
 "Ns" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/landmark/fob_sentry,
 /turf/open/floor/tile/dark,
@@ -8618,7 +8618,7 @@
 /turf/open/floor/plating/ground/snow,
 /area/icy_caves/outpost/outside)
 "Nv" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/tile/dark,
@@ -8696,14 +8696,14 @@
 /area/icy_caves/caves/northwestmonorail/hallway)
 "NN" = (
 /obj/structure/filingcabinet,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /turf/open/floor/wood,
 /area/icy_caves/outpost/office)
 "NO" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/machinery/door/airlock/multi_tile/mainship/personalglass{
@@ -8734,7 +8734,7 @@
 /turf/open/floor/wood,
 /area/icy_caves/outpost/dorms)
 "NU" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /turf/open/floor/tile/dark,
@@ -8743,7 +8743,7 @@
 /turf/open/shuttle/dropship/seven,
 /area/space)
 "NY" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/cult,
@@ -8860,7 +8860,7 @@
 /turf/open/floor/tile/dark/brown2,
 /area/icy_caves/outpost/refinery)
 "OF" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -8871,7 +8871,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/wood,
 /area/icy_caves/outpost/office)
 "OI" = (
@@ -8920,7 +8920,7 @@
 /area/icy_caves/caves/northern)
 "OT" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/tile/dark/red2{
@@ -8947,7 +8947,7 @@
 /area/icy_caves/caves/cavesbrig)
 "Pc" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/machinery/light{
@@ -8978,12 +8978,12 @@
 /turf/open/floor/wood,
 /area/icy_caves/outpost/dorms)
 "Pm" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "Pn" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/refinery)
@@ -9018,7 +9018,7 @@
 	},
 /area/icy_caves/outpost/refinery)
 "Px" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "Py" = (
@@ -9027,7 +9027,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "Pz" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/snow/layer0,
 /area/icy_caves/outpost/outside)
@@ -9097,7 +9097,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/refinery)
 "PT" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -9132,7 +9132,7 @@
 /turf/open/floor/wood,
 /area/icy_caves/outpost/office)
 "PY" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/wood,
 /area/icy_caves/outpost/office)
 "PZ" = (
@@ -9152,7 +9152,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/west)
 "Qe" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -9186,7 +9186,7 @@
 /area/icy_caves/outpost/kitchen)
 "Ql" = (
 /obj/machinery/door/airlock/prison/horizontal/open,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/prison/red/full,
 /area/icy_caves/caves/cavesbrig)
 "Qm" = (
@@ -9234,7 +9234,7 @@
 /turf/open/floor/tile/dark/brown2,
 /area/icy_caves/caves/weapon_vault)
 "Qz" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/tile/dark,
@@ -9312,7 +9312,7 @@
 /area/icy_caves/outpost/garage)
 "QN" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/tile/dark,
@@ -9329,7 +9329,7 @@
 /obj/structure/bed/chair/comfy{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -9346,7 +9346,7 @@
 /area/icy_caves/outpost/refinery)
 "QT" = (
 /obj/effect/landmark/corpsespawner/colonist,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -9367,7 +9367,7 @@
 /area/icy_caves/outpost/office)
 "Ra" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark/brown2{
@@ -9450,7 +9450,7 @@
 /area/icy_caves/outpost/mining/east)
 "Rq" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /turf/open/floor/tile/dark,
@@ -9486,7 +9486,7 @@
 	},
 /area/icy_caves/caves/northwestmonorail/medbay)
 "Rz" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -9586,7 +9586,7 @@
 	},
 /area/icy_caves/outpost/outside/center)
 "RX" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -9758,7 +9758,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside/center)
 "SW" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -9850,7 +9850,7 @@
 /area/icy_caves/outpost/outside)
 "Tn" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark/green2{
 	dir = 1
 	},
@@ -9904,13 +9904,13 @@
 	},
 /obj/effect/decal/cleanable/blood,
 /obj/effect/ai_node,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/prison,
 /area/icy_caves/caves/cavesbrig)
 "Tz" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northern)
 "TB" = (
@@ -9937,7 +9937,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/morgue)
 "TE" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -9945,7 +9945,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside)
 "TF" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/alienstuff)
@@ -9973,7 +9973,7 @@
 /area/icy_caves/outpost/LZ1)
 "TN" = (
 /obj/effect/spawner/gibspawner/human,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/hallway)
 "TQ" = (
@@ -10172,7 +10172,7 @@
 	},
 /area/icy_caves/caves)
 "UK" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark/green2{
 	dir = 4
@@ -10183,7 +10183,7 @@
 /turf/open/floor/plating/ground/snow/layer1,
 /area/icy_caves/outpost/LZ1)
 "UN" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/outside)
@@ -10218,7 +10218,7 @@
 /turf/open/floor/wood,
 /area/icy_caves/outpost/dorms)
 "UU" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "UV" = (
@@ -10271,7 +10271,7 @@
 /turf/closed/ice_rock/corners,
 /area/icy_caves/caves)
 "Ve" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark/red2/corner{
 	dir = 1
@@ -10279,7 +10279,7 @@
 /area/icy_caves/outpost/security)
 "Vf" = (
 /obj/effect/landmark/start/job/survivor,
-/obj/machinery/atmospherics/pipe/manifold4w/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/dark,
@@ -10312,7 +10312,7 @@
 /area/icy_caves/outpost/LZ1)
 "Vl" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/blood,
@@ -10351,7 +10351,7 @@
 /turf/closed/ice_rock/southWall,
 /area/icy_caves/caves)
 "Vs" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /turf/open/floor/plating/mainship,
@@ -10465,7 +10465,7 @@
 	},
 /area/icy_caves/outpost/security)
 "VO" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -10490,7 +10490,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/security)
 "VS" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/closed/wall/r_wall,
@@ -10507,14 +10507,14 @@
 	},
 /area/icy_caves/caves)
 "VX" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/LZ1)
 "VY" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -10539,7 +10539,7 @@
 /area/icy_caves/caves/northwestmonorail/breakroom)
 "Wd" = (
 /obj/effect/decal/cleanable/blood/xtracks,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /turf/open/floor/tile/dark,
@@ -10568,7 +10568,7 @@
 /turf/open/floor/plating/ground/snow/layer2,
 /area/icy_caves/outpost/LZ1)
 "Wi" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /turf/open/floor/tile/dark,
@@ -10583,7 +10583,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/LZ2)
 "Wn" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -10655,7 +10655,7 @@
 /turf/open/floor/plating/ground/snow,
 /area/icy_caves/outpost/LZ1)
 "WE" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -10697,7 +10697,7 @@
 /turf/open/floor/tile/purple/whitepurplefull,
 /area/icy_caves/caves/northwestmonorail/medbay)
 "WR" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /turf/open/floor/tile/dark,
@@ -10762,13 +10762,13 @@
 /area/icy_caves/caves/northwestmonorail)
 "Xf" = (
 /obj/effect/landmark/start/job/survivor,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/engineering)
 "Xg" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -10829,7 +10829,7 @@
 /area/icy_caves/caves)
 "Xp" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood,
@@ -10894,19 +10894,19 @@
 "XA" = (
 /obj/effect/landmark/weed_node,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/east)
 "XB" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "XD" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/shuttle/dropship/seven,
@@ -10915,7 +10915,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -11016,7 +11016,7 @@
 /obj/effect/decal/cleanable/blood/writing{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -11071,7 +11071,7 @@
 /turf/open/floor/tile/dark,
 /area/icy_caves/outpost/LZ1)
 "Yk" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /turf/open/floor/tile/dark,
@@ -11107,7 +11107,7 @@
 /area/icy_caves/caves/weapon_vault)
 "Yv" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/tile/dark,
@@ -11130,7 +11130,7 @@
 /area/icy_caves/outpost/medbay)
 "Yz" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -11154,7 +11154,7 @@
 /area/icy_caves/outpost/research)
 "YE" = (
 /obj/structure/bed/chair,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail)
 "YF" = (
@@ -11189,7 +11189,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -11198,7 +11198,7 @@
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -11208,7 +11208,7 @@
 /turf/closed/wall/r_wall/unmeltable,
 /area/space)
 "YR" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /turf/open/floor/tile/dark,
@@ -11217,7 +11217,7 @@
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/east)
 "YV" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/hallway)
@@ -11378,14 +11378,14 @@
 /turf/open/floor/plating/ground/snow/layer0,
 /area/icy_caves/outpost/outside)
 "ZF" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark/brown2{
 	dir = 8
 	},
 /area/icy_caves/outpost/garage)
 "ZG" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/south)
@@ -11439,11 +11439,11 @@
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/west)
 "ZV" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/plating/mainship,
 /area/icy_caves/caves/northwestmonorail/hallway)
 "ZW" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,

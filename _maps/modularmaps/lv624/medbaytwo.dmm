@@ -97,7 +97,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/medbay)
 "iY" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -142,7 +142,7 @@
 	},
 /area/lv624/lazarus/medbay)
 "lT" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/blue/whitebluecorner{
 	dir = 2
 	},
@@ -175,7 +175,7 @@
 	dir = 1;
 	name = "\improper Medical Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/blue/whitebluecorner{
 	dir = 2
 	},
@@ -298,7 +298,7 @@
 	},
 /area/lv624/lazarus/medbay)
 "yH" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/effect/mapping_helpers/simple_pipes/general/visible{
 	dir = 5
 	},
 /turf/open/floor/tile/blue/whitebluecorner{
@@ -314,7 +314,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/lv624/lazarus/medbay)
 "zj" = (
-/obj/machinery/atmospherics/pipe/manifold/general/visible,
+/obj/effect/mapping_helpers/simple_pipes/general/visible,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/medbay)
 "zF" = (
@@ -388,7 +388,7 @@
 /turf/open/floor/tile/blue/whitebluefull,
 /area/lv624/lazarus/medbay)
 "Jy" = (
-/obj/machinery/atmospherics/pipe/manifold/general/visible{
+/obj/effect/mapping_helpers/simple_pipes/general/visible{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whitebluecorner{
@@ -454,7 +454,7 @@
 	dir = 1;
 	name = "\improper Medical Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whitebluecorner{

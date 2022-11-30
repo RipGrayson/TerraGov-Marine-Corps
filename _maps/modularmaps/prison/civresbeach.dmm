@@ -22,7 +22,7 @@
 /turf/open/beach/sand,
 /area/template_noop)
 "i" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
 /turf/open/beach/sand,
@@ -46,7 +46,7 @@
 /turf/open/beach/sand,
 /area/template_noop)
 "G" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/beach/sand,

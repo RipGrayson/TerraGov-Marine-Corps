@@ -476,7 +476,7 @@
 /area/lv624/lazarus/engineering)
 "aoL" = (
 /obj/item/stack/sheet/wood,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -541,7 +541,7 @@
 /area/lv624/lazarus/crashed_ship)
 "aqs" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /turf/open/floor/plating,
@@ -738,7 +738,7 @@
 /area/shuttle/drop1/lz1)
 "avl" = (
 /obj/effect/decal/cleanable/blood/splatter/animated,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/barber,
@@ -1082,7 +1082,7 @@
 /turf/open/ground/coast,
 /area/lv624/ground/sand2)
 "aAy" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/warning{
@@ -1223,7 +1223,7 @@
 /turf/closed/wall,
 /area/lv624/ground/sand7)
 "aDK" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 1
@@ -1263,7 +1263,7 @@
 	},
 /area/lv624/ground/jungle6)
 "aEP" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand8)
@@ -1339,7 +1339,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/engineering)
 "aGP" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor,
 /area/lv624/ground/compound/n)
@@ -1408,7 +1408,7 @@
 /area/lv624/ground/river2)
 "aId" = (
 /obj/structure/flora/ausbushes/grassybush,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/grass,
@@ -1422,7 +1422,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central5)
 "aIC" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
@@ -1437,7 +1437,7 @@
 /area/lv624/ground/filtration)
 "aJp" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/purple/whitepurplecorner{
 	dir = 4
@@ -1472,7 +1472,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle6)
 "aJY" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -1487,7 +1487,7 @@
 	},
 /area/lv624/ground/river3)
 "aKr" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor,
@@ -1625,7 +1625,7 @@
 	},
 /area/lv624/lazarus/fitness)
 "aMN" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -1677,13 +1677,13 @@
 /turf/open/ground/river,
 /area/lv624/ground/river2)
 "aNE" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/engineering)
 "aNK" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -1866,7 +1866,7 @@
 /turf/open/ground/river,
 /area/lv624/ground/sand8)
 "aRD" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/medical/glass/free_access{
 	dir = 1;
@@ -1984,7 +1984,7 @@
 	name = "\improper Engineering Dome"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -2026,7 +2026,7 @@
 /obj/effect/landmark/weed_node,
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating,
 /area/lv624/lazarus/engineering)
 "aVg" = (
@@ -2074,7 +2074,7 @@
 /turf/open/ground/river,
 /area/lv624/ground/river3)
 "aVZ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -2504,7 +2504,7 @@
 	},
 /area/lv624/ground/jungle7)
 "bfl" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor,
 /area/lv624/ground/sand8)
@@ -2534,7 +2534,7 @@
 	},
 /area/lv624/ground/sand8)
 "bga" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/quartstorage)
@@ -2567,7 +2567,7 @@
 	},
 /area/lv624/ground/jungle9)
 "bgw" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
 "bgE" = (
@@ -2586,7 +2586,7 @@
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper Nexus Dome Chapel"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/chapel)
@@ -2673,7 +2673,7 @@
 /area/lv624/ground/river3)
 "biz" = (
 /obj/structure/flora/grass/both,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/grass,
 /area/lv624/lazarus/main_hall)
 "biB" = (
@@ -2688,7 +2688,7 @@
 /area/lv624/lazarus/toilet)
 "biL" = (
 /obj/structure/table/woodentable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/spawner/random/plushie,
@@ -2759,7 +2759,7 @@
 	dir = 4
 	},
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/docking_port/stationary/crashmode,
@@ -2782,7 +2782,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/captain)
 "bkZ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/decal/warning_stripes/thin{
@@ -2818,7 +2818,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/corner,
 /area/lv624/ground/jungle7)
 "blX" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -2831,7 +2831,7 @@
 /turf/open/floor,
 /area/lv624/ground/sand8)
 "bmp" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle7)
@@ -2851,7 +2851,7 @@
 	dir = 4;
 	name = "\improper Water Filtration Plant"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/vault{
@@ -2925,7 +2925,7 @@
 	},
 /area/lv624/ground/river3)
 "boL" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/white,
@@ -3168,7 +3168,7 @@
 	},
 /area/lv624/ground/river3)
 "bsp" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/docking_port/stationary/crashmode,
 /obj/structure/cable,
 /turf/open/floor,
@@ -3185,7 +3185,7 @@
 	dir = 1;
 	name = "\improper Research Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/research)
 "btN" = (
@@ -3209,14 +3209,14 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/sandtemple)
 "bva" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
 /area/lv624/lazarus/captain)
 "bvi" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -3253,7 +3253,7 @@
 /obj/item/ammo_casing,
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -3267,7 +3267,7 @@
 	pixel_y = -3
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
 	},
@@ -3324,14 +3324,14 @@
 /obj/structure/table/reinforced/flipped{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/lv624/lazarus/fitness)
 "bAa" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -3339,7 +3339,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "bAb" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/n)
@@ -3436,7 +3436,7 @@
 /area/lv624/ground/sand7)
 "bEl" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "bEs" = (
@@ -3467,7 +3467,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/quartstorage/outdoors)
 "bGH" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -3484,7 +3484,7 @@
 /turf/open/floor/plating,
 /area/shuttle/drop2/lz2)
 "bHV" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -3513,7 +3513,7 @@
 /area/lv624/ground/jungle10)
 "bJc" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -3618,7 +3618,7 @@
 	},
 /area/lv624/lazarus/main_hall)
 "bOY" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
@@ -3627,7 +3627,7 @@
 /turf/open/ground/river,
 /area/lv624/ground/jungle6)
 "bPI" = (
-/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
@@ -3635,7 +3635,7 @@
 /area/lv624/lazarus/research)
 "bPO" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -3689,7 +3689,7 @@
 	},
 /area/lv624/lazarus/security)
 "bSN" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/whiteyellow{
 	dir = 4
@@ -3787,7 +3787,7 @@
 	},
 /area/shuttle/drop1/lz1)
 "cae" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -3871,7 +3871,7 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "chH" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/whiteyellow{
@@ -3983,7 +3983,7 @@
 "cny" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -4161,7 +4161,7 @@
 /obj/item/spacecash/c100,
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
 	},
@@ -4208,7 +4208,7 @@
 	},
 /area/lv624/lazarus/research)
 "cBb" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/bar,
 /area/lv624/lazarus/canteen)
@@ -4277,19 +4277,19 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/quart)
 "cFK" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "cGa" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/n)
 "cGS" = (
 /obj/structure/sink,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -4315,7 +4315,7 @@
 	dir = 1;
 	name = "\improper Nexus Dome Female Dormitories"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -4487,7 +4487,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
 "cQn" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -4584,7 +4584,7 @@
 	},
 /area/lv624/ground/filtration)
 "cUt" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /turf/closed/gm/dense,
@@ -4592,7 +4592,7 @@
 "cUu" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -4617,7 +4617,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1)
 "cUP" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/purple/whitepurplecorner{
@@ -4630,7 +4630,7 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/corporate_affairs)
 "cVk" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "cVx" = (
@@ -4788,7 +4788,7 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "dgi" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -4820,7 +4820,7 @@
 /turf/open/floor/plating/platebotc,
 /area/lv624/lazarus/quartstorage/outdoors)
 "dih" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -4847,7 +4847,7 @@
 /turf/open/ground/river,
 /area/lv624/ground/river2)
 "dki" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -4905,7 +4905,7 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/sandtemple)
 "dos" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -4913,7 +4913,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle10)
 "dou" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /turf/open/floor/tile/bar,
@@ -5040,7 +5040,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 2
 	},
-/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
 /turf/open/floor,
@@ -5112,7 +5112,7 @@
 	},
 /area/lv624/ground/river1)
 "dyZ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -5123,7 +5123,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/corner,
 /area/lv624/ground/jungle7)
 "dzk" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/tile/bar,
@@ -5222,7 +5222,7 @@
 	dir = 2
 	},
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
 /turf/open/floor/tile/white,
@@ -5281,7 +5281,7 @@
 /area/lv624/lazarus/corporate_affairs)
 "dLJ" = (
 /obj/structure/barricade/wooden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "dMe" = (
@@ -5583,7 +5583,7 @@
 /obj/structure/barricade/wooden{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -5592,13 +5592,13 @@
 	},
 /area/lv624/lazarus/sleep_female)
 "ecj" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle10)
 "edi" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle3)
@@ -5772,7 +5772,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 10
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor,
 /area/lv624/ground/jungle7)
@@ -6087,7 +6087,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/compound/n)
 "eLc" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/whiteyellow/corner{
 	dir = 8
@@ -6105,7 +6105,7 @@
 /area/lv624/ground/caves/rock)
 "eMv" = (
 /obj/item/stack/sheet/wood,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /turf/open/floor/tile/white,
@@ -6143,7 +6143,7 @@
 	},
 /area/lv624/lazarus/fitness)
 "eOC" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -6241,7 +6241,7 @@
 	name = "\improper Leisure Dome"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/purple/whitepurple{
 	dir = 5
 	},
@@ -6273,7 +6273,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/dark,
@@ -6313,7 +6313,7 @@
 /area/lv624/ground/jungle3)
 "faL" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/plating,
@@ -6383,7 +6383,7 @@
 /area/lv624/lazarus/quart)
 "ffd" = (
 /obj/item/weapon/claymore/mercsword/machete,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -6398,7 +6398,7 @@
 	},
 /area/lv624/ground/river2)
 "ffL" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/green/whitegreencorner{
@@ -6406,7 +6406,7 @@
 	},
 /area/lv624/lazarus/main_hall)
 "ffO" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -6432,7 +6432,7 @@
 /turf/open/floor/plating/platebotc,
 /area/lv624/lazarus/quartstorage/outdoors)
 "fhs" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/n)
@@ -6460,7 +6460,7 @@
 	},
 /area/lv624/lazarus/hydroponics)
 "fiA" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
@@ -6521,7 +6521,7 @@
 /obj/machinery/door/airlock/mainship/command/free_access{
 	name = "\improper Nexus Dome Command Quarter"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -6666,7 +6666,7 @@
 	},
 /area/lv624/lazarus/sleep_male)
 "fwI" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/bar,
 /area/lv624/lazarus/canteen)
@@ -6769,7 +6769,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle9)
 "fBO" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -6867,7 +6867,7 @@
 	},
 /area/lv624/lazarus/spaceport)
 "fIY" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/closed/gm/dense,
@@ -6903,7 +6903,7 @@
 /area/lv624/ground/sand4)
 "fLY" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -6918,7 +6918,7 @@
 /turf/open/floor/tile/barber,
 /area/lv624/lazarus/main_hall)
 "fMJ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/wood,
 /area/lv624/lazarus/chapel)
 "fMZ" = (
@@ -7034,7 +7034,7 @@
 /area/lv624/ground/jungle8)
 "fVy" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/sw)
 "fVH" = (
@@ -7079,7 +7079,7 @@
 /obj/structure/barricade/wooden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
@@ -7110,7 +7110,7 @@
 /area/lv624/lazarus/engineering)
 "fZv" = (
 /obj/structure/flora/grass/green,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/grass,
 /area/lv624/lazarus/main_hall)
@@ -7143,7 +7143,7 @@
 /turf/open/floor/plating/platebot,
 /area/lv624/lazarus/secure_storage)
 "gbg" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/n)
@@ -7173,7 +7173,7 @@
 /area/lv624/lazarus/sleep_male)
 "gbH" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/open/floor/marking/bot,
 /area/lv624/lazarus/quartstorage)
@@ -7259,7 +7259,7 @@
 	},
 /area/lv624/lazarus/main_hall)
 "gew" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/wood/broken/six,
 /area/lv624/lazarus/bar)
@@ -7334,7 +7334,7 @@
 	dir = 1;
 	name = "Corporate Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating,
 /area/lv624/lazarus/corporate_affairs)
 "ghe" = (
@@ -7466,7 +7466,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle10)
 "gsn" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
@@ -7558,7 +7558,7 @@
 	},
 /area/lv624/lazarus/hydroponics)
 "gzL" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirtgrassborder{
 	dir = 1
@@ -7627,7 +7627,7 @@
 /area/lv624/lazarus/captain)
 "gFo" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 2
 	},
@@ -7765,7 +7765,7 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "gNS" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/bar,
@@ -7891,7 +7891,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/sandtemple)
 "gTa" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -7953,7 +7953,7 @@
 "gYm" = (
 /obj/structure/cable,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/plating,
@@ -8163,7 +8163,7 @@
 	},
 /area/lv624/lazarus/sleep_male)
 "hic" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
@@ -8174,7 +8174,7 @@
 	},
 /area/lv624/lazarus/spaceport2)
 "hiU" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -8203,14 +8203,14 @@
 /area/lv624/lazarus/main_hall)
 "hkF" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/quartstorage/outdoors)
 "hld" = (
 /obj/effect/landmark/start/job/survivor,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -8218,14 +8218,14 @@
 	},
 /area/lv624/lazarus/corporate_affairs)
 "hle" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
 /turf/open/floor/wood/broken/six,
 /area/lv624/lazarus/captain)
 "hlt" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -8258,7 +8258,7 @@
 /area/lv624/ground/river1)
 "hma" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/power/apc/drained,
@@ -8338,7 +8338,7 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/bar)
 "hrO" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/freezer,
@@ -8351,7 +8351,7 @@
 /turf/closed/gm/dense,
 /area/lv624/ground/caves/rock)
 "hrU" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -8398,7 +8398,7 @@
 /turf/open/floor/bcircuit/off,
 /area/lv624/lazarus/sandtemple)
 "hxI" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/decal/riverdecal,
@@ -8447,13 +8447,13 @@
 /obj/structure/table/woodentable,
 /obj/item/ashtray/bronze,
 /obj/item/clothing/mask/cigarette/tram,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/cult/clock,
 /area/lv624/lazarus/bar)
 "hDn" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/decal/riverdecal/edge{
@@ -8495,7 +8495,7 @@
 /area/lv624/ground/jungle9)
 "hGr" = (
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/landmark/sensor_tower_patrol,
 /turf/open/floor/tile/barber,
 /area/lv624/lazarus/main_hall)
@@ -8699,7 +8699,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder,
 /area/lv624/lazarus/overgrown)
 "hSm" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -8740,7 +8740,7 @@
 	},
 /area/lv624/ground/jungle7)
 "hVc" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/power/apc/drained{
 	dir = 4
 	},
@@ -8867,7 +8867,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "ics" = (
@@ -8900,7 +8900,7 @@
 /turf/open/floor/plating/platebotc,
 /area/lv624/lazarus/quartstorage/outdoors)
 "idF" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/sign/redcross{
@@ -8916,14 +8916,14 @@
 /turf/open/floor/freezer,
 /area/lv624/lazarus/toilet)
 "ieH" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "ieJ" = (
 /obj/structure/flora/ausbushes/leafybush,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/grass,
 /area/lv624/lazarus/main_hall)
 "ifw" = (
@@ -8945,7 +8945,7 @@
 	dir = 4;
 	name = "Corporate Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -9037,7 +9037,7 @@
 	dir = 1;
 	name = "\improper Hydroponics Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 1
@@ -9067,13 +9067,13 @@
 	},
 /area/lv624/lazarus/sleep_male)
 "ioH" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/freezer,
 /area/lv624/lazarus/toilet)
 "ipa" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -9105,7 +9105,7 @@
 /turf/closed/wall,
 /area/lv624/lazarus/toilet)
 "iqI" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
 /area/lv624/ground/compound/c)
@@ -9113,7 +9113,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -9191,7 +9191,7 @@
 /area/lv624/ground/jungle8)
 "izn" = (
 /obj/item/stack/sheet/wood,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -9230,7 +9230,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "iBl" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -9246,7 +9246,7 @@
 /area/lv624/lazarus/chapel)
 "iBW" = (
 /obj/structure/jungle/vines,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -9254,7 +9254,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle3)
 "iCb" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/tile/barber,
@@ -9277,7 +9277,7 @@
 /turf/open/floor/wood,
 /area/lv624/ground/jungle8)
 "iDJ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -9299,7 +9299,7 @@
 /area/lv624/lazarus/fitness)
 "iEH" = (
 /obj/effect/landmark/weed_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor,
 /area/lv624/ground/sand8)
@@ -9307,7 +9307,7 @@
 /turf/open/floor/wood,
 /area/lv624/ground/jungle8)
 "iFC" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -9472,7 +9472,7 @@
 "iRM" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -9736,7 +9736,7 @@
 	},
 /area/lv624/ground/sand8)
 "jhZ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/closed/gm/dense,
@@ -9747,7 +9747,7 @@
 	},
 /area/lv624/ground/jungle3)
 "jij" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 1
 	},
@@ -9793,7 +9793,7 @@
 /area/lv624/lazarus/spaceport2)
 "jlC" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/lv624/lazarus/corporate_affairs)
 "jlE" = (
@@ -9843,7 +9843,7 @@
 	},
 /area/lv624/ground/jungle6)
 "joM" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/research)
@@ -9863,7 +9863,7 @@
 /area/lv624/ground/jungle8)
 "jqp" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/wood,
 /area/lv624/lazarus/bar)
 "jqP" = (
@@ -9907,7 +9907,7 @@
 	},
 /area/lv624/ground/jungle3)
 "jtk" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/freezer,
 /area/lv624/lazarus/toilet)
@@ -10067,7 +10067,7 @@
 /area/lv624/ground/jungle1)
 "jAw" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/open/floor/marking/loadingarea{
 	dir = 1
@@ -10092,7 +10092,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
 "jBS" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/taupebluecorner{
@@ -10176,7 +10176,7 @@
 /area/lv624/lazarus/spaceport2)
 "jHI" = (
 /obj/structure/flora/ausbushes/grassybush,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /obj/effect/ai_node,
@@ -10196,7 +10196,7 @@
 	},
 /area/lv624/lazarus/research)
 "jIm" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -10343,7 +10343,7 @@
 /obj/effect/landmark/start/job/survivor,
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle5)
 "jOx" = (
@@ -10464,7 +10464,7 @@
 /area/lv624/lazarus/quartstorage)
 "jXa" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -10491,7 +10491,7 @@
 	dir = 1;
 	name = "\improper Hydroponics Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/green/greentaupe{
@@ -10542,7 +10542,7 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/ground/caves/east1)
 "kaZ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/freezer,
 /area/lv624/lazarus/kitchen)
@@ -10639,7 +10639,7 @@
 /area/lv624/lazarus/toilet)
 "khz" = (
 /obj/machinery/floodlight/colony,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -10676,7 +10676,7 @@
 	},
 /obj/structure/paper_bin,
 /obj/item/tool/pen,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -10794,7 +10794,7 @@
 	dir = 9
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -10836,7 +10836,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle8)
 "krL" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/bar,
 /area/lv624/lazarus/canteen)
 "krM" = (
@@ -10844,7 +10844,7 @@
 /turf/open/floor/tile/barber,
 /area/lv624/lazarus/kitchen)
 "krN" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -10904,7 +10904,7 @@
 "kuB" = (
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -10939,7 +10939,7 @@
 	amount = 2
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /turf/open/floor/tile/white,
@@ -10950,7 +10950,7 @@
 /area/lv624/ground/sand7)
 "kwq" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/quartstorage/outdoors)
 "kwI" = (
@@ -11045,7 +11045,7 @@
 /area/lv624/ground/jungle9)
 "kDA" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/purple/whitepurplecorner{
 	dir = 4
 	},
@@ -11062,7 +11062,7 @@
 	name = "\improper Engineering Dome"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating,
 /area/lv624/lazarus/engineering)
 "kEp" = (
@@ -11070,7 +11070,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/n)
 "kEB" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
@@ -11148,13 +11148,13 @@
 	},
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/quartstorage)
 "kKk" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -11233,7 +11233,7 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -11305,7 +11305,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1)
 "kSN" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/barber,
@@ -11337,7 +11337,7 @@
 	dir = 1;
 	name = "\improper Nexus Dome Bathroom"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/freezer,
 /area/lv624/lazarus/toilet)
@@ -11366,7 +11366,7 @@
 	},
 /area/lv624/ground/jungle6)
 "kUY" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -11377,7 +11377,7 @@
 /obj/structure/barricade/wooden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/tile/white,
@@ -11475,7 +11475,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor,
 /area/lv624/ground/compound/n)
@@ -11518,7 +11518,7 @@
 "leo" = (
 /obj/effect/decal/remains/human,
 /obj/item/frame/table,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -11565,7 +11565,7 @@
 	},
 /area/lv624/ground/jungle8)
 "lgz" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -11671,7 +11671,7 @@
 "llZ" = (
 /obj/structure/flora/bush,
 /obj/machinery/atmospherics/pipe/manifold4w/cyan/hidden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/grass,
 /area/lv624/lazarus/main_hall)
 "lma" = (
@@ -11700,7 +11700,7 @@
 /turf/open/ground/coast/corner2,
 /area/lv624/ground/sand6)
 "lno" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/flora/ausbushes/leafybush,
 /turf/open/floor/grass,
 /area/lv624/lazarus/main_hall)
@@ -11740,7 +11740,7 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/ground/ruin)
 "lqJ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/fence,
 /turf/open/floor/plating/ground/dirtgrassborder{
 	dir = 1
@@ -11920,19 +11920,19 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/quartstorage)
 "lDf" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/wood,
 /area/lv624/lazarus/bar)
 "lDB" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
@@ -11989,7 +11989,7 @@
 /turf/open/floor/plating,
 /area/lv624/ground/river2)
 "lHt" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -12006,7 +12006,7 @@
 /obj/machinery/door/airlock/mainship/research/open/free_access{
 	name = "\improper Research Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -12041,7 +12041,7 @@
 /area/lv624/ground/jungle8)
 "lJu" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /turf/open/floor/plating,
@@ -12185,7 +12185,7 @@
 /turf/open/floor/cult,
 /area/lv624/lazarus/bar)
 "lRJ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -12215,7 +12215,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand7)
 "lTa" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/sign/redcross{
@@ -12237,7 +12237,7 @@
 	},
 /area/lv624/lazarus/engineering)
 "lTI" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/white,
@@ -12260,7 +12260,7 @@
 	dir = 4
 	},
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -12507,7 +12507,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/engineering)
 "mjZ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/ground/grass,
@@ -12529,7 +12529,7 @@
 /area/lv624/lazarus/overgrown)
 "mkE" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -12587,7 +12587,7 @@
 /turf/open/floor/tile/barber,
 /area/lv624/lazarus/kitchen)
 "mmx" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle10)
@@ -12595,7 +12595,7 @@
 /obj/machinery/door/window{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/grimy,
@@ -12772,7 +12772,7 @@
 /area/lv624/lazarus/corporate_affairs)
 "myR" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle10)
 "mzp" = (
@@ -12900,7 +12900,7 @@
 /obj/effect/decal/cleanable/blood/splatter/animated,
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 10
@@ -12914,7 +12914,7 @@
 /area/lv624/lazarus/quart)
 "mJw" = (
 /obj/structure/barricade/wooden,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
@@ -12971,7 +12971,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -13000,7 +13000,7 @@
 /turf/open/floor/tile/barber,
 /area/lv624/lazarus/kitchen)
 "mNY" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -13039,7 +13039,7 @@
 "mPT" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/tile/blue/whitebluefull,
@@ -13201,7 +13201,7 @@
 /turf/open/floor/tile/bar,
 /area/lv624/lazarus/canteen)
 "mYW" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/wood,
@@ -13309,7 +13309,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
 	},
@@ -13332,7 +13332,7 @@
 	},
 /area/lv624/ground/jungle9)
 "nfa" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -13379,7 +13379,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle3)
 "njB" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -13564,7 +13564,7 @@
 /turf/open/floor/cult,
 /area/lv624/lazarus/bar)
 "nxS" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -13587,7 +13587,7 @@
 /area/lv624/ground/compound/c)
 "nAu" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -13606,7 +13606,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor,
@@ -13719,7 +13719,7 @@
 	},
 /area/lv624/lazarus/sleep_male)
 "nFY" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -13754,7 +13754,7 @@
 /turf/open/floor,
 /area/lv624/lazarus/spaceport2)
 "nJf" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -13835,12 +13835,12 @@
 	dir = 1;
 	name = "Corporate Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/lv624/lazarus/corporate_affairs)
 "nOY" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/n)
 "nQe" = (
@@ -13868,11 +13868,11 @@
 "nSI" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/quartstorage/outdoors)
 "nSW" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -13890,7 +13890,7 @@
 	},
 /area/lv624/ground/jungle8)
 "nTV" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/whiteyellow{
@@ -13958,7 +13958,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle1)
 "nYQ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -14051,7 +14051,7 @@
 /turf/open/floor/freezer,
 /area/lv624/lazarus/toilet)
 "ocU" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -14201,7 +14201,7 @@
 /area/lv624/lazarus/engineering)
 "oqd" = (
 /obj/effect/landmark/weed_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -14284,7 +14284,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle10)
 "ovm" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
@@ -14375,7 +14375,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle7)
 "ozC" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -14525,7 +14525,7 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/bar)
 "oHs" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -14600,7 +14600,7 @@
 /area/lv624/ground/ruin)
 "oOc" = (
 /obj/structure/jungle/vines,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/ground/grass,
@@ -14671,7 +14671,7 @@
 	},
 /area/lv624/ground/jungle9)
 "oTw" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -14730,7 +14730,7 @@
 /area/lv624/ground/jungle7)
 "oVV" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -14752,7 +14752,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle9)
 "oXD" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -14769,7 +14769,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle6)
 "oYe" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -14796,7 +14796,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle4)
 "oZL" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -14807,7 +14807,7 @@
 /turf/open/floor/freezer,
 /area/lv624/lazarus/toilet)
 "pac" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/landmark/weed_node,
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -14834,7 +14834,7 @@
 	dir = 1;
 	name = "\improper Nexus Dome Freezer"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor,
 /area/lv624/lazarus/kitchen)
@@ -14885,14 +14885,14 @@
 /obj/structure/barricade/wooden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "pge" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -14944,7 +14944,7 @@
 /area/lv624/lazarus/engineering)
 "pjS" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /obj/effect/ai_node,
@@ -15010,7 +15010,7 @@
 	},
 /area/lv624/ground/jungle6)
 "poE" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -15132,7 +15132,7 @@
 	},
 /area/lv624/ground/compound/se)
 "pyh" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -15140,7 +15140,7 @@
 /area/lv624/lazarus/main_hall)
 "pyF" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating,
 /area/lv624/lazarus/engineering)
 "pyH" = (
@@ -15162,7 +15162,7 @@
 	},
 /area/lv624/ground/river1)
 "pAy" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -15262,7 +15262,7 @@
 "pGD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/trash,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -15303,7 +15303,7 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/corporate_affairs)
 "pJF" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -15332,7 +15332,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder,
 /area/lv624/ground/jungle3)
 "pLK" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
 /obj/structure/cable,
@@ -15393,7 +15393,7 @@
 	},
 /area/lv624/ground/jungle9)
 "pOU" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
@@ -15414,7 +15414,7 @@
 /obj/machinery/door/airlock/colony/research/dome{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/research)
@@ -15485,7 +15485,7 @@
 /turf/open/floor,
 /area/lv624/lazarus/spaceport2)
 "pSQ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/largecrate/random,
@@ -15508,7 +15508,7 @@
 /obj/structure/barricade/wooden{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
@@ -15532,7 +15532,7 @@
 	},
 /area/lv624/lazarus/engineering)
 "pUC" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/grimy,
@@ -15604,7 +15604,7 @@
 /obj/structure/cable,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -15618,7 +15618,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/quartstorage)
 "pYM" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -15703,7 +15703,7 @@
 	dir = 1;
 	name = "\improper Research Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/research)
@@ -15712,7 +15712,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/corner,
 /area/lv624/lazarus/overgrown)
 "qhK" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -15748,7 +15748,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/compound/ne)
 "qnw" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/bar,
@@ -15863,7 +15863,7 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/quart)
 "qtO" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -15899,7 +15899,7 @@
 	id = "nexus_blast";
 	name = "\improper Nexus Blast Door"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
@@ -16090,7 +16090,7 @@
 /turf/open/ground/grass/grass2,
 /area/lv624/ground/jungle4)
 "qEX" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -16240,7 +16240,7 @@
 /area/lv624/lazarus/spaceport)
 "qOp" = (
 /obj/structure/jungle/vines,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -16307,13 +16307,13 @@
 /area/lv624/lazarus/quartstorage)
 "qSA" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle3)
 "qSG" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
@@ -16322,7 +16322,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder,
 /area/lv624/ground/jungle9)
 "qTs" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
@@ -16362,7 +16362,7 @@
 /turf/open/floor/marking/bot,
 /area/lv624/lazarus/spaceport2)
 "qVt" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -16418,7 +16418,7 @@
 /area/lv624/lazarus/main_hall)
 "qWV" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -16430,7 +16430,7 @@
 	},
 /area/lv624/ground/jungle3)
 "qXy" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -16452,7 +16452,7 @@
 	id = "nexus_blast";
 	name = "\improper Nexus Blast Door"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -16484,7 +16484,7 @@
 /area/lv624/ground/jungle6)
 "qZD" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/barber,
 /area/lv624/lazarus/fitness)
 "qZG" = (
@@ -16549,7 +16549,7 @@
 /area/lv624/ground/jungle9)
 "reF" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/tile/purple/whitepurplecorner{
 	dir = 4
@@ -16594,7 +16594,7 @@
 /area/lv624/lazarus/hydroponics)
 "rgc" = (
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 1
 	},
@@ -16626,7 +16626,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/dark,
@@ -16637,7 +16637,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/hydroponics)
 "ril" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/green/whitegreencorner{
@@ -16650,7 +16650,7 @@
 /area/lv624/ground/sand2)
 "riT" = (
 /obj/effect/decal/cleanable/vomit,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
@@ -16692,7 +16692,7 @@
 /obj/item/ammo_magazine/smg/m25,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -16717,7 +16717,7 @@
 	},
 /area/lv624/lazarus/fitness)
 "rnr" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
@@ -16726,7 +16726,7 @@
 /turf/closed/wall/r_wall,
 /area/lv624/lazarus/corporate_affairs)
 "rog" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/effect/ai_node,
@@ -16851,7 +16851,7 @@
 "rvs" = (
 /obj/structure/cable,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/effect/ai_node,
@@ -16886,7 +16886,7 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "rxW" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/wood,
@@ -16919,7 +16919,7 @@
 	},
 /area/lv624/lazarus/hydroponics)
 "rAx" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
@@ -16932,7 +16932,7 @@
 /area/lv624/ground/jungle3)
 "rAY" = (
 /obj/structure/flora/ausbushes/grassybush,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -17049,13 +17049,13 @@
 	},
 /area/lv624/lazarus/security)
 "rFS" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/wood,
 /area/lv624/lazarus/chapel)
 "rGj" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -17080,7 +17080,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle1)
 "rHl" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/tile/whiteyellow/corner{
@@ -17168,7 +17168,7 @@
 /area/lv624/ground/jungle6)
 "rKU" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/plating/warning,
@@ -17193,7 +17193,7 @@
 /turf/open/floor/plating,
 /area/lv624/ground/caves/central1)
 "rNJ" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/grass,
@@ -17245,7 +17245,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle8)
 "rQF" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -17299,7 +17299,7 @@
 /area/lv624/lazarus/main_hall)
 "rTU" = (
 /obj/structure/jungle/vines,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle3)
@@ -17351,7 +17351,7 @@
 /area/lv624/ground/jungle5)
 "rXm" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/tile/purple/whitepurplecorner{
 	dir = 4
@@ -17425,7 +17425,7 @@
 /turf/open/floor/plating/platebotc,
 /area/lv624/lazarus/quartstorage/outdoors)
 "rZE" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /obj/effect/ai_node,
@@ -17469,7 +17469,7 @@
 /obj/machinery/door/airlock/mainship/command/locked/free_access{
 	name = "\improper Nexus Dome Marshal's Quarter"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -17501,7 +17501,7 @@
 /area/lv624/ground/jungle7)
 "sdr" = (
 /obj/structure/flora/ausbushes/ywflowers,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/grass,
 /area/lv624/lazarus/main_hall)
 "sdC" = (
@@ -17564,7 +17564,7 @@
 /turf/open/ground/coast/corner2,
 /area/lv624/ground/river1)
 "siZ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -17621,7 +17621,7 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "sog" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
@@ -17640,7 +17640,7 @@
 /area/lv624/lazarus/captain)
 "sqa" = (
 /obj/effect/landmark/weed_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -17654,7 +17654,7 @@
 	},
 /area/lv624/ground/river2)
 "sqy" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/whiteyellow{
 	dir = 1
@@ -17764,7 +17764,7 @@
 /area/lv624/lazarus/secure_storage)
 "syE" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -17867,7 +17867,7 @@
 	},
 /area/lv624/ground/compound/c)
 "sHd" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/freezer,
@@ -17885,7 +17885,7 @@
 /area/lv624/lazarus/corporate_affairs)
 "sHD" = (
 /obj/structure/flora/ausbushes/brflowers,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/grass,
@@ -18101,7 +18101,7 @@
 /area/lv624/lazarus/sleep_male)
 "sXu" = (
 /obj/machinery/door/airlock/colony/engineering/nexusstorage/open,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -18182,7 +18182,7 @@
 "tbw" = (
 /obj/structure/flora/ausbushes/stalkybush,
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/grass,
 /area/lv624/lazarus/main_hall)
 "tca" = (
@@ -18285,7 +18285,7 @@
 /obj/structure/bed/chair/wood/normal{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/cult/clock,
@@ -18317,13 +18317,13 @@
 	},
 /area/lv624/lazarus/sleep_male)
 "tjl" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating,
 /area/lv624/lazarus/engineering)
 "tjL" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
@@ -18333,7 +18333,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand2)
 "tko" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -18378,7 +18378,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/engineering)
 "tmG" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle3)
@@ -18406,7 +18406,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central4)
 "tpM" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/structure/cable,
@@ -18496,7 +18496,7 @@
 /area/lv624/lazarus/sleep_female)
 "tum" = (
 /obj/item/stack/sheet/wood,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /turf/open/floor/tile/white,
@@ -18593,7 +18593,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 9
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -18622,7 +18622,7 @@
 /area/lv624/lazarus/fitness)
 "tzL" = (
 /obj/effect/ai_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirtgrassborder{
@@ -18687,7 +18687,7 @@
 	amount = 2
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
@@ -18719,7 +18719,7 @@
 /turf/open/floor/tile/red/full,
 /area/lv624/lazarus/security)
 "tHL" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
@@ -18771,7 +18771,7 @@
 	name = "\improper Engineering Dome"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/plating/warning,
@@ -18836,7 +18836,7 @@
 	},
 /area/lv624/lazarus/sandtemple)
 "tKm" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -18878,7 +18878,7 @@
 	},
 /area/lv624/lazarus/sleep_male)
 "tNj" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -18967,7 +18967,7 @@
 /obj/structure/bed/chair/wood/normal{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/cult/clock,
@@ -18992,7 +18992,7 @@
 	},
 /area/lv624/lazarus/research)
 "tWr" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/effect/ai_node,
@@ -19073,11 +19073,11 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/sw)
 "uaf" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle3)
 "ual" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
@@ -19222,7 +19222,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle10)
 "ujn" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -19265,7 +19265,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage)
 "ukz" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
@@ -19330,7 +19330,7 @@
 	dir = 6
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/tile/dark,
@@ -19435,7 +19435,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder,
 /area/lv624/ground/jungle6)
 "utv" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -19502,7 +19502,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/corner2,
 /area/lv624/lazarus/sandtemple)
 "uxB" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/research)
 "uxC" = (
@@ -19613,7 +19613,7 @@
 	dir = 1;
 	name = "\improper Research Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/research)
 "uIG" = (
@@ -19662,7 +19662,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder/corner2,
 /area/lv624/ground/compound/se)
 "uLA" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/landmark/weed_node,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
@@ -19745,7 +19745,7 @@
 /area/shuttle/drop1/lz1)
 "uSd" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/effect/ai_node,
@@ -19757,7 +19757,7 @@
 /area/lv624/ground/jungle10)
 "uSu" = (
 /obj/structure/jungle/vines/heavy,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/ground/grass,
@@ -19816,7 +19816,7 @@
 /turf/open/floor,
 /area/lv624/lazarus/spaceport2)
 "uVA" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -19849,7 +19849,7 @@
 	},
 /area/lv624/ground/caves/west1)
 "uWA" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /obj/structure/cable,
@@ -19858,13 +19858,13 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle2)
 "uWG" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/sw)
 "uXT" = (
 /obj/effect/landmark/corpsespawner/chef,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/grimy,
@@ -20004,7 +20004,7 @@
 	},
 /area/lv624/lazarus/security)
 "vim" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 2
 	},
@@ -20063,7 +20063,7 @@
 /obj/structure/barricade/wooden{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -20114,7 +20114,7 @@
 	},
 /area/lv624/lazarus/security)
 "vpP" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -20139,7 +20139,7 @@
 /area/lv624/ground/jungle6)
 "vqG" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating,
@@ -20313,7 +20313,7 @@
 /area/lv624/ground/jungle4)
 "vzW" = (
 /obj/structure/jungle/vines,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -20381,7 +20381,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/vault,
@@ -20441,7 +20441,7 @@
 	name = "\improper Storage Dome"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/vault,
 /area/lv624/lazarus/quartstorage)
 "vHz" = (
@@ -20456,7 +20456,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/c)
 "vIs" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/closed/gm/dense,
 /area/lv624/ground/caves/rock)
 "vID" = (
@@ -20534,7 +20534,7 @@
 	},
 /area/shuttle/drop2/lz2)
 "vPf" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/structure/fence,
 /turf/open/floor/plating/ground/dirtgrassborder,
@@ -20551,7 +20551,7 @@
 /area/lv624/lazarus/quartstorage)
 "vQA" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/quartstorage/outdoors)
@@ -20601,7 +20601,7 @@
 /turf/open/floor/prison/redfloor,
 /area/lv624/lazarus/sandtemple)
 "vSQ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -20680,7 +20680,7 @@
 /obj/machinery/door/airlock/mainship/research/free_access{
 	name = "\improper Research Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
@@ -20714,7 +20714,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle7)
 "vZz" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/landmark/weed_node,
 /obj/structure/cable,
 /turf/open/floor,
@@ -20742,7 +20742,7 @@
 /turf/closed/wall/sulaco,
 /area/lv624/lazarus/crashed_ship)
 "wbt" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -20881,7 +20881,7 @@
 "wid" = (
 /obj/effect/decal/cleanable/blood/splatter/animated,
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -20947,7 +20947,7 @@
 /obj/structure/bed/chair/wood/normal{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/cult/clock,
@@ -21008,7 +21008,7 @@
 "wnB" = (
 /obj/structure/flora/ausbushes/brflowers,
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/grass,
 /area/lv624/lazarus/main_hall)
 "wor" = (
@@ -21028,7 +21028,7 @@
 	},
 /obj/item/ammo_casing,
 /obj/item/ammo_magazine/smg/uzi/extended,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/grass,
 /area/lv624/lazarus/main_hall)
@@ -21068,7 +21068,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle5)
 "wsn" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -21177,7 +21177,7 @@
 /turf/open/floor/plating/ground/dirtgrassborder,
 /area/lv624/ground/jungle5)
 "wyg" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -21214,7 +21214,7 @@
 /turf/open/floor/wood,
 /area/lv624/ground/jungle8)
 "wAm" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -21334,13 +21334,13 @@
 /turf/open/floor/plating,
 /area/shuttle/drop2/lz2)
 "wFT" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/n)
 "wFW" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/canteen)
@@ -21370,7 +21370,7 @@
 	},
 /area/lv624/lazarus/hydroponics)
 "wIb" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/lv624/ground/sand8)
@@ -21524,7 +21524,7 @@
 	},
 /area/lv624/lazarus/research)
 "wRN" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "wSl" = (
@@ -21565,7 +21565,7 @@
 	},
 /area/lv624/lazarus/bar)
 "wTM" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/whiteyellow{
 	dir = 8
 	},
@@ -21585,7 +21585,7 @@
 /obj/effect/decal/warning_stripes/thin{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor,
 /area/lv624/ground/jungle7)
@@ -21648,7 +21648,7 @@
 	name = "\improper Storage Dome"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/quartstorage)
@@ -21668,7 +21668,7 @@
 	},
 /area/lv624/lazarus/fitness)
 "wZk" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/green/greentaupe{
@@ -21705,7 +21705,7 @@
 /obj/structure/table/reinforced/flipped{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/grass,
 /area/lv624/lazarus/main_hall)
 "xaI" = (
@@ -21713,7 +21713,7 @@
 	dir = 1;
 	name = "\improper Leisure Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -21737,7 +21737,7 @@
 	},
 /area/lv624/ground/jungle5)
 "xel" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -21776,11 +21776,11 @@
 /turf/open/floor/plating/platebot,
 /area/lv624/lazarus/secure_storage)
 "xfE" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/wood,
 /area/lv624/lazarus/bar)
 "xfN" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -21832,7 +21832,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle4)
 "xhp" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/c)
@@ -21921,7 +21921,7 @@
 "xlM" = (
 /obj/effect/decal/cleanable/blood,
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 5
 	},
@@ -21932,7 +21932,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/secure_storage)
 "xmB" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -21955,7 +21955,7 @@
 	},
 /area/lv624/ground/jungle3)
 "xoc" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -21968,7 +21968,7 @@
 /turf/open/floor/grimy,
 /area/lv624/lazarus/bar)
 "xoE" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -22012,7 +22012,7 @@
 /area/lv624/ground/caves/east1)
 "xqx" = (
 /obj/structure/flora/ausbushes/grassybush,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/grass,
 /area/lv624/lazarus/main_hall)
 "xqy" = (
@@ -22051,7 +22051,7 @@
 /turf/closed/wall/r_wall,
 /area/lv624/lazarus/security)
 "xuw" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -22061,7 +22061,7 @@
 /area/lv624/lazarus/sleep_female)
 "xux" = (
 /obj/structure/flora/ausbushes/fullgrass,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle5)
 "xuC" = (
@@ -22116,7 +22116,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/engineering)
 "xyJ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
@@ -22145,7 +22145,7 @@
 	},
 /area/lv624/ground/jungle3)
 "xzC" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/se)
@@ -22163,7 +22163,7 @@
 /area/lv624/lazarus/corporate_affairs)
 "xBB" = (
 /obj/structure/jungle/vines,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -22182,7 +22182,7 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/corporate_affairs)
 "xCe" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
@@ -22224,7 +22224,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle6)
 "xFE" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -22253,7 +22253,7 @@
 /area/lv624/ground/sand7)
 "xGM" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/purple/whitepurplecorner{
@@ -22274,7 +22274,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle5)
 "xHa" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/grass,
 /area/lv624/lazarus/main_hall)
 "xHg" = (
@@ -22345,7 +22345,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/freezer,
 /area/lv624/lazarus/kitchen)
@@ -22384,7 +22384,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle9)
 "xMv" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor,
 /area/lv624/ground/compound/n)
 "xMw" = (
@@ -22417,7 +22417,7 @@
 /turf/open/floor,
 /area/lv624/ground/compound/n)
 "xNR" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/cult,
 /area/lv624/lazarus/bar)
 "xOB" = (
@@ -22461,7 +22461,7 @@
 /area/lv624/ground/jungle6)
 "xQA" = (
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
@@ -22574,7 +22574,7 @@
 /turf/open/ground/river,
 /area/lv624/ground/jungle4)
 "xXy" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
@@ -22616,7 +22616,7 @@
 /turf/open/ground/river,
 /area/lv624/ground/river1)
 "xZK" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/barber,
@@ -22652,7 +22652,7 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "ycc" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -22684,7 +22684,7 @@
 /turf/closed/gm/dense,
 /area/lv624/ground/jungle4)
 "ycL" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/barber,
 /area/lv624/lazarus/kitchen)
@@ -22701,7 +22701,7 @@
 	},
 /area/lv624/ground/jungle4)
 "ydn" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle5)
 "ydP" = (
@@ -22730,7 +22730,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle6)
 "ygp" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -22795,7 +22795,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/engineering)
 "yjT" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle2)
@@ -22841,7 +22841,7 @@
 "yli" = (
 /obj/structure/flora/ausbushes/fullgrass,
 /obj/structure/jungle/vines,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,

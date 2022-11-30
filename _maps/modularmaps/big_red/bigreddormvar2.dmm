@@ -1,7 +1,7 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aw" = (
 /obj/machinery/light,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/dorms)
 "aU" = (
@@ -19,7 +19,7 @@
 	id = "Dormitories";
 	name = "Storm Shutters"
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/effect/ai_node,
@@ -40,13 +40,13 @@
 /area/bigredv2/outside/dorms)
 "cC" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/item/trash/chunk,
 /turf/open/floor/grimy{
 	},
 /area/bigredv2/outside/dorms)
 "dI" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/effect/decal/cleanable/dirt,
@@ -59,7 +59,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/dorms)
 "gf" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/bigredv2/outside/dorms)
@@ -78,7 +78,7 @@
 /area/bigredv2/outside/dorms)
 "mn" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/grimy{
@@ -98,7 +98,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/dorms)
 "pl" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/grimy{
@@ -119,7 +119,7 @@
 /area/bigredv2/outside/dorms)
 "rL" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor,
@@ -150,14 +150,14 @@
 /area/bigredv2/outside/dorms)
 "vl" = (
 /obj/machinery/vending/cola,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor,
 /area/bigredv2/outside/dorms)
 "zx" = (
 /obj/item/reagent_containers/food/drinks/bottle/rum,
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/grimy{
@@ -187,7 +187,7 @@
 /area/bigredv2/outside/dorms)
 "Dh" = (
 /obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/effect/ai_node,
@@ -204,7 +204,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/dorms)
 "FL" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/item/trash/chunk{
 	pixel_y = 5
 	},
@@ -215,7 +215,7 @@
 /obj/structure/bed/chair{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/dorms)
 "Gi" = (
@@ -230,7 +230,7 @@
 /area/bigredv2/outside/dorms)
 "Hb" = (
 /obj/machinery/vending/cigarette/colony,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor,
@@ -243,7 +243,7 @@
 	},
 /area/bigredv2/outside/dorms)
 "Ii" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /turf/open/floor,
@@ -264,13 +264,13 @@
 	icon_state = "alarm0";
 	pixel_y = -30
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor,
 /area/bigredv2/outside/dorms)
 "Jn" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /obj/machinery/vending/snack{
@@ -283,7 +283,7 @@
 	dir = 1;
 	pixel_y = -27
 	},
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor,
@@ -298,17 +298,17 @@
 	},
 /area/bigredv2/outside/dorms)
 "Nk" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/dorms)
 "NO" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/grimy{
 	},
 /area/bigredv2/outside/dorms)
 "Pr" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor,
 /area/bigredv2/outside/dorms)
 "TK" = (
@@ -318,7 +318,7 @@
 /turf/open/floor,
 /area/bigredv2/outside/dorms)
 "TX" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor,
@@ -335,7 +335,7 @@
 "YD" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 8
 	},
 /turf/open/floor/grimy{

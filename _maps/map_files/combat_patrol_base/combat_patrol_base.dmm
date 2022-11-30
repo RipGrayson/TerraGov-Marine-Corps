@@ -151,7 +151,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/patrol_base/som)
 "cN" = (
@@ -197,7 +197,7 @@
 /area/mainship/patrol_base)
 "dr" = (
 /obj/effect/decal/warning_stripes/box/empty,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/concrete,
@@ -220,7 +220,7 @@
 /turf/open/floor/mainship/red/corner,
 /area/mainship/patrol_base/som)
 "dz" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -283,7 +283,7 @@
 /area/mainship/patrol_base/som)
 "ej" = (
 /obj/structure/table/mainship/nometal,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/item/facepaint/green,
@@ -404,7 +404,7 @@
 	},
 /area/mainship/patrol_base)
 "gk" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/patrol_base)
 "gl" = (
@@ -482,7 +482,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -511,7 +511,7 @@
 /turf/open/floor/plating/ground/concrete,
 /area/mainship/patrol_base/som)
 "hr" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/concrete/lines{
@@ -723,7 +723,7 @@
 /turf/open/floor/mainship/som,
 /area/mainship/patrol_base/som)
 "kN" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -969,7 +969,7 @@
 /area/mainship/patrol_base)
 "oO" = (
 /obj/machinery/door/poddoor/timed_late/containment,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -1014,7 +1014,7 @@
 /area/mainship/patrol_base/som)
 "pK" = (
 /obj/structure/reagent_dispensers/fueltank/barrel,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -1026,10 +1026,10 @@
 	},
 /area/mainship/patrol_base/som)
 "pM" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/patrol_base/som)
 "pS" = (
@@ -1053,7 +1053,7 @@
 /turf/open/floor/mainship,
 /area/mainship/patrol_base/telecomms)
 "qc" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/patrol_base)
 "qe" = (
@@ -1090,7 +1090,7 @@
 /turf/open/floor/mainship/office,
 /area/mainship/patrol_base/som)
 "qs" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/mainship/office,
 /area/mainship/patrol_base/som)
 "qK" = (
@@ -1102,7 +1102,7 @@
 /turf/open/floor/mainship,
 /area/mainship/patrol_base/telecomms)
 "qY" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/prop/mainship/prop_sec,
@@ -1217,10 +1217,10 @@
 /area/mainship/patrol_base/som)
 "sc" = (
 /obj/structure/prop/mainship/prop_sominf,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/patrol_base/som)
 "sd" = (
@@ -1241,7 +1241,7 @@
 /area/mainship/patrol_base/som)
 "sk" = (
 /obj/structure/table/mainship/nometal,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /obj/item/attachable/magnetic_harness,
@@ -1303,7 +1303,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/patrol_base)
 "sG" = (
-/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/patrol_base/som)
 "sJ" = (
@@ -1460,7 +1460,7 @@
 /area/mainship/patrol_base/som)
 "uT" = (
 /obj/structure/table/mainship/nometal,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/item/attachable/magnetic_harness,
@@ -1587,7 +1587,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/patrol_base/som)
 "xe" = (
@@ -1686,13 +1686,13 @@
 /turf/open/floor/plating/ground/concrete,
 /area/mainship/patrol_base)
 "xQ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/patrol_base)
 "yf" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/bed/chair/nometal{
@@ -1723,7 +1723,7 @@
 /area/mainship/patrol_base)
 "yA" = (
 /obj/machinery/cic_maptable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -1799,7 +1799,7 @@
 	},
 /area/mainship/patrol_base/som)
 "zO" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/concrete,
@@ -2044,7 +2044,7 @@
 /turf/open/shuttle/elevator/grating,
 /area/mainship/patrol_base/som)
 "EH" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -2067,14 +2067,14 @@
 /obj/structure/bed/chair/nometal{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/patrol_base)
 "EX" = (
 /obj/structure/table/mainship/nometal,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/prop/radio_prop,
@@ -2493,7 +2493,7 @@
 /turf/open/floor/mainship,
 /area/mainship/patrol_base/telecomms)
 "KS" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -2523,7 +2523,7 @@
 /turf/closed/wall/mainship/outer/reinforced,
 /area/mainship/patrol_base)
 "Lq" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -2551,7 +2551,7 @@
 	},
 /area/mainship/patrol_base/som)
 "LN" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -2685,7 +2685,7 @@
 /turf/open/floor/mainship/office,
 /area/mainship/patrol_base/som)
 "NU" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/table/mainship/nometal,
@@ -2726,7 +2726,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -2804,7 +2804,7 @@
 /turf/open/space/basic,
 /area/space)
 "OT" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/patrol_base/som)
 "Pa" = (
@@ -2831,7 +2831,7 @@
 /area/mainship/patrol_base/som)
 "Pk" = (
 /obj/structure/largecrate/random/barrel/green,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -2991,7 +2991,7 @@
 /area/mainship/patrol_base/som)
 "Rt" = (
 /obj/structure/prop/mainship/mapping_computer,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -3428,7 +3428,7 @@
 /area/mainship/patrol_base)
 "VK" = (
 /obj/structure/prop/mainship/doorblocker/patrol_base/som,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/patrol_base/som)
 "VL" = (
@@ -3476,7 +3476,7 @@
 /turf/open/floor/mainship/office,
 /area/mainship/patrol_base/som)
 "Wy" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/structure/table/mainship/nometal,
@@ -3524,7 +3524,7 @@
 	},
 /area/mainship/patrol_base/som)
 "WX" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
@@ -3665,7 +3665,7 @@
 	},
 /area/mainship/patrol_base)
 "ZQ" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /turf/open/floor/plating/plating_catwalk,

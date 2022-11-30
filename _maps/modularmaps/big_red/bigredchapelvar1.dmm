@@ -3,7 +3,7 @@
 /turf/closed/wall,
 /area/bigredv2/outside/chapel)
 "b" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/chapel{
 	dir = 1
@@ -73,7 +73,7 @@
 /turf/open/floor/tile/darkish,
 /area/bigredv2/outside/chapel)
 "o" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/tile/darkish,
@@ -87,7 +87,7 @@
 /turf/open/floor/engine/cult,
 /area/bigredv2/outside/chapel)
 "s" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -101,7 +101,7 @@
 /turf/open/floor/engine/cult,
 /area/bigredv2/outside/chapel)
 "x" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/darkish,
 /area/bigredv2/outside/chapel)
@@ -115,7 +115,7 @@
 /turf/open/floor/tile/darkish,
 /area/bigredv2/outside/chapel)
 "A" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/chapel{
 	dir = 8
@@ -163,7 +163,7 @@
 /turf/open/floor/engine/cult,
 /area/bigredv2/outside/chapel)
 "L" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/table/woodentable,
@@ -172,7 +172,7 @@
 /area/bigredv2/outside/chapel)
 "M" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	name = "\improper Chapel"
 	},
@@ -220,7 +220,7 @@
 /turf/open/floor/tile/chapel,
 /area/bigredv2/outside/chapel)
 "W" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/tile/darkish,
 /area/bigredv2/outside/chapel)

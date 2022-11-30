@@ -21,7 +21,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/library)
 "dg" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/corpsespawner/security,
 /turf/open/floor/carpet/side{
 	dir = 4;
@@ -48,13 +48,13 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/library)
 "iX" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/carpet/side{
 	dir = 5;
 	},
 /area/bigredv2/outside/library)
 "jD" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	locked = 1;
 	name = "\improper Library"
@@ -71,11 +71,11 @@
 /area/bigredv2/outside/library)
 "lB" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/wood,
 /area/bigredv2/outside/library)
 "mP" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/carpet/side{
 	dir = 4;
 	},
@@ -135,14 +135,14 @@
 /area/bigredv2/outside/library)
 "vg" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/wood,
 /area/bigredv2/outside/library)
 "vJ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 6
 	},
 /turf/open/floor/wood,
@@ -177,7 +177,7 @@
 	},
 /area/bigredv2/outside/e)
 "yM" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/carpet,
 /area/bigredv2/outside/library)
 "yV" = (
@@ -200,7 +200,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/library)
 "Bm" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -211,14 +211,14 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/library)
 "Cn" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/marking/asteroidwarning{
 	dir = 8
 	},
 /area/bigredv2/outside/e)
 "Dt" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/airlock/mainship/generic{
@@ -234,7 +234,7 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/library)
 "EI" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -266,21 +266,21 @@
 /turf/open/floor/wood,
 /area/bigredv2/outside/library)
 "Ht" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 10
 	},
 /turf/open/floor/carpet/side{
 	},
 /area/bigredv2/outside/library)
 "HF" = (
-/obj/machinery/atmospherics/pipe/manifold/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/effect/ai_node,
 /turf/open/floor/wood,
 /area/bigredv2/outside/library)
 "JC" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 5
 	},
 /obj/effect/landmark/weed_node,
@@ -314,7 +314,7 @@
 /area/bigredv2/outside/library)
 "Nc" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 9
 	},
 /turf/open/floor/wood,
@@ -364,14 +364,14 @@
 	},
 /area/bigredv2/outside/library)
 "Sy" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/ai_node,
 /turf/open/floor/carpet/side{
 	dir = 4;
 	},
 /area/bigredv2/outside/library)
 "SK" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /turf/open/floor/wood,
 /area/bigredv2/outside/library)
 "VR" = (
@@ -387,7 +387,7 @@
 	},
 /area/bigredv2/outside/library)
 "WJ" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/carpet/side{
 	dir = 4;

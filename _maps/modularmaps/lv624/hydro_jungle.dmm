@@ -1,6 +1,6 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
 "aI" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/effect/ai_node,
@@ -104,7 +104,7 @@
 /turf/open/ground/grass,
 /area/lv624/ground/jungle7)
 "iF" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/jungle/vines,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
@@ -148,7 +148,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle7)
 "ly" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -157,12 +157,12 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle7)
 "oY" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/ne)
 "qb" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/ne)
@@ -209,7 +209,7 @@
 	},
 /area/lv624/ground/compound/ne)
 "vS" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -237,7 +237,7 @@
 	},
 /area/lv624/ground/jungle7)
 "xt" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -280,7 +280,7 @@
 	},
 /area/lv624/ground/compound/ne)
 "Aq" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/ne)
@@ -314,7 +314,7 @@
 	},
 /area/lv624/ground/compound/ne)
 "Bz" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/jungle/vines,
 /obj/structure/jungle/vines,
 /turf/open/floor/plating/ground/dirt,
@@ -370,7 +370,7 @@
 	},
 /area/lv624/ground/jungle9)
 "Fz" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/flora/ausbushes/fullgrass,
@@ -423,7 +423,7 @@
 	},
 /area/lv624/ground/compound/ne)
 "Js" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/ne)
 "JB" = (
@@ -432,7 +432,7 @@
 	},
 /area/lv624/ground/jungle9)
 "JU" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/jungle/vines,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/ne)
@@ -551,7 +551,7 @@
 	id = "nexus_blast";
 	name = "\improper Nexus Blast Door";
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/door/airlock/mainship/secure{
 	dir = 1
 	},

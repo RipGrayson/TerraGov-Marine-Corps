@@ -18,7 +18,7 @@
 /area/bigredv2/outside/c)
 "h" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/structure/barricade/wooden{
@@ -39,7 +39,7 @@
 /area/bigredv2/outside/cargo)
 "x" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/item/stack/sheet/wood,
@@ -50,7 +50,7 @@
 /area/bigredv2/outside/cargo)
 "X" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,

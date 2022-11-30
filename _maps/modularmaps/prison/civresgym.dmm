@@ -35,7 +35,7 @@
 /turf/open/floor/prison/bright_clean/two,
 /area/template_noop)
 "v" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/prison/bright_clean/two,
@@ -79,7 +79,7 @@
 /turf/open/floor/prison/bright_clean/two,
 /area/template_noop)
 "M" = (
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden{
 	dir = 9
 	},
 /turf/open/floor/prison/bright_clean/two,

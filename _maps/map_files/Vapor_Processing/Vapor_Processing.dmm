@@ -1070,7 +1070,7 @@
 /obj/structure/morgue{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/white,
@@ -1371,13 +1371,13 @@
 /turf/open/floor/tile/blue/whitebluecorner,
 /area/lv624/lazarus/medbay)
 "hc" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/effect/mapping_helpers/simple_pipes/general/visible{
 	dir = 5
 	},
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/medbay)
 "he" = (
-/obj/machinery/atmospherics/pipe/manifold/general/visible,
+/obj/effect/mapping_helpers/simple_pipes/general/visible,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/lv624/lazarus/medbay)
 "hg" = (
@@ -1622,7 +1622,7 @@
 /area/vapor_processing/cargo3)
 "iJ" = (
 /obj/structure/dispenser,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/tile/whiteyellow/corner{
@@ -1846,7 +1846,7 @@
 /turf/open/floor/tile/red/redtaupe,
 /area/lv624/lazarus/security)
 "jI" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/whiteyellow/corner{
 	dir = 1
 	},
@@ -2069,7 +2069,7 @@
 /turf/open/floor/carpet,
 /area/lv624/lazarus/canteen)
 "kz" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/closed/wall,
 /area/lv624/lazarus/quart)
 "kA" = (
@@ -2193,7 +2193,7 @@
 /area/lv624/lazarus/comms)
 "lq" = (
 /obj/structure/largecrate/random,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/quart)
 "lr" = (
@@ -2219,7 +2219,7 @@
 "lx" = (
 /obj/structure/ore_box,
 /obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/whiteyellow/corner{
 	dir = 1
 	},
@@ -2574,7 +2574,7 @@
 /turf/open/ground,
 /area/lv624/ground/caves/central1)
 "nB" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/closed/wall,
 /area/vapor_processing/cargo2)
 "nH" = (
@@ -2760,7 +2760,7 @@
 /turf/open/floor,
 /area/shuttle/drop1/lz1)
 "pa" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/grass,
 /area/lv624/ground/compound/c)
 "pc" = (
@@ -2775,7 +2775,7 @@
 /turf/open/ground/grass/grass2,
 /area/lv624/ground/compound/se)
 "pe" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/closed/wall,
@@ -3177,7 +3177,7 @@
 /turf/open/floor/prison/whitepurple,
 /area/lv624/lazarus/engineering)
 "rb" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/whiteyellow/corner{
@@ -3185,7 +3185,7 @@
 	},
 /area/lv624/lazarus/quart)
 "rc" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/closed/wall,
@@ -3223,7 +3223,7 @@
 /turf/open/floor/grass,
 /area/lv624/ground/compound/c)
 "rm" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/ground,
@@ -3243,7 +3243,7 @@
 /turf/open/floor/grass,
 /area/lv624/ground/compound/c)
 "rp" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/closed/wall,
@@ -3258,19 +3258,19 @@
 /turf/open/floor,
 /area/storage/tools)
 "rs" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/closed/wall,
 /area/vapor_processing/cargo3)
 "rt" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/closed/wall,
 /area/lv624/lazarus/engineering)
 "ru" = (
 /obj/structure/largecrate,
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /turf/open/floor/tile/whiteyellow/corner{
@@ -3289,13 +3289,13 @@
 	},
 /area/vapor_processing/cargo3)
 "rw" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/whiteyellow/corner{
 	dir = 1
 	},
 /area/vapor_processing/cargo3)
 "ry" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/machinery/door/airlock/glass,
@@ -3304,24 +3304,24 @@
 	},
 /area/lv624/lazarus/quartstorage)
 "rC" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/prison/yellow,
 /area/lv624/lazarus/engineering)
 "rD" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/prison/yellow,
 /area/lv624/lazarus/engineering)
 "rF" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/closed/wall,
 /area/vapor_processing/cargo3)
 "rG" = (
 /obj/structure/closet/firecloset,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/whiteyellow/corner{
@@ -3329,7 +3329,7 @@
 	},
 /area/vapor_processing/cargo3)
 "rH" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/whiteyellow/corner{
@@ -3338,14 +3338,14 @@
 /area/vapor_processing/cargo3)
 "rI" = (
 /obj/structure/largecrate/supply/supplies/flares,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/whiteyellow/corner{
 	dir = 1
 	},
 /area/vapor_processing/cargo3)
 "rJ" = (
 /obj/structure/largecrate/supply/powerloader,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/whiteyellow/corner{
@@ -3354,7 +3354,7 @@
 /area/vapor_processing/cargo3)
 "rK" = (
 /obj/structure/largecrate/supply/supplies,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/whiteyellow/corner{
@@ -3362,20 +3362,20 @@
 	},
 /area/vapor_processing/cargo3)
 "rL" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/grass,
 /area/lv624/ground/compound/c)
 "rM" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/closed/wall,
 /area/lv624/lazarus/engineering)
 "rN" = (
 /obj/structure/closet/emcloset,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/prison/yellow,
@@ -3385,68 +3385,68 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/prison/whitepurple,
 /area/lv624/lazarus/engineering)
 "rP" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/prison/yellow,
 /area/lv624/lazarus/engineering)
 "rQ" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/power/smes/buildable,
 /obj/structure/cable,
 /turf/open/floor/prison/yellow,
 /area/lv624/lazarus/engineering)
 "rS" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/prison/whitepurple,
 /area/lv624/lazarus/engineering)
 "rT" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/prison/yellow/full,
 /area/lv624/lazarus/engineering)
 "rU" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/prison/yellow/full,
 /area/lv624/lazarus/engineering)
 "rV" = (
-/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/closed/wall,
 /area/lv624/lazarus/engineering)
 "rW" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/prison/yellow,
 /area/lv624/lazarus/engineering)
 "rX" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /turf/closed/wall,
 /area/lv624/lazarus/engineering)
 "rY" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/closed/wall,
 /area/vapor_processing/cargo3)
 "rZ" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/closed/wall,
 /area/lv624/lazarus/engineering)
 "sc" = (
 /obj/machinery/firealarm,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -3475,13 +3475,13 @@
 	},
 /area/lv624/lazarus/comms)
 "sh" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 4
 	},
 /area/lv624/lazarus/comms)
 "sj" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /turf/closed/wall,
@@ -3495,25 +3495,25 @@
 /turf/open/floor/prison/yellow,
 /area/lv624/lazarus/engineering)
 "sl" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/prison/yellow/full,
 /area/lv624/lazarus/engineering)
 "so" = (
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 4
 	},
 /area/lv624/lazarus/comms)
 "sp" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/ground/grass/grass2,
 /area/lv624/ground/compound/c)
 "sr" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 4
 	},
@@ -3524,17 +3524,17 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 4
 	},
 /area/lv624/lazarus/comms)
 "sv" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/grass,
 /area/vapor_processing/south_compound)
 "sw" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -3542,7 +3542,7 @@
 	},
 /area/lv624/lazarus/comms)
 "sx" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -3550,14 +3550,14 @@
 	},
 /area/lv624/lazarus/comms)
 "sz" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/closed/wall,
 /area/lv624/lazarus/comms)
 "sA" = (
 /obj/machinery/computer/med_data,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -3565,7 +3565,7 @@
 	},
 /area/lv624/lazarus/comms)
 "sB" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -3574,7 +3574,7 @@
 /area/lv624/lazarus/comms)
 "sC" = (
 /obj/item/attachable/hydro_cannon,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -3595,7 +3595,7 @@
 /obj/machinery/power/monitor{
 	name = "Main Power Grid Monitoring"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -3616,19 +3616,19 @@
 /area/lv624/lazarus/comms)
 "sG" = (
 /obj/machinery/floodlight/colony,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/grass,
 /area/vapor_processing/south_compound)
 "sK" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor,
 /area/storage/tools)
 "sM" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/closed/wall,
 /area/storage/tools)
 "sN" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /turf/open/floor/scorched/two,
@@ -3641,36 +3641,36 @@
 /turf/open/floor/scorched/two,
 /area/storage/tools)
 "sP" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /turf/open/floor,
 /area/storage/tools)
 "sQ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor,
 /area/storage/tools)
 "sR" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/closed/wall,
 /area/storage/tools)
 "sS" = (
-/obj/machinery/atmospherics/pipe/manifold4w/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/scorched/two,
 /area/storage/tools)
 "sU" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor,
 /area/lv624/lazarus/research)
 "sV" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor,
@@ -3679,19 +3679,19 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor,
 /area/lv624/lazarus/research)
 "sX" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor,
 /area/lv624/lazarus/research)
 "sZ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor,
 /area/lv624/lazarus/research)
 "te" = (
@@ -3699,49 +3699,49 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/maintenance/substation)
 "tf" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/closed/wall,
 /area/lv624/lazarus/engineering)
 "ti" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/ground/grass/grass2,
 /area/vapor_processing/south_compound)
 "tj" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/closed/wall,
 /area/maintenance/substation)
 "tk" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor,
 /area/lv624/lazarus/research)
 "tl" = (
 /obj/machinery/firealarm,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor,
 /area/maintenance/substation)
 "tn" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor,
 /area/maintenance/substation)
 "tp" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/closed/wall,
 /area/lv624/lazarus/research)
 "tq" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/dmg3,
 /area/lv624/lazarus/research)
 "ts" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /turf/open/floor/scorched/two,
@@ -3763,7 +3763,7 @@
 /turf/open/floor/plating/dmg3,
 /area/lv624/ground/compound/se)
 "tC" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/closed/wall,
 /area/lv624/lazarus/research)
 "tD" = (
@@ -3777,20 +3777,20 @@
 /turf/open/ground,
 /area/space)
 "tE" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /turf/open/floor/plating/dmg2,
 /area/lv624/lazarus/research)
 "tJ" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/ground/grass/grass2,
 /area/lv624/ground/compound/se)
 "tK" = (
 /obj/structure/window/framed/wood,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/wood,
@@ -3803,7 +3803,7 @@
 /turf/open/floor/wood/broken,
 /area/crew_quarters/sleep/bedrooms)
 "tO" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/plating/dmg3,
@@ -3819,7 +3819,7 @@
 /turf/open/floor/plating/dmg1,
 /area/lv624/lazarus/research)
 "tR" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/closed/wall/wood,
 /area/crew_quarters/sleep/bedrooms)
 "tX" = (
@@ -3830,12 +3830,12 @@
 /turf/open/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
 "tY" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/ground,
 /area/vapor_processing/south_compound)
 "ua" = (
 /obj/structure/closet/emcloset,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor,
@@ -3850,39 +3850,39 @@
 /area/maintenance/substation)
 "ud" = (
 /obj/structure/closet/toolcloset,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
 "uf" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/ground,
 /area/vapor_processing/south_compound)
 "ug" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/grass,
 /area/vapor_processing/south_compound)
 "uh" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/closed/wall/wood,
 /area/crew_quarters/sleep_male)
 "uj" = (
 /obj/structure/table,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/sleep_male)
 "ul" = (
 /obj/structure/closet/jcloset,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/wood/broken,
@@ -3897,7 +3897,7 @@
 /turf/open/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
 "uw" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/grass,
@@ -3999,7 +3999,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/decal/cleanable/blood/xtracks,
 /obj/effect/ai_node,
 /turf/open/floor,
@@ -4047,7 +4047,7 @@
 	},
 /area/lv624/lazarus/engineering)
 "wj" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor,
 /area/storage/tools)
@@ -4083,7 +4083,7 @@
 /turf/open/floor,
 /area/shuttle/drop1/lz1)
 "wL" = (
-/obj/machinery/atmospherics/pipe/manifold/general/visible,
+/obj/effect/mapping_helpers/simple_pipes/general/visible,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/tile/blue/whitebluefull,
 /area/lv624/lazarus/medbay)
@@ -4108,7 +4108,7 @@
 "xg" = (
 /obj/effect/spawner/random/toolbox,
 /obj/structure/table,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/wood,
@@ -4240,7 +4240,7 @@
 "zY" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/toolbox,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/whiteyellow/full,
@@ -4277,7 +4277,7 @@
 /area/lv624/lazarus/engineering)
 "AP" = (
 /obj/machinery/light,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/door_control{
@@ -4287,11 +4287,11 @@
 /turf/open/floor,
 /area/lv624/lazarus/research)
 "AS" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/scorched/two,
 /area/storage/tools)
 "AT" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /turf/open/floor/tile/whiteyellow/full,
@@ -4323,7 +4323,7 @@
 /turf/open/floor/prison/yellow/full,
 /area/lv624/lazarus/engineering)
 "Bj" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/ground,
@@ -4335,7 +4335,7 @@
 /turf/open/floor/carpet,
 /area/lv624/lazarus/canteen)
 "Bm" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/decal/cleanable/blood/xtracks,
 /turf/open/floor,
 /area/maintenance/substation)
@@ -4345,7 +4345,7 @@
 /area/lv624/ground/compound/sw)
 "Bz" = (
 /obj/structure/bed,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/wood/broken,
 /area/crew_quarters/sleep/bedrooms)
@@ -4387,7 +4387,7 @@
 /area/lv624/lazarus/canteen)
 "Cd" = (
 /obj/machinery/computer/area_atmos,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -4400,7 +4400,7 @@
 /area/lv624/lazarus/canteen)
 "Cm" = (
 /obj/structure/bed,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /turf/open/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
@@ -4434,7 +4434,7 @@
 "CH" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/bomb_supply,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/whiteyellow/full,
@@ -4524,7 +4524,7 @@
 "DY" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/technology_scanner,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/tile/whiteyellow/full,
@@ -4818,7 +4818,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/internal_affairs)
 "Jh" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/scorched/two,
@@ -4846,7 +4846,7 @@
 /turf/open/ground,
 /area/space)
 "Jz" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -4856,7 +4856,7 @@
 /obj/structure/rack,
 /obj/effect/spawner/random/tech_supply,
 /obj/effect/spawner/random/tech_supply,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/quart)
 "JL" = (
@@ -4955,7 +4955,7 @@
 "Li" = (
 /obj/structure/table,
 /obj/effect/spawner/random/toolbox,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /turf/open/floor/prison/yellow,
@@ -4992,7 +4992,7 @@
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/east1)
 "Lv" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/machinery/power/smes/buildable,
@@ -5000,7 +5000,7 @@
 /turf/open/floor/prison/yellow,
 /area/lv624/lazarus/engineering)
 "Lx" = (
-/obj/machinery/atmospherics/pipe/simple/general/visible{
+/obj/effect/mapping_helpers/simple_pipes/general/visible{
 	dir = 9
 	},
 /obj/effect/ai_node,
@@ -5044,7 +5044,7 @@
 	},
 /area/vapor_processing/cargo2)
 "Mo" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/closed/wall,
 /area/lv624/lazarus/comms)
 "Mp" = (
@@ -5077,14 +5077,14 @@
 "MB" = (
 /obj/effect/spawner/random/toolbox,
 /obj/structure/table,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /turf/open/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
 "MD" = (
 /obj/structure/window/framed/colony,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating,
 /area/lv624/ground/compound/se)
 "ME" = (
@@ -5239,11 +5239,11 @@
 /area/vapor_processing/cargo_maint_s)
 "OF" = (
 /obj/structure/window/framed/colony,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating,
 /area/vapor_processing/east_compound)
 "OH" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -5290,7 +5290,7 @@
 "Ps" = (
 /obj/machinery/sleeper,
 /obj/effect/landmark/corpsespawner/prisoner,
-/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/effect/mapping_helpers/simple_pipes/scrubbers/hidden,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/medbay)
 "Pt" = (
@@ -5393,7 +5393,7 @@
 /turf/open/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
 "QD" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/prison/yellow{
 	dir = 8
 	},
@@ -5459,7 +5459,7 @@
 /area/lv624/lazarus/medbay)
 "RB" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/power/terminal,
 /obj/effect/ai_node,
 /turf/open/floor/prison/yellow,
@@ -5495,7 +5495,7 @@
 /turf/open/ground,
 /area/vapor_processing/west_compound)
 "So" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -5521,7 +5521,7 @@
 /turf/open/ground/grass/grass2,
 /area/lv624/ground/compound/se)
 "SG" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/decal/cleanable/blood/gibs/xeno,
@@ -5546,7 +5546,7 @@
 /turf/open/ground,
 /area/lv624/ground/caves/central1)
 "SS" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/door/airlock/multi_tile/mainship/engineering,
 /turf/open/floor/prison/yellow,
 /area/lv624/lazarus/engineering)
@@ -5558,7 +5558,7 @@
 /turf/open/floor,
 /area/shuttle/drop2/lz2)
 "SW" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/machinery/vending/nanomed,
@@ -5576,7 +5576,7 @@
 /turf/open/floor/grass,
 /area/vapor_processing/south_compound)
 "Tc" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /obj/effect/ai_node,
@@ -5625,7 +5625,7 @@
 /turf/open/ground,
 /area/lv624/ground/caves/central2)
 "Ud" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/scorched/two,
 /area/lv624/lazarus/research)
 "Ue" = (
@@ -6002,7 +6002,7 @@
 /turf/open/floor/plating,
 /area/vapor_processing/cargo_maint_s)
 "Yo" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
@@ -6022,7 +6022,7 @@
 /obj/machinery/light{
 	dir = 1
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/spawner/random/toolbox,

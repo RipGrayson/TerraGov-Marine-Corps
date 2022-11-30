@@ -49,7 +49,7 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
 "eE" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -67,7 +67,7 @@
 	},
 /area/lv624/lazarus/internal_affairs)
 "fA" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/machinery/door/airlock/mainship/generic/corporate{
 	dir = 1;
 	name = "Corporate Dome"
@@ -90,7 +90,7 @@
 /area/lv624/lazarus/internal_affairs)
 "hb" = (
 /obj/item/storage/toolbox/mechanical,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 5
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -105,7 +105,7 @@
 "if" = (
 /obj/item/flashlight,
 /obj/item/ammo_magazine/smg/mp7,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 9
 	},
 /obj/structure/cable,
@@ -136,13 +136,13 @@
 /area/lv624/lazarus/internal_affairs)
 "ky" = (
 /obj/item/folder/blue,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whitebluefull,
 /area/lv624/lazarus/internal_affairs)
 "kz" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 8
 	},
 /obj/structure/cable,
@@ -211,7 +211,7 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
 "tF" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/structure/cable,
@@ -231,13 +231,13 @@
 /area/lv624/lazarus/internal_affairs)
 "xH" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whitebluefull,
 /area/lv624/lazarus/internal_affairs)
 "yr" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
@@ -319,7 +319,7 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
 "Ge" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
@@ -341,7 +341,7 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
 "HP" = (
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whiteblue{
@@ -374,7 +374,7 @@
 /obj/item/tool/crowbar,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
@@ -403,7 +403,7 @@
 	pixel_y = 3
 	},
 /obj/item/ammo_casing,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/structure/cable,
@@ -420,13 +420,13 @@
 	name = "Corporate Dome"
 	},
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating,
 /area/lv624/lazarus/internal_affairs)
 "MR" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/tile/blue/whitebluefull,
@@ -456,7 +456,7 @@
 /turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
 "Oy" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /obj/structure/cable,
@@ -472,7 +472,7 @@
 /area/lv624/lazarus/internal_affairs)
 "PF" = (
 /obj/item/spacecash/c100,
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
@@ -501,7 +501,7 @@
 	pixel_x = 3;
 	pixel_y = -3
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 1
@@ -531,7 +531,7 @@
 /area/lv624/lazarus/internal_affairs)
 "Ve" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 1
 	},
 /obj/effect/ai_node,
@@ -560,7 +560,7 @@
 	dir = 1;
 	name = "Corporate Dome"
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor/plating,
 /area/lv624/lazarus/internal_affairs)
@@ -580,7 +580,7 @@
 /turf/closed/wall,
 /area/lv624/lazarus/internal_affairs)
 "Xo" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 6
 	},
 /turf/open/floor/tile/blue/whiteblue{

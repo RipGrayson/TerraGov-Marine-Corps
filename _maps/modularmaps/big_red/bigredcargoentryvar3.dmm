@@ -19,7 +19,7 @@
 /area/bigredv2/outside/cargo)
 "G" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/item/stack/sheet/wood,
@@ -27,7 +27,7 @@
 /area/bigredv2/outside/cargo)
 "I" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /obj/machinery/door/poddoor/shutters/mainship,
@@ -56,7 +56,7 @@
 /area/bigredv2/outside/c)
 "U" = (
 /obj/structure/cable,
-/obj/machinery/atmospherics/pipe/simple/green/hidden{
+/obj/effect/mapping_helpers/simple_pipes/green/hidden{
 	dir = 4
 	},
 /turf/open/floor/asteroidfloor,

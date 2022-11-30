@@ -5,7 +5,7 @@
 	},
 /area/bigredv2/outside/c)
 "f" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/admin_building)
@@ -20,7 +20,7 @@
 	},
 /area/bigredv2/outside/c)
 "t" = (
-/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/effect/mapping_helpers/simple_pipes/green/hidden,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/asteroidfloor,

@@ -118,7 +118,7 @@
 	},
 /area/lv624/ground/jungle7)
 "qj" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /turf/open/floor/plating/ground/dirt,
@@ -156,7 +156,7 @@
 	id = "nexus_blast";
 	name = "\improper Nexus Blast Door";
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "tI" = (
@@ -235,14 +235,14 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle7)
 "Aw" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/ne)
 "AV" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/ne)
 "Dd" = (
@@ -385,7 +385,7 @@
 	},
 /area/lv624/ground/jungle9)
 "Oi" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 4
 	},
 /obj/effect/landmark/weed_node,
@@ -458,7 +458,7 @@
 	},
 /area/lv624/ground/jungle9)
 "Wt" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1{
 	dir = 10
 	},
 /turf/open/floor/plating/ground/dirt,

@@ -14,7 +14,7 @@
 /turf/open/floor/plating,
 /area/lv624/ground/river2)
 "d" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor,
 /area/lv624/ground/river2)
@@ -56,7 +56,7 @@
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/structure/cable,
 /turf/open/floor,
 /area/lv624/ground/river2)
@@ -72,7 +72,7 @@
 /turf/open/floor/plating,
 /area/lv624/ground/river2)
 "u" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/ai_node,
 /obj/effect/decal/cleanable/blood/gibs,
 /obj/structure/cable,
@@ -107,7 +107,7 @@
 /turf/open/floor/plating,
 /area/lv624/ground/river2)
 "F" = (
-/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/mapping_helpers/simple_pipes/supply/hidden/layer1,
 /obj/effect/landmark/corpsespawner/colonist,
 /obj/structure/cable,
 /turf/open/floor,
