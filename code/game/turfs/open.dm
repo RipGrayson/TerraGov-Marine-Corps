@@ -259,6 +259,18 @@
 /turf/open/floor/plating/heatinggrate
 	icon_state = "heatinggrate"
 
+/turf/open/floor/plating/grille
+	icon_state = "grille"
+
+/turf/open/floor/plating/grillefan
+	icon_state = "grillefan1"
+
+/turf/open/floor/plating/skin1
+	icon_state = "skin"
+
+/turf/open/floor/plating/skin2
+	icon_state = "skin2"
+
 /turf/open/shuttle/brig // Added this floor tile so that I have a seperate turf to check in the shuttle -- Polymorph
 	name = "Brig floor"        // Also added it into the 2x3 brig area of the shuttle.
 	icon_state = "floor4"
