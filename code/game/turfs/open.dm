@@ -283,6 +283,9 @@
 /turf/open/floor/plating/skinsix
 	icon_state = "skin6"
 
+/turf/open/floor/plating/skinseven
+	icon_state = "skin7"
+
 /turf/open/shuttle/brig // Added this floor tile so that I have a seperate turf to check in the shuttle -- Polymorph
 	name = "Brig floor"        // Also added it into the 2x3 brig area of the shuttle.
 	icon_state = "floor4"
