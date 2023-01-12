@@ -59,6 +59,12 @@
 /turf/closed/mineral/smooth/snowrock/indestructible
 	resistance_flags = RESIST_ALL
 
+/turf/closed/mineral/smooth/fleshwall
+	icon = 'icons/turf/walls.dmi'
+	icon_state = "skinwall"
+	walltype = "snowwall"
+
+
 /turf/closed/mineral/smooth/bigred
 	icon = 'icons/turf/walls/redwall.dmi'
 	icon_state = "red_wall-0-0-0-0"
