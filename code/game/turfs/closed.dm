@@ -60,10 +60,12 @@
 	resistance_flags = RESIST_ALL
 
 /turf/closed/mineral/smooth/fleshwall
-	icon = 'icons/turf/walls.dmi'
-	icon_state = "skinwall"
-	walltype = "snowwall"
+	icon = 'icons/turf/walls/fleshwall.dmi'
+	icon_state = "fleshwall-0-0-0-0"
+	walltype = "fleshwall"
 
+/turf/closed/mineral/smooth/fleshwall/indestructible
+	resistance_flags = RESIST_ALL
 
 /turf/closed/mineral/smooth/bigred
 	icon = 'icons/turf/walls/redwall.dmi'

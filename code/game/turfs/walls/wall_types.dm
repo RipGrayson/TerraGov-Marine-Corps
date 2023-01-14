@@ -185,6 +185,9 @@
 /turf/closed/wall/tyson/r_wall
 	icon_state = "rwall"
 
+/turf/closed/wall/swall
+	icon_state = "swall0"
+
 //Sulaco walls.
 /turf/closed/wall/sulaco
 	name = "hull"
