@@ -367,5 +367,7 @@
 		icon_state = "[walltype][junction]"
 
 /turf/closed/wall/bamboo
+	icon = 'icons/turf/walls/bwall.dmi'
+	base_icon_state = "bwall"
 	walltype = "bwall"
-	icon_state = "bwall0"
+	icon_state = "bwall-0"
