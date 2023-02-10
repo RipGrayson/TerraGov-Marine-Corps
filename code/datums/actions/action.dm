@@ -12,7 +12,7 @@ KEYBINDINGS
 	var/name = "Generic Action"
 	var/desc
 	var/datum/target = null
-	var/obj/screen/action_button/button = null
+	var/atom/movable/screen/action_button/button = null
 	var/mob/owner
 	var/action_icon = 'icons/mob/actions.dmi'
 	var/action_icon_state = "default"
@@ -48,7 +48,7 @@ KEYBINDINGS
 		visual_references[VREF_MUTABLE_MAPTEXT] = maptext_list
 	switch(action_type)
 		if(ACTION_TOGGLE)
-			visual_references[VREF_MUTABLE_ACTIVE_FRAME] = mutable_appearance('icons/Marine/marine-weapons.dmi', "active", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)
+			visual_references[VREF_MUTABLE_ACTIVE_FRAME] = mutable_appearance('icons/mob/actions.dmi', "active", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)
 		if(ACTION_SELECT)
 			visual_references[VREF_MUTABLE_SELECTED_FRAME] = mutable_appearance('icons/mob/actions.dmi', "selected_frame", ACTION_LAYER_ACTION_ICON_STATE, FLOAT_PLANE)
 	visual_references[VREF_MUTABLE_ACTION_STATE] = mutable_appearance(action_icon, action_icon_state, HUD_LAYER, HUD_PLANE)
@@ -225,7 +225,7 @@ KEYBINDINGS
 			if(A.should_show())
 				A.update_button_icon()
 				button_number++
-				var/obj/screen/action_button/B = A.button
+				var/atom/movable/screen/action_button/B = A.button
 				B.screen_loc = B.get_button_screen_loc(button_number)
 				if(reload_screen)
 					client.screen += B

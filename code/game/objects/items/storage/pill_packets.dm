@@ -9,6 +9,8 @@
 	storage_slots = 4
 	max_w_class = 0
 	max_storage_space = 4
+	refill_types = null
+	refill_sound = null
 
 /obj/item/storage/pill_bottle/packet/bicaridine
 	name = "Bicaridine pill packet"
@@ -38,16 +40,16 @@
 	name = "Tricordazine pill packet"
 	desc = "This packet contains tricordazine pills. Heals all types of damage slightly. Once you take them out they don't go back in. No more than 2 pills at once."
 	pill_type_to_fill = /obj/item/reagent_containers/pill/tricordrazine
-	storage_slots = 6
-	max_storage_space = 6
+	storage_slots = 8
+	max_storage_space = 8
 
 /obj/item/storage/pill_bottle/packet/dylovene
 	name = "Dylovene pill packet"
 	icon_state = "tric_packet"
 	desc = "This packet contains dylovene pills. Used to purge toxins and heal toxic damage. Once you take them out they don't go back in. No more than 2 pills at once."
 	pill_type_to_fill = /obj/item/reagent_containers/pill/dylovene
-	storage_slots = 6
-	max_storage_space = 6
+	storage_slots = 8
+	max_storage_space = 8
 
 /obj/item/storage/pill_bottle/packet/paracetamol
 	name = "Paracematol pill packet"

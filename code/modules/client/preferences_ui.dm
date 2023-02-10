@@ -54,6 +54,7 @@
 			.["xeno_name"] = xeno_name
 			.["synthetic_name"] = synthetic_name
 			.["synthetic_type"] = synthetic_type
+			.["robot_type"] = robot_type
 			.["random_name"] = random_name
 			.["ai_name"] = ai_name
 			.["age"] = age
@@ -246,6 +247,11 @@
 			var/choice = tgui_input_list(ui.user, "What kind of synthetic do you want to play with?", "Synthetic type choice", SYNTH_TYPES)
 			if(choice)
 				synthetic_type = choice
+
+		if("robot_type")
+			var/choice = tgui_input_list(ui.user, "What model of robot do you want to play with?", "Robot model choice", ROBOT_TYPES)
+			if(choice)
+				robot_type = choice
 
 		if("xeno_name")
 			var/newValue = params["newValue"]
@@ -587,7 +593,7 @@
 			show_typing = !show_typing
 			// Need to remove any currently shown
 			if(!show_typing && istype(user))
-				user.remove_typing_indicator()
+				user.remove_all_indicators()
 
 		if("tooltips")
 			tooltips = !tooltips
@@ -628,7 +634,7 @@
 
 			key_bindings[full_key] += list(kb_name)
 			key_bindings[full_key] = sortList(key_bindings[full_key])
-			current_client.update_special_keybinds()
+			current_client.set_macros()
 			save_keybinds()
 			if(user)
 				SEND_SIGNAL(user, COMSIG_MOB_KEYBINDINGS_UPDATED, GLOB.keybindings_by_name[kb_name])
@@ -644,7 +650,7 @@
 					key_bindings -= key
 					continue
 				key_bindings[key] = sortList(key_bindings[key])
-			current_client.update_special_keybinds()
+			current_client.set_macros()
 			save_keybinds()
 			return TRUE
 
@@ -672,7 +678,7 @@
 
 		if("reset-keybindings")
 			key_bindings = GLOB.hotkey_keybinding_list_by_key
-			current_client.update_special_keybinds()
+			current_client.set_macros()
 			save_keybinds()
 
 		if("bancheck")

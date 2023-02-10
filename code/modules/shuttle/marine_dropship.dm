@@ -175,7 +175,7 @@
 		for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 			if(human.faction != FACTION_TERRAGOV)
 				return
-			human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>[op_name]</u></span><br>" + "[SSmapping.configs[GROUND_MAP].map_name]<br>" + "[GAME_YEAR]-[time2text(world.realtime, "MM-DD")] [stationTimestamp("hh:mm")]<br>" + "36th Marine LRPRR Platoon<br>" + "[human.job.title], [human]", /obj/screen/text/screen_text/picture)
+			human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>[op_name]</u></span><br>" + "[SSmapping.configs[GROUND_MAP].map_name]<br>" + "[GAME_YEAR]-[time2text(world.realtime, "MM-DD")] [stationTimestamp("hh:mm")]<br>" + "36th Marine LRPRR Platoon<br>" + "[human.job.title], [human]", /atom/movable/screen/text/screen_text/picture)
 
 /obj/docking_port/mobile/marine_dropship/proc/lockdown_all()
 	lockdown_airlocks("rear")
@@ -736,6 +736,7 @@
 	name = "\improper 'Alamo' flight controls"
 	desc = "The flight controls for the 'Alamo' Dropship. Named after the Alamo Mission, stage of the Battle of the Alamo in the United States' state of Texas in the Spring of 1836. The defenders held to the last, encouraging other Texians to rally to the flag."
 	possible_destinations = "lz1;lz2;alamo"
+	opacity = FALSE
 
 /obj/machinery/computer/shuttle/marine_dropship/one/Initialize()
 	. = ..()
@@ -764,6 +765,9 @@
 
 /turf/open/shuttle/dropship/floor
 	icon_state = "rasputin15"
+
+/turf/open/shuttle/dropship/floor/alt
+	icon_state = "rasputin14"
 
 /obj/machinery/door/airlock/multi_tile/mainship/dropshiprear/connect_to_shuttle(obj/docking_port/mobile/port, obj/docking_port/stationary/dock, idnum, override)
 	. = ..()
@@ -967,13 +971,38 @@
 /obj/structure/dropship_piece/tadpole/rearright
 	icon_state = "blue_rear_rc"
 
+/obj/structure/dropship_piece/glassone
+	icon = 'icons/turf/dropship2.dmi'
+	icon_state = "shuttle_glass1"
+
+/obj/structure/dropship_piece/glassone/tadpole
+	icon_state = "shuttle_glass1"
+	resistance_flags = NONE
+	opacity = FALSE
+
+/obj/structure/dropship_piece/glasstwo
+	icon = 'icons/turf/dropship2.dmi'
+	icon_state = "shuttle_glass2"
+
+/obj/structure/dropship_piece/glasstwo/tadpole
+	icon = 'icons/turf/dropship2.dmi'
+	icon_state = "shuttle_glass2"
+	resistance_flags = NONE
+	opacity = FALSE
+
+/obj/structure/dropship_piece/singlewindow/tadpole
+	icon = 'icons/turf/dropship2.dmi'
+	icon_state = "shuttle_single_window"
+	resistance_flags = NONE
+	opacity = FALSE
+
 /obj/structure/dropship_piece/tadpole/cockpit
 	desc = "The nose part of the tadpole, able to be destroyed."
 	max_integrity = 500
 	resistance_flags = XENO_DAMAGEABLE | DROPSHIP_IMMUNE
 	opacity = FALSE
 	layer = BELOW_OBJ_LAYER
-	throwpass = FALSE
+	flags_pass = NONE
 
 /obj/structure/dropship_piece/tadpole/cockpit/left
 	icon_state = "blue_cockpit_fl"

@@ -11,9 +11,8 @@
 	var/blood_color
 	var/list/blood_DNA
 
+	///Flags to indicate whether this atom can bypass certain things, or if certain things can bypass this atom
 	var/flags_pass = NONE
-	///whether items can be thrown past, or projectiles can fire past this atom.
-	var/throwpass = FALSE
 
 	var/resistance_flags = PROJECTILE_IMMUNE
 
@@ -49,6 +48,9 @@
 	var/datum/proximity_monitor/proximity_monitor
 
 	var/datum/wires/wires = null
+
+	///Used for changing icon states for different base sprites.
+	var/base_icon_state
 
 	//light stuff
 
@@ -95,8 +97,23 @@
 
 	///Whether this atom smooths with things around it, and what type of smoothing if any.
 	var/smoothing_behavior = NO_SMOOTHING
-	///Bitflags to mark the members of specific smoothing groups, in where they all smooth with each other.
-	var/smoothing_groups = NONE
+
+	///Icon-smoothing behavior.
+	var/smoothing_flags = NONE
+	///What directions this is currently smoothing with. IMPORTANT: This uses the smoothing direction flags as defined in icon_smoothing.dm, instead of the BYOND flags.
+	var/smoothing_junction = NONE
+	///Smoothing variable
+	var/top_left_corner
+	///Smoothing variable
+	var/top_right_corner
+	///Smoothing variable
+	var/bottom_left_corner
+	///Smoothing variable
+	var/bottom_right_corner
+	///What smoothing groups does this atom belongs to, to match canSmoothWith. If null, nobody can smooth with it.
+	var/list/smoothing_groups = null
+	///List of smoothing groups this atom can smooth with. If this is null and atom is smooth, it smooths only with itself.
+	var/list/canSmoothWith = null
 
 	///The color this atom will be if we choose to draw it on the minimap
 	var/minimap_color = MINIMAP_SOLID
@@ -473,6 +490,8 @@ directive is properly returned.
 			log_game(log_text)
 		if(LOG_MECHA)
 			log_mecha(log_text)
+		if(LOG_SPEECH_INDICATORS)
+			log_speech_indicators(log_text)
 		else
 			stack_trace("Invalid individual logging type: [message_type]. Defaulting to [LOG_GAME] (LOG_GAME).")
 			log_game(log_text)
@@ -719,9 +738,18 @@ Proc for attack log creation, because really why not
 				var/turf/T = loc
 				T.directional_opacity = ALL_CARDINALS // No need to recalculate it in this case, it's guaranteed to be on afterwards anyways.
 
-			if(smoothing_behavior)
-				smooth_self()
-				smooth_neighbors()
+			if(smoothing_flags & (SMOOTH_CORNERS|SMOOTH_BITMASK))
+				QUEUE_SMOOTH(src)
+				QUEUE_SMOOTH_NEIGHBORS(src)
+
+	if(length(smoothing_groups))
+		sortTim(smoothing_groups) //In case it's not properly ordered, let's avoid duplicate entries with the same values.
+		SET_BITFLAG_LIST(smoothing_groups)
+	if(length(canSmoothWith))
+		sortTim(canSmoothWith)
+		if(canSmoothWith[length(canSmoothWith)] > MAX_S_TURF) //If the last element is higher than the maximum turf-only value, then it must scan turf contents for smoothing targets.
+			smoothing_flags |= SMOOTH_OBJ
+		SET_BITFLAG_LIST(canSmoothWith)
 
 	return INITIALIZE_HINT_NORMAL
 

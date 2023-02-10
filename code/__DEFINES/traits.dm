@@ -102,6 +102,11 @@
 #define TIMESHIFT_TRAIT "timeshift"
 #define BRAIN_TRAIT "brain"
 #define WIDOW_ABILITY_TRAIT "widow_ability_trait"
+#define PSYCHIC_BLAST_ABILITY_TRAIT "psychic_blast_ability_trait"
+#define PSYCHIC_CRUSH_ABILITY_TRAIT "psychic_crush_ability_trait"
+#define PETRIFY_ABILITY_TRAIT "petrify_ability_trait"
+#define SHATTERING_ROAR_ABILITY_TRAIT "shattering_roar_ability_trait"
+#define ZERO_FORM_BEAM_ABILITY_TRAIT "zero_form_beam_ability_trait"
 
 /// A trait given by any status effect
 #define STATUS_EFFECT_TRAIT "status-effect"
@@ -146,13 +151,24 @@
 #define TRAIT_HIVE_TARGET "hive_target"//mob is targetted for draining by the hive
 #define TRAIT_RESEARCHED "researched" // Whether the thing has been researched/probed
 #define TRAIT_STAGGERIMMUNE	"stagger_immunity" //Immunity to stagger
+#define TRAIT_STAGGER_RESISTANT	"stagger_resistant" //Resistance to certain sources of stagger
 #define TRAIT_SLOWDOWNIMMUNE "slowdown_immunity" //Immunity to slowdown
 #define TRAIT_SEE_IN_DARK "see_in_dark" //Able to see in dark
 #define TRAIT_MUTED "muted" //target is mute and can't speak
 #define TRAIT_TURRET_HIDDEN "turret_hidden" //target gets passed over by turrets choosing a victim
 #define TRAIT_MOB_ICON_UPDATE_BLOCKED "icon_blocked" //target should not update its icon_state
-#define TRAIT_HEARING_SENSITIVE "hearing_sensitive" //target is hearing sensitive
+
+//important_recursive_contents traits
+/*
+ * Used for movables that need to be updated, via COMSIG_ENTER_AREA and COMSIG_EXIT_AREA, when transitioning areas.
+ * Use [/atom/movable/proc/become_area_sensitive(trait_source)] to properly enable it. How you remove it isn't as important.
+ */
+#define TRAIT_AREA_SENSITIVE "area-sensitive"
+#define TRAIT_HEARING_SENSITIVE "hearing_sensitive" //target is hearing sensitive. Every hearing sensitive atom has this trait
+
 #define TRAIT_DROOLING "drooling" //target is drooling
+#define TRAIT_INTOXICATION_IMMUNE "intoxication_immune" // Immune to the Intoxication debuff.
+#define TRAIT_INTOXICATION_RESISTANT "intoxication_resistant" // Resistant to the Intoxication debuff. Maximum amount of stacks limited.
 ///Prevent mob from being ignited due to IgniteMob()
 #define TRAIT_NON_FLAMMABLE "non-flammable"
 /// Prevents mob from riding mobs when buckled onto something

@@ -31,6 +31,9 @@
 	mouse_opacity = initial(mouse_opacity)
 	..()
 
+/obj/item/storage/pouch/vendor_equip(mob/user)
+	..()
+	return user.equip_to_appropriate_slot(src)
 
 
 
@@ -549,50 +552,34 @@
 /obj/item/storage/pouch/flare
 	name = "flare pouch"
 	desc = "A pouch designed to hold flares and a single flaregun. Refillable with a M94 flare pack."
-	max_w_class = 2
-	storage_slots = 7
-	draw_mode = 1
+	max_w_class = 1
+	storage_slots = 28
+	max_storage_space = 28
 	icon_state = "flare"
 	storage_type_limits = list(/obj/item/weapon/gun/grenade_launcher/single_shot/flare = 1)
-
+	bypass_w_limit = list(/obj/item/weapon/gun/grenade_launcher/single_shot/flare)
+	fill_type = /obj/item/explosive/grenade/flare
 	can_hold = list(
 		/obj/item/flashlight/flare,
 		/obj/item/weapon/gun/grenade_launcher/single_shot/flare,
 		/obj/item/explosive/grenade/flare,
 	)
+	refill_types = list(/obj/item/storage/box/m94)
+	refill_sound = "rustle"
 
+/obj/item/storage/pouch/flare/full/Initialize()
+	var/obj/item/flare_gun = new /obj/item/weapon/gun/grenade_launcher/single_shot/flare/marine(src)
+	fill_number = max_storage_space - flare_gun.w_class
+	return ..()
 
-/obj/item/storage/pouch/flare/attackby(obj/item/I, mob/user, params)
-	if(istype(I, /obj/item/storage/box/m94))
-		var/obj/item/storage/box/m94/M = I
-		if(!length(M.contents))
-			to_chat(user, span_warning("[M] is empty."))
-			return
-
-		if(length(contents) >= storage_slots)
-			to_chat(user, span_warning("[src] is full."))
-			return
-
-		to_chat(user, span_notice("You start refilling [src] with [M]."))
-
-		if(!do_after(user, 15, TRUE, src, BUSY_ICON_GENERIC))
-			return
-
-		for(var/obj/item/IM in M)
-			if(length(contents) >= storage_slots)
-				break
-
-			M.remove_from_storage(IM)
-			handle_item_insertion(IM, TRUE, user)
-
-		playsound(user.loc, "rustle", 15, 1, 6)
-		return TRUE
-	else
+/obj/item/storage/pouch/flare/attackby_alternate(obj/item/I, mob/user, params)
+	if(!istype(I, /obj/item/weapon/gun/grenade_launcher/single_shot/flare))
 		return ..()
-
-/obj/item/storage/pouch/flare/full
-	fill_type = /obj/item/explosive/grenade/flare
-	fill_number = 7
+	var/obj/item/weapon/gun/grenade_launcher/single_shot/flare/flare_gun = I
+	for(var/obj/item/flare in contents)
+		flare_gun.reload(flare, user)
+		orient2hud()
+		return
 
 /obj/item/storage/pouch/radio
 	name = "radio pouch"

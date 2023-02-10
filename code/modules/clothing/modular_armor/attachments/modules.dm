@@ -119,7 +119,7 @@
 	item_state = "tyr_head_a"
 	soft_armor = list(MELEE = 15, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 10, BIO = 10, FIRE = 10, ACID = 10)
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
-	variants_by_parent_type = list(/obj/item/clothing/head/modular/marine/m10x = "tyr_head_xn", /obj/item/clothing/head/modular/marine/m10x/leader = "tyr_head_xn")
+	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "tyr_head_xn", /obj/item/clothing/head/modular/m10x/leader = "tyr_head_xn")
 
 /obj/item/armor_module/module/hod_head
 	name = "\improper Hod Helmet System"
@@ -198,7 +198,7 @@
 	soft_armor = list("bio" = 40, ACID = 30)
 	slowdown = 0
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
-	variants_by_parent_type = list(/obj/item/clothing/head/modular/marine/m10x = "mimir_head_xn", /obj/item/clothing/head/modular/marine/m10x/leader = "mimir_head_xn")
+	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "mimir_head_xn", /obj/item/clothing/head/modular/m10x/leader = "mimir_head_xn")
 
 /obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1 //gas protection
 	name = "Mark 1 Mimir Environmental Helmet System"
@@ -247,16 +247,32 @@
 	icon_state = "mod_chemsystem"
 	item_state = "mod_chemsystem_a"
 	slot = ATTACHMENT_SLOT_MODULE
+	///Lets us keep track of what icon state we're in
+	var/chemsystem_is_active = FALSE
 
 /obj/item/armor_module/module/chemsystem/on_attach(obj/item/attaching_to, mob/user)
 	. = ..()
-	parent.AddComponent(/datum/component/chem_booster)
+	var/datum/component/chem_booster/chemsystem = parent.AddComponent(/datum/component/chem_booster)
+	RegisterSignal(chemsystem, COMSIG_CHEMSYSTEM_TOGGLED, .proc/update_module_icon)
 
 /obj/item/armor_module/module/chemsystem/on_detach(obj/item/detaching_from, mob/user)
 	var/datum/component/chem_booster/chemsystem = parent.GetComponent(/datum/component/chem_booster)
+	UnregisterSignal(chemsystem, COMSIG_CHEMSYSTEM_TOGGLED)
 	chemsystem.RemoveComponent()
 	return ..()
 
+///Updates the module on the armor to glow or not
+/obj/item/armor_module/module/chemsystem/proc/update_module_icon(datum/source, toggle)
+	SIGNAL_HANDLER
+	chemsystem_is_active = toggle
+	update_icon()
+	parent.update_icon()
+
+/obj/item/armor_module/module/chemsystem/update_icon_state()
+	if(chemsystem_is_active)
+		icon_state = "mod_chemsystem_active"
+		return
+	icon_state = initial(icon_state)
 
 /obj/item/armor_module/module/eshield
 	name = "Arrowhead Energy Shield System"
@@ -265,7 +281,7 @@
 	icon_state = "mod_eshield"
 	item_state = "mod_eshield_a"
 	slot = ATTACHMENT_SLOT_MODULE
-	soft_armor = list(MELEE = -10, BULLET = -5, LASER = 0, ENERGY = 0, BOMB = 0, BIO = -5, FIRE = 0, ACID = -5)
+	soft_armor = list(MELEE = -10, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = -5, FIRE = 0, ACID = -5)
 	variants_by_parent_type = list(/obj/item/clothing/suit/modular/xenonauten = "mod_eshield_xn", /obj/item/clothing/suit/modular/xenonauten/light = "mod_eshield_xn", /obj/item/clothing/suit/modular/xenonauten/heavy = "mod_eshield_xn")
 
 	///Current shield Health
@@ -407,6 +423,38 @@
 	affected.remove_filter("eshield")
 	affected.add_filter("eshield", 1, outline_filter(1, new_color))
 
+/obj/item/armor_module/module/style
+	name = "\improper Armor Equalizer"
+	desc = "Designed for mounting on conventional clothing, this grants it a level of reinforcement against attacks."
+	icon = 'icons/mob/modular/modular_armor_modules.dmi'
+	icon_state = "mod_armor"
+	slot = ATTACHMENT_SLOT_CHESTPLATE
+	variants_by_parent_type = list(/obj/item/clothing/suit/modular/style = "")
+
+	var/codex_info = {"<BR>This item is part of the <b>Style Line.</b><BR>
+	<BR>The <b>Style Line</b> is a line of equipment designed to provide as much style as possible without compromising the user's protection.
+	This line of equipment accepts <b>Equalizer modules</b>, which allow the user to alter any given piece of equipment's protection according to their preferences.<BR>
+	<BR>This is an <b>Equalizer module</b>. Equalizer modules create an invisible mesh over the user's body that grants protection against many dangers, adjusting itself in such a way that their movements remain unimpeded."}
+
+/obj/item/armor_module/module/style/get_mechanics_info()
+	. = ..()
+	. += jointext(codex_info, "<br>")
+
+/obj/item/armor_module/module/style/light_armor
+	name = "\improper Light Armor Equalizer"
+	soft_armor = list(MELEE = 40, BULLET = 60, LASER = 60, ENERGY = 50, BOMB = 50, BIO = 50, FIRE = 50, ACID = 50)
+	slowdown = 0.3
+
+/obj/item/armor_module/module/style/medium_armor
+	name = "\improper Medium Armor Equalizer"
+	soft_armor = list(MELEE = 45, BULLET = 65, LASER = 65, ENERGY = 55, BOMB = 50, BIO = 50, FIRE = 50, ACID = 55)
+	slowdown = 0.5
+
+/obj/item/armor_module/module/style/heavy_armor
+	name = "\improper Heavy Armor Equalizer"
+	soft_armor = list(MELEE = 50, BULLET = 70, LASER = 70, ENERGY = 60, BOMB = 50, BIO = 50, FIRE = 50, ACID = 60)
+	slowdown = 0.7
+
 //original Martian design, donutsteel
 /obj/item/armor_module/module/eshield/som
 	name = "Aegis Energy Dispersion Module"
@@ -422,7 +470,7 @@
 	icon_state = "welding_head"
 	item_state = "welding_head_a"
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
-	variants_by_parent_type = list(/obj/item/clothing/head/modular/marine/m10x = "welding_head_xn", /obj/item/clothing/head/modular/marine/m10x/leader = "welding_head_xn", /obj/item/clothing/head/modular/som/welder = "welding_head_som")
+	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "welding_head_xn", /obj/item/clothing/head/modular/m10x/leader = "welding_head_xn", /obj/item/clothing/head/modular/som/welder = "welding_head_som")
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 	active = FALSE
 	prefered_slot = SLOT_HEAD
@@ -466,7 +514,7 @@
 	icon_state = "welding_head"
 	item_state = "welding_head_a"
 	slot = ATTACHMENT_SLOT_HEAD_MODULE
-	variants_by_parent_type = list(/obj/item/clothing/head/modular/marine/m10x = "welding_head_superior_xn", /obj/item/clothing/head/modular/marine/m10x/leader = "welding_head_superior_xn", /obj/item/clothing/head/modular/som/welder = "welding_head_som")
+	variants_by_parent_type = list(/obj/item/clothing/head/modular/m10x = "welding_head_superior_xn", /obj/item/clothing/head/modular/m10x/leader = "welding_head_superior_xn", /obj/item/clothing/head/modular/som/welder = "welding_head_som")
 	flags_attach_features = ATTACH_REMOVABLE|ATTACH_ACTIVATION|ATTACH_APPLY_ON_MOB
 	active = FALSE
 	prefered_slot = SLOT_HEAD
