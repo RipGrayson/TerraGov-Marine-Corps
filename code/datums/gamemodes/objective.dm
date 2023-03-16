@@ -75,12 +75,28 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
  * Escaped includes minds with alive, non-exiled mobs generally.
  */
 
-/proc/considered_escaped(datum/mind/escapee)
+/proc/considered_escaped(datum/mind/escapee, admin_override = FALSE)
 	if(!considered_alive(escapee))
 		return FALSE
 	//if(SSticker.force_ending) // Just let them win.
 		//return TRUE
-	var/area/current_area = get_area(escapee)
+	var/area/current_area = get_area(escapee.current)
+	var/list/allowed_areas = list(
+		/area/shuttle/ert/pmc,
+		/area/shuttle/big_ert,
+		/area/shuttle/ert/ufo,
+		/area/shuttle/ert/upp,
+		/area/shuttle/pod_1,
+		/area/shuttle/pod_2,
+		/area/shuttle/pod_3,
+		/area/shuttle/pod_4,
+		/area/shuttle/escape_pod,
+	)
+	if(admin_override)
+		if(is_mainship_level(escapee.current.z))
+			return FALSE
+		if(current_area.type in allowed_areas) // Ship only
+			return TRUE
 	if(!current_area)
 		return FALSE
 	if(!istype(current_area, /area/shuttle/escape_pod)) //have to escape in a pod or escape shuttle, at least for the time being
@@ -190,7 +206,6 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 		/datum/objective/gather_cash,
 		/datum/objective/kill_zombies,
 		/datum/objective/seize_area,
-		/datum/objective/recruitment_drive,
 		/datum/objective/kill_other_factions,
 		/datum/objective/custom,
 	),/proc/cmp_typepaths_asc)
@@ -214,25 +229,33 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 	name = "escape"
 	explanation_text = "Escape on a shuttle or an escape pod alive and without being in custody."
 	team_explanation_text = "Have all members of your team escape on a shuttle or pod alive, without being in custody."
+	///passed to considered_escaped, if true allows greentext by simply being on a shuttle not on ship level by round end
+	var/admin_event = FALSE
 
 /datum/objective/escape/check_completion()
-	if(!considered_escaped(owner))
+	if(!considered_escaped(owner, admin_event))
 		return FALSE
 	return TRUE
 
 /datum/objective/escape/find_target(dupe_search_range, blacklist)
 	return
 
+/datum/objective/escape/admin_edit(mob/admin)
+	if(tgui_alert(admin, "Relax escape requirements (recommended for admin events)?", "Continue?", list("Yes", "No")) != "No")
+		admin_event = TRUE
+
 /datum/objective/escape_with
 	name = "kidnap"
 	explanation_text = "Have both you and your target escape alive and unharmed on a shuttle or pod."
 	team_explanation_text = "Have both you and your target escape alive and unharmed on a shuttle or pod."
 	avoid_double_target = TRUE
+	///passed to considered_escaped, if true allows greentext by simply being on a shuttle not on ship level by round end
+	var/admin_event = FALSE
 
 /datum/objective/escape_with/check_completion()
-	if(!considered_escaped(owner))
+	if(!considered_escaped(owner, admin_event))
 		return FALSE
-	if(!considered_escaped(target))
+	if(!considered_escaped(target, admin_event))
 		return FALSE
 	for(var/mob/M in range(4)) //enough to cover the entirety of an escape shuttle
 		if(M.mind == null)
@@ -252,6 +275,8 @@ GLOBAL_LIST(admin_objective_list) //Prefilled admin assignable objective list
 
 /datum/objective/escape_with/admin_edit(mob/admin)
 	admin_simple_target_pick(admin)
+	if(tgui_alert(admin, "Relax escape requirements (recommended for admin events)?", "Continue?", list("Yes", "No")) != "No")
+		admin_event = TRUE
 
 /datum/objective/survive
 	name = "survive"
@@ -515,7 +540,7 @@ GLOBAL_LIST_EMPTY(possible_items)
 		defendedarea = new_target
 	update_explanation_text()
 
-/datum/objective/seize_area/check_completion() //gaze upon my if statements and weep Yandere-dev
+/datum/objective/seize_area/check_completion()
 	if(!owner.current.faction)
 		owner.current.faction = FACTION_NEUTRAL //fallback in case factionless mobs get this objective
 	var/currentfaction = owner.current.faction
@@ -576,15 +601,15 @@ GLOBAL_LIST_EMPTY(possible_items)
 
 /datum/objective/recruitment_drive/post_setup()
 	give_contract_button(owner)
-	give_pen_button(owner)
 	RegisterSignal(src, COMSIG_OBJECTIVE_CONTRACT, .proc/test_this)
+	give_pen_button(owner)
 
 /datum/objective/recruitment_drive/proc/test_this()
 	SIGNAL_HANDLER
 	to_chat(usr, "What a world.")
 
-/datum/objective/recruitment_drive/handle_removal()
 	. = ..()
+/datum/objective/recruitment_drive/handle_removal()
 	for(var/datum/action/A AS in usr.actions)
 		if(istype(A, /datum/action/objectives/contracts))
 			A.remove_action(usr)
@@ -596,8 +621,8 @@ GLOBAL_LIST_EMPTY(possible_items)
 
 /datum/objective/proc/give_pen_button(mob/living/carbon/human/M)
 	var/datum/action/objectives/contracts/pen/penbutton = new
-	penbutton.give_action(usr)
 	to_chat(usr,"<span class='infoplain'><a href='?src=[REF(penbutton)];report=1'>Summon pen</a></span>")
+	penbutton.give_action(usr)
 
 /datum/objective/gather_genetics
 	name = "sample genetics"
@@ -606,4 +631,3 @@ GLOBAL_LIST_EMPTY(possible_items)
 
 /datum/objective/gather_genetics/post_setup()
 //	give_dna_button(owner)
-
