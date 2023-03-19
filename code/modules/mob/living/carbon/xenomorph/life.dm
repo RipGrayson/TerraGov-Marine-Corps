@@ -32,7 +32,7 @@
 	handle_living_health_updates()
 	handle_living_plasma_updates()
 	update_action_button_icons()
-	update_icons()
+	update_icons(FALSE)
 
 /mob/living/carbon/xenomorph/handle_status_effects()
 	. = ..()
@@ -48,10 +48,6 @@
 	if(!(xeno_caste.caste_flags & CASTE_FIRE_IMMUNE) && on_fire) //Sanity check; have to be on fire to actually take the damage.
 		SEND_SIGNAL(src, COMSIG_XENOMORPH_FIRE_BURNING)
 		adjustFireLoss((fire_stacks + 3) * get_fire_resist())
-		if(current_aura)
-			current_aura.suppressed = TRUE
-		if(leader_current_aura)
-			leader_current_aura.suppressed = TRUE
 
 /mob/living/carbon/xenomorph/proc/handle_living_health_updates()
 	if(health < 0)
@@ -118,7 +114,7 @@
 
 	var/list/heal_data = list(amount)
 	SEND_SIGNAL(src, COMSIG_XENOMORPH_HEALTH_REGEN, heal_data)
-	HEAL_XENO_DAMAGE(src, heal_data[1])
+	HEAL_XENO_DAMAGE(src, heal_data[1], TRUE)
 	return heal_data[1]
 
 /mob/living/carbon/xenomorph/proc/handle_living_plasma_updates()
@@ -158,7 +154,12 @@
 	gain_plasma(plasma_mod[1])
 	hud_set_plasma() //update plasma amount on the plasma mob_hud
 
-/mob/living/carbon/xenomorph/handle_received_auras()
+/mob/living/carbon/xenomorph/finish_aura_cycle()
+	if(!(xeno_caste.caste_flags & CASTE_FIRE_IMMUNE) && on_fire) //Has to be here to prevent desyncing between phero and life, despite making more sense in handle_fire()
+		if(current_aura)
+			current_aura.suppressed = TRUE
+		if(leader_current_aura)
+			leader_current_aura.suppressed = TRUE
 
 	if(frenzy_aura != (received_auras[AURA_XENO_FRENZY] || 0))
 		set_frenzy_aura(received_auras[AURA_XENO_FRENZY] || 0)

@@ -16,6 +16,7 @@
 	icon_state = "equip_base"
 	layer = ABOVE_OBJ_LAYER
 	dir = NORTH
+	density = TRUE
 	var/base_category //what kind of equipment this base accepts.
 	var/ship_tag //used to associate the base to a dropship.
 	/// offset in pixels when equipment is attached
@@ -44,6 +45,11 @@
 		return TRUE
 	if(installed_equipment)
 		return TRUE
+	if(!density)
+		for(var/atom/thing_to_check AS in loc)
+			if(thing_to_check.density)
+				balloon_alert(user, "Blocked by [thing_to_check]")
+				return TRUE
 	playsound(loc, 'sound/machines/hydraulics_1.ogg', 40, 1)
 	if(!do_after(user, 7 SECONDS, FALSE, src))
 		return TRUE
@@ -76,9 +82,11 @@
 	base_category = DROPSHIP_WEAPON
 
 /obj/effect/attach_point/weapon/dropship1
+	icon_state = "equip_base_l_wing"
 	ship_tag = SHUTTLE_ALAMO
 
 /obj/effect/attach_point/weapon/dropship2
+	icon_state = "equip_base_l_wing"
 	ship_tag = SHUTTLE_NORMANDY
 
 /obj/effect/attach_point/weapon/dropship3
@@ -89,19 +97,23 @@
 	icon = 'icons/Marine/casship.dmi'
 	icon_state = "15"
 
+/obj/effect/attach_point/weapon/cas/left
+	icon_state = "30"
+
+/obj/effect/attach_point/weapon/cas/left/alt
+	icon_state = "31"
+
+/obj/effect/attach_point/weapon/cas/right
+	icon_state = "16"
+
 /obj/effect/attach_point/weapon/minidropship
 	ship_tag = SHUTTLE_TADPOLE
-	icon_state = "equip_base"
-
-/obj/effect/attach_point/weapon/minidropship/pointing_east
-	dir = 4
-
-/obj/effect/attach_point/weapon/minidropship/pointing_west
-	dir = 8
+	pixel_y = 32
 
 /obj/effect/attach_point/crew_weapon
 	name = "rear attach point"
 	base_category = DROPSHIP_CREW_WEAPON
+	density = FALSE
 
 /obj/effect/attach_point/crew_weapon/dropship1
 	ship_tag = SHUTTLE_ALAMO
@@ -378,7 +390,7 @@
 	if(!deployed_turret)
 		var/obj/new_gun = new sentry_type(src)
 		deployed_turret = new_gun.loc
-		RegisterSignal(deployed_turret, COMSIG_OBJ_DECONSTRUCT, .proc/clean_refs)
+		RegisterSignal(deployed_turret, COMSIG_OBJ_DECONSTRUCT, PROC_REF(clean_refs))
 
 ///This cleans the deployed_turret ref when the sentry is destroyed.
 /obj/structure/dropship_equipment/sentry_holder/proc/clean_refs(atom/source, disassembled)
@@ -462,12 +474,14 @@
 	deployed_turret.loc = get_step(src, dir)
 	icon_state = "sentry_system_deployed"
 	dropship_equipment_flags |= IS_NOT_REMOVABLE
+	deployed_turret.update_minimap_icon()
 
 /obj/structure/dropship_equipment/sentry_holder/proc/undeploy_sentry()
 	if(!deployed_turret)
 		return
 	playsound(loc, 'sound/machines/hydraulics_2.ogg', 40, 1)
 	deployment_cooldown = world.time + 50
+	SSminimaps.remove_marker(deployed_turret)
 	deployed_turret.loc = src
 	deployed_turret.set_on(FALSE)
 	deployed_turret.update_icon()
@@ -532,7 +546,7 @@
 	. = ..()
 	if(deployed_minigun)
 		return
-	var/obj/item/weapon/gun/minigun_nest/new_gun = new(src)
+	var/obj/item/weapon/gun/standard_minigun/nest/new_gun = new(src)
 	deployed_minigun = new_gun.loc //new_gun.loc, since it deploys on new(), is located within the deployed_minigun. Therefore new_gun.loc = deployed_minigun.
 
 /obj/structure/dropship_equipment/minigun_holder/examine(mob/user)
@@ -558,47 +572,6 @@
 /obj/structure/dropship_equipment/minigun_holder/Destroy()
 	if(deployed_minigun)
 		QDEL_NULL(deployed_minigun)
-	return ..()
-
-/obj/structure/dropship_equipment/dualcannon_holder
-	name = "dualcannon deployment system"
-	desc = "A box that deploys a modified ATR-22 crewserved dualcannon. Fits on the crewserved weapon attach points of dropships. You need a powerloader to lift it."
-	equip_category = DROPSHIP_CREW_WEAPON
-	icon_state = "ac_system"
-	point_cost = 0 //this removes it from the fabricator
-	///machine type for the internal gun and for checking if the gun is deployed
-	var/obj/machinery/deployable/mounted/deployed_dualcannon
-
-/obj/structure/dropship_equipment/dualcannon_holder/Initialize()
-	. = ..()
-	if(deployed_dualcannon)
-		return
-	var/obj/item/weapon/gun/dual_cannon/new_gun = new(src)
-	deployed_dualcannon = new_gun.loc //new_gun.loc, since it deploys on new(), is located within the deployed_dualcannon. Therefore new_gun.loc = deployed_dualcannon.
-
-/obj/structure/dropship_equipment/dualcannon_holder/examine(mob/user)
-	. = ..()
-	if(!deployed_dualcannon)
-		. += "Its dualcannon is missing."
-
-/obj/structure/dropship_equipment/dualcannon_holder/update_equipment()
-	if(!deployed_dualcannon)
-		return
-	if(ship_base)
-		deployed_dualcannon.loc = loc
-	else
-		deployed_dualcannon.loc = src
-	update_icon()
-
-/obj/structure/dropship_equipment/dualcannon_holder/update_icon_state()
-	if(ship_base)
-		icon_state = "mg_system_deployed"
-	else
-		icon_state = "ac_system"
-
-/obj/structure/dropship_equipment/dualcannon_holder/Destroy()
-	if(deployed_dualcannon)
-		QDEL_NULL(deployed_dualcannon)
 	return ..()
 
 /obj/structure/dropship_equipment/heavylaser_holder
@@ -683,6 +656,46 @@
 		QDEL_NULL(deployed_heavyrr)
 	return ..()
 
+/obj/structure/dropship_equipment/mortar_holder
+	name = "mortar deployment system"
+	desc = "A box that deploys a TA-55DB mortar. Fits on the crewserved weapon attach points of dropships. You need a powerloader to lift it."
+	equip_category = DROPSHIP_CREW_WEAPON
+	icon_state = "mortar_system"
+	point_cost = 300
+	///machine type for the internal gun and for checking if the gun is deployed
+	var/obj/machinery/deployable/mortar/double/deployed_mortar
+
+/obj/structure/dropship_equipment/mortar_holder/Initialize()
+	. = ..()
+	if(deployed_mortar)
+		return
+	var/obj/item/mortar_kit/double/new_gun = new(src)
+	deployed_mortar = new_gun.loc //new_gun.loc, since it deploys on new(), is located within the deployed_mortar. Therefore new_gun.loc = deployed_mg.
+
+/obj/structure/dropship_equipment/mortar_holder/examine(mob/user)
+	. = ..()
+	if(!deployed_mortar)
+		. += "Its mortar is missing."
+
+/obj/structure/dropship_equipment/mortar_holder/update_equipment()
+	if(!deployed_mortar)
+		return
+	if(ship_base)
+		deployed_mortar.loc = loc
+	else
+		deployed_mortar.loc = src
+	update_icon()
+
+/obj/structure/dropship_equipment/mortar_holder/update_icon_state()
+	if(ship_base)
+		icon_state = "mg_system_deployed"
+	else
+		icon_state = "mg_system"
+
+/obj/structure/dropship_equipment/mortar_holder/Destroy()
+	if(deployed_mortar)
+		QDEL_NULL(deployed_mortar)
+	return ..()
 ////////////////////////////////// FUEL EQUIPMENT /////////////////////////////////
 
 /obj/structure/dropship_equipment/fuel
@@ -838,12 +851,12 @@
 	for(var/turf/impact in predicted_dangerous_turfs)
 		effects_to_delete += new /obj/effect/overlay/blinking_laser/marine/lines(impact)
 
-	addtimer(CALLBACK(SA, /obj/structure/ship_ammo.proc/detonate_on, target_turf, attackdir), ammo_travelling_time)
+	addtimer(CALLBACK(SA, TYPE_PROC_REF(/obj/structure/ship_ammo, detonate_on), target_turf, attackdir), ammo_travelling_time)
 	QDEL_LIST_IN(effects_to_delete, ammo_travelling_time)
 
 /obj/structure/dropship_equipment/weapon/heavygun
 	name = "\improper GAU-21 30mm cannon"
-	desc = "A dismounted GAU-21 'Rattler' 30mm rotary cannon. It seems to be missing its feed links and has exposed connection wires. Capable of firing 5200 rounds a minute, feared by many for its power. Earned the nickname 'Rattler' from the vibrations it would cause on dropships in its inital production run."
+	desc = "A dismounted GAU-21 'Rattler' 30mm rotary cannon. It seems to be missing its feed links and has exposed connection wires. Capable of firing 5200 rounds a minute, feared by many for its power. Earned the nickname 'Rattler' from the vibrations it would cause on dropships in its inital production run. Moving this will require some sort of lifter."
 	icon_state = "30mm_cannon"
 	firing_sound = 'sound/weapons/gunship_chaingun.ogg'
 	point_cost = 400
@@ -974,7 +987,7 @@
 	. = ..()
 	if(!deployed_table)
 		deployed_table = new(src)
-		RegisterSignal(deployed_table, COMSIG_PARENT_ATTACKBY, .proc/attackby_wrapper)//if something (like a powerloader) clicks on the deployed thing relay it
+		RegisterSignal(deployed_table, COMSIG_PARENT_ATTACKBY, PROC_REF(attackby_wrapper))//if something (like a powerloader) clicks on the deployed thing relay it
 
 /obj/structure/dropship_equipment/operatingtable/proc/attackby_wrapper(datum/source, obj/item/I, mob/user, params)
 	attackby(I, user, params)

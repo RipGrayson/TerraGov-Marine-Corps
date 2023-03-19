@@ -21,18 +21,21 @@
 	var/mob/living/carbon/human/occupant
 	///Animated cockpit /image overlay, 96x96
 	var/image/cockpit
+	/// Whether CAS is usable or not.
+	var/cas_usable
 
 /obj/structure/caspart/caschair/Initialize()
 	. = ..()
 	set_cockpit_overlay("cockpit_closed")
-	RegisterSignal(SSdcs, COMSIG_GLOB_CAS_LASER_CREATED, .proc/receive_laser_cas)
+	RegisterSignal(SSdcs, COMSIG_GLOB_CAS_LASER_CREATED, PROC_REF(receive_laser_cas))
+	RegisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LAUNCHED), PROC_REF(cas_usable))
 
 /obj/structure/caspart/caschair/Destroy()
 	owner?.chair = null
 	owner = null
 	UnregisterSignal(SSdcs, COMSIG_GLOB_CAS_LASER_CREATED)
 	if(occupant)
-		INVOKE_ASYNC(src, .proc/eject_user, TRUE)
+		INVOKE_ASYNC(src, PROC_REF(eject_user), TRUE)
 	QDEL_NULL(cockpit)
 	return ..()
 
@@ -41,6 +44,13 @@
 	playsound(src, 'sound/effects/binoctarget.ogg', 15)
 	if(occupant)
 		to_chat(occupant, span_notice("CAS laser detected. Target: [AREACOORD_NO_Z(incoming_laser)]"))
+
+/obj/structure/caspart/caschair/proc/cas_usable(datum/source)
+	SIGNAL_HANDLER
+	UnregisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_XENO_HIVEMIND, COMSIG_GLOB_OPEN_SHUTTERS_EARLY, COMSIG_GLOB_TADPOLE_LAUNCHED))
+	cas_usable = TRUE
+	if(occupant)
+		to_chat(occupant, span_notice("Combat initiated, CAS now available."))
 
 ///Handles updating the cockpit overlay
 /obj/structure/caspart/caschair/proc/set_cockpit_overlay(new_state)
@@ -64,7 +74,7 @@
 	switch(owner.state)
 		if(PLANE_STATE_DEACTIVATED)
 			set_cockpit_overlay("cockpit_opening")//flick doesnt work here, thanks byond
-			sleep(7)
+			sleep(0.7 SECONDS)
 			set_cockpit_overlay("cockpit_open")
 			owner.state = PLANE_STATE_ACTIVATED
 			return
@@ -85,9 +95,9 @@
 			user.forceMove(src)
 			occupant = user
 			interact(occupant)
-			RegisterSignal(occupant, COMSIG_LIVING_DO_RESIST, /atom/movable.proc/resisted_against)
+			RegisterSignal(occupant, COMSIG_LIVING_DO_RESIST, TYPE_PROC_REF(/atom/movable, resisted_against))
 			set_cockpit_overlay("cockpit_closing")
-			addtimer(CALLBACK(src, .proc/set_cockpit_overlay, "cockpit_closed"), 7)
+			addtimer(CALLBACK(src, PROC_REF(set_cockpit_overlay), "cockpit_closed"), 7)
 
 /obj/structure/caspart/caschair/attackby(obj/item/I, mob/user, params)
 	if(!istype(I, /obj/item/reagent_containers/jerrycan))
@@ -114,7 +124,7 @@
 	if(owner.state)
 		ui_interact(occupant)
 		return
-	INVOKE_ASYNC(src, .proc/eject_user)
+	INVOKE_ASYNC(src, PROC_REF(eject_user))
 
 ///Eject the user, use forced = TRUE to do so instantly
 /obj/structure/caspart/caschair/proc/eject_user(forced = FALSE)
@@ -126,7 +136,7 @@
 		if(!do_after(occupant, 2 SECONDS, TRUE, src))
 			return
 	set_cockpit_overlay("cockpit_opening")
-	addtimer(CALLBACK(src, .proc/set_cockpit_overlay, "cockpit_open"), 7)
+	addtimer(CALLBACK(src, PROC_REF(set_cockpit_overlay), "cockpit_open"), 7)
 	UnregisterSignal(occupant, COMSIG_LIVING_DO_RESIST)
 	occupant.unset_interaction()
 	occupant.forceMove(get_step(loc, WEST))
@@ -190,7 +200,7 @@
 /obj/docking_port/mobile/marine_dropship/casplane/Initialize()
 	. = ..()
 	off_action = new
-	RegisterSignal(src, COMSIG_SHUTTLE_SETMODE, .proc/update_state)
+	RegisterSignal(src, COMSIG_SHUTTLE_SETMODE, PROC_REF(update_state))
 
 /obj/docking_port/mobile/marine_dropship/casplane/Destroy(force)
 	STOP_PROCESSING(SSslowprocess, src)
@@ -307,7 +317,7 @@
 	user.remote_control = eyeobj
 	user.reset_perspective(eyeobj)
 	eyeobj.setLoc(eyeobj.loc)
-	RegisterSignal(user, COMSIG_MOB_CLICKON, .proc/fire_weapons_at)
+	RegisterSignal(user, COMSIG_MOB_CLICKON, PROC_REF(fire_weapons_at))
 	user.client.mouse_pointer_icon = 'icons/effects/supplypod_down_target.dmi'
 
 ///Ends the CAS mission
@@ -433,6 +443,9 @@
 
 	switch(action)
 		if("launch")
+			if(!cas_usable)
+				to_chat(usr, "<span class='warning'>Combat has not yet initiated, CAS unavailable.")
+				return
 			if(owner.state == PLANE_STATE_FLYING || owner.mode != SHUTTLE_IDLE)
 				return
 			if(owner.fuel_left <= LOW_FUEL_THRESHOLD)

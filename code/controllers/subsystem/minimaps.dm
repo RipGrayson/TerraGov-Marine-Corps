@@ -10,7 +10,6 @@
  * actual updating of marker locations is handled by [/datum/controller/subsystem/minimaps/proc/on_move]
  * and zlevel changes are handled in [/datum/controller/subsystem/minimaps/proc/on_z_change]
  * tracking of the actual atoms you want to be drawn on is done by means of datums holding info pertaining to them with [/datum/hud_displays]
- * There is a byond bug to be aware of when working with minimaps, see [/datum/hud_displays] and http://www.byond.com/forum/post/2661309
  */
 SUBSYSTEM_DEF(minimaps)
 	name = "Minimaps"
@@ -49,12 +48,15 @@ SUBSYSTEM_DEF(minimaps)
 				if(location.density)
 					icon_gen.DrawBox(location.minimap_color, xval, yval)
 					continue
-				var/atom/movable/alttarget = locate(/obj/machinery/door) in location||locate(/obj/structure/fence) in location
+				var/atom/movable/alttarget = (locate(/obj/machinery/door) in location) || (locate(/obj/structure/fence) in location)
 				if(alttarget)
 					icon_gen.DrawBox(alttarget.minimap_color, xval, yval)
 					continue
 				var/area/turfloc = location.loc
-				icon_gen.DrawBox(turfloc.minimap_color, xval, yval)
+				if(turfloc.minimap_color)
+					icon_gen.DrawBox(BlendRGB(location.minimap_color, turfloc.minimap_color, 0.5), xval, yval)
+					continue
+				icon_gen.DrawBox(location.minimap_color, xval, yval)
 		icon_gen.Scale(480*2,480*2) //scale it up x2 to make it easer to see
 		icon_gen.Crop(1, 1, min(icon_gen.Width(), 480), min(icon_gen.Height(), 480)) //then cut all the empty pixels
 
@@ -116,7 +118,11 @@ SUBSYSTEM_DEF(minimaps)
 			depthcount++
 			continue
 		for(var/datum/minimap_updator/updator AS in update_targets[flag])
-			updator.minimap.overlays += minimaps_by_z["[updator.ztarget]"].images_raw[flag]
+			//assignment is crazy fast compared to += and it automatically copies for overlays
+			if(length(updator.minimap.overlays))
+				updator.minimap.overlays += minimaps_by_z["[updator.ztarget]"].images_raw[flag]
+			else
+				updator.minimap.overlays = minimaps_by_z["[updator.ztarget]"].images_raw[flag]
 		depthcount++
 		iteration++
 		if(MC_TICK_CHECK)
@@ -136,7 +142,7 @@ SUBSYSTEM_DEF(minimaps)
 		LAZYADD(update_targets["[flag]"], holder)
 	updators_by_datum[target] = holder
 	update_targets_unsorted += target
-	RegisterSignal(target, COMSIG_PARENT_QDELETING, .proc/remove_updator)
+	RegisterSignal(target, COMSIG_PARENT_QDELETING, PROC_REF(remove_updator))
 
 /**
  * Removes a atom from the subsystems updating overlays
@@ -155,10 +161,6 @@ SUBSYSTEM_DEF(minimaps)
  * The individual image trackers have a raw and a normal list
  * raw lists just store the images, while the normal ones are assoc list of [tracked_atom] = image
  * the raw lists are to speed up the Fire() of the subsystem so we dont have to filter through
- * WARNING!
- * There is a byond bug: http://www.byond.com/forum/post/2661309
- * That that forces us to use a seperate list ref when accessing the lists of this datum
- * Yea it hurts me too
  */
 /datum/hud_displays
 	///Actual icon of the drawn zlevel with all of it's atoms
@@ -206,7 +208,7 @@ SUBSYSTEM_DEF(minimaps)
 	if(!isatom(target) || !zlevel || !hud_flags || !iconstate || !icon)
 		CRASH("Invalid marker added to subsystem")
 	if(!initialized)
-		earlyadds += CALLBACK(src, .proc/add_marker, target, zlevel, hud_flags, iconstate, icon)
+		earlyadds += CALLBACK(src, PROC_REF(add_marker), target, zlevel, hud_flags, iconstate, icon)
 		return
 
 	var/image/blip = image(icon, iconstate, pixel_x = MINIMAP_PIXEL_FROM_WORLD(target.x) + minimaps_by_z["[zlevel]"].x_offset, pixel_y = MINIMAP_PIXEL_FROM_WORLD(target.y) + minimaps_by_z["[zlevel]"].y_offset)
@@ -217,13 +219,12 @@ SUBSYSTEM_DEF(minimaps)
 	images_by_source[target] = blip
 	for(var/flag in bitfield2list(hud_flags))
 		minimaps_by_z["[zlevel]"].images_assoc["[flag]"][target] = blip
-		var/ref = minimaps_by_z["[zlevel]"].images_raw["[flag]"] //what the fuck? you might be thinking, yea well this is a byond bug thanks
-		ref += blip //workaround see http://www.byond.com/forum/post/2661309
+		minimaps_by_z["[zlevel]"].images_raw["[flag]"] += blip
 	if(ismovableatom(target))
-		RegisterSignal(target, COMSIG_MOVABLE_Z_CHANGED, .proc/on_z_change)
-		RegisterSignal(target, COMSIG_MOVABLE_MOVED, .proc/on_move)
-	removal_cbs[target] = CALLBACK(src, .proc/removeimage, blip, target)
-	RegisterSignal(target, COMSIG_PARENT_QDELETING, .proc/remove_marker)
+		RegisterSignal(target, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_z_change))
+		RegisterSignal(target, COMSIG_MOVABLE_MOVED, PROC_REF(on_move))
+	removal_cbs[target] = CALLBACK(src, PROC_REF(removeimage), blip, target)
+	RegisterSignal(target, COMSIG_PARENT_QDELETING, PROC_REF(remove_marker))
 
 
 
@@ -232,8 +233,7 @@ SUBSYSTEM_DEF(minimaps)
  */
 /datum/controller/subsystem/minimaps/proc/removeimage(image/blip, atom/target)
 	for(var/flag in GLOB.all_minimap_flags)
-		var/ref = minimaps_by_z["[target.z]"].images_raw["[flag]"]
-		ref -= blip // see above http://www.byond.com/forum/post/2661309
+		minimaps_by_z["[target.z]"].images_raw["[flag]"] -= blip
 	removal_cbs -= target
 
 /**
@@ -242,17 +242,12 @@ SUBSYSTEM_DEF(minimaps)
 /datum/controller/subsystem/minimaps/proc/on_z_change(atom/movable/source, oldz, newz)
 	SIGNAL_HANDLER
 	for(var/flag in GLOB.all_minimap_flags)
-		if(!minimaps_by_z["[oldz]"].images_assoc["[flag]"][source])
+		if(!minimaps_by_z["[oldz]"]?.images_assoc["[flag]"][source])
 			continue
-		//see previous byond bug comments http://www.byond.com/forum/post/2661309
-		var/ref_old = minimaps_by_z["[oldz]"].images_assoc["[flag]"][source]
-		minimaps_by_z["[newz]"].images_assoc["[flag]"][source] = ref_old
-		var/rawold = minimaps_by_z["[oldz]"].images_raw["[flag]"]
-		var/rawnew = minimaps_by_z["[newz]"].images_raw["[flag]"]
-		rawold -= ref_old
-		rawnew += ref_old
-		var/anotherref = minimaps_by_z["[oldz]"].images_assoc["[flag]"]
-		anotherref -= source
+		minimaps_by_z["[newz]"].images_assoc["[flag]"][source] = minimaps_by_z["[oldz]"].images_assoc["[flag]"][source]
+		minimaps_by_z["[oldz]"].images_raw["[flag]"] -= minimaps_by_z["[oldz]"].images_assoc["[flag]"][source]
+		minimaps_by_z["[newz]"].images_raw["[flag]"] += minimaps_by_z["[oldz]"].images_assoc["[flag]"][source]
+		minimaps_by_z["[oldz]"].images_assoc["[flag]"] -= source
 
 /**
  * Simple proc, updates overlay position on the map when a atom moves
@@ -273,15 +268,14 @@ SUBSYSTEM_DEF(minimaps)
 		return
 	UnregisterSignal(source, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_MOVED, COMSIG_MOVABLE_Z_CHANGED))
 	for(var/flag in GLOB.all_minimap_flags)
-		var/ref = minimaps_by_z["[source.z]"].images_assoc["[flag]"]
-		ref -=  source //see above
+		minimaps_by_z["[source.z]"].images_assoc["[flag]"] -= source
 	images_by_source -= source
 	removal_cbs[source].Invoke()
 	removal_cbs -= source
 
 
 /**
- * Fetches a /obj/screen/minimap instance or creates on if none exists
+ * Fetches a /atom/movable/screen/minimap instance or creates on if none exists
  * Note this does not destroy them when the map is unused, might be a potential thing to do?
  * Arguments:
  * * zlevel: zlevel to fetch map for
@@ -291,28 +285,87 @@ SUBSYSTEM_DEF(minimaps)
 	var/hash = "[zlevel]-[flags]"
 	if(hashed_minimaps[hash])
 		return hashed_minimaps[hash]
-	var/obj/screen/minimap/map = new(null, zlevel, flags)
+	var/atom/movable/screen/minimap/map = new(null, zlevel, flags)
 	if (!map.icon) //Don't wanna save an unusable minimap for a z-level.
 		CRASH("Empty and unusable minimap generated for '[zlevel]-[flags]'") //Can be caused by atoms calling this proc before minimap subsystem initializing.
 	hashed_minimaps[hash] = map
 	return map
 
 ///Default HUD screen minimap object
-/obj/screen/minimap
+/atom/movable/screen/minimap
 	name = "Minimap"
 	icon = null
 	icon_state = ""
 	layer = ABOVE_HUD_LAYER
 	screen_loc = "1,1"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	///assoc list of mob choices by clicking on coords. only exists fleetingly for the wait loop in [/proc/get_coords_from_click]
+	var/list/mob/choices_by_mob
 
-/obj/screen/minimap/Initialize(mapload, target, flags)
+/atom/movable/screen/minimap/Initialize(mapload, target, flags)
 	. = ..()
 	if(!SSminimaps.minimaps_by_z["[target]"])
 		return
+	choices_by_mob = list()
 	icon = SSminimaps.minimaps_by_z["[target]"].hud_image
 	SSminimaps.add_to_updaters(src, flags, target)
 
+/**
+ * lets the user get coordinates by clicking the actual map
+ * Returns a list(x_coord, y_coord)
+ * note: sleeps until the user makes a choice or they disconnect
+ */
+/atom/movable/screen/minimap/proc/get_coords_from_click(mob/user)
+	//lord forgive my shitcode
+	RegisterSignal(user, COMSIG_MOB_CLICKON, PROC_REF(on_click))
+	while(!choices_by_mob[user] && user.client)
+		stoplag(1)
+	UnregisterSignal(user, COMSIG_MOB_CLICKON)
+	. = choices_by_mob[user]
+	choices_by_mob -= user
+
+/**
+ * Handles fetching the targetted coordinates when the mob tries to click on this map
+ * does the following:
+ * turns map targetted pixel into a list(x, y)
+ * gets z level of this map
+ * x and y minimap centering is reverted, then the x2 scaling of the map is removed
+ * round up to correct if an odd pixel was clicked and make sure its valid
+ */
+/atom/movable/screen/minimap/proc/on_click(datum/source, atom/A, params)
+	SIGNAL_HANDLER
+	var/list/modifiers = params2list(params)
+	// we only care about absolute coords because the map is fixed to 1,1 so no client stuff
+	var/list/pixel_coords = params2screenpixel(modifiers["screen-loc"])
+	var/zlevel = SSminimaps.updators_by_datum[src].ztarget
+	var/x = (pixel_coords[1] - SSminimaps.minimaps_by_z["[zlevel]"].x_offset) / 2
+	var/y = (pixel_coords[2] - SSminimaps.minimaps_by_z["[zlevel]"].y_offset) / 2
+	var/c_x = clamp(CEILING(x, 1), 1, world.maxx)
+	var/c_y = clamp(CEILING(y, 1), 1, world.maxy)
+	choices_by_mob[source] = list(c_x, c_y)
+	return COMSIG_MOB_CLICK_CANCELED
+
+/atom/movable/screen/minimap_locator
+	name = "You are here"
+	icon = 'icons/UI_icons/map_blips.dmi'
+	icon_state = "locator"
+	layer = INTRO_LAYER // 1 above minimap
+	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+
+///updates the screen loc of the locator so that it's on the movers location on the minimap
+/atom/movable/screen/minimap_locator/proc/update(atom/movable/mover, atom/oldloc, direction)
+	SIGNAL_HANDLER
+	var/x_coord = mover.x * 2
+	var/y_coord = mover.y * 2
+	x_coord += SSminimaps.minimaps_by_z["[mover.z]"].x_offset
+	y_coord += SSminimaps.minimaps_by_z["[mover.z]"].y_offset
+	// + 1 because tiles start at 1
+	var/x_tile = FLOOR(x_coord/32, 1) + 1
+	// -3 to center the image
+	var/x_pixel = x_coord % 32 - 3
+	var/y_tile = FLOOR(y_coord/32, 1) + 1
+	var/y_pixel = y_coord % 32 - 3
+	screen_loc = "[x_tile]:[x_pixel],[y_tile]:[y_pixel]"
 
 /**
  * Action that gives the owner access to the minimap pool
@@ -327,12 +380,19 @@ SUBSYSTEM_DEF(minimaps)
 	///boolean as to whether the minimap is currently shown
 	var/minimap_displayed = FALSE
 	///Minimap object we'll be displaying
-	var/obj/screen/minimap/map
+	var/atom/movable/screen/minimap/map
+	///Minimap "You are here" indicator for when it's up
+	var/atom/movable/screen/minimap_locator/locator
 	///This is mostly for the AI & other things which do not move groundside.
 	var/default_overwatch_level = 0
 
+/datum/action/minimap/New(Target)
+	. = ..()
+	locator = new
+
 /datum/action/minimap/Destroy()
 	map = null
+	QDEL_NULL(locator)
 	return ..()
 
 /datum/action/minimap/action_activate()
@@ -341,8 +401,13 @@ SUBSYSTEM_DEF(minimaps)
 		return
 	if(minimap_displayed)
 		owner.client.screen -= map
+		owner.client.screen -= locator
+		locator.UnregisterSignal(owner, COMSIG_MOVABLE_MOVED)
 	else
 		owner.client.screen += map
+		owner.client.screen += locator
+		locator.update(owner)
+		locator.RegisterSignal(owner, COMSIG_MOVABLE_MOVED, TYPE_PROC_REF(/atom/movable/screen/minimap_locator, update))
 	minimap_displayed = !minimap_displayed
 
 /datum/action/minimap/give_action(mob/M)
@@ -351,8 +416,8 @@ SUBSYSTEM_DEF(minimaps)
 	if(default_overwatch_level)
 		map = SSminimaps.fetch_minimap_object(default_overwatch_level, minimap_flags)
 	else
-		RegisterSignal(M, COMSIG_MOVABLE_Z_CHANGED, .proc/on_owner_z_change)
-	RegisterSignal(M, COMSIG_KB_TOGGLE_MINIMAP, .proc/action_activate)
+		RegisterSignal(M, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(on_owner_z_change))
+	RegisterSignal(M, COMSIG_KB_TOGGLE_MINIMAP, PROC_REF(action_activate))
 	if(!SSminimaps.minimaps_by_z["[M.z]"] || !SSminimaps.minimaps_by_z["[M.z]"].hud_image)
 		return
 	map = SSminimaps.fetch_minimap_object(M.z, minimap_flags)

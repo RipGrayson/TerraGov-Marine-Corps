@@ -37,31 +37,6 @@
 	desc = "This looks like a projection of something."
 	anchored = TRUE
 
-
-/obj/effect/shut_controller
-	name = "shut controller"
-	var/moving = null
-	var/list/parts = list(  )
-
-
-
-
-//Exhaust effect
-/obj/effect/engine_exhaust
-	name = "engine exhaust"
-	icon = 'icons/effects/effects.dmi'
-	icon_state = "exhaust"
-	anchored = TRUE
-
-	New(var/turf/nloc, var/ndir, var/temp)
-		setDir(ndir)
-		..(nloc)
-
-		spawn(20)
-			loc = null
-
-
-
 /obj/effect/rune/attunement
 	luminosity = 5
 
@@ -150,7 +125,7 @@
 /obj/effect/forcefield/fog/passable_fog/Initialize()
 	. = ..()
 	var/static/list/connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_cross,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
@@ -165,7 +140,7 @@
 	set_opacity(FALSE)
 	alpha = 0
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
-	addtimer(CALLBACK(src, .proc/reset), 30 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(reset)), 30 SECONDS)
 
 /obj/effect/forcefield/fog/passable_fog/proc/reset()
 	alpha = initial(alpha)
@@ -179,11 +154,16 @@
 	anchored = TRUE
 	resistance_flags = RESIST_ALL
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_AIRLOCK)
 
 /obj/effect/opacifier/Initialize(mapload, initial_opacity)
 	. = ..()
 	set_opacity(initial_opacity)
 
+/obj/effect/opacifier/Destroy()
+	. = ..()
+	QUEUE_SMOOTH_NEIGHBORS(loc)
 
 /obj/effect/supplypod_selector
 	icon_state = "supplypod_selector"

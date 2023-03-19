@@ -48,13 +48,13 @@
 	list_reagents = list(
 		/datum/reagent/medicine/bicaridine = 10,
 		/datum/reagent/medicine/kelotane = 10,
-		/datum/reagent/medicine/dylovene = 5,
+		/datum/reagent/medicine/tricordrazine = 5,
 		/datum/reagent/medicine/tramadol = 5,
 	)
 	description_overlay = "Cb"
 
 /obj/item/reagent_containers/hypospray/autoinjector/combat_advanced
-	name = "Advanced combat autoinjector"
+	name = "advanced combat autoinjector"
 	desc = "An autoinjector loaded with 2 doses of advanced healing and painkilling chemicals. Intended for use in active combat."
 	icon_state = "Lilac"
 	amount_per_transfer_from_this = 15
@@ -255,7 +255,7 @@
 	description_overlay = "Pe+"
 
 /obj/item/reagent_containers/hypospray/autoinjector/russian_red
-	name = "Emergency autoinjector"
+	name = "emergency autoinjector"
 	desc = "An autoinjector loaded with a single use of Russian Red. Restores a significant amount of stamina and heals a large amount of damage, but causes slight permanent damage."
 	icon_state = "Redwood"
 	amount_per_transfer_from_this = 15
@@ -276,14 +276,12 @@
 
 /obj/item/reagent_containers/hypospray/autoinjector/isotonic
 	name = "isotonic solution autoinjector"
-	desc = "An auto-injector loaded with a single dose of isotonic solution, formulated to quickly recover fluid volume after blood loss or trauma."
+	desc = "An auto-injector loaded with 2 doses of isotonic solution, formulated to quickly recover fluid volume after blood loss or trauma."
 	icon_state = "autoinjector-8"
-	amount_per_transfer_from_this = 25
-	volume = 25
+	amount_per_transfer_from_this = 15
+	volume = 30
 	list_reagents = list(
-		/datum/reagent/iron = 10,
-		/datum/reagent/consumable/nutriment = 10,
-		/datum/reagent/consumable/sugar = 5,
+		/datum/reagent/medicine/saline_glucose = 30,
 	)
 
 /obj/item/reagent_containers/hypospray/autoinjector/roulettium

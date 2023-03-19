@@ -66,10 +66,7 @@
 	throw_range = 5
 	w_class = WEIGHT_CLASS_SMALL
 	attack_verb = list("warned", "cautioned", "smashed")
-	soft_armor = list("melee" = 30, "bullet" = 30, "laser" = 30, "energy" = 30, "bomb" = 15, "bio" = 10, "rad" = 0, "fire" = 20, "acid" = 20)
-
-
-
+	soft_armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 15, BIO = 10, FIRE = 20, ACID = 20)
 
 
 /obj/item/tool/soap
@@ -84,17 +81,7 @@
 
 /obj/item/tool/soap/Initialize()
 	. = ..()
-	var/static/list/connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_cross,
-	)
-	AddElement(/datum/element/connect_loc, connections)
-
-/obj/item/tool/soap/proc/on_cross(datum/source, atom/movable/AM, oldloc, oldlocs) //TODO JUST USE THE SLIPPERY COMPONENT
-	SIGNAL_HANDLER
-	if (iscarbon(AM))
-		var/mob/living/carbon/C =AM
-		C.slip("soap", 3, 2)
-
+	AddComponent(/datum/component/slippery, 0.3 SECONDS, 0.2 SECONDS)
 
 /obj/item/tool/soap/attack(mob/target, mob/user)
 	return
@@ -107,6 +94,10 @@
 	//So this is a workaround. This also makes more sense from an IC standpoint. ~Carn
 	if(user.client && (target in user.client.screen))
 		to_chat(user, span_notice("You need to take that [target.name] off before cleaning it."))
+	else if(isturf(target))
+		to_chat(user, span_notice("You scrub \the [target.name]."))
+		var/turf/target_turf = target
+		target_turf.clean_turf()
 	else if(istype(target,/obj/effect/decal/cleanable))
 		to_chat(user, span_notice("You scrub \the [target.name] out."))
 		qdel(target)

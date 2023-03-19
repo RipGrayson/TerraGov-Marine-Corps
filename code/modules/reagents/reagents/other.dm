@@ -352,11 +352,7 @@
 	overdose_threshold = REAGENTS_OVERDOSE
 	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL
 	taste_description = "iron"
-
-/datum/reagent/iron/on_mob_life(mob/living/L, metabolism)
-	if(L.blood_volume < BLOOD_VOLUME_NORMAL)
-		L.blood_volume += 0.8
-	return ..()
+	scannable = TRUE
 
 /datum/reagent/iron/overdose_process(mob/living/L, metabolism)
 	L.apply_damages(1, 0, 1)
@@ -602,9 +598,7 @@
 	if(!iscarbon(L))
 		return ..()
 	var/mob/living/carbon/C = L
-	if(C.nutrition > 50)
-		C.overeatduration = 0
-		C.adjust_nutrition(-10)
+	C.adjust_nutrition(-10)
 	if(prob(20))
 		C.adjustToxLoss(0.1)
 	else

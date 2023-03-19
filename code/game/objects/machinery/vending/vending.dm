@@ -74,7 +74,7 @@
 	///If the vendor is ready to vend.
 	var/vend_ready = TRUE
 	///How long it takes to vend an item, vend_ready is false during that.
-	var/vend_delay = 10
+	var/vend_delay = 0
 	///Vending flags to determine the behaviour of the machine
 	var/vending_flags = NONE
 	/// A /datum/vending_product instance of what we're paying for right now.
@@ -173,7 +173,7 @@
 /obj/machinery/vending/Initialize(mapload, ...)
 	. = ..()
 	wires = new /datum/wires/vending(src)
-	slogan_list = text2list(product_slogans, ";")
+	slogan_list = splittext(product_slogans, ";")
 
 	// So not all machines speak at the exact same time.
 	// The first time this machine says something will be at slogantime + this random value,
@@ -508,6 +508,14 @@
 	.["extended"] = extended_inventory
 	.["isshared"] = isshared
 
+	var/ui_theme
+	switch(faction)
+		if(FACTION_SOM)
+			ui_theme = "som"
+		else
+			ui_theme = "main"
+	.["ui_theme"] = ui_theme
+
 /obj/machinery/vending/ui_act(action, list/params)
 	. = ..()
 	if(.)
@@ -573,15 +581,9 @@
 			src.last_reply = world.time
 
 	var/obj/item/new_item = release_item(R, vend_delay)
-	if(faction)
-		if(ismodulararmorarmorpiece(new_item))
-			var/obj/item/armor_module/armor/armorpiece = new_item
-			armorpiece.limit_colorable_colors(faction)
-		if(ismodularhelmet(new_item))
-			var/obj/item/clothing/head/modular/helmet = new_item
-			helmet.limit_colorable_colors(faction)
+
 	if(istype(new_item))
-		user.put_in_any_hand_if_possible(new_item, warning = FALSE)
+		new_item.on_vend(user, faction, fill_container = TRUE)
 	vend_ready = 1
 	updateUsrDialog()
 
@@ -601,7 +603,7 @@
 		else
 			return
 	SSblackbox.record_feedback("tally", "vendored", 1, R.product_name)
-	addtimer(CALLBACK(src, .proc/stock_vacuum), 2.5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE) // We clean up some time after the last item has been vended.
+	addtimer(CALLBACK(src, PROC_REF(stock_vacuum)), 2.5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE) // We clean up some time after the last item has been vended.
 	if(vending_sound)
 		playsound(src, vending_sound, 25, 0)
 	else
@@ -847,8 +849,8 @@
 	. = TRUE
 
 
-/obj/machinery/vending/take_damage(dam)
-	if(density && dam >= knockdown_threshold)
+/obj/machinery/vending/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", effects = TRUE, attack_dir, armour_penetration = 0)
+	if(density && damage_amount >= knockdown_threshold)
 		tip_over()
 	return ..()
 

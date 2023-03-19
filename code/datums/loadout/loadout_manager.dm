@@ -41,7 +41,7 @@
 /// Wrapper proc to set the host of our ui datum, aka the loadout vendor that's showing us the loadouts
 /datum/loadout_manager/proc/set_host(_loadout_vendor)
 	loadout_vendor = _loadout_vendor
-	RegisterSignal(loadout_vendor, COMSIG_PARENT_QDELETING, .proc/close_ui)
+	RegisterSignal(loadout_vendor, COMSIG_PARENT_QDELETING, PROC_REF(close_ui))
 
 /// Wrapper proc to handle loadout vendor being qdeleted while we have loadout manager opened
 /datum/loadout_manager/proc/close_ui()
@@ -104,8 +104,8 @@
 					if(loadout.version < 7)
 						loadout.empty_slot(slot_head_str)
 					if(loadout.version < 8)
-						if("[helmet.item_type]" == "/obj/item/clothing/head/modular/marine/m10x/tech" || "[helmet.item_type]" == "/obj/item/clothing/head/modular/marine/m10x/corpsman" ||  "[helmet.item_type]" == "/obj/item/clothing/head/modular/marine/m10x/standard")
-							helmet.item_type = /obj/item/clothing/head/modular/marine/m10x
+						if("[helmet.item_type]" == "/obj/item/clothing/head/modular/m10x/tech" || "[helmet.item_type]" == "/obj/item/clothing/head/modular/m10x/corpsman" ||  "[helmet.item_type]" == "/obj/item/clothing/head/modular/m10x/standard")
+							helmet.item_type = /obj/item/clothing/head/modular/m10x
 					if(loadout.version < 10)
 						helmet.greyscale_colors = initial(helmet.item_type.greyscale_colors)
 						for(var/datum/item_representation/armor_module/colored/module AS in helmet.attachments)
@@ -167,8 +167,8 @@
 					if(loadout.version < 7)
 						loadout.empty_slot(slot_head_str)
 					if(loadout.version < 8)
-						if("[helmet.item_type]" == "/obj/item/clothing/head/modular/marine/m10x/tech" || "[helmet.item_type]" == "/obj/item/clothing/head/modular/marine/m10x/corpsman" || "[helmet.item_type]" == "/obj/item/clothing/head/modular/marine/m10x/standard")
-							helmet.item_type = /obj/item/clothing/head/modular/marine/m10x
+						if("[helmet.item_type]" == "/obj/item/clothing/head/modular/m10x/tech" || "[helmet.item_type]" == "/obj/item/clothing/head/modular/m10x/corpsman" || "[helmet.item_type]" == "/obj/item/clothing/head/modular/m10x/standard")
+							helmet.item_type = /obj/item/clothing/head/modular/m10x
 					if(loadout.version < 10)
 						helmet.greyscale_colors = initial(helmet.item_type.greyscale_colors)
 						for(var/datum/item_representation/armor_module/colored/module AS in helmet.attachments)

@@ -18,7 +18,7 @@
 /obj/alien/Initialize()
 	. = ..()
 	if(!ignore_weed_destruction)
-		RegisterSignal(loc, COMSIG_TURF_WEED_REMOVED, .proc/weed_removed)
+		RegisterSignal(loc, COMSIG_TURF_WEED_REMOVED, PROC_REF(weed_removed))
 
 /// Destroy the alien effect when the weed it was on is destroyed
 /obj/alien/proc/weed_removed()
@@ -85,7 +85,7 @@
 /obj/alien/resin/sticky/Initialize()
 	. = ..()
 	var/static/list/connections = list(
-		COMSIG_ATOM_ENTERED = .proc/slow_down_crosser
+		COMSIG_ATOM_ENTERED = PROC_REF(slow_down_crosser)
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
@@ -117,6 +117,8 @@
 		return FALSE
 
 	if(X.a_intent == INTENT_HARM) //Clear it out on hit; no need to double tap.
+		if(CHECK_BITFIELD(SSticker.mode.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X))
+			SSresinshaping.decrement_build_counter(X)
 		X.do_attack_animation(src, ATTACK_EFFECT_CLAW) //SFX
 		playsound(src, "alien_resin_break", 25) //SFX
 		deconstruct(TRUE)
@@ -137,12 +139,20 @@
 /obj/structure/mineral_door/resin
 	name = RESIN_DOOR
 	mineralType = "resin"
-	icon = 'icons/Xeno/Effects.dmi'
+	icon = 'icons/obj/smooth_objects/resin-door.dmi'
+	icon_state = "resin-door-1"
+	base_icon_state = "resin-door"
 	hardness = 1.5
 	layer = RESIN_STRUCTURE_LAYER
 	max_integrity = 100
-	smoothing_behavior = CARDINAL_SMOOTHING
-	smoothing_groups = SMOOTH_XENO_STRUCTURES
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_XENO_STRUCTURES)
+	canSmoothWith = list(
+		SMOOTH_GROUP_XENO_STRUCTURES,
+		SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS,
+		SMOOTH_GROUP_MINERAL_STRUCTURES,
+	)
+
 	var/close_delay = 10 SECONDS
 
 /obj/structure/mineral_door/resin/Initialize()
@@ -175,6 +185,10 @@
 	if(X.a_intent != INTENT_HARM)
 		TryToSwitchState(X)
 		return TRUE
+	if(CHECK_BITFIELD(SSticker.mode.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.should_refund(src, X))
+		SSresinshaping.decrement_build_counter(X)
+		qdel(src)
+		return TRUE
 
 	src.balloon_alert(X, "Destroying...")
 	playsound(src, "alien_resin_break", 25)
@@ -184,6 +198,15 @@
 
 /obj/structure/mineral_door/resin/flamer_fire_act(burnlevel)
 	take_damage(burnlevel * 2, BURN, "fire")
+
+/obj/structure/mineral_door/resin/ex_act(severity)
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			qdel()
+		if(EXPLODE_HEAVY)
+			qdel()
+		if(EXPLODE_LIGHT)
+			take_damage((rand(50, 60)))
 
 /turf/closed/wall/resin/fire_act()
 	take_damage(50, BURN, "fire")
@@ -196,12 +219,12 @@
 	if(state || !loc)
 		return //already open
 	playsound(loc, "alien_resin_move", 25)
-	flick("[mineralType]opening",src)
+	flick("[icon_state]-opening",src)
 	density = FALSE
 	set_opacity(FALSE)
 	state = 1
 	update_icon()
-	addtimer(CALLBACK(src, .proc/Close), close_delay)
+	addtimer(CALLBACK(src, PROC_REF(Close)), close_delay)
 
 /obj/structure/mineral_door/resin/Close()
 	if(!state || !loc ||isSwitchingStates)
@@ -209,17 +232,18 @@
 	//Can't close if someone is blocking it
 	for(var/turf/turf in locs)
 		if(locate(/mob/living) in turf)
-			addtimer(CALLBACK(src, .proc/Close), close_delay)
+			addtimer(CALLBACK(src, PROC_REF(Close)), close_delay)
 			return
 	isSwitchingStates = TRUE
 	playsound(loc, "alien_resin_move", 25)
-	flick("[mineralType]closing",src)
-	addtimer(CALLBACK(src, .proc/do_close), 1 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(do_close)), 1 SECONDS)
 
 /// Change the icon and density of the door
 /obj/structure/mineral_door/resin/proc/do_close()
 	density = TRUE
 	set_opacity(TRUE)
+	icon_state = formericon
+	flick("[icon_state]-closing",src)
 	state = 0
 	update_icon()
 	isSwitchingStates = 0
@@ -242,7 +266,7 @@
 		if(!istype(T))
 			continue
 		for(var/obj/structure/mineral_door/resin/R in T)
-			INVOKE_NEXT_TICK(R, .proc/check_resin_support)
+			INVOKE_NEXT_TICK(R, PROC_REF(check_resin_support))
 	return ..()
 
 
@@ -328,11 +352,12 @@
 	user.visible_message(span_notice("[user]'s chitin begins to gleam with an unseemly glow..."), span_xenonotice("We feel powerful as we are covered in [src]!"))
 	user.emote("roar")
 	user.apply_status_effect(STATUS_EFFECT_RESIN_JELLY_COATING)
+	SEND_SIGNAL(user, COMSIG_XENOMORPH_RESIN_JELLY_APPLIED)
 	qdel(src)
 
 /obj/item/resin_jelly/throw_at(atom/target, range, speed, thrower, spin, flying)
 	if(isxenohivelord(thrower))
-		RegisterSignal(src, COMSIG_MOVABLE_IMPACT, .proc/jelly_throw_hit)
+		RegisterSignal(src, COMSIG_MOVABLE_IMPACT, PROC_REF(jelly_throw_hit))
 	. = ..()
 
 /obj/item/resin_jelly/proc/jelly_throw_hit(datum/source, atom/hit_atom)
@@ -344,4 +369,4 @@
 	if(X.fire_resist_modifier <= -20 || X.xeno_caste.caste_flags & CASTE_FIRE_IMMUNE)
 		return
 	X.visible_message(span_notice("[X] is splattered with jelly!"))
-	INVOKE_ASYNC(src, .proc/activate_jelly, X)
+	INVOKE_ASYNC(src, PROC_REF(activate_jelly), X)

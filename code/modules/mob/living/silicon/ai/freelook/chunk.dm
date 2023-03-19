@@ -50,7 +50,7 @@
  */
 /datum/camerachunk/proc/hasChanged(update_now = FALSE)
 	if(seenby.len || update_now)
-		addtimer(CALLBACK(src, .proc/update), UPDATE_BUFFER_TIME, TIMER_UNIQUE)
+		addtimer(CALLBACK(src, PROC_REF(update)), UPDATE_BUFFER_TIME, TIMER_UNIQUE)
 	else
 		changed = TRUE
 
@@ -106,10 +106,10 @@
 		if(sillycone.builtInCamera?.can_use())
 			cameras += sillycone.builtInCamera
 
-	for(var/turf/t as anything in block(locate(max(x, 1), max(y, 1), z), locate(min(x + CHUNK_SIZE - 1, world.maxx), min(y + CHUNK_SIZE - 1, world.maxy), z)))
+	for(var/turf/t AS in block(locate(max(x, 1), max(y, 1), z), locate(min(x + CHUNK_SIZE - 1, world.maxx), min(y + CHUNK_SIZE - 1, world.maxy), z)))
 		turfs[t] = t
 
-	for(var/obj/machinery/camera/camera as anything in cameras)
+	for(var/obj/machinery/camera/camera AS in cameras)
 		if(!camera)
 			continue
 

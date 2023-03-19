@@ -31,12 +31,11 @@
 
 /obj/item/mecha_parts/mecha_equipment/Destroy()
 	if(chassis)
-		detach(get_turf(src))
-		log_message("[src] is destroyed.", LOG_MECHA)
 		if(LAZYLEN(chassis.occupants))
 			to_chat(chassis.occupants, "[icon2html(src, chassis.occupants)][span_danger("[src] is destroyed!")]")
 			playsound(chassis, destroy_sound, 50)
-		chassis = null
+		detach(get_turf(src))
+		log_message("[src] is destroyed.", LOG_MECHA)
 	return ..()
 
 /obj/item/mecha_parts/mecha_equipment/try_attach_part(mob/user, obj/vehicle/sealed/mecha/M, attach_right = FALSE)
@@ -73,7 +72,7 @@
  * Arguments:
  * * target: atom we are activating/clicked on
  */
-/obj/item/mecha_parts/mecha_equipment/proc/action_checks(atom/target)
+/obj/item/mecha_parts/mecha_equipment/proc/action_checks(atom/target, ignore_cooldown = FALSE)
 	if(!target)
 		return FALSE
 	if(!chassis)
@@ -87,7 +86,10 @@
 	if(chassis.equipment_disabled)
 		to_chat(chassis.occupants, span_warning("Error -- Equipment control unit is unresponsive."))
 		return FALSE
-	if(TIMER_COOLDOWN_CHECK(chassis, COOLDOWN_MECHA_EQUIPMENT(type)))
+	if(obj_integrity <= 1)
+		to_chat(chassis.occupants, span_warning("Error -- Equipment critically damaged."))
+		return FALSE
+	if(!ignore_cooldown && TIMER_COOLDOWN_CHECK(chassis, COOLDOWN_MECHA_EQUIPMENT(type)))
 		return FALSE
 	return TRUE
 
@@ -108,11 +110,11 @@
 	if(!chassis)
 		return FALSE
 	chassis.use_power(energy_drain)
-	return do_after(user, equip_cooldown, target, extra_checks = CALLBACK(src, .proc/do_after_checks, target))
+	return do_after(user, equip_cooldown, target, extra_checks = CALLBACK(src, PROC_REF(do_after_checks), target))
 
 ///Do after wrapper for mecha equipment
 /obj/item/mecha_parts/mecha_equipment/proc/do_after_mecha(atom/target, mob/user, delay)
-	return do_after(user, delay, target, extra_checks = CALLBACK(src, .proc/do_after_checks, target))
+	return do_after(user, delay, target, extra_checks = CALLBACK(src, PROC_REF(do_after_checks), target))
 
 /// do after checks for the mecha equipment do afters
 /obj/item/mecha_parts/mecha_equipment/proc/do_after_checks(atom/target)
@@ -146,6 +148,10 @@
 		M.equip_by_category[to_equip_slot] += src
 	else
 		M.equip_by_category[to_equip_slot] = src
+	//tgmc changes start
+	M.move_delay += slowdown
+	M.update_icon()
+	//tgmc changes end
 	chassis = M
 	forceMove(M)
 	log_message("[src] initialized.", LOG_MECHA)
@@ -170,6 +176,10 @@
 	else
 		chassis.equip_by_category[to_unequip_slot] = null
 	log_message("[src] removed from equipment.", LOG_MECHA)
+	//tgmc changes start
+	chassis.move_delay -= slowdown
+	chassis.update_icon()
+	//tgmc changes end
 	chassis = null
 
 /obj/item/mecha_parts/mecha_equipment/log_message(message, message_type=LOG_GAME, color=null, log_globally)

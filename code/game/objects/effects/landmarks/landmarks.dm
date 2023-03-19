@@ -124,7 +124,7 @@
 /obj/effect/landmark/weed_node
 	name = "xeno weed node spawn landmark"
 	icon = 'icons/Xeno/weeds.dmi'
-	icon_state = "weednode"
+	icon_state = "weednode0"
 
 /obj/effect/landmark/weed_node/Initialize()
 	GLOB.xeno_weed_node_turfs += loc
@@ -425,46 +425,38 @@
 
 /obj/effect/landmark/sensor_tower/Initialize()
 	. = ..()
-	var/area/area_to_control = get_area(src)
-	area_to_control.set_to_contested()
 	GLOB.sensor_towers += loc
 	return INITIALIZE_HINT_QDEL
 
-/obj/effect/landmark/valhalla_xeno_spawn_landmark_close
-	name = "Valhalla xeno spawn"
+/obj/effect/landmark/sensor_tower_patrol
+	name = "Sensor tower"
+	icon = 'icons/obj/structures/sensor.dmi'
+	icon_state = "sensor_loyalist"
+
+/obj/effect/landmark/sensor_tower_patrol/Initialize()
+	..()
+	GLOB.sensor_towers_patrol += loc
+	return INITIALIZE_HINT_QDEL
+
+/obj/effect/landmark/valhalla
 	icon = 'icons/effects/landmarks_static.dmi'
-	icon_state = "xeno_spawn_valhalla"
+	///What do we spawn? (xeno or marine)
+	var/spawns
+	///Where do we spawn?
+	var/where
 
-/obj/effect/landmark/valhalla_xeno_spawn_landmark_close/Initialize()
+/obj/effect/landmark/valhalla/Initialize()
 	. = ..()
-	GLOB.valhalla_xeno_spawn_landmark[CLOSE] = src
+	GLOB.valhalla_button_spawn_landmark["[spawns][where]"] = src
 
-/obj/effect/landmark/valhalla_xeno_spawn_landmark_close_two
+/obj/effect/landmark/valhalla/xeno_spawn_landmark
 	name = "Valhalla xeno spawn"
-	icon = 'icons/effects/landmarks_static.dmi'
 	icon_state = "xeno_spawn_valhalla"
+	spawns = "xeno"
 
-/obj/effect/landmark/valhalla_xeno_spawn_landmark_close_two/Initialize()
-	. = ..()
-	GLOB.valhalla_xeno_spawn_landmark[CLOSE2] = src
-
-/obj/effect/landmark/valhalla_xeno_spawn_landmark_far
-	name = "Valhalla xeno spawn"
-	icon = 'icons/effects/landmarks_static.dmi'
-	icon_state = "xeno_spawn_valhalla"
-
-/obj/effect/landmark/valhalla_xeno_spawn_landmark_far/Initialize()
-	. = ..()
-	GLOB.valhalla_xeno_spawn_landmark[FAR] = src
-
-/obj/effect/landmark/valhalla_xeno_spawn_landmark_far_two
-	name = "Valhalla xeno spawn"
-	icon = 'icons/effects/landmarks_static.dmi'
-	icon_state = "xeno_spawn_valhalla"
-
-/obj/effect/landmark/valhalla_xeno_spawn_landmark_far_two/Initialize()
-	. = ..()
-	GLOB.valhalla_xeno_spawn_landmark[FAR2] = src
+/obj/effect/landmark/valhalla/marine_spawner_landmark
+	name = "Marine spawner landmark"
+	spawns = "marine"
 
 //Combat patrol spawn in spots
 /obj/effect/landmark/patrol_point

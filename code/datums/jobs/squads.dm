@@ -206,27 +206,8 @@
 		SOM_SQUAD_LEADER = 1,
 )
 
-GLOBAL_LIST_EMPTY(glovemarkings)
-GLOBAL_LIST_EMPTY(armormarkings)
-GLOBAL_LIST_EMPTY(armormarkings_sl)
-GLOBAL_LIST_EMPTY(helmetmarkings)
-GLOBAL_LIST_EMPTY(helmetmarkings_sl)
-
 /datum/squad/New()
 	. = ..()
-	var/image/armor = image('icons/mob/suit_1.dmi',icon_state = "std-armor")
-	var/image/armorsl = image('icons/mob/suit_1.dmi',icon_state = "sql-armor")
-	armor.color = color
-	armorsl.color = color
-	GLOB.armormarkings[type] = armor
-	GLOB.armormarkings_sl[type] = armorsl
-	var/image/helmet = image('icons/mob/head_1.dmi',icon_state = "std-helmet")
-	var/image/helmetsl = image('icons/mob/head_1.dmi',icon_state = "sql-helmet")
-	helmet.color = color
-	helmetsl.color = color
-	GLOB.helmetmarkings[type] = helmet
-	GLOB.helmetmarkings_sl[type] = helmetsl
-
 	tracking_id = SSdirection.init_squad(name, squad_leader)
 
 
@@ -349,8 +330,8 @@ GLOBAL_LIST_EMPTY(helmetmarkings_sl)
 	SSdirection.stop_tracking(TRACKING_ID_MARINE_COMMANDER, squad_leader)
 
 	//Handle aSL skill level and radio
-	if(!ismarineleaderjob(squad_leader.job) || !issommarineleaderjob(squad_leader.job))
-		squad_leader.skills = squad_leader.skills.setRating(leadership = SKILL_LEAD_NOVICE)
+	if(!ismarineleaderjob(squad_leader.job) && !issommarineleaderjob(squad_leader.job))
+		squad_leader.set_skills(squad_leader.skills.setRating(leadership = SKILL_LEAD_NOVICE))
 		if(squad_leader.mind)
 			var/datum/job/J = squad_leader.job
 			squad_leader.comm_title = J.comm_title
@@ -380,8 +361,8 @@ GLOBAL_LIST_EMPTY(helmetmarkings_sl)
 	SSdirection.start_tracking(TRACKING_ID_MARINE_COMMANDER, H)
 
 	//Handle aSL skill level and radio
-	if(!ismarineleaderjob(squad_leader.job) || !issommarineleaderjob(squad_leader.job))
-		squad_leader.skills = squad_leader.skills.setRating(leadership = SKILL_LEAD_EXPERT)
+	if(!ismarineleaderjob(squad_leader.job) && !issommarineleaderjob(squad_leader.job))
+		squad_leader.set_skills(squad_leader.skills.setRating(leadership = SKILL_LEAD_EXPERT))
 		squad_leader.comm_title = "aSL"
 		var/obj/item/card/id/ID = squad_leader.get_idcard()
 		if(istype(ID))

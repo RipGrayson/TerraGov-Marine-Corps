@@ -87,7 +87,7 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list( //Those networks can only be 
 
 #define PLASMACUTTER_VLOW_MOD 0.1
 #define PLASMACUTTER_CUT_DELAY 30
-#define PLASMACUTTER_RESIN_MULTIPLIER 2
+#define PLASMACUTTER_RESIN_MULTIPLIER 2.3
 #define PLASMACUTTER_BASE_COST 1000
 
 //MEDEVAC DEFINES
@@ -206,6 +206,7 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list( //Those networks can only be 
 #define ITEM_ICE_VARIANT (1<<1)
 #define ITEM_ICE_PROTECTION (1<<2)
 #define ITEM_PRISON_VARIANT (1<<3)
+#define ITEM_DESERT_VARIANT (1<<4)
 
 #define ITEM_UNEQUIP_FAIL 0
 #define ITEM_UNEQUIP_DROPPED 1
@@ -249,3 +250,6 @@ GLOBAL_LIST_INIT(restricted_camera_networks, list( //Those networks can only be 
 #define MOTION_DETECTOR_HOSTILE "hostile"
 #define MOTION_DETECTOR_FRIENDLY "friendly"
 #define MOTION_DETECTOR_DEAD "dead"
+
+//Repair define
+#define BELOW_INTEGRITY_THRESHOLD "below integrity threshold"

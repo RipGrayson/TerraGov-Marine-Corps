@@ -364,10 +364,7 @@
 
 /obj/item/reagent_containers/food/snacks/grown/bluetomato/Initialize()
 	. = ..()
-	var/static/list/connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_cross,
-	)
-	AddElement(/datum/element/connect_loc, connections)
+	AddComponent(/datum/component/slippery, 0.8 SECONDS, 0.5 SECONDS)
 
 /obj/item/reagent_containers/food/snacks/grown/bluetomato/throw_impact(atom/hit_atom)
 	..()
@@ -377,12 +374,6 @@
 	for(var/atom/A in get_turf(hit_atom))
 		src.reagents.reaction(A)
 	qdel(src)
-
-/obj/item/reagent_containers/food/snacks/grown/bluetomato/proc/on_cross(datum/source, atom/movable/AM, oldloc, oldlocs)
-	SIGNAL_HANDLER
-	if(iscarbon(AM))
-		var/mob/living/carbon/C = AM
-		C.slip(name, 8, 5)
 
 /obj/item/reagent_containers/food/snacks/grown/wheat
 	name = "wheat"
@@ -544,7 +535,7 @@
 			s.start()
 			new/obj/effect/decal/cleanable/molten_item(M.loc) //Leaves a pile of goo behind for dramatic effect.
 			M.loc = picked //
-			sleep(1)
+			sleep(0.1 SECONDS)
 			s.set_up(3, 1, M)
 			s.start() //Two set of sparks, one before the teleport and one after.
 		if(2) //Teleports mob the tomato hit instead.
@@ -553,7 +544,7 @@
 				s.start()
 				new/obj/effect/decal/cleanable/molten_item(A.loc) //Leave a pile of goo behind for dramatic effect...
 				A.loc = picked//And teleport them to the chosen location.
-				sleep(1)
+				sleep(0.1 SECONDS)
 				s.set_up(3, 1, A)
 				s.start()
 	new/obj/effect/decal/cleanable/blood/oil(src.loc)

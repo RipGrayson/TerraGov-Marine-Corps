@@ -32,7 +32,6 @@ SUBSYSTEM_DEF(persistence)
 		/datum/season_datum/weapons/guns/rifle_seasonal_two,
 		/datum/season_datum/weapons/guns/copsandrobbers_seasonal,
 		/datum/season_datum/weapons/guns/shotgun_seasonal,
-		/datum/season_datum/weapons/guns/som_seasonal,
 		)
 	)
 	///The saved list of custom outfits names
@@ -194,15 +193,19 @@ SUBSYSTEM_DEF(persistence)
 	name = "AK47, M16 and Storm Weapons"
 	description = "Old Earth guns. Antique and obsolete, but no less deadly"
 	item_list = list(
-		/obj/item/weapon/gun/rifle/mpi_km = -1,
+		/obj/item/ammo_magazine/rifle/mpi_km/plum = -1,
 		/obj/item/ammo_magazine/rifle/mpi_km = -1,
+		/obj/item/ammo_magazine/packet/pwarsaw = -1,
 		/obj/item/weapon/gun/rifle/m16 = -1,
 		/obj/item/ammo_magazine/rifle/m16 = -1,
+		/obj/item/ammo_magazine/packet/pnato = -1,
 		/obj/item/weapon/gun/rifle/mkh = -1,
 		/obj/item/ammo_magazine/rifle/mkh = -1,
 		/obj/item/weapon/gun/smg/ppsh = -1,
 		/obj/item/ammo_magazine/smg/ppsh = -1,
 		/obj/item/ammo_magazine/smg/ppsh/extended = -1,
+		/obj/item/weapon/gun/rifle/garand = -1,
+		/obj/item/ammo_magazine/rifle/garand = -1,
 		)
 
 /datum/season_datum/weapons/guns/rifle_seasonal_two
@@ -215,6 +218,7 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/ammo_magazine/rifle/m41a = -1,
 		/obj/item/weapon/gun/rifle/type71/seasonal = -1,
 		/obj/item/ammo_magazine/rifle/type71 = -1,
+		/obj/item/ammo_magazine/packet/pwarsaw = -1,
 		/obj/item/weapon/gun/rifle/alf_machinecarbine = -1,
 		/obj/item/ammo_magazine/rifle/alf_machinecarbine = -1,
 		)
@@ -256,6 +260,7 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/ammo_magazine/smg/uzi = -1,
 		/obj/item/weapon/gun/smg/m25 = -1,
 		/obj/item/ammo_magazine/smg/m25 = -1,
+		/obj/item/storage/holster/m25 = -1,
 		/obj/item/weapon/gun/smg/mp7 = -1,
 		/obj/item/ammo_magazine/smg/mp7 = -1,
 		/obj/item/weapon/gun/revolver/cmb = -1,
@@ -270,18 +275,3 @@ SUBSYSTEM_DEF(persistence)
 		/obj/item/weapon/gun/shotgun/pump = -1,
 		/obj/item/weapon/gun/shotgun/pump/cmb = -1,
 		)
-
-/datum/season_datum/weapons/guns/som_seasonal
-	name = "SOM weapons"
-	description = "The ballistic weaponry of the SOM. Feel like a rebel."
-	item_list = list(
-		/obj/item/weapon/gun/rifle/som = -1,
-		/obj/item/ammo_magazine/rifle/som = -1,
-		/obj/item/ammo_magazine/handful/micro_grenade = -1,
-		/obj/item/ammo_magazine/handful/micro_grenade/cluster = -1,
-		/obj/item/ammo_magazine/handful/micro_grenade/smoke_burst = -1,
-		/obj/item/weapon/gun/smg/som = -1,
-		/obj/item/ammo_magazine/smg/som = -1,
-		/obj/item/weapon/gun/shotgun/som = -1,
-		)
-

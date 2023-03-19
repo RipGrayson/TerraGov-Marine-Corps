@@ -127,12 +127,16 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	category = "Buildings"
 	///The type of building created
 	var/building_type
+	///The location to spawn the building at. Southwest of the xeno by default.
+	var/building_loc = SOUTHWEST
+	///Building time, in seconds. 10 by default.
+	var/building_time = 10 SECONDS
 
 /datum/hive_upgrade/building/can_buy(mob/living/carbon/xenomorph/buyer, silent)
 	. = ..()
 	if(!.)
 		return
-	var/turf/buildloc = get_step(buyer, SOUTHWEST)
+	var/turf/buildloc = get_step(buyer, building_loc)
 	if(!buildloc)
 		return FALSE
 
@@ -152,13 +156,13 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 		return FALSE
 
 /datum/hive_upgrade/building/on_buy(mob/living/carbon/xenomorph/buyer)
-	if(!do_after(buyer, 10 SECONDS, TRUE, buyer, BUSY_ICON_BUILD))
+	if(!do_after(buyer, building_time, TRUE, buyer, BUSY_ICON_BUILD))
 		return FALSE
 
 	if(!can_buy(buyer, FALSE))
 		return FALSE
 
-	var/turf/buildloc = get_step(buyer, SOUTHWEST)
+	var/turf/buildloc = get_step(buyer, building_loc)
 
 	var/atom/built = new building_type(buildloc, buyer.hivenumber)
 	to_chat(buyer, span_notice("We build \a [built] for [psypoint_cost] psy points."))
@@ -179,7 +183,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	if(!.)
 		return
 
-	var/turf/buildloc = get_step(buyer, SOUTHWEST)
+	var/turf/buildloc = get_step(buyer, building_loc)
 	if(!buildloc)
 		return FALSE
 
@@ -192,6 +196,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 		if(get_dist(silo, buyer) < 15)
 			to_chat(buyer, span_xenowarning("Another silo is too close!"))
 			return FALSE
+
 /datum/hive_upgrade/building/evotower
 	name = "Evolution Tower"
 	desc = "Constructs a tower that increases the rate of evolution point generation by 1.25 times per tower."
@@ -207,6 +212,16 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	icon = "maturitytower"
 	flags_upgrade = ABILITY_DISTRESS
 	building_type = /obj/structure/xeno/maturitytower
+
+/datum/hive_upgrade/building/pherotower
+	name = "Pheromone Tower"
+	desc = "Constructs a tower that emanates a selectable type of pheromone."
+	psypoint_cost = 150
+	icon = "pherotower"
+	flags_upgrade = ABILITY_DISTRESS
+	building_type = /obj/structure/xeno/pherotower
+	building_loc = 0 //This results in spawning the structure under the user.
+	building_time = 5 SECONDS
 
 /datum/hive_upgrade/building/spawner
 	name = "Spawner"
@@ -284,34 +299,6 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/xenos
 	category = "Xenos"
-
-/datum/hive_upgrade/xenos/king
-	name = "King"
-	desc = "Places a Psychic Echo chamber that tallhosts can detect, then after a summon time selects a random sister to take over the mind of the gravity manipulating King."
-	icon = "king"
-	flags_gamemode = ABILITY_DISTRESS
-	psypoint_cost = 1800
-
-/datum/hive_upgrade/xenos/king/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
-	. = ..()
-	if(!.)
-		return
-	if(buyer.hive.king_present)
-		if(!silent)
-			to_chat(buyer, span_xenowarning("Another king is alive already!"))
-		return FALSE
-
-/datum/hive_upgrade/xenos/king/on_buy(mob/living/carbon/xenomorph/buyer)
-	to_chat(buyer, span_xenonotice("We begin constructing a psychic echo chamber for the Queen Mother..."))
-	if(!do_after(buyer, 15 SECONDS, FALSE, buyer, BUSY_ICON_HOSTILE))
-		return FALSE
-	if(!can_buy(buyer, FALSE))
-		return FALSE
-	var/obj/structure/resin/king_pod = new /obj/structure/resin/king_pod(get_turf(buyer), buyer.hivenumber)
-	log_game("[key_name(buyer)] has created a pod in [AREACOORD(buyer)]")
-	xeno_message("<B>[buyer] has created a king pod at [get_area(buyer)]. Defend it until the Queen Mother summons a king!</B>", hivenumber = buyer.hivenumber, target = king_pod, arrow_type = /obj/screen/arrow/leader_tracker_arrow)
-	priority_announce("WARNING: Psychic anomaly detected at [get_area(buyer)]. Assault of the area reccomended.", "TGMC Intel Division")
-	return ..()
 
 /datum/hive_upgrade/xenos/smart_minions
 	name = GHOSTS_CAN_TAKE_MINIONS

@@ -225,38 +225,9 @@
 		updatehealth()
 
 
-// damage MANY limbs, in random order
-/mob/living/proc/take_overall_damage(brute, burn, blocked = 0, sharp = FALSE, edge = FALSE, updating_health = FALSE)
-	if(status_flags & GODMODE)
-		return 0//godmode
-
-	var/hit_percent = (100 - blocked) * 0.01
-
-	if(hit_percent <= 0) //total negation
-		return 0
-
-	if(blocked)
-		if(brute)
-			brute *= CLAMP01(hit_percent) //Percentage reduction
-		if(burn)
-			burn *= CLAMP01(hit_percent) //Percentage reduction
-
-	if(!brute && !burn) //Complete negation
-		return 0
-
-	adjustBruteLoss(brute)
-	adjustFireLoss(burn)
-	if(updating_health)
-		updatehealth()
-	return TRUE
-
-/// This proc causes damage evenly on a human mob limbs, accounting individual limb armor, if used on livings will just call take_overall_damage().
-/mob/living/proc/take_overall_damage_armored(damage, damagetype, armortype, sharp = FALSE, edge = FALSE, updating_health = FALSE) //This proc is overrided on humans, otherwise it just applies some damage and checks armor on chest if not human.
-	if(damagetype == BRUTE)
-		return take_overall_damage(damage, 0, get_soft_armor(armortype), sharp, edge, updating_health)
-	if(damagetype == BURN)
-		return take_overall_damage(0, damage, get_soft_armor(armortype), sharp, edge, updating_health)
-	return FALSE
+///Damages all limbs equally. Overridden by human, otherwise just does apply_damage
+/mob/living/proc/take_overall_damage(damage, damagetype, armortype, sharp = FALSE, edge = FALSE, updating_health = FALSE, penetration, max_limbs)
+	return apply_damage(damage, damagetype, null, armortype, sharp, edge, updating_health, penetration)
 
 /mob/living/proc/restore_all_organs()
 	return
@@ -281,7 +252,7 @@
 	LAZYADD(GLOB.alive_human_list_faction[faction], src)
 	GLOB.dead_human_list -= src
 	LAZYADD(GLOB.humans_by_zlevel["[z]"], src)
-	RegisterSignal(src, COMSIG_MOVABLE_Z_CHANGED, .proc/human_z_changed)
+	RegisterSignal(src, COMSIG_MOVABLE_Z_CHANGED, PROC_REF(human_z_changed))
 
 	hud_list[HEART_STATUS_HUD].icon_state = ""
 
@@ -290,7 +261,7 @@
 	GLOB.alive_xeno_list += src
 	GLOB.dead_xeno_list -= src
 
-/mob/living/proc/revive()
+/mob/living/proc/revive(admin_revive = FALSE)
 	for(var/i in embedded_objects)
 		var/obj/item/embedded = i
 		embedded.unembed_ourself()
@@ -342,9 +313,10 @@
 	hud_used?.show_hud(hud_used.hud_version)
 
 	SSmobs.start_processing(src)
+	SEND_SIGNAL(src, COMSIG_LIVING_POST_FULLY_HEAL, admin_revive)
 
 
-/mob/living/carbon/revive()
+/mob/living/carbon/revive(admin_revive = FALSE)
 	set_nutrition(400)
 	setTraumatic_Shock(0)
 	setShock_Stage(0)
@@ -358,7 +330,7 @@
 	return ..()
 
 
-/mob/living/carbon/human/revive()
+/mob/living/carbon/human/revive(admin_revive = FALSE)
 	restore_all_organs()
 
 	if(species && !(species.species_flags & NO_BLOOD))
@@ -387,15 +359,14 @@
 	REMOVE_TRAIT(src, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
 	dead_ticks = 0
 	chestburst = 0
-	headbitten = FALSE
 	update_body()
 	update_hair()
 	return ..()
 
 
-/mob/living/carbon/xenomorph/revive()
+/mob/living/carbon/xenomorph/revive(admin_revive = FALSE)
 	plasma_stored = xeno_caste.plasma_max
-	stagger = 0
+	set_stagger(0)
 	sunder = 0
 	set_slowdown(0)
 	if(stat == DEAD)
@@ -420,7 +391,7 @@
 	if(should_zombify && (istype(wear_ear, /obj/item/radio/headset/mainship)))
 		var/obj/item/radio/headset/mainship/radio = wear_ear
 		radio.safety_protocol(src)
-	addtimer(CALLBACK(src, .proc/finish_revive_to_crit, should_offer_to_ghost, should_zombify), 10 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(finish_revive_to_crit), should_offer_to_ghost, should_zombify), 10 SECONDS)
 
 ///Check if we have a mind, and finish the revive if we do
 /mob/living/carbon/human/proc/finish_revive_to_crit(should_offer_to_ghost = FALSE, should_zombify = FALSE)
@@ -434,7 +405,7 @@
 	if(!client)
 		if(should_offer_to_ghost)
 			offer_mob()
-			addtimer(CALLBACK(src, .proc/finish_revive_to_crit, FALSE, should_zombify), 10 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(finish_revive_to_crit), FALSE, should_zombify), 10 SECONDS)
 			return
 		REMOVE_TRAIT(src, TRAIT_IS_RESURRECTING, REVIVE_TO_CRIT_TRAIT)
 		if(should_zombify || istype(species, /datum/species/zombie))
@@ -445,7 +416,7 @@
 		faction = FACTION_ZOMBIE
 	heal_limbs(- health)
 	set_stat(CONSCIOUS)
-	overlay_fullscreen_timer(0.5 SECONDS, 10, "roundstart1", /obj/screen/fullscreen/black)
-	overlay_fullscreen_timer(2 SECONDS, 20, "roundstart2", /obj/screen/fullscreen/spawning_in)
+	overlay_fullscreen_timer(0.5 SECONDS, 10, "roundstart1", /atom/movable/screen/fullscreen/black)
+	overlay_fullscreen_timer(2 SECONDS, 20, "roundstart2", /atom/movable/screen/fullscreen/spawning_in)
 	REMOVE_TRAIT(src, TRAIT_IS_RESURRECTING, REVIVE_TO_CRIT_TRAIT)
 	SSmobs.start_processing(src)

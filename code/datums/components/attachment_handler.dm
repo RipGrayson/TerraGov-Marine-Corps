@@ -38,18 +38,18 @@
 
 	update_parent_overlay()
 
-	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, .proc/start_handle_attachment) //For attaching.
-	RegisterSignal(parent, list(COMSIG_LOADOUT_VENDOR_VENDED_GUN_ATTACHMENT, COMSIG_LOADOUT_VENDOR_VENDED_ATTACHMENT_GUN, COMSIG_LOADOUT_VENDOR_VENDED_ARMOR_ATTACHMENT), .proc/attach_without_user)
+	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, PROC_REF(start_handle_attachment)) //For attaching.
+	RegisterSignal(parent, list(COMSIG_LOADOUT_VENDOR_VENDED_GUN_ATTACHMENT, COMSIG_LOADOUT_VENDOR_VENDED_ATTACHMENT_GUN, COMSIG_LOADOUT_VENDOR_VENDED_ARMOR_ATTACHMENT), PROC_REF(attach_without_user))
 
-	RegisterSignal(parent, COMSIG_CLICK_ALT, .proc/start_detach) //For Detaching
-	RegisterSignal(parent, COMSIG_PARENT_QDELETING, .proc/clean_references) //Dels attachments.
-	RegisterSignal(parent, COMSIG_ITEM_APPLY_CUSTOM_OVERLAY, .proc/apply_custom)
-	RegisterSignal(parent, COMSIG_ITEM_UNEQUIPPED, .proc/remove_overlay)
+	RegisterSignal(parent, COMSIG_CLICK_ALT, PROC_REF(start_detach)) //For Detaching
+	RegisterSignal(parent, COMSIG_PARENT_QDELETING, PROC_REF(clean_references)) //Dels attachments.
+	RegisterSignal(parent, COMSIG_ITEM_APPLY_CUSTOM_OVERLAY, PROC_REF(apply_custom))
+	RegisterSignal(parent, COMSIG_ITEM_UNEQUIPPED, PROC_REF(remove_overlay))
 
 ///Starts processing the attack, and whether or not the attachable can attack.
 /datum/component/attachment_handler/proc/start_handle_attachment(datum/source, obj/attacking, mob/attacker)
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/handle_attachment, attacking, attacker)
+	INVOKE_ASYNC(src, PROC_REF(handle_attachment), attacking, attacker)
 
 /datum/component/attachment_handler/proc/handle_attachment(obj/attachment, mob/attacher, bypass_checks = FALSE)
 
@@ -98,6 +98,8 @@
 	attachment.forceMove(parent)
 	slots[slot] = attachment
 	attachment_data_by_slot[slot] = attachment_data
+
+	RegisterSignal(attachment, COMSIG_ATOM_UPDATE_OVERLAYS, PROC_REF(update_parent_overlay))
 
 	var/obj/parent_obj = parent
 	///The gun has another gun attached to it
@@ -210,7 +212,7 @@
 		to_chat(living_user, span_warning("There are no attachments that can be removed from [parent]!"))
 		return
 
-	INVOKE_ASYNC(src, .proc/do_detach, living_user, attachments_to_remove)
+	INVOKE_ASYNC(src, PROC_REF(do_detach), living_user, attachments_to_remove)
 
 ///Does the detach, shows the user the removable attachments and handles the do_after.
 /datum/component/attachment_handler/proc/do_detach(mob/living/user, list/attachments_to_remove)
@@ -258,7 +260,7 @@
 	slots[attachment_data[SLOT]] = null //Sets the slot the attachment is being removed from to null.
 	attachment_data_by_slot[attachment_data[SLOT]] = null
 	on_detach?.Invoke(attachment, user)
-	UnregisterSignal(attachment, COMSIG_ATOM_UPDATE_ICON)
+	UnregisterSignal(attachment, COMSIG_ATOM_UPDATE_OVERLAYS)
 	update_parent_overlay()
 
 	if(!user)
@@ -277,10 +279,11 @@
 ///This is for other objects to be able to attach things without the need for a user.
 /datum/component/attachment_handler/proc/attach_without_user(datum/source, obj/item/attachment)
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/handle_attachment, attachment, null, TRUE)
+	INVOKE_ASYNC(src, PROC_REF(handle_attachment), attachment, null, TRUE)
 
 ///This updates the overlays of the parent and apllies the right ones.
 /datum/component/attachment_handler/proc/update_parent_overlay(datum/source)
+	SIGNAL_HANDLER
 	var/obj/item/parent_item = parent
 	for(var/slot in slots) //Cycles through all the slots.
 		var/obj/item/attachment = slots[slot]

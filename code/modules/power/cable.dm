@@ -366,7 +366,7 @@ GLOBAL_LIST_INIT(wire_node_generating_types, typecacheof(list(/obj/structure/gri
 		if(first)
 			first = FALSE
 			continue
-		addtimer(CALLBACK(O, .proc/auto_propagate_cut_cable, O), 1, TIMER_UNIQUE) //so we don't rebuild the network X times when singulo/explosion destroys a line of X cables
+		addtimer(CALLBACK(O, PROC_REF(auto_propagate_cut_cable), O), 1, TIMER_UNIQUE) //so we don't rebuild the network X times when singulo/explosion destroys a line of X cables
 
 ///////////////////////////////////////////////
 // The cable coil object, used for laying cable
@@ -434,7 +434,7 @@ GLOBAL_LIST(cable_radial_layer_list)
 		"Multilayer cable hub" = image(icon = 'icons/obj/power.dmi', icon_state = "cable_bridge"),
 		"Multi Z layer cable hub" = image(icon = 'icons/obj/power.dmi', icon_state = "cablerelay-broken-cable")
 		)
-	var/layer_result = show_radial_menu(user, src, GLOB.cable_radial_layer_list, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
+	var/layer_result = show_radial_menu(user, src, GLOB.cable_radial_layer_list, custom_check = CALLBACK(src, PROC_REF(check_menu), user), require_near = TRUE, tooltips = TRUE)
 	if(!check_menu(user))
 		return
 	switch(layer_result)
@@ -470,6 +470,9 @@ GLOBAL_LIST(cable_radial_layer_list)
 			target_layer = CABLE_LAYER_2
 	update_icon()
 
+/obj/item/stack/cable_coil/tiny
+	amount = 1
+	icon_state = "coil2"
 
 ///////////////////////////////////
 // General procedures
@@ -506,12 +509,12 @@ GLOBAL_LIST(cable_radial_layer_list)
 	user.visible_message(span_notice("[user] starts to fix some of the wires in [H]'s [affecting.display_name]."),\
 		span_notice("You start fixing some of the wires in [H == user ? "your" : "[H]'s"] [affecting.display_name]."))
 
-	while(do_after(user, repair_time, TRUE, src, BUSY_ICON_BUILD) && use(1))
+	while(do_after(user, repair_time, TRUE, H, BUSY_ICON_BUILD) && use(1))
 		user.visible_message(span_warning("\The [user] fixes some wires in \the [H]'s [affecting.display_name] with [src]."), \
 			span_warning("You patch some wires in \the [H]'s [affecting.display_name]."))
 		if(affecting.heal_limb_damage(0, 15, robo_repair = TRUE, updating_health = TRUE))
 			H.UpdateDamageIcon()
-		if(!amount)
+		if(amount < 1)
 			return TRUE
 		if(!affecting.burn_dam)
 			var/previous_limb = affecting
@@ -690,7 +693,7 @@ GLOBAL_LIST(hub_radial_layer_list)
 			"Machinery" = image(icon = 'icons/obj/power.dmi', icon_state = "smes")
 			)
 
-	var/layer_result = show_radial_menu(user, src, GLOB.hub_radial_layer_list, custom_check = CALLBACK(src, .proc/check_menu, user), require_near = TRUE, tooltips = TRUE)
+	var/layer_result = show_radial_menu(user, src, GLOB.hub_radial_layer_list, custom_check = CALLBACK(src, PROC_REF(check_menu), user), require_near = TRUE, tooltips = TRUE)
 	if(!check_menu(user))
 		return
 	var/CL
@@ -735,7 +738,7 @@ GLOBAL_LIST(hub_radial_layer_list)
 
 /obj/structure/cable/multilayer/CtrlClick(mob/living/user)
 	to_chat(user, span_warning("You push the reset button."))
-	addtimer(CALLBACK(src, .proc/Reload), 10, TIMER_UNIQUE) //spam protect
+	addtimer(CALLBACK(src, PROC_REF(Reload)), 10, TIMER_UNIQUE) //spam protect
 
 //Multilayer combinations so avoid linter issues in the future
 /obj/structure/cable/multilayer/layer12

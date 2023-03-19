@@ -5,6 +5,7 @@ GLOBAL_LIST_INIT(exp_jobsmap, list(
 	EXP_TYPE_MEDICAL = list("titles" = GLOB.jobs_medical),
 	EXP_TYPE_MARINES = list("titles" = GLOB.jobs_marines),
 	EXP_TYPE_REQUISITIONS = list("titles" = GLOB.jobs_requisitions),
+	EXP_TYPE_SPECIAL = list("titles" = GLOB.jobs_xenos),
 ))
 
 GLOBAL_LIST_INIT(exp_specialmap, list(
@@ -74,6 +75,8 @@ GLOBAL_PROTECT(exp_specialmap)
 
 
 /datum/job/proc/after_spawn(mob/living/L, mob/M, latejoin = FALSE) //do actions on L but send messages to M as the key may not have been transferred_yet
+	if(isnull(L))
+		stack_trace("Job after_spawn was called without a valid target.")
 	if(!ishuman(L))
 		return
 	var/mob/living/carbon/human/H = L
@@ -204,7 +207,7 @@ GLOBAL_PROTECT(exp_specialmap)
 	current_positions += amount
 	for(var/index in jobworth)
 		var/datum/job/scaled_job = SSjob.GetJobType(index)
-		if(!(scaled_job in SSjob.active_joinable_occupations))
+		if(!(index in SSticker.mode.valid_job_types))
 			continue
 		if(isxenosjob(scaled_job))
 			if(respawn && (SSticker.mode?.flags_round_type & MODE_SILO_RESPAWN))

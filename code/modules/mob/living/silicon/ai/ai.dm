@@ -6,6 +6,7 @@
 	real_name = "ARES v3.2"
 	icon = 'icons/mob/AI.dmi'
 	icon_state = "ai"
+	bubble_icon = "robot"
 	anchored = TRUE
 	move_resist = MOVE_FORCE_OVERPOWERING
 	density = TRUE
@@ -25,7 +26,7 @@
 	var/acceleration = FALSE
 
 	var/multicam_on = FALSE
-	var/obj/screen/movable/pic_in_pic/ai/master_multicam
+	var/atom/movable/screen/movable/pic_in_pic/ai/master_multicam
 	var/list/multicam_screens = list()
 	var/list/all_eyes = list()
 	var/max_multicams = 6
@@ -51,6 +52,9 @@
 	var/datum/action/innate/order/current_order
 	/// If it is currently controlling an object
 	var/controlling = FALSE
+
+	///Linked artillery for remote targeting.
+	var/obj/machinery/deployable/mortar/linked_artillery
 
 
 /mob/living/silicon/ai/Initialize(mapload, ...)
@@ -80,12 +84,12 @@
 	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_SQUAD_TERRAGOV]
 	H.add_hud_to(src)
 
-	RegisterSignal(src, COMSIG_MOB_CLICK_ALT, .proc/send_order)
-	RegisterSignal(src, COMSIG_ORDER_SELECTED, .proc/set_order)
-	RegisterSignal(SSdcs, COMSIG_GLOB_OB_LASER_CREATED, .proc/receive_laser_ob)
-	RegisterSignal(SSdcs, COMSIG_GLOB_CAS_LASER_CREATED, .proc/receive_laser_cas)
+	RegisterSignal(src, COMSIG_MOB_CLICK_ALT, PROC_REF(send_order))
+	RegisterSignal(src, COMSIG_ORDER_SELECTED, PROC_REF(set_order))
 
-	RegisterSignal(SSdcs, COMSIG_GLOB_SHUTTLE_TAKEOFF, .proc/shuttle_takeoff_notification)
+	RegisterSignal(SSdcs, COMSIG_GLOB_OB_LASER_CREATED, PROC_REF(receive_laser_ob))
+	RegisterSignal(SSdcs, COMSIG_GLOB_CAS_LASER_CREATED, PROC_REF(receive_laser_cas))
+	RegisterSignal(SSdcs, COMSIG_GLOB_SHUTTLE_TAKEOFF, PROC_REF(shuttle_takeoff_notification))
 
 	var/datum/action/innate/order/attack_order/send_attack_order = new
 	var/datum/action/innate/order/defend_order/send_defend_order = new
@@ -112,8 +116,10 @@
 	QDEL_NULL(track)
 	UnregisterSignal(src, COMSIG_ORDER_SELECTED)
 	UnregisterSignal(src, COMSIG_MOB_CLICK_ALT)
+
 	UnregisterSignal(SSdcs, COMSIG_GLOB_OB_LASER_CREATED)
 	UnregisterSignal(SSdcs, COMSIG_GLOB_CAS_LASER_CREATED)
+	UnregisterSignal(SSdcs, COMSIG_GLOB_SHUTTLE_TAKEOFF)
 	return ..()
 
 ///Print order visual to all marines squad hud and give them an arrow to follow the waypoint
@@ -281,7 +287,7 @@
 	show_message(rendered, 2)
 
 
-/mob/living/silicon/ai/reset_perspective(atom/A, has_static = TRUE)
+/mob/living/silicon/ai/reset_perspective(atom/new_eye, has_static = TRUE)
 	if(has_static)
 		sight = initial(sight)
 		eyeobj?.use_static = initial(eyeobj?.use_static)
@@ -292,14 +298,14 @@
 		GLOB.cameranet.visibility(eyeobj, client, all_eyes, FALSE)
 	if(camera_light_on)
 		light_cameras()
-	if(istype(A, /obj/machinery/camera))
-		current = A
+	if(istype(new_eye, /obj/machinery/camera))
+		current = new_eye
 	if(client)
-		if(ismovableatom(A))
-			if(A != GLOB.ai_camera_room_landmark)
+		if(ismovableatom(new_eye))
+			if(new_eye != GLOB.ai_camera_room_landmark)
 				end_multicam()
 			client.perspective = EYE_PERSPECTIVE
-			client.eye = A
+			client.eye = new_eye
 		else
 			end_multicam()
 			if(isturf(loc))
@@ -353,8 +359,11 @@
 
 		stat("Current supply points:", "[round(SSpoints.supply_points[FACTION_TERRAGOV])]")
 
+		stat("Current dropship points:", "[round(SSpoints.dropship_points)]")
+
 		stat("Current alert level:", "[GLOB.marine_main_ship.get_security_level()]")
 
+		stat("Number of living marines:", "[SSticker.mode.count_humans_and_xenos()[1]]")
 
 
 /mob/living/silicon/ai/fully_replace_character_name(oldname, newname)
@@ -391,6 +400,22 @@
 		reset_perspective()
 	remote_control = controlled
 
+///Called for associating the AI with artillery
+/mob/living/silicon/ai/proc/associate_artillery(mortar)
+	if(linked_artillery)
+		UnregisterSignal(linked_artillery, COMSIG_PARENT_QDELETING)
+		linked_artillery = null
+		return FALSE
+	linked_artillery = mortar
+	RegisterSignal(linked_artillery, COMSIG_PARENT_QDELETING, PROC_REF(clean_artillery_refs))
+	return TRUE
+
+///Proc called when linked_mortar is deleted.
+/mob/living/silicon/ai/proc/clean_artillery_refs()
+	SIGNAL_HANDLER
+	linked_artillery.unset_targeter()
+	linked_artillery = null
+	to_chat(src, span_notice("NOTICE: Connection closed with linked mortar."))
 
 /datum/action/control_vehicle
 	name = "Select vehicle to control"
@@ -436,7 +461,7 @@
 
 /datum/action/control_vehicle/proc/link_with_vehicle(obj/vehicle/unmanned/_vehicle)
 	vehicle = _vehicle
-	RegisterSignal(vehicle, COMSIG_PARENT_QDELETING, .proc/clear_vehicle)
+	RegisterSignal(vehicle, COMSIG_PARENT_QDELETING, PROC_REF(clear_vehicle))
 	vehicle.on_link()
 	owner.AddComponent(/datum/component/remote_control, vehicle, vehicle.turret_type, vehicle.can_interact)
 	SEND_SIGNAL(owner, COMSIG_REMOTECONTROL_TOGGLE, owner)
@@ -444,7 +469,9 @@
 /datum/action/innate/squad_message
 	name = "Send Order"
 	action_icon_state = "screen_order_marine"
-	keybind_signal = COMSIG_KB_SENDORDER
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_KB_SENDORDER,
+	)
 
 /datum/action/innate/squad_message/can_use_action()
 	. = ..()
@@ -473,4 +500,4 @@
 	deadchat_broadcast(" has sent the command order \"[text]\"", owner, owner)
 	for(var/mob/living/carbon/human/human AS in GLOB.alive_human_list)
 		if(human.faction == owner.faction)
-			human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>ORDERS UPDATED:</u></span><br>" + text, /obj/screen/text/screen_text/command_order)
+			human.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>ORDERS UPDATED:</u></span><br>" + text, /atom/movable/screen/text/screen_text/command_order)

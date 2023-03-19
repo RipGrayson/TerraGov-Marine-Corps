@@ -151,7 +151,7 @@ These act as a respawn mechanic growning a body and offering it up to ghosts.
 		return
 
 	if(timerid || occupant) // You need to stop the process or remove the human first.
-		to_chat(user, span_notice("You can't get to the beaker while the machine growing a clone."))
+		to_chat(user, span_notice("You can't get to the beaker while the machine is growing a clone."))
 		return
 
 	beaker.forceMove(drop_location())
@@ -224,7 +224,7 @@ These act as a respawn mechanic growning a body and offering it up to ghosts.
 		return
 
 	visible_message("[icon2html(src, viewers(src))] <span><b>[src]</b> whirls as it starts to create a new clone.</span>")
-	timerid = addtimer(CALLBACK(src, .proc/finish_growing_human), grow_timer, TIMER_STOPPABLE)
+	timerid = addtimer(CALLBACK(src, PROC_REF(finish_growing_human)), grow_timer, TIMER_STOPPABLE)
 	update_icon()
 
 
