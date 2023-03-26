@@ -57,7 +57,11 @@
 	walltype = "chigusa"
 	base_icon_state = "chigusa"
 
-
+/turf/closed/wall/r_wall/old
+	icon = 'icons/turf/walls/oldrwall.dmi'
+	icon_state = "oldrwall-0"
+	walltype = "oldrwall"
+	base_icon_state = "oldrwall"
 
 
 //Prison

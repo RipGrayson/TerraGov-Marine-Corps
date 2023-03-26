@@ -105,6 +105,16 @@
 	resistance_flags = RESIST_ALL
 	icon_state = "wall-invincible"
 
+/turf/closed/mineral/smooth/spacewall
+	icon = 'icons/turf/walls/asteroidwall.dmi'
+	icon_state = "asteroidwall-0"
+	walltype = "asteroidwall"
+	base_icon_state = "asteroidwall"
+
+/turf/closed/mineral/smooth/spacewall/indestructible
+	resistance_flags = RESIST_ALL
+	icon_state = "wall-invincible"
+
 /turf/closed/mineral/bigred
 	name = "rock"
 	icon = 'icons/turf/walls.dmi'

@@ -378,3 +378,7 @@
 
 /turf/open/ground/empty/is_weedable()
 	return FALSE
+
+/turf/open/floor/ground/asteroid
+	name = "cratered surface"
+	icon_state = "asteroidsurface"

@@ -261,6 +261,36 @@
 /turf/closed/wall/indestructible/other
 	icon_state = "r_wall"
 
+/turf/closed/wall/oldwall
+	icon = 'icons/turf/walls/oldwall.dmi'
+	icon_state = "oldwall-0"
+	base_icon_state = "oldwall"
+
+/turf/closed/wall/tanwall
+	icon = 'icons/turf/walls/tanwallred.dmi'
+	icon_state = "tanwallred-0"
+	base_icon_state = "tanwallred"
+
+/turf/closed/wall/tanwall/alt
+	icon = 'icons/turf/walls/tanwallredalt.dmi'
+	icon_state = "tanwallredalt-0"
+	base_icon_state = "tanwallredalt"
+
+/turf/closed/wall/tanwall/orange
+	icon = 'icons/turf/walls/tanwallorange.dmi'
+	icon_state = "tanwallorange-0"
+	base_icon_state = "tanwallorange"
+
+/turf/closed/wall/spacewall
+	icon = 'icons/turf/walls/spacewallred.dmi'
+	icon_state = "spacewallred-0"
+	base_icon_state = "spacewallred"
+
+/turf/closed/wall/spacewall/black
+	icon = 'icons/turf/walls/spacewallblack.dmi'
+	icon_state = "spacewallblack-0"
+	base_icon_state = "spacewallblack"
+
 // Mineral Walls
 
 /turf/closed/wall/mineral
