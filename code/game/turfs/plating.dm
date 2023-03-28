@@ -7,6 +7,7 @@
 	shoefootstep = FOOTSTEP_PLATING
 	barefootstep = FOOTSTEP_HARD
 	mediumxenofootstep = FOOTSTEP_PLATING
+	smoothing_groups = list(SMOOTH_GROUP_FLOOR_PLATING)
 
 /turf/open/floor/plating/mainship
 	icon = 'icons/turf/mainship.dmi'
@@ -102,6 +103,10 @@
 	barefootstep = FOOTSTEP_CATWALK
 	mediumxenofootstep = FOOTSTEP_CATWALK
 	layer = CATWALK_LAYER
+
+/turf/open/floor/plating/catwalk/ex_act(severity)
+	. = ..()
+	return
 
 /turf/open/floor/plating/warning
 	icon_state = "warnplate"
