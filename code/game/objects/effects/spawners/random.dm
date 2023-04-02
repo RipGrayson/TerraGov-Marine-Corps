@@ -1291,6 +1291,12 @@
 		/obj/item/reagent_containers/food/drinks/tea,
 	)
 
+/obj/effect/spawner/random/souto
+	name = "souto spawner"
+	icon_state = "random_souto"
+	loot_type_path = /obj/item/reagent_containers/food/drinks/cans/souto
+	loot = list()
+
 /obj/effect/spawner/random/beer/oscaroutpost
 	loot = list(
 		/obj/item/reagent_containers/food/drinks/cans/beer = 95,
