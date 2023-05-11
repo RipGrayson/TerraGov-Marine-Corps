@@ -148,20 +148,25 @@
 	reinforced = TRUE
 	max_integrity = 300
 
-/obj/structure/window/framed/colony/reinforced/update_icon()
+/obj/structure/window_frame/colony/reinforced/examine(mob/user)
+	. = ..()
+	if(obj_integrity <= 50)
+		. += span_warning("It's so warped by damage it's hard to see what kind of window used to sit in it.")
+	else if(obj_integrity <= 99)
+		. += span_warning("It's become quite battered by damage and chunks of the frame have been battered out of place.")
+	else if(obj_integrity <= 200)
+		. += span_warning("It's been damaged some and the frame is marred by slight cracks.")
+	else if(obj_integrity >= 250)
+		. += span_info("It's fully intact.")
+
+/obj/structure/window_frame/colony/reinforced/update_icon()
+	if(obj_integrity <= 50)
+		icon = 'icons/obj/smooth_objects/col_rwindow_frame0.dmi'
+	else if(obj_integrity <= 99)
+		icon = 'icons/obj/smooth_objects/col_rwindow_frame25.dmi'
+	else if(obj_integrity <= 200)
+		icon = 'icons/obj/smooth_objects/col_rwindow_frame75.dmi'
 	QUEUE_SMOOTH(src)
-	switch(obj_integrity)
-		if(INFINITY to 150)
-			. += span_info("It's fully intact.")
-		if(149 to 100)
-			icon = 'icons/obj/smooth_objects/col_rwindow_frame75.dmi'
-			. += span_warning("It's been damaged some, the frame is somewhat marred by slight cracks.")
-		if(99 to 50)
-			icon = 'icons/obj/smooth_objects/col_rwindow_frame25.dmi'
-			. += span_warning("It's become quite battered by damage, chunks of the frame have been battered out of place.")
-		if(-INFINITY to 49)
-			icon = 'icons/obj/smooth_objects/col_rwindow_frame0.dmi'
-			. += span_warning("The frame has become so warped by damage it's hard to see what kind of window used to sit in it.")
 
 /obj/structure/window_frame/colony/reinforced/weakened
 	max_integrity = 150

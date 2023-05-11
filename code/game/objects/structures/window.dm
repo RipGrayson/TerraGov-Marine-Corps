@@ -23,6 +23,9 @@
 	var/deconstructable = TRUE
 	flags_pass = PASSLASER
 
+/obj/structure/window/proc/adjust_damage_state()
+	return
+
 /obj/structure/window/add_debris_element()
 	AddElement(/datum/element/debris, DEBRIS_GLASS, -10, 5)
 
@@ -563,20 +566,25 @@
 	reinf = 1
 	window_frame = /obj/structure/window_frame/colony/reinforced
 
+/obj/structure/window/framed/colony/reinforced/examine(mob/user)
+	. = ..()
+	if(obj_integrity <= 25)
+		. += span_warning("It's been so damaged only shards of glass remain in the frame.")
+	else if(obj_integrity <= 50)
+		. += span_warning("It's quite fractured and major chunks of glass are missing.")
+	else if(obj_integrity <= 75)
+		. += span_warning("It has some damage, there's cracks running along the interior.")
+	else if(obj_integrity >= 76)
+		. += span_info("It's fully intact.")
+
 /obj/structure/window/framed/colony/reinforced/update_icon()
+	if(obj_integrity <= 25)
+		icon = 'icons/obj/smooth_objects/col_rwindow0.dmi'
+	else if(obj_integrity <= 50)
+		icon = 'icons/obj/smooth_objects/col_rwindow25.dmi'
+	else if(obj_integrity <= 75)
+		icon = 'icons/obj/smooth_objects/col_rwindow75.dmi'
 	QUEUE_SMOOTH(src)
-	switch(obj_integrity)
-		if(INFINITY to 76)
-			. += span_info("It's fully intact.")
-		if(75 to 50)
-			icon = 'icons/obj/smooth_objects/col_rwindow75.dmi'
-			. += span_warning("It's been damaged some, there's cracks running along the interior.")
-		if(49 to 25)
-			icon = 'icons/obj/smooth_objects/col_rwindow25.dmi'
-			. += span_warning("It's quite riddled with bullet holes, major chunks of glass are missing.")
-		if(-INFINITY to 0)
-			icon = 'icons/obj/smooth_objects/col_rwindow0.dmi'
-			. += span_warning("This window has been so damaged only shards of glass remain in the frame.")
 
 /obj/structure/window/framed/colony/reinforced/tinted
 	name = "tinted reinforced window"
@@ -592,8 +600,6 @@
 	resistance_flags = RESIST_ALL
 	max_integrity = 1000000 //Failsafe, shouldn't matter
 	icon_state = "window-invincible"
-
-
 
 //Chigusa windows
 
