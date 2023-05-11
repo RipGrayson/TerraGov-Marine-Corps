@@ -563,6 +563,21 @@
 	reinf = 1
 	window_frame = /obj/structure/window_frame/colony/reinforced
 
+/obj/structure/window/framed/colony/reinforced/update_icon()
+	QUEUE_SMOOTH(src)
+	switch(obj_integrity)
+		if(INFINITY to 76)
+			. += span_info("It's fully intact.")
+		if(75 to 50)
+			icon = 'icons/obj/smooth_objects/col_rwindow75.dmi'
+			. += span_warning("It's been damaged some, there's cracks running along the interior.")
+		if(49 to 25)
+			icon = 'icons/obj/smooth_objects/col_rwindow25.dmi'
+			. += span_warning("It's quite riddled with bullet holes, major chunks of glass are missing.")
+		if(-INFINITY to 0)
+			icon = 'icons/obj/smooth_objects/col_rwindow0.dmi'
+			. += span_warning("This window has been so damaged only shards of glass remain in the frame.")
+
 /obj/structure/window/framed/colony/reinforced/tinted
 	name = "tinted reinforced window"
 	desc = "A glass window with a special rod matrice inside a wall frame. It looks rather strong. Might take a few good hits to shatter it. This one is opaque. You have an uneasy feeling someone might be watching from the other side."

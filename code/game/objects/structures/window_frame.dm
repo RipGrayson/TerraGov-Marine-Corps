@@ -148,6 +148,21 @@
 	reinforced = TRUE
 	max_integrity = 300
 
+/obj/structure/window/framed/colony/reinforced/update_icon()
+	QUEUE_SMOOTH(src)
+	switch(obj_integrity)
+		if(INFINITY to 150)
+			. += span_info("It's fully intact.")
+		if(149 to 100)
+			icon = 'icons/obj/smooth_objects/col_rwindow_frame75.dmi'
+			. += span_warning("It's been damaged some, the frame is somewhat marred by slight cracks.")
+		if(99 to 50)
+			icon = 'icons/obj/smooth_objects/col_rwindow_frame25.dmi'
+			. += span_warning("It's become quite battered by damage, chunks of the frame have been battered out of place.")
+		if(-INFINITY to 49)
+			icon = 'icons/obj/smooth_objects/col_rwindow_frame0.dmi'
+			. += span_warning("The frame has become so warped by damage it's hard to see what kind of window used to sit in it.")
+
 /obj/structure/window_frame/colony/reinforced/weakened
 	max_integrity = 150
 
