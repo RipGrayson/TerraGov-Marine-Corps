@@ -139,6 +139,7 @@
 	icon_state = "col_window_frame-0"
 	base_icon_state = "col_window_frame"
 	basestate = "col_window_frame"
+	max_integrity = 100
 
 /obj/structure/window_frame/colony/reinforced
 	icon = 'icons/obj/smooth_objects/col_rwindow_frame.dmi'
@@ -146,7 +147,7 @@
 	basestate = "col_rwindow_frame"
 	base_icon_state = "col_rwindow_frame"
 	reinforced = TRUE
-	max_integrity = 300
+	max_integrity = 230
 
 /obj/structure/window_frame/colony/reinforced/examine(mob/user)
 	. = ..()
@@ -156,7 +157,7 @@
 		. += span_warning("It's become quite battered by damage and chunks of the frame have been battered out of place.")
 	else if(obj_integrity <= 200)
 		. += span_warning("It's been damaged some and the frame is marred by slight cracks.")
-	else if(obj_integrity >= 250)
+	else if(obj_integrity >= 230)
 		. += span_info("It's fully intact.")
 
 /obj/structure/window_frame/colony/reinforced/update_icon()
@@ -170,6 +171,10 @@
 
 /obj/structure/window_frame/colony/reinforced/weakened
 	max_integrity = 150
+
+/obj/structure/window_frame/colony/reinforced/weakened/Initialize(mapload, from_window_shatter)
+	. = ..()
+	obj_integrity = rand(99,200)
 
 /obj/structure/window_frame/chigusa
 	icon = 'icons/obj/smooth_objects/chigusa_window_frame.dmi'

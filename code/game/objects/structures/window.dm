@@ -562,27 +562,27 @@
 	icon_state = "window-reinforced"
 	base_icon_state = "col_rwindow"
 	desc = "A glass window with a special rod matrice inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."
-	max_integrity = 100
+	max_integrity = 200
 	reinf = 1
 	window_frame = /obj/structure/window_frame/colony/reinforced
 
 /obj/structure/window/framed/colony/reinforced/examine(mob/user)
 	. = ..()
-	if(obj_integrity <= 25)
+	if(obj_integrity <= 50)
 		. += span_warning("It's been so damaged only shards of glass remain in the frame.")
-	else if(obj_integrity <= 50)
+	else if(obj_integrity <= 100)
 		. += span_warning("It's quite fractured and major chunks of glass are missing.")
-	else if(obj_integrity <= 75)
+	else if(obj_integrity <= 175)
 		. += span_warning("It has some damage, there's cracks running along the interior.")
-	else if(obj_integrity >= 76)
+	else if(obj_integrity >= 200)
 		. += span_info("It's fully intact.")
 
 /obj/structure/window/framed/colony/reinforced/update_icon()
-	if(obj_integrity <= 25)
+	if(obj_integrity <= 50)
 		icon = 'icons/obj/smooth_objects/col_rwindow0.dmi'
-	else if(obj_integrity <= 50)
+	else if(obj_integrity <= 100)
 		icon = 'icons/obj/smooth_objects/col_rwindow25.dmi'
-	else if(obj_integrity <= 75)
+	else if(obj_integrity <= 175)
 		icon = 'icons/obj/smooth_objects/col_rwindow75.dmi'
 	QUEUE_SMOOTH(src)
 
