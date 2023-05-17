@@ -363,6 +363,23 @@
 	walltype = "metal"
 	base_icon_state = "metal"
 
+/turf/closed/wall/prison/alt
+	name = "metal wall"
+	icon = 'icons/turf/walls/pwall2.dmi'
+	icon_state = "pwall2-0"
+	walltype = "metal"
+	base_icon_state = "pwall2"
+
+/turf/closed/wall/prison/altreinforced
+	name = "metal wall"
+	icon = 'icons/turf/walls/pwall.dmi'
+	icon_state = "wall-reinforced"
+	walltype = "metal"
+	base_icon_state = "pwall"
+
+/turf/closed/wall/prison/altreinforced/hull
+	resistance_flags = RESIST_ALL
+	icon_state = "wall-invincible"
 
 
 //Wood wall
