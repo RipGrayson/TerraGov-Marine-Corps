@@ -73,7 +73,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	if(!(config_tag in SSmapping.configs[GROUND_MAP].gamemodes) && !bypass_checks)
 		log_world("attempted to start [src.type] on "+SSmapping.configs[GROUND_MAP].map_name+" which doesn't support it.")
 		// start a gamemode vote, in theory this should never happen.
-		addtimer(CALLBACK(SSvote, /datum/controller/subsystem/vote.proc/initiate_vote, "gamemode", "SERVER"), 10 SECONDS)
+		addtimer(CALLBACK(SSvote, TYPE_PROC_REF(/datum/controller/subsystem/vote, initiate_vote), "gamemode", "SERVER"), 10 SECONDS)
 		return FALSE
 	if(length(GLOB.ready_players) < required_players && !bypass_checks)
 		to_chat(world, "<b>Unable to start [name].</b> Not enough players, [required_players] players needed.")
@@ -100,8 +100,8 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 
 	GLOB.landmarks_round_start = shuffle(GLOB.landmarks_round_start)
 	var/obj/effect/landmark/L
-	while(GLOB.landmarks_round_start.len)
-		L = GLOB.landmarks_round_start[GLOB.landmarks_round_start.len]
+	while(length(GLOB.landmarks_round_start))
+		L = GLOB.landmarks_round_start[length(GLOB.landmarks_round_start)]
 		GLOB.landmarks_round_start.len--
 		L.after_round_start()
 
@@ -124,10 +124,10 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 
 ///Gamemode setup run after the game has started
 /datum/game_mode/proc/post_setup()
-	addtimer(CALLBACK(src, .proc/display_roundstart_logout_report), ROUNDSTART_LOGOUT_REPORT_TIME)
+	addtimer(CALLBACK(src, PROC_REF(display_roundstart_logout_report)), ROUNDSTART_LOGOUT_REPORT_TIME)
 	if(flags_round_type & MODE_SILO_RESPAWN)
 		var/datum/hive_status/normal/HN = GLOB.hive_datums[XENO_HIVE_NORMAL]
-		HN.RegisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_SHUTTERS_EARLY), /datum/hive_status/normal.proc/set_siloless_collapse_timer)
+		HN.RegisterSignal(SSdcs, list(COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE, COMSIG_GLOB_OPEN_SHUTTERS_EARLY), TYPE_PROC_REF(/datum/hive_status/normal, set_siloless_collapse_timer))
 	if(!SSdbcore.Connect())
 		return
 	var/sql
@@ -180,7 +180,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 		livings += living
 
 	if(length(livings))
-		addtimer(CALLBACK(src, .proc/release_characters, livings), 1 SECONDS, TIMER_CLIENT_TIME)
+		addtimer(CALLBACK(src, PROC_REF(release_characters), livings), 1 SECONDS, TIMER_CLIENT_TIME)
 
 /datum/game_mode/proc/release_characters(list/livings)
 	for(var/I in livings)
@@ -203,7 +203,7 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	if(allow_persistence_save)
 		SSpersistence.CollectData()
 	display_report()
-	addtimer(CALLBACK(src, .proc/end_of_round_deathmatch), ROUNDEND_EORG_DELAY)
+	addtimer(CALLBACK(src, PROC_REF(end_of_round_deathmatch)), ROUNDEND_EORG_DELAY)
 	//end_of_round_deathmatch()
 	return TRUE
 
@@ -267,13 +267,13 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	set waitfor = FALSE
 
 	if(flags_round_type & MODE_LATE_OPENING_SHUTTER_TIMER)
-		addtimer(CALLBACK(GLOBAL_PROC, .proc/send_global_signal, COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE), SSticker.round_start_time + shutters_drop_time)
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(send_global_signal), COMSIG_GLOB_OPEN_TIMED_SHUTTERS_LATE), SSticker.round_start_time + shutters_drop_time)
 			//Called late because there used to be shutters opened earlier. To re-add them just copy the logic.
 
 	if(flags_round_type & MODE_XENO_SPAWN_PROTECT)
 		var/turf/T
-		while(GLOB.xeno_spawn_protection_locations.len)
-			T = GLOB.xeno_spawn_protection_locations[GLOB.xeno_spawn_protection_locations.len]
+		while(length(GLOB.xeno_spawn_protection_locations))
+			T = GLOB.xeno_spawn_protection_locations[length(GLOB.xeno_spawn_protection_locations)]
 			GLOB.xeno_spawn_protection_locations.len--
 			new /obj/effect/forcefield/fog(T)
 			stoplag()
@@ -284,7 +284,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 	source.verbs |= /mob/proc/eord_respawn
 
 /datum/game_mode/proc/end_of_round_deathmatch()
-	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGIN, .proc/grant_eord_respawn) // New mobs can now respawn into EORD
+	RegisterSignal(SSdcs, COMSIG_GLOB_MOB_LOGIN, PROC_REF(grant_eord_respawn)) // New mobs can now respawn into EORD
 	var/list/spawns = GLOB.deathmatch.Copy()
 
 	CONFIG_SET(flag/allow_synthetic_gun_use, TRUE)
@@ -322,46 +322,20 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			to_chat(M, "<br><br><h1>[span_danger("Failed to find a valid location for End of Round Deathmatch. Please do not grief.")]</h1><br><br>")
 			continue
 
-		var/mob/living/L
-		if(!isliving(M) || isAI(M))
-			L = new /mob/living/carbon/human(picked)
-			M.mind.transfer_to(L, TRUE)
-		else
-			L = M
-			INVOKE_ASYNC(L, /atom/movable/.proc/forceMove, picked)
-
-		L.mind.bypass_ff = TRUE
-		L.revive()
-
-		if(isxeno(L))
-			var/mob/living/carbon/xenomorph/X = L
+		if(isxeno(M))
+			var/mob/living/carbon/xenomorph/X = M
 			X.transfer_to_hive(pick(XENO_HIVE_NORMAL, XENO_HIVE_CORRUPTED, XENO_HIVE_ALPHA, XENO_HIVE_BETA, XENO_HIVE_ZETA))
+			INVOKE_ASYNC(X, TYPE_PROC_REF(/atom/movable, forceMove), picked)
 
-		else if(ishuman(L))
-			var/mob/living/carbon/human/H = L
-			if(!H.w_uniform)
-				var/job = pick(
-					/datum/job/clf/leader,
-					/datum/job/clf/standard,
-					/datum/job/freelancer/leader,
-					/datum/job/freelancer/grenadier,
-					/datum/job/freelancer/standard,
-					/datum/job/upp/leader,
-					/datum/job/upp/heavy,
-					/datum/job/upp/standard,
-					/datum/job/som/ert/leader,
-					/datum/job/som/ert/veteran,
-					/datum/job/som/ert/standard,
-					/datum/job/pmc/leader,
-					/datum/job/pmc/standard,
-				)
-				var/datum/job/J = SSjob.GetJobType(job)
-				H.apply_assigned_role_to_spawn(J)
-				H.regenerate_icons()
+		else if(ishuman(M))
+			var/mob/living/carbon/human/H = M
+			do_eord_respawn(H)
 
-		to_chat(L, "<br><br><h1>[span_danger("Fight for your life!")]</h1><br><br>")
+		to_chat(M, "<br><br><h1>[span_danger("Fight for your life!")]</h1><br><br>")
 		CHECK_TICK
 
+	for(var/obj/effect/landmark/eord_roomba/landmark in GLOB.eord_roomba_spawns)
+		new /obj/machinery/roomba/valhalla/eord(get_turf(landmark))
 
 /datum/game_mode/proc/orphan_hivemind_collapse()
 	return
@@ -396,7 +370,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		for(var/i in 1 to length(RA.medal_names))
 			parts += "<br><b>[RA.recipient_rank] [recipient]</b> is awarded [RA.posthumous[i] ? "posthumously " : ""]the [span_boldnotice("[RA.medal_names[i]]")]: \'<i>[RA.medal_citations[i]]</i>\'."
 
-	if(parts.len)
+	if(length(parts))
 		return "<div class='panel stationborder'>[parts.Join("<br>")]</div>"
 	else
 		return ""
@@ -463,6 +437,12 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		parts += "[GLOB.round_statistics.spitter_scatter_spits] number of times Spitters horked up scatter spits."
 	if(GLOB.round_statistics.ravager_endures)
 		parts += "[GLOB.round_statistics.ravager_endures] number of times Ravagers used Endure."
+	if(GLOB.round_statistics.bull_crush_hit)
+		parts += "[GLOB.round_statistics.bull_crush_hit] number of times Bulls crushed marines."
+	if(GLOB.round_statistics.bull_gore_hit)
+		parts += "[GLOB.round_statistics.bull_gore_hit] number of times Bulls gored marines."
+	if(GLOB.round_statistics.bull_headbutt_hit)
+		parts += "[GLOB.round_statistics.bull_headbutt_hit] number of times Bulls headbutted marines."
 	if(GLOB.round_statistics.hunter_marks)
 		parts += "[GLOB.round_statistics.hunter_marks] number of times Hunters marked a target for death."
 	if(GLOB.round_statistics.ravager_rages)
@@ -502,7 +482,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 			else
 				parts += ","
 
-	if(parts.len)
+	if(length(parts))
 		return "<div class='panel stationborder'>[parts.Join("<br>")]</div>"
 	else
 		return ""
@@ -828,7 +808,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 
 	parts += span_round_body("The surviving xenomorph ruler was:<br>[HN.living_xeno_ruler.key] as [span_boldnotice("[HN.living_xeno_ruler]")]")
 
-	if(parts.len)
+	if(length(parts))
 		return "<div class='panel stationborder'>[parts.Join("<br>")]</div>"
 	else
 		return ""
@@ -843,14 +823,14 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		antag_info["antagonist_type"] = A.type
 		antag_info["antagonist_name"] = A.name //For auto and custom roles
 		antag_info["objectives"] = list()
-		if(A.objectives.len)
+		if(length(A.objectives))
 			for(var/datum/objective/O in A.objectives)
 				var/result = O.check_completion() ? "SUCCESS" : "FAIL"
 				antag_info["objectives"] += list(list("objective_type"=O.type,"text"=O.explanation_text,"result"=result))
 		SSblackbox.record_feedback("associative", "antagonists", 1, antag_info)
 
 /proc/printobjectives(list/objectives)
-	if(!objectives || !objectives.len)
+	if(!objectives || !length(objectives))
 		return
 	var/list/objective_parts = list()
 	var/count = 1
@@ -888,7 +868,7 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		all_antagonists |= A
 	var/currrent_category
 	var/datum/antagonist/previous_category
-	sortTim(all_antagonists, /proc/cmp_antag_category)
+	sortTim(all_antagonists, GLOBAL_PROC_REF(cmp_antag_category))
 	for(var/datum/antagonist/A in all_antagonists)
 		if(!A.show_in_roundend)
 			continue
@@ -903,8 +883,8 @@ GLOBAL_LIST_INIT(bioscan_locations, list(
 		result += A.roundend_report()
 		result += "<br><br>"
 		CHECK_TICK
-	if(all_antagonists.len)
-		var/datum/antagonist/last = all_antagonists[all_antagonists.len]
+	if(length(all_antagonists))
+		var/datum/antagonist/last = all_antagonists[length(all_antagonists)]
 		result += last.roundend_report_footer()
 		result += "</div>"
 	return result.Join()

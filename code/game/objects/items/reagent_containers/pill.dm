@@ -14,7 +14,7 @@
 	var/pill_desc = "An unknown pill." //the real description of the pill, shown when examined by a medically trained person
 	var/pill_id
 
-/obj/item/reagent_containers/pill/Initialize()
+/obj/item/reagent_containers/pill/Initialize(mapload)
 	. = ..()
 	if(icon_state == "pill1")
 		icon_state = pill_id ? GLOB.randomized_pill_icons[pill_id] : pick(GLOB.randomized_pill_icons)
@@ -160,7 +160,7 @@
 
 /obj/item/reagent_containers/pill/isotonic
 	pill_desc = "A pill with an isotonic solution inside. Used to stimulate blood regeneration."
-	list_reagents = list(/datum/reagent/consumable/nutriment = 6, /datum/reagent/iron = 6, /datum/reagent/consumable/sugar = 3)
+	list_reagents = list(/datum/reagent/medicine/saline_glucose = 15)
 	pill_id = 4
 
 /obj/item/reagent_containers/pill/inaprovaline

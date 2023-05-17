@@ -2,7 +2,7 @@ GLOBAL_LIST_EMPTY(deployable_items)
 
 /datum/element/deployable_item
 	element_flags = ELEMENT_BESPOKE
-	id_arg_index = 2
+	argument_hash_start_idx = 2
 
 	///Time it takes for the parent to be deployed.
 	var/deploy_time = 0
@@ -24,7 +24,7 @@ GLOBAL_LIST_EMPTY(deployable_items)
 	if(CHECK_BITFIELD(attached_item.flags_item, DEPLOY_ON_INITIALIZE))
 		finish_deploy(attached_item, null, attached_item.loc, attached_item.dir)
 
-	RegisterSignal(attached_item, COMSIG_ITEM_EQUIPPED, .proc/register_for_deploy_signal)
+	RegisterSignal(attached_item, COMSIG_ITEM_EQUIPPED, PROC_REF(register_for_deploy_signal))
 
 /datum/element/deployable_item/Detach(datum/source, force)
 	. = ..()
@@ -36,8 +36,8 @@ GLOBAL_LIST_EMPTY(deployable_items)
 	SIGNAL_HANDLER
 	if(slot != SLOT_L_HAND && slot != SLOT_R_HAND)
 		return
-	RegisterSignal(user, COMSIG_MOB_MOUSEDOWN, .proc/deploy, TRUE) //You can hold more than one deployable item at once
-	RegisterSignal(item_equipped, COMSIG_ITEM_UNEQUIPPED, .proc/unregister_signals)
+	RegisterSignal(user, COMSIG_MOB_MOUSEDOWN, PROC_REF(deploy), TRUE) //You can hold more than one deployable item at once
+	RegisterSignal(item_equipped, COMSIG_ITEM_UNEQUIPPED, PROC_REF(unregister_signals))
 
 ///Unregister and stop waiting for click to deploy
 /datum/element/deployable_item/proc/unregister_signals(obj/item/item_unequipped, mob/user)
@@ -58,7 +58,7 @@ GLOBAL_LIST_EMPTY(deployable_items)
 	var/list/modifiers = params2list(params)
 	if(!modifiers["ctrl"] || modifiers["right"] || get_turf(user) == location || !(user.Adjacent(object)) || !location)
 		return
-	INVOKE_ASYNC(src, .proc/finish_deploy, item_in_active_hand, user, location)
+	INVOKE_ASYNC(src, PROC_REF(finish_deploy), item_in_active_hand, user, location)
 	return COMSIG_KB_ACTIVATED
 
 ///Handles the conversion of item into machine. Source is the Item to be deployed, user is who is deploying. If user is null, a direction must be set.
@@ -87,7 +87,7 @@ GLOBAL_LIST_EMPTY(deployable_items)
 			return
 		user.temporarilyRemoveItemFromInventory(item_to_deploy)
 
-		item_to_deploy.UnregisterSignal(user, list(COMSIG_MOB_MOUSEDOWN, COMSIG_MOB_MOUSEUP, COMSIG_MOB_MOUSEDRAG, COMSIG_KB_RAILATTACHMENT, COMSIG_KB_UNDERRAILATTACHMENT, COMSIG_KB_UNLOADGUN, COMSIG_KB_FIREMODE,  COMSIG_MOB_CLICK_RIGHT)) //This unregisters Signals related to guns, its for safety
+		item_to_deploy.UnregisterSignal(user, list(COMSIG_MOB_MOUSEDOWN, COMSIG_MOB_MOUSEUP, COMSIG_MOB_MOUSEDRAG, COMSIG_KB_RAILATTACHMENT, COMSIG_KB_UNDERRAILATTACHMENT, COMSIG_KB_UNLOADGUN, COMSIG_KB_FIREMODE, COMSIG_KB_AUTOEJECT, COMSIG_MOB_CLICK_RIGHT)) //This unregisters Signals related to guns, its for safety
 
 		direction_to_deploy = newdir
 
@@ -108,21 +108,23 @@ GLOBAL_LIST_EMPTY(deployable_items)
 	if(user)
 		item_to_deploy.balloon_alert(user, "Deployed!")
 		user.transferItemToLoc(item_to_deploy, deployed_machine, TRUE)
+		if(user.client.prefs.toggles_gameplay & AUTO_INTERACT_DEPLOYABLES)
+			deployed_machine.interact(user)
 	else
 		item_to_deploy.forceMove(deployed_machine)
 
 	item_to_deploy.toggle_deployment_flag(TRUE)
-	RegisterSignal(deployed_machine, COMSIG_ITEM_UNDEPLOY, .proc/undeploy)
+	RegisterSignal(deployed_machine, COMSIG_ITEM_UNDEPLOY, PROC_REF(undeploy))
 
 ///Wrapper for proc/finish_undeploy
 /datum/element/deployable_item/proc/undeploy(datum/source, mob/user)
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/finish_undeploy, source, user)
+	INVOKE_ASYNC(src, PROC_REF(finish_undeploy), source, user)
 
 //Handles the conversion of Machine into Item. 'source' should be the Machine. User is the one undeploying. It can be undeployed without a user, if so, the var 'location' is required. If 'source' is not /obj/machinery/deployable then 'undeploying' should be the item to be undeployed from the machine.
 /datum/element/deployable_item/proc/finish_undeploy(datum/source, mob/user)
 	var/obj/deployed_machine = source //The machinethat is undeploying should be the the one sending the Signal
-	var/obj/item/undeployed_item  = deployed_machine.get_internal_item() //Item the machine is undeploying
+	var/obj/item/undeployed_item = deployed_machine.get_internal_item() //Item the machine is undeploying
 
 	if(!user)
 		CRASH("[source] has sent the signal COMSIG_ITEM_UNDEPLOY to [undeployed_item] without the arg 'user'")

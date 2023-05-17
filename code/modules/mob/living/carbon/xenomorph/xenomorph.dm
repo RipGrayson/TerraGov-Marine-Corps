@@ -24,9 +24,11 @@
 	switch(stat)
 		if(CONSCIOUS)
 			GLOB.alive_xeno_list += src
+			LAZYADD(GLOB.alive_xeno_list_hive[hivenumber], src)
 			see_in_dark = xeno_caste.conscious_see_in_dark
 		if(UNCONSCIOUS)
 			GLOB.alive_xeno_list += src
+			LAZYADD(GLOB.alive_xeno_list_hive[hivenumber], src)
 			see_in_dark = xeno_caste.unconscious_see_in_dark
 		if(DEAD)
 			see_in_dark = xeno_caste.unconscious_see_in_dark
@@ -72,10 +74,12 @@
 	if(CONFIG_GET(flag/xenos_on_strike))
 		replace_by_ai()
 	if(z) //Larva are initiated in null space
-		SSminimaps.add_marker(src, z, hud_flags = MINIMAP_FLAG_XENO, iconstate = xeno_caste.minimap_icon)
-	RegisterSignal(src, COMSIG_LIVING_WEEDS_ADJACENT_REMOVED, .proc/handle_weeds_adjacent_removed)
-	RegisterSignal(src, COMSIG_LIVING_WEEDS_AT_LOC_CREATED, .proc/handle_weeds_on_movement)
+		SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon))
+	RegisterSignal(src, COMSIG_LIVING_WEEDS_ADJACENT_REMOVED, PROC_REF(handle_weeds_adjacent_removed))
+	RegisterSignal(src, COMSIG_LIVING_WEEDS_AT_LOC_CREATED, PROC_REF(handle_weeds_on_movement))
 	handle_weeds_on_movement()
+
+	AddElement(/datum/element/footstep, FOOTSTEP_XENO_MEDIUM, mob_size >= MOB_SIZE_BIG ? 0.8 : 0.5)
 
 ///Change the caste of the xeno. If restore health is true, then health is set to the new max health
 /mob/living/carbon/xenomorph/proc/set_datum(restore_health_and_plasma = TRUE)
@@ -87,6 +91,10 @@
 		CRASH("error finding datum")
 	if(xeno_caste)
 		xeno_caste.on_caste_removed(src)
+
+		soft_armor = soft_armor.detachArmor(getArmor(arglist(xeno_caste.soft_armor)))
+		hard_armor = hard_armor.detachArmor(getArmor(arglist(xeno_caste.hard_armor)))
+
 	var/datum/xeno_caste/X = GLOB.xeno_caste_datums[caste_base_type][upgrade]
 	if(!istype(X))
 		CRASH("error with caste datum")
@@ -98,9 +106,10 @@
 		plasma_stored = max(plasma_stored, xeno_caste.plasma_max * xeno_caste.plasma_regen_limit)
 		health = maxHealth
 	setXenoCasteSpeed(xeno_caste.speed)
-	soft_armor = getArmor(arglist(xeno_caste.soft_armor))
-	hard_armor = getArmor(arglist(xeno_caste.hard_armor))
-	warding_aura = 0 //Resets aura for reapplying armor
+
+	//detaching and attaching preserves any tempory armor modifiers on the xeno
+	soft_armor = soft_armor.attachArmor(getArmor(arglist(xeno_caste.soft_armor)))
+	hard_armor = hard_armor.attachArmor(getArmor(arglist(xeno_caste.hard_armor)))
 
 ///Will multiply the base max health of this xeno by GLOB.xeno_stat_multiplicator_buff while maintaining current health percent.
 /mob/living/carbon/xenomorph/proc/apply_health_stat_buff()
@@ -122,10 +131,6 @@
 
 	maxHealth = new_max_health
 	updatehealth()
-
-/mob/living/carbon/xenomorph/set_armor_datum()
-	return //Handled in set_datum()
-
 
 /mob/living/carbon/xenomorph/proc/generate_nicknumber()
 	//We don't have a nicknumber yet, assign one to stick with us
@@ -206,7 +211,7 @@
 		return NONE
 	var/mob/living/carbon/xenomorph/crusher/grabbed = pulling
 	if(grabbed.stat == CONSCIOUS && stat == CONSCIOUS)
-		INVOKE_ASYNC(grabbed, /mob/living/carbon/xenomorph/crusher/proc.carry_xeno, src, TRUE)
+		INVOKE_ASYNC(grabbed, TYPE_PROC_REF(/mob/living/carbon/xenomorph/crusher, carry_xeno), src, TRUE)
 		return COMSIG_GRAB_SUCCESSFUL_SELF_ATTACK
 	return NONE
 
@@ -246,6 +251,7 @@
 	if(is_zoomed) zoom_out()
 
 	GLOB.alive_xeno_list -= src
+	LAZYREMOVE(GLOB.alive_xeno_list_hive[hivenumber], src)
 	GLOB.xeno_mob_list -= src
 	GLOB.dead_xeno_list -= src
 
@@ -272,7 +278,7 @@
 		return FALSE //Incorporeal things can't grab or be grabbed.
 	if(AM.anchored)
 		return FALSE //We cannot grab anchored items.
-	if(!isliving(AM) && AM.drag_windup && !do_after(src, AM.drag_windup, TRUE, AM, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(src, /mob.proc/break_do_after_checks, list("health" = src.health))))
+	if(!isliving(AM) && AM.drag_windup && !do_after(src, AM.drag_windup, TRUE, AM, BUSY_ICON_HOSTILE, BUSY_ICON_HOSTILE, extra_checks = CALLBACK(src, TYPE_PROC_REF(/mob, break_do_after_checks), list("health" = src.health))))
 		return //If the target is not a living mob and has a drag_windup defined, calls a do_after. If all conditions are met, it returns. If the user takes damage during the windup, it breaks the channel.
 	var/mob/living/L = AM
 	if(L.buckled)

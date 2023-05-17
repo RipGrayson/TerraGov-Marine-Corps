@@ -279,7 +279,7 @@
 	icon_state = "folded"
 	var/obj/item/roller/held
 
-/obj/item/roller_holder/Initialize()
+/obj/item/roller_holder/Initialize(mapload)
 	. = ..()
 	held = new(src)
 
@@ -405,8 +405,8 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 	user.visible_message(span_warning("[user] activates [src]'s bluespace engine, causing it to rev to life."),
 	span_warning("You activate [src]'s bluespace engine, causing it to rev to life."))
 	playsound(loc,'sound/mecha/powerup.ogg', 25, FALSE)
-	teleport_timer = addtimer(CALLBACK(src, .proc/medevac_teleport, user), MEDEVAC_TELE_DELAY, TIMER_STOPPABLE|TIMER_UNIQUE) //Activate after 5 second delay.
-	RegisterSignal(src, COMSIG_MOVABLE_UNBUCKLE, .proc/on_mob_unbuckle)
+	teleport_timer = addtimer(CALLBACK(src, PROC_REF(medevac_teleport), user), MEDEVAC_TELE_DELAY, TIMER_STOPPABLE|TIMER_UNIQUE) //Activate after 5 second delay.
+	RegisterSignal(src, COMSIG_MOVABLE_UNBUCKLE, PROC_REF(on_mob_unbuckle))
 	busy = TRUE
 
 /obj/structure/bed/medevac_stretcher/proc/on_mob_unbuckle(datum/source, mob/living/buckled_mob, force = FALSE)
@@ -612,7 +612,6 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 		to_chat(user, span_warning("[src]'s interface is locked! Only a Squad Leader, Corpsman, or Medical Officer can unlock it now."))
 		return
 	user.drop_held_item()
-	flags_item |= NO_VACUUM
 	anchored = TRUE
 	planted = TRUE
 	to_chat(user, span_warning("You plant and activate [src]."))
@@ -628,7 +627,6 @@ GLOBAL_LIST_EMPTY(activated_medevac_stretchers)
 		to_chat(user, span_warning("[src]'s interface is locked! Only a Squad Leader, Corpsman, or Medical Officer can unlock it now."))
 		return
 	if(planted)
-		flags_item &= ~NO_VACUUM
 		anchored = FALSE
 		planted = FALSE
 		to_chat(user, span_warning("You retrieve and deactivate [src]."))

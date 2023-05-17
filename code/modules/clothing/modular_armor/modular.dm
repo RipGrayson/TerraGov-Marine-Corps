@@ -27,7 +27,7 @@
 		/obj/item/storage/belt/sparepouch,
 		/obj/item/storage/holster/blade,
 		/obj/item/weapon/claymore,
-		/obj/item/storage/belt/gun,
+		/obj/item/storage/holster/belt,
 		/obj/item/storage/belt/knifepouch,
 		/obj/item/weapon/twohanded,
 		/obj/item/tool/pickaxe/plasmacutter,
@@ -80,6 +80,10 @@
 		/obj/item/armor_module/armor/legs/marine/eod,
 		/obj/item/armor_module/armor/arms/marine/eod,
 
+		/obj/item/armor_module/armor/chest/marine/helljumper,
+		/obj/item/armor_module/armor/legs/marine/helljumper,
+		/obj/item/armor_module/armor/arms/marine/helljumper,
+
 		/obj/item/armor_module/module/better_shoulder_lamp,
 		/obj/item/armor_module/module/valkyrie_autodoc,
 		/obj/item/armor_module/module/fire_proof,
@@ -113,7 +117,7 @@
 	///Uniform type that is allowed to be worn with this.
 	var/allowed_uniform_type = /obj/item/clothing/under/marine
 
-/obj/item/clothing/suit/modular/Initialize()
+/obj/item/clothing/suit/modular/Initialize(mapload)
 	. = ..()
 	update_icon()
 
@@ -138,14 +142,6 @@
 		if(MAP_ARMOR_STYLE_DESERT)
 			if(flags_item_map_variant & ITEM_DESERT_VARIANT)
 				current_variant = "desert"
-
-/obj/item/clothing/suit/modular/on_pocket_insertion()
-	. = ..()
-	update_icon()
-
-/obj/item/clothing/suit/modular/on_pocket_removal()
-	. = ..()
-	update_icon()
 
 /obj/item/clothing/suit/modular/apply_custom(mutable_appearance/standing)
 	. = ..()
@@ -182,16 +178,6 @@
 		return
 	turn_light(user, !light_on)
 	return TRUE
-
-/obj/item/clothing/suit/modular/MouseDrop(over_object, src_location, over_location)
-	if(!attachments_by_slot[ATTACHMENT_SLOT_STORAGE])
-		return ..()
-	if(!istype(attachments_by_slot[ATTACHMENT_SLOT_STORAGE], /obj/item/armor_module/storage))
-		return ..()
-	var/obj/item/armor_module/storage/armor_storage = attachments_by_slot[ATTACHMENT_SLOT_STORAGE]
-	if(armor_storage.storage.handle_mousedrop(usr, over_object))
-		return ..()
-
 
 /obj/item/clothing/suit/modular/item_action_slot_check(mob/user, slot)
 	if(!light_range) // No light no ability
@@ -305,6 +291,7 @@
 	)
 	attachments_allowed = list(
 		/obj/item/armor_module/module/tyr_head,
+		/obj/item/armor_module/module/fire_proof_helmet,
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet,
 		/obj/item/armor_module/module/mimir_environment_protection/mimir_helmet/mark1,
 		/obj/item/armor_module/module/welding,
@@ -326,7 +313,7 @@
 	///Current varient selected.
 	var/current_variant
 
-/obj/item/clothing/head/modular/Initialize()
+/obj/item/clothing/head/modular/Initialize(mapload)
 	. = ..()
 	update_icon()
 
@@ -351,14 +338,6 @@
 		if(MAP_ARMOR_STYLE_DESERT)
 			if(flags_item_map_variant & ITEM_DESERT_VARIANT)
 				current_variant = "desert"
-
-/obj/item/clothing/head/modular/on_pocket_insertion()
-	. = ..()
-	update_icon()
-
-/obj/item/clothing/head/modular/on_pocket_removal()
-	. = ..()
-	update_icon()
 
 /obj/item/clothing/head/modular/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -385,15 +364,6 @@
 	paint.uses--
 	update_icon()
 
-/obj/item/clothing/head/modular/MouseDrop(over_object, src_location, over_location)
-	if(!attachments_by_slot[ATTACHMENT_SLOT_STORAGE])
-		return ..()
-	if(!istype(attachments_by_slot[ATTACHMENT_SLOT_STORAGE], /obj/item/armor_module/storage))
-		return ..()
-	var/obj/item/armor_module/storage/armor_storage = attachments_by_slot[ATTACHMENT_SLOT_STORAGE]
-	if(armor_storage.storage.handle_mousedrop(usr, over_object))
-		return ..()
-
 /obj/item/clothing/head/modular/apply_custom(mutable_appearance/standing)
 	. = ..()
 	if(attachments_by_slot[ATTACHMENT_SLOT_STORAGE] && istype(attachments_by_slot[ATTACHMENT_SLOT_STORAGE], /obj/item/armor_module/storage))
@@ -417,7 +387,7 @@
 /obj/item/clothing/mask/gas/modular
 	name = "style mask"
 	desc = "A cool sylish mask that through some arcane magic blocks gas attacks. How? Who knows. How did you even get this?"
-	icon = 'icons/mob/modular/style_hats.dmi'
+	icon = 'icons/obj/clothing/headwear/style_hats.dmi'
 	breathy = FALSE
 	item_icons = list(
 		slot_wear_mask_str = 'icons/mob/modular/style_hats_mob.dmi',
@@ -430,7 +400,7 @@
 	///Current varient selected.
 	var/current_variant
 
-/obj/item/clothing/mask/gas/modular/Initialize()
+/obj/item/clothing/mask/gas/modular/Initialize(mapload)
 	. = ..()
 	update_icon()
 

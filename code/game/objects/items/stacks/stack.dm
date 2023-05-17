@@ -32,7 +32,7 @@
 	update_weight()
 	update_icon()
 	var/static/list/connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_cross,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
@@ -218,6 +218,7 @@
 		O = new R.result_type(get_turf(user))
 	if(O)
 		O.setDir(user.dir)
+		O.color = color
 	use(R.req_amount * multiplier)
 
 	if(QDELETED(O))

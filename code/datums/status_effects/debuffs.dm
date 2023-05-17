@@ -145,7 +145,7 @@
 			owner.adjustToxLoss(healing * 0.5, TRUE, TRUE)
 			owner.adjustStaminaLoss(healing * 100)
 			owner.adjustCloneLoss(healing * health_ratio * 0.8)
-	if(human_owner && human_owner.drunkenness)
+	if(human_owner?.drunkenness)
 		human_owner.drunkenness *= 0.997 //reduce drunkenness by 0.3% per tick, 6% per 2 seconds
 	if(prob(20))
 		if(carbon_owner)
@@ -482,7 +482,7 @@
 		return
 	. = ..()
 	debuff_owner = new_owner
-	RegisterSignal(debuff_owner, COMSIG_LIVING_DO_RESIST, .proc/call_resist_debuff)
+	RegisterSignal(debuff_owner, COMSIG_LIVING_DO_RESIST, PROC_REF(call_resist_debuff))
 	debuff_owner.balloon_alert(debuff_owner, "Intoxicated")
 	playsound(debuff_owner.loc, "sound/bullets/acid_impact1.ogg", 30)
 	particle_holder = new(debuff_owner, /particles/toxic_slash)
@@ -515,13 +515,18 @@
 /// Called when the debuff's owner uses the Resist action for this debuff.
 /datum/status_effect/stacking/intoxicated/proc/call_resist_debuff()
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/resist_debuff) // grilled cheese sandwich
+	INVOKE_ASYNC(src, PROC_REF(resist_debuff)) // grilled cheese sandwich
 
 /// Resisting the debuff will allow the debuff's owner to remove some stacks from themselves.
 /datum/status_effect/stacking/intoxicated/proc/resist_debuff()
-	if(!do_after(debuff_owner, 3 SECONDS, TRUE, debuff_owner, BUSY_ICON_GENERIC))
+	if(length(debuff_owner.do_actions))
+		return
+	if(!do_after(debuff_owner, 5 SECONDS, TRUE, debuff_owner, BUSY_ICON_GENERIC))
 		debuff_owner.balloon_alert("Interrupted")
 		return
 	playsound(debuff_owner.loc, 'sound/effects/slosh.ogg', 30)
 	debuff_owner.balloon_alert("Succeeded")
 	stacks -= SENTINEL_INTOXICATED_RESIST_REDUCTION
+	if(stacks > 0)
+		resist_debuff() // We repeat ourselves as long as the debuff persists.
+		return

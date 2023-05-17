@@ -25,7 +25,7 @@
 	var/disposal_pressure = 0
 
 //Create a new disposal, find the attached trunk (if present) and init gas resvr.
-/obj/machinery/disposal/Initialize()
+/obj/machinery/disposal/Initialize(mapload)
 	. = ..()
 	set_trunk(locate(/obj/structure/disposalpipe/trunk) in loc)
 	if(!trunk)
@@ -56,7 +56,7 @@
 	trunk = null
 	if(future_trunk)
 		trunk = future_trunk
-		RegisterSignal(trunk, COMSIG_PARENT_QDELETING, .proc/clean_trunk)
+		RegisterSignal(trunk, COMSIG_PARENT_QDELETING, PROC_REF(clean_trunk))
 
 ///Signal handler to clean trunk to prevent harddel
 /obj/machinery/disposal/proc/clean_trunk()
@@ -206,7 +206,7 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	if(user && user.loc == src)
+	if(user?.loc == src)
 		to_chat(usr, span_warning("You cannot reach the controls from inside."))
 		return FALSE
 
@@ -315,7 +315,7 @@
 		return
 
 	//Check for items in disposal - occupied light
-	if(contents.len > 0)
+	if(length(contents) > 0)
 		overlays += image('icons/obj/pipes/disposal.dmi', "dispover-full")
 
 	//Charging and ready light
@@ -331,9 +331,9 @@
 
 	flush_count++
 	if(flush_count >= flush_every_ticks)
-		if(contents.len)
+		if(length(contents))
 			if(mode == 2)
-				INVOKE_ASYNC(src, .proc/flush)
+				INVOKE_ASYNC(src, PROC_REF(flush))
 		flush_count = 0
 
 	updateUsrDialog()
@@ -478,7 +478,7 @@
 	loc = D.trunk
 	active = 1
 	setDir(DOWN)
-	INVOKE_NEXT_TICK(src, .proc/move) //Spawn off the movement process
+	INVOKE_NEXT_TICK(src, PROC_REF(move)) //Spawn off the movement process
 
 //Movement process, persists while holder is moving through pipes
 /obj/structure/disposalholder/proc/move()
@@ -573,7 +573,7 @@
 	resistance_flags = RESIST_ALL
 
 	//New pipe, set the icon_state as on map
-/obj/structure/disposalpipe/Initialize()
+/obj/structure/disposalpipe/Initialize(mapload)
 	. = ..()
 	base_icon_state = icon_state
 	GLOB.disposal_list += src
@@ -770,7 +770,7 @@
 	icon_state = "pipe-s"
 
 
-/obj/structure/disposalpipe/segment/Initialize()
+/obj/structure/disposalpipe/segment/Initialize(mapload)
 	. = ..()
 
 	if(icon_state == "pipe-s")
@@ -787,7 +787,7 @@
 	icon_state = "pipe-u"
 
 
-/obj/structure/disposalpipe/up/Initialize()
+/obj/structure/disposalpipe/up/Initialize(mapload)
 	. = ..()
 	dpdir = dir
 	update()
@@ -831,7 +831,7 @@
 	icon_state = "pipe-d"
 
 
-/obj/structure/disposalpipe/down/Initialize()
+/obj/structure/disposalpipe/down/Initialize(mapload)
 	. = ..()
 	dpdir = dir
 	update()
@@ -943,7 +943,7 @@
 	icon_state = "pipe-j1"
 
 
-/obj/structure/disposalpipe/junction/Initialize()
+/obj/structure/disposalpipe/junction/Initialize(mapload)
 	. = ..()
 	if(icon_state == "pipe-j1")
 		dpdir = dir|turn(dir, -90)|turn(dir, 180)
@@ -990,7 +990,7 @@
 	var/sort_tag = ""
 	var/partial = 0
 
-/obj/structure/disposalpipe/tagger/Initialize()
+/obj/structure/disposalpipe/tagger/Initialize(mapload)
 	. = ..()
 	dpdir = dir|turn(dir, 180)
 	if(sort_tag)
@@ -1049,7 +1049,7 @@
 	var/negdir = 0
 	var/sortdir = 0
 
-/obj/structure/disposalpipe/sortjunction/Initialize()
+/obj/structure/disposalpipe/sortjunction/Initialize(mapload)
 	. = ..()
 	if(sortType)
 		GLOB.tagger_locations |= sortType
@@ -1157,7 +1157,7 @@
 	icon_state = "pipe-t"
 	var/obj/linked 	//The linked obj/machinery/disposal or obj/disposaloutlet
 
-/obj/structure/disposalpipe/trunk/Initialize()
+/obj/structure/disposalpipe/trunk/Initialize(mapload)
 	. = ..()
 	dpdir = dir
 	getlinked()
@@ -1170,7 +1170,7 @@
 	linked = null
 	if(to_link)
 		linked = to_link
-		RegisterSignal(linked, COMSIG_PARENT_QDELETING, .proc/clean_linked)
+		RegisterSignal(linked, COMSIG_PARENT_QDELETING, PROC_REF(clean_linked))
 
 ///Signal handler to clean linked from harddeling
 /obj/structure/disposalpipe/trunk/proc/clean_linked()
@@ -1233,10 +1233,10 @@
 			O.expel(H) //Expel at outlet
 		else
 			var/obj/machinery/disposal/D = linked
-			if(H && H.loc)
+			if(H?.loc)
 				D.expel(H) //Expel at disposal
 	else
-		if(H && H.loc)
+		if(H?.loc)
 			src.expel(H, loc, 0) //Expel at turf
 	return null
 
@@ -1252,7 +1252,7 @@
 	dpdir = 0 //Broken pipes have dpdir = 0 so they're not found as 'real' pipes i.e. will be treated as an empty turf
 	desc = "A broken piece of disposal pipe."
 
-/obj/structure/disposalpipe/broken/Initialize()
+/obj/structure/disposalpipe/broken/Initialize(mapload)
 	. = ..()
 	update()
 
@@ -1279,7 +1279,7 @@
 	var/turf/target	//This will be where the output objects are 'thrown' to.
 	var/mode = 0
 
-/obj/structure/disposaloutlet/Initialize()
+/obj/structure/disposaloutlet/Initialize(mapload)
 	. = ..()
 
 	target = get_ranged_target_turf(src, dir, 10)
@@ -1329,7 +1329,7 @@
 
 		to_chat(user, span_notice("You sliced the floorweld off the disposal outlet."))
 		var/obj/structure/disposalconstruct/C = new(loc)
-		C.ptype = 7 //7 =  outlet
+		C.ptype = 7 //7 = outlet
 		C.update()
 		C.anchored = TRUE
 		C.density = TRUE

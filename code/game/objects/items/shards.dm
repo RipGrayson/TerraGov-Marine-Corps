@@ -10,6 +10,10 @@
 	w_class = WEIGHT_CLASS_TINY
 	force = 5
 	throwforce = 8
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/items/civilian_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items/civilian_right.dmi',
+	)
 	item_state = "shard-glass"
 	attack_verb = list("stabbed", "slashed", "sliced", "cut")
 	var/source_sheet_type = /obj/item/stack/sheet/glass
@@ -24,7 +28,7 @@
 	return ..()
 
 
-/obj/item/shard/Initialize()
+/obj/item/shard/Initialize(mapload)
 	. = ..()
 	shardsize = pick("large", "medium", "small")
 	switch(shardsize)
@@ -39,7 +43,7 @@
 			pixel_y = rand(-5, 5)
 	icon_state += shardsize
 	var/static/list/connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_cross,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
@@ -100,7 +104,7 @@
 		return
 
 	if(!H.shoes && !(H.wear_suit?.flags_armor_protection & FEET))
-		INVOKE_ASYNC(src, .proc/pierce_foot, H)
+		INVOKE_ASYNC(src, PROC_REF(pierce_foot), H)
 
 /obj/item/shard/proc/pierce_foot(mob/living/carbon/human/target)
 	var/datum/limb/affecting = target.get_limb(pick("l_foot", "r_foot"))

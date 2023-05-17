@@ -1,4 +1,4 @@
-/mob/living/carbon/Initialize()
+/mob/living/carbon/Initialize(mapload)
 	. = ..()
 	adjust_nutrition_speed(0)
 
@@ -21,9 +21,6 @@
 	if(nutrition && stat != DEAD)
 		adjust_nutrition(-HUNGER_FACTOR * 0.1 * ((m_intent == MOVE_INTENT_RUN) ? 2 : 1))
 
-	// Moving around increases germ_level faster
-	if(germ_level < GERM_LEVEL_MOVE_CAP && prob(8))
-		germ_level++
 
 /mob/living/carbon/relaymove(mob/user, direction)
 	if(user.incapacitated(TRUE))
@@ -76,7 +73,7 @@
 
 	TIMER_COOLDOWN_START(src, COOLDOWN_PUKE, 40 SECONDS) //5 seconds before the actual action plus 35 before the next one.
 	to_chat(src, "<spawn class='warning'>You feel like you are about to throw up!")
-	addtimer(CALLBACK(src, .proc/do_vomit), 5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(do_vomit)), 5 SECONDS)
 
 
 /mob/living/carbon/proc/do_vomit()
@@ -144,12 +141,12 @@
 
 /mob/living/carbon/proc/throw_mode_off()
 	src.in_throw_mode = 0
-	if(hud_used && hud_used.throw_icon) //in case we don't have the HUD and we use the hotkey
+	if(hud_used?.throw_icon) //in case we don't have the HUD and we use the hotkey
 		hud_used.throw_icon.icon_state = "act_throw_off"
 
 /mob/living/carbon/proc/throw_mode_on()
 	src.in_throw_mode = 1
-	if(hud_used && hud_used.throw_icon)
+	if(hud_used?.throw_icon)
 		hud_used.throw_icon.icon_state = "act_throw_on"
 
 ///Throws active held item at target in params
@@ -378,7 +375,7 @@
 /mob/living/carbon/human/set_stat(new_stat) //registers/unregisters critdragging signals
 	. = ..()
 	if(new_stat == UNCONSCIOUS)
-		RegisterSignal(src, COMSIG_MOVABLE_PULL_MOVED, /mob/living/carbon/human.proc/oncritdrag)
+		RegisterSignal(src, COMSIG_MOVABLE_PULL_MOVED, TYPE_PROC_REF(/mob/living/carbon/human, oncritdrag))
 		return
 	if(. == UNCONSCIOUS)
 		UnregisterSignal(src, COMSIG_MOVABLE_PULL_MOVED)

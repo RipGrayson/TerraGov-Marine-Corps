@@ -40,6 +40,13 @@
 	description = "Builds whatever you’ve selected with (choose resin structure) on your tile."
 	keybind_signal = COMSIG_XENOABILITY_SECRETE_RESIN
 
+/datum/keybinding/xeno/recycle
+	name = "Recycle"
+	full_name = "Recycle xenomorph"
+	description = "Recycles a fellow dead xenomorph"
+	keybind_signal = COMSIG_XENOABILITY_RECYCLE
+	hotkey_keys = list("G")
+
 /datum/keybinding/xeno/place_acid_well
 	name = "place_acid_well"
 	full_name = "Place acid well"
@@ -506,7 +513,7 @@
 /datum/keybinding/xeno/call_of_the_burrowed
 	name = "call_of_the_burrowed"
 	full_name = "Call of the Burrowed"
-	description = ""
+	description = "Attempts to summon all currently burrowed larva."
 	keybind_signal = COMSIG_XENOABILITY_CALL_OF_THE_BURROWED
 
 /datum/keybinding/xeno/psychic_fling
@@ -880,6 +887,12 @@
 	description = "Channel a psychic shield at your current location that can reflect most projectiles. Activate again while the shield is active to detonate the shield forcibly, producing knockback."
 	keybind_signal = COMSIG_XENOABILITY_PSYCHIC_SHIELD
 	hotkey_keys = list("E")
+
+/datum/keybinding/xeno/trigger_psychic_shield
+	name = "Trigger Psychic Shield"
+	full_name = "Warlock: Trigger Psychic Shield"
+	description = "Triggers the Psychic Shield ability without selecting it."
+	keybind_signal = COMSIG_XENOABILITY_TRIGGER_PSYCHIC_SHIELD
 
 /datum/keybinding/xeno/psychic_blast
 	name = "Psychic Blast"

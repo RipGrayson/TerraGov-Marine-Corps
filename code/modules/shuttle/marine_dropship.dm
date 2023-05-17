@@ -73,7 +73,7 @@
 	name = "dropshipcrash"
 	id = "dropshipcrash"
 
-/obj/docking_port/stationary/marine_dropship/crash_target/Initialize()
+/obj/docking_port/stationary/marine_dropship/crash_target/Initialize(mapload)
 	. = ..()
 	SSshuttle.crash_targets += src
 
@@ -240,7 +240,7 @@
 	if(automatic_cycle_on && destination == new_dock)
 		if(cycle_timer)
 			deltimer(cycle_timer)
-		cycle_timer = addtimer(CALLBACK(src, .proc/prepare_going_to_previous_destination), rechargeTime + time_between_cycle SECONDS - 20 SECONDS, TIMER_STOPPABLE)
+		cycle_timer = addtimer(CALLBACK(src, PROC_REF(prepare_going_to_previous_destination)), rechargeTime + time_between_cycle SECONDS - 20 SECONDS, TIMER_STOPPABLE)
 
 	return ..()
 
@@ -248,7 +248,7 @@
 /obj/docking_port/mobile/marine_dropship/proc/prepare_going_to_previous_destination()
 	if(hijack_state != HIJACK_STATE_NORMAL)
 		return
-	cycle_timer = addtimer(CALLBACK(src, .proc/go_to_previous_destination), 20 SECONDS, TIMER_STOPPABLE)
+	cycle_timer = addtimer(CALLBACK(src, PROC_REF(go_to_previous_destination)), 20 SECONDS, TIMER_STOPPABLE)
 	priority_announce("Dropship taking off in 20 seconds towards [previous.name]", "Dropship Automatic Departure")
 
 ///Send the dropship to its previous dock
@@ -301,11 +301,11 @@
 		if(SHUTTLE_RECHARGING)
 			set_hijack_state(HIJACK_STATE_CALLED_DOWN)
 			playsound(loc,'sound/effects/alert.ogg', 50)
-			addtimer(CALLBACK(src, .proc/request_to, S), 15 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(request_to), S), 15 SECONDS)
 
 
 /obj/docking_port/mobile/marine_dropship/proc/do_start_hijack_timer(hijack_time = LOCKDOWN_TIME)
-	addtimer(CALLBACK(src, .proc/reset_hijack), hijack_time)
+	addtimer(CALLBACK(src, PROC_REF(reset_hijack)), hijack_time)
 
 
 /obj/docking_port/mobile/marine_dropship/proc/request_to(obj/docking_port/stationary/S)
@@ -490,9 +490,11 @@
 /obj/machinery/computer/shuttle/marine_dropship/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(!(X.xeno_caste.caste_flags & CASTE_IS_INTELLIGENT))
 		return
+	#ifndef TESTING
 	if(SSticker.round_start_time + SHUTTLE_HIJACK_LOCK > world.time)
 		to_chat(X, span_xenowarning("It's too early to do this!"))
 		return
+	#endif
 	var/obj/docking_port/mobile/marine_dropship/M = SSshuttle.getShuttle(shuttleId)
 	var/dat = "Status: [M ? M.getStatusText() : "*Missing*"]<br><br>"
 	if(M)
@@ -500,9 +502,10 @@
 		M.unlock_all()
 		dat += "<A href='?src=[REF(src)];abduct=1'>Capture the [M]</A><br>"
 		if(M.hijack_state != HIJACK_STATE_CALLED_DOWN)
-			to_chat(X, span_xenowarning("We corrupt the bird's controls, unlocking the doors and preventing it from flight."))
-			M.set_hijack_state(HIJACK_STATE_CALLED_DOWN)
-			M.do_start_hijack_timer()
+			to_chat(X, span_xenowarning("We corrupt the bird's controls, unlocking the doors[(M.mode != SHUTTLE_IGNITING) ? "and preventing it from flying." : ", but we are unable to prevent it from flying as it is already taking off!"]"))
+			if(M.mode != SHUTTLE_IGNITING)
+				M.set_hijack_state(HIJACK_STATE_CALLED_DOWN)
+				M.do_start_hijack_timer()
 
 	var/datum/browser/popup = new(X, "computer", M ? M.name : "shuttle", 300, 200)
 	popup.set_content("<center>[dat]</center>")
@@ -740,7 +743,7 @@
 	possible_destinations = "lz1;lz2;alamo"
 	opacity = FALSE
 
-/obj/machinery/computer/shuttle/marine_dropship/one/Initialize()
+/obj/machinery/computer/shuttle/marine_dropship/one/Initialize(mapload)
 	. = ..()
 	for(var/trait in SSmapping.configs[SHIP_MAP].environment_traits)
 		if(ZTRAIT_DOUBLE_SHIPS in trait)
@@ -769,7 +772,7 @@
 	icon_state = "rasputin15"
 
 /obj/machinery/door/poddoor/shutters/transit/nonsmoothing
-	smoothing_groups = NONE
+	smoothing_groups = null
 
 /turf/open/shuttle/dropship/floor/alt
 	icon_state = "rasputin14"
@@ -824,7 +827,7 @@
 
 	D.lockdown_all()
 
-	addtimer(CALLBACK(src, .proc/unpress), 15, TIMER_OVERRIDE|TIMER_UNIQUE)
+	addtimer(CALLBACK(src, PROC_REF(unpress)), 15, TIMER_OVERRIDE|TIMER_UNIQUE)
 
 // half-tile structure pieces
 /obj/structure/dropship_piece
@@ -832,6 +835,9 @@
 	density = TRUE
 	resistance_flags = RESIST_ALL
 	opacity = TRUE
+
+/obj/structure/dropship_piece/add_debris_element()
+	AddElement(/datum/element/debris, DEBRIS_SPARKS, -15, 8, 1)
 
 /obj/structure/dropship_piece/ex_act(severity)
 	return
@@ -1261,7 +1267,7 @@
 	var/compatible_control_flags = NONE
 
 
-/obj/machinery/computer/shuttle/shuttle_control/Initialize()
+/obj/machinery/computer/shuttle/shuttle_control/Initialize(mapload)
 	. = ..()
 	GLOB.shuttle_controls_list += src
 

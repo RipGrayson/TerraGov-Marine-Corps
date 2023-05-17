@@ -18,15 +18,6 @@
 /mob/proc/remove_all_indicators()
 	return
 
-/mob/set_stat(new_stat)
-	. = ..()
-	if(.)
-		remove_all_indicators()
-
-/mob/Logout()
-	remove_all_indicators()
-	return ..()
-
 /** Sets the mob as "thinking" - with indicator and variable thinking_IC */
 /datum/tgui_say/proc/start_thinking()
 	if(!window_open || !client.prefs.show_typing)
@@ -47,7 +38,7 @@
 	if(!window_open || !client.prefs.show_typing || !client.mob.thinking_IC)
 		return FALSE
 	client.mob.create_typing_indicator()
-	addtimer(CALLBACK(src, .proc/stop_typing), 5 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
+	addtimer(CALLBACK(src, PROC_REF(stop_typing)), 5 SECONDS, TIMER_UNIQUE | TIMER_OVERRIDE | TIMER_STOPPABLE)
 
 /**
  * Callback to remove the typing indicator after a brief period of inactivity.

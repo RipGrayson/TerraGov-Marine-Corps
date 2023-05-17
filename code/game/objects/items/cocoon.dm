@@ -26,12 +26,12 @@
 	. = ..()
 	if(!_hivenumber)
 		return
-	hivenumber =  _hivenumber
+	hivenumber = _hivenumber
 	victim = _victim
 	victim.forceMove(src)
 	START_PROCESSING(SSslowprocess, src)
-	addtimer(CALLBACK(src, .proc/life_draining_over, null, TRUE), cocoon_life_time)
-	RegisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_HIJACKED, .proc/life_draining_over)
+	addtimer(CALLBACK(src, PROC_REF(life_draining_over), null, TRUE), cocoon_life_time)
+	RegisterSignal(SSdcs, COMSIG_GLOB_DROPSHIP_HIJACKED, PROC_REF(life_draining_over))
 
 /obj/structure/cocoon/examine(mob/user, distance, infix, suffix)
 	. = ..()
@@ -116,6 +116,6 @@
 	icon_state = "xeno_cocoon_open"
 	anchored = FALSE
 
-/obj/structure/cocoon/opened_cocoon/Initialize()
+/obj/structure/cocoon/opened_cocoon/Initialize(mapload)
 	. = ..()
 	new /obj/structure/bed/nest(loc)

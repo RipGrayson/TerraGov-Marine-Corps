@@ -88,26 +88,9 @@
 	..()
 
 /obj/machinery/power/apc/Initialize(mapload, ndir, building)
-	. = ..()
 	GLOB.apcs_list += src
 	wires = new /datum/wires/apc(src)
 
-/obj/machinery/power/apc/Destroy()
-	GLOB.apcs_list -= src
-
-	area.power_light = 0
-	area.power_equip = 0
-	area.power_environ = 0
-	area.power_change()
-
-	QDEL_NULL(cell)
-	QDEL_NULL(wires)
-	if(terminal)
-		disconnect_terminal()
-
-	return ..()
-
-/obj/machinery/power/apc/Initialize(mapload, ndir, building = FALSE)
 	// offset 32 pixels in direction of dir
 	// this allows the APC to be embedded in a wall, yet still inside an area
 	if (ndir)
@@ -131,7 +114,7 @@
 		name = "\improper [area.name] APC"
 		machine_stat |= MAINT
 		update_icon()
-		addtimer(CALLBACK(src, .proc/update), 5)
+		addtimer(CALLBACK(src, PROC_REF(update)), 5)
 
 	start_processing()
 
@@ -163,8 +146,22 @@
 
 		//Break few ACPs on the colony
 		if(!start_charge && is_ground_level(z) && prob(10))
-			addtimer(CALLBACK(src, .proc/set_broken), 5)
+			addtimer(CALLBACK(src, PROC_REF(set_broken)), 5)
 
+/obj/machinery/power/apc/Destroy()
+	GLOB.apcs_list -= src
+
+	area.power_light = 0
+	area.power_equip = 0
+	area.power_environ = 0
+	area.power_change()
+
+	QDEL_NULL(cell)
+	QDEL_NULL(wires)
+	if(terminal)
+		disconnect_terminal()
+
+	return ..()
 
 ///Wrapper to guarantee powercells are properly nulled and avoid hard deletes.
 /obj/machinery/power/apc/proc/set_cell(obj/item/cell/new_cell)
@@ -172,7 +169,7 @@
 		UnregisterSignal(cell, COMSIG_PARENT_QDELETING)
 	cell = new_cell
 	if(cell)
-		RegisterSignal(cell, COMSIG_PARENT_QDELETING, .proc/on_cell_deletion)
+		RegisterSignal(cell, COMSIG_PARENT_QDELETING, PROC_REF(on_cell_deletion))
 
 
 ///Called by the deletion of the referenced powercell.
@@ -710,8 +707,8 @@
 				"status" = equipment,
 				"topicParams" = list(
 					"auto" = list("eqp" = 3),
-					"on"   = list("eqp" = 2),
-					"off"  = list("eqp" = 1)
+					"on" = list("eqp" = 2),
+					"off" = list("eqp" = 1)
 				)
 			),
 			list(
@@ -720,8 +717,8 @@
 				"status" = lighting,
 				"topicParams" = list(
 					"auto" = list("lgt" = 3),
-					"on"   = list("lgt" = 2),
-					"off"  = list("lgt" = 1)
+					"on" = list("lgt" = 2),
+					"off" = list("lgt" = 1)
 				)
 			),
 			list(
@@ -730,8 +727,8 @@
 				"status" = environ,
 				"topicParams" = list(
 					"auto" = list("env" = 3),
-					"on"   = list("env" = 2),
-					"off"  = list("env" = 1)
+					"on" = list("env" = 2),
+					"off" = list("env" = 1)
 				)
 			)
 		)
@@ -740,7 +737,7 @@
 
 
 /obj/machinery/power/apc/proc/setsubsystem(val)
-	if(cell && cell.charge > 0)
+	if(cell?.charge > 0)
 		return (val==1) ? 0 : val
 	else if(val == 3)
 		return 1
@@ -841,7 +838,7 @@
 
 
 /obj/machinery/power/apc/add_load(amount)
-	if(terminal && terminal.powernet)
+	if(terminal?.powernet)
 		return terminal.add_load(amount)
 	return 0
 
@@ -1022,7 +1019,7 @@
 	environ = 0
 	update_icon()
 	update()
-	addtimer(CALLBACK(src, .proc/reset, APC_RESET_EMP), 60 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(reset), APC_RESET_EMP), 60 SECONDS)
 	return ..()
 
 
@@ -1050,7 +1047,7 @@
 /obj/machinery/power/apc/proc/set_broken()
 	//Aesthetically much better!
 	visible_message(span_warning("[src]'s screen flickers with warnings briefly!"))
-	addtimer(CALLBACK(src, .proc/do_break), rand(2, 5))
+	addtimer(CALLBACK(src, PROC_REF(do_break)), rand(2, 5))
 
 
 /obj/machinery/power/apc/proc/do_break()
@@ -1065,9 +1062,9 @@
 /obj/machinery/power/apc/proc/overload_lighting()
 	if(!operating || shorted)
 		return
-	if(cell && cell.charge >= 20)
+	if(cell?.charge >= 20)
 		cell.use(20)
-		INVOKE_ASYNC(src, .proc/break_lights)
+		INVOKE_ASYNC(src, PROC_REF(break_lights))
 
 
 /obj/machinery/power/apc/proc/break_lights()

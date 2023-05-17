@@ -20,26 +20,26 @@
 
 //flags_atom
 
-#define NOINTERACT (1<<3)		// You can't interact with it, at all. Useful when doing certain animations.
-#define CONDUCT (1<<4)		// conducts electricity (metal etc.)
-#define ON_BORDER (1<<5)		// 'border object'. item has priority to check when entering or leaving
-#define NOBLOODY (1<<6)		// Don't want a blood overlay on this one.
-#define DIRLOCK (1<<7)		// movable atom won't change direction when Moving()ing. Useful for items that have several dir states.
-#define INITIALIZED (1<<8)  	//Whether /atom/Initialize() has already run for the object
-#define NODECONSTRUCT (1<<9)
-#define OVERLAY_QUEUED (1<<10)
-#define PREVENT_CLICK_UNDER (1<<11)		//Prevent clicking things below it on the same turf
-#define CRITICAL_ATOM (1<<12)		//Use when this shouldn't be obscured by large icons.
+#define NOINTERACT (1<<0)		// You can't interact with it, at all. Useful when doing certain animations.
+#define CONDUCT (1<<1)		// conducts electricity (metal etc.)
+#define ON_BORDER (1<<2)		// 'border object'. item has priority to check when entering or leaving
+#define NOBLOODY (1<<3)		// Don't want a blood overlay on this one.
+#define DIRLOCK (1<<4)		// movable atom won't change direction when Moving()ing. Useful for items that have several dir states.
+#define INITIALIZED (1<<5)  	//Whether /atom/Initialize() has already run for the object
+#define NODECONSTRUCT (1<<6)
+#define OVERLAY_QUEUED (1<<7)
+#define PREVENT_CLICK_UNDER (1<<8)		//Prevent clicking things below it on the same turf
+#define CRITICAL_ATOM (1<<9)		//Use when this shouldn't be obscured by large icons.
 ///Does not cascade explosions to its contents.
-#define PREVENT_CONTENTS_EXPLOSION (1<<13)
+#define PREVENT_CONTENTS_EXPLOSION (1<<10)
 /// was this spawned by an admin? used for stat tracking stuff.
-#define ADMIN_SPAWNED (1<<14)
+#define ADMIN_SPAWNED (1<<11)
 /// Can this atom be bumped attack
-#define BUMP_ATTACKABLE (1<<15)
+#define BUMP_ATTACKABLE (1<<12)
 ///This atom will not be qdeled when a shuttle lands on it; it will just move onto the shuttle tile. It will stay on the ground when the shuttle takes off
-#define SHUTTLE_IMMUNE (1<<16)
+#define SHUTTLE_IMMUNE (1<<13)
 /// Should we use the initial icon for display? Mostly used by overlay only objects
-#define HTML_USE_INITAL_ICON_1 (1<<21)
+#define HTML_USE_INITAL_ICON_1 (1<<14)
 
 //turf-only flags
 #define AI_BLOCKED (1<<0) //Prevent ai from going onto this turf
@@ -63,20 +63,19 @@
 #define TWOHANDED (1<<3)	// The item is twohanded.
 #define WIELDED (1<<4)	// The item is wielded with both hands.
 #define ITEM_ABSTRACT (1<<5)	//The item is abstract (grab, powerloader_clamp, etc)
-#define BEING_REMOVED (1<<6)	//Cuffs
-#define DOES_NOT_NEED_HANDS (1<<7)	//Dont need hands to use it
-#define SYNTH_RESTRICTED (1<<8)	//Prevents synths from wearing items with this flag
-#define IMPEDE_JETPACK (1<<9)  //Reduce the range of jetpack
-#define DRAINS_XENO (1<<10)  //Enables the item to collect resource for chem_booster component
-#define CAN_BUMP_ATTACK (1<<11)	 //Item triggers bump attack
-#define NO_VACUUM (1<<12) //Roomba won't eat this
-#define IS_DEPLOYABLE (1<<13) //Item can be deployed into a machine
-#define DEPLOY_ON_INITIALIZE (1<<14)
-#define IS_DEPLOYED (1<<15) //If this is on an item, said item is currently deployed
-#define DEPLOYED_NO_PICKUP  (1<<16) //Disables deployed item pickup
-#define DEPLOYED_NO_ROTATE  (1<<17) //Disables deployed item rotation abilities to rotate.
-#define DEPLOYED_WRENCH_DISASSEMBLE (1<<18) //If this is on an item, the item can only be disassembled using a wrench once deployed.
-#define FULLY_WIELDED (1<<19) //If the item is properly wielded. Used for guns
+#define DOES_NOT_NEED_HANDS (1<<6)	//Dont need hands to use it
+#define SYNTH_RESTRICTED (1<<7)	//Prevents synths from wearing items with this flag
+#define IMPEDE_JETPACK (1<<8)  //Reduce the range of jetpack
+#define CAN_BUMP_ATTACK (1<<9)	 //Item triggers bump attack
+#define IS_DEPLOYABLE (1<<10) //Item can be deployed into a machine
+#define DEPLOY_ON_INITIALIZE (1<<11)
+#define IS_DEPLOYED (1<<12) //If this is on an item, said item is currently deployed
+#define DEPLOYED_NO_PICKUP  (1<<13) //Disables deployed item pickup
+#define DEPLOYED_NO_ROTATE  (1<<14) //Disables deployed item rotation abilities to rotate.
+#define DEPLOYED_WRENCH_DISASSEMBLE (1<<15) //If this is on an item, the item can only be disassembled using a wrench once deployed.
+#define FULLY_WIELDED (1<<16) //If the item is properly wielded. Used for guns
+///If a holster has underlay sprites
+#define HAS_UNDERLAY (1<<17)
 
 //==========================================================================================
 
@@ -141,15 +140,15 @@
 #define ARMOR_LAMP_ON (1<<2)
 #define ARMOR_IS_REINFORCED (1<<3)
 #define ARMOR_NO_DECAP (1<<4)
+#define ARMOR_FIRE_RESISTANT (1<<5)
 //===========================================================================================
 
 //===========================================================================================
 //Marine helmet only, use for flags_marine_helmet.
 #define HELMET_SQUAD_OVERLAY (1<<0)
 #define HELMET_GARB_OVERLAY (1<<1)
-#define HELMET_DAMAGE_OVERLAY (1<<2)
-#define HELMET_STORE_GARB (1<<3)
-#define HELMET_IS_DAMAGED (1<<4)
+#define HELMET_STORE_GARB (1<<2)
+#define HELMET_IS_DAMAGED (1<<3)
 //===========================================================================================
 
 //ITEM INVENTORY SLOT BITMASKS
@@ -382,11 +381,13 @@ GLOBAL_LIST_INIT(slot_str_to_slot, list(
 	SLOT_IN_HOLSTER,\
 	SLOT_IN_S_HOLSTER,\
 	SLOT_IN_B_HOLSTER,\
+	SLOT_IN_BACKPACK, \
 	SLOT_IN_ACCESSORY,\
 	SLOT_S_STORE,\
 	SLOT_IN_L_POUCH,\
 	SLOT_IN_R_POUCH,\
 	SLOT_BELT,\
+	SLOT_IN_BELT,\
 	SLOT_WEAR_SUIT,\
 	SLOT_IN_STORAGE,\
 	SLOT_L_STORE,\
@@ -394,7 +395,7 @@ GLOBAL_LIST_INIT(slot_str_to_slot, list(
 	SLOT_BACK,\
 	SLOT_IN_BOOT,\
 	SLOT_IN_HEAD\
-	)
+)
 
 #define SLOT_ALL list(\
 	SLOT_WEAR_ID,\
@@ -444,7 +445,7 @@ GLOBAL_LIST_INIT(slot_str_to_slot, list(
 	"Left Pocket",\
 	"Right Pocket",\
 	"Webbing",\
-	"Belt",\
+	"Belt Inside",\
 	"Belt Holster",\
 	"Suit Storage Holster",\
 	"Back Holster",\
@@ -462,6 +463,8 @@ GLOBAL_LIST_INIT(slot_str_to_slot, list(
 			return SLOT_BACK
 		if("Boot")
 			return SLOT_IN_BOOT
+		if("Backpack")
+			return SLOT_IN_BACKPACK
 		if("Helmet")
 			return SLOT_IN_HEAD
 		if("Left Pocket")
@@ -470,7 +473,7 @@ GLOBAL_LIST_INIT(slot_str_to_slot, list(
 			return SLOT_R_STORE
 		if("Webbing")
 			return SLOT_IN_ACCESSORY
-		if("Belt")
+		if("Belt Inside")
 			return SLOT_IN_BELT
 		if("Belt Holster")
 			return SLOT_IN_HOLSTER
@@ -487,10 +490,14 @@ GLOBAL_LIST_INIT(slot_str_to_slot, list(
 			return "Suit Inside"
 		if(SLOT_BELT)
 			return "Belt"
+		if(SLOT_IN_BELT)
+			return "Belt Inside"
 		if(SLOT_BACK)
 			return "Back"
 		if(SLOT_IN_BOOT)
 			return "Boot"
+		if(SLOT_IN_BACKPACK)
+			return "Backpack"
 		if(SLOT_IN_HEAD)
 			return "Helmet"
 		if(SLOT_L_STORE)
@@ -499,8 +506,6 @@ GLOBAL_LIST_INIT(slot_str_to_slot, list(
 			return "Right Pocket"
 		if(SLOT_IN_ACCESSORY)
 			return "Webbing"
-		if(SLOT_IN_BELT)
-			return "Belt"
 		if(SLOT_IN_HOLSTER)
 			return "Belt Holster"
 		if(SLOT_IN_S_HOLSTER)

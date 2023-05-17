@@ -208,7 +208,7 @@
 
 /obj/item/ammo_magazine/standard_gpmg
 	name = "\improper MG-60 GPMG box magazine (10x26mm)"
-	desc = "A drum magazine for the MG-60 general purpose machinegun."
+	desc = "A belt box for the MG-60 general purpose machinegun."
 	icon_state = "t60"
 	caliber = CALIBER_10x26_CASELESS
 	default_ammo = /datum/ammo/bullet/rifle/machinegun
@@ -369,18 +369,7 @@
 	icon_state_mini = "mag_rifle"
 
 //-------------------------------------------------------
-//GL-54 and AR-55
-
-/obj/item/ammo_magazine/rifle/tx55
-	name = "\improper AR-55 magazine (10x24mm)"
-	desc = "A small capacity 10mm rifle magazine. Differs from a AR-18 magazine enough to bypass relevant patents."
-	caliber = CALIBER_10X24_CASELESS
-	icon_state = "tx55"
-	w_class = WEIGHT_CLASS_NORMAL
-	default_ammo = /datum/ammo/bullet/rifle
-	max_rounds = 36
-	icon_state_mini = "mag_rifle_big"
-
+//GL-54
 /obj/item/ammo_magazine/rifle/tx54
 	name = "\improper 20mm airburst grenade magazine"
 	desc = "A 20mm magazine loaded with airburst grenades. For use with the GL-54 or AR-55."
@@ -391,21 +380,49 @@
 	max_rounds = 8
 	icon_state_mini = "mag_sniper"
 	greyscale_config = /datum/greyscale_config/ammo
-	greyscale_colors = "#3ab0c9"
+	greyscale_colors = COLOR_AMMO_AIRBURST
 
 /obj/item/ammo_magazine/rifle/tx54/he
 	name = "\improper 20mm HE grenade magazine"
 	desc = "A 20mm magazine loaded with HE grenades. For use with the GL-54 or AR-55."
 	default_ammo = /datum/ammo/tx54/he
 	icon_state = "tx54_airburst"
-	greyscale_colors = "#b02323"
+	greyscale_colors = COLOR_AMMO_HIGH_EXPLOSIVE
 
 /obj/item/ammo_magazine/rifle/tx54/incendiary
 	name = "\improper 20mm incendiary grenade magazine"
 	desc = "A 20mm magazine loaded with incendiary grenades. For use with the GL-54 or AR-55."
 	default_ammo = /datum/ammo/tx54/incendiary
 	icon_state = "tx54_airburst"
-	greyscale_colors = "#fa7923"
+	greyscale_colors = COLOR_AMMO_INCENDIARY
+
+/obj/item/ammo_magazine/rifle/tx54/smoke
+	name = "\improper 20mm tactical smoke grenade magazine"
+	desc = "A 20mm magazine loaded with tactical smoke grenades. For use with the GL-54 or AR-55."
+	default_ammo = /datum/ammo/tx54/smoke
+	icon_state = "tx54_airburst"
+	greyscale_colors = COLOR_AMMO_TACTICAL_SMOKE
+
+/obj/item/ammo_magazine/rifle/tx54/smoke/dense
+	name = "\improper 20mm smoke grenade magazine"
+	desc = "A 20mm magazine loaded with smoke grenades. For use with the GL-54 or AR-55."
+	default_ammo = /datum/ammo/tx54/smoke/dense
+	icon_state = "tx54_airburst"
+	greyscale_colors = COLOR_AMMO_SMOKE
+
+/obj/item/ammo_magazine/rifle/tx54/smoke/tangle
+	name = "\improper 20mm tanglefoot grenade magazine"
+	desc = "A 20mm magazine loaded with tanglefoot grenades. For use with the GL-54 or AR-55."
+	default_ammo = /datum/ammo/tx54/smoke/tangle
+	icon_state = "tx54_airburst"
+	greyscale_colors = COLOR_AMMO_TANGLEFOOT
+
+/obj/item/ammo_magazine/rifle/tx54/razor
+	name = "\improper 20mm razorburn grenade magazine"
+	desc = "A 20mm magazine loaded with razorburn grenades. For use with the GL-54 or AR-55."
+	default_ammo = /datum/ammo/tx54/razor
+	icon_state = "tx54_airburst"
+	greyscale_colors = COLOR_AMMO_RAZORBURN
 
 //-------------------------------------------------------
 //Garand
@@ -461,3 +478,38 @@
 	max_rounds = 200
 	reload_delay = 3 SECONDS
 	icon_state_mini = "mag_gpmg"
+
+//-------------------------------------------------------
+//L-11 Sharpshooter Rifle
+
+/obj/item/ammo_magazine/rifle/icc_sharpshooter
+	name = "\improper L-11 sharpshooter rifle magazine (10x27mm)"
+	desc = "A 10mm DMR magazine."
+	caliber = CALIBER_10x27_CASELESS
+	icon_state = "l11"
+	w_class = WEIGHT_CLASS_NORMAL
+	default_ammo = /datum/ammo/bullet/rifle/standard_dmr
+	max_rounds = 20
+	icon_state_mini = "mag_dmr"
+
+//-------------------------------------------------------
+//L-15 Battlecarbine
+/obj/item/ammo_magazine/rifle/icc_battlecarbine
+	name = "\improper L-15 battlecarbine rifle magazine (10x25mm)"
+	desc = "A magazine filled with 10x25mm rifle rounds for the L-15."
+	caliber = CALIBER_10X25_CASELESS
+	icon_state = "l15"
+	default_ammo = /datum/ammo/bullet/rifle/heavy
+	max_rounds = 30
+	icon_state_mini = "mag_rifle"
+
+//-------------------------------------------------------
+//ML-12 Confrontation Rifle
+/obj/item/ammo_magazine/rifle/icc_confrontationrifle
+	name = "\improper ML-12 battlecarbine rifle magazine (10x28mm)"
+	desc = "A magazine filled with 10x28mm armor-piercing rifle rounds for the ML-12."
+	caliber = CALIBER_10X28_CASELESS
+	icon_state = "ml12"
+	default_ammo = /datum/ammo/bullet/rifle/icc_confrontationrifle
+	max_rounds = 25
+	icon_state_mini = "mag_rifle"

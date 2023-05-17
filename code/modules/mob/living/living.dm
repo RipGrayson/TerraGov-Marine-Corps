@@ -80,7 +80,7 @@
 	. = ..()
 	update_cloak()
 
-/mob/living/Initialize()
+/mob/living/Initialize(mapload)
 	. = ..()
 	register_init_signals()
 	update_move_intent_effects()
@@ -95,8 +95,8 @@
 	stamina_regen_modifiers = list()
 	received_auras = list()
 	emitted_auras = list()
-	RegisterSignal(src, COMSIG_AURA_STARTED, .proc/add_emitted_auras)
-	RegisterSignal(src, COMSIG_AURA_FINISHED, .proc/remove_emitted_auras)
+	RegisterSignal(src, COMSIG_AURA_STARTED, PROC_REF(add_emitted_auras))
+	RegisterSignal(src, COMSIG_AURA_FINISHED, PROC_REF(remove_emitted_auras))
 
 /mob/living/Destroy()
 	for(var/i in embedded_objects)
@@ -360,7 +360,7 @@
 						to_chat(src, span_warning("[L] is restraining [P], you cannot push past."))
 					return
 
-		if(!L.buckled && !L.anchored && !moving_diagonally)
+		if(!L.buckled && !L.anchored)
 			var/mob_swap_mode = NO_SWAP
 			//the puller can always swap with its victim if on grab intent
 			if(L.pulledby == src && a_intent == INTENT_GRAB)
@@ -372,6 +372,9 @@
 				mob_swap_mode = PHASING
 			else if((move_resist >= MOVE_FORCE_VERY_STRONG || move_resist > L.move_force) && a_intent == INTENT_HELP) //Larger mobs can shove aside smaller ones. Xenos can always shove xenos
 				mob_swap_mode = SWAPPING
+			///if we're moving diagonally, but the mob isn't on the diagonal destination turf we have no reason to shuffle/push them
+			if(moving_diagonally && (get_dir(src, L) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc))
+				mob_swap_mode = PHASING
 			if(mob_swap_mode)
 				//switch our position with L
 				if(loc && !loc.Adjacent(L.loc))
@@ -385,11 +388,10 @@
 				L.flags_pass |= PASSMOB
 				flags_pass |= PASSMOB
 
-				var/move_failed = FALSE
-				if(!Move(oldLloc) || (mob_swap_mode == SWAPPING && !L.Move(oldloc)))
-					L.forceMove(oldLloc)
-					forceMove(oldloc)
-					move_failed = TRUE
+				if(!moving_diagonally) //the diagonal move already does this for us
+					Move(oldLloc)
+				if(mob_swap_mode == SWAPPING)
+					L.Move(oldloc)
 
 				if(!src_passmob)
 					flags_pass &= ~PASSMOB
@@ -398,8 +400,7 @@
 
 				now_pushing = FALSE
 
-				if(!move_failed)
-					return TURF_ENTER_ALREADY_MOVED
+				return TURF_ENTER_ALREADY_MOVED
 
 		if(mob_size < L.mob_size) //Can't go around pushing things larger than us.
 			return
@@ -487,7 +488,7 @@
  * speed : how fast will it fly
  */
 /mob/living/proc/fly_at(atom/target, range, speed, hovering_time)
-	addtimer(CALLBACK(src,.proc/end_flying, layer), hovering_time)
+	addtimer(CALLBACK(src,PROC_REF(end_flying), layer), hovering_time)
 	layer = FLY_LAYER
 	set_flying(TRUE)
 	throw_at(target, range, speed, null, 0, TRUE)
@@ -611,7 +612,7 @@ below 100 is not dizzy
 	dizziness = clamp(dizziness + amount, 0, 1000)
 
 	if(dizziness > 100 && !is_dizzy)
-		INVOKE_ASYNC(src, .proc/dizzy_process)
+		INVOKE_ASYNC(src, PROC_REF(dizzy_process))
 
 /mob/living/proc/dizzy_process()
 	is_dizzy = TRUE
@@ -935,7 +936,7 @@ below 100 is not dizzy
 				if(timeleft(afk_timer_id) <= afk_timer)
 					return
 				deltimer(afk_timer_id) //We'll go with the shorter timer.
-			afk_timer_id = addtimer(CALLBACK(src, .proc/on_sdd_grace_period_end), afk_timer, TIMER_STOPPABLE)
+			afk_timer_id = addtimer(CALLBACK(src, PROC_REF(on_sdd_grace_period_end)), afk_timer, TIMER_STOPPABLE)
 	afk_status = new_status
 	SEND_SIGNAL(src, COMSIG_CARBON_SETAFKSTATUS, new_status, afk_timer)
 

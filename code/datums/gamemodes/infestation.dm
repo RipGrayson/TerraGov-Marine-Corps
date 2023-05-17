@@ -27,7 +27,7 @@
 	if(!.)
 		return
 	var/datum/job/scaled_job = SSjob.GetJobType(/datum/job/terragov/squad/smartgunner)
-	scaled_job.job_points_needed  = 20 //For every 10 marine late joins, 1 extra SG
+	scaled_job.job_points_needed = 20 //For every 10 marine late joins, 1 extra SG
 
 /datum/game_mode/infestation/process()
 	if(round_finished)
@@ -63,16 +63,16 @@
 			if(length(GLOB.humans_by_zlevel["[i]"]))
 				locations[trait][FACTION_TERRAGOV] = get_area(pick(GLOB.humans_by_zlevel["[i]"]))
 
-	var/numHostsPlanet	= counts[ZTRAIT_GROUND][FACTION_TERRAGOV]
-	var/numHostsShip	= counts[ZTRAIT_MARINE_MAIN_SHIP][FACTION_TERRAGOV]
-	var/numHostsTransit	= counts[ZTRAIT_RESERVED][FACTION_TERRAGOV]
-	var/numXenosPlanet	= counts[ZTRAIT_GROUND][FACTION_XENO]
-	var/numXenosShip	= counts[ZTRAIT_MARINE_MAIN_SHIP][FACTION_XENO]
-	var/numXenosTransit	= counts[ZTRAIT_RESERVED][FACTION_XENO]
-	var/hostLocationP	= locations[ZTRAIT_GROUND][FACTION_TERRAGOV]
-	var/hostLocationS	= locations[ZTRAIT_MARINE_MAIN_SHIP][FACTION_TERRAGOV]
-	var/xenoLocationP	= locations[ZTRAIT_GROUND][FACTION_XENO]
-	var/xenoLocationS	= locations[ZTRAIT_MARINE_MAIN_SHIP][FACTION_XENO]
+	var/numHostsPlanet = counts[ZTRAIT_GROUND][FACTION_TERRAGOV]
+	var/numHostsShip = counts[ZTRAIT_MARINE_MAIN_SHIP][FACTION_TERRAGOV]
+	var/numHostsTransit = counts[ZTRAIT_RESERVED][FACTION_TERRAGOV]
+	var/numXenosPlanet = counts[ZTRAIT_GROUND][FACTION_XENO]
+	var/numXenosShip = counts[ZTRAIT_MARINE_MAIN_SHIP][FACTION_XENO]
+	var/numXenosTransit = counts[ZTRAIT_RESERVED][FACTION_XENO]
+	var/hostLocationP = locations[ZTRAIT_GROUND][FACTION_TERRAGOV]
+	var/hostLocationS = locations[ZTRAIT_MARINE_MAIN_SHIP][FACTION_TERRAGOV]
+	var/xenoLocationP = locations[ZTRAIT_GROUND][FACTION_XENO]
+	var/xenoLocationS = locations[ZTRAIT_MARINE_MAIN_SHIP][FACTION_XENO]
 
 	//Adjust the randomness there so everyone gets the same thing
 	var/numHostsShipr = BIOSCAN_DELTA(numHostsShip, delta)
@@ -82,7 +82,7 @@
 
 	var/sound/S = sound(get_sfx("queen"), channel = CHANNEL_ANNOUNCEMENTS, volume = 50)
 	if(announce_xenos)
-		for(var/i in GLOB.alive_xeno_list)
+		for(var/i in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
 			var/mob/M = i
 			SEND_SOUND(M, S)
 			to_chat(M, span_xenoannounce("The Queen Mother reaches into your mind from worlds away."))
@@ -244,7 +244,7 @@ Sensors indicate [numXenosShip || "no"] unknown lifeform signature[numXenosShip 
 
 /datum/game_mode/infestation/pre_setup()
 	. = ..()
-	addtimer(CALLBACK(SSticker.mode, .proc/map_announce), 5 SECONDS)
+	addtimer(CALLBACK(SSticker.mode, PROC_REF(map_announce)), 5 SECONDS)
 
 ///Announce the next map
 /datum/game_mode/infestation/proc/map_announce()
@@ -273,7 +273,7 @@ Sensors indicate [numXenosShip || "no"] unknown lifeform signature[numXenosShip 
 /datum/game_mode/infestation/proc/on_nuclear_explosion(datum/source, z_level)
 	SIGNAL_HANDLER
 	planet_nuked = INFESTATION_NUKE_INPROGRESS
-	INVOKE_ASYNC(src, .proc/play_cinematic, z_level)
+	INVOKE_ASYNC(src, PROC_REF(play_cinematic), z_level)
 
 /datum/game_mode/infestation/proc/on_nuke_started(datum/source, obj/machinery/nuclearbomb/nuke)
 	SIGNAL_HANDLER
@@ -298,7 +298,7 @@ Sensors indicate [numXenosShip || "no"] unknown lifeform signature[numXenosShip 
 	var/datum/cinematic/crash_nuke/C = /datum/cinematic/crash_nuke
 	var/nuketime = initial(C.runtime) + initial(C.cleanup_time)
 	addtimer(VARSET_CALLBACK(src, planet_nuked, INFESTATION_NUKE_COMPLETED), nuketime)
-	addtimer(CALLBACK(src, .proc/do_nuke_z_level, z_level), nuketime * 0.5)
+	addtimer(CALLBACK(src, PROC_REF(do_nuke_z_level), z_level), nuketime * 0.5)
 
 	Cinematic(CINEMATIC_CRASH_NUKE, world)
 
