@@ -10,6 +10,8 @@
 	upgrade = XENO_UPGRADE_BASETYPE
 	wound_type = "boiler" //used to match appropriate wound overlays
 
+	gib_flick = "gibbed-a-boiler"
+
 	// *** Melee Attacks *** //
 	melee_damage = 17
 
@@ -32,8 +34,8 @@
 	conscious_see_in_dark = 20
 
 	// *** Flags *** //
-	caste_flags = CASTE_ACID_BLOOD
-	can_flags =CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_BECOME_KING
+	caste_flags = CASTE_ACID_BLOOD|CASTE_EVOLUTION_ALLOWED
+	can_flags =CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER
 
 	// *** Defense *** //
 	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 40, ENERGY = 40, BOMB = 0, BIO = 30, FIRE = 40, ACID = 30)
@@ -49,7 +51,6 @@
 	max_ammo = 4
 	bomb_strength = 1 //Multiplier to the effectiveness of the boiler glob.
 	bomb_delay = 32 SECONDS
-	ammo_multiplier = 1.5 SECONDS
 
 	acid_spray_duration = 10 SECONDS
 	acid_spray_damage = 16

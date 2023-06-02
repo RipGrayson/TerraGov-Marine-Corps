@@ -3,14 +3,12 @@
 /turf/closed/wall
 	name = "wall"
 	desc = "A huge chunk of metal used to seperate rooms."
-	icon = 'icons/turf/walls.dmi'
-	icon_state = "metal"
+	icon = 'icons/turf/walls/regular_wall.dmi'
+	icon_state = "metal-0"
 	baseturfs = /turf/open/floor/plating
 	opacity = TRUE
 	explosion_block = 2
 
-	smoothing_behavior = CARDINAL_SMOOTHING
-	smoothing_groups = SMOOTH_GENERAL_STRUCTURES|SMOOTH_XENO_STRUCTURES
 	walltype = "metal"
 
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 100, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
@@ -25,6 +23,7 @@
 	var/bullethole_increment = 1
 	var/bullethole_state = 0
 	var/image/bullethole_overlay
+	base_icon_state = "metal"
 
 	var/max_temperature = 1800 //K, walls will take damage if they're next to a fire hotter than this
 
@@ -32,6 +31,21 @@
 
 	var/obj/effect/acid_hole/acided_hole //the acid hole inside the wall
 
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(
+		SMOOTH_GROUP_CLOSED_TURFS,
+		SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS,
+	)
+	canSmoothWith = list(
+		SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS,
+		SMOOTH_GROUP_AIRLOCK,
+		SMOOTH_GROUP_WINDOW_FRAME,
+		SMOOTH_GROUP_WINDOW_FULLTILE,
+		SMOOTH_GROUP_SHUTTERS,
+	)
+
+/turf/closed/wall/add_debris_element()
+	AddElement(/datum/element/debris, DEBRIS_SPARKS, -15, 8, 1)
 
 /turf/closed/wall/Initialize(mapload, ...)
 	. = ..()
@@ -58,8 +72,8 @@
 			T = get_step(src, i)
 
 			//update junction type of nearby walls
-			if(T.smoothing_behavior)
-				T.smooth_self()
+			if(smoothing_flags)
+				QUEUE_SMOOTH(T)
 
 			//nearby glowshrooms updated
 			for(var/obj/structure/glowshroom/shroom in T)
@@ -156,8 +170,8 @@
 		bullethole_overlay = null
 		return
 
-	var/overlay = round((max_integrity - wall_integrity) / max_integrity * damage_overlays.len) + 1
-	if(overlay > damage_overlays.len) overlay = damage_overlays.len
+	var/overlay = round((max_integrity - wall_integrity) / max_integrity * length(damage_overlays)) + 1
+	if(overlay > length(damage_overlays)) overlay = length(damage_overlays)
 
 	if(!damage_overlay || overlay != damage_overlay)
 		overlays -= damage_overlays[damage_overlay]
@@ -192,9 +206,9 @@
 #undef cur_dir
 
 /turf/closed/wall/proc/generate_overlays()
-	var/alpha_inc = 256 / damage_overlays.len
+	var/alpha_inc = 256 / length(damage_overlays)
 
-	for(var/i = 1; i <= damage_overlays.len; i++)
+	for(var/i = 1; i <= length(damage_overlays); i++)
 		var/image/img = image(icon = 'icons/turf/walls.dmi', icon_state = "overlay_damage")
 		img.blend_mode = BLEND_MULTIPLY
 		img.alpha = (i * alpha_inc) - 1

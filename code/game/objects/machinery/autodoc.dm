@@ -61,14 +61,14 @@
 	var/stored_metal_max = 2000
 
 
-/obj/machinery/autodoc/Initialize()
+/obj/machinery/autodoc/Initialize(mapload)
 	. = ..()
-	RegisterSignal(src, COMSIG_MOVABLE_SHUTTLE_CRUSH, .proc/shuttle_crush)
+	RegisterSignal(src, COMSIG_MOVABLE_SHUTTLE_CRUSH, PROC_REF(shuttle_crush))
 
 
 /obj/machinery/autodoc/Destroy()
 	forceeject = TRUE
-	INVOKE_ASYNC(src, .proc/do_eject)
+	INVOKE_ASYNC(src, PROC_REF(do_eject))
 	if(connected)
 		connected.connected = null
 		connected = null
@@ -216,7 +216,7 @@
 	var/surgery_list = list()
 	for(var/datum/limb/L in M.limbs)
 		if(L)
-			if(L.wounds.len)
+			if(length(L.wounds))
 				surgery_list += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_INTERNAL)
 
 			var/organdamagesurgery = 0
@@ -245,7 +245,7 @@
 			if(L.limb_status & LIMB_NECROTIZED)
 				surgery_list += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_NECRO)
 			var/skip_embryo_check = FALSE
-			if(L.implants.len)
+			if(length(L.implants))
 				for(var/I in L.implants)
 					if(!is_type_in_list(I,GLOB.known_implants))
 						surgery_list += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_SHRAPNEL)
@@ -304,7 +304,7 @@
 	else
 		surgery_todo_list = N.fields["autodoc_manual"]
 
-	if(!surgery_todo_list.len)
+	if(!length(surgery_todo_list))
 		visible_message("[src] buzzes, no surgical procedures were queued.")
 		return
 
@@ -328,7 +328,7 @@
 			surgery_todo_list -= A
 
 	var/currentsurgery = 1
-	while(surgery_todo_list.len > 0)
+	while(length(surgery_todo_list) > 0)
 		if(!surgery)
 			break
 		sleep(-1)
@@ -551,7 +551,7 @@
 										A.forceMove(occupant.loc)
 										occupant.status_flags &= ~XENO_HOST
 									qdel(A)
-						if(S.limb_ref.implants.len)
+						if(length(S.limb_ref.implants))
 							for(var/obj/item/I in S.limb_ref.implants)
 								if(!surgery)
 									break
@@ -580,7 +580,7 @@
 							else
 								occupant.reagents.add_reagent(/datum/reagent/medicine/spaceacillin, inject_per_second)
 								amount -= inject_per_second
-								sleep(10)
+								sleep(1 SECONDS)
 
 					if(ADSURGERY_FACIAL) // dumb but covers for incomplete facial surgery
 						say("Beginning Facial Reconstruction Surgery.")
@@ -627,7 +627,7 @@
 	while(heal_brute||heal_burn||heal_toxin||filtering||blood_transfer)
 		if(!surgery)
 			break
-		sleep(20)
+		sleep(2 SECONDS)
 		if(prob(5))
 			visible_message("[src] beeps as it continues working.")
 
@@ -717,15 +717,15 @@
 			return
 		else
 			visible_message("[usr] engages the internal release mechanism, and climbs out of \the [src].")
-	if(usr.skills.getRating("surgery") < SKILL_SURGERY_TRAINED && !event)
+	if(usr.skills.getRating(SKILL_SURGERY) < SKILL_SURGERY_TRAINED && !event)
 		usr.visible_message(span_notice("[usr] fumbles around figuring out how to use [src]."),
 		span_notice("You fumble around figuring out how to use [src]."))
-		var/fumbling_time = max(0 , SKILL_TASK_TOUGH - ( SKILL_TASK_EASY * usr.skills.getRating("surgery") ))// 8 secs non-trained, 5 amateur
+		var/fumbling_time = max(0 , SKILL_TASK_TOUGH - ( SKILL_TASK_EASY * usr.skills.getRating(SKILL_SURGERY) ))// 8 secs non-trained, 5 amateur
 		if(!do_after(usr, fumbling_time, TRUE, src, BUSY_ICON_UNSKILLED) || !occupant)
 			return
 	if(surgery)
 		surgery = 0
-		if(usr.skills.getRating("surgery") < SKILL_SURGERY_TRAINED) //Untrained people will fail to terminate the surgery properly.
+		if(usr.skills.getRating(SKILL_SURGERY) < SKILL_SURGERY_TRAINED) //Untrained people will fail to terminate the surgery properly.
 			visible_message("\The [src] malfunctions as [usr] aborts the surgery in progress.")
 			occupant.take_limb_damage(rand(30,50),rand(30,50))
 			log_game("[key_name(usr)] ejected [key_name(occupant)] from the autodoc during surgery causing damage.")
@@ -746,10 +746,10 @@
 		to_chat(dragger, span_notice("[src] is non-functional!"))
 		return
 
-	if(dragger.skills.getRating("surgery") < SKILL_SURGERY_TRAINED && !event)
+	if(dragger.skills.getRating(SKILL_SURGERY) < SKILL_SURGERY_TRAINED && !event)
 		dropped.visible_message(span_notice("[dropped] fumbles around figuring out how to get into \the [src]."),
 		span_notice("You fumble around figuring out how to get into \the [src]."))
-		var/fumbling_time = max(0 , SKILL_TASK_TOUGH - ( SKILL_TASK_EASY * dragger.skills.getRating("surgery") ))// 8 secs non-trained, 5 amateur
+		var/fumbling_time = max(0 , SKILL_TASK_TOUGH - ( SKILL_TASK_EASY * dragger.skills.getRating(SKILL_SURGERY) ))// 8 secs non-trained, 5 amateur
 		if(!do_after(dropped, fumbling_time, TRUE, src, BUSY_ICON_UNSKILLED))
 			return
 
@@ -772,7 +772,7 @@
 			qdel(O)
 		if(automaticmode)
 			say("Automatic mode engaged, initialising procedures.")
-			addtimer(CALLBACK(src, .proc/auto_start), 5 SECONDS)
+			addtimer(CALLBACK(src, PROC_REF(auto_start)), 5 SECONDS)
 
 ///Callback to start auto mode on someone entering
 /obj/machinery/autodoc/proc/auto_start()
@@ -892,10 +892,10 @@
 		to_chat(user, span_warning("Subject cannot have abiotic items on."))
 		return
 
-	if(user.skills.getRating("surgery") < SKILL_SURGERY_TRAINED && !event)
+	if(user.skills.getRating(SKILL_SURGERY) < SKILL_SURGERY_TRAINED && !event)
 		user.visible_message(span_notice("[user] fumbles around figuring out how to put [M] into [src]."),
 		span_notice("You fumble around figuring out how to put [M] into [src]."))
-		var/fumbling_time = max(0 , SKILL_TASK_TOUGH - ( SKILL_TASK_EASY * user.skills.getRating("surgery") ))// 8 secs non-trained, 5 amateur
+		var/fumbling_time = max(0 , SKILL_TASK_TOUGH - ( SKILL_TASK_EASY * user.skills.getRating(SKILL_SURGERY) ))// 8 secs non-trained, 5 amateur
 		if(!do_after(user, fumbling_time, TRUE, M, BUSY_ICON_UNSKILLED) || QDELETED(src))
 			return
 
@@ -921,7 +921,7 @@
 
 	if(automaticmode)
 		say("Automatic mode engaged, initialising procedures.")
-		addtimer(CALLBACK(src, .proc/auto_start), 5 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(auto_start)), 5 SECONDS)
 
 
 /////////////////////////////////////////////////////////////
@@ -944,7 +944,7 @@
 	var/obj/item/reagent_containers/blood/OMinus/blood_pack
 
 
-/obj/machinery/autodoc_console/Initialize()
+/obj/machinery/autodoc_console/Initialize(mapload)
 	. = ..()
 	connected = locate(/obj/machinery/autodoc, get_step(src, WEST))
 	if(connected)
@@ -1229,7 +1229,7 @@
 		if(href_list["internal"])
 			for(var/i in connected.occupant.limbs)
 				var/datum/limb/L = i
-				if(L.wounds.len)
+				if(length(L.wounds))
 					N.fields["autodoc_manual"] += create_autodoc_surgery(L,LIMB_SURGERY,ADSURGERY_INTERNAL)
 					needed++
 			if(!needed)

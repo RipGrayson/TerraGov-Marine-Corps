@@ -25,6 +25,10 @@
 	icon = 'icons/obj/doors/mainship/engidoor.dmi'
 	assembly_type = /obj/structure/door_assembly/door_assembly_eng
 
+/obj/machinery/door/airlock/engineering/evac
+	icon = 'icons/obj/doors/mainship/pod_doors.dmi'
+	icon_state = "door_locked"
+
 /obj/machinery/door/airlock/medical
 	name = "\improper Medical Airlock"
 	icon = 'icons/obj/doors/mainship/medidoor.dmi'
@@ -287,7 +291,6 @@
 
 /obj/machinery/door/airlock/mainship/command/canterbury //For wall-smoothing
 	req_access = list(ACCESS_MARINE_DROPSHIP)
-	smoothing_groups = SMOOTH_CANTERBURY
 
 /obj/machinery/door/airlock/mainship/command/cic
 	name = "\improper Combat Information Center"
@@ -367,15 +370,15 @@
 /obj/machinery/door/airlock/mainship/secure/evac
 	name = "\improper Evacuation Airlock"
 
-/obj/machinery/door/airlock/mainship/secure/evac/Initialize()
+/obj/machinery/door/airlock/mainship/secure/evac/Initialize(mapload)
 	. = ..()
-	RegisterSignal(SSdcs, COMSIG_GLOB_EVACUATION_STARTED, .proc/force_open)
+	RegisterSignal(SSdcs, COMSIG_GLOB_EVACUATION_STARTED, PROC_REF(force_open))
 
 ///Force open that door
 /obj/machinery/door/airlock/mainship/secure/proc/force_open()
 	SIGNAL_HANDLER
 	unlock(TRUE)
-	INVOKE_ASYNC(src, .proc/open, TRUE)
+	INVOKE_ASYNC(src, PROC_REF(open), TRUE)
 	lock(TRUE)
 
 /obj/machinery/door/airlock/mainship/secure/rebel/evac
@@ -771,7 +774,7 @@
 /obj/machinery/door/airlock/mainship/marine/alpha/sl
 	name = "\improper Alpha Squad Leader Preparations"
 	req_access = list(ACCESS_MARINE_LEADER, ACCESS_MARINE_ALPHA)
-	req_one_access =  null
+	req_one_access = null
 
 /obj/machinery/door/airlock/mainship/marine/alpha/engineer
 	name = "\improper Alpha Squad Engineer Preparations"
@@ -781,7 +784,7 @@
 /obj/machinery/door/airlock/mainship/marine/alpha/medic
 	name = "\improper Alpha Squad Medic Preparations"
 	req_access = list(ACCESS_MARINE_MEDPREP, ACCESS_MARINE_ALPHA)
-	req_one_access =  null
+	req_one_access = null
 
 /obj/machinery/door/airlock/mainship/marine/alpha/smart
 	name = "\improper Alpha Squad Smartgunner Preparations"

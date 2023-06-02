@@ -30,7 +30,7 @@
 	icon_state = "tallcabinet"
 
 
-/obj/structure/filingcabinet/Initialize()
+/obj/structure/filingcabinet/Initialize(mapload)
 	. = ..()
 	for(var/obj/item/I in loc)
 		if(istype(I, /obj/item/paper) || istype(I, /obj/item/folder) || istype(I, /obj/item/photo) || istype(I, /obj/item/paper_bundle))
@@ -46,7 +46,7 @@
 
 		to_chat(user, span_notice("You put [I] in [src]."))
 		icon_state = "[initial(icon_state)]-open"
-		sleep(5)
+		sleep(0.5 SECONDS)
 		icon_state = initial(icon_state)
 		updateUsrDialog()
 
@@ -63,7 +63,7 @@
 	. = ..()
 	if(.)
 		return
-	if(contents.len <= 0)
+	if(length(contents) <= 0)
 		to_chat(user, span_notice("\The [src] is empty."))
 		return
 

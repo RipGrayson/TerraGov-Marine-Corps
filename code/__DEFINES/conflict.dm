@@ -51,7 +51,7 @@
 #define AMMO_IGNORE_RESIST (1<<10) //Unused.
 #define AMMO_BALLISTIC (1<<11) //Generates blood splatters on mob hit
 #define AMMO_SUNDERING (1<<12)
-#define SPECIAL_PROCESS (1<<13)
+#define AMMO_SPECIAL_PROCESS (1<<13)
 #define AMMO_SENTRY (1<<14) //Used to identify ammo from sentry guns and other automated sources
 #define AMMO_FLAME (1<<15) //Used to identify flamethrower projectiles and similar projectiles
 #define AMMO_IFF (1<<16) //Used to identify ammo that have intrinsec IFF properties
@@ -60,6 +60,7 @@
 #define AMMO_PASS_THROUGH_TURF (1<<19) //If the projectile passes through walls causing damage to them
 #define AMMO_PASS_THROUGH_MOVABLE (1<<20) //If the projectile passes through mobs and objects causing damage to them
 #define AMMO_PASS_THROUGH_MOB (1<<21) //If the projectile passes through mobs only causing damage to them
+#define AMMO_SOUND_PITCH (1<<22) //If the projectile ricochet and miss sound is pitched up
 
 //Gun defines for gun related thing. More in the projectile folder.
 //flags_gun_features
@@ -121,10 +122,10 @@
 #define SHOES_SLOWDOWN -1.0			// How much shoes slow you down by default. Negative values speed you up
 
 #define SLOWDOWN_ARMOR_VERY_LIGHT 0.20
-#define SLOWDOWN_ARMOR_LIGHT 0.35
-#define SLOWDOWN_ARMOR_MEDIUM 0.55
-#define SLOWDOWN_ARMOR_HEAVY 1
-#define SLOWDOWN_ARMOR_VERY_HEAVY 1.15
+#define SLOWDOWN_ARMOR_LIGHT 0.3
+#define SLOWDOWN_ARMOR_MEDIUM 0.5
+#define SLOWDOWN_ARMOR_HEAVY 0.7
+#define SLOWDOWN_ARMOR_VERY_HEAVY 1
 
 
 //=================================================
@@ -169,6 +170,7 @@
 #define SMOKE_XENO_SANGUINAL (1<<18) //Toxic crimson smoke created by the Defiler's Defile ability.
 #define SMOKE_XENO_OZELOMELYN (1<<19) //Smoke that purges chemicals and does minor capped toxin damage for Defiler.
 #define SMOKE_SATRAPINE (1<<20) //nerve agent that purges painkillers and causes increasing pain
+#define SMOKE_XENO_TOXIC (1<<21) //deals damage to anyone inside it and inflicts the intoxicated debuff, dealing damage over time
 
 //Incapacitated
 #define INCAPACITATED_IGNORE_RESTRAINED (1<<0)

@@ -292,7 +292,7 @@
 
 /obj/machinery/camera/get_remote_view_fullscreens(mob/user)
 	if(view_range == short_range) //unfocused
-		user.overlay_fullscreen("remote_view", /obj/screen/fullscreen/impaired, 2)
+		user.overlay_fullscreen("remote_view", /atom/movable/screen/fullscreen/impaired, 2)
 
 
 /obj/machinery/camera/update_remote_sight(mob/living/user)
@@ -307,8 +307,8 @@
 
 
 //This camera type automatically sets it's name to whatever the area that it's in is called.
-/obj/machinery/camera/autoname/Initialize()
-	. =  ..()
+/obj/machinery/camera/autoname/Initialize(mapload)
+	. = ..()
 	var/static/list/id_by_area = list()
 	var/area/A = get_area(src)
 	c_tag = "[A.name] #[++id_by_area[A]]"

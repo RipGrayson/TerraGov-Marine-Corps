@@ -11,6 +11,10 @@
 #define MAP_RESEARCH_OUTPOST "Research Outpost"
 #define MAP_WHISKEY_OUTPOST "Whiskey Outpost"
 #define MAP_MAGMOOR_DIGSITE "Magmoor Digsite IV"
+#define MAP_CHIGUSA "Chigusa"
+#define MAP_GELIDA_IV "Gelida IV"
+#define MAP_DELTA_STATION "Delta Station"
+#define MAP_OSCAR_OUTPOST "Oscar Outpost"
 
 #define MAP_PILLAR_OF_SPRING "Pillar of Spring"
 #define MAP_SULACO "Sulaco"
@@ -42,9 +46,6 @@
 #define SEC_LEVEL_RED 2
 #define SEC_LEVEL_DELTA 3
 
-
-//some arbitrary defines to be used by self-pruning global lists. (see master_controller)
-#define PROCESS_KILL 26	//Used to trigger removal from a processing list
 
 //=================================================
 #define HOSTILE_STANCE_IDLE 1
@@ -91,10 +92,8 @@
 #define MAX_BOOK_MESSAGE_LEN 9216
 #define MAX_NAME_LEN 26
 #define MAX_BROADCAST_LEN 512
+#define MAX_NAME_HYPO 3
 
-
-/// Is something in the IC chat filter? This is config dependent.
-#define CHAT_FILTER_CHECK(text) (config.ic_filter_regex && findtext(text, config.ic_filter_regex))
 
 //for whether AI eyes see static, and whether it is mouse-opaque or not
 #define USE_STATIC_NONE 0

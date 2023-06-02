@@ -9,6 +9,7 @@
 	name = "subspace receiver"
 	icon_state = "broadcast receiver"
 	desc = "This machine has a dish-like shape and green lights. It is designed to detect and process subspace radio activity."
+	telecomms_type = /obj/machinery/telecomms/receiver
 	density = TRUE
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 30
@@ -87,7 +88,7 @@
 
 
 //Common and other radio frequencies for people to freely use
-/obj/machinery/telecomms/receiver/preset_right/Initialize()
+/obj/machinery/telecomms/receiver/preset_right/Initialize(mapload)
 	. = ..()
 	for(var/i = MIN_FREQ, i <= MAX_FREQ, i += 2)
 		freq_listening |= i

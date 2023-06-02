@@ -11,14 +11,12 @@
 	updatehealth()
 
 
-//this updates all special effects: knockdown, druggy, stuttering, etc..
+//this updates all special effects: knockdown, druggy, etc.., DELETE ME!!
 /mob/living/proc/handle_status_effects()
 	if(no_stun)//anti-chainstun flag for alien tackles
 		no_stun = max(0, no_stun - 1) //decrement by 1.
 
 	handle_drugged()
-	handle_stuttering()
-	handle_slurring()
 	handle_slowdown()
 	handle_stagger()
 
@@ -52,21 +50,10 @@
 	reagent_shock_modifier = 0
 	reagent_pain_modifier = 0
 
-/mob/living/proc/handle_stuttering()
-	if(stuttering)
-		stuttering = max(stuttering-1, 0)
-	return stuttering
-
 /mob/living/proc/handle_drugged()
 	if(druggy)
 		adjust_drugginess(-1)
 	return druggy
-
-/mob/living/proc/handle_slurring()
-	if(slurring)
-		slurring = max(slurring-1, 0)
-	return slurring
-
 
 /mob/living/proc/handle_staminaloss()
 	if(world.time < last_staminaloss_dmg + 3 SECONDS)
@@ -93,7 +80,7 @@
 	. = ..()
 	update_cloak()
 
-/mob/living/Initialize()
+/mob/living/Initialize(mapload)
 	. = ..()
 	register_init_signals()
 	update_move_intent_effects()
@@ -104,11 +91,12 @@
 
 	set_armor_datum()
 	AddElement(/datum/element/gesture)
+	AddElement(/datum/element/keybinding_update)
 	stamina_regen_modifiers = list()
 	received_auras = list()
 	emitted_auras = list()
-	RegisterSignal(src, COMSIG_AURA_STARTED, .proc/add_emitted_auras)
-	RegisterSignal(src, COMSIG_AURA_FINISHED, .proc/remove_emitted_auras)
+	RegisterSignal(src, COMSIG_AURA_STARTED, PROC_REF(add_emitted_auras))
+	RegisterSignal(src, COMSIG_AURA_FINISHED, PROC_REF(remove_emitted_auras))
 
 /mob/living/Destroy()
 	for(var/i in embedded_objects)
@@ -372,7 +360,7 @@
 						to_chat(src, span_warning("[L] is restraining [P], you cannot push past."))
 					return
 
-		if(!L.buckled && !L.anchored && !moving_diagonally)
+		if(!L.buckled && !L.anchored)
 			var/mob_swap_mode = NO_SWAP
 			//the puller can always swap with its victim if on grab intent
 			if(L.pulledby == src && a_intent == INTENT_GRAB)
@@ -384,6 +372,9 @@
 				mob_swap_mode = PHASING
 			else if((move_resist >= MOVE_FORCE_VERY_STRONG || move_resist > L.move_force) && a_intent == INTENT_HELP) //Larger mobs can shove aside smaller ones. Xenos can always shove xenos
 				mob_swap_mode = SWAPPING
+			///if we're moving diagonally, but the mob isn't on the diagonal destination turf we have no reason to shuffle/push them
+			if(moving_diagonally && (get_dir(src, L) in GLOB.cardinals) && get_step(src, dir).Enter(src, loc))
+				mob_swap_mode = PHASING
 			if(mob_swap_mode)
 				//switch our position with L
 				if(loc && !loc.Adjacent(L.loc))
@@ -397,11 +388,10 @@
 				L.flags_pass |= PASSMOB
 				flags_pass |= PASSMOB
 
-				var/move_failed = FALSE
-				if(!Move(oldLloc) || (mob_swap_mode == SWAPPING && !L.Move(oldloc)))
-					L.forceMove(oldLloc)
-					forceMove(oldloc)
-					move_failed = TRUE
+				if(!moving_diagonally) //the diagonal move already does this for us
+					Move(oldLloc)
+				if(mob_swap_mode == SWAPPING)
+					L.Move(oldloc)
 
 				if(!src_passmob)
 					flags_pass &= ~PASSMOB
@@ -410,8 +400,7 @@
 
 				now_pushing = FALSE
 
-				if(!move_failed)
-					return TURF_ENTER_ALREADY_MOVED
+				return TURF_ENTER_ALREADY_MOVED
 
 		if(mob_size < L.mob_size) //Can't go around pushing things larger than us.
 			return
@@ -499,7 +488,7 @@
  * speed : how fast will it fly
  */
 /mob/living/proc/fly_at(atom/target, range, speed, hovering_time)
-	addtimer(CALLBACK(src,.proc/end_flying, layer), hovering_time)
+	addtimer(CALLBACK(src,PROC_REF(end_flying), layer), hovering_time)
 	layer = FLY_LAYER
 	set_flying(TRUE)
 	throw_at(target, range, speed, null, 0, TRUE)
@@ -517,10 +506,10 @@
 /mob/living/proc/get_permeability_protection()
 	return LIVING_PERM_COEFF
 
-/mob/proc/flash_act(intensity = 1, bypass_checks, type = /obj/screen/fullscreen/flash, duration)
+/mob/proc/flash_act(intensity = 1, bypass_checks, type = /atom/movable/screen/fullscreen/flash, duration)
 	return
 
-/mob/living/carbon/flash_act(intensity = 1, bypass_checks, type = /obj/screen/fullscreen/flash, duration = 40)
+/mob/living/carbon/flash_act(intensity = 1, bypass_checks, type = /atom/movable/screen/fullscreen/flash, duration = 40)
 	if( bypass_checks || (get_eye_protection() < intensity && !(disabilities & BLIND)) )
 		overlay_fullscreen_timer(duration, 20, "flash", type)
 		return TRUE
@@ -541,15 +530,21 @@
 	else if(eye_blind == 1)
 		adjust_blindness(-1)
 	if(tinttotal)
-		overlay_fullscreen("tint", /obj/screen/fullscreen/impaired, tinttotal)
+		overlay_fullscreen("tint", /atom/movable/screen/fullscreen/impaired, tinttotal)
 		return TRUE
 	else
 		clear_fullscreen("tint", 0)
 		return FALSE
 
+///Modifies the mobs inherent accuracy modifier
 /mob/living/proc/adjust_mob_accuracy(accuracy_mod)
 	ranged_accuracy_mod += accuracy_mod
+	SEND_SIGNAL(src, COMSIG_RANGED_ACCURACY_MOD_CHANGED, accuracy_mod)
 
+///Modifies the mobs inherent scatter modifier
+/mob/living/proc/adjust_mob_scatter(scatter_mod)
+	ranged_scatter_mod += scatter_mod
+	SEND_SIGNAL(src, COMSIG_RANGED_SCATTER_MOD_CHANGED, scatter_mod)
 
 /mob/living/proc/smokecloak_on()
 
@@ -617,7 +612,7 @@ below 100 is not dizzy
 	dizziness = clamp(dizziness + amount, 0, 1000)
 
 	if(dizziness > 100 && !is_dizzy)
-		INVOKE_ASYNC(src, .proc/dizzy_process)
+		INVOKE_ASYNC(src, PROC_REF(dizzy_process))
 
 /mob/living/proc/dizzy_process()
 	is_dizzy = TRUE
@@ -627,7 +622,7 @@ below 100 is not dizzy
 			client.pixel_x = amplitude * sin(0.008 * dizziness * world.time)
 			client.pixel_y = amplitude * cos(0.008 * dizziness * world.time)
 
-		sleep(1)
+		sleep(0.1 SECONDS)
 	//endwhile - reset the pixel offsets to zero
 	is_dizzy = FALSE
 	if(client)
@@ -736,6 +731,7 @@ below 100 is not dizzy
 	var/obj/visual = new /obj/effect/overlay/temp/point/big(our_tile, 0, invisibility)
 	animate(visual, pixel_x = (tile.x - our_tile.x) * world.icon_size + A.pixel_x, pixel_y = (tile.y - our_tile.y) * world.icon_size + A.pixel_y, time = 1.7, easing = EASE_OUT)
 	visible_message("<b>[src]</b> points to [A]")
+	SEND_SIGNAL(src, COMSIG_POINT_TO_ATOM, A)
 	return TRUE
 
 
@@ -940,7 +936,7 @@ below 100 is not dizzy
 				if(timeleft(afk_timer_id) <= afk_timer)
 					return
 				deltimer(afk_timer_id) //We'll go with the shorter timer.
-			afk_timer_id = addtimer(CALLBACK(src, .proc/on_sdd_grace_period_end), afk_timer, TIMER_STOPPABLE)
+			afk_timer_id = addtimer(CALLBACK(src, PROC_REF(on_sdd_grace_period_end)), afk_timer, TIMER_STOPPABLE)
 	afk_status = new_status
 	SEND_SIGNAL(src, COMSIG_CARBON_SETAFKSTATUS, new_status, afk_timer)
 

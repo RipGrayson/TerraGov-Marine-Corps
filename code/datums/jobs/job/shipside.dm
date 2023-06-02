@@ -21,11 +21,12 @@
 	outfit = /datum/outfit/job/command/captain
 	exp_requirements = XP_REQ_EXPERT
 	exp_type = EXP_TYPE_REGULAR_ALL
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP|JOB_FLAG_LOUDER_TTS
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
 	html_description = {"
 		<b>Difficulty</b>: Hard<br /><br />
@@ -64,7 +65,7 @@ Godspeed, captain! And remember, you are not above the law."})
 	jobtype = /datum/job/terragov/command/captain
 
 	id = /obj/item/card/id/gold
-	belt = /obj/item/storage/belt/gun/pistol/smart_pistol/full
+	belt = /obj/item/storage/holster/belt/pistol/smart_pistol/full
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer/command
 	shoes = /obj/item/clothing/shoes/marinechief/captain
@@ -107,13 +108,19 @@ Godspeed, captain! And remember, you are not above the law."})
 	minimal_access = ALL_MARINE_ACCESS
 	display_order = JOB_DISPLAY_ORDER_EXECUTIVE_OFFICER
 	outfit = /datum/outfit/job/command/fieldcommander
+	multiple_outfits = TRUE
+	outfits = list(
+		/datum/outfit/job/command/fieldcommander,
+		/datum/outfit/job/command/fieldcommander_robot,
+	)
 	exp_requirements = XP_REQ_EXPERIENCED
 	exp_type = EXP_TYPE_REGULAR_ALL
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_ISCOMMAND|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP|JOB_FLAG_LOUDER_TTS
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
 	html_description = {"
 		<b>Difficulty</b>:Very Hard<br /><br />
@@ -130,15 +137,15 @@ Godspeed, captain! And remember, you are not above the law."})
 	access = ALL_MARINE_REBEL_ACCESS
 	minimal_access = ALL_MARINE_REBEL_ACCESS
 	outfit = /datum/outfit/job/command/fieldcommander/rebel
+	outfits = list(
+		/datum/outfit/job/command/fieldcommander,
+		/datum/outfit/job/command/fieldcommander_robot/rebel,
+	)
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner/rebel = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic/rebel = SYNTH_POINTS_REGULAR,
 	)
-
-/datum/job/terragov/command/fieldcommander/after_spawn(mob/living/L, mob/M, latejoin)
-	. = ..()
-	SSdirection.set_leader(TRACKING_ID_MARINE_COMMANDER, L)
 
 
 /datum/job/terragov/command/fieldcommander/radio_help_message(mob/M)
@@ -163,13 +170,14 @@ Make the TGMC proud!"})
 			new_human.wear_id.paygrade = "MO4"
 		if(7501 to INFINITY) // 125 hrs
 			new_human.wear_id.paygrade = "MO5"
+	SSdirection.set_leader(TRACKING_ID_MARINE_COMMANDER, new_mob)
 
 
 /datum/outfit/job/command/fieldcommander
 	name = FIELD_COMMANDER
 	jobtype = /datum/job/terragov/command/fieldcommander
 
-	id = /obj/item/card/id/dogtag
+	id = /obj/item/card/id/dogtag/fc
 	belt = /obj/item/storage/holster/blade/officer/full
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer/exec
@@ -180,12 +188,33 @@ Make the TGMC proud!"})
 	r_store = /obj/item/storage/pouch/general/large/command
 	l_store = /obj/item/hud_tablet/fieldcommand
 	back = /obj/item/storage/backpack/marine/satchel
-	suit_store = /obj/item/storage/belt/gun/mateba/officer/full
+	suit_store = /obj/item/storage/holster/belt/pistol/m4a3/fieldcommander
+
+/datum/outfit/job/command/fieldcommander_robot
+	name = FIELD_COMMANDER
+	jobtype = /datum/job/terragov/command/fieldcommander
+	species = SPECIES_COMBAT_ROBOT
+
+	id = /obj/item/card/id/dogtag/fc
+	belt = /obj/item/storage/holster/blade/officer/full
+	ears = /obj/item/radio/headset/mainship/mcom
+	w_uniform = /obj/item/clothing/under/marine/robotic
+	wear_suit = /obj/item/clothing/suit/modular/robot
+	shoes = null
+	gloves = null
+	head = /obj/item/clothing/head/modular/robot
+	r_store = /obj/item/storage/pouch/general/large/command
+	l_store = /obj/item/hud_tablet/fieldcommand
+	back = /obj/item/storage/backpack/marine/satchel
+	suit_store = /obj/item/storage/holster/belt/pistol/m4a3/fieldcommander
 
 /datum/outfit/job/command/fieldcommander/rebel
 	jobtype = /datum/job/terragov/command/fieldcommander/rebel
 	ears = /obj/item/radio/headset/mainship/mcom/rebel
 
+/datum/outfit/job/command/fieldcommander_robot/rebel
+	jobtype = /datum/job/terragov/command/fieldcommander/rebel
+	ears = /obj/item/radio/headset/mainship/mcom/rebel
 
 //Staff Officer
 /datum/job/terragov/command/staffofficer
@@ -205,6 +234,7 @@ Make the TGMC proud!"})
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
 	html_description = {"
 		<b>Difficulty</b>: Medium<br /><br />
@@ -254,7 +284,7 @@ You are in charge of logistics and the overwatch system. You are also in line to
 	jobtype = /datum/job/terragov/command/staffofficer
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/storage/belt/gun/pistol/m4a3/officer
+	belt = /obj/item/storage/holster/belt/pistol/m4a3/officer
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer/bridge
 	shoes = /obj/item/clothing/shoes/marine/full
@@ -284,6 +314,7 @@ You are in charge of logistics and the overwatch system. You are also in line to
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE_STRONG,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
 	html_description = {"
 		<b>Difficulty</b>: Medium<br /><br />
@@ -337,12 +368,12 @@ Though you are a warrant officer, your authority is limited to the dropship and 
 	jobtype = /datum/job/terragov/command/pilot
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/storage/belt/gun/pistol/m4a3/vp70
+	belt = /obj/item/storage/holster/belt/pistol/m4a3/vp70
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer/pilot
 	wear_suit = /obj/item/clothing/suit/modular/xenonauten/pilot
 	shoes = /obj/item/clothing/shoes/marine/full
-	gloves = /obj/item/clothing/gloves/yellow
+	gloves = /obj/item/clothing/gloves/insulated
 	glasses = /obj/item/clothing/glasses/sunglasses/aviator
 	head = /obj/item/clothing/head/helmet/marine/pilot
 	r_store = /obj/item/storage/pouch/general/large
@@ -359,7 +390,7 @@ Though you are a warrant officer, your authority is limited to the dropship and 
 	req_admin_notify = TRUE
 	paygrade = "E3"
 	comm_title = "MCH"
-	total_positions = 1
+	total_positions = 0
 	skills_type = /datum/skills/mech_pilot
 	access = list(ACCESS_MARINE_WO, ACCESS_MARINE_PREP, ACCESS_MARINE_MECH, ACCESS_CIVILIAN_PUBLIC)
 	minimal_access = list(ACCESS_MARINE_WO, ACCESS_MARINE_PREP, ACCESS_MARINE_MECH, ACCESS_CIVILIAN_PUBLIC, ACCESS_MARINE_BRIDGE, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_LOGISTICS, ACCESS_MARINE_CARGO)
@@ -367,11 +398,11 @@ Though you are a warrant officer, your authority is limited to the dropship and 
 	outfit = /datum/outfit/job/command/mech_pilot
 	exp_requirements = XP_REQ_EXPERT
 	exp_type = EXP_TYPE_REGULAR_ALL
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
+	job_points_needed = 80
 	jobworth = list(
-		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
+		/datum/job/xenomorph = LARVA_POINTS_REGULAR,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
-		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
 	)
 	html_description = {"
 		<b>Difficulty</b>:Very Hard<br /><br />
@@ -444,6 +475,7 @@ You can serve your Division in a variety of roles, so choose carefully."})
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
 	html_description = {"
 		<b>Difficulty</b>: Hard<br /><br />
@@ -497,10 +529,10 @@ You are also next in the chain of command, should the bridge crew fall in the li
 	belt = /obj/item/storage/belt/utility/full
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/marine/officer/ce
-	wear_suit = /obj/item/clothing/suit/storage/marine/MP
+	wear_suit = /obj/item/clothing/suit/storage/marine/officer/req
 	shoes = /obj/item/clothing/shoes/marine/full
 	glasses = /obj/item/clothing/glasses/welding/superior
-	gloves = /obj/item/clothing/gloves/yellow
+	gloves = /obj/item/clothing/gloves/insulated
 	head = /obj/item/clothing/head/beret/marine/techofficer
 	r_store = /obj/item/storage/pouch/construction
 	back = /obj/item/storage/backpack/marine/engineerpack
@@ -533,6 +565,7 @@ You are also next in the chain of command, should the bridge crew fall in the li
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
 	html_description = {"
 		<b>Difficulty</b>: Medium<br /><br />
@@ -587,9 +620,9 @@ requisitions line and later on to be ready to send supplies for marines who are 
 	belt = /obj/item/storage/belt/utility/full
 	ears = /obj/item/radio/headset/mainship/st
 	w_uniform = /obj/item/clothing/under/marine/officer/engi
-	wear_suit = /obj/item/clothing/suit/storage/marine/M3P/tech
+	wear_suit = /obj/item/clothing/suit/storage/marine/ship_tech
 	shoes = /obj/item/clothing/shoes/marine/full
-	gloves = /obj/item/clothing/gloves/yellow
+	gloves = /obj/item/clothing/gloves/insulated
 	glasses = /obj/item/clothing/glasses/welding/flipped
 	head = /obj/item/clothing/head/tgmccap/req
 	r_store = /obj/item/storage/pouch/general/medium
@@ -626,6 +659,7 @@ requisitions line and later on to be ready to send supplies for marines who are 
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
 	html_description = {"
 		<b>Difficulty</b>: Medium<br /><br />
@@ -678,13 +712,13 @@ A happy ship is a well-functioning ship."})
 	jobtype = /datum/job/terragov/requisitions/officer
 
 	id = /obj/item/card/id/silver
-	belt = /obj/item/storage/belt/gun/m44/full
+	belt = /obj/item/storage/holster/belt/m44/full
 	ears = /obj/item/radio/headset/mainship/mcom
-	w_uniform = /obj/item/clothing/under/rank/ro_suit
-	wear_suit = /obj/item/clothing/suit/storage/marine/MP
+	w_uniform = /obj/item/clothing/under/marine/officer/ro_suit
+	wear_suit = /obj/item/clothing/suit/storage/marine/officer/req
 	suit_store = /obj/item/weapon/gun/energy/taser
 	shoes = /obj/item/clothing/shoes/marine/full
-	gloves = /obj/item/clothing/gloves/yellow
+	gloves = /obj/item/clothing/gloves/insulated
 	head = /obj/item/clothing/head/tgmccap/req
 	r_store = /obj/item/storage/pouch/general/large
 	back = /obj/item/storage/backpack/marine/satchel
@@ -719,6 +753,7 @@ A happy ship is a well-functioning ship."})
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
 	html_description = {"
 		<b>Difficulty</b>: Hard<br /><br />
@@ -806,6 +841,7 @@ Make sure that the doctors and nurses are doing their jobs and keeping the marin
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
 	html_description = {"
 		<b>Difficulty</b>: Medium<br /><br />
@@ -884,7 +920,7 @@ You are also an expert when it comes to medication and treatment. If you do not 
 	supervisors = "the NT corporate office"
 	access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_RESEARCH, ACCESS_MARINE_CHEMISTRY, ACCESS_MARINE_ENGINEERING, ACCESS_CIVILIAN_ENGINEERING)
 	minimal_access = list(ACCESS_MARINE_MEDBAY, ACCESS_MARINE_RESEARCH, ACCESS_MARINE_CHEMISTRY, ACCESS_MARINE_CARGO, ACCESS_MARINE_DROPSHIP)
-	skills_type = /datum/skills/doctor
+	skills_type = /datum/skills/researcher
 	display_order = JOB_DISPLAY_ORDER_MEDICAL_RESEARCHER
 	outfit = /datum/outfit/job/medical/researcher
 	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_ALWAYS_VISIBLE_ON_MINIMAP
@@ -892,6 +928,7 @@ You are also an expert when it comes to medication and treatment. If you do not 
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
 	html_description = {"
 		<b>Difficulty</b>: Medium<br /><br />
@@ -983,6 +1020,7 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
 	html_description = {"
 		<b>Difficulty</b>: Hard (varies)<br /><br />
@@ -997,6 +1035,7 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 	. = ..()
 	if(!ishuman(new_mob))
 		return
+
 	var/mob/living/carbon/human/new_human = new_mob
 	var/playtime_mins = user?.client?.get_exp(title)
 	if(!playtime_mins || playtime_mins < 1 )
@@ -1019,7 +1058,6 @@ It is also recommended that you gear up like a regular marine, or your 'internsh
 You are not required to follow military orders; however, you cannot give military orders.
 Your primary job is to observe and report back your findings to Nanotrasen. Follow regular game rules unless told otherwise by your superiors.
 Use your office fax machine to communicate with corporate headquarters or to acquire new directives. You may not receive anything back (especially if the game staff is absent or otherwise busy), and this is normal."})
-
 
 /datum/outfit/job/civilian/liaison
 	name = CORPORATE_LIAISON
@@ -1057,6 +1095,7 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE_STRONG,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
 	html_description = {"
 		<b>Difficulty</b>: Soul Crushing<br /><br />
@@ -1081,12 +1120,12 @@ Use your office fax machine to communicate with corporate headquarters or to acq
 	return preference_source.prefs.synthetic_name
 
 /datum/job/terragov/silicon/synthetic/return_spawn_type(datum/preferences/prefs)
-	if(prefs && prefs.synthetic_type == "Early Synthetic")
+	if(prefs?.synthetic_type == "Early Synthetic")
 		return /mob/living/carbon/human/species/early_synthetic
 	return /mob/living/carbon/human/species/synthetic
 
 /datum/job/terragov/silicon/synthetic/return_skills_type(datum/preferences/prefs)
-	if(prefs && prefs.synthetic_type == "Early Synthetic")
+	if(prefs?.synthetic_type == "Early Synthetic")
 		return /datum/skills/early_synthetic
 	return ..()
 
@@ -1121,7 +1160,7 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 	ears = /obj/item/radio/headset/mainship/mcom
 	w_uniform = /obj/item/clothing/under/rank/synthetic
 	shoes = /obj/item/clothing/shoes/white
-	gloves = /obj/item/clothing/gloves/yellow
+	gloves = /obj/item/clothing/gloves/insulated
 	r_store = /obj/item/storage/pouch/general/medium
 	l_store = /obj/item/storage/pouch/general/medium
 	back = /obj/item/storage/backpack/marine/satchel
@@ -1149,6 +1188,7 @@ In addition, being a Synthetic gives you knowledge in every field and specializa
 		/datum/job/xenomorph = LARVA_POINTS_SHIPSIDE,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
+		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
 	html_description = {"
 		<b>Difficulty</b>: Easy<br /><br />
@@ -1185,7 +1225,7 @@ If you require any help, use <b>mentorhelp</b> to ask mentors about what you're 
 
 /datum/job/terragov/silicon/ai/announce(mob/living/announced_mob)
 	. = ..()
-	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, .proc/minor_announce, "[announced_mob] has been downloaded to an empty bluespace-networked AI core at [AREACOORD(announced_mob)]."))
+	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(minor_announce), "[announced_mob] has been downloaded to an empty bluespace-networked AI core at [AREACOORD(announced_mob)]."))
 
 
 /datum/job/terragov/silicon/ai/config_check()

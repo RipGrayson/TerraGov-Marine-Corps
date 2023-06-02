@@ -16,6 +16,7 @@ GLOBAL_LIST_EMPTY(ready_players)			//all /mob/new_player that are (ready == TRUE
 GLOBAL_LIST_EMPTY(observer_list)			//all /mob/dead/observer
 GLOBAL_LIST_EMPTY(xeno_mob_list)			//all /mob/living/carbon/xenomorph
 GLOBAL_LIST_EMPTY(alive_xeno_list)			//as above except stat != DEAD
+GLOBAL_LIST_EMPTY(alive_xeno_list_hive)		//living xenos by hive
 GLOBAL_LIST_EMPTY(dead_xeno_list)
 GLOBAL_LIST_EMPTY(human_mob_list)			//all /mob/living/carbon/human including synths and species
 GLOBAL_LIST_EMPTY(alive_human_list)			//as above except stat != DEAD
@@ -108,6 +109,10 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/queen/ancient,
 	/mob/living/carbon/xenomorph/queen/primordial,
 	/mob/living/carbon/xenomorph/king,
+	/mob/living/carbon/xenomorph/king/mature,
+	/mob/living/carbon/xenomorph/king/elder,
+	/mob/living/carbon/xenomorph/king/ancient,
+	/mob/living/carbon/xenomorph/king/primordial,
 	/mob/living/carbon/xenomorph/wraith,
 	/mob/living/carbon/xenomorph/wraith/mature,
 	/mob/living/carbon/xenomorph/wraith/elder,
@@ -148,6 +153,11 @@ GLOBAL_LIST_INIT(all_xeno_types, list(
 	/mob/living/carbon/xenomorph/shrike/elder,
 	/mob/living/carbon/xenomorph/shrike/ancient,
 	/mob/living/carbon/xenomorph/shrike/primordial,
+	/mob/living/carbon/xenomorph/warlock,
+	/mob/living/carbon/xenomorph/warlock/mature,
+	/mob/living/carbon/xenomorph/warlock/elder,
+	/mob/living/carbon/xenomorph/warlock/ancient,
+	/mob/living/carbon/xenomorph/warlock/primordial,
 	/mob/living/carbon/xenomorph/beetle,
 	/mob/living/carbon/xenomorph/mantis,
 	/mob/living/carbon/xenomorph/scorpion,

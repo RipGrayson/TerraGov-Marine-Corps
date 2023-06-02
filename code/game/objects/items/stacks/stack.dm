@@ -32,7 +32,7 @@
 	update_weight()
 	update_icon()
 	var/static/list/connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_cross,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
@@ -139,7 +139,7 @@
 				title += "[R.title]"
 			title += " ([R.req_amount] [singular_name]\s)"
 			if(can_build)
-				t1 += text("<A href='?src=[REF(src)];sublist=[recipes_sublist];make=[i];multiplier=1'>[title]</A>  ")
+				t1 += "<A href='?src=[REF(src)];sublist=[recipes_sublist];make=[i];multiplier=1'>[title]</A>  "
 			else
 				t1 += text("[]", title)
 				continue
@@ -195,18 +195,13 @@
 	if(user.do_actions)
 		return
 	var/building_time = R.time
-	if(R.skill_req && user.skills.getRating("construction") < R.skill_req)
-		building_time += R.time * ( R.skill_req - user.skills.getRating("construction") ) * 0.5 // +50% time each skill point lacking.
-	if(R.skill_req && user.skills.getRating("construction") > R.skill_req)
-		building_time -= clamp(R.time * ( user.skills.getRating("construction") - R.skill_req ) * 0.40, 0 , 0.85 * building_time) // -40% time each extra skill point
+	if(R.skill_req && user.skills.getRating(SKILL_CONSTRUCTION) < R.skill_req)
+		building_time += R.time * ( R.skill_req - user.skills.getRating(SKILL_CONSTRUCTION) ) * 0.5 // +50% time each skill point lacking.
+	if(R.skill_req && user.skills.getRating(SKILL_CONSTRUCTION) > R.skill_req)
+		building_time -= clamp(R.time * ( user.skills.getRating(SKILL_CONSTRUCTION) - R.skill_req ) * 0.40, 0 , 0.85 * building_time) // -40% time each extra skill point
 	if(building_time)
-		if(building_time > R.time)
-			user.visible_message(span_notice("[user] fumbles around figuring out how to build \a [R.title]."),
-			span_notice("You fumble around figuring out how to build \a [R.title]."))
-		else
-			user.visible_message(span_notice("[user] starts building \a [R.title]."),
-			span_notice("You start building \a [R.title]..."))
-		if(!do_after(user, building_time, TRUE, src, BUSY_ICON_BUILD))
+		balloon_alert_to_viewers("building [R.title]")
+		if(!do_after(user, building_time, TRUE, src, (building_time > R.time ? BUSY_ICON_UNSKILLED : BUSY_ICON_BUILD)))
 			return
 		if(!building_checks(user, R, multiplier))
 			return
@@ -223,6 +218,7 @@
 		O = new R.result_type(get_turf(user))
 	if(O)
 		O.setDir(user.dir)
+		O.color = color
 	use(R.req_amount * multiplier)
 
 	if(QDELETED(O))

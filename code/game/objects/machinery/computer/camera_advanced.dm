@@ -17,7 +17,7 @@
 	var/cameraticks = 0
 
 
-/obj/machinery/computer/camera_advanced/Initialize()
+/obj/machinery/computer/camera_advanced/Initialize(mapload)
 	. = ..()
 	off_action = new
 	jump_action = new
@@ -33,10 +33,22 @@
 		if(lock_override & CAMERA_LOCK_CENTCOM)
 			z_lock |= SSmapping.levels_by_trait(ZTRAIT_CENTCOM)
 
-
+///Creates this computer's eye object and sets up its references.
 /obj/machinery/computer/camera_advanced/proc/CreateEye()
 	eyeobj = new()
 	eyeobj.origin = src
+	RegisterSignal(eyeobj, COMSIG_PARENT_QDELETING, PROC_REF(clear_eye_ref))
+
+/**
+ * This proc is used to make sure no references or other leftovers are left behind if the computer's eye is deleted.
+ * To achieve this, it reacts to the PARENT_QDELETING signal of the computer's eye object and triggers if it is sent.
+**/
+/obj/machinery/computer/camera_advanced/proc/clear_eye_ref()
+	SIGNAL_HANDLER
+	UnregisterSignal(eyeobj, COMSIG_PARENT_QDELETING)
+	if(current_user)
+		remove_eye_control(current_user)
+	eyeobj = null
 
 
 /obj/machinery/computer/camera_advanced/proc/give_actions(mob/living/user)
@@ -187,6 +199,8 @@
 /obj/machinery/computer/camera_advanced/process()
 	if(QDELETED(tracking_target))
 		return PROCESS_KILL
+	if(QDELETED(eyeobj))
+		return PROCESS_KILL
 
 	if(!tracking_target.can_track(current_user))
 		if(!cameraticks)
@@ -211,6 +225,8 @@
 	var/tiles_moved = 0
 	/// Limits tiles_moved to this value.
 	var/max_tile_acceleration = 8
+	/// last direction moved
+	var/direction_moved
 	var/cooldown = 0
 	var/acceleration = TRUE
 	var/mob/living/eye_user = null
@@ -247,7 +263,7 @@
 		return
 	if(T.z != z && use_static)
 		GLOB.cameranet.visibility(src, GetViewerClient(), null, use_static)
-	dir = get_dir(src, target)
+	direction_moved = get_dir(src, target)
 	abstract_move(T)
 	if(use_static)
 		GLOB.cameranet.visibility(src, GetViewerClient(), null, use_static)
@@ -278,7 +294,7 @@
 	cooldown = world.time + move_delay * (1 - acceleration * tiles_moved / 10)
 	var/turf/T = get_turf(get_step(src, direct))
 	// check for dir change , if we changed then remove all acceleration
-	if(get_dir(src, T) != dir)
+	if(get_dir(src, T) != direction_moved)
 		tiles_moved = 0
 	tiles_moved = min(tiles_moved++, max_tile_acceleration)
 	setLoc(T)
@@ -291,7 +307,7 @@
 	var/icon_state_on = "cas_camera"
 	hud_possible = list(SQUAD_HUD_TERRAGOV)
 
-/mob/camera/aiEye/remote/hud/Initialize()
+/mob/camera/aiEye/remote/hud/Initialize(mapload)
 	. = ..()
 	prepare_huds()
 	var/datum/atom_hud/squad/squad_hud = GLOB.huds[DATA_HUD_SQUAD_TERRAGOV]
@@ -309,10 +325,10 @@
 	///List of current aura defines we're emitting, for overlay purposes
 	var/list/current_aura_list = list()
 
-/mob/camera/aiEye/remote/hud/overwatch/Initialize()
+/mob/camera/aiEye/remote/hud/overwatch/Initialize(mapload)
 	..()
-	RegisterSignal(src, COMSIG_AURA_STARTED, .proc/add_emitted_auras)
-	RegisterSignal(src, COMSIG_AURA_FINISHED, .proc/remove_emitted_auras)
+	RegisterSignal(src, COMSIG_AURA_STARTED, PROC_REF(add_emitted_auras))
+	RegisterSignal(src, COMSIG_AURA_FINISHED, PROC_REF(remove_emitted_auras))
 
 ///Add to our current aura list and update overlays.
 /mob/camera/aiEye/remote/hud/overwatch/proc/add_emitted_auras(source, list/new_auras)
@@ -394,5 +410,5 @@
 
 	playsound(origin, 'sound/machines/terminal_prompt_confirm.ogg', 25, 0)
 	remote_eye.setLoc(get_turf(C))
-	L.overlay_fullscreen("flash", /obj/screen/fullscreen/flash/noise)
+	L.overlay_fullscreen("flash", /atom/movable/screen/fullscreen/flash/noise)
 	L.clear_fullscreen("flash", 3)

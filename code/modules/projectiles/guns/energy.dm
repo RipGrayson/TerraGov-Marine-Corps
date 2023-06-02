@@ -48,12 +48,12 @@
 	item_state = "taser"
 	muzzle_flash = null //TO DO.
 	fire_sound = 'sound/weapons/guns/fire/taser.ogg'
-	ammo_datum_type  = /datum/ammo/energy/taser
+	ammo_datum_type = /datum/ammo/energy/taser
 	default_ammo_type = /obj/item/cell/lasgun/lasrifle
 	allowed_ammo_types = list(/obj/item/cell/lasgun/lasrifle)
 	rounds_per_shot = 500
 	flags_gun_features = GUN_AMMO_COUNTER|GUN_ALLOW_SYNTHETIC|GUN_NO_PITCH_SHIFT_NEAR_EMPTY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING
-	gun_skill_category = GUN_SKILL_PISTOLS
+	gun_skill_category = SKILL_PISTOLS
 	movement_acc_penalty_mult = 0
 
 
@@ -66,7 +66,7 @@
 	. = ..()
 	if (!.)
 		return
-	if(user.skills.getRating("police") < SKILL_POLICE_MP)
+	if(user.skills.getRating(SKILL_POLICE) < SKILL_POLICE_MP)
 		to_chat(user, span_warning("You don't seem to know how to use [src]..."))
 		return FALSE
 
@@ -79,7 +79,7 @@
 	reload_sound = 'sound/weapons/guns/interact/rifle_reload.ogg'
 	fire_sound = 'sound/weapons/guns/fire/laser.ogg'
 	load_method = CELL //codex
-	ammo_datum_type  = /datum/ammo/energy/lasgun
+	ammo_datum_type = /datum/ammo/energy/lasgun
 	flags_equip_slot = ITEM_SLOT_BACK
 	muzzleflash_iconstate = "muzzle_flash_laser"
 	w_class = WEIGHT_CLASS_BULKY
@@ -89,7 +89,7 @@
 	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_AUTO_EJECT|AMMO_RECIEVER_DO_NOT_EJECT_HANDFULS|AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE
 	aim_slowdown = 0.75
 	wield_delay = 1 SECONDS
-	gun_skill_category = GUN_SKILL_RIFLES
+	gun_skill_category = SKILL_RIFLES
 	muzzle_flash_color = COLOR_LASER_RED
 
 	fire_delay = 3
@@ -152,13 +152,14 @@
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/angledgrip,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
-		/obj/item/attachable/bipod,
+		/obj/item/attachable/foldable/bipod,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/scope,
 		/obj/item/attachable/scope/mini,
@@ -249,13 +250,14 @@
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/verticalgrip,
 		/obj/item/attachable/angledgrip,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/gyro,
 		/obj/item/attachable/flashlight,
-		/obj/item/attachable/bipod,
+		/obj/item/attachable/foldable/bipod,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/scope,
 		/obj/item/attachable/scope/marine,
@@ -269,7 +271,7 @@
 	damage_falloff_mult = 0.25
 	fire_delay = 2
 	default_ammo_type = /obj/item/cell/lasgun/lasrifle
-	allowed_ammo_types = list(/obj/item/cell/lasgun/lasrifle)
+	allowed_ammo_types = list(/obj/item/cell/lasgun/lasrifle, /obj/item/cell/lasgun/volkite/powerpack/marine, /obj/item/cell/lasgun/lasrifle/recharger)
 	var/list/datum/lasrifle/base/mode_list = list(
 	)
 
@@ -341,7 +343,7 @@
 	icon = 'icons/Marine/gun64.dmi'
 	reload_sound = 'sound/weapons/guns/interact/standard_laser_rifle_reload.ogg'
 	fire_sound = 'sound/weapons/guns/fire/tesla.ogg'
-	ammo_datum_type  = /datum/ammo/energy/tesla
+	ammo_datum_type = /datum/ammo/energy/tesla
 	flags_equip_slot = ITEM_SLOT_BACK
 	w_class = WEIGHT_CLASS_BULKY
 	default_ammo_type = /obj/item/cell/lasgun/lasrifle
@@ -407,6 +409,7 @@
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight,
@@ -482,6 +485,7 @@
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight,
@@ -493,13 +497,14 @@
 	attachable_offset = list("muzzle_x" = 23, "muzzle_y" = 22,"rail_x" = 12, "rail_y" = 22, "under_x" = 16, "under_y" = 14, "stock_x" = 22, "stock_y" = 12)
 
 	akimbo_additional_delay = 0.9
-	wield_delay = 0.6 SECONDS
+	wield_delay = 0.2 SECONDS
 	scatter = 2
 	scatter_unwielded = 4
 	fire_delay = 0.15 SECONDS
 	accuracy_mult = 1
 	accuracy_mult_unwielded = 0.9
 	damage_falloff_mult = 0.2
+	aim_slowdown = 0
 	mode_list = list(
 		"Standard" = /datum/lasrifle/base/energy_pistol_mode/standard,
 		"Heat" = /datum/lasrifle/base/energy_pistol_mode/heat,
@@ -558,6 +563,7 @@
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight,
@@ -643,6 +649,7 @@
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/scope/unremovable/laser_sniper_scope,
 		/obj/item/weapon/gun/grenade_launcher/underslung,
@@ -708,6 +715,7 @@
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/flashlight,
 		/obj/item/attachable/magnetic_harness,
 		/obj/item/attachable/scope/marine,
@@ -734,6 +742,7 @@
 	mode_list = list(
 		"Standard" = /datum/lasrifle/base/energy_mg_mode/standard,
 		"Efficiency mode" = /datum/lasrifle/base/energy_mg_mode/standard/efficiency,
+		"Swarm mode" = /datum/lasrifle/base/energy_mg_mode/standard/swarm,
 	)
 
 /datum/lasrifle/base/energy_mg_mode/standard
@@ -750,6 +759,13 @@
 	fire_delay = 0.15 SECONDS
 	rounds_per_shot = 3
 	message_to_user = "You set the machine laser's charge mode to efficiency mode."
+	radial_icon_state = "laser_disabler"
+
+/datum/lasrifle/base/energy_mg_mode/standard/swarm
+	ammo_datum_type = /datum/ammo/energy/lasgun/marine/autolaser/swarm
+	fire_delay = 0.15 SECONDS
+	message_to_user = "You set the machine laser's charge mode to swarm mode."
+	radial_icon_state = "laser_swarm"
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/xray
 	name = "\improper Terra Experimental X-Ray laser rifle"
@@ -764,6 +780,7 @@
 	attachable_allowed = list(
 		/obj/item/attachable/bayonet,
 		/obj/item/attachable/bayonetknife,
+		/obj/item/attachable/bayonetknife/som,
 		/obj/item/attachable/reddot,
 		/obj/item/attachable/lasersight,
 		/obj/item/attachable/flashlight,
@@ -784,7 +801,7 @@
 	wield_delay = 0.5 SECONDS
 	scatter = 0
 	scatter_unwielded = 10
-	fire_delay = 0.5 SECONDS
+	fire_delay = 0.25 SECONDS
 	accuracy_mult_unwielded = 0.55
 	damage_falloff_mult = 0.3
 	mode_list = list(
@@ -795,7 +812,7 @@
 /datum/lasrifle/base/energy_rifle_mode/xray
 	rounds_per_shot = 15
 	ammo_datum_type = /datum/ammo/energy/lasgun/marine/xray
-	fire_delay = 0.5 SECONDS
+	fire_delay = 0.25 SECONDS
 	fire_sound = 'sound/weapons/guns/fire/laser3.ogg'
 	message_to_user = "You set the xray rifle's charge mode to standard fire."
 	fire_mode = GUN_FIREMODE_AUTOMATIC
@@ -829,7 +846,7 @@
 	gun_firemode = GUN_FIREMODE_AUTOMATIC
 	gun_firemode_list = list(GUN_FIREMODE_AUTOMATIC)
 	attachable_allowed = list()
-	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_ENERGY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING
+	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_ENERGY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING|GUN_SHOWS_LOADED
 	attachable_offset = list("muzzle_x" = 34, "muzzle_y" = 14,"rail_x" = 18, "rail_y" = 18, "under_x" = 23, "under_y" = 10, "stock_x" = 22, "stock_y" = 12)
 
 	accuracy_mult = 1
@@ -869,6 +886,7 @@
 	recoil_unwielded = 0
 	movement_acc_penalty_mult = 2
 	aim_slowdown = 0.1
+	wield_delay = 0.2 SECONDS
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/charger
 	name = "\improper VX-32 Charger"
@@ -887,7 +905,6 @@
 		/obj/item/attachable/buildasentry,
 		/obj/item/attachable/shoulder_mount,
 	)
-	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_ENERGY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING|GUN_SHOWS_LOADED
 	attachable_offset = list("muzzle_x" = 30, "muzzle_y" = 13,"rail_x" = 9, "rail_y" = 23, "under_x" = 30, "under_y" = 10, "stock_x" = 22, "stock_y" = 12)
 	scatter = 3
 	accuracy_mult = 1.05
@@ -895,6 +912,7 @@
 	scatter_unwielded = 8
 	recoil_unwielded = 1
 	movement_acc_penalty_mult = 3
+	damage_falloff_mult = 0.5
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/charger/magharness
 	starting_attachment_types = list(/obj/item/attachable/magnetic_harness)
@@ -941,12 +959,11 @@
 		/obj/item/attachable/buildasentry,
 		/obj/item/attachable/shoulder_mount,
 	)
-	flags_gun_features = GUN_CAN_POINTBLANK|GUN_AMMO_COUNTER|GUN_ENERGY|GUN_AMMO_COUNT_BY_SHOTS_REMAINING|GUN_SHOWS_LOADED
 	attachable_offset = list("muzzle_x" = 38, "muzzle_y" = 13,"rail_x" = 9, "rail_y" = 24, "under_x" = 45, "under_y" = 11, "stock_x" = 22, "stock_y" = 12)
 	accuracy_mult = 1.1
 	aim_slowdown = 0.65
-	damage_falloff_mult = 0.6
-	wield_delay	= 0.7 SECONDS
+	damage_falloff_mult = 0.4
+	wield_delay = 0.7 SECONDS
 	fire_delay = 0.25 SECONDS
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/caliver/magharness
@@ -985,13 +1002,13 @@
 	reciever_flags = AMMO_RECIEVER_MAGAZINES|AMMO_RECIEVER_DO_NOT_EJECT_HANDFULS|AMMO_RECIEVER_CYCLE_ONLY_BEFORE_FIRE
 	attachable_offset = list("muzzle_x" = 34, "muzzle_y" = 14,"rail_x" = 11, "rail_y" = 29, "under_x" = 23, "under_y" = 10, "stock_x" = 22, "stock_y" = 12)
 	aim_slowdown = 1
-	wield_delay	= 1.2 SECONDS
+	wield_delay = 1.2 SECONDS
 	fire_delay = 0.15 SECONDS
 	scatter = 3
 	accuracy_mult_unwielded = 0.4
 	scatter_unwielded = 35
 	recoil_unwielded = 5
-	damage_falloff_mult = 0.5
+	damage_falloff_mult = 0.4
 	movement_acc_penalty_mult = 6
 
 /obj/item/weapon/gun/energy/lasgun/lasrifle/volkite/culverin/magharness

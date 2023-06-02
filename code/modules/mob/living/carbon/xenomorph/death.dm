@@ -11,6 +11,7 @@
 
 /mob/living/carbon/xenomorph/on_death()
 	GLOB.alive_xeno_list -= src
+	LAZYREMOVE(GLOB.alive_xeno_list_hive[hivenumber], src)
 	GLOB.dead_xeno_list += src
 
 	QDEL_NULL(current_aura)
@@ -89,7 +90,7 @@
 
 	remains.icon_state = xeno_caste.gib_anim
 
-	check_blood_splash(35, BURN, 65, 2) //Some testing numbers. 35 burn, 65 chance.
+	check_blood_splash(35, BURN, 65, 2)
 
 	return ..()
 

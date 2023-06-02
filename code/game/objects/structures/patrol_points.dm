@@ -11,7 +11,7 @@
 	///The linked exit point
 	var/obj/effect/landmark/patrol_point/linked_point = null
 
-/obj/structure/patrol_point/Initialize()
+/obj/structure/patrol_point/Initialize(mapload)
 	..()
 
 	return INITIALIZE_HINT_LATELOAD
@@ -25,7 +25,7 @@
 	for(var/obj/effect/landmark/patrol_point/exit_point AS in GLOB.patrol_point_list)
 		if(exit_point.id == id)
 			linked_point = exit_point
-			RegisterSignal(linked_point, COMSIG_PARENT_QDELETING, .proc/delete_link)
+			RegisterSignal(linked_point, COMSIG_PARENT_QDELETING, PROC_REF(delete_link))
 			return
 
 ///Removes the linked patrol exist point
@@ -48,6 +48,7 @@
 	user.visible_message(span_notice("[user] goes through the [src]."),
 	span_notice("You walk through the [src]."))
 	user.trainteleport(linked_point.loc)
+	add_spawn_protection(user)
 	new /atom/movable/effect/rappel_rope(linked_point.loc)
 	user.playsound_local(user, "sound/effects/CIC_order.ogg", 10, 1)
 	var/message
@@ -62,9 +63,9 @@
 		message = "Eliminate the TerraGov imperialists in the ao, glory to Mars!"
 
 	if(user.faction == FACTION_TERRAGOV)
-		user.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + message, /obj/screen/text/screen_text/picture/potrait)
+		user.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + message, /atom/movable/screen/text/screen_text/picture/potrait)
 	else
-		user.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + message, /obj/screen/text/screen_text/picture/potrait/som_over)
+		user.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:left valign='top'><u>OVERWATCH</u></span><br>" + message, /atom/movable/screen/text/screen_text/picture/potrait/som_over)
 	update_icon()
 
 /obj/structure/patrol_point/attack_ghost(mob/dead/observer/user)
@@ -73,6 +74,15 @@
 		return
 
 	user.forceMove(get_turf(linked_point))
+
+///Temporarily applies godmode to prevent spawn camping
+/obj/structure/patrol_point/proc/add_spawn_protection(mob/user)
+	user.status_flags |= GODMODE
+	addtimer(CALLBACK(src, PROC_REF(remove_spawn_protection), user), 10 SECONDS)
+
+///Removes spawn protection godmode
+/obj/structure/patrol_point/proc/remove_spawn_protection(mob/user)
+	user.status_flags &= ~GODMODE
 
 /atom/movable/effect/rappel_rope
 	name = "rope"
@@ -83,7 +93,7 @@
 	resistance_flags = RESIST_ALL
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-/atom/movable/effect/rappel_rope/Initialize()
+/atom/movable/effect/rappel_rope/Initialize(mapload)
 	. = ..()
 	playsound(loc, 'sound/effects/rappel.ogg', 50, TRUE, falloff = 2)
 	playsound(loc, 'sound/effects/tadpolehovering.ogg', 100, TRUE, falloff = 2.5)
@@ -92,7 +102,7 @@
 
 /atom/movable/effect/rappel_rope/proc/ropeanimation()
 	flick("rope_deploy", src)
-	addtimer(CALLBACK(src, .proc/ropeanimation_stop), 2 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(ropeanimation_stop)), 2 SECONDS)
 
 /atom/movable/effect/rappel_rope/proc/ropeanimation_stop()
 	flick("rope_up", src)

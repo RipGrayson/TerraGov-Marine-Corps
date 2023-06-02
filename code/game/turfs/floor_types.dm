@@ -281,12 +281,14 @@
 
 /turf/open/floor/marking/asteroidwarning
 	icon_state = "asteroidwarning"
+	smoothing_groups = list(SMOOTH_GROUP_ASTEROID_WARNING)
 
 /turf/open/floor/grimy
 	icon_state = "grimy"
 
 /turf/open/floor/asteroidfloor
 	icon_state = "asteroidfloor"
+	smoothing_groups = list(SMOOTH_GROUP_ASTEROID_WARNING)
 
 
 
@@ -301,15 +303,17 @@
 	name = "Light floor"
 	icon_state = "light_on"
 
-/turf/open/floor/light/Initialize()
+/turf/open/floor/light/Initialize(mapload)
 	. = ..()
 	floor_tile = new /obj/item/stack/tile/light
 	return INITIALIZE_HINT_LATELOAD
 
 
-/turf/open/floor/light/LateInitialize(mapload)
+/turf/open/floor/light/LateInitialize()
 	update_icon()
 
+/turf/open/floor/light/plating
+	icon_state = "plating"
 
 /turf/open/floor/wood
 	name = "floor"
@@ -322,6 +326,31 @@
 /turf/open/floor/wood/broken
 	icon_state = "wood-broken1"
 	burnt = TRUE
+
+/turf/open/floor/wood/broken/two
+	icon_state = "wood-broken2"
+	burnt = TRUE
+
+/turf/open/floor/wood/broken/three
+	icon_state = "wood-broken3"
+	burnt = TRUE
+
+/turf/open/floor/wood/broken/four
+	icon_state = "wood-broken4"
+	burnt = TRUE
+
+/turf/open/floor/wood/broken/five
+	icon_state = "wood-broken5"
+	burnt = TRUE
+
+/turf/open/floor/wood/broken/six
+	icon_state = "wood-broken6"
+	burnt = TRUE
+
+/turf/open/floor/wood/broken/seven
+	icon_state = "wood-broken7"
+	burnt = TRUE
+
 
 /turf/open/floor/vault
 	icon_state = "rockvault"
@@ -396,6 +425,12 @@
 /turf/open/floor/scorched/two
 	icon_state = "floorscorched2"
 
+/turf/open/floor/foamplating
+	icon_state = "foam_plating"
+
+/turf/open/floor/rustyplating
+	icon_state = "plating_rust"
+
 /turf/open/floor/bcircuit
 	icon = 'icons/turf/floors.dmi'
 	icon_state = "bcircuit"
@@ -438,14 +473,14 @@
 	mediumxenofootstep = FOOTSTEP_GRASS
 
 
-/turf/open/floor/grass/Initialize()
+/turf/open/floor/grass/Initialize(mapload)
 	. = ..()
 	floor_tile = new /obj/item/stack/tile/grass
 	icon_state = "grass[pick("1","2","3","4")]"
 	return INITIALIZE_HINT_LATELOAD
 
 
-/turf/open/floor/grass/LateInitialize(mapload)
+/turf/open/floor/grass/LateInitialize()
 	update_icon()
 	for(var/direction in GLOB.cardinals)
 		if(!istype(get_step(src,direction), /turf/open/floor))
@@ -455,6 +490,9 @@
 
 /turf/open/floor/tile/damaged/panel
 	icon_state = "panelscorched"
+
+/turf/open/floor/tile/damaged/thermite
+	icon_state = "wall_thermite"
 
 /turf/open/floor/tile/damaged/three
 	icon_state = "damaged3"
@@ -770,25 +808,23 @@
 
 /turf/open/floor/carpet
 	name = "Carpet"
-	icon_state = "carpet"
+	icon = 'icons/turf/floors/carpet.dmi'
+	base_icon_state = "carpet"
+	icon_state = "carpet-0"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_CARPET)
+	canSmoothWith = list(SMOOTH_GROUP_CARPET)
 	shoefootstep = FOOTSTEP_CARPET
 	barefootstep = FOOTSTEP_CARPET
 	mediumxenofootstep = FOOTSTEP_CARPET
 
-
-/turf/open/floor/carpet/Initialize()
+/turf/open/floor/carpet/Initialize(mapload)
 	. = ..()
 	floor_tile = new /obj/item/stack/tile/carpet
 	return INITIALIZE_HINT_LATELOAD
 
-
-/turf/open/floor/carpet/LateInitialize(mapload)
-	update_icon()
-	for(var/direction in list(1,2,4,8,5,6,9,10))
-		if(!istype(get_step(src, direction), /turf/open/floor))
-			continue
-		var/turf/open/floor/FF = get_step(src,direction)
-		FF.update_icon() //so siding get updated properly
+/turf/open/floor/carpet/ex_act(severity)
+	return
 
 /turf/open/floor/carpet/edge2
 	icon_state = "carpetedge"

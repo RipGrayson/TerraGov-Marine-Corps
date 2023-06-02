@@ -1,11 +1,13 @@
 /datum/action/xeno_action/activable/web_spit
 	name = "Web Spit"
 	ability_name = "Web Spit"
-	mechanics_text = "Spit a web to your target, this causes different effects depending on where you hit. Spitting the head causes the target to be temporarily blind, body and arms will cause the target to be weakened, and legs will snare the target for a brief while."
+	desc = "Spit a web to your target, this causes different effects depending on where you hit. Spitting the head causes the target to be temporarily blind, body and arms will cause the target to be weakened, and legs will snare the target for a brief while."
 	action_icon_state = "web_spit"
 	plasma_cost = 125
 	cooldown_timer = 10 SECONDS
-	keybind_signal = COMSIG_XENOABILITY_WEB_SPIT
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_WEB_SPIT,
+	)
 
 /datum/action/xeno_action/activable/web_spit/use_ability(atom/target)
 	var/mob/living/carbon/xenomorph/X = owner
@@ -26,11 +28,13 @@
 /datum/action/xeno_action/activable/leash_ball
 	name = "Leash Ball"
 	ability_name = "Leash Ball"
-	mechanics_text = "Spit a huge web ball that snares groups of targets for a brief while."
+	desc = "Spit a huge web ball that snares groups of targets for a brief while."
 	action_icon_state = "leash_ball"
 	plasma_cost = 250
 	cooldown_timer = 20 SECONDS
-	keybind_signal = COMSIG_XENOABILITY_LEASH_BALL
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_LEASH_BALL,
+	)
 
 /datum/action/xeno_action/activable/leash_ball/use_ability(atom/A)
 	var/turf/target = get_turf(A)
@@ -39,6 +43,7 @@
 	if(!do_after(X, 1 SECONDS, TRUE, X, BUSY_ICON_DANGER))
 		return fail_activate()
 	var/datum/ammo/xeno/leash_ball = GLOB.ammo_list[/datum/ammo/xeno/leash_ball]
+	leash_ball.hivenumber = X.hivenumber
 	var/obj/projectile/newspit = new (get_turf(X))
 
 	newspit.generate_bullet(leash_ball)
@@ -52,10 +57,10 @@
 	icon_state = "aoe_leash"
 	desc = "Sticky and icky. Destroy it when you are stuck!"
 	destroy_sound = "alien_resin_break"
-	max_integrity = 25
+	max_integrity = 75
 	layer = ABOVE_ALL_MOB_LAYER
 	anchored = TRUE
-	throwpass = FALSE
+	flags_pass = NONE
 	density = FALSE
 	obj_flags = CAN_BE_HIT | PROJ_IGNORE_DENSITY
 	/// How long the leash ball lasts untill it dies
@@ -68,7 +73,7 @@
 	var/list/mob/living/carbon/human/leash_victims = list()
 
 /// Humans caught get beamed and registered for proc/check_dist, aoe_leash also gains increased integrity for each caught human
-/obj/structure/xeno/aoe_leash/Initialize(mapload)
+/obj/structure/xeno/aoe_leash/Initialize(mapload, _hivenumber)
 	. = ..()
 	for(var/mob/living/carbon/human/victim in GLOB.humans_by_zlevel["[z]"])
 		if(get_dist(src, victim) > leash_radius)
@@ -83,7 +88,7 @@
 	for(var/mob/living/carbon/human/snared_victim AS in leash_victims)
 		ADD_TRAIT(snared_victim, TRAIT_LEASHED, src)
 		beams += beam(snared_victim, "beam_web", 'icons/effects/beam.dmi', INFINITY, INFINITY)
-		RegisterSignal(snared_victim, COMSIG_MOVABLE_PRE_MOVE, .proc/check_dist)
+		RegisterSignal(snared_victim, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(check_dist))
 	if(!length(beams))
 		return INITIALIZE_HINT_QDEL
 	QDEL_IN(src, leash_life)
@@ -109,7 +114,7 @@
 		return
 	X.visible_message(span_xenonotice("\The [X] starts tearing down \the [src]!"), \
 	span_xenonotice("We start to tear down \the [src]."))
-	if(!do_after(X, 1 SECONDS, TRUE, X, BUSY_ICON_GENERIC))
+	if(!do_after(X, 1 SECONDS, TRUE, X, BUSY_ICON_GENERIC) || QDELETED(src))
 		return
 	X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 	X.visible_message(span_xenonotice("\The [X] tears down \the [src]!"), \
@@ -124,11 +129,13 @@
 /datum/action/xeno_action/create_spiderling
 	name = "Birth Spiderling"
 	ability_name = "birth_spiderling"
-	mechanics_text = "Give birth to a spiderling after a short charge-up. The spiderlings will follow you until death. You can only deploy 5 spiderlings at one time."
+	desc = "Give birth to a spiderling after a short charge-up. The spiderlings will follow you until death. You can only deploy 5 spiderlings at one time."
 	action_icon_state = "spawn_spiderling"
 	plasma_cost = 100
 	cooldown_timer = 15 SECONDS
-	keybind_signal = COMSIG_XENOABILITY_CREATE_SPIDERLING
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CREATE_SPIDERLING,
+	)
 	/// List of all our spiderlings
 	var/list/mob/living/carbon/xenomorph/spiderling/spiderlings = list()
 
@@ -149,7 +156,7 @@
 
 /// Adds spiderlings to spiderling list and registers them for death so we can remove them later
 /datum/action/xeno_action/create_spiderling/proc/add_spiderling(mob/living/carbon/xenomorph/spiderling/new_spiderling)
-	RegisterSignal(new_spiderling, list(COMSIG_MOB_DEATH, COMSIG_PARENT_QDELETING), .proc/remove_spiderling)
+	RegisterSignal(new_spiderling, list(COMSIG_MOB_DEATH, COMSIG_PARENT_QDELETING), PROC_REF(remove_spiderling))
 	spiderlings += new_spiderling
 	new_spiderling.pixel_x = rand(-8, 8)
 	new_spiderling.pixel_y = rand(-8, 8)
@@ -161,17 +168,50 @@
 	UnregisterSignal(source, list(COMSIG_MOB_DEATH, COMSIG_PARENT_QDELETING))
 
 // ***************************************
+// *********** Spiderling mark
+// ***************************************
+
+/datum/action/xeno_action/activable/spiderling_mark
+	name = "Spiderling Mark"
+	ability_name = "spiderling_mark"
+	desc = "Send your spawn on a valid target, they will automatically destroy themselves out of sheer fury after 15 seconds."
+	action_icon_state = "spiderling_mark"
+	plasma_cost = 50
+	cooldown_timer = 5 SECONDS
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SPIDERLING_MARK,
+	)
+
+/datum/action/xeno_action/activable/spiderling_mark/use_ability(atom/A)
+	. = ..()
+	var/datum/action/xeno_action/create_spiderling/create_spiderling_action = owner.actions_by_path[/datum/action/xeno_action/create_spiderling]
+	if(length(create_spiderling_action.spiderlings) <= 0)
+		owner.balloon_alert(owner, "No spiderlings")
+		return fail_activate()
+	if(!isturf(A))
+		owner.balloon_alert(owner, "Spiderlings attacking " + A.name)
+		succeed_activate()
+	else
+		A = null
+		owner.balloon_alert(owner, "Nothing to attack")
+		fail_activate()
+	SEND_SIGNAL(owner, COMSIG_SPIDERLING_MARK, A)
+	add_cooldown()
+
+// ***************************************
 // *********** Burrow
 // ***************************************
 
 /datum/action/xeno_action/burrow
 	name = "Burrow"
 	ability_name = "Burrow"
-	mechanics_text = "Burrow into the ground, allowing you and your active spiderlings to hide in plain sight. You cannot use abilities, attack nor move while burrowed. Use the ability again to unburrow if you're already burrowed."
+	desc = "Burrow into the ground, allowing you and your active spiderlings to hide in plain sight. You cannot use abilities, attack nor move while burrowed. Use the ability again to unburrow if you're already burrowed."
 	action_icon_state = "burrow"
 	plasma_cost = 0
 	cooldown_timer = 20 SECONDS
-	keybind_signal = COMSIG_XENOABILITY_BURROW
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_BURROW,
+	)
 	use_state_flags = XACT_USE_BURROWED
 
 /datum/action/xeno_action/burrow/action_activate()
@@ -192,13 +232,15 @@
 	var/mob/living/carbon/xenomorph/X = owner
 	if(!HAS_TRAIT(X, TRAIT_BURROWED))
 		to_chat(X, span_xenowarning("We start burrowing into the ground..."))
-		INVOKE_ASYNC(src, .proc/xeno_burrow_doafter)
+		INVOKE_ASYNC(src, PROC_REF(xeno_burrow_doafter))
 		return
 	UnregisterSignal(X, COMSIG_XENOMORPH_TAKING_DAMAGE)
-	X.fire_resist_modifier += BURROW_FIRE_RESIST_MODIFIER
+	ADD_TRAIT(X, TRAIT_NON_FLAMMABLE, ability_name)
+	X.soft_armor = X.soft_armor.modifyRating(fire = 100)
+	X.hard_armor = X.hard_armor.modifyRating(fire = 100)
 	X.mouse_opacity = initial(X.mouse_opacity)
 	X.density = TRUE
-	X.throwpass = FALSE
+	X.flags_pass &= ~PASSABLE
 	REMOVE_TRAIT(X, TRAIT_IMMOBILE, WIDOW_ABILITY_TRAIT)
 	REMOVE_TRAIT(X, TRAIT_BURROWED, WIDOW_ABILITY_TRAIT)
 	REMOVE_TRAIT(X, TRAIT_HANDS_BLOCKED, WIDOW_ABILITY_TRAIT)
@@ -213,17 +255,19 @@
 	// This part here actually burrows the xeno
 	owner.mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 	owner.density = FALSE
-	owner.throwpass = TRUE
+	owner.flags_pass |= PASSABLE
 	// Here we prevent the xeno from moving or attacking or using abilities untill they unburrow by clicking the ability
 	ADD_TRAIT(owner, TRAIT_IMMOBILE, WIDOW_ABILITY_TRAIT)
 	ADD_TRAIT(owner, TRAIT_BURROWED, WIDOW_ABILITY_TRAIT)
 	ADD_TRAIT(owner, TRAIT_HANDS_BLOCKED, WIDOW_ABILITY_TRAIT)
 	// We register for movement so that we unburrow if bombed
 	var/mob/living/carbon/xenomorph/X = owner
-	X.fire_resist_modifier -= BURROW_FIRE_RESIST_MODIFIER // This makes the xeno immune to fire while burrowed, even if burning beforehand
+	X.soft_armor = X.soft_armor.modifyRating(fire = -100)
+	X.hard_armor = X.hard_armor.modifyRating(fire = -100)
+	REMOVE_TRAIT(X, TRAIT_NON_FLAMMABLE, ability_name)
 	// Update here without waiting for life
 	X.update_icons()
-	RegisterSignal(X, COMSIG_XENOMORPH_TAKING_DAMAGE, .proc/xeno_burrow)
+	RegisterSignal(X, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(xeno_burrow))
 
 // ***************************************
 // *********** Attach Spiderlings
@@ -231,11 +275,13 @@
 /datum/action/xeno_action/attach_spiderlings
 	name = "Attach Spiderlings"
 	ability_name = "Attach Spiderlings"
-	mechanics_text = "Attach your current spiderlings to you "
+	desc = "Attach your current spiderlings to you "
 	action_icon_state = "attach_spiderling"
 	plasma_cost = 0
 	cooldown_timer = 0 SECONDS
-	keybind_signal = COMSIG_XENOABILITY_ATTACH_SPIDERLINGS
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ATTACH_SPIDERLINGS,
+	)
 	///the attached spiderlings
 	var/list/mob/living/carbon/xenomorph/spiderling/attached_spiderlings = list()
 	///how many times we attempt to attach adjacent spiderligns
@@ -265,7 +311,8 @@
 			continue
 		remaining_list -= remaining_spiderling
 		owner.buckle_mob(remaining_spiderling, TRUE, TRUE, 90, 1,0)
-	addtimer(CALLBACK(src, .proc/grab_spiderlings, remaining_list, number_of_attempts_left - 1), 1)
+		ADD_TRAIT(remaining_spiderling, TRAIT_IMMOBILE, WIDOW_ABILITY_TRAIT)
+	addtimer(CALLBACK(src, PROC_REF(grab_spiderlings), remaining_list, number_of_attempts_left - 1), 1)
 
 // ***************************************
 // *********** Web Hook
@@ -273,11 +320,13 @@
 /datum/action/xeno_action/activable/web_hook
 	name = "Web Hook"
 	ability_name = "Web Hook"
-	mechanics_text = "Shoot out a web and pull it to traverse forward"
+	desc = "Shoot out a web and pull it to traverse forward"
 	action_icon_state = "web_hook"
 	plasma_cost = 200
-	cooldown_timer = 20 SECONDS
-	keybind_signal = COMSIG_XENOABILITY_WEB_HOOK
+	cooldown_timer = 10 SECONDS
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_XENOABILITY_WEB_HOOK,
+	)
 	//ref to beam for web hook
 	var/datum/beam/web_beam
 
@@ -303,7 +352,7 @@
 /datum/action/xeno_action/activable/web_hook/use_ability(atom/A)
 	var/atom/movable/web_hook/web_hook = new (get_turf(owner))
 	web_beam = owner.beam(web_hook,"beam_web",'icons/effects/beam.dmi')
-	RegisterSignal(web_hook, list(COMSIG_MOVABLE_POST_THROW, COMSIG_MOVABLE_IMPACT), .proc/drag_widow, TRUE)
+	RegisterSignal(web_hook, list(COMSIG_MOVABLE_POST_THROW, COMSIG_MOVABLE_IMPACT), PROC_REF(drag_widow), TRUE)
 	web_hook.throw_at(A, WIDOW_WEB_HOOK_RANGE, 3, owner, FALSE)
 	succeed_activate()
 	add_cooldown()
@@ -318,7 +367,7 @@
 		// we throw widow half the distance if she hits the floor
 		owner.throw_at(get_turf(source), WIDOW_WEB_HOOK_RANGE / 2, WIDOW_WEB_HOOK_SPEED, owner, FALSE)
 	qdel(source)
-	RegisterSignal(owner, COMSIG_MOVABLE_POST_THROW, .proc/delete_beam)
+	RegisterSignal(owner, COMSIG_MOVABLE_POST_THROW, PROC_REF(delete_beam))
 
 ///signal handler to delete the web_hook after we are done draggging owner along
 /datum/action/xeno_action/activable/web_hook/proc/delete_beam(datum/source)

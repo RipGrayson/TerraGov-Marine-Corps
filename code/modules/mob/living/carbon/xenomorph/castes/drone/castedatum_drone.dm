@@ -29,6 +29,7 @@
 	evolves_to = list(
 		/mob/living/carbon/xenomorph/shrike,
 		/mob/living/carbon/xenomorph/queen,
+		/mob/living/carbon/xenomorph/king,
 		/mob/living/carbon/xenomorph/carrier,
 		/mob/living/carbon/xenomorph/hivelord,
 		/mob/living/carbon/xenomorph/hivemind,
@@ -37,7 +38,8 @@
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_IS_BUILDER
 	can_hold_eggs = CAN_HOLD_TWO_HANDS
-	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_VENT_CRAWL|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_JELLY|CASTE_CAN_BECOME_KING|CASTE_CAN_RIDE_CRUSHER
+	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_HOLD_JELLY|CASTE_CAN_RIDE_CRUSHER
+	caste_traits = list(TRAIT_CAN_VENTCRAWL)
 
 	// *** Defense *** //
 	soft_armor = list(MELEE = 10, BULLET = 10, LASER = 10, ENERGY = 10, BOMB = 0, BIO = 0, FIRE = 10, ACID = 0)
@@ -56,15 +58,16 @@
 		/datum/action/xeno_action/activable/cocoon,
 		/datum/action/xeno_action/activable/plant_weeds,
 		/datum/action/xeno_action/activable/secrete_resin,
+		/datum/action/xeno_action/activable/essence_link,
 		/datum/action/xeno_action/activable/psychic_cure/acidic_salve,
 		/datum/action/xeno_action/activable/transfer_plasma/drone,
 		/datum/action/xeno_action/activable/corrosive_acid/drone,
-		/datum/action/xeno_action/activable/neurotox_sting/ozelomelyn,
 		/datum/action/xeno_action/create_jelly/slow,
 		/datum/action/xeno_action/pheromones,
 		/datum/action/xeno_action/pheromones/emit_recovery,
 		/datum/action/xeno_action/pheromones/emit_warding,
 		/datum/action/xeno_action/pheromones/emit_frenzy,
+		/datum/action/xeno_action/activable/recycle,
 	)
 
 /datum/xeno_caste/drone/young
@@ -107,7 +110,7 @@
 	melee_damage = 18
 
 	// *** Speed *** //
-	speed = -1.0
+	speed = -1
 
 	// *** Plasma *** //
 	plasma_max = 900
@@ -189,14 +192,15 @@
 		/datum/action/xeno_action/activable/cocoon,
 		/datum/action/xeno_action/activable/plant_weeds,
 		/datum/action/xeno_action/activable/secrete_resin,
-		/datum/action/xeno_action/sow,
+		/datum/action/xeno_action/activable/essence_link,
 		/datum/action/xeno_action/activable/psychic_cure/acidic_salve,
 		/datum/action/xeno_action/activable/transfer_plasma/drone,
+		/datum/action/xeno_action/enhancement,
 		/datum/action/xeno_action/activable/corrosive_acid/drone,
-		/datum/action/xeno_action/activable/neurotox_sting/ozelomelyn,
 		/datum/action/xeno_action/create_jelly/slow,
 		/datum/action/xeno_action/pheromones,
 		/datum/action/xeno_action/pheromones/emit_recovery,
 		/datum/action/xeno_action/pheromones/emit_warding,
 		/datum/action/xeno_action/pheromones/emit_frenzy,
+		/datum/action/xeno_action/activable/recycle,
 	)

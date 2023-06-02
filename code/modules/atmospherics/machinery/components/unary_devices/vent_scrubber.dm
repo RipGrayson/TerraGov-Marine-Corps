@@ -43,7 +43,7 @@
 		amount = active_power_usage
 
 	if(widenet)
-		amount += amount * (adjacent_turfs.len * (adjacent_turfs.len / 2))
+		amount += amount * (length(adjacent_turfs) * (length(adjacent_turfs) / 2))
 	use_power(amount, power_channel)
 	return TRUE
 
@@ -97,7 +97,7 @@
 			span_notice("You start welding [src] with [WT]."))
 			add_overlay(GLOB.welding_sparks)
 			playsound(loc, 'sound/items/weldingtool_weld.ogg', 25)
-			if(do_after(user, 50, TRUE, src, BUSY_ICON_BUILD, extra_checks = CALLBACK(WT, /obj/item/tool/weldingtool/proc/isOn)) && WT.remove_fuel(1, user))
+			if(do_after(user, 50, TRUE, src, BUSY_ICON_BUILD, extra_checks = CALLBACK(WT, TYPE_PROC_REF(/obj/item/tool/weldingtool, isOn))) && WT.remove_fuel(1, user))
 				playsound(get_turf(src), 'sound/items/welder2.ogg', 25, 1)
 				if(!welded)
 					user.visible_message(span_notice("[user] welds [src] shut."), \
@@ -115,7 +115,7 @@
 				cut_overlay(GLOB.welding_sparks)
 				return TRUE
 			else
-				cut_overlay(GLOB.welding_sparks)	
+				cut_overlay(GLOB.welding_sparks)
 		else
 			to_chat(user, span_warning("[WT] needs to be on to start this task."))
 			cut_overlay(GLOB.welding_sparks)
@@ -150,6 +150,10 @@
 
 /obj/machinery/atmospherics/components/unary/vent_scrubber/AltClick(mob/user)
 	if(!isliving(user))
+		return
+	if(isxeno(user))
+		var/mob/living/carbon/xenomorph/xeno_user = user
+		xeno_user.handle_ventcrawl(src, xeno_user.xeno_caste.vent_enter_speed, xeno_user.xeno_caste.silent_vent_crawl)
 		return
 	var/mob/living/living_user = user
 	living_user.handle_ventcrawl(src)

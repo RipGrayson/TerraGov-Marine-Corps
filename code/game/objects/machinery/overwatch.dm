@@ -48,13 +48,29 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 	var/datum/action/innate/order/defend_order/send_defend_order
 	///datum used when sending a rally order
 	var/datum/action/innate/order/rally_order/send_rally_order
+	///Groundside minimap for overwatch
+	var/datum/action/minimap/marine/external/cic_mini
 
-/obj/machinery/computer/camera_advanced/overwatch/Initialize()
+/obj/machinery/computer/camera_advanced/overwatch/Initialize(mapload)
 	. = ..()
 	send_attack_order = new
 	send_defend_order = new
 	send_retreat_order = new
 	send_rally_order = new
+	cic_mini = new
+	GLOB.main_overwatch_consoles += src
+
+/obj/machinery/computer/camera_advanced/overwatch/Destroy()
+	QDEL_NULL(send_attack_order)
+	QDEL_NULL(send_defend_order)
+	QDEL_NULL(send_retreat_order)
+	QDEL_NULL(send_rally_order)
+	QDEL_NULL(cic_mini)
+	GLOB.main_overwatch_consoles -= src
+	current_order = null
+	selected_target = null
+	current_squad = null
+	return ..()
 
 /obj/machinery/computer/camera_advanced/overwatch/give_actions(mob/living/user)
 	. = ..()
@@ -74,6 +90,10 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 		send_rally_order.target = user
 		send_rally_order.give_action(user)
 		actions += send_rally_order
+	if(cic_mini)
+		cic_mini.target = user
+		cic_mini.give_action(user)
+		actions += cic_mini
 
 /obj/machinery/computer/camera_advanced/overwatch/main
 	icon_state = "overwatch_main"
@@ -96,6 +116,7 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 	icon_state = "overwatch_req"
 	name = "Requisition Overwatch Console"
 	desc = "Big Brother Requisition demands to see money flowing into the void that is greed."
+	circuit = /obj/item/circuitboard/computer/supplyoverwatch
 
 /obj/machinery/computer/camera_advanced/overwatch/rebel
 	faction = FACTION_TERRAGOV_REBEL
@@ -119,21 +140,18 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 	name = "Delta Overwatch Console"
 
 
-/obj/machinery/computer/camera_advanced/overwatch/attackby(obj/item/I, mob/user, params)
-	return
-
-
 /obj/machinery/computer/camera_advanced/overwatch/CreateEye()
 	. = ..()
 	eyeobj.visible_icon = TRUE
 	eyeobj.icon = 'icons/mob/cameramob.dmi'
 	eyeobj.icon_state = "generic_camera"
+	cic_mini.override_locator(eyeobj)
 
 /obj/machinery/computer/camera_advanced/overwatch/give_eye_control(mob/user)
 	. = ..()
-	RegisterSignal(user, COMSIG_MOB_CLICK_SHIFT, .proc/send_order)
-	RegisterSignal(user, COMSIG_ORDER_SELECTED, .proc/set_order)
-	RegisterSignal(user, COMSIG_MOB_MIDDLE_CLICK, .proc/attempt_spotlight)
+	RegisterSignal(user, COMSIG_MOB_CLICK_SHIFT, PROC_REF(send_order))
+	RegisterSignal(user, COMSIG_ORDER_SELECTED, PROC_REF(set_order))
+	RegisterSignal(user, COMSIG_MOB_MIDDLE_CLICK, PROC_REF(attempt_spotlight))
 
 /obj/machinery/computer/camera_advanced/overwatch/remove_eye_control(mob/living/user)
 	. = ..()
@@ -382,7 +400,7 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 		if("shootrailgun")
 			var/mob/living/user = usr
 			if(user.interactee)
-				to_chat(usr, "[icon2html(src, usr)] [span_warning("Your busy doing something else, and press the wrong button!")]")
+				to_chat(usr, "[icon2html(src, usr)] [span_warning("You're busy doing something else, and press the wrong button!")]")
 				return
 			if((GLOB.marine_main_ship?.rail_gun?.last_firing + 600) > world.time)
 				to_chat(usr, "[icon2html(src, usr)] [span_warning("The Rail Gun hasn't cooled down yet!")]")
@@ -396,8 +414,13 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 			selected_target = locate(href_list["selected_target"])
 			if(!isAI(usr))
 				var/atom/cam_target = locate(href_list["cam_target"])
+				if(!cam_target)
+					return
+				var/turf/cam_target_turf = get_turf(cam_target)
+				if(!cam_target_turf)
+					return
 				open_prompt(usr)
-				eyeobj.setLoc(get_turf(cam_target))
+				eyeobj.setLoc(cam_target_turf)
 				if(isliving(cam_target))
 					var/mob/living/L = cam_target
 					track(L)
@@ -521,6 +544,9 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 		to_chat(usr, "[icon2html(src, usr)] [span_warning("The target's signal is too weak.")]")
 		return
 	var/turf/T = get_turf(selected_target)
+	if(!isturf(T)) //Huh?
+		to_chat(usr, "[icon2html(src, usr)] [span_warning("Invalid target.")]")
+		return
 	if(isspaceturf(T))
 		to_chat(usr, "[icon2html(src, usr)] [span_warning("The target's landing zone appears to be out of bounds.")]")
 		return
@@ -539,14 +565,14 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 	if(selected_target)
 		playsound(selected_target.loc,'sound/effects/alert.ogg', 50, 1, 20)  //mostly used to warn xenos as the new ob sounds have a quiet beginning
 
-	addtimer(CALLBACK(src, .proc/send_to_squads, "Transmitting beacon feed..."), 1.5 SECONDS)
-	addtimer(CALLBACK(src, .proc/send_to_squads, "Calibrating trajectory window..."), 3 SECONDS)
-	addtimer(CALLBACK(src, .proc/do_fire_bombard, T, usr), 3.1 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(send_to_squads), "Transmitting beacon feed..."), 1.5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(send_to_squads), "Calibrating trajectory window..."), 3 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(do_fire_bombard), T, usr), 3.1 SECONDS)
 
 /obj/machinery/computer/camera_advanced/overwatch/proc/do_fire_bombard(turf/T, user)
 	visible_message(span_boldnotice("Orbital bombardment has fired! Impact imminent!"))
 	send_to_squads("WARNING! Ballistic trans-atmospheric launch detected! Get outside of Danger Close!")
-	addtimer(CALLBACK(src, .proc/do_land_bombard, T, user), 2.5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(do_land_bombard), T, user), 2.5 SECONDS)
 
 /obj/machinery/computer/camera_advanced/overwatch/proc/do_land_bombard(turf/T, user)
 	busy = FALSE
@@ -615,7 +641,7 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 					if(!findtext(R.fields["ma_crim"],"Insubordination."))
 						R.fields["criminal"] = "*Arrest*"
 						if(R.fields["ma_crim"] == "None")
-							R.fields["ma_crim"]	= "Insubordination."
+							R.fields["ma_crim"] = "Insubordination."
 						else
 							R.fields["ma_crim"] += "Insubordination."
 						if(issilicon(usr))
@@ -738,7 +764,7 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 	light_range = 15	//This is a HUGE light.
 	light_power = SQRTWO
 
-/obj/effect/overwatch_light/Initialize()
+/obj/effect/overwatch_light/Initialize(mapload)
 	. = ..()
 	set_light(light_range, light_power)
 	playsound(src,'sound/mecha/heavylightswitch.ogg', 25, 1, 20)
@@ -750,7 +776,7 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 /mob/living/carbon/human/verb/issue_order(command_aura as null|text)
 	set hidden = TRUE
 
-	if(skills.getRating("leadership") < SKILL_LEAD_TRAINED)
+	if(skills.getRating(SKILL_LEADERSHIP) < SKILL_LEAD_TRAINED)
 		to_chat(src, span_warning("You are not competent enough in leadership to issue an order."))
 		return
 
@@ -780,7 +806,7 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 
 	if(!(command_aura in command_aura_allowed))
 		return
-	var/aura_strength = skills.getRating("leadership") - 1
+	var/aura_strength = skills.getRating(SKILL_LEADERSHIP) - 1
 	var/aura_target = pick_order_target()
 	SSaura.add_emitter(aura_target, command_aura, aura_strength + 4, aura_strength, 30 SECONDS, faction)
 
@@ -802,7 +828,7 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 			say(message)
 			add_emote_overlay(focus)
 
-	command_aura_cooldown = addtimer(CALLBACK(src, .proc/end_command_aura_cooldown), 45 SECONDS)
+	command_aura_cooldown = addtimer(CALLBACK(src, PROC_REF(end_command_aura_cooldown)), 45 SECONDS)
 
 	update_action_buttons()
 
@@ -819,7 +845,8 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 
 /datum/action/skill/issue_order
 	name = "Issue Order"
-	skill_name = "leadership"
+	skill_name = SKILL_LEADERSHIP
+	action_icon = 'icons/mob/order_icons.dmi'
 	skill_min = SKILL_LEAD_TRAINED
 	var/order_type = null
 
@@ -832,9 +859,13 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 	var/mob/living/carbon/human/human = owner
 	if(!istype(human))
 		return
-	button.overlays.Cut()
-	button.overlays += image('icons/mob/order_icons.dmi', icon_state = "[order_type]")
+	action_icon_state = "[order_type]"
+	return ..()
 
+/datum/action/skill/issue_order/handle_button_status_visuals()
+	var/mob/living/carbon/human/human = owner
+	if(!istype(human))
+		return
 	if(human.command_aura_cooldown)
 		button.color = rgb(255,0,0,255)
 	else
@@ -843,24 +874,30 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 /datum/action/skill/issue_order/move
 	name = "Issue Move Order"
 	order_type = AURA_HUMAN_MOVE
-	keybind_signal = COMSIG_KB_MOVEORDER
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_KB_MOVEORDER,
+	)
 
 /datum/action/skill/issue_order/hold
 	name = "Issue Hold Order"
 	order_type = AURA_HUMAN_HOLD
-	keybind_signal = COMSIG_KB_HOLDORDER
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_KB_HOLDORDER,
+	)
 
 /datum/action/skill/issue_order/focus
 	name = "Issue Focus Order"
 	order_type = AURA_HUMAN_FOCUS
-	keybind_signal = COMSIG_KB_FOCUSORDER
-
+	keybinding_signals = list(
+		KEYBINDING_NORMAL = COMSIG_KB_FOCUSORDER,
+	)
 
 /datum/action/skill/toggle_orders
 	name = "Show/Hide Order Options"
-	skill_name = "leadership"
+	skill_name = SKILL_LEADERSHIP
 	skill_min = SKILL_LEAD_TRAINED
 	var/orders_visible = TRUE
+	action_icon_state = "hide_order"
 
 /datum/action/skill/toggle_orders/action_activate()
 	var/mob/living/carbon/human/H = owner
@@ -868,11 +905,13 @@ GLOBAL_LIST_EMPTY(active_cas_targets)
 		return
 	if(orders_visible)
 		orders_visible = FALSE
+		action_icon_state = "show_order"
 		for(var/datum/action/skill/path in owner.actions)
 			if(istype(path, /datum/action/skill/issue_order))
 				path.remove_action(H)
 	else
 		orders_visible = TRUE
+		action_icon_state = "hide_order"
 		var/list/subtypeactions = subtypesof(/datum/action/skill/issue_order)
 		for(var/path in subtypeactions)
 			var/datum/action/skill/issue_order/A = new path()

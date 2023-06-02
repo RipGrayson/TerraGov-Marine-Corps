@@ -173,33 +173,6 @@
 
 	to_chat(src, span_notice("You will [(prefs.be_special & role_flag) ? "now" : "no longer"] be considered for [role] events (where possible)."))
 
-
-/client/verb/preferred_slot()
-	set category = "Preferences"
-	set name = "Set Preferred Slot"
-
-	var/slot = tgui_input_list(usr, "Which slot would you like to draw/equip from?", "Preferred Slot", SLOT_FLUFF_DRAW)
-	prefs.preferred_slot = slot_fluff_to_flag(slot)
-	prefs.save_character()
-
-	to_chat(src, span_notice("You will now equip/draw from the [slot] slot first."))
-
-
-/client/verb/typing_indicator()
-	set category = "Preferences"
-	set name = "Toggle Typing Indicator"
-	set desc = "Toggles showing an indicator when you are typing emote or say message."
-
-	prefs.show_typing = !prefs.show_typing
-	prefs.save_preferences()
-
-	//Clear out any existing typing indicator.
-	if(!prefs.show_typing && istype(mob))
-		mob.remove_typing_indicator()
-
-	to_chat(src, span_notice("You will [prefs.show_typing ? "now" : "no longer"] display a typing indicator."))
-
-
 /client/verb/setup_character()
 	set category = "Preferences"
 	set name = "Game Preferences"

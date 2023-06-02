@@ -24,11 +24,15 @@
 
 	// *** Evolution *** //
 	upgrade_threshold = TIER_THREE_YOUNG_THRESHOLD
+	evolve_min_xenos = 8
+	maximum_active_caste = 1
+	death_evolution_delay = 5 MINUTES
 
 	// *** Flags *** //
-	caste_flags = CASTE_IS_INTELLIGENT|CASTE_IS_BUILDER
+	caste_flags = CASTE_IS_INTELLIGENT|CASTE_IS_BUILDER|CASTE_STAGGER_RESISTANT|CASTE_LEADER_TYPE|CASTE_INSTANT_EVOLUTION
 	can_hold_eggs = CAN_HOLD_TWO_HANDS
 	can_flags = CASTE_CAN_HOLD_FACEHUGGERS|CASTE_CAN_HOLD_JELLY|CASTE_CAN_CORRUPT_GENERATOR|CASTE_CAN_BE_GIVEN_PLASMA
+	caste_traits = null
 
 	// *** Defense *** //
 	soft_armor = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 30, BIO = 45, FIRE = 45, ACID = 45)
@@ -41,7 +45,7 @@
 	aura_strength = 3.5 //The Queen's aura is strong and stays so, and gets devastating late game. Climbs by 1 to 5
 
 	// *** Queen Abilities *** //
-	queen_leader_limit = 2 //Amount of leaders allowed
+	queen_leader_limit = 4 //Amount of leaders allowed
 
 	minimap_icon = "xenoqueen"
 
@@ -57,7 +61,7 @@
 		/datum/action/xeno_action/activable/screech,
 		/datum/action/xeno_action/activable/corrosive_acid/strong,
 		/datum/action/xeno_action/activable/xeno_spit,
-		/datum/action/xeno_action/activable/psychic_cure/acidic_salve/queen,
+		/datum/action/xeno_action/activable/psychic_cure/queen_give_heal,
 		/datum/action/xeno_action/activable/neurotox_sting/ozelomelyn,
 		/datum/action/xeno_action/pheromones,
 		/datum/action/xeno_action/pheromones/emit_recovery,
@@ -68,11 +72,8 @@
 		/datum/action/xeno_action/set_xeno_lead,
 		/datum/action/xeno_action/activable/queen_give_plasma,
 		/datum/action/xeno_action/hive_message,
-		/datum/action/xeno_action/deevolve,
 		/datum/action/xeno_action/rally_hive,
-		/datum/action/xeno_action/rally_minion,
 		/datum/action/xeno_action/activable/command_minions,
-		/datum/action/xeno_action/set_agressivity,
 	)
 
 
@@ -107,7 +108,7 @@
 	aura_strength = 4
 
 	// *** Queen Abilities *** //
-	queen_leader_limit = 3
+	queen_leader_limit = 4
 
 /datum/xeno_caste/queen/elder
 	caste_desc = "The biggest and baddest xeno. The Empress controls multiple hives and planets."
@@ -140,7 +141,7 @@
 	aura_strength = 4.5
 
 	// *** Queen Abilities *** //
-	queen_leader_limit = 3
+	queen_leader_limit = 4
 
 /datum/xeno_caste/queen/ancient
 	caste_desc = "The most perfect Xeno form imaginable."
@@ -217,7 +218,7 @@
 		/datum/action/xeno_action/activable/screech,
 		/datum/action/xeno_action/activable/corrosive_acid/strong,
 		/datum/action/xeno_action/activable/xeno_spit,
-		/datum/action/xeno_action/activable/psychic_cure/acidic_salve/queen,
+		/datum/action/xeno_action/activable/psychic_cure/queen_give_heal,
 		/datum/action/xeno_action/activable/neurotox_sting/ozelomelyn,
 		/datum/action/xeno_action/pheromones,
 		/datum/action/xeno_action/pheromones/emit_recovery,
@@ -228,10 +229,7 @@
 		/datum/action/xeno_action/set_xeno_lead,
 		/datum/action/xeno_action/activable/queen_give_plasma,
 		/datum/action/xeno_action/hive_message,
-		/datum/action/xeno_action/deevolve,
 		/datum/action/xeno_action/rally_hive,
-		/datum/action/xeno_action/rally_minion,
 		/datum/action/xeno_action/activable/command_minions,
-		/datum/action/xeno_action/set_agressivity,
 		/datum/action/xeno_action/ready_charge/queen_charge,
 	)

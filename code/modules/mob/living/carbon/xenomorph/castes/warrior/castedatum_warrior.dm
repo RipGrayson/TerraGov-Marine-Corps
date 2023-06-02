@@ -25,12 +25,13 @@
 	evolution_threshold = 180
 	upgrade_threshold = TIER_TWO_YOUNG_THRESHOLD
 
-	evolves_to = list(/mob/living/carbon/xenomorph/crusher, /mob/living/carbon/xenomorph/gorger)
+	evolves_to = list(/mob/living/carbon/xenomorph/crusher, /mob/living/carbon/xenomorph/gorger, /mob/living/carbon/xenomorph/warlock)
 	deevolves_to = /mob/living/carbon/xenomorph/defender
 
 	// *** Flags *** //
 	caste_flags = CASTE_EVOLUTION_ALLOWED|CASTE_IS_STRONG
-	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER|CASTE_CAN_BECOME_KING
+	can_flags = CASTE_CAN_BE_QUEEN_HEALED|CASTE_CAN_BE_GIVEN_PLASMA|CASTE_CAN_BE_LEADER
+	caste_traits = null
 
 	// *** Defense *** //
 	soft_armor = list(MELEE = 30, BULLET = 40, LASER = 40, ENERGY = 30, BOMB = 20, BIO = 36, FIRE = 40, ACID = 36)
@@ -144,7 +145,7 @@
 
 /datum/xeno_caste/warrior/primordial
 	upgrade_name = "Primordial"
-	caste_desc = "A champion of the hive, methodically shatters its opponents with punches rather slashes."
+	caste_desc = "A champion of the hive, methodically shatters its opponents with punches rather than slashes."
 	primordial_message = "Our rhythm is unmatched and our strikes lethal, no single foe can stand against us."
 	upgrade = XENO_UPGRADE_FOUR
 

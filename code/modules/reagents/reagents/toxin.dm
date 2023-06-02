@@ -207,14 +207,6 @@
 			tray.check_level_sanity()
 			tray.update_icon()
 
-/datum/reagent/toxin/plantbgone/reaction_mob(mob/living/L, method = TOUCH, volume, show_message = TRUE, touch_protection = 0)
-	. = ..()
-	if(!ishuman(L))
-		return
-	var/mob/living/carbon/human/H = L
-	if(H.species.species_flags & IS_PLANT) //plantmen take a LOT of damage
-		H.adjustToxLoss(10 * touch_protection)
-
 /datum/reagent/toxin/sleeptoxin
 	name = "Soporific"
 	description = "An effective hypnotic used to treat insomnia."
@@ -235,10 +227,10 @@
 		if(7 to 10)
 			if(prob(10))
 				L.Sleeping(10 SECONDS)
-			L.drowsyness  = max(L.drowsyness, 20)
+			L.drowsyness = max(L.drowsyness, 20)
 		if(11 to 80)
 			L.Sleeping(10 SECONDS) //previously knockdown, no good for a soporific.
-			L.drowsyness  = max(L.drowsyness, 30)
+			L.drowsyness = max(L.drowsyness, 30)
 		if(81 to INFINITY)
 			L.adjustDrowsyness(2)
 	L.reagent_pain_modifier += PAIN_REDUCTION_HEAVY
@@ -481,7 +473,7 @@
 		L.adjustOxyLoss(stamina_excess_damage * 0.5)
 		L.Losebreath(2) //So the oxy loss actually means something.
 
-	L.stuttering = max(L.stuttering, 1)
+	L.set_timed_status_effect(2 SECONDS, /datum/status_effect/speech/stutter, only_if_higher = TRUE)
 
 	if(current_cycle < 21) //Additional effects at higher cycles
 		return ..()
@@ -512,12 +504,15 @@
 			slowdown_multiplier *= 2 //Each other Defiler toxin increases the multiplier by 2x; 2x if we have 1 combo chem, 4x if we have 2
 
 	switch(slowdown_multiplier) //Description varies in severity and probability with the multiplier
-		if(0 to 1 && prob(10))
-			to_chat(L, span_warning("You feel your legs tense up.") )
-		if(2 to 3.9 && prob(20))
-			to_chat(L, span_warning("You feel your legs go numb.") )
-		if(4 to INFINITY && prob(30))
-			to_chat(L, span_danger("You can barely feel your legs!") )
+		if(0 to 1)
+			if(prob(10))
+				to_chat(L, span_warning("You feel your legs tense up.") )
+		if(2 to 3.9)
+			if(prob(20))
+				to_chat(L, span_warning("You feel your legs go numb.") )
+		if(4 to INFINITY)
+			if(prob(30))
+				to_chat(L, span_danger("You can barely feel your legs!") )
 
 	L.add_movespeed_modifier(MOVESPEED_ID_XENO_HEMODILE, TRUE, 0, NONE, TRUE, 1.5 * slowdown_multiplier)
 
@@ -538,7 +533,7 @@
 	toxpwr = 0
 
 /datum/reagent/toxin/xeno_transvitox/on_mob_add(mob/living/L, metabolism, affecting)
-	RegisterSignal(L, COMSIG_HUMAN_DAMAGE_TAKEN, .proc/transvitox_human_damage_taken)
+	RegisterSignal(L, COMSIG_HUMAN_DAMAGE_TAKEN, PROC_REF(transvitox_human_damage_taken))
 
 /datum/reagent/toxin/xeno_transvitox/on_mob_life(mob/living/L, metabolism)
 	var/fire_loss = L.getFireLoss(TRUE)
@@ -603,6 +598,12 @@
 	if(L.reagents.get_reagent_amount(/datum/reagent/toxin/xeno_transvitox))
 		L.adjustFireLoss(DEFILER_SANGUINAL_DAMAGE)
 
+	if(L.has_status_effect(STATUS_EFFECT_INTOXICATED))
+		var/datum/status_effect/stacking/intoxicated/debuff = L.has_status_effect(STATUS_EFFECT_INTOXICATED)
+		if(debuff.stacks > 0)
+			debuff.stacks = debuff.stacks + SENTINEL_INTOXICATED_SANGUINAL_INCREASE
+			L.adjustFireLoss(DEFILER_SANGUINAL_DAMAGE)
+
 	L.apply_damage(DEFILER_SANGUINAL_DAMAGE, BRUTE, sharp = TRUE)
 
 	if(iscarbon(L))
@@ -644,7 +645,7 @@
 	overdose_crit_threshold = 50
 
 /datum/reagent/zombium/on_overdose_start(mob/living/L, metabolism)
-	RegisterSignal(L, COMSIG_HUMAN_SET_UNDEFIBBABLE, .proc/zombify)
+	RegisterSignal(L, COMSIG_HUMAN_SET_UNDEFIBBABLE, PROC_REF(zombify))
 
 /datum/reagent/zombium/on_overdose_stop(mob/living/L, metabolism)
 	UnregisterSignal(L, COMSIG_HUMAN_SET_UNDEFIBBABLE)
@@ -668,7 +669,7 @@
 	if(!H.has_working_organs())
 		return
 	H.do_jitter_animation(1000)
-	addtimer(CALLBACK(H, /mob/living/carbon/human.proc/revive_to_crit, TRUE, TRUE), SSticker.mode?.zombie_transformation_time)
+	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, revive_to_crit), TRUE, TRUE), SSticker.mode?.zombie_transformation_time)
 
 
 //SOM nerve agent

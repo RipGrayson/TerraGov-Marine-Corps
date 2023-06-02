@@ -66,15 +66,16 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 10
 	active_power_usage = 100
-	interaction_flags = INTERACT_MACHINE_TGUI
+	interaction_flags = INTERACT_MACHINE_TGUI|INTERACT_POWERLOADER_PICKUP_ALLOWED
 	wrenchable = TRUE
+	voice_filter = "aderivative"
 
 	///Whether this vendor is active or not.
 	var/active = TRUE
 	///If the vendor is ready to vend.
 	var/vend_ready = TRUE
 	///How long it takes to vend an item, vend_ready is false during that.
-	var/vend_delay = 10
+	var/vend_delay = 0
 	///Vending flags to determine the behaviour of the machine
 	var/vending_flags = NONE
 	/// A /datum/vending_product instance of what we're paying for right now.
@@ -173,7 +174,14 @@
 /obj/machinery/vending/Initialize(mapload, ...)
 	. = ..()
 	wires = new /datum/wires/vending(src)
-	slogan_list = text2list(product_slogans, ";")
+
+	if(SStts.tts_enabled)
+		var/static/vendor_voice_by_type = list()
+		if(!vendor_voice_by_type[type])
+			vendor_voice_by_type[type] = pick(SStts.available_speakers)
+		voice = vendor_voice_by_type[type]
+
+	slogan_list = splittext(product_slogans, ";")
 
 	// So not all machines speak at the exact same time.
 	// The first time this machine says something will be at slogantime + this random value,
@@ -581,15 +589,9 @@
 			src.last_reply = world.time
 
 	var/obj/item/new_item = release_item(R, vend_delay)
-	if(faction)
-		if(ismodulararmorarmorpiece(new_item))
-			var/obj/item/armor_module/armor/armorpiece = new_item
-			armorpiece.limit_colorable_colors(faction)
-		if(ismodularhelmet(new_item))
-			var/obj/item/clothing/head/modular/helmet = new_item
-			helmet.limit_colorable_colors(faction)
-	if(istype(new_item) && user.put_in_any_hand_if_possible(new_item, warning = FALSE))
-		new_item.pickup(user)
+
+	if(istype(new_item))
+		new_item.on_vend(user, faction, fill_container = TRUE)
 	vend_ready = 1
 	updateUsrDialog()
 
@@ -609,7 +611,7 @@
 		else
 			return
 	SSblackbox.record_feedback("tally", "vendored", 1, R.product_name)
-	addtimer(CALLBACK(src, .proc/stock_vacuum), 2.5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE) // We clean up some time after the last item has been vended.
+	addtimer(CALLBACK(src, PROC_REF(stock_vacuum)), 2.5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE) // We clean up some time after the last item has been vended.
 	if(vending_sound)
 		playsound(src, vending_sound, 25, 0)
 	else
@@ -788,7 +790,7 @@
 		seconds_electrified--
 
 	//Pitch to the people!  Really sell it!
-	if(((last_slogan + slogan_delay) <= world.time) && (slogan_list.len > 0) && (!shut_up) && prob(5))
+	if(((last_slogan + slogan_delay) <= world.time) && (length(slogan_list) > 0) && (!shut_up) && prob(5))
 		var/slogan = pick(slogan_list)
 		speak(slogan)
 		last_slogan = world.time
@@ -855,8 +857,8 @@
 	. = TRUE
 
 
-/obj/machinery/vending/take_damage(dam)
-	if(density && dam >= knockdown_threshold)
+/obj/machinery/vending/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", effects = TRUE, attack_dir, armour_penetration = 0)
+	if(density && damage_amount >= knockdown_threshold)
 		tip_over()
 	return ..()
 

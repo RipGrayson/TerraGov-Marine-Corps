@@ -119,7 +119,7 @@
 						if(istype(active1.fields["photo_side"], /obj/item/photo))
 							var/obj/item/photo/P2 = active1.fields["photo_side"]
 							DIRECT_OUTPUT(user, browse_rsc(P2.picture.picture_image, "photo_side"))
-						dat += text("<table><tr><td>	\
+						dat += "<table><tr><td>	\
 						Name: <A href='?src=\ref[src];choice=Edit Field;field=name'>[active1.fields["name"]]</A><BR> \
 						ID: <A href='?src=\ref[src];choice=Edit Field;field=id'>[active1.fields["id"]]</A><BR>\n \
 						Sex: <A href='?src=\ref[src];choice=Edit Field;field=sex'>[active1.fields["sex"]]</A><BR>\n	\
@@ -131,7 +131,7 @@
 						<td align = center valign = top>Photo:<br> \
 						<table><td align = center><img src=photo_front height=80 width=80 border=4><BR><A href='?src=\ref[src];choice=Edit Field;field=photo front'>Update front photo</A></td> \
 						<td align = center><img src=photo_side height=80 width=80 border=4><BR><A href='?src=\ref[src];choice=Edit Field;field=photo side'>Update side photo</A></td></table> \
-						</td></tr></table>")
+						</td></tr></table>"
 					else
 						dat += "<B>General Record Lost!</B><BR>"
 					if ((istype(active2, /datum/data/record) && GLOB.datacore.security.Find(active2)))
@@ -147,7 +147,7 @@
 						dat += text("<A href='?src=\ref[];choice=New Record (Security)'>New Security Record</A><BR><BR>", src)
 					dat += text("\n<A href='?src=\ref[];choice=Delete Record (ALL)'>Delete Record (ALL)</A><BR><BR>\n<A href='?src=\ref[];choice=Print Record'>Print Record</A><BR>\n<A href='?src=\ref[];choice=Return'>Back</A><BR>", src, src, src)
 				if(4.0)
-					if(!Perp.len)
+					if(!length(Perp))
 						dat += text("ERROR.  String could not be located.<br><br><A href='?src=\ref[];choice=Return'>Back</A>", src)
 					else
 						dat += {"
@@ -165,7 +165,7 @@
 <th>Fingerprints</th>
 <th>Criminal Status</th>
 </tr>					"}
-						for(var/i=1, i<=Perp.len, i += 2)
+						for(var/i=1, length(i<=Perp), i += 2)
 							var/crimstat = ""
 							var/datum/data/record/R = Perp[i]
 							if(istype(Perp[i+1],/datum/data/record/))
@@ -273,17 +273,17 @@ What a mess.*/
 				return
 			Perp = new/list()
 			t1 = lowertext(t1)
-			var/list/components = text2list(t1, " ")
-			if(components.len > 5)
+			var/list/components = splittext(t1, " ")
+			if(length(components) > 5)
 				return //Lets not let them search too greedily.
 			for(var/datum/data/record/R in GLOB.datacore.general)
 				var/temptext = R.fields["name"] + " " + R.fields["id"] + " " + R.fields["fingerprint"] + " " + R.fields["rank"]
-				for(var/i = 1, i<=components.len, i++)
+				for(var/i = 1, length(i<=components), i++)
 					if(findtext(temptext,components[i]))
 						var/prelist = new/list(2)
 						prelist[1] = R
 						Perp += prelist
-			for(var/i = 1, i<=Perp.len, i+=2)
+			for(var/i = 1, length(i<=Perp), i+=2)
 				for(var/datum/data/record/E in GLOB.datacore.security)
 					var/datum/data/record/R = Perp[i]
 					if ((E.fields["name"] == R.fields["name"] && E.fields["id"] == R.fields["id"]))
@@ -318,7 +318,7 @@ What a mess.*/
 					record1 = active1
 				if ((istype(active2, /datum/data/record) && GLOB.datacore.security.Find(active2)))
 					record2 = active2
-				sleep(50)
+				sleep(5 SECONDS)
 				var/obj/item/paper/P = new /obj/item/paper( loc )
 				P.info = "<CENTER><B>Security Record</B></CENTER><BR>"
 				if (record1)
@@ -361,7 +361,7 @@ What a mess.*/
 			var/counter = 1
 			while(active2.fields[text("com_[]", counter)])
 				counter++
-			active2.fields[text("com_[counter]")] = text("Made by [authenticated] ([rank]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GAME_YEAR]<BR>[t1]")
+			active2.fields["com_[counter]"] = "Made by [authenticated] ([rank]) on [time2text(world.realtime, "DDD MMM DD hh:mm:ss")], [GAME_YEAR]<BR>[t1]"
 
 		if ("Delete Record (ALL)")
 			if (active1)
@@ -557,7 +557,7 @@ What a mess.*/
 				if(1)
 					R.fields["name"] = GLOB.namepool[/datum/namepool].get_random_name(pick(MALE, FEMALE))
 				if(2)
-					R.fields["sex"]	= pick("Male", "Female")
+					R.fields["sex"] = pick("Male", "Female")
 				if(3)
 					R.fields["age"] = rand(5, 85)
 				if(4)

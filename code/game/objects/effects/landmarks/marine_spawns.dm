@@ -2,7 +2,7 @@
 /obj/effect/landmark/start/job
 	var/job
 
-/obj/effect/landmark/start/job/Initialize()
+/obj/effect/landmark/start/job/Initialize(mapload)
 	. = ..()
 	GLOB.spawns_by_job[job] += list(loc)
 
@@ -142,7 +142,10 @@
 	job = /datum/job/survivor/rambo
 
 /obj/effect/landmark/start/job/fallen
-	job = /datum/job/fallen
+	job = /datum/job/fallen/marine
+
+/obj/effect/landmark/start/job/fallen/xenomorph
+	job = /datum/job/fallen/xenomorph
 
 /obj/effect/landmark/start/job/xenomorph
 	icon_state = "xeno_spawn"

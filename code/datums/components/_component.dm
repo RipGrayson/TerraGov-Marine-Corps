@@ -101,7 +101,7 @@
 				components_of_type = test
 			if(I == our_type)	//exact match, take priority
 				var/inserted = FALSE
-				for(var/J in 1 to components_of_type.len)
+				for(var/J in 1 to length(components_of_type))
 					var/datum/component/C = components_of_type[J]
 					if(C.type != our_type) //but not over other exact matches
 						components_of_type.Insert(J, I)
@@ -126,13 +126,13 @@
 		var/list/components_of_type = dc[I]
 		if(length(components_of_type))	//
 			var/list/subtracted = components_of_type - src
-			if(subtracted.len == 1)	//only 1 guy left
+			if(length(subtracted) == 1)	//only 1 guy left
 				dc[I] = subtracted[1]	//make him special
 			else
 				dc[I] = subtracted
 		else	//just us
 			dc -= I
-	if(!dc.len)
+	if(!length(dc))
 		P.datum_components = null
 
 	UnregisterFromParent()
@@ -239,7 +239,7 @@
 				lookup[sig] -= src
 
 	signal_procs[target] -= sig_type_or_types
-	if(!signal_procs[target].len)
+	if(!length(signal_procs[target]))
 		signal_procs -= target
 
 /**
@@ -307,10 +307,16 @@
 	var/target = comp_lookup[sigtype]
 	if(!length(target))
 		var/datum/listening_datum = target
-		return NONE | CallAsync(listening_datum, listening_datum.signal_procs[src][sigtype], arguments)
+		return NONE | call(listening_datum, listening_datum.signal_procs[src][sigtype])(arglist(arguments))
 	. = NONE
+	// This exists so that even if one of the signal receivers unregisters the signal,
+	// all the objects that are receiving the signal get the signal this final time.
+	// AKA: No you can't cancel the signal reception of another object by doing an unregister in the same signal.
+	var/list/queued_calls = list()
 	for(var/datum/listening_datum as anything in target)
-		. |= CallAsync(listening_datum, listening_datum.signal_procs[src][sigtype], arguments)
+		queued_calls[listening_datum] = listening_datum.signal_procs[src][sigtype]
+	for(var/datum/listening_datum as anything in queued_calls)
+		. |= call(listening_datum, queued_calls[listening_datum])(arglist(arguments))
 
 // The type arg is casted so initial works, you shouldn't be passing a real instance into this
 /**
@@ -429,9 +435,8 @@
 					var/list/arguments = raw_args.Copy()
 					arguments[1] = new_comp
 					var/make_new_component = TRUE
-					for(var/i in GetComponents(new_type))
-						var/datum/component/C = i
-						if(C.CheckDupeComponent(arglist(arguments)))
+					for(var/datum/component/existing_component as anything in GetComponents(new_type))
+						if(existing_component.CheckDupeComponent(arglist(arguments)))
 							make_new_component = FALSE
 							QDEL_NULL(new_comp)
 							break

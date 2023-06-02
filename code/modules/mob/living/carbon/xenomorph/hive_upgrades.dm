@@ -165,7 +165,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	var/turf/buildloc = get_step(buyer, building_loc)
 
 	var/atom/built = new building_type(buildloc, buyer.hivenumber)
-	to_chat(buyer, span_notice("We build \a [built] for [psypoint_cost] psy points."))
+	to_chat(buyer, span_notice("We build [built] for [psypoint_cost] psy points."))
 	log_game("[buyer] has built \a [built] in [AREACOORD(buildloc)], spending [psypoint_cost] psy points in the process")
 	xeno_message("[buyer] has built \a [built] at [get_area(buildloc)]!", "xenoannounce", 5, buyer.hivenumber)
 	return ..()
@@ -192,10 +192,11 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 			to_chat(buyer, span_xenowarning("You cannot build in a dense location!"))
 		return FALSE
 
-	for(var/obj/structure/xeno/silo/silo AS in GLOB.xeno_resin_silos)
-		if(get_dist(silo, buyer) < 15)
-			to_chat(buyer, span_xenowarning("Another silo is too close!"))
-			return FALSE
+	for(var/hive in GLOB.xeno_resin_silos_by_hive)
+		for(var/silo in hive)
+			if(get_dist(silo, buyer) < 15)
+				to_chat(buyer, span_xenowarning("Another silo is too close!"))
+				return FALSE
 
 /datum/hive_upgrade/building/evotower
 	name = "Evolution Tower"
@@ -267,7 +268,7 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 	if(!T.check_alien_construction(buyer, silent = silent, planned_building = /obj/structure/xeno/xeno_turret) || !T.check_disallow_alien_fortification(buyer))
 		return FALSE
 
-	for(var/obj/structure/xeno/xeno_turret/turret AS in GLOB.xeno_resin_turrets)
+	for(var/obj/structure/xeno/xeno_turret/turret AS in GLOB.xeno_resin_turrets_by_hive[blocker.hivenumber])
 		if(get_dist(turret, buyer) < 6)
 			if(!silent)
 				to_chat(buyer, span_xenowarning("Another turret is too close!"))
@@ -299,34 +300,6 @@ GLOBAL_LIST_INIT(tier_to_primo_upgrade, list(
 
 /datum/hive_upgrade/xenos
 	category = "Xenos"
-
-/datum/hive_upgrade/xenos/king
-	name = "King"
-	desc = "Places a Psychic Echo chamber that tallhosts can detect, then after a summon time selects a random sister to take over the mind of the gravity manipulating King."
-	icon = "king"
-	flags_gamemode = ABILITY_DISTRESS
-	psypoint_cost = 1800
-
-/datum/hive_upgrade/xenos/king/can_buy(mob/living/carbon/xenomorph/buyer, silent = TRUE)
-	. = ..()
-	if(!.)
-		return
-	if(buyer.hive.king_present)
-		if(!silent)
-			to_chat(buyer, span_xenowarning("Another king is alive already!"))
-		return FALSE
-
-/datum/hive_upgrade/xenos/king/on_buy(mob/living/carbon/xenomorph/buyer)
-	to_chat(buyer, span_xenonotice("We begin constructing a psychic echo chamber for the Queen Mother..."))
-	if(!do_after(buyer, 15 SECONDS, FALSE, buyer, BUSY_ICON_HOSTILE))
-		return FALSE
-	if(!can_buy(buyer, FALSE))
-		return FALSE
-	var/obj/structure/resin/king_pod = new /obj/structure/resin/king_pod(get_turf(buyer), buyer.hivenumber)
-	log_game("[key_name(buyer)] has created a pod in [AREACOORD(buyer)]")
-	xeno_message("<B>[buyer] has created a king pod at [get_area(buyer)]. Defend it until the Queen Mother summons a king!</B>", hivenumber = buyer.hivenumber, target = king_pod, arrow_type = /obj/screen/arrow/leader_tracker_arrow)
-	priority_announce("WARNING: Psychic anomaly detected at [get_area(buyer)]. Assault of the area reccomended.", "TGMC Intel Division")
-	return ..()
 
 /datum/hive_upgrade/xenos/smart_minions
 	name = GHOSTS_CAN_TAKE_MINIONS

@@ -6,7 +6,7 @@
 	anchored = TRUE
 	opacity = TRUE
 	density = TRUE
-	throwpass = FALSE
+	flags_pass = NONE
 	move_resist = MOVE_FORCE_VERY_STRONG
 	layer = DOOR_OPEN_LAYER
 	explosion_block = 2
@@ -27,14 +27,12 @@
 	var/not_weldable = FALSE // stops people welding the door if true
 	var/openspeed = 10 //How many seconds does it take to open it? Default 1 second. Use only if you have long door opening animations
 	var/list/fillers
-	smoothing_behavior = CARDINAL_SMOOTHING
-	smoothing_groups = SMOOTH_GENERAL_STRUCTURES
 
 	//Multi-tile doors
 	dir = EAST
 	var/width = 1
 
-/obj/machinery/door/Initialize()
+/obj/machinery/door/Initialize(mapload)
 	. = ..()
 	if(density)
 		layer = closed_layer
@@ -196,7 +194,7 @@
 	for(var/t in fillers)
 		var/obj/effect/opacifier/O = t
 		O.set_opacity(FALSE)
-	addtimer(CALLBACK(src, .proc/finish_open), openspeed)
+	addtimer(CALLBACK(src, PROC_REF(finish_open)), openspeed)
 	return TRUE
 
 /obj/machinery/door/proc/finish_open()
@@ -208,7 +206,7 @@
 		operating = FALSE
 
 	if(autoclose)
-		addtimer(CALLBACK(src, .proc/autoclose), normalspeed ? 150 + openspeed : 5)
+		addtimer(CALLBACK(src, PROC_REF(autoclose)), normalspeed ? 150 + openspeed : 5)
 
 /obj/machinery/door/proc/close()
 	if(density)
@@ -220,7 +218,7 @@
 	density = TRUE
 	layer = closed_layer
 	do_animate("closing")
-	addtimer(CALLBACK(src, .proc/finish_close), openspeed)
+	addtimer(CALLBACK(src, PROC_REF(finish_close)), openspeed)
 
 /obj/machinery/door/proc/finish_close()
 	update_icon()
