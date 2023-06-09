@@ -565,3 +565,31 @@
 		else //if the receiver is outside AI_PING_RADIUS, give them a name and coords
 			playsound(M, 'sound/machines/twobeep.ogg', 20)
 			to_chat(M, span_notice("<b>ALERT! The ship AI has detected Hostile/Unknown: [A.name] at: [AREACOORD_NO_Z(A)].</b>"))
+
+/mob/living/silicon/ai/malf
+	available_networks = list("malfAI")
+	var/obj/structure/rts_building/held_building = /obj/structure/rts_building/precursor/two
+	///refs to the last structure that built something
+	var/datum/weakref/last_built_structure = null
+	///refs to the last unit built
+	var/datum/weakref/last_built_unit = null
+
+/mob/living/silicon/ai/malf/Stat()
+
+	if(statpanel("Game"))
+
+		if(stat != CONSCIOUS)
+			stat("System status:", "Nonfunctional")
+			return
+
+		stat("System integrity:", "[(health + 100) / 2]%")
+		stat("<BR>- Operation information - <BR>")
+
+		stat("Current resource points:", "[round(SSrtspoints.ai_points)]")
+
+		stat("Resource point gain:", "[round(SSrtspoints.ailastrecordedpointgain)]")
+
+		if(GLOB.marine_main_ship?.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE > world.time)
+			stat("Railgun status:", "Cooling down, next fire in [(GLOB.marine_main_ship?.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE - world.time)/10] seconds.")
+		else
+			stat("Railgun status:", "Railgun is ready to fire.")

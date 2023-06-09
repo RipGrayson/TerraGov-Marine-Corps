@@ -126,6 +126,9 @@
 /mob/living/silicon/ai/MiddleClickOn(atom/A)
 	A.AIMiddleClick(src)
 
+/mob/living/silicon/ai/AIRightClick(atom/A)
+	A.AIRightClick(src)
+
 /*
 	The following criminally helpful code is just the previous code cleaned up;
 	I have no idea why it was in atoms.dm instead of respective files.
@@ -143,6 +146,9 @@
 	return
 
 /atom/proc/AIMiddleClick()
+	return
+
+/atom/proc/AIRightClick()
 	return
 
 /* Airlocks */
@@ -366,6 +372,27 @@
 		else
 			GLOB.marine_main_ship?.rail_gun?.fire_rail_gun(laser, user, TRUE, TRUE)
 			++timesfired
+
+/turf/AICtrlClick(mob/living/silicon/ai/malf/user)
+	var/turf/checkedturf
+	for(var/dirn in GLOB.alldirs)
+		checkedturf = get_step(src, dirn)
+		if(checkedturf.density)
+			to_chat(user, "You can't, the building would clip into dense turf")
+			return
+		for(var/atom/A in checkedturf)
+			if(A.density || istype(A, /obj/structure/rts_building/precursor))
+				to_chat(user, "Another object here is dense")
+				return
+	new user.held_building(src)
+
+/obj/structure/rts_building/precursor/AICtrlClick(mob/living/silicon/ai/malf/user)
+	to_chat(user, "You cancel the construction of this building for [pointcost] resources.")
+	SSrtspoints.ai_points += pointcost
+	qdel(src)
+
+/obj/structure/rts_building/AICtrlClick(mob/living/silicon/ai/malf/user)
+	queueunit()
 
 #undef AI_MAX_RAILGUN_SHOTS_FIRED_UPPER_RANGE
 #undef AI_MAX_RAILGUN_SHOTS_FIRED_LOWER_RANGE

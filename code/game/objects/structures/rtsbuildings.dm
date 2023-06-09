@@ -1,0 +1,99 @@
+/obj/structure/rts_building
+	name = "generic AI production building"
+	desc = "A featureless block meant for testing core mechanics, how did you even see this?"
+	icon = 'icons/obj/structures/rtsstructures.dmi'
+	icon_state = "holder1"
+	density = TRUE
+	anchored = TRUE //We can not be moved.
+	coverage = 5
+	layer = WINDOW_LAYER
+	max_integrity = 1000
+	resistance_flags = XENO_DAMAGEABLE
+	minimap_color = MINIMAP_FENCE
+	///how much value this structure generates just by existing
+	var/pointvalue = 10
+	///how much this structure costs to create
+	var/pointcost = 1000
+	coverage = 95
+	bound_height = 64
+	bound_width = 64
+	var/ID = "generic"
+	var/unittype = /mob/living/carbon/xenomorph/mantis/ai
+	//We dont have armor do to being a bit more healthy!
+
+/obj/structure/rts_building/two
+	name = "generic AI production building two"
+
+/obj/structure/rts_building/precursor
+	max_integrity = 100
+	alpha = 100
+	pointvalue = 0
+	density = FALSE
+	var/buildtype = /obj/structure/rts_building
+	var/buildtime = 10 SECONDS
+	unittype = null
+
+/obj/structure/rts_building/precursor/two
+	buildtype = /obj/structure/rts_building/two
+	buildtime = 20 SECONDS
+	pointcost = 500
+
+///on init check for resources and if we meet the reqs add a construction timer
+/obj/structure/rts_building/precursor/Initialize()
+	. = ..()
+	var/pointswehave = SSrtspoints.ai_points
+	if((pointswehave -= pointcost) <= 0)
+		qdel(src)
+		return
+	SSrtspoints.ai_points -= pointcost
+	addtimer(CALLBACK(src, PROC_REF(createbuilding), buildtype), buildtime)
+
+///generates the building
+/obj/structure/rts_building/precursor/proc/createbuilding(obj/structure/rts_building/constructedbuilding = /obj/structure/rts_building)
+	new constructedbuilding(get_turf(src))
+	qdel(src)
+
+///handles cost, prereq checking and build queuing before creating a unit
+/obj/structure/rts_building/proc/queueunit(mob/living/queuedunit = /mob/living/carbon/xenomorph/mantis/ai)
+	if(HAS_TRAIT(src, BUILDING_BUSY))
+		to_chat("This building is already producing something")
+		return
+	var/pointswehave = SSrtspoints.ai_points
+	if((pointswehave -= queuedunit.unitcost) <= 0)
+		return
+	///AT THIS POINT DOES NOT ACTUALLY DO QUEUEING AAAAAH
+	SSrtspoints.ai_points -= queuedunit.unitcost
+	ADD_TRAIT(src, BUILDING_BUSY, BUILDING_BUSY) //passed all checks, assign busy status
+	addtimer(CALLBACK(src, PROC_REF(createunit), queuedunit), queuedunit.unit_build_time)
+	///TODO at some point this needs a refactor to handle multiple units in a queue, current implementation can't do it
+
+///actually generates the unit
+/obj/structure/rts_building/proc/createunit(mob/living/generatedunit = /mob/living/carbon/xenomorph/mantis/ai)
+	new generatedunit(get_turf(src))
+	REMOVE_TRAIT(src, BUILDING_BUSY, BUILDING_BUSY)
+
+/obj/structure/rts_building/ex_act(severity)
+	switch(severity)
+		if(EXPLODE_DEVASTATE)
+			deconstruct(FALSE)
+		if(EXPLODE_HEAVY)
+			take_damage(rand(100, 125))//Almost broken or half way
+		if(EXPLODE_LIGHT)
+			take_damage(rand(50, 75))
+
+/obj/structure/rts_building/attackby(obj/item/I, mob/user, params)
+	. = ..()
+
+/obj/structure/rts_building/Initialize(mapload, start_dir)
+	. = ..()
+	GLOB.ai_rts_buildings += src
+
+/obj/structure/rts_building/Destroy()
+	density = FALSE
+	GLOB.ai_rts_buildings -= src
+	return ..()
+
+/obj/structure/rts_building/fire_act(exposed_temperature, exposed_volume)
+	if(exposed_temperature > T0C + 800)
+		take_damage(round(exposed_volume / 100), BURN, "fire")
+	return ..()

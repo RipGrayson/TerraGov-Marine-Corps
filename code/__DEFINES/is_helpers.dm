@@ -117,6 +117,7 @@
 #define issiliconoradminghost(A) (istype(A, /mob/living/silicon) || IsAdminGhost(A))
 
 #define isAI(A) (istype(A, /mob/living/silicon/ai))
+#define isbadAI(A) (istype(A, /mob/living/silicon/ai/malf))
 
 //Simple animals
 #define isanimal(A) (istype(A, /mob/living/simple_animal))

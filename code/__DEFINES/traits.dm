@@ -222,3 +222,6 @@
 
 //added to AIs firing railguns
 #define TRAIT_IS_FIRING_RAILGUN "firing_railgun"
+
+//added to rts structures doing things
+#define BUILDING_BUSY "building_busy"

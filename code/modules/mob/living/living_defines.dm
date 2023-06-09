@@ -144,5 +144,8 @@
 	///If this mob is afk
 	var/afk_status = MOB_DISCONNECTED
 
+	var/unitcost = 100
+	var/unit_build_time = 10 SECONDS
+
 	/// This is the cooldown on suffering additional effects for when we exhaust all stamina
 	COOLDOWN_DECLARE(last_stamina_exhaustion)
