@@ -14,12 +14,13 @@
 	var/pointvalue = 10
 	///how much this structure costs to create
 	var/pointcost = 1000
+	var/sci_on_completion = 1000
 	coverage = 95
 	bound_height = 64
 	bound_width = 64
 	var/ID = "generic"
-	var/unittype = /mob/living/carbon/xenomorph/mantis/ai
 	//We dont have armor do to being a bit more healthy!
+	var/datum/rts_units/unit_type
 
 /obj/structure/rts_building/two
 	name = "generic AI production building two"
@@ -31,7 +32,7 @@
 	density = FALSE
 	var/buildtype = /obj/structure/rts_building
 	var/buildtime = 10 SECONDS
-	unittype = null
+	unit_type = null
 
 /obj/structure/rts_building/precursor/two
 	buildtype = /obj/structure/rts_building/two
@@ -54,23 +55,25 @@
 	qdel(src)
 
 ///handles cost, prereq checking and build queuing before creating a unit
-/obj/structure/rts_building/proc/queueunit(mob/living/queuedunit = /mob/living/carbon/xenomorph/mantis/ai)
+/obj/structure/rts_building/proc/queueunit(mob/living/silicon/ai/malf/user)
 	if(HAS_TRAIT(src, BUILDING_BUSY))
-		to_chat("This building is already producing something")
+		to_chat(user, "This building is already producing something")
 		return
+	to_chat(user, "You start production on a [unit_type.name]")
 	var/pointswehave = SSrtspoints.ai_points
-	if((pointswehave -= queuedunit.unitcost) <= 0)
+	if((pointswehave -= unit_type.cost) <= 0)
 		return
 	///AT THIS POINT DOES NOT ACTUALLY DO QUEUEING AAAAAH
-	SSrtspoints.ai_points -= queuedunit.unitcost
+	SSrtspoints.ai_points -= unit_type.cost
 	ADD_TRAIT(src, BUILDING_BUSY, BUILDING_BUSY) //passed all checks, assign busy status
-	addtimer(CALLBACK(src, PROC_REF(createunit), queuedunit), queuedunit.unit_build_time)
+	addtimer(CALLBACK(src, PROC_REF(createunit), unit_type.spawntype), unit_type.buildtime)
 	///TODO at some point this needs a refactor to handle multiple units in a queue, current implementation can't do it
 
 ///actually generates the unit
-/obj/structure/rts_building/proc/createunit(mob/living/generatedunit = /mob/living/carbon/xenomorph/mantis/ai)
-	new generatedunit(get_turf(src))
-	REMOVE_TRAIT(src, BUILDING_BUSY, BUILDING_BUSY)
+/obj/structure/rts_building/proc/createunit(mob/living/generatedunit = /mob/living/carbon/xenomorph/mantis/ai, mob/living/silicon/ai/malf/user)
+	new generatedunit(get_step(src, SOUTH))
+	if(HAS_TRAIT(src, BUILDING_BUSY))
+		REMOVE_TRAIT(src, BUILDING_BUSY, BUILDING_BUSY)
 
 /obj/structure/rts_building/ex_act(severity)
 	switch(severity)
@@ -86,11 +89,13 @@
 
 /obj/structure/rts_building/Initialize(mapload, start_dir)
 	. = ..()
+	unit_type = new
 	GLOB.ai_rts_buildings += src
 
 /obj/structure/rts_building/Destroy()
 	density = FALSE
 	GLOB.ai_rts_buildings -= src
+	QDEL_NULL(unit_type)
 	return ..()
 
 /obj/structure/rts_building/fire_act(exposed_temperature, exposed_volume)

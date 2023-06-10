@@ -381,6 +381,8 @@
 			to_chat(user, "You can't, the building would clip into dense turf")
 			return
 		for(var/atom/A in checkedturf)
+			if(isliving(A))
+				continue
 			if(A.density || istype(A, /obj/structure/rts_building/precursor))
 				to_chat(user, "Another object here is dense")
 				return
@@ -392,7 +394,7 @@
 	qdel(src)
 
 /obj/structure/rts_building/AICtrlClick(mob/living/silicon/ai/malf/user)
-	queueunit()
+	queueunit(user)
 
 #undef AI_MAX_RAILGUN_SHOTS_FIRED_UPPER_RANGE
 #undef AI_MAX_RAILGUN_SHOTS_FIRED_LOWER_RANGE
