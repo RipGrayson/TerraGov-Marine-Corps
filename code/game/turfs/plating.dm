@@ -46,7 +46,7 @@
 	mediumxenofootstep = FOOTSTEP_CATWALK
 
 
-/turf/open/floor/plating/plating_catwalk/Initialize()
+/turf/open/floor/plating/plating_catwalk/Initialize(mapload)
 	. = ..()
 	icon_state = base_state
 	update_turf_overlay()
@@ -102,6 +102,9 @@
 	barefootstep = FOOTSTEP_CATWALK
 	mediumxenofootstep = FOOTSTEP_CATWALK
 	layer = CATWALK_LAYER
+
+/turf/open/floor/plating/catwalk/ex_act(severity)
+	return
 
 /turf/open/floor/plating/warning
 	icon_state = "warnplate"

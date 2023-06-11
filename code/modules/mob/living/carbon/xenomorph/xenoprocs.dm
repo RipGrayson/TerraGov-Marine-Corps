@@ -18,10 +18,11 @@
 
 	dat += "<b>List of Hive Tunnels:</b><BR>"
 
-	for(var/obj/structure/xeno/tunnel/T AS in GLOB.xeno_tunnels)
-		if(user.issamexenohive(T))
-			var/distance = get_dist(user, T)
-			dat += "<b>[T.name]</b> located at: <b><font color=green>([T.tunnel_desc][distance > 0 ? " <b>Distance: [distance])</b>" : ""]</b></font><BR>"
+	for(var/hive AS in GLOB.xeno_tunnels_by_hive)
+		for(var/obj/structure/xeno/tunnel/T in GLOB.xeno_tunnels_by_hive[hive])
+			if(user.issamexenohive(T))
+				var/distance = get_dist(user, T)
+				dat += "<b>[T.name]</b> located at: <b><font color=green>([T.tunnel_desc][distance > 0 ? " <b>Distance: [distance])</b>" : ""]</b></font><BR>"
 
 	var/datum/browser/popup = new(user, "tunnelstatus", "<div align='center'>Tunnel List</div>", 600, 600)
 	popup.set_content(dat)
@@ -64,8 +65,8 @@
 
 	if(href_list["track_silo_number"])
 		var/silo_number = href_list["track_silo_number"]
-		for(var/obj/structure/xeno/silo/resin_silo AS in GLOB.xeno_resin_silos)
-			if(resin_silo.associated_hive == hive && num2text(resin_silo.number_silo) == silo_number)
+		for(var/obj/structure/xeno/silo/resin_silo AS in GLOB.xeno_resin_silos_by_hive[hivenumber])
+			if(num2text(resin_silo.number_silo) == silo_number)
 				set_tracked(resin_silo)
 				to_chat(usr,span_notice(" You will now track [resin_silo.name]"))
 				break
@@ -89,7 +90,7 @@
 
 ///returns TRUE if we are permitted to evo to the next caste FALSE otherwise
 /mob/living/carbon/xenomorph/proc/upgrade_possible()
-	if((xeno_caste.caste_flags & CASTE_DOES_NOT_AGE) || HAS_TRAIT(src, TRAIT_VALHALLA_XENO))
+	if(HAS_TRAIT(src, TRAIT_VALHALLA_XENO))
 		return FALSE
 	if(upgrade == XENO_UPGRADE_THREE)
 		return hive.purchases.upgrades_by_name[GLOB.tier_to_primo_upgrade[xeno_caste.tier]].times_bought
@@ -255,10 +256,6 @@
 		SEND_SOUND(src, sound('sound/effects/xeno_evolveready.ogg'))
 
 
-/mob/living/carbon/xenomorph/show_inv(mob/user)
-	return
-
-
 //This deals with "throwing" xenos -- ravagers, hunters, and runners in particular. Everyone else defaults to normal
 //Pounce, charge both use throw_at, so we need extra code to do stuff rather than just push people aside.
 /mob/living/carbon/xenomorph/throw_impact(atom/hit_atom, speed)
@@ -376,10 +373,10 @@
 /mob/living/carbon/xenomorph/proc/update_spits(skip_ammo_choice = FALSE)
 	if(!ammo && length(xeno_caste.spit_types))
 		ammo = GLOB.ammo_list[xeno_caste.spit_types[1]]
-	if(!ammo || !xeno_caste.spit_types || !xeno_caste.spit_types.len) //Only update xenos with ammo and spit types.
+	if(!ammo || !xeno_caste.spit_types || !length(xeno_caste.spit_types)) //Only update xenos with ammo and spit types.
 		return
 	if(!skip_ammo_choice)
-		for(var/i in 1 to xeno_caste.spit_types.len)
+		for(var/i in 1 to length(xeno_caste.spit_types))
 			var/datum/ammo/A = GLOB.ammo_list[xeno_caste.spit_types[i]]
 			if(ammo.icon_state == A.icon_state)
 				ammo = A
@@ -403,7 +400,7 @@
 	return TRUE // normal density flag
 
 /obj/structure/razorwire/acid_spray_act(mob/living/carbon/xenomorph/X)
-	. = ..()
+	take_damage(2 * X.xeno_caste.acid_spray_structure_damage, BURN, ACID)
 	return FALSE // not normal density flag
 
 /obj/vehicle/multitile/root/cm_armored/acid_spray_act(mob/living/carbon/xenomorph/X)
@@ -425,7 +422,7 @@
 		SSblackbox.record_feedback("tally", "round_statistics", 1, "praetorian_spray_direct_hits")
 
 	var/damage = X.xeno_caste.acid_spray_damage_on_hit
-	INVOKE_ASYNC(src, .proc/apply_acid_spray_damage, damage)
+	INVOKE_ASYNC(src, PROC_REF(apply_acid_spray_damage), damage)
 	to_chat(src, span_xenodanger("\The [X] showers you in corrosive acid!"))
 
 /mob/living/carbon/proc/apply_acid_spray_damage(damage)
@@ -520,17 +517,12 @@
 	. = ..()
 	if(.)
 		return
-	return (sunder * -0.01) + 1
+	return 1 - (sunder * 0.01)
 
 /mob/living/carbon/xenomorph/adjust_stagger(amount)
 	if(is_charging >= CHARGE_ON) //If we're charging we don't accumulate more stagger stacks.
 		return FALSE
 	return ..()
-
-/mob/living/carbon/xenomorph/add_slowdown(amount)
-	if(is_charging >= CHARGE_ON) //If we're charging we're immune to slowdown.
-		return
-	adjust_slowdown(amount * XENO_SLOWDOWN_REGEN)
 
 ///Eject the mob inside our belly, and putting it in a cocoon if needed
 /mob/living/carbon/xenomorph/proc/eject_victim(make_cocoon = FALSE, turf/eject_location = loc)
@@ -555,7 +547,7 @@
 			clean_tracked()
 			return
 	tracked = to_track
-	RegisterSignal(tracked, COMSIG_PARENT_QDELETING, .proc/clean_tracked)
+	RegisterSignal(tracked, COMSIG_PARENT_QDELETING, PROC_REF(clean_tracked))
 
 ///Signal handler to null tracked
 /mob/living/carbon/xenomorph/proc/clean_tracked(atom/to_track)
@@ -573,10 +565,10 @@
 		return
 
 	SSminimaps.remove_marker(src)
+	var/image/blip = image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_icon)
 	if(makeleader)
-		SSminimaps.add_marker(src, z, MINIMAP_FLAG_XENO, xeno_caste.minimap_icon, overlay_iconstates=list(xeno_caste.minimap_leadered_overlay))
-	else
-		SSminimaps.add_marker(src, z, MINIMAP_FLAG_XENO, xeno_caste.minimap_icon)
+		blip.overlays += image('icons/UI_icons/map_blips.dmi', null, xeno_caste.minimap_leadered_overlay)
+	SSminimaps.add_marker(src, MINIMAP_FLAG_XENO, blip)
 
 ///updates the xeno's glow, based on the ability being used
 /mob/living/carbon/xenomorph/proc/update_glow(range, power, color)

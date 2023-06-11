@@ -26,9 +26,9 @@
 		. += "It is not linked to any other teleporter."
 
 
-/obj/machinery/deployable/teleporter/Initialize()
+/obj/machinery/deployable/teleporter/Initialize(mapload)
 	. = ..()
-	SSminimaps.add_marker(src, z, MINIMAP_FLAG_MARINE, "teleporter")
+	SSminimaps.add_marker(src, MINIMAP_FLAG_MARINE, image('icons/UI_icons/map_blips.dmi', null, "teleporter"))
 
 
 /obj/machinery/deployable/teleporter/attack_hand(mob/living/user)
@@ -72,7 +72,7 @@
 		if(is_type_in_list(thing, teleportable_types) && !thing.anchored)
 			teleporting += thing
 
-	if(!teleporting.len)
+	if(!length(teleporting))
 		to_chat(user, span_warning("No teleportable content was detected on [src]!"))
 		return
 
@@ -159,9 +159,9 @@
 	///References to the number of the teleporter.
 	var/self_tele_tag
 
-/obj/item/teleporter_kit/Initialize()
+/obj/item/teleporter_kit/Initialize(mapload)
 	. = ..()
-	AddElement(/datum/element/deployable_item, /obj/machinery/deployable/teleporter, 2 SECONDS)
+	AddComponent(/datum/component/deployable_item, /obj/machinery/deployable/teleporter, 2 SECONDS)
 	cell = new /obj/item/cell/high(src)
 	tele_tag++
 	self_tele_tag = tele_tag
@@ -211,7 +211,7 @@
 	name = "\improper ASRS bluespace teleporters"
 	desc = "Two bluespace telepads for moving personnel and equipment across small distances to another prelinked teleporter."
 
-/obj/effect/teleporter_linker/Initialize()
+/obj/effect/teleporter_linker/Initialize(mapload)
 	. = ..()
 	var/obj/item/teleporter_kit/teleporter_a = new(loc)
 	var/obj/item/teleporter_kit/teleporter_b = new(loc)

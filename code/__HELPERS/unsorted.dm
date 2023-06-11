@@ -23,9 +23,22 @@
 
 #define UNTIL(X) while(!(X)) stoplag()
 
-//datum may be null, but it does need to be a typed var
+/**
+ * NAMEOF: Compile time checked variable name to string conversion
+ * evaluates to a string equal to "X", but compile errors if X isn't a var on datum.
+ * datum may be null, but it does need to be a typed var.
+ **/
 #define NAMEOF(datum, X) (#X || ##datum.##X)
 
+/**
+ * NAMEOF that actually works in static definitions because src::type requires src to be defined
+ */
+
+#if DM_VERSION >= 515
+#define NAMEOF_STATIC(datum, X) (nameof(type::##X))
+#else
+#define NAMEOF_STATIC(datum, X) (#X || ##datum.##X)
+#endif
 
 //gives us the stack trace from CRASH() without ending the current proc.
 /proc/stack_trace(msg)
@@ -51,7 +64,7 @@ GLOBAL_REAL_VAR(list/stack_trace_storage)
 /proc/GUID()
 	var/const/GUID_VERSION = "b"
 	var/const/GUID_VARIANT = "d"
-	var/node_id = copytext_char(md5("[rand()*rand(1,9999999)][world.name][world.hub][world.hub_password][world.internet_address][world.address][world.contents.len][world.status][world.port][rand()*rand(1,9999999)]"), 1, 13)
+	var/node_id = copytext_char(md5("[rand()*rand(1,9999999)][world.name][world.hub][world.hub_password][world.internet_address][world.address][length(world.contents)][world.status][world.port][rand()*rand(1,9999999)]"), 1, 13)
 
 	var/time_high = "[num2hex(text2num(time2text(world.realtime,"YYYY")), 2)][num2hex(world.realtime, 6)]"
 
@@ -651,7 +664,7 @@ GLOBAL_LIST_INIT(common_tools, typecacheof(list(
 /obj/item/tool/weldingtool,
 /obj/item/tool/screwdriver,
 /obj/item/tool/wirecutters,
-/obj/item/multitool,
+/obj/item/tool/multitool,
 /obj/item/tool/crowbar)))
 
 
@@ -927,7 +940,7 @@ GLOBAL_LIST_INIT(wallitems, typecacheof(list(
 	for(var/area/A in world)
 		GLOB.sorted_areas.Add(A)
 
-	sortTim(GLOB.sorted_areas, /proc/cmp_name_asc)
+	sortTim(GLOB.sorted_areas, GLOBAL_PROC_REF(cmp_name_asc))
 
 
 // Format a power value in W, kW, MW, or GW.
@@ -957,7 +970,7 @@ GLOBAL_LIST_INIT(wallitems, typecacheof(list(
 		return GetAllContents()
 	var/list/processing = list(src)
 	. = list()
-	while(processing.len)
+	while(length(processing))
 		var/atom/A = processing[1]
 		processing.Cut(1,2)
 		if(ignore_typecache[A.type])
@@ -965,14 +978,14 @@ GLOBAL_LIST_INIT(wallitems, typecacheof(list(
 		processing += A.contents
 		. += A
 
-/atom/proc/Shake(pixelshiftx = 15, pixelshifty = 15, duration = 25 SECONDS) //Does a "shaking" effect on a sprite, code is from tgstation
+/// Perform a shake on an atom, resets its position afterwards
+/atom/proc/Shake(pixelshiftx = 2, pixelshifty = 2, duration = 2.5 SECONDS, shake_interval = 0.02 SECONDS)
 	var/initialpixelx = pixel_x
 	var/initialpixely = pixel_y
-	var/shiftx = rand(-pixelshiftx,pixelshiftx)
-	var/shifty = rand(-pixelshifty,pixelshifty)
-	animate(src, pixel_x = pixel_x + shiftx, pixel_y = pixel_y + shifty, time = 0.2, loop = duration)
-	pixel_x = initialpixelx
-	pixel_y = initialpixely
+	animate(src, pixel_x = initialpixelx + rand(-pixelshiftx,pixelshiftx), pixel_y = initialpixelx + rand(-pixelshifty,pixelshifty), time = shake_interval, flags = ANIMATION_PARALLEL)
+	for (var/i in 3 to ((duration / shake_interval))) // Start at 3 because we already applied one, and need another to reset
+		animate(pixel_x = initialpixelx + rand(-pixelshiftx,pixelshiftx), pixel_y = initialpixely + rand(-pixelshifty,pixelshifty), time = shake_interval)
+	animate(pixel_x = initialpixelx, pixel_y = initialpixely, time = shake_interval)
 
 /atom/proc/contains(atom/A)
 	if(!A)
@@ -1003,7 +1016,7 @@ GLOBAL_DATUM_INIT(dview_mob, /mob/dview, new)
 	move_resist = INFINITY
 	var/ready_to_die = FALSE
 
-/mob/dview/Initialize() //Properly prevents this mob from gaining huds or joining any global lists
+/mob/dview/Initialize(mapload) //Properly prevents this mob from gaining huds or joining any global lists
 	SHOULD_CALL_PARENT(FALSE)
 	if(flags_atom & INITIALIZED)
 		stack_trace("Warning: [src]([type]) initialized multiple times!")
@@ -1084,11 +1097,11 @@ will handle it, but:
 	for(var/client/C in show_to)
 		C.images += I
 	animate(I, transform = 0, alpha = 255, time = 0.5 SECONDS, easing = ELASTIC_EASING)
-	addtimer(CALLBACK(GLOBAL_PROC, /.proc/fade_out, I), duration - 0.5 SECONDS)
+	addtimer(CALLBACK(GLOBAL_PROC, TYPE_PROC_REF(/, fade_out), I), duration - 0.5 SECONDS)
 
 /proc/fade_out(image/I, list/show_to)
 	animate(I, alpha = 0, time = 0.5 SECONDS, easing = EASE_IN)
-	addtimer(CALLBACK(GLOBAL_PROC, /.proc/remove_images_from_clients, I, show_to), 0.5 SECONDS)
+	addtimer(CALLBACK(GLOBAL_PROC, TYPE_PROC_REF(/, remove_images_from_clients), I, show_to), 0.5 SECONDS)
 
 //takes an input_key, as text, and the list of keys already used, outputting a replacement key in the format of "[input_key] ([number_of_duplicates])" if it finds a duplicate
 //use this for lists of things that might have the same name, like mobs or objects, that you plan on giving to a player as input

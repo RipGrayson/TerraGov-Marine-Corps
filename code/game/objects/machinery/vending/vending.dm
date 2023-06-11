@@ -66,8 +66,9 @@
 	use_power = IDLE_POWER_USE
 	idle_power_usage = 10
 	active_power_usage = 100
-	interaction_flags = INTERACT_MACHINE_TGUI
+	interaction_flags = INTERACT_MACHINE_TGUI|INTERACT_POWERLOADER_PICKUP_ALLOWED
 	wrenchable = TRUE
+	voice_filter = "aderivative"
 
 	///Whether this vendor is active or not.
 	var/active = TRUE
@@ -173,6 +174,13 @@
 /obj/machinery/vending/Initialize(mapload, ...)
 	. = ..()
 	wires = new /datum/wires/vending(src)
+
+	if(SStts.tts_enabled)
+		var/static/vendor_voice_by_type = list()
+		if(!vendor_voice_by_type[type])
+			vendor_voice_by_type[type] = pick(SStts.available_speakers)
+		voice = vendor_voice_by_type[type]
+
 	slogan_list = splittext(product_slogans, ";")
 
 	// So not all machines speak at the exact same time.
@@ -603,7 +611,7 @@
 		else
 			return
 	SSblackbox.record_feedback("tally", "vendored", 1, R.product_name)
-	addtimer(CALLBACK(src, .proc/stock_vacuum), 2.5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE) // We clean up some time after the last item has been vended.
+	addtimer(CALLBACK(src, PROC_REF(stock_vacuum)), 2.5 MINUTES, TIMER_UNIQUE | TIMER_OVERRIDE) // We clean up some time after the last item has been vended.
 	if(vending_sound)
 		playsound(src, vending_sound, 25, 0)
 	else
@@ -782,7 +790,7 @@
 		seconds_electrified--
 
 	//Pitch to the people!  Really sell it!
-	if(((last_slogan + slogan_delay) <= world.time) && (slogan_list.len > 0) && (!shut_up) && prob(5))
+	if(((last_slogan + slogan_delay) <= world.time) && (length(slogan_list) > 0) && (!shut_up) && prob(5))
 		var/slogan = pick(slogan_list)
 		speak(slogan)
 		last_slogan = world.time

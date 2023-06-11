@@ -50,7 +50,7 @@
 	var/atom/movable/vis_obj/effect/muzzle_flash/flash
 	COOLDOWN_DECLARE(fire_cooldown)
 
-/obj/vehicle/unmanned/Initialize()
+/obj/vehicle/unmanned/Initialize(mapload)
 	. = ..()
 	ammo = GLOB.ammo_list[ammo]
 	name += " " + num2text(serial)
@@ -70,12 +70,16 @@
 		max_rounds = initial(spawn_equipped_type.max_rounds)
 		update_icon()
 	hud_set_uav_ammo()
-	SSminimaps.add_marker(src, z, MINIMAP_FLAG_MARINE, "uav")
+	SSminimaps.add_marker(src, MINIMAP_FLAG_MARINE, image('icons/UI_icons/map_blips.dmi', null, "uav"))
 
 /obj/vehicle/unmanned/Destroy()
 	. = ..()
 	GLOB.unmanned_vehicles -= src
 	QDEL_NULL(flash)
+
+/obj/vehicle/unmanned/obj_destruction()
+	robogibs(src)
+	return ..()
 
 /obj/vehicle/unmanned/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
 	. = ..()
@@ -222,7 +226,7 @@
  */
 /obj/vehicle/unmanned/proc/on_link(atom/remote_controller)
 	SHOULD_CALL_PARENT(TRUE)
-	RegisterSignal(src, COMSIG_REMOTECONTROL_CHANGED, .proc/on_remote_toggle)
+	RegisterSignal(src, COMSIG_REMOTECONTROL_CHANGED, PROC_REF(on_remote_toggle))
 	controlled = TRUE
 
 /**
@@ -273,7 +277,7 @@
 		flash.transform = null
 		flash.transform = turn(flash.transform, angle)
 		vis_contents += flash
-		addtimer(CALLBACK(src, .proc/delete_muzzle_flash), 0.2 SECONDS)
+		addtimer(CALLBACK(src, PROC_REF(delete_muzzle_flash)), 0.2 SECONDS)
 		hud_set_uav_ammo()
 	return TRUE
 

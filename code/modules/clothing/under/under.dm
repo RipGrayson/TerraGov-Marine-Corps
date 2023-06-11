@@ -1,6 +1,10 @@
 
 /obj/item/clothing/under
-	icon = 'icons/obj/clothing/uniforms.dmi'
+	icon = 'icons/obj/clothing/uniforms/uniforms.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/clothing/uniforms_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/clothing/uniforms_right.dmi',
+	)
 	name = "under"
 	flags_armor_protection = CHEST|GROIN|LEGS|ARMS
 	flags_cold_protection = CHEST|GROIN|LEGS|ARMS
@@ -35,6 +39,7 @@
 		/obj/item/armor_module/greyscale/cape/half,
 		/obj/item/armor_module/greyscale/cape/short,
 		/obj/item/armor_module/greyscale/cape/scarf,
+		/obj/item/armor_module/greyscale/kama,
 		/obj/item/armor_module/module/pt_belt,
 		/obj/item/clothing/tie,
 		/obj/item/clothing/tie/blue,
@@ -69,6 +74,7 @@
 		ATTACHMENT_SLOT_UNIFORM_TIE,
 		ATTACHMENT_SLOT_BADGE,
 		ATTACHMENT_SLOT_CAPE,
+		ATTACHMENT_SLOT_KAMA,
 		ATTACHMENT_SLOT_BELT,
 	)
 	///Typepath list of uniform variants.
@@ -77,7 +83,7 @@
 	)
 	var/current_variant
 
-/obj/item/clothing/under/Initialize()
+/obj/item/clothing/under/Initialize(mapload)
 	. = ..()
 	attachments_allowed = string_list(attachments_allowed)
 
@@ -142,9 +148,10 @@
 
 //we only want to quick equip from actual 'holster' type webbings
 /obj/item/clothing/under/do_quick_equip(mob/user)
-	var/obj/item/found = locate(/obj/item/armor_module/storage/uniform/holster) in contents
-	if(found)
-		return found.do_quick_equip(user)
+	for(var/attachment_slot in attachments_by_slot)
+		if(istype(attachments_by_slot[attachment_slot], /obj/item/armor_module/storage/uniform/holster))
+			var/obj/item/armor_module/storage/storage_attachment = attachments_by_slot[attachment_slot]
+			return storage_attachment.storage.do_quick_equip(user)
 	return src
 
 /obj/item/clothing/under/proc/set_sensors(mob/living/user)

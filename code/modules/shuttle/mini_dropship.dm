@@ -1,7 +1,7 @@
 /obj/docking_port/stationary/marine_dropship/minidropship
 	name = "Minidropship hangar pad"
 	id = SHUTTLE_TADPOLE
-	roundstart_template = /datum/map_template/shuttle/minidropship
+	roundstart_template = null
 
 /obj/docking_port/mobile/marine_dropship/minidropship
 	name = "Tadpole"
@@ -46,13 +46,25 @@
 	var/damaged = FALSE
 	/// How long before you can launch tadpole after a landing
 	var/launching_delay = 10 SECONDS
+	///Minimap for use while in landing cam mode
+	var/datum/action/minimap/marine/external/tadmap
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/Initialize(mapload)
 	..()
 	start_processing()
 	set_light(3,3)
 	land_action = new
+	tadmap = new
 	return INITIALIZE_HINT_LATELOAD
+
+/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/Destroy()
+	QDEL_NULL(land_action)
+	QDEL_NULL(tadmap)
+	return ..()
+
+/obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/CreateEye()
+	. = ..()
+	tadmap.override_locator(eyeobj)
 
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship/LateInitialize()
 	shuttle_port = SSshuttle.getShuttle(shuttleId)
@@ -71,6 +83,11 @@
 		off_action.target = user
 		off_action.give_action(user)
 		actions += off_action
+
+	if(tadmap)
+		tadmap.target = user
+		tadmap.give_action(user)
+		actions += tadmap
 
 	if(fly_state != SHUTTLE_IN_ATMOSPHERE)
 		return
@@ -168,6 +185,7 @@
 	if(!do_after(X, 10 SECONDS, TRUE, src, BUSY_ICON_DANGER, BUSY_ICON_HOSTILE))
 		return
 	visible_message("The wiring is destroyed, nobody will be able to repair this computer!")
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_MINI_DROPSHIP_DESTROYED, src)
 	var/datum/effect_system/spark_spread/s2 = new /datum/effect_system/spark_spread
 	s2.set_up(3, 1, src)
 	s2.start()
@@ -204,7 +222,7 @@
 
 	if(!ui)
 		ui_user = user
-		RegisterSignal(ui_user, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_MOVED), .proc/clean_ui_user)
+		RegisterSignal(ui_user, list(COMSIG_PARENT_QDELETING, COMSIG_MOVABLE_MOVED), PROC_REF(clean_ui_user))
 		ui = new(user, src, "Minidropship", name)
 		ui.open()
 

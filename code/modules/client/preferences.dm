@@ -79,15 +79,15 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	///Your preferred squad, when playing SOM
 	var/preferred_squad_som = "None"
 	var/alternate_option = RETURN_TO_LOBBY
-	var/preferred_slot = SLOT_S_STORE
-	var/preferred_slot_alt = SLOT_BACK
+	///Quick equip slots, up to [MAX_QUICK_EQUIP_SLOTS]. One per quick equip hotkey.
+	var/list/quick_equip = list()
 	var/list/gear
 	var/list/job_preferences = list()
 
 	//Clothing
 	var/underwear = 1
 	var/undershirt = 1
-	var/backpack = 2
+	var/backpack = BACK_SATCHEL
 
 	//Hair style
 	var/h_style = "Bald"
@@ -135,6 +135,16 @@ GLOBAL_LIST_EMPTY(preferences_datums)
 	var/mute_others_combat_messages = FALSE
 	///Whether to mute xeno health alerts from when other xenos are badly hurt.
 	var/mute_xeno_health_alert_messages = TRUE
+
+	///whether the user wants to hear tts
+	var/sound_tts = TRUE
+	///What tts voice should be used
+	var/tts_voice = "Male 01"
+	///whether to use animal crossing style blblblbl
+	var/sound_tts_blips = FALSE
+	///Volume to use for tts
+	var/volume_tts = 100
+
 
 	/// Chat on map
 	var/chat_on_map = TRUE

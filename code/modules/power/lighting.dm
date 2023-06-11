@@ -16,7 +16,7 @@
 	var/sheets_refunded = 2
 	var/obj/machinery/light/newlight = null
 
-/obj/machinery/light_construct/Initialize()
+/obj/machinery/light_construct/Initialize(mapload)
 	. = ..()
 	if(fixture_type == "bulb")
 		icon_state = "bulb-construct-stage1"
@@ -150,7 +150,7 @@
 /obj/machinery/light/mainship
 	base_state = "tube"
 
-/obj/machinery/light/mainship/Initialize()
+/obj/machinery/light/mainship/Initialize(mapload)
 	. = ..()
 	GLOB.mainship_lights += src
 
@@ -182,13 +182,13 @@
 	light_type = /obj/item/light_bulb/tube/large
 	brightness = 12
 
-/obj/machinery/light/built/Initialize()
+/obj/machinery/light/built/Initialize(mapload)
 	. = ..()
 	status = LIGHT_EMPTY
 	update(FALSE)
 
 
-/obj/machinery/light/small/built/Initialize()
+/obj/machinery/light/small/built/Initialize(mapload)
 	. = ..()
 	status = LIGHT_EMPTY
 	update(FALSE)
@@ -541,7 +541,7 @@
 
 /obj/machinery/light/proc/explode()
 	broken()	// break it first to give a warning
-	addtimer(CALLBACK(src, .proc/delayed_explosion), 0.5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(delayed_explosion)), 0.5 SECONDS)
 
 /obj/machinery/light/proc/delayed_explosion()
 	explosion(loc, 0, 1, 3, 2)
@@ -553,6 +553,10 @@
 
 /obj/item/light_bulb
 	icon = 'icons/obj/lighting.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/equipment/lights_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/equipment/lights_right.dmi',
+	)
 	force = 2
 	throwforce = 5
 	w_class = WEIGHT_CLASS_SMALL
@@ -584,7 +588,6 @@
 	desc = "A replacement light bulb."
 	icon_state = "lbulb"
 	base_state = "lbulb"
-	item_state = "contvapour"
 	brightness = 5
 
 /obj/item/light_bulb/bulb/fire
@@ -610,7 +613,7 @@
 			desc = "A broken [name]."
 
 
-/obj/item/light_bulb/Initialize()
+/obj/item/light_bulb/Initialize(mapload)
 	. = ..()
 	switch(name)
 		if("light tube")
@@ -673,7 +676,7 @@
 	power_channel = LIGHT //Lights are calc'd via area so they dont need to be in the machine list
 	resistance_flags = RESIST_ALL
 
-/obj/machinery/landinglight/Initialize()
+/obj/machinery/landinglight/Initialize(mapload)
 	. = ..()
 	turn_off()
 
@@ -740,7 +743,7 @@
 	light_power = 0
 	light_range = 0
 
-/obj/machinery/floor_warn_light/self_destruct/Initialize()
+/obj/machinery/floor_warn_light/self_destruct/Initialize(mapload)
 	. = ..()
 	SSevacuation.alarm_lights += src
 

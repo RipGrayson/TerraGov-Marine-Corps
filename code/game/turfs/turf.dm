@@ -37,8 +37,6 @@
 	// In the case of a list it is sorted from bottom layer to top.
 	// This shouldn't be modified directly, use the helper procs.
 	var/list/baseturfs = /turf/baseturf_bottom
-	var/obj/effect/xenomorph/acid/current_acid = null //If it has acid spewed on it
-
 	luminosity = 1
 
 	var/changing_turf = FALSE
@@ -135,7 +133,7 @@
 	DISABLE_BITFIELD(flags_atom, INITIALIZED)
 	soft_armor = null
 	hard_armor = null
-	current_acid = null
+	QDEL_NULL(current_acid)
 	..()
 	return QDEL_HINT_IWILLGC
 
@@ -343,14 +341,14 @@
 		return
 	if(length(baseturfs))
 		var/list/new_baseturfs = baseturfs.Copy()
-		var/turf_type = new_baseturfs[max(1, new_baseturfs.len - amount + 1)]
+		var/turf_type = new_baseturfs[max(1, length(new_baseturfs) - amount + 1)]
 		while(ispath(turf_type, /turf/baseturf_skipover))
 			amount++
-			if(amount > new_baseturfs.len)
+			if(amount > length(new_baseturfs))
 				CRASH("The bottomost baseturf of a turf is a skipover [src]([type])")
-			turf_type = new_baseturfs[max(1, new_baseturfs.len - amount + 1)]
-		new_baseturfs.len -= min(amount, new_baseturfs.len - 1) // No removing the very bottom
-		if(new_baseturfs.len == 1)
+			turf_type = new_baseturfs[max(1, length(new_baseturfs) - amount + 1)]
+		new_baseturfs.len -= min(amount, length(new_baseturfs) - 1) // No removing the very bottom
+		if(length(new_baseturfs) == 1)
 			new_baseturfs = new_baseturfs[1]
 		return ChangeTurf(turf_type, new_baseturfs, flags)
 
@@ -359,12 +357,12 @@
 
 	return ChangeTurf(baseturfs, baseturfs, flags) // The bottom baseturf will never go away
 
-/turf/proc/empty(turf_type=/turf/open/space, baseturf_type, list/ignore_typecache, flags)
-	// Remove all atoms except observers, landmarks, docking ports
-	var/static/list/ignored_atoms = typecacheof(list(/mob/dead, /obj/effect/landmark, /obj/docking_port))
+/turf/proc/empty(turf_type = /turf/open/space, baseturf_type, list/ignore_typecache, flags)
+	// Remove all atoms except  landmarks, docking ports, ai nodes
+	var/static/list/ignored_atoms = typecacheof(list(/mob/dead, /obj/effect/landmark, /obj/docking_port, /obj/effect/ai_node))
 	var/list/allowed_contents = typecache_filter_list_reverse(GetAllContentsIgnoring(ignore_typecache), ignored_atoms)
 	allowed_contents -= src
-	for(var/i in 1 to allowed_contents.len)
+	for(var/i in 1 to length(allowed_contents))
 		var/thing = allowed_contents[i]
 		qdel(thing, force=TRUE)
 
@@ -430,30 +428,6 @@
 /turf/proc/can_lay_cable()
 	return can_have_cabling() & !intact_tile
 
-/turf/attackby(obj/item/C, mob/user, params)
-	if(..())
-		return TRUE
-	if(can_lay_cable() && istype(C, /obj/item/stack/cable_coil))
-		var/obj/item/stack/cable_coil/coil = C
-		coil.place_turf(src, user)
-		return TRUE
-	else if(can_have_cabling() && istype(C, /obj/item/stack/pipe_cleaner_coil))
-		var/obj/item/stack/pipe_cleaner_coil/coil = C
-		for(var/obj/structure/pipe_cleaner/LC in src)
-			if(!LC.d1 || !LC.d2)
-				LC.attackby(C, user)
-				return
-		coil.place_turf(src, user)
-		return TRUE
-
-	//else if(istype(C, /obj/item/rcl))
-	//	handleRCL(C, user)
-
-	return FALSE
-
-//for xeno corrosive acid, 0 for unmeltable, 1 for regular, 2 for strong walls that require strong acid and more time.
-/turf/proc/can_be_dissolved()
-	return FALSE
 
 /turf/proc/ceiling_debris_check(size = 1)
 	return
@@ -544,14 +518,18 @@
 /turf/open/floor/plating/ground/dirtgrassborder/is_weedable()
 	return FALSE
 
-/turf/open/ground/river/is_weedable()
+/turf/open/liquid/water/is_weedable()
 	return FALSE
 
 /turf/open/ground/coast/is_weedable()
 	return FALSE
 
-/turf/open/floor/plating/ground/snow/is_weedable()
-	return !slayer && ..()
+
+/turf/open/floor/plating/ground/dirtgrassborder/autosmooth/buildable/is_weedable()
+	return TRUE
+
+/turf/open/ground/grass/weedable/is_weedable()
+	return TRUE
 
 /**
  * Checks for whether we can build advanced xeno structures here
@@ -631,7 +609,7 @@
 /turf/open/ground/can_dig_xeno_tunnel()
 	return TRUE
 
-/turf/open/ground/river/can_dig_xeno_tunnel()
+/turf/open/liquid/water/can_dig_xeno_tunnel()
 	return FALSE
 
 /turf/open/floor/plating/ground/snow/can_dig_xeno_tunnel()
@@ -738,9 +716,9 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		baseturfs += type
 	var/turf/change_type
 	if(length(new_baseturfs))
-		change_type = new_baseturfs[new_baseturfs.len]
+		change_type = new_baseturfs[length(new_baseturfs)]
 		new_baseturfs.len--
-		if(new_baseturfs.len)
+		if(length(new_baseturfs))
 			baseturfs += new_baseturfs
 	else
 		change_type = new_baseturfs
@@ -756,9 +734,9 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	if(depth)
 		var/list/target_baseturfs
 		if(length(copytarget.baseturfs))
-			// with default inputs this would be Copy(clamp(2, -INFINITY, baseturfs.len))
+			// with default inputs this would be Copy(clamp(2, -INFINITY, length(baseturfs)))
 			// Don't forget a lower index is lower in the baseturfs stack, the bottom is baseturfs[1]
-			target_baseturfs = copytarget.baseturfs.Copy(clamp(1 + ignore_bottom, 1 + copytarget.baseturfs.len - depth, copytarget.baseturfs.len))
+			target_baseturfs = copytarget.baseturfs.Copy(clamp(1 + ignore_bottom, 1 + length(copytarget.baseturfs) - depth, length(copytarget.baseturfs)))
 		else if(!ignore_bottom)
 			target_baseturfs = list(copytarget.baseturfs)
 		if(target_baseturfs)
@@ -855,7 +833,7 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 		next_target = initial(current_target.baseturfs)
 
 	baseturfs = new_baseturfs
-	created_baseturf_lists[new_baseturfs[new_baseturfs.len]] = new_baseturfs.Copy()
+	created_baseturf_lists[new_baseturfs[length(new_baseturfs)]] = new_baseturfs.Copy()
 	return new_baseturfs
 
 // Take the input as baseturfs and put it underneath the current baseturfs
@@ -942,18 +920,6 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 	if(var_name in banned_edits)
 		return FALSE
 	return ..()
-
-///Change the turf current acid var
-/turf/proc/set_current_acid(obj/effect/xenomorph/acid/new_acid)
-	if(current_acid)
-		UnregisterSignal(current_acid, COMSIG_PARENT_QDELETING)
-	current_acid = new_acid
-	RegisterSignal(current_acid, COMSIG_PARENT_QDELETING, .proc/clean_current_acid)
-
-///Signal handler to clean current_acid var
-/turf/proc/clean_current_acid()
-	SIGNAL_HANDLER
-	current_acid = null
 
 /turf/balloon_alert_perform(mob/viewer, text)
 	// Balloon alerts occuring on turf objects result in mass spam of alerts.

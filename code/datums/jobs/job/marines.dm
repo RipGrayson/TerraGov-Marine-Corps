@@ -33,6 +33,8 @@ Make your way to the cafeteria for some post-cryosleep chow, and then get equipp
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_REGULAR,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/corpsman = SMARTIE_POINTS_REGULAR,
+		/datum/job/terragov/squad/engineer = SMARTIE_POINTS_REGULAR,
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
@@ -89,39 +91,16 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 	jobtype = /datum/job/terragov/squad/standard
 
 	id = /obj/item/card/id/dogtag
-	back = /obj/item/storage/backpack/marine/satchel
 
 /datum/outfit/job/marine/standard/rebel
 	jobtype = /datum/job/terragov/squad/standard/rebel
-
-/datum/outfit/job/marine/standard/equipped
-	name = "Squad Marine (Equipped)"
-
-	ears = /obj/item/radio/headset/mainship/marine
-	w_uniform = /obj/item/clothing/under/marine
-	wear_suit = /obj/item/clothing/suit/storage/marine/harness
-	shoes = /obj/item/clothing/shoes/marine/full
-	gloves =/obj/item/clothing/gloves/marine
-	l_store = /obj/item/storage/pouch/medkit/firstaid
-	r_hand = /obj/item/portable_vendor/marine/squadmarine
-
-/datum/outfit/job/marine/standard/equipped/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	H.equip_to_slot_or_del(new /obj/item/radio, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/standard_heavypistol, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/standard_heavypistol, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/standard_heavypistol, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/standard_heavypistol, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
 
 //Squad Engineer
 /datum/job/terragov/squad/engineer
 	title = SQUAD_ENGINEER
 	paygrade = "E3"
 	comm_title = "Eng"
-	total_positions = 12
+	total_positions = 4
 	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_ENGPREP, ACCESS_CIVILIAN_ENGINEERING, ACCESS_MARINE_REMOTEBUILD, ACCESS_MARINE_ENGINEERING)
 	minimal_access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_ENGPREP, ACCESS_CIVILIAN_ENGINEERING, ACCESS_MARINE_DROPSHIP, ACCESS_MARINE_REMOTEBUILD, ACCESS_MARINE_ENGINEERING)
 	skills_type = /datum/skills/combat_engineer
@@ -134,6 +113,7 @@ What you lack alone, you gain standing shoulder to shoulder with the men and wom
 		/datum/job/terragov/silicon/synthetic = SYNTH_POINTS_REGULAR,
 		/datum/job/terragov/command/mech_pilot = MECH_POINTS_REGULAR,
 	)
+	job_points_needed = 5
 	html_description = {"
 		<b>Difficulty</b>: Medium<br /><br />
 		<b>You answer to the</b> acting Squad Leader<br /><br />
@@ -168,36 +148,9 @@ Your squaddies will look to you when it comes to construction in the field of ba
 	jobtype = /datum/job/terragov/squad/engineer
 
 	id = /obj/item/card/id/dogtag/engineer
-	back = /obj/item/storage/backpack/marine/satchel
 
 /datum/outfit/job/marine/engineer/rebel
 	jobtype = /datum/job/terragov/squad/engineer/rebel
-
-/datum/outfit/job/marine/engineer/equipped
-	name = "Squad Engineer (Equipped)"
-
-	belt = /obj/item/storage/belt/utility/full
-	ears = /obj/item/radio/headset/mainship/marine
-	w_uniform = /obj/item/clothing/under/marine/engineer
-	wear_suit = /obj/item/clothing/suit/storage/marine
-	shoes = /obj/item/clothing/shoes/marine/full
-	gloves =/obj/item/clothing/gloves/marine/insulated
-	l_store = /obj/item/storage/pouch/medkit/firstaid
-	r_store = /obj/item/storage/pouch/construction/equippedengineer
-	r_hand = /obj/item/portable_vendor/marine/squadmarine/engineer
-	l_hand = /obj/item/encryptionkey/engi
-	back = /obj/item/storage/backpack/marine/engineerpack
-
-/datum/outfit/job/marine/engineer/equipped/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	H.equip_to_slot_or_del(new /obj/item/radio, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/standard_pistol, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/standard_pistol, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/lightreplacer, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/circuitboard/apc, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
 
 /datum/job/terragov/squad/engineer/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
@@ -220,7 +173,7 @@ Your squaddies will look to you when it comes to construction in the field of ba
 	title = SQUAD_CORPSMAN
 	paygrade = "E3"
 	comm_title = "Med"
-	total_positions = 16
+	total_positions = 5
 	access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_MEDPREP, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY)
 	minimal_access = list(ACCESS_MARINE_PREP, ACCESS_MARINE_MEDPREP, ACCESS_MARINE_MEDBAY, ACCESS_MARINE_CHEMISTRY, ACCESS_MARINE_DROPSHIP)
 	skills_type = /datum/skills/combat_medic
@@ -233,6 +186,7 @@ Your squaddies will look to you when it comes to construction in the field of ba
 		/datum/job/xenomorph = LARVA_POINTS_REGULAR,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_MEDIUM,
 	)
+	job_points_needed = 5
 	html_description = {"
 		<b>Difficulty</b>: Hard<br /><br />
 		<b>You answer to the</b> acting Squad Leader<br /><br />
@@ -266,44 +220,9 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 	jobtype = /datum/job/terragov/squad/corpsman
 
 	id = /obj/item/card/id/dogtag/corpsman
-	back = /obj/item/storage/backpack/marine/corpsman
 
 /datum/outfit/job/marine/corpsman/rebel
 	jobtype = /datum/job/terragov/squad/corpsman/rebel
-/datum/outfit/job/marine/corpsman/equipped
-	name = "Squad Corpsman (Equipped)"
-
-	belt = /obj/item/storage/belt/lifesaver/full
-	ears = /obj/item/radio/headset/mainship/marine
-	w_uniform = /obj/item/clothing/under/marine/corpsman
-	wear_suit = /obj/item/clothing/suit/storage/marine
-	shoes = /obj/item/clothing/shoes/marine/full
-	gloves =/obj/item/clothing/gloves/marine
-	head = /obj/item/clothing/head/modular/m10x
-	l_store = /obj/item/storage/pouch/medkit/medic
-	r_store = /obj/item/storage/pouch/medical_injectors/medic
-	glasses = /obj/item/clothing/glasses/hud/health
-	r_hand = /obj/item/portable_vendor/marine/squadmarine/corpsman
-	l_hand = /obj/item/encryptionkey/med
-
-/datum/outfit/job/marine/corpsman/equipped/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/oxycodone, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/roller, SLOT_IN_SUIT)
-
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/bicaridine, SLOT_IN_HEAD)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/autoinjector/kelotane , SLOT_IN_HEAD)
-
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/medevac_beacon, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/roller/medevac, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/defibrillator, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/bodybag/cryobag, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/stack/medical/splint, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/advanced/bruise_pack, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/stack/medical/heal_pack/advanced/burn_pack, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tweezers, SLOT_IN_BACKPACK)
 
 /datum/job/terragov/squad/corpsman/after_spawn(mob/living/carbon/new_mob, mob/user, latejoin = FALSE)
 	. = ..()
@@ -336,7 +255,7 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_REGULAR,
 	)
-	job_points_needed  = 10 //Redefined via config.
+	job_points_needed = 10 //Redefined via config.
 	html_description = {"
 		<b>Difficulty</b>: Medium<br /><br />
 		<b>You answer to the</b> acting Squad Leader<br /><br />
@@ -380,41 +299,9 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 	jobtype = /datum/job/terragov/squad/smartgunner
 
 	id = /obj/item/card/id/dogtag/smartgun
-	back = /obj/item/storage/backpack/marine/satchel
 
 /datum/outfit/job/marine/smartgunner/rebel
 	jobtype = /datum/job/terragov/squad/smartgunner/rebel
-
-/datum/outfit/job/marine/smartgunner/equipped
-	name = "Squad Smartgunner (Equipped)"
-
-	ears = /obj/item/radio/headset/mainship/marine
-	w_uniform = /obj/item/clothing/under/marine
-	wear_suit = /obj/item/clothing/suit/storage/marine/smartgunner
-	shoes = /obj/item/clothing/shoes/marine/full
-	gloves =/obj/item/clothing/gloves/marine
-	head = /obj/item/clothing/head/modular/m10x
-	l_store = /obj/item/storage/pouch/medkit/firstaid
-	suit_store = /obj/item/weapon/gun/rifle/standard_smartmachinegun
-	glasses = /obj/item/clothing/glasses/night/m56_goggles
-	r_hand = /obj/item/portable_vendor/marine/squadmarine/smartgunner
-
-/datum/outfit/job/marine/smartgunner/equipped/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/standard_heavypistol, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_SUIT)
-
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_HEAD)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar , SLOT_IN_HEAD)
-
-	H.equip_to_slot_or_del(new /obj/item/radio, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/weapon/gun/pistol/standard_heavypistol, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/pistol/standard_heavypistol, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/standard_smartmachinegun, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/ammo_magazine/standard_smartmachinegun, SLOT_IN_BACKPACK)
-
 
 //Squad Specialist
 /datum/job/terragov/squad/specialist
@@ -434,7 +321,7 @@ You may not be a fully-fledged doctor, but you stand between life and death when
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_STRONG,
 	)
-	job_points_needed  = 10 //Redefined via config.
+	job_points_needed = 10 //Redefined via config.
 
 
 /datum/job/terragov/squad/specialist/radio_help_message(mob/M)
@@ -448,7 +335,6 @@ You can serve a variety of roles, so choose carefully."})
 	jobtype = /datum/job/terragov/squad/specialist
 
 	id = /obj/item/card/id/dogtag
-	back = /obj/item/storage/backpack/marine/satchel
 	head = /obj/item/clothing/head/helmet/specrag
 
 //Squad Leader
@@ -466,7 +352,7 @@ You can serve a variety of roles, so choose carefully."})
 	outfit = /datum/outfit/job/marine/leader
 	exp_requirements = XP_REQ_INTERMEDIATE
 	exp_type = EXP_TYPE_REGULAR_ALL
-	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS
+	job_flags = JOB_FLAG_LATEJOINABLE|JOB_FLAG_ROUNDSTARTJOINABLE|JOB_FLAG_ALLOWS_PREFS_GEAR|JOB_FLAG_PROVIDES_BANK_ACCOUNT|JOB_FLAG_ADDTOMANIFEST|JOB_FLAG_BOLD_NAME_ON_SELECTION|JOB_FLAG_PROVIDES_SQUAD_HUD|JOB_FLAG_CAN_SEE_ORDERS|JOB_FLAG_LOUDER_TTS
 	jobworth = list(
 		/datum/job/xenomorph = LARVA_POINTS_REGULAR,
 		/datum/job/terragov/squad/smartgunner = SMARTIE_POINTS_HIGH,
@@ -506,44 +392,9 @@ You are also in charge of communicating with command and letting them know about
 	jobtype = /datum/job/terragov/squad/leader
 
 	id = /obj/item/card/id/dogtag/leader
-	back = /obj/item/storage/backpack/marine/satchel
 
 /datum/outfit/job/marine/leader/rebel
 	jobtype = /datum/job/terragov/squad/leader/rebel
-
-/datum/outfit/job/marine/leader/equipped
-	name = "Squad Leader (Equipped)"
-
-	ears = /obj/item/radio/headset/mainship/marine
-	w_uniform = /obj/item/clothing/under/marine
-	wear_suit = /obj/item/clothing/suit/storage/marine/leader
-	shoes = /obj/item/clothing/shoes/marine/full
-	gloves =/obj/item/clothing/gloves/marine
-	head = /obj/item/clothing/head/modular/m10x/leader
-	glasses = /obj/item/clothing/glasses/hud/health
-	suit_store = /obj/item/weapon/gun/rifle/standard_assaultrifle/rifleman
-	l_store = /obj/item/storage/pouch/medkit/firstaid
-	r_store = /obj/item/storage/pouch/medical_injectors/firstaid
-	r_hand = /obj/item/storage/box/squadmarine/squadleader
-	l_hand = /obj/item/encryptionkey/squadlead
-	belt = /obj/item/storage/belt/marine/t12
-
-/datum/outfit/job/marine/leader/equipped/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
-	. = ..()
-	H.equip_to_slot_or_del(new /obj/item/beacon/supply_beacon, SLOT_IN_SUIT)
-	H.equip_to_slot_or_del(new /obj/item/beacon/supply_beacon, SLOT_IN_SUIT)
-
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_HEAD)
-	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/enrg_bar, SLOT_IN_HEAD)
-
-	H.equip_to_slot_or_del(new /obj/item/radio, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/tool/crowbar/red, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/whistle, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/binoculars/tactical, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/explosive/plastique, SLOT_IN_BACKPACK)
-	H.equip_to_slot_or_del(new /obj/item/storage/box/MRE, SLOT_IN_BACKPACK)
-
 
 /datum/job/terragov/squad/leader/after_spawn(mob/living/carbon/C, mob/user, latejoin = FALSE)
 	. = ..()

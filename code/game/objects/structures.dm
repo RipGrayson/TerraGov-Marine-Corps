@@ -2,7 +2,7 @@
 	icon = 'icons/obj/structures/structures.dmi'
 	var/climbable = FALSE
 	var/climb_delay = 50
-	var/flags_barrier = 0
+	var/flags_barrier = NONE
 	var/broken = FALSE //similar to machinery's stat BROKEN
 	obj_flags = CAN_BE_HIT
 	anchored = TRUE
@@ -27,7 +27,7 @@
 		if(EXPLODE_LIGHT)
 			return
 
-/obj/structure/Initialize()
+/obj/structure/Initialize(mapload)
 	. = ..()
 	if(climbable)
 		verbs += /obj/structure/proc/climb_on
@@ -50,7 +50,7 @@
 
 /obj/structure/specialclick(mob/living/carbon/user)
 	. = ..()
-	do_climb(user)
+	INVOKE_ASYNC(src, PROC_REF(do_climb), user)
 
 /obj/structure/MouseDrop_T(mob/target, mob/user)
 	. = ..()
@@ -104,7 +104,7 @@
 				to_chat(user, span_warning("You cannot leap this way."))
 				return
 			for(var/atom/movable/A in target)
-				if(A && A.density && !(A.flags_atom & ON_BORDER))
+				if(A?.density && !(A.flags_atom & ON_BORDER))
 					if(istype(A, /obj/structure))
 						var/obj/structure/S = A
 						if(!S.climbable) //Transfer onto climbable surface
@@ -121,7 +121,7 @@
 
 	user.visible_message(span_warning("[user] starts [flags_atom & ON_BORDER ? "leaping over":"climbing onto"] \the [src]!"))
 
-	if(!do_after(user, climb_delay, FALSE, src, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, .proc/can_climb, user)))
+	if(!do_after(user, climb_delay, FALSE, src, BUSY_ICON_GENERIC, extra_checks = CALLBACK(src, PROC_REF(can_climb), user)))
 		return
 
 	for(var/m in user.buckled_mobs)
@@ -142,7 +142,7 @@
 				to_chat(user, span_warning("You cannot leap this way."))
 				return
 			for(var/atom/movable/A in target)
-				if(A && A.density && !(A.flags_atom & ON_BORDER))
+				if(A?.density && !(A.flags_atom & ON_BORDER))
 					if(istype(A, /obj/structure))
 						var/obj/structure/S = A
 						if(!S.climbable) //Transfer onto climbable surface
@@ -221,3 +221,6 @@
 		return
 
 	return interact(user)
+
+/obj/structure/get_acid_delay()
+	return 4 SECONDS

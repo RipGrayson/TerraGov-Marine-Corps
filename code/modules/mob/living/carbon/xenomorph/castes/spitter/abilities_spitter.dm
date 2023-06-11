@@ -27,8 +27,6 @@
 	succeed_activate()
 
 	playsound(X.loc, 'sound/effects/refill.ogg', 50, 1)
-	X.visible_message(span_xenowarning("\The [X] spews forth a virulent spray of acid!"), \
-	span_xenowarning("We spew forth a spray of acid!"), null, 5)
 	var/turflist = getline(X, target)
 	spray_turfs(turflist)
 	add_cooldown()
@@ -49,7 +47,7 @@
 	for(var/X in turflist)
 		var/turf/T = X
 
-		if(!prev_turf && turflist.len > 1)
+		if(!prev_turf && length(turflist) > 1)
 			prev_turf = get_turf(owner)
 			continue //So we don't burn the tile we be standin on
 

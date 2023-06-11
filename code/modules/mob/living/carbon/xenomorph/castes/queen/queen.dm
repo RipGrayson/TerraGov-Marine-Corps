@@ -26,10 +26,10 @@
 // ***************************************
 // *********** Init
 // ***************************************
-/mob/living/carbon/xenomorph/queen/Initialize()
-	RegisterSignal(src, COMSIG_HIVE_BECOME_RULER, .proc/on_becoming_ruler)
+/mob/living/carbon/xenomorph/queen/Initialize(mapload)
+	RegisterSignal(src, COMSIG_HIVE_BECOME_RULER, PROC_REF(on_becoming_ruler))
 	. = ..()
-	hive.RegisterSignal(src, COMSIG_HIVE_XENO_DEATH, /datum/hive_status.proc/on_queen_death)
+	hive.RegisterSignal(src, COMSIG_HIVE_XENO_DEATH, TYPE_PROC_REF(/datum/hive_status, on_queen_death))
 	playsound(loc, 'sound/voice/alien_queen_command.ogg', 75, 0)
 
 

@@ -31,11 +31,11 @@
 	///is this barriade wired?
 	var/is_wired = FALSE
 
-/obj/structure/barricade/Initialize()
+/obj/structure/barricade/Initialize(mapload)
 	. = ..()
 	update_icon()
 	var/static/list/connections = list(
-		COMSIG_ATOM_EXIT = .proc/on_try_exit
+		COMSIG_ATOM_EXIT = PROC_REF(on_try_exit)
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
@@ -119,8 +119,7 @@
 		return FALSE
 
 	if(is_wired)
-		X.visible_message(span_danger("The barbed wire slices into [X]!"),
-		span_danger("The barbed wire slices into us!"), null, 5)
+		balloon_alert(X, "Wire slices into us")
 		X.apply_damage(10, blocked = MELEE , sharp = TRUE, updating_health = TRUE)
 
 	return ..()
@@ -130,7 +129,7 @@
 
 	for(var/obj/effect/xenomorph/acid/A in loc)
 		if(A.acid_t == src)
-			to_chat(user, "You can't get near that, it's melting!")
+			balloon_alert(user, "Can't, it's melting")
 			return
 
 	if(istype(I, /obj/item/stack/barbed_wire))
@@ -165,8 +164,7 @@
 		return TRUE
 
 	playsound(loc, 'sound/items/wirecutter.ogg', 25, TRUE)
-	user.visible_message(span_notice("[user] removes the barbed wire on [src]."),
-	span_notice("You remove the barbed wire on [src]."))
+	balloon_alert_to_viewers("Removes the barbed wire")
 	modify_max_integrity(max_integrity - 50)
 	can_wire = TRUE
 	is_wired = FALSE
@@ -347,7 +345,7 @@
 	icon_state = "railing_0"
 	coverage = 25
 	max_integrity = 150
-	soft_armor = list("melee" = 0, "bullet" = 50, "laser" = 50, "energy" = 50, "bomb" = 15, "bio" = 100, "fire" = 100, "acid" = 10)
+	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 15, BIO = 100, FIRE = 100, ACID = 10)
 	climbable = FALSE
 	stack_type = /obj/item/stack/rods
 	destroyed_stack_amount = 3
@@ -379,6 +377,9 @@
 	can_change_dmg_state = FALSE
 	barricade_type = "wooden"
 	can_wire = FALSE
+
+/obj/structure/barricade/wooden/add_debris_element()
+	AddElement(/datum/element/debris, DEBRIS_WOOD, -10, 5)
 
 /obj/structure/barricade/wooden/attackby(obj/item/I, mob/user, params)
 	. = ..()
@@ -428,7 +429,7 @@
 	desc = "A sturdy and easily assembled barricade made of metal plates, often used for quick fortifications. Use a blowtorch to repair."
 	icon_state = "metal_0"
 	max_integrity = 200
-	soft_armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 100, "fire" = 80, "acid" = 40)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 80, ACID = 40)
 	coverage = 128
 	stack_type = /obj/item/stack/sheet/metal
 	stack_amount = 4
@@ -440,6 +441,9 @@
 	var/build_state = BARRICADE_METAL_FIRM
 	///The type of upgrade and corresponding overlay we have attached
 	var/barricade_upgrade_type
+
+/obj/structure/barricade/metal/add_debris_element()
+	AddElement(/datum/element/debris, DEBRIS_SPARKS, -15, 8, 1)
 
 /obj/structure/barricade/metal/update_overlays()
 	. = ..()
@@ -508,8 +512,7 @@
 		return
 
 	if(user.skills.getRating(SKILL_CONSTRUCTION) < SKILL_CONSTRUCTION_METAL)
-		user.visible_message(span_notice("[user] fumbles around figuring out how to attach armor plates to [src]."),
-		span_notice("You fumble around figuring out how to attach armor plates on [src]."))
+		balloon_alert_to_viewers("fumbles")
 		var/fumbling_time = 2 SECONDS * ( SKILL_CONSTRUCTION_METAL - user.skills.getRating(SKILL_CONSTRUCTION) )
 		if(!do_after(user, fumbling_time, TRUE, src, BUSY_ICON_UNSKILLED))
 			return FALSE
@@ -551,7 +554,7 @@
 	. += span_info("It is [barricade_upgrade_type ? "upgraded with [barricade_upgrade_type]" : "not upgraded"].")
 
 /obj/structure/barricade/metal/welder_act(mob/living/user, obj/item/I)
-	. = welder_repair_act(user, I, repair_threshold = 0.3, skill_required = SKILL_ENGINEER_METAL)
+	. = welder_repair_act(user, I, 85, 2.5 SECONDS, 0.3, SKILL_ENGINEER_METAL, 1)
 	if(. == BELOW_INTEGRITY_THRESHOLD)
 		balloon_alert(user, "Too damaged. Use metal sheets.")
 
@@ -736,7 +739,7 @@
 	desc = "A very sturdy barricade made out of plasteel panels, the pinnacle of strongpoints. Use a blowtorch to repair. Can be flipped down to create a path."
 	icon_state = "plasteel_closed_0"
 	max_integrity = 500
-	soft_armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 100, "fire" = 80, "acid" = 40)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 80, ACID = 40)
 	coverage = 128
 	stack_type = /obj/item/stack/sheet/plasteel
 	stack_amount = 5
@@ -747,13 +750,15 @@
 	closed = TRUE
 	can_wire = TRUE
 	climbable = TRUE
-
 	///What state is our barricade in for construction steps?
 	var/build_state = BARRICADE_PLASTEEL_FIRM
 	var/busy = FALSE //Standard busy check
 	///ehther we react with other cades next to us ie when opening or so
 	var/linked = FALSE
 	COOLDOWN_DECLARE(tool_cooldown) //Delay to apply tools to prevent spamming
+
+/obj/structure/barricade/plasteel/add_debris_element()
+	AddElement(/datum/element/debris, DEBRIS_SPARKS, -15, 8, 1)
 
 /obj/structure/barricade/plasteel/handle_barrier_chance(mob/living/M)
 	if(closed)
@@ -773,7 +778,7 @@
 			. += span_info("The protection panel has been removed and the anchor bolts loosened. It's ready to be taken apart.")
 
 /obj/structure/barricade/plasteel/welder_act(mob/living/user, obj/item/I)
-	. = welder_repair_act(user, I, repair_threshold = 0.3, skill_required = SKILL_ENGINEER_PLASTEEL)
+	. = welder_repair_act(user, I, 85, 2.5 SECONDS, 0.3, SKILL_ENGINEER_PLASTEEL, 1)
 	if(. == BELOW_INTEGRITY_THRESHOLD)
 		balloon_alert(user, "Too damaged. Use plasteel sheets.")
 
@@ -990,7 +995,7 @@
 	desc = "A bunch of bags filled with sand, stacked into a small wall. Surprisingly sturdy, albeit labour intensive to set up. Trusted to do the job since 1914."
 	icon_state = "sandbag_0"
 	max_integrity = 300
-	soft_armor = list("melee" = 0, "bullet" = 0, "laser" = 0, "energy" = 0, "bomb" = 0, "bio" = 100, "fire" = 80, "acid" = 40)
+	soft_armor = list(MELEE = 0, BULLET = 0, LASER = 0, ENERGY = 0, BOMB = 0, BIO = 100, FIRE = 80, ACID = 40)
 	coverage = 128
 	stack_type = /obj/item/stack/sandbags
 	hit_sound = "sound/weapons/genhit.ogg"

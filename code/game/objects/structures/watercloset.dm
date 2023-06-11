@@ -15,7 +15,7 @@
 	var/w_items = 0			//the combined w_class of all the items in the cistern
 	var/mob/living/swirlie = null	//the mob being given a swirlie
 
-/obj/structure/toilet/Initialize()
+/obj/structure/toilet/Initialize(mapload)
 	. = ..()
 	open = round(rand(0, 1))
 	update_icon()
@@ -30,7 +30,7 @@
 		return
 
 	if(cistern && !open)
-		if(!contents.len)
+		if(!length(contents))
 			to_chat(user, span_notice("The cistern is empty."))
 			return
 		else
@@ -166,12 +166,12 @@
 	var/mobpresent = 0
 	var/is_washing = FALSE
 
-/obj/machinery/shower/Initialize()
+/obj/machinery/shower/Initialize(mapload)
 	. = ..()
 	create_reagents(2)
 	var/static/list/connections = list(
-		COMSIG_ATOM_ENTERED = .proc/on_cross,
-		COMSIG_ATOM_EXITED = .proc/on_exited,
+		COMSIG_ATOM_ENTERED = PROC_REF(on_cross),
+		COMSIG_ATOM_EXITED = PROC_REF(on_exited),
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
@@ -203,7 +203,7 @@
 /obj/machinery/shower/attackby(obj/item/I, mob/user, params)
 	. = ..()
 
-	if(I.type == /obj/item/analyzer)
+	if(I.type == /obj/item/tool/analyzer)
 		to_chat(user, span_notice("The water temperature seems to be [watertemp]."))
 
 	else if(iswrench(I))
@@ -324,7 +324,7 @@
 	anchored = TRUE
 	var/busy = 0 	//Something's being washed at the moment
 
-/obj/structure/sink/Initialize()
+/obj/structure/sink/Initialize(mapload)
 	. = ..()
 	switch(dir)
 		if(WEST)

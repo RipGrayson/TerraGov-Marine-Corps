@@ -16,7 +16,7 @@
 	/// The mob controlling the droid remotely
 	var/datum/weakref/remote_user
 
-/obj/vehicle/unmanned/droid/Initialize()
+/obj/vehicle/unmanned/droid/Initialize(mapload)
 	. = ..()
 	antenna = new
 
@@ -37,7 +37,7 @@
 		START_PROCESSING(SSslowprocess, src)
 		user.overlay_fullscreen("machine", /atom/movable/screen/fullscreen/machine)
 		antenna.give_action(user)
-		RegisterSignal(user, COMSIG_UNMANNED_COORDINATES, .proc/activate_antenna)
+		RegisterSignal(user, COMSIG_UNMANNED_COORDINATES, PROC_REF(activate_antenna))
 	else
 		remote_user = null
 		playsound(src, 'sound/machines/drone/droneoff.ogg', 70)
@@ -47,6 +47,9 @@
 		UnregisterSignal(user, COMSIG_UNMANNED_COORDINATES)
 
 /obj/vehicle/unmanned/droid/Destroy()
+	if(beacon_datum)
+		UnregisterSignal(beacon_datum, COMSIG_PARENT_QDELETING)
+		QDEL_NULL(beacon_datum)
 	if(!remote_user) //No remote user, no need to do this.
 		return ..()
 	var/mob/living/living_user = remote_user.resolve()
@@ -79,7 +82,7 @@
 
 /obj/vehicle/unmanned/droid/scout/on_remote_toggle(datum/source, is_on, mob/user)
 	. = ..()
-	SEND_SIGNAL(src, COMSIG_UNMANNED_ABILITY_UPDATED)
+	SEND_SIGNAL(src, COMSIG_UNMANNED_ABILITY_UPDATED, CLOAK_ABILITY)
 
 ///runs checks for cloaking then begins to cloak it
 /obj/vehicle/unmanned/droid/scout/proc/cloak_drone(datum/source)
@@ -91,7 +94,7 @@
 		return
 	apply_wibbly_filters(src)
 	playsound(src, 'sound/effects/seedling_chargeup.ogg', 100, TRUE)
-	INVOKE_ASYNC(src, .proc/start_cloak, source)
+	INVOKE_ASYNC(src, PROC_REF(start_cloak), source)
 
 ///Plays effects and doafter effects for the drone
 /obj/vehicle/unmanned/droid/scout/proc/start_cloak(mob/user)
@@ -102,7 +105,7 @@
 	remove_wibbly_filters(src)
 	playsound(src, 'sound/effects/pred_cloakon.ogg', 60, TRUE)
 	alpha = CLOAK_IMPLANT_ALPHA
-	cloaktimer = addtimer(CALLBACK(src, .proc/deactivate_cloak), 1 MINUTES, TIMER_STOPPABLE)
+	cloaktimer = addtimer(CALLBACK(src, PROC_REF(deactivate_cloak)), 1 MINUTES, TIMER_STOPPABLE)
 
 ///Deactivates the cloak when someone turns it off or its forced off
 /obj/vehicle/unmanned/droid/scout/proc/deactivate_cloak()
@@ -128,7 +131,7 @@
 		to_chat(source, span_warning("You have to be on the planet to use this or it won't transmit."))
 		return FALSE
 	beacon_datum = new /datum/supply_beacon(user.name, src.loc, user.faction, 4 MINUTES)
-	RegisterSignal(beacon_datum, COMSIG_PARENT_QDELETING, .proc/clean_beacon_datum)
+	RegisterSignal(beacon_datum, COMSIG_PARENT_QDELETING, PROC_REF(clean_beacon_datum))
 	user.show_message(span_notice("The [src] beeps and states, \"Your current coordinates were registered by the supply console. LONGITUDE [loc.x]. LATITUDE [loc.y]. Area ID: [get_area(src)]\""))
 
 ///removes the beacon when we delete the droid

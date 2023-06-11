@@ -15,9 +15,8 @@ GLOBAL_VAR(restart_counter)
 #ifdef USE_EXTOOLS
 	var/extools = world.GetConfig("env", "EXTOOLS_DLL") || (world.system_type == MS_WINDOWS ? "./byond-extools.dll" : "./libbyond-extools.so")
 	if(fexists(extools))
-		call(extools, "maptick_initialize")()
+		LIBCALL(extools, "maptick_initialize")()
 #endif
-	enable_debugger()
 
 	log_world("World loaded at [time_stamp()]!")
 
@@ -76,11 +75,11 @@ GLOBAL_VAR(restart_counter)
 	CONFIG_SET(number/round_end_countdown, 0)
 	var/datum/callback/cb
 #ifdef UNIT_TESTS
-	cb = CALLBACK(GLOBAL_PROC, /proc/RunUnitTests)
+	cb = CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(RunUnitTests))
 #else
 	cb = VARSET_CALLBACK(SSticker, force_ending, TRUE)
 #endif
-	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, /proc/_addtimer, cb, 10 SECONDS))
+	SSticker.OnRoundstart(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(_addtimer), cb, 10 SECONDS))
 
 /world/proc/SetupLogs()
 	var/override_dir = params[OVERRIDE_LOG_DIRECTORY_PARAMETER]
@@ -110,6 +109,7 @@ GLOBAL_VAR(restart_counter)
 	GLOB.world_runtime_log = "[GLOB.log_directory]/runtime.log"
 	GLOB.world_debug_log = "[GLOB.log_directory]/debug.log"
 	GLOB.world_paper_log = "[GLOB.log_directory]/paper.log"
+	GLOB.filter_log = "[GLOB.log_directory]/filters.log"
 
 #ifdef UNIT_TESTS
 	GLOB.test_log = "[GLOB.log_directory]/tests.log"
@@ -282,7 +282,7 @@ GLOBAL_VAR(restart_counter)
 
 /world/proc/load_mode()
 	var/list/Lines = file2list("data/mode.txt")
-	if(Lines.len)
+	if(length(Lines))
 		if(Lines[1])
 			GLOB.master_mode = Lines[1]
 			log_config("Saved mode is '[GLOB.master_mode]'")
@@ -376,7 +376,7 @@ GLOBAL_VAR(restart_counter)
 			library = "libprof.so"
 		else
 			CRASH("Unsupported platform: [system_type]")
-	var/init_result = call(library, "init")()
+	var/init_result = LIBCALL(library, "init")()
 	if (init_result != "0")
 		CRASH("Error initializing byond-tracy: [init_result]")
 

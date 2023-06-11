@@ -43,6 +43,7 @@
 	if(!do_after(X, 1 SECONDS, TRUE, X, BUSY_ICON_DANGER))
 		return fail_activate()
 	var/datum/ammo/xeno/leash_ball = GLOB.ammo_list[/datum/ammo/xeno/leash_ball]
+	leash_ball.hivenumber = X.hivenumber
 	var/obj/projectile/newspit = new (get_turf(X))
 
 	newspit.generate_bullet(leash_ball)
@@ -72,7 +73,7 @@
 	var/list/mob/living/carbon/human/leash_victims = list()
 
 /// Humans caught get beamed and registered for proc/check_dist, aoe_leash also gains increased integrity for each caught human
-/obj/structure/xeno/aoe_leash/Initialize(mapload)
+/obj/structure/xeno/aoe_leash/Initialize(mapload, _hivenumber)
 	. = ..()
 	for(var/mob/living/carbon/human/victim in GLOB.humans_by_zlevel["[z]"])
 		if(get_dist(src, victim) > leash_radius)
@@ -87,7 +88,7 @@
 	for(var/mob/living/carbon/human/snared_victim AS in leash_victims)
 		ADD_TRAIT(snared_victim, TRAIT_LEASHED, src)
 		beams += beam(snared_victim, "beam_web", 'icons/effects/beam.dmi', INFINITY, INFINITY)
-		RegisterSignal(snared_victim, COMSIG_MOVABLE_PRE_MOVE, .proc/check_dist)
+		RegisterSignal(snared_victim, COMSIG_MOVABLE_PRE_MOVE, PROC_REF(check_dist))
 	if(!length(beams))
 		return INITIALIZE_HINT_QDEL
 	QDEL_IN(src, leash_life)
@@ -113,7 +114,7 @@
 		return
 	X.visible_message(span_xenonotice("\The [X] starts tearing down \the [src]!"), \
 	span_xenonotice("We start to tear down \the [src]."))
-	if(!do_after(X, 1 SECONDS, TRUE, X, BUSY_ICON_GENERIC))
+	if(!do_after(X, 1 SECONDS, TRUE, X, BUSY_ICON_GENERIC) || QDELETED(src))
 		return
 	X.do_attack_animation(src, ATTACK_EFFECT_CLAW)
 	X.visible_message(span_xenonotice("\The [X] tears down \the [src]!"), \
@@ -155,7 +156,7 @@
 
 /// Adds spiderlings to spiderling list and registers them for death so we can remove them later
 /datum/action/xeno_action/create_spiderling/proc/add_spiderling(mob/living/carbon/xenomorph/spiderling/new_spiderling)
-	RegisterSignal(new_spiderling, list(COMSIG_MOB_DEATH, COMSIG_PARENT_QDELETING), .proc/remove_spiderling)
+	RegisterSignal(new_spiderling, list(COMSIG_MOB_DEATH, COMSIG_PARENT_QDELETING), PROC_REF(remove_spiderling))
 	spiderlings += new_spiderling
 	new_spiderling.pixel_x = rand(-8, 8)
 	new_spiderling.pixel_y = rand(-8, 8)
@@ -231,10 +232,12 @@
 	var/mob/living/carbon/xenomorph/X = owner
 	if(!HAS_TRAIT(X, TRAIT_BURROWED))
 		to_chat(X, span_xenowarning("We start burrowing into the ground..."))
-		INVOKE_ASYNC(src, .proc/xeno_burrow_doafter)
+		INVOKE_ASYNC(src, PROC_REF(xeno_burrow_doafter))
 		return
 	UnregisterSignal(X, COMSIG_XENOMORPH_TAKING_DAMAGE)
-	X.fire_resist_modifier += BURROW_FIRE_RESIST_MODIFIER
+	ADD_TRAIT(X, TRAIT_NON_FLAMMABLE, ability_name)
+	X.soft_armor = X.soft_armor.modifyRating(fire = 100)
+	X.hard_armor = X.hard_armor.modifyRating(fire = 100)
 	X.mouse_opacity = initial(X.mouse_opacity)
 	X.density = TRUE
 	X.flags_pass &= ~PASSABLE
@@ -259,10 +262,12 @@
 	ADD_TRAIT(owner, TRAIT_HANDS_BLOCKED, WIDOW_ABILITY_TRAIT)
 	// We register for movement so that we unburrow if bombed
 	var/mob/living/carbon/xenomorph/X = owner
-	X.fire_resist_modifier -= BURROW_FIRE_RESIST_MODIFIER // This makes the xeno immune to fire while burrowed, even if burning beforehand
+	X.soft_armor = X.soft_armor.modifyRating(fire = -100)
+	X.hard_armor = X.hard_armor.modifyRating(fire = -100)
+	REMOVE_TRAIT(X, TRAIT_NON_FLAMMABLE, ability_name)
 	// Update here without waiting for life
 	X.update_icons()
-	RegisterSignal(X, COMSIG_XENOMORPH_TAKING_DAMAGE, .proc/xeno_burrow)
+	RegisterSignal(X, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(xeno_burrow))
 
 // ***************************************
 // *********** Attach Spiderlings
@@ -307,7 +312,7 @@
 		remaining_list -= remaining_spiderling
 		owner.buckle_mob(remaining_spiderling, TRUE, TRUE, 90, 1,0)
 		ADD_TRAIT(remaining_spiderling, TRAIT_IMMOBILE, WIDOW_ABILITY_TRAIT)
-	addtimer(CALLBACK(src, .proc/grab_spiderlings, remaining_list, number_of_attempts_left - 1), 1)
+	addtimer(CALLBACK(src, PROC_REF(grab_spiderlings), remaining_list, number_of_attempts_left - 1), 1)
 
 // ***************************************
 // *********** Web Hook
@@ -347,7 +352,7 @@
 /datum/action/xeno_action/activable/web_hook/use_ability(atom/A)
 	var/atom/movable/web_hook/web_hook = new (get_turf(owner))
 	web_beam = owner.beam(web_hook,"beam_web",'icons/effects/beam.dmi')
-	RegisterSignal(web_hook, list(COMSIG_MOVABLE_POST_THROW, COMSIG_MOVABLE_IMPACT), .proc/drag_widow, TRUE)
+	RegisterSignal(web_hook, list(COMSIG_MOVABLE_POST_THROW, COMSIG_MOVABLE_IMPACT), PROC_REF(drag_widow), TRUE)
 	web_hook.throw_at(A, WIDOW_WEB_HOOK_RANGE, 3, owner, FALSE)
 	succeed_activate()
 	add_cooldown()
@@ -362,7 +367,7 @@
 		// we throw widow half the distance if she hits the floor
 		owner.throw_at(get_turf(source), WIDOW_WEB_HOOK_RANGE / 2, WIDOW_WEB_HOOK_SPEED, owner, FALSE)
 	qdel(source)
-	RegisterSignal(owner, COMSIG_MOVABLE_POST_THROW, .proc/delete_beam)
+	RegisterSignal(owner, COMSIG_MOVABLE_POST_THROW, PROC_REF(delete_beam))
 
 ///signal handler to delete the web_hook after we are done draggging owner along
 /datum/action/xeno_action/activable/web_hook/proc/delete_beam(datum/source)

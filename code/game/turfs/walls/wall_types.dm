@@ -52,6 +52,7 @@
 	desc = "A huge chunk of metal used to seperate space from the ship"
 	walltype = "gwall"
 	resistance_flags = RESIST_ALL
+	icon_state = "wall-invincible"
 
 /turf/closed/wall/mainship/white/canterbury //For ship smoothing.
 	smoothing_groups = list(SMOOTH_GROUP_CANTERBURY)
@@ -63,16 +64,14 @@
 		SMOOTH_GROUP_CANTERBURY,
 	)
 
-
+/turf/closed/wall/mainship/research
+	resistance_flags = UNACIDABLE
 
 /turf/closed/wall/mainship/white/outer
 	name = "outer hull"
 	desc = "A huge chunk of metal used to seperate space from the ship"
 	icon_state = "wall-invincible"
 	resistance_flags = RESIST_ALL
-
-/turf/closed/wall/mainship/research/can_be_dissolved()
-	return FALSE
 
 /turf/closed/wall/mainship/research/containment/wall
 	icon = 'icons/turf/mainshipwalls.dmi'
@@ -134,6 +133,7 @@
 
 /turf/closed/wall/desert/invincible
 	resistance_flags = RESIST_ALL
+	icon_state = "wall-invincible"
 
 //tyson
 /turf/closed/wall/tyson
@@ -203,11 +203,6 @@
 /turf/closed/wall/sulaco/unmeltable/attackby(obj/item/I, mob/user, params) //This should fix everything else. No cables, etc
 	return
 
-/turf/closed/wall/sulaco/unmeltable/can_be_dissolved()
-	return FALSE
-
-
-
 /turf/closed/wall/indestructible
 	name = "wall"
 	icon = 'icons/turf/walls.dmi'
@@ -227,9 +222,6 @@
 		var/obj/item/tool/pickaxe/plasmacutter/P = I
 		to_chat(user, span_warning("[P] can't cut through this!"))
 	return
-
-/turf/closed/wall/indestructible/can_be_dissolved()
-	return 0
 
 /turf/closed/wall/indestructible/mineral
 	name = "impenetrable rock"
@@ -267,6 +259,7 @@
 	name = "mineral wall"
 	desc = "This shouldn't exist"
 	icon_state = ""
+	resistance_flags = UNACIDABLE
 	var/mineral
 	var/last_event = 0
 	var/active = null
@@ -349,6 +342,8 @@
 	icon_state = "cavewall0"
 	walltype = "cavewall"
 
+/turf/closed/wall/desertcavewall/add_debris_element()
+	AddElement(/datum/element/debris, DEBRIS_ROCK, -10, 5, 1)
 
 //Prison wall
 
@@ -370,3 +365,18 @@
 	base_icon_state = "woodwall"
 	walltype = "woodwall"
 	explosion_block = 1
+
+/turf/closed/wall/wood/add_debris_element()
+	AddElement(/datum/element/debris, DEBRIS_WOOD, -10, 5)
+
+// Reinforced Wood Wall
+
+/turf/closed/wall/wood/reinforced
+	name = "reinforced wood wall"
+	desc = "A reinforced wooden wall"
+	icon = 'icons/turf/walls/woodrwall.dmi'
+	icon_state = "wall-reinforced"
+	base_icon_state = "woodrwall"
+	walltype = "woodrwall"
+	max_integrity = 3000
+	explosion_block = 4

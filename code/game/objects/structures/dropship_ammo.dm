@@ -11,13 +11,14 @@
 	climbable = TRUE
 	resistance_flags = XENO_DAMAGEABLE
 	coverage = 20
+	interaction_flags = INTERACT_OBJ_DEFAULT|INTERACT_POWERLOADER_PICKUP_ALLOWED_BYPASS_ANCHOR
 	///Time before the ammo impacts
 	var/travelling_time = 10 SECONDS
 	///type of equipment that accept this type of ammo.
 	var/equipment_type
 	var/ammo_count
 	var/max_ammo_count
-	var/ammo_name = "round" //what to call the ammo in the ammo transfering message
+	var/ammo_name = "rounds" //what to call the ammo in the ammo transfering message
 	var/ammo_id
 	///whether the ammo inside this magazine can be transfered to another magazine.
 	var/transferable_ammo = FALSE
@@ -41,34 +42,33 @@
 	///CAS impact prediction type to use. Explosive, incendiary, etc
 	var/prediction_type = CAS_AMMO_HARMLESS
 
-// todo this needs a refactor and needs to call parent first not last
-/obj/structure/ship_ammo/attackby(obj/item/I, mob/user)
-	if(istype(I, /obj/item/powerloader_clamp))
-		var/obj/item/powerloader_clamp/PC = I
-		if(PC.linked_powerloader)
-			if(PC.loaded)
-				if(istype(PC.loaded, /obj/structure/ship_ammo))
-					var/obj/structure/ship_ammo/SA = PC.loaded
-					if(SA.transferable_ammo && SA.ammo_count > 0 && SA.type == type)
-						if(ammo_count < max_ammo_count)
-							var/transf_amt = min(max_ammo_count - ammo_count, SA.ammo_count)
-							ammo_count += transf_amt
-							SA.ammo_count -= transf_amt
-							playsound(loc, 'sound/machines/hydraulics_1.ogg', 40, 1)
-							to_chat(user, span_notice("You transfer [transf_amt] [ammo_name] to [src]."))
-							if(!SA.ammo_count)
-								PC.loaded = null
-								PC.update_icon()
-								qdel(SA)
-			else
-				forceMove(PC.linked_powerloader)
-				PC.loaded = src
-				playsound(loc, 'sound/machines/hydraulics_2.ogg', 40, 1)
-				PC.update_icon()
-				to_chat(user, span_notice("You grab [PC.loaded] with [PC]."))
-				update_icon()
-		return TRUE
-	return ..()
+
+/obj/structure/ship_ammo/attack_powerloader(mob/living/user, obj/item/powerloader_clamp/attached_clamp)
+	. = ..()
+	if(.)
+		return
+
+	if(!attached_clamp.loaded || !istype(attached_clamp.loaded, type))
+		return
+
+	var/obj/structure/ship_ammo/SA = attached_clamp.loaded
+
+	if(!SA.transferable_ammo || !SA.ammo_count) //not transferable
+		return
+
+	var/transf_amt = min(max_ammo_count - ammo_count, SA.ammo_count)
+	if(!transf_amt)
+		return
+
+	ammo_count += transf_amt
+	SA.ammo_count -= transf_amt
+	to_chat(user, span_notice("You transfer [transf_amt] [ammo_name] to [src]."))
+	playsound(loc, 'sound/machines/hydraulics_1.ogg', 40, 1)
+	if(!SA.ammo_count)
+		attached_clamp.loaded = null
+		attached_clamp.update_icon()
+		qdel(SA)
+
 
 //what to show to the user that examines the weapon we're loaded on.
 /obj/structure/ship_ammo/proc/show_loaded_desc(mob/user)
@@ -205,7 +205,7 @@
 	icon_state = "30mm_crate"
 	desc = "A crate full of 30mm bullets used on the dropship heavy guns. Moving this will require some sort of lifter."
 	equipment_type = /obj/structure/dropship_equipment/weapon/heavygun
-	travelling_time =  6 SECONDS
+	travelling_time = 6 SECONDS
 	ammo_count = 200
 	max_ammo_count = 200
 	transferable_ammo = TRUE
@@ -259,7 +259,7 @@
 			AM.ex_act(EXPLODE_LIGHT)
 
 	if(length(strafelist))
-		addtimer(CALLBACK(src, .proc/strafe_turfs, strafelist), 2)
+		addtimer(CALLBACK(src, PROC_REF(strafe_turfs), strafelist), 2)
 
 
 /obj/structure/ship_ammo/heavygun/highvelocity
@@ -357,7 +357,7 @@
 	laser_burn(lazertargets[1])
 	lazertargets -= lazertargets[1]
 	if(length(lazertargets))
-		INVOKE_NEXT_TICK(src, .proc/process_lazer, lazertargets)
+		INVOKE_NEXT_TICK(src, PROC_REF(process_lazer), lazertargets)
 
 ///Lazer ammo acts on the turf passed in
 /obj/structure/ship_ammo/laser_battery/proc/laser_burn(turf/T)
@@ -458,7 +458,7 @@
 /obj/structure/ship_ammo/rocket/fatty/detonate_on(turf/impact, attackdir = NORTH)
 	impact.ceiling_debris_check(2)
 	explosion(impact, devastating_explosion_range, heavy_explosion_range, light_explosion_range) //first explosion is small to trick xenos into thinking its a minirocket.
-	addtimer(CALLBACK(src, .proc/delayed_detonation, impact), 3 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(delayed_detonation), impact), 3 SECONDS)
 
 /**
  * proc/delayed_detonation(turf/impact)
@@ -526,7 +526,7 @@
 	var/datum/effect_system/expl_particles/P = new
 	P.set_up(4, 0, impact)
 	P.start()
-	addtimer(CALLBACK(src, .proc/delayed_smoke_spread, impact), 0.5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(delayed_smoke_spread), impact), 0.5 SECONDS)
 	if(!ammo_count)
 		QDEL_IN(src, travelling_time) //deleted after last minirocket has fired and impacted the ground.
 
@@ -613,8 +613,8 @@
 	var/datum/effect_system/expl_particles/P = new/datum/effect_system/expl_particles()
 	P.set_up(4, 0, impact)
 	P.start()
-	addtimer(CALLBACK(src, .proc/delayed_smoke_spread, impact), 0.5 SECONDS)
-	addtimer(CALLBACK(src, .proc/drop_cas_flare, impact), 1.5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(delayed_smoke_spread), impact), 0.5 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(drop_cas_flare), impact), 1.5 SECONDS)
 	if(!ammo_count)
 		QDEL_IN(src, travelling_time) //deleted after last minirocket has fired and impacted the ground.
 

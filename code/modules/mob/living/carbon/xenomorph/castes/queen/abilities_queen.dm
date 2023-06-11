@@ -34,9 +34,12 @@
 	input = capitalize(trim(replacetext(input, "\n", " ")))
 	if(!input)
 		return
-	if(CHAT_FILTER_CHECK(input))
+	var/filter_result = is_ic_filtered(input)
+	if(filter_result)
 		to_chat(Q, span_warning("That announcement contained a word prohibited in IC chat! Consider reviewing the server rules.\n<span replaceRegex='show_filtered_ic_chat'>\"[input]\"</span>"))
 		SSblackbox.record_feedback(FEEDBACK_TALLY, "ic_blocked_words", 1, lowertext(config.ic_filter_regex.match))
+		REPORT_CHAT_FILTER_TO_USER(src, filter_result)
+		log_filter("IC", input, filter_result)
 		return FALSE
 	if(NON_ASCII_CHECK(input))
 		to_chat(Q, span_warning("That announcement contained characters prohibited in IC chat! Consider reviewing the server rules."))
@@ -138,8 +141,8 @@
 
 /datum/action/xeno_action/watch_xeno/give_action(mob/living/L)
 	. = ..()
-	RegisterSignal(L, COMSIG_MOB_DEATH, .proc/on_owner_death)
-	RegisterSignal(L, COMSIG_XENOMORPH_WATCHXENO, .proc/on_list_xeno_selection)
+	RegisterSignal(L, COMSIG_MOB_DEATH, PROC_REF(on_owner_death))
+	RegisterSignal(L, COMSIG_XENOMORPH_WATCHXENO, PROC_REF(on_list_xeno_selection))
 
 /datum/action/xeno_action/watch_xeno/remove_action(mob/living/L)
 	if(overwatch_active)
@@ -165,10 +168,10 @@
 	if(isxenoqueen(watcher)) // Only queen needs the eye shown.
 		target.hud_set_queen_overwatch()
 	watcher.reset_perspective()
-	RegisterSignal(target, COMSIG_HIVE_XENO_DEATH, .proc/on_xeno_death)
-	RegisterSignal(target, list(COMSIG_XENOMORPH_EVOLVED, COMSIG_XENOMORPH_DEEVOLVED), .proc/on_xeno_evolution)
-	RegisterSignal(watcher, COMSIG_MOVABLE_MOVED, .proc/on_movement)
-	RegisterSignal(watcher, COMSIG_XENOMORPH_TAKING_DAMAGE, .proc/on_damage_taken)
+	RegisterSignal(target, COMSIG_HIVE_XENO_DEATH, PROC_REF(on_xeno_death))
+	RegisterSignal(target, list(COMSIG_XENOMORPH_EVOLVED, COMSIG_XENOMORPH_DEEVOLVED), PROC_REF(on_xeno_evolution))
+	RegisterSignal(watcher, COMSIG_MOVABLE_MOVED, PROC_REF(on_movement))
+	RegisterSignal(watcher, COMSIG_XENOMORPH_TAKING_DAMAGE, PROC_REF(on_damage_taken))
 	overwatch_active = TRUE
 	set_toggle(TRUE)
 
@@ -188,7 +191,7 @@
 
 /datum/action/xeno_action/watch_xeno/proc/on_list_xeno_selection(datum/source, mob/living/carbon/xenomorph/selected_xeno)
 	SIGNAL_HANDLER
-	INVOKE_ASYNC(src, .proc/start_overwatch, selected_xeno)
+	INVOKE_ASYNC(src, PROC_REF(start_overwatch), selected_xeno)
 
 /datum/action/xeno_action/watch_xeno/proc/on_xeno_evolution(datum/source, mob/living/carbon/xenomorph/new_xeno)
 	SIGNAL_HANDLER
@@ -242,7 +245,7 @@
 
 /datum/action/xeno_action/toggle_queen_zoom/proc/zoom_xeno_in(message = TRUE)
 	var/mob/living/carbon/xenomorph/xeno = owner
-	RegisterSignal(xeno, COMSIG_MOVABLE_MOVED, .proc/on_movement)
+	RegisterSignal(xeno, COMSIG_MOVABLE_MOVED, PROC_REF(on_movement))
 	if(message)
 		xeno.visible_message(span_notice("[xeno] emits a broad and weak psychic aura."),
 		span_notice("We start focusing our psychic energy to expand the reach of our senses."), null, 5)
@@ -277,7 +280,7 @@
 
 /datum/action/xeno_action/set_xeno_lead/give_action(mob/living/L)
 	. = ..()
-	RegisterSignal(L, COMSIG_XENOMORPH_LEADERSHIP, .proc/try_use_action)
+	RegisterSignal(L, COMSIG_XENOMORPH_LEADERSHIP, PROC_REF(try_use_action))
 
 /datum/action/xeno_action/set_xeno_lead/remove_action(mob/living/L)
 	. = ..()
@@ -288,7 +291,7 @@
 	SIGNAL_HANDLER
 	if(!can_use_action())
 		return
-	INVOKE_ASYNC(src, .proc/select_xeno_leader, target)
+	INVOKE_ASYNC(src, PROC_REF(select_xeno_leader), target)
 
 /// Check if there is an empty slot and promote the passed xeno to a hive leader
 /datum/action/xeno_action/set_xeno_lead/proc/select_xeno_leader(mob/living/carbon/xenomorph/selected_xeno)
@@ -414,7 +417,7 @@
 
 /datum/action/xeno_action/activable/queen_give_plasma/give_action(mob/living/L)
 	. = ..()
-	RegisterSignal(L, COMSIG_XENOMORPH_QUEEN_PLASMA, .proc/try_use_ability)
+	RegisterSignal(L, COMSIG_XENOMORPH_QUEEN_PLASMA, PROC_REF(try_use_ability))
 
 /datum/action/xeno_action/activable/queen_give_plasma/remove_action(mob/living/L)
 	. = ..()

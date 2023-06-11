@@ -1,5 +1,4 @@
 
-
 //Xeno-style acids
 //Ideally we'll consolidate all the "effect" objects here
 //Also need to change the icons
@@ -17,7 +16,7 @@
 	opacity = FALSE
 	anchored = TRUE
 
-/obj/effect/xenomorph/splatter/Initialize() //Self-deletes after creation & animation
+/obj/effect/xenomorph/splatter/Initialize(mapload) //Self-deletes after creation & animation
 	. = ..()
 	QDEL_IN(src, 8)
 
@@ -29,7 +28,7 @@
 	opacity = FALSE
 	anchored = TRUE
 
-/obj/effect/xenomorph/splatterblob/Initialize() //Self-deletes after creation & animation
+/obj/effect/xenomorph/splatterblob/Initialize(mapload) //Self-deletes after creation & animation
 	. = ..()
 	QDEL_IN(src, 4 SECONDS)
 
@@ -55,8 +54,8 @@
 	QDEL_IN(src, duration + rand(0, 2 SECONDS))
 	acid_damage = damage
 	xeno_owner = _xeno_owner
-	RegisterSignal(xeno_owner, COMSIG_PARENT_QDELETING, .proc/clean_mob_owner)
-	RegisterSignal(loc, COMSIG_ATOM_ENTERED, .proc/atom_enter_turf)
+	RegisterSignal(xeno_owner, COMSIG_PARENT_QDELETING, PROC_REF(clean_mob_owner))
+	RegisterSignal(loc, COMSIG_ATOM_ENTERED, PROC_REF(atom_enter_turf))
 	TIMER_COOLDOWN_START(src, COOLDOWN_PARALYSE_ACID, 5)
 
 /obj/effect/xenomorph/spray/Destroy()
@@ -94,22 +93,16 @@
 
 	TIMER_COOLDOWN_START(src, COOLDOWN_ACID, 1 SECONDS)
 	if(HAS_TRAIT(src, TRAIT_FLOORED))
-		INVOKE_ASYNC(src, .proc/take_overall_damage, acid_damage, BURN, ACID, FALSE, FALSE, TRUE, 0, 3)
+		INVOKE_ASYNC(src, PROC_REF(take_overall_damage), acid_damage, BURN, ACID, FALSE, FALSE, TRUE, 0, 3)
 		to_chat(src, span_danger("You are scalded by the burning acid!"))
 		return
 	to_chat(src, span_danger("Your feet scald and burn! Argh!"))
 	if(!(species.species_flags & NO_PAIN))
-		INVOKE_ASYNC(src, .proc/emote, "pain")
+		INVOKE_ASYNC(src, PROC_REF(emote), "pain")
 
 	next_move_slowdown += slow_amt
-	var/datum/limb/affecting = get_limb(BODY_ZONE_PRECISE_L_FOOT)
-	var/armor_block = get_soft_armor("acid", affecting)
-	INVOKE_ASYNC(affecting, /datum/limb/.proc/take_damage_limb, 0, acid_damage/2, FALSE, FALSE, armor_block)
-
-	affecting = get_limb(BODY_ZONE_PRECISE_R_FOOT)
-	armor_block = get_soft_armor("acid", affecting)
-	INVOKE_ASYNC(affecting, /datum/limb/.proc/take_damage_limb, 0, acid_damage/2, FALSE, FALSE, armor_block, TRUE)
-
+	for(var/limb_to_hit in list(BODY_ZONE_PRECISE_L_FOOT, BODY_ZONE_PRECISE_R_FOOT))
+		INVOKE_ASYNC(src, PROC_REF(apply_damage), acid_damage * 0.5, BURN, limb_to_hit, ACID)
 
 /obj/effect/xenomorph/spray/process()
 	var/turf/T = loc
@@ -131,30 +124,35 @@
 	density = FALSE
 	opacity = FALSE
 	anchored = TRUE
+	///the target atom for being melted
 	var/atom/acid_t
+	///the current tick on destruction stage, currently used to determine what messages to output
 	var/ticks = 0
-	var/acid_strength = 0.04 //base speed, normal
-	var/acid_damage = 125 //acid damage on pick up, subject to armor
-	var/strength_t
+	///how fast something will melt when subject to this acid.
+	var/acid_strength = REGULAR_ACID_STRENGTH
+	///acid damage on pick up, subject to armor
+	var/acid_damage = 125
+	///stages of meltage, currently used to determine what messages to output
+	var/strength_t = 4
+	///How much faster or slower acid melts specific objects/turfs.
+	var/acid_melt_multiplier
 
-//Sentinel weakest acid
 /obj/effect/xenomorph/acid/weak
 	name = "weak acid"
-	acid_strength = 0.016 //40% of base speed
+	acid_strength = WEAK_ACID_STRENGTH
 	acid_damage = 75
 	icon_state = "acid_weak"
 
-//Superacid
 /obj/effect/xenomorph/acid/strong
 	name = "strong acid"
-	acid_strength = 0.1 //250% normal speed
+	acid_strength = STRONG_ACID_STRENGTH
 	acid_damage = 175
 	icon_state = "acid_strong"
 
-/obj/effect/xenomorph/acid/Initialize(mapload, target)
+/obj/effect/xenomorph/acid/Initialize(mapload, target, melting_rate)
 	. = ..()
+	acid_melt_multiplier = melting_rate
 	acid_t = target
-	strength_t = isturf(acid_t) ? 8:4 // Turf take twice as long to take down.
 	START_PROCESSING(SSslowprocess, src)
 
 /obj/effect/xenomorph/acid/Destroy()
@@ -168,7 +166,7 @@
 		return
 	if(loc != acid_t.loc && !isturf(acid_t))
 		loc = acid_t.loc
-	ticks += delta_time * acid_strength
+	ticks += delta_time * (acid_strength * acid_melt_multiplier)
 	if(ticks >= strength_t)
 		visible_message(span_xenodanger("[acid_t] collapses under its own weight into a puddle of goop and undigested debris!"))
 		playsound(src, "acid_hit", 25)

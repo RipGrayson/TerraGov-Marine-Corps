@@ -81,10 +81,6 @@
 	icon = 'icons/Marine/marine-atgun.dmi'
 	icon_state = "tat36_shell"
 	item_state = "tat36"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_0.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_0.dmi',
-		)
 	flags_magazine = MAGAZINE_REFUND_IN_CHAMBER
 	caliber = CALIBER_37MM
 	max_rounds = 1
@@ -133,20 +129,20 @@
 
 /obj/item/ammo_magazine/auto_cannon
 	name = "autocannon high-velocity magazine(20mm)"
-	desc = "A box of 80 high-velocity 20mm rounds for the ATR-22 mounted autocannon. Will pierce people and cover"
+	desc = "A box of 100 high-velocity 20mm rounds for the ATR-22 mounted autocannon. Will pierce people and cover."
 	w_class = WEIGHT_CLASS_NORMAL
 	icon = 'icons/Marine/marine-ac.dmi'
 	icon_state = "ac_mag"
 	item_state = "ac"
 	flags_magazine = NONE
 	caliber = CALIBER_20
-	max_rounds = 80
+	max_rounds = 100
 	default_ammo = /datum/ammo/bullet/auto_cannon
 	reload_delay = 4 SECONDS
 
 /obj/item/ammo_magazine/auto_cannon/flak
 	name = "autocannon smart-detonating magazine(20mm)"
-	desc = "A box of 80 smart-detonating 20mm rounds for the ATR-22 mounted autocannon. Will pierce cover, but detonate on hitting a target"
+	desc = "A box of 80 smart-detonating 20mm rounds for the ATR-22 mounted autocannon. Will detonate upon hitting a target."
 	icon_state = "ac_mag_flak"
 	item_state = "ac_flak"
 	default_ammo = /datum/ammo/bullet/auto_cannon/flak
@@ -169,10 +165,6 @@
 	icon = 'icons/Marine/marine-hmg.dmi'
 	icon_state = "75shell"
 	item_state = "75shell"
-	item_icons = list(
-		slot_l_hand_str = 'icons/mob/items_lefthand_0.dmi',
-		slot_r_hand_str = 'icons/mob/items_righthand_0.dmi',
-		)
 	flags_magazine = MAGAZINE_REFUND_IN_CHAMBER
 	caliber = CALIBER_75MM
 	max_rounds = 1

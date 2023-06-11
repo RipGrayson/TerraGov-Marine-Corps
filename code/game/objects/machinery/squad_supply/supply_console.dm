@@ -25,7 +25,7 @@
 /obj/machinery/computer/supplydrop_console/rebel
 	faction = FACTION_TERRAGOV_REBEL
 
-/obj/machinery/computer/supplydrop_console/Initialize()
+/obj/machinery/computer/supplydrop_console/Initialize(mapload)
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 
@@ -74,17 +74,17 @@
 			if(!istype(supply_beacon_choice))
 				return
 			supply_beacon = supply_beacon_choice
-			RegisterSignal(supply_beacon, COMSIG_PARENT_QDELETING, .proc/clean_supply_beacon)
+			RegisterSignal(supply_beacon, COMSIG_PARENT_QDELETING, PROC_REF(clean_supply_beacon), override = TRUE)
 			refresh_pad()
 		if("set_x")
 			var/new_x = text2num(params["set_x"])
-			if(!new_x)
+			if(!isnum(new_x))
 				return
 			x_offset = new_x
 
 		if("set_y")
 			var/new_y = text2num(params["set_y"])
-			if(!new_y)
+			if(!isnum(new_y))
 				return
 			y_offset = new_y
 
@@ -127,7 +127,7 @@
 	for(var/obj/C in supply_pad.loc)
 		if(is_type_in_typecache(C, GLOB.supply_drops) && !C.anchored) //Can only send vendors, crates, unmanned vehicles and large crates
 			supplies.Add(C)
-		if(supplies.len > MAX_SUPPLY_DROPS)
+		if(length(supplies) > MAX_SUPPLY_DROPS)
 			break
 
 ///Start the supply drop process
@@ -153,7 +153,7 @@
 		C.anchored = TRUE //to avoid accidental pushes
 	playsound(supply_pad.loc, 'sound/effects/bamf.ogg', 50, TRUE)
 	visible_message("[icon2html(supply_beacon, viewers(supply_beacon))] [span_boldnotice("The [supply_pad.name] begins to beep!")]")
-	addtimer(CALLBACK(src, .proc/fire_supplydrop, supplies, x_offset, y_offset), 10 SECONDS)
+	addtimer(CALLBACK(src, PROC_REF(fire_supplydrop), supplies, x_offset, y_offset), 10 SECONDS)
 
 ///Make the supplies teleport
 /obj/machinery/computer/supplydrop_console/proc/fire_supplydrop(list/supplies, x_offset, y_offset)
@@ -169,7 +169,7 @@
 		visible_message("[icon2html(supply_pad, usr)] [span_warning("Launch aborted! Supply beacon signal lost.")]")
 		return
 
-	if(!supplies.len)
+	if(!length(supplies))
 		visible_message("[icon2html(supply_pad, usr)] [span_warning("Launch aborted! No deployable object detected on the drop pad.")]")
 		return
 

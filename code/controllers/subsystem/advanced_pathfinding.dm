@@ -7,12 +7,12 @@ SUBSYSTEM_DEF(advanced_pathfinding)
 	///List of ai_behaviour datum asking for a tile pathfinding
 	var/list/datum/ai_behavior/node_pathfinding_to_do = list()
 
-/datum/controller/subsystem/advanced_pathfinding/Initialize(start_timeofday)
-	. = ..()
+/datum/controller/subsystem/advanced_pathfinding/Initialize()
 	var/list/nodes = list()
 	for(var/obj/effect/ai_node/ai_node AS in GLOB.all_nodes)
 		nodes += list(ai_node.serialize())
 	rustg_register_nodes_astar(json_encode(nodes))
+	return SS_INIT_SUCCESS
 
 #ifdef TESTING
 #define BENCHMARK_LOOP while(world.timeofday < end_time)
@@ -123,7 +123,7 @@ GLOBAL_LIST_EMPTY(goal_nodes)
 		if(!length(paths_to_check) || length(paths_checked) > PATHFINDER_MAX_TRIES)
 			return
 		//We created a atom path for each adjacent atom, we sort every atoms by their heuristic score
-		sortTim(paths_to_check, /proc/cmp_path_step, TRUE) //Very cheap cause almost sorted
+		sortTim(paths_to_check, GLOBAL_PROC_REF(cmp_path_step), TRUE) //Very cheap cause almost sorted
 		current_path = paths_to_check[paths_to_check[1]] //We take the atom with the smaller heuristic score (distance to goal + distance already made)
 		current_atom = current_path.current_atom
 	paths_checked[current_atom] = current_path
@@ -147,15 +147,15 @@ GLOBAL_LIST_EMPTY(goal_nodes)
 	///The image added to the creator screen
 	var/image/goal_image
 
-/obj/effect/ai_node/goal/Initialize(loc, mob/creator)
+/obj/effect/ai_node/goal/Initialize(mapload, mob/creator)
 	. = ..()
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_AI_GOAL_SET, identifier, src)
-	RegisterSignal(SSdcs, COMSIG_GLOB_AI_GOAL_SET, .proc/clean_goal_node)
+	RegisterSignal(SSdcs, COMSIG_GLOB_AI_GOAL_SET, PROC_REF(clean_goal_node))
 	GLOB.goal_nodes[identifier] = src
 	if(!creator)
 		return
 	src.creator = creator
-	RegisterSignal(creator, COMSIG_PARENT_QDELETING, .proc/clean_creator)
+	RegisterSignal(creator, COMSIG_PARENT_QDELETING, PROC_REF(clean_creator))
 	goal_image = image('icons/mob/actions.dmi', src, "minion_rendez_vous")
 	goal_image.layer = HUD_PLANE
 	goal_image.alpha = 180

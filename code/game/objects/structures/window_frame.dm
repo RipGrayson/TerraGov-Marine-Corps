@@ -40,10 +40,11 @@
 	var/weed_found
 	if(from_window_shatter)
 		for(var/obj/alien/weeds/weedwall/window/W in loc)
-			weed_found = TRUE
+			weed_found = W
 			break
 	if(weed_found)
-		new /obj/alien/weeds/weedwall/frame(loc) //after smoothing to get the correct junction value
+		qdel(weed_found)
+		new /obj/alien/weeds/weedwall/window/frame(loc) //after smoothing to get the correct junction value
 
 
 /obj/structure/window_frame/proc/update_nearby_icons()
@@ -177,3 +178,14 @@
 	flags_pass = NONE
 	reinforced = TRUE
 	resistance_flags = INDESTRUCTIBLE|UNACIDABLE
+
+/obj/structure/window_frame/mainship/dropship
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_WINDOW_FRAME, SMOOTH_GROUP_CANTERBURY)
+	canSmoothWith = list(
+		SMOOTH_GROUP_WINDOW_FULLTILE,
+		SMOOTH_GROUP_AIRLOCK,
+		SMOOTH_GROUP_WINDOW_FRAME,
+		SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS,
+		SMOOTH_GROUP_CANTERBURY,
+	)
