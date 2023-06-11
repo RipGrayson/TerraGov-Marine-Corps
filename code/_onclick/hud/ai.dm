@@ -53,6 +53,16 @@
 	var/mob/living/silicon/ai/AI = usr
 	AI.show_camera_list()
 
+/atom/movable/screen/ai/rts_stuff
+	name = "rts manager"
+	icon_state = "alerts"
+
+/atom/movable/screen/ai/rts_stuff/Click()
+	. = ..()
+	if(.)
+		return
+	var/mob/living/silicon/ai/malf/AI = usr
+	AI.show_rts_build_options()
 
 /atom/movable/screen/ai/camera_track
 	name = "Track With Camera"
@@ -149,6 +159,11 @@
 //Add multicamera camera
 	using = new /atom/movable/screen/ai/add_multicam()
 	using.screen_loc = ui_ai_add_multicam
+	static_inventory += using
+
+//rts stuff
+	using = new /atom/movable/screen/ai/rts_stuff()
+	using.screen_loc = ui_ai_rts
 	static_inventory += using
 
 /atom/movable/screen/alert/ai_notify

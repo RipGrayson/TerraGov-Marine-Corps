@@ -2,6 +2,7 @@
 	name = "generic AI production building"
 	desc = "A featureless block meant for testing core mechanics, how did you even see this?"
 	icon = 'icons/obj/structures/rtsstructures.dmi'
+	base_icon_state = "holder1"
 	icon_state = "holder1"
 	density = TRUE
 	anchored = TRUE //We can not be moved.
@@ -21,11 +22,13 @@
 	var/ID = "generic"
 	//We dont have armor do to being a bit more healthy!
 	var/datum/rts_units/unit_type
+	var/activation_icon = "holder2"
 
 /obj/structure/rts_building/two
 	name = "generic AI production building two"
 
 /obj/structure/rts_building/precursor
+	name = "generic AI production building one"
 	max_integrity = 100
 	alpha = 100
 	pointvalue = 0
@@ -35,6 +38,7 @@
 	unit_type = null
 
 /obj/structure/rts_building/precursor/two
+	name = "generic AI production building two"
 	buildtype = /obj/structure/rts_building/two
 	buildtime = 20 SECONDS
 	pointcost = 500
@@ -59,6 +63,7 @@
 	if(HAS_TRAIT(src, BUILDING_BUSY))
 		to_chat(user, "This building is already producing something")
 		return
+	icon_state = activation_icon
 	to_chat(user, "You start production on a [unit_type.name]")
 	var/pointswehave = SSrtspoints.ai_points
 	if((pointswehave -= unit_type.cost) <= 0)
@@ -72,6 +77,7 @@
 ///actually generates the unit
 /obj/structure/rts_building/proc/createunit(mob/living/generatedunit = /mob/living/carbon/xenomorph/mantis/ai, mob/living/silicon/ai/malf/user)
 	new generatedunit(get_step(src, SOUTH))
+	icon_state = base_icon_state
 	if(HAS_TRAIT(src, BUILDING_BUSY))
 		REMOVE_TRAIT(src, BUILDING_BUSY, BUILDING_BUSY)
 

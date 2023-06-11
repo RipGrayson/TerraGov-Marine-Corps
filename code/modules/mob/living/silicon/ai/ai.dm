@@ -593,3 +593,11 @@
 			stat("Railgun status:", "Cooling down, next fire in [(GLOB.marine_main_ship?.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE - world.time)/10] seconds.")
 		else
 			stat("Railgun status:", "Railgun is ready to fire.")
+
+/mob/living/silicon/ai/malf/proc/show_rts_build_options() //displays a list of available vox words for the user to make sentences with, players can click the words to hear a preview of how they sound
+
+	if(incapacitated())
+		return
+
+	var/target_name = tgui_input_list(src, "Choose what you want to build", "Building", GLOB.rts_buildings)
+	held_building = GLOB.rts_buildings[target_name]
