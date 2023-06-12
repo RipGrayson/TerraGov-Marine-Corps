@@ -568,7 +568,7 @@
 
 /mob/living/silicon/ai/malf
 	available_networks = list("malfAI")
-	var/obj/structure/rts_building/held_building = /obj/structure/rts_building/precursor/two
+	var/obj/structure/rts_building/held_building = /obj/structure/rts_building/precursor/engineering
 	///refs to the last structure that built something
 	var/datum/weakref/last_built_structure = null
 	///refs to the last unit built
@@ -594,10 +594,29 @@
 		else
 			stat("Railgun status:", "Railgun is ready to fire.")
 
-/mob/living/silicon/ai/malf/proc/show_rts_build_options() //displays a list of available vox words for the user to make sentences with, players can click the words to hear a preview of how they sound
+/mob/living/silicon/ai/malf/proc/show_rts_build_options()
 
 	if(incapacitated())
 		return
 
-	var/target_name = tgui_input_list(src, "Choose what you want to build", "Building", GLOB.rts_buildings)
-	held_building = GLOB.rts_buildings[target_name]
+	var/allowed_buildings
+	for(var/building in GLOB.rts_buildings)
+		var/obj/structure/rts_building/blah = GLOB.rts_buildings[building]
+		if(blah.validate_build_reqs(blah.required_buildings_flags_for_construction))
+			allowed_buildings += GLOB.rts_buildings[blah]
+
+	var/target_name = tgui_input_list(src, "Choose what you want to build", "Building", allowed_buildings)
+	held_building = allowed_buildings[target_name]
+
+/mob/living/silicon/ai/malf/proc/show_unit_build_options(obj/structure/rts_building/selectedstructure)
+
+	if(incapacitated())
+		return
+
+	if(length(selectedstructure.buildable_units) <= 1)
+		return
+	var/target_name = tgui_input_list(src, "Choose what you want to build", "Building", selectedstructure.buildable_units)
+	//selectedstructure.unit_type = new selectedstructure.buildable_units[target_name]
+	selectedstructure.unit_type = new target_name
+
+
