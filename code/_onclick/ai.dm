@@ -386,15 +386,19 @@
 			if(A.density || istype(A, /obj/structure/rts_building/precursor))
 				to_chat(user, "Another object here is dense")
 				return
+	to_chat(user, "You begin the construction of [initial(user.held_building.name)].")
 	new user.held_building(src)
 
 /obj/structure/rts_building/precursor/AICtrlClick(mob/living/silicon/ai/malf/user)
-	to_chat(user, "You cancel the construction of this building for [pointcost] resources.")
+	to_chat(user, "You cancel the construction of this [name] for [pointcost] resources.")
 	SSrtspoints.ai_points += pointcost
 	qdel(src)
 
 /obj/structure/rts_building/AICtrlClick(mob/living/silicon/ai/malf/user)
 	queueunit(user)
+
+/obj/structure/rts_building/AIMiddleClick(mob/living/silicon/ai/malf/user)
+	user.show_unit_build_options(src)
 
 #undef AI_MAX_RAILGUN_SHOTS_FIRED_UPPER_RANGE
 #undef AI_MAX_RAILGUN_SHOTS_FIRED_LOWER_RANGE

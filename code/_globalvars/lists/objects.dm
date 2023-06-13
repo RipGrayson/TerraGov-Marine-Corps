@@ -63,7 +63,7 @@ GLOBAL_LIST_EMPTY(sensor_towers)
 GLOBAL_LIST_EMPTY(sensor_towers_patrol)
 
 GLOBAL_LIST_EMPTY(unmanned_vehicles)
-GLOBAL_LIST_EMPTY(ai_rts_buildings)
+GLOBAL_LIST_EMPTY(constructed_rts_builds) //what buildings that are actively in the game
 
 GLOBAL_LIST_INIT(supply_drops, typecacheof(list(
 	/obj/structure/closet/crate,

@@ -22,14 +22,14 @@ SUBSYSTEM_DEF(rtspoints)
 
 /datum/controller/subsystem/rtspoints/proc/calculatepoints()
 	var/sumofpoints = null
-	for(var/obj/structure/rts_building/structure in GLOB.ai_rts_buildings)
+	for(var/obj/structure/rts_building/structure in GLOB.constructed_rts_builds)
 		sumofpoints += structure.pointvalue
 	return sumofpoints
 
 /datum/controller/subsystem/rtspoints/fire(resumed = FALSE)
 	var/aipointstoadd
 	aipointstoadd = calculatepoints()
-	if(!length(GLOB.ai_rts_buildings))
+	if(!length(GLOB.constructed_rts_builds))
 		ai_points -= 10 / (10 SECONDS / wait)
 		return
 	ai_points += aipointstoadd / (10 SECONDS / wait)

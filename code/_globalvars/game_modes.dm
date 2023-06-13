@@ -7,4 +7,5 @@ GLOBAL_VAR_INIT(master_mode, "Distress Signal")
 		buildings[initial(building_path.name)] = building_path
 	return buildings
 
+///all possible constructable buildings
 GLOBAL_LIST_INIT_TYPED(rts_buildings, /obj/structure/rts_building, init_rts_types())

@@ -15,18 +15,21 @@
 	var/pointvalue = 10
 	///how much this structure costs to create
 	var/pointcost = 1000
-	var/sci_on_completion = 1000
 	coverage = 95
 	bound_height = 64
 	bound_width = 64
+	///what building flags this building has
 	var/has_building_flags = AI_HEADQUARTERS
-	//We dont have armor do to being a bit more healthy!
+	//holder for unit datums
 	var/datum/rts_units/unit_type
+	///icon for activation, so we can show off fancy working graphics
 	var/activation_icon = "holder2"
+	///list of all units that can be built, remember that selectable units require certain buildings before they show up, this is just all the units that can theoretically be built
 	var/list/buildable_units = list(
 		/datum/rts_units/beetle,
 		/datum/rts_units/mantis,
 	)
+	///what flags we require to exist before we allow this building to be constructed
 	var/required_buildings_flags_for_construction = AI_NONE
 
 /obj/structure/rts_building/engineering
@@ -34,13 +37,16 @@
 	has_building_flags = AI_ENGINEERING
 	required_buildings_flags_for_construction = AI_HEADQUARTERS
 
+///ghost of the building we're constructing
 /obj/structure/rts_building/precursor
 	name = "AI headquarters"
 	max_integrity = 100
 	alpha = 100
 	pointvalue = 0
 	density = FALSE
+	///what building we'll deploy after buildtime is done
 	var/buildtype = /obj/structure/rts_building
+	///how long it takes until we deploy the real building
 	var/buildtime = 10 SECONDS
 	unit_type = null
 
@@ -69,7 +75,7 @@
 ///handles cost, prereq checking and build queuing before creating a unit
 /obj/structure/rts_building/proc/queueunit(mob/living/silicon/ai/malf/user)
 	if(HAS_TRAIT(src, BUILDING_BUSY))
-		to_chat(user, "This building is already producing something")
+		to_chat(user, "This building is already producing [unit_type.name]")
 		return
 	icon_state = activation_icon
 	to_chat(user, "You start production on a [unit_type.name]")
@@ -104,11 +110,11 @@
 /obj/structure/rts_building/Initialize(mapload, start_dir)
 	. = ..()
 	unit_type = new
-	GLOB.ai_rts_buildings += src
+	GLOB.constructed_rts_builds += src
 
 /obj/structure/rts_building/Destroy()
 	density = FALSE
-	GLOB.ai_rts_buildings -= src
+	GLOB.constructed_rts_builds -= src
 	QDEL_NULL(unit_type)
 	return ..()
 
@@ -117,7 +123,3 @@
 		take_damage(round(exposed_volume / 100), BURN, "fire")
 	return ..()
 
-/obj/structure/rts_building/proc/validate_build_reqs(incomingbitflag)
-	if(CHECK_BITFIELD(src, incomingbitflag))
-		return TRUE
-	return FALSE

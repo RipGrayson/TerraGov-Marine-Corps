@@ -1,8 +1,13 @@
 /datum/rts_units
+	///name of the unit in question
 	var/name = "Mantis Unit"
+	///how long it takes to build
 	var/buildtime = 10 SECONDS
+	///how many resource points it costs
 	var/cost = 15
+	///what mob is getting spawned from this
 	var/spawntype = /mob/living/carbon/xenomorph/mantis/ai
+	///required building flags before a unit can be spawned
 	var/required_unit_building_flags = null
 
 /datum/rts_units/mantis

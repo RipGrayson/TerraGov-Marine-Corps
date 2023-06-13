@@ -568,9 +568,9 @@
 
 /mob/living/silicon/ai/malf
 	available_networks = list("malfAI")
-	var/obj/structure/rts_building/held_building = /obj/structure/rts_building/precursor/engineering
-	///refs to the last structure that built something
-	var/datum/weakref/last_built_structure = null
+	var/obj/structure/rts_building/held_building = /obj/structure/rts_building/precursor
+	///the last structure that built something
+	var/obj/structure/rts_building/last_built_structure = null
 	///refs to the last unit built
 	var/datum/weakref/last_built_unit = null
 
@@ -594,29 +594,60 @@
 		else
 			stat("Railgun status:", "Railgun is ready to fire.")
 
+///shows available building options, performs some logic to make sure that options obey tech requirements
 /mob/living/silicon/ai/malf/proc/show_rts_build_options()
 
 	if(incapacitated())
 		return
 
-	var/allowed_buildings
-	for(var/building in GLOB.rts_buildings)
-		var/obj/structure/rts_building/blah = GLOB.rts_buildings[building]
-		if(blah.validate_build_reqs(blah.required_buildings_flags_for_construction))
-			allowed_buildings += GLOB.rts_buildings[blah]
+//	var/target_name = tgui_input_list(src, "Choose what you want to build", "Building", GLOB.rts_buildings)
+//	held_building = GLOB.rts_buildings [target_name]
 
-	var/target_name = tgui_input_list(src, "Choose what you want to build", "Building", allowed_buildings)
-	held_building = allowed_buildings[target_name]
+	if(held_building != null) //store whatever we built last if it's not null
+		last_built_structure = held_building
 
+	var/list/allowedbuildings = list()
+	for(var/word in GLOB.rts_buildings) //go through the global list of available buildings and validate requirements for each one
+		var/obj/structure/rts_building/new_building = GLOB.rts_buildings[word]
+		if(CHECK_BITFIELD(initial(new_building.required_buildings_flags_for_construction), AI_NONE)) //buildings with no requirements are always on the list
+			allowedbuildings += initial(new_building.name)
+			continue
+		for(var/wordtwo in GLOB.constructed_rts_builds)
+			if(validate_build_reqs(new_building, wordtwo))
+				allowedbuildings += initial(new_building.name)
+
+	var/target_name = tgui_input_list(src, "Choose what you want to build", "Building", allowedbuildings)
+	held_building = GLOB.rts_buildings[target_name]
+
+	if(held_building == null)
+		if(last_built_structure != null) //if our held_building is null but our last structure isn't, recover from that
+			held_building = last_built_structure //TODO, this is exploitable, add logic for validation
+			return
+		held_building = /obj/structure/rts_building/precursor //reset to base precursor, currently hq
+		to_chat(src, "Cannot find building, resetting to [initial(held_building.name)]")
+		return
+
+	to_chat(src, "You will now construct [initial(held_building.name)]")
+
+///handles selection of units from a buildings unit build pool
 /mob/living/silicon/ai/malf/proc/show_unit_build_options(obj/structure/rts_building/selectedstructure)
 
 	if(incapacitated())
 		return
 
-	if(length(selectedstructure.buildable_units) <= 1)
+	if(length(selectedstructure.buildable_units) <= 1) //we have one or less options, don't bother with a popup
 		return
+
+	if(HAS_TRAIT(selectedstructure, BUILDING_BUSY))
+		to_chat(src, "Can't switch production types while already building a unit.")
+		return
+
 	var/target_name = tgui_input_list(src, "Choose what you want to build", "Building", selectedstructure.buildable_units)
-	//selectedstructure.unit_type = new selectedstructure.buildable_units[target_name]
 	selectedstructure.unit_type = new target_name
+	to_chat(src, "The [selectedstructure] will now produce [selectedstructure.unit_type.name]")
 
-
+///takes two sets of structures, if the first one's build requirements are met by the second, return true
+/mob/living/silicon/ai/malf/proc/validate_build_reqs(obj/structure/rts_building/firstbuilding, obj/structure/rts_building/selectedbuilding)
+	if(CHECK_BITFIELD(initial(firstbuilding.required_buildings_flags_for_construction), initial(selectedbuilding.has_building_flags)))
+		return TRUE
+	return FALSE
