@@ -642,12 +642,29 @@
 		to_chat(src, "Can't switch production types while already building a unit.")
 		return
 
-	var/target_name = tgui_input_list(src, "Choose what you want to build", "Building", selectedstructure.buildable_units)
+	var/list/allowedunits = list()
+	for(var/word in selectedstructure.buildable_units) //go through the global list of available buildings and validate requirements for each one
+		var/datum/rts_units/new_unit = word
+		if(CHECK_BITFIELD(initial(new_unit.required_unit_building_flags), AI_NONE)) //buildings with no requirements are always on the list
+			allowedunits += initial(new_unit)
+			continue
+		for(var/wordtwo in GLOB.constructed_rts_builds)
+			if(validate_build_reqs_unit(new_unit, wordtwo))
+				allowedunits += initial(new_unit)
+
+	var/target_name = tgui_input_list(src, "Choose what you want to build", "Building", allowedunits)
+	if(target_name == null)
+		return
 	selectedstructure.unit_type = new target_name
 	to_chat(src, "The [selectedstructure] will now produce [selectedstructure.unit_type.name]")
 
 ///takes two sets of structures, if the first one's build requirements are met by the second, return true
 /mob/living/silicon/ai/malf/proc/validate_build_reqs(obj/structure/rts_building/firstbuilding, obj/structure/rts_building/selectedbuilding)
 	if(CHECK_BITFIELD(initial(firstbuilding.required_buildings_flags_for_construction), initial(selectedbuilding.has_building_flags)))
+		return TRUE
+	return FALSE
+
+/mob/living/silicon/ai/malf/proc/validate_build_reqs_unit(datum/rts_units/firstunit, obj/structure/rts_building/selectedbuilding) //yes I know I could probably combine procs and be more efficient, save it for post completion cleanup
+	if(CHECK_BITFIELD(initial(firstunit.required_unit_building_flags), initial(selectedbuilding.has_building_flags)))
 		return TRUE
 	return FALSE

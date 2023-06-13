@@ -8,7 +8,7 @@
 	///what mob is getting spawned from this
 	var/spawntype = /mob/living/carbon/xenomorph/mantis/ai
 	///required building flags before a unit can be spawned
-	var/required_unit_building_flags = null
+	var/required_unit_building_flags = AI_NONE
 
 /datum/rts_units/mantis
 	buildtime = 15 SECONDS
