@@ -475,7 +475,7 @@
 /area/mainship/engineering/upper_engineering)
 "aGA" = (
 /turf/open/floor/mainship/red/full,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "aGO" = (
 /obj/structure/bed/chair/sofa/right,
 /obj/machinery/firealarm,
@@ -1360,7 +1360,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "bIl" = (
 /obj/machinery/light/mainship{
 	dir = 4
@@ -3023,7 +3023,7 @@
 /turf/open/floor/mainship/cargo/arrow{
 	dir = 8
 	},
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "dLo" = (
 /turf/closed/wall/mainship/white,
 /area/mainship/medical/chemistry)
@@ -3211,7 +3211,7 @@
 /area/mainship/command/cic)
 "dWI" = (
 /turf/open/floor/mainship/orange/full,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "dWU" = (
 /obj/machinery/door/firedoor/mainship,
 /obj/machinery/door/poddoor/mainship/open/cic,
@@ -5013,7 +5013,7 @@
 "goY" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/wood,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "gpa" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -6059,7 +6059,7 @@
 /turf/open/floor/mainship/cargo/arrow{
 	dir = 8
 	},
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "hSO" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
@@ -6527,7 +6527,7 @@
 /obj/machinery/line_nexter,
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "iCT" = (
 /obj/machinery/light/mainship{
 	dir = 1
@@ -7033,7 +7033,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "jed" = (
 /turf/open/floor/mainship/black/corner{
 	dir = 4
@@ -7455,7 +7455,7 @@
 /area/mainship/shipboard/weapon_room)
 "jQH" = (
 /turf/open/floor/wood,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "jQT" = (
 /obj/machinery/light/mainship{
 	dir = 4
@@ -8286,7 +8286,7 @@
 /obj/machinery/vending/nanomed,
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "kSz" = (
 /turf/closed/wall/mainship,
 /area/mainship/shipboard/weapon_room)
@@ -8520,7 +8520,7 @@
 /area/mainship/hallways/hangar)
 "leW" = (
 /turf/open/floor/mainship/purple/full,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "lfT" = (
 /obj/effect/turf_decal/warning_stripes/thin,
 /obj/machinery/landinglight/ds1/delaythree,
@@ -8723,7 +8723,7 @@
 	dir = 4
 	},
 /turf/open/floor/plating/plating_catwalk,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "loc" = (
 /obj/structure/cable,
 /obj/structure/disposalpipe/segment/corner{
@@ -10696,7 +10696,7 @@
 	on = 1
 	},
 /turf/open/floor/plating/plating_catwalk,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "nLu" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -11580,7 +11580,7 @@
 	dir = 1
 	},
 /turf/open/floor/plating/plating_catwalk,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "oUT" = (
 /obj/machinery/door/window/secure/bridge/aidoor{
 	dir = 2
@@ -13978,7 +13978,7 @@
 "rXy" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/mainship/blue/full,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "rYr" = (
 /obj/structure/cable,
 /obj/machinery/camera/autoname/mainship,
@@ -16824,7 +16824,7 @@
 /obj/structure/barricade/metal,
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "vuX" = (
 /turf/closed/wall/mainship,
 /area/mainship/command/self_destruct)
@@ -17255,7 +17255,7 @@
 /obj/machinery/power/apc/mainship,
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "wcT" = (
 /turf/closed/wall/mainship/white,
 /area/mainship/medical/upper_medical)
@@ -17491,7 +17491,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/cable,
 /turf/open/floor/mainship/mono,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "wrV" = (
 /obj/machinery/griddle,
 /turf/open/floor/mainship/floor,
@@ -17993,7 +17993,7 @@
 "wVL" = (
 /obj/structure/closet/boxinggloves,
 /turf/open/floor/plating/plating_catwalk,
-/area/holodeck/source_boxingcourt)
+/area/mainship/hallways/boxingring)
 "wVZ" = (
 /obj/machinery/door/poddoor/mainship/ammo{
 	dir = 2;
