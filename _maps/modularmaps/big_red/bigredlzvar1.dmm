@@ -93,6 +93,11 @@
 	dir = 4
 	},
 /area/bigredv2/outside/nw)
+"ck" = (
+/obj/structure/cable,
+/obj/machinery/holopad,
+/turf/open/floor/plating,
+/area/bigredv2/outside/space_port)
 "cC" = (
 /obj/structure/cargo_container/green{
 	dir = 1
@@ -279,6 +284,10 @@
 	dir = 8
 	},
 /area/bigredv2/outside/marshal_office)
+"gC" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "gE" = (
 /obj/effect/spawner/random/misc/folder/nooffset,
 /turf/open/floor/tile/dark,
@@ -356,6 +365,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/machinery/holopad,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
 "iC" = (
@@ -537,6 +547,9 @@
 	dir = 1
 	},
 /area/bigredv2/outside/space_port)
+"nN" = (
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "nU" = (
 /obj/structure/cable,
 /turf/closed/wall/r_wall,
@@ -687,6 +700,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/marshal_office)
+"rW" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone{
+	dir = 2
+	},
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "sm" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/red/redtaupecorner{
@@ -772,6 +791,10 @@
 	},
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/nw)
+"ut" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone,
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "uw" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 1
@@ -836,6 +859,10 @@
 	},
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
+"wq" = (
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark,
+/area/bigredv2/outside/space_port)
 "wr" = (
 /obj/structure/cargo_container{
 	dir = 1
@@ -1552,7 +1579,7 @@
 "Pd" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
-/turf/closed/mineral/smooth/bigred,
+/turf/closed/mineral/smooth/bigred/indestructible,
 /area/bigredv2/caves/rock)
 "Pj" = (
 /turf/open/floor/plating/icefloor/warnplate{
@@ -2064,32 +2091,32 @@ gJ
 gJ
 gJ
 gJ
-hC
-hC
-hC
-hC
-hC
-hC
-hC
-hC
-hC
-hC
-hC
-hC
-hC
-hC
-hC
-hC
+ut
+ut
+ut
+ut
+ut
+ut
+ut
+ut
+ut
+ut
+ut
+ut
+ut
+ut
+ut
+ut
 Pd
-hC
-hC
-hC
-hC
-hC
-hC
-hC
-hC
-hC
+ut
+ut
+ut
+ut
+ut
+ut
+ut
+ut
+ut
 gJ
 "}
 (3,1,1) = {"
@@ -2104,7 +2131,7 @@ gJ
 gJ
 gJ
 gJ
-bb
+rW
 gJ
 gJ
 gJ
@@ -2129,7 +2156,7 @@ tE
 tE
 tE
 tE
-bb
+rW
 gJ
 "}
 (4,1,1) = {"
@@ -2144,7 +2171,7 @@ gJ
 gJ
 gJ
 gJ
-bb
+rW
 gJ
 tE
 tE
@@ -2169,7 +2196,7 @@ QL
 QL
 QL
 tE
-bb
+rW
 gJ
 "}
 (5,1,1) = {"
@@ -2184,7 +2211,7 @@ gJ
 gJ
 gJ
 gJ
-bb
+rW
 mq
 tE
 uG
@@ -2224,7 +2251,7 @@ gJ
 gJ
 gJ
 gJ
-bb
+rW
 mq
 tE
 uG
@@ -2264,7 +2291,7 @@ hC
 hC
 hC
 hC
-hC
+ut
 mq
 ht
 uG
@@ -2304,7 +2331,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 gJ
 EG
 Ju
@@ -2344,7 +2371,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 gJ
 EG
 jS
@@ -2377,14 +2404,14 @@ gJ
 gJ
 gJ
 gJ
-gJ
-bb
-gJ
-gJ
-gJ
-gJ
-gJ
-gJ
+nN
+rW
+nN
+nN
+nN
+nN
+nN
+nN
 gJ
 ht
 QL
@@ -2417,7 +2444,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 gJ
 gJ
@@ -2457,7 +2484,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 tE
@@ -2497,7 +2524,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 oV
@@ -2537,7 +2564,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 Iq
@@ -2577,7 +2604,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 uw
@@ -2617,7 +2644,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 wS
@@ -2657,7 +2684,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 uw
@@ -2697,7 +2724,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 uw
@@ -2737,7 +2764,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 uw
@@ -2777,7 +2804,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 uw
@@ -2817,7 +2844,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 uw
@@ -2857,7 +2884,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 uw
@@ -2897,7 +2924,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 Yb
@@ -2937,7 +2964,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 uw
@@ -2977,7 +3004,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 uw
@@ -3017,7 +3044,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 uw
@@ -3057,7 +3084,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 uw
@@ -3097,7 +3124,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 uw
@@ -3137,7 +3164,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 uw
@@ -3177,7 +3204,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 CR
@@ -3217,7 +3244,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 uw
@@ -3257,7 +3284,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 xm
@@ -3297,7 +3324,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 SW
@@ -3337,7 +3364,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 SW
@@ -3377,7 +3404,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 bb
 tE
 tE
@@ -3417,7 +3444,7 @@ ha
 ha
 ha
 ha
-ha
+gC
 YP
 YP
 YP
@@ -3457,10 +3484,10 @@ gJ
 gJ
 gJ
 gJ
-gJ
-gJ
-gJ
-gJ
+nN
+nN
+nN
+nN
 wl
 tE
 SW
@@ -3484,7 +3511,7 @@ iQ
 iQ
 iQ
 vg
-iQ
+ck
 iQ
 iQ
 pj
@@ -3500,7 +3527,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 wl
 tE
 SW
@@ -3540,7 +3567,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 wl
 tE
 MV
@@ -3580,7 +3607,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 wl
 tE
 hK
@@ -3620,7 +3647,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 wl
 tE
 FO
@@ -3660,7 +3687,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 wl
 tE
 xB
@@ -3668,7 +3695,7 @@ Yp
 Hs
 Yp
 Hs
-Yp
+wq
 Yp
 Uc
 JL
@@ -3700,7 +3727,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 wl
 tE
 xB
@@ -3740,7 +3767,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 wl
 tE
 qK
@@ -3780,7 +3807,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 wl
 tE
 Yp
@@ -3820,7 +3847,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 wl
 tE
 xx
@@ -3860,7 +3887,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 wl
 tE
 tE
@@ -3900,7 +3927,7 @@ gJ
 gJ
 gJ
 gJ
-gJ
+nN
 hC
 YP
 YP
@@ -3940,10 +3967,10 @@ gJ
 gJ
 gJ
 gJ
-gJ
-gJ
-gJ
-gJ
+nN
+nN
+nN
+nN
 GX
 AD
 CD

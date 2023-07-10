@@ -5271,6 +5271,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
+/obj/machinery/holopad,
 /turf/open/floor/prison/darkred/corners,
 /area/prison/security/checkpoint/maxsec_highsec)
 "arO" = (
@@ -25185,6 +25186,7 @@
 "bBd" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
+/obj/machinery/holopad,
 /turf/open/floor/prison/darkred/corners{
 	dir = 1
 	},
@@ -37914,6 +37916,7 @@
 /area/prison/pirate)
 "crk" = (
 /obj/machinery/door/airlock/maintenance_hatch{
+	dir = 1;
 	name = "Rocinante Crew Quarters"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -37941,6 +37944,7 @@
 /area/prison/pirate)
 "crp" = (
 /obj/machinery/door/airlock/maintenance_hatch{
+	dir = 2;
 	name = "Rocinante Storage/Medical"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -38337,6 +38341,7 @@
 /area/prison/pirate)
 "csU" = (
 /obj/machinery/door/airlock/centcom{
+	dir = 2;
 	name = "Rocinante Captain's Quarters"
 	},
 /turf/open/floor/prison/bluefloor,
@@ -39450,6 +39455,7 @@
 /area/prison/cellblock/mediumsec/east)
 "cwF" = (
 /obj/machinery/door/airlock/engineering{
+	dir = 1;
 	name = "Rocinante Engine Room"
 	},
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
@@ -40426,6 +40432,10 @@
 	dir = 8
 	},
 /area/prison/hangar/main)
+"cUi" = (
+/obj/effect/spawner/random/misc/structure/supplycrate/normalweighted,
+/turf/open/floor/prison,
+/area/prison/hangar/civilian)
 "cWX" = (
 /obj/machinery/door/window,
 /turf/open/floor/prison/whitepurple{
@@ -41418,6 +41428,16 @@
 "fMj" = (
 /turf/open/floor/plating,
 /area/prison/cellblock/mediumsec/south)
+"fOW" = (
+/obj/structure/bed/chair/office/dark{
+	dir = 4
+	},
+/obj/effect/decal/cleanable/blood,
+/obj/machinery/holopad,
+/turf/open/floor/prison/darkred{
+	dir = 4
+	},
+/area/prison/hangar/main)
 "fQU" = (
 /obj/structure/disposalpipe/segment/corner{
 	dir = 1
@@ -42274,6 +42294,10 @@
 	},
 /turf/open/floor/plating,
 /area/prison/maintenance/hangar_barracks)
+"icP" = (
+/obj/machinery/holopad,
+/turf/open/floor/plating,
+/area/prison/hangar/main)
 "ifv" = (
 /obj/structure/table/reinforced,
 /obj/item/autopsy_scanner{
@@ -42814,6 +42838,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/prison/sterilewhite,
 /area/prison/cellblock/lowsec/se)
+"jvr" = (
+/obj/machinery/holopad,
+/turf/open/floor/prison,
+/area/prison/security)
 "jyJ" = (
 /obj/structure/bed,
 /turf/open/floor/prison/cellstripe{
@@ -43732,6 +43760,10 @@
 	},
 /turf/open/floor/plating,
 /area/prison/maintenance/residential/sw)
+"mdz" = (
+/obj/machinery/holopad,
+/turf/open/floor/prison,
+/area/prison/hangar/civilian)
 "mex" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
@@ -44359,6 +44391,10 @@
 	},
 /turf/open/floor/prison,
 /area/prison/quarters/security)
+"nBj" = (
+/obj/machinery/holopad,
+/turf/open/floor/wood,
+/area/prison/residential/central)
 "nDc" = (
 /obj/machinery/atmospherics/components/unary/vent_scrubber{
 	dir = 4
@@ -45026,6 +45062,17 @@
 	dir = 8
 	},
 /area/prison/cellblock/highsec/south/north)
+"pnv" = (
+/obj/structure/cable,
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/machinery/holopad,
+/turf/open/floor/prison/sterilewhite,
+/area/prison/research/secret/bioengineering)
 "ppw" = (
 /obj/structure/bed/chair,
 /obj/effect/ai_node,
@@ -45040,6 +45087,7 @@
 /area/prison/residential/central)
 "puF" = (
 /obj/effect/landmark/weed_node,
+/obj/machinery/holopad,
 /turf/open/floor/prison,
 /area/prison/security/head)
 "pvm" = (
@@ -54787,7 +54835,7 @@ jFi
 ays
 ubZ
 bkv
-ays
+cUi
 ays
 iNO
 mKN
@@ -55301,8 +55349,8 @@ lQY
 ays
 avE
 bkv
-ays
-ays
+mdz
+cUi
 azr
 mKN
 ays
@@ -57873,7 +57921,7 @@ aVI
 rqp
 brr
 axO
-iYA
+nBj
 bRj
 aWr
 xwG
@@ -91209,7 +91257,7 @@ afJ
 ahe
 hTd
 ahH
-aiV
+pnv
 agq
 aiv
 afM
@@ -104681,7 +104729,7 @@ bRV
 bRV
 bRV
 bLz
-oRr
+jvr
 oRr
 rsn
 oRr
@@ -106182,7 +106230,7 @@ vIX
 udy
 bhw
 bhu
-biI
+fOW
 gAI
 bkH
 blB
@@ -107986,7 +108034,7 @@ nTj
 bkJ
 blG
 nTj
-nTj
+icP
 nTj
 nTj
 nTj

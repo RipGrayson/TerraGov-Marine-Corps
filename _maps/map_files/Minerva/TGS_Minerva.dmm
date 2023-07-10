@@ -5478,6 +5478,7 @@
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/shipboard/firing_range)
 "pY" = (
+/obj/machinery/holopad,
 /turf/open/floor/mainship/mono,
 /area/mainship/command/telecomms)
 "pZ" = (
@@ -8227,6 +8228,7 @@
 	dir = 4
 	},
 /obj/machinery/air_alarm,
+/obj/machinery/holopad,
 /turf/open/floor/mainship/mono,
 /area/mainship/living/evacuation)
 "yn" = (
@@ -9477,6 +9479,11 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hallways/hangar)
+"BL" = (
+/obj/effect/turf_decal/warning_stripes/thin,
+/obj/machinery/holopad,
+/turf/open/floor/mainship/mono,
+/area/mainship/hull/starboard_hull)
 "BM" = (
 /obj/machinery/light/mainship,
 /obj/machinery/atmospherics/components/unary/vent_scrubber/on{
@@ -11283,6 +11290,13 @@
 "Hd" = (
 /turf/open/floor/mainship/sterile/side,
 /area/mainship/medical/lounge)
+"He" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/machinery/holopad,
+/turf/open/floor/mainship/mono,
+/area/mainship/hull/starboard_hull)
 "Hf" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -12837,6 +12851,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/living/briefing)
+"LJ" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/machinery/holopad,
+/turf/open/floor/mainship/mono,
+/area/mainship/living/evacuation)
 "LK" = (
 /obj/machinery/light/mainship{
 	dir = 8
@@ -19609,7 +19630,7 @@ zf
 zf
 zf
 zf
-Lw
+LJ
 LX
 MO
 Nq
@@ -30554,7 +30575,7 @@ ZK
 YB
 XE
 aO
-jZ
+BL
 nR
 Zy
 Zy
@@ -30568,7 +30589,7 @@ Zy
 Zy
 Zy
 Zy
-xh
+He
 Hr
 XE
 XE

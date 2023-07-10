@@ -57,6 +57,10 @@
 /obj/docking_port/mobile/escape_pod/escape_shuttle,
 /turf/open/floor/plating/mainship,
 /area/shuttle/escape_pod)
+"N" = (
+/obj/machinery/holopad,
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/escape_pod)
 "R" = (
 /turf/closed/shuttle/escapeshuttle,
 /area/shuttle/escape_pod)
@@ -96,7 +100,7 @@ R
 R
 d
 f
-k
+N
 T
 d
 R

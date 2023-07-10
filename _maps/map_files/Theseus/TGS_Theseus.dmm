@@ -921,11 +921,10 @@
 /turf/open/floor/engine,
 /area/mainship/hull/port_hull)
 "adj" = (
-/obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
-	dir = 1;
-	},
-/turf/open/floor/engine,
-/area/mainship/hull/port_hull)
+/obj/structure/cable,
+/obj/machinery/holopad,
+/turf/open/floor/mainship/mono,
+/area/mainship/command/telecomms)
 "adk" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
@@ -8292,6 +8291,11 @@
 /obj/machinery/holopad,
 /turf/open/floor/mainship/mono,
 /area/mainship/hallways/port_hallway)
+"cTV" = (
+/obj/effect/turf_decal/warning_stripes/thin,
+/obj/machinery/holopad,
+/turf/open/floor/mainship/mono,
+/area/mainship/hull/port_hull)
 "cUz" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -9639,6 +9643,7 @@
 /area/mainship/medical/lower_medical)
 "fpW" = (
 /obj/machinery/roomba,
+/obj/machinery/holopad,
 /turf/open/floor/mainship/green{
 	dir = 4
 	},
@@ -14069,6 +14074,13 @@
 	},
 /turf/open/floor/mainship/floor,
 /area/mainship/squads/delta)
+"mMT" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 1
+	},
+/obj/machinery/holopad,
+/turf/open/floor/mainship/mono,
+/area/mainship/hull/starboard_hull)
 "mNj" = (
 /obj/structure/disposalpipe/segment/corner,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -17582,7 +17594,7 @@
 /area/mainship/hallways/port_hallway)
 "szr" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
-	dir = 1;
+	dir = 1
 	},
 /turf/open/floor/engine/nitrogen,
 /area/mainship/hull/port_hull)
@@ -19321,7 +19333,7 @@
 /area/mainship/living/starboard_garden)
 "vPj" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/siphon/on{
-	dir = 1;
+	dir = 1
 	},
 /turf/open/floor/engine,
 /area/mainship/hull/port_hull)
@@ -54103,7 +54115,7 @@ aai
 rbR
 aoJ
 bcY
-boH
+adj
 baO
 aoJ
 jcM
@@ -66953,7 +66965,7 @@ bQi
 bQi
 bQi
 bQi
-ctg
+mMT
 rbR
 bbi
 bbm
@@ -66999,7 +67011,7 @@ bXc
 bSR
 bRQ
 fZA
-frP
+cTV
 tZh
 bRF
 bRF
@@ -75986,7 +75998,7 @@ aVs
 acI
 acR
 adb
-adj
+vPj
 aVk
 aaa
 aaa

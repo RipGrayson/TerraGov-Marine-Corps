@@ -592,6 +592,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/machinery/holopad,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
 "mw" = (
@@ -712,7 +713,7 @@
 "pX" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
-/turf/closed/mineral/smooth/bigred,
+/turf/closed/mineral/smooth/bigred/indestructible,
 /area/bigredv2/caves/rock)
 "qb" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
@@ -759,6 +760,12 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/north)
+"rh" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone{
+	dir = 2
+	},
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "rm" = (
 /obj/machinery/light{
 	dir = 4
@@ -778,6 +785,10 @@
 "rG" = (
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/caves/northwest)
+"rQ" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "sb" = (
 /obj/structure/rack,
 /obj/item/armor_module/storage/uniform/black_vest,
@@ -911,6 +922,10 @@
 	},
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
+"vQ" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone,
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "vY" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/red/redtaupecorner{
@@ -1951,6 +1966,10 @@
 /obj/machinery/light,
 /turf/open/floor/plating,
 /area/bigredv2/outside/space_port)
+"UO" = (
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark,
+/area/bigredv2/outside/space_port)
 "UY" = (
 /turf/closed/wall,
 /area/bigredv2/outside/telecomm)
@@ -2046,6 +2065,11 @@
 "XR" = (
 /turf/open/floor,
 /area/bigredv2/outside/marshal_office)
+"XV" = (
+/obj/structure/cable,
+/obj/machinery/holopad,
+/turf/open/floor/plating,
+/area/bigredv2/outside/space_port)
 "XZ" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/weed_node,
@@ -2054,6 +2078,9 @@
 "Ye" = (
 /obj/structure/cable,
 /turf/closed/mineral/smooth/bigred,
+/area/bigredv2/caves/rock)
+"Yl" = (
+/turf/closed/mineral/smooth/bigred/indestructible,
 /area/bigredv2/caves/rock)
 "Ys" = (
 /obj/structure/cargo_container{
@@ -2195,26 +2222,26 @@ op
 op
 op
 op
-op
-op
-op
-op
-op
-op
-op
-op
-op
-op
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
 pX
-op
-op
-op
-op
-op
-op
-op
-op
-op
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
+vQ
 rD
 "}
 (3,1,1) = {"
@@ -2229,13 +2256,13 @@ rD
 rD
 rD
 rD
-DG
-rD
-rD
-rD
-rD
-rD
-rD
+rh
+Yl
+Yl
+Yl
+Yl
+Yl
+Yl
 xi
 xi
 xi
@@ -2254,7 +2281,7 @@ iY
 iY
 iY
 iY
-DG
+rh
 rD
 "}
 (4,1,1) = {"
@@ -2269,7 +2296,7 @@ rD
 rD
 rD
 rD
-DG
+rh
 rD
 iY
 iY
@@ -2294,7 +2321,7 @@ rA
 rA
 rA
 iY
-DG
+rh
 rD
 "}
 (5,1,1) = {"
@@ -2309,7 +2336,7 @@ rD
 rD
 rD
 rD
-DG
+rh
 Ye
 iY
 AM
@@ -2349,7 +2376,7 @@ rD
 rD
 rD
 rD
-DG
+rh
 Ye
 iY
 AM
@@ -2389,7 +2416,7 @@ op
 op
 op
 op
-op
+vQ
 Ye
 Jw
 AM
@@ -2429,7 +2456,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 rD
 Nu
 JU
@@ -2469,7 +2496,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 rD
 Nu
 Ak
@@ -2502,14 +2529,14 @@ rD
 rD
 rD
 rD
-rD
-DG
-rD
-rD
-rD
-rD
-rD
-rD
+Yl
+rh
+Yl
+Yl
+Yl
+Yl
+Yl
+Yl
 rD
 Jw
 rA
@@ -2542,7 +2569,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 rD
 rD
@@ -2582,7 +2609,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 iY
@@ -2622,7 +2649,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 rA
@@ -2662,7 +2689,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 Ln
@@ -2702,7 +2729,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 kW
@@ -2742,7 +2769,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 zs
@@ -2782,7 +2809,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 kW
@@ -2822,7 +2849,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 Th
@@ -2862,7 +2889,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 kW
@@ -2902,7 +2929,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 kW
@@ -2942,7 +2969,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 kW
@@ -2982,7 +3009,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 kW
@@ -3022,7 +3049,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 DM
@@ -3062,7 +3089,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 kW
@@ -3102,7 +3129,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 kW
@@ -3142,7 +3169,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 kW
@@ -3182,7 +3209,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 kW
@@ -3222,7 +3249,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 kW
@@ -3262,7 +3289,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 kW
@@ -3302,7 +3329,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 MS
@@ -3342,7 +3369,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 kW
@@ -3382,7 +3409,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 jJ
@@ -3422,7 +3449,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 HJ
@@ -3462,7 +3489,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 HJ
@@ -3502,7 +3529,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 DG
 iY
 iY
@@ -3542,7 +3569,7 @@ EJ
 EJ
 EJ
 EJ
-EJ
+rQ
 io
 io
 io
@@ -3582,10 +3609,10 @@ rD
 rD
 rD
 rD
-rD
-rD
-rD
-rD
+Yl
+Yl
+Yl
+Yl
 GF
 iY
 HJ
@@ -3610,7 +3637,7 @@ lZ
 lZ
 fR
 lZ
-lZ
+XV
 lZ
 ki
 LB
@@ -3625,7 +3652,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 GF
 iY
 HJ
@@ -3665,7 +3692,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 GF
 iY
 sh
@@ -3705,7 +3732,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 GF
 iY
 mz
@@ -3745,7 +3772,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 GF
 iY
 RO
@@ -3785,7 +3812,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 GF
 iY
 oE
@@ -3793,7 +3820,7 @@ aM
 mw
 aM
 mw
-aM
+UO
 aM
 cY
 xD
@@ -3825,7 +3852,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 GF
 iY
 oE
@@ -3865,7 +3892,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 GF
 iY
 pd
@@ -3905,7 +3932,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 GF
 iY
 aM
@@ -3945,7 +3972,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 GF
 iY
 Hj
@@ -3985,7 +4012,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 GF
 iY
 iY
@@ -4025,7 +4052,7 @@ rD
 rD
 rD
 rD
-rD
+Yl
 op
 io
 io
@@ -4065,8 +4092,8 @@ rD
 rD
 rD
 rD
-rD
-rD
+Yl
+Yl
 rD
 rD
 ok

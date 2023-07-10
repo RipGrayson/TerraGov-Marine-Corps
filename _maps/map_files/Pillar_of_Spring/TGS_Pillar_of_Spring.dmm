@@ -6144,6 +6144,12 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/mainship/squads/req)
+"icE" = (
+/obj/machinery/holopad,
+/turf/open/floor/mainship/red{
+	dir = 4
+	},
+/area/mainship/command/airoom)
 "idy" = (
 /obj/item/stack/tile/plasteel,
 /turf/open/floor/plating/icefloor/warnplate{
@@ -10943,6 +10949,16 @@
 	},
 /turf/open/floor/plating/plating_catwalk,
 /area/mainship/hull/lower_hull)
+"ofJ" = (
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
+	dir = 4
+	},
+/obj/machinery/holopad,
+/turf/open/floor/mainship/sterile/plain,
+/area/mainship/living/tankerbunks)
 "ogF" = (
 /obj/structure/noticeboard,
 /turf/closed/wall/mainship,
@@ -16155,12 +16171,11 @@
 	},
 /area/mainship/living/tankerbunks)
 "uDl" = (
-/obj/effect/soundplayer,
 /obj/structure/sign/ROsign{
 	dir = 1
 	},
-/turf/closed/wall/mainship,
-/area/mainship/squads/req)
+/turf/open/floor/mainship/mono,
+/area/mainship/hallways/starboard_hallway)
 "uDq" = (
 /obj/structure/ship_ammo/minirocket/illumination,
 /obj/machinery/light/mainship{
@@ -52948,8 +52963,8 @@ sEr
 fbL
 lxK
 hhf
+lxK
 uDl
-vmD
 edD
 niH
 lMV
@@ -53763,7 +53778,7 @@ hQD
 gll
 uMf
 fCi
-fCi
+icE
 fCi
 fCi
 pdo
@@ -57298,7 +57313,7 @@ viN
 viN
 viN
 jpU
-iSK
+ofJ
 btQ
 efa
 rpk

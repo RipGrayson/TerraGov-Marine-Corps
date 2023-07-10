@@ -1101,6 +1101,10 @@
 /obj/machinery/miner/damaged/platinum,
 /turf/open/floor/plating/ground/ice,
 /area/icy_caves/caves/south)
+"fO" = (
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/LZ1)
 "fP" = (
 /obj/effect/landmark/patrol_point{
 	id = "SOM_13";
@@ -2151,6 +2155,10 @@
 	dir = 8
 	},
 /area/icy_caves/outpost/garage)
+"mm" = (
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/LZ2)
 "mn" = (
 /obj/machinery/vending/sovietsoda,
 /turf/open/floor/prison/red{
@@ -2637,6 +2645,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
+/obj/machinery/holopad,
 /turf/open/floor/prison/bright_clean/two,
 /area/icy_caves/caves/northwestmonorail)
 "oS" = (
@@ -4193,6 +4202,9 @@
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/icy_caves/caves/northwestmonorail/hallway)
+"vV" = (
+/turf/closed/mineral/smooth/darkfrostwall/indestructible,
+/area/icy_caves/caves/rock)
 "vX" = (
 /obj/effect/spawner/random/engineering/structure/handheld_lighting,
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -7569,6 +7581,10 @@
 /obj/effect/ai_node,
 /turf/open/shuttle/dropship/floor,
 /area/icy_caves/caves/northwestmonorail)
+"MB" = (
+/obj/machinery/holopad,
+/turf/open/floor/plating/mainship,
+/area/icy_caves/caves/crashed_ship)
 "MC" = (
 /obj/structure/closet/l3closet/virology,
 /turf/open/floor/tile/dark/green2{
@@ -8251,6 +8267,10 @@
 /obj/structure/prop/mainship/sensor_computer2,
 /turf/open/floor/mainship/tcomms,
 /area/icy_caves/caves/northwestmonorail)
+"Qh" = (
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/refinery)
 "Qi" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/closed/mineral/smooth/bluefrostwall,
@@ -8530,6 +8550,10 @@
 "Rv" = (
 /turf/closed/wall/r_wall,
 /area/icy_caves/caves)
+"Rw" = (
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/security)
 "Rx" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/blood,
@@ -8600,6 +8624,14 @@
 "RU" = (
 /turf/open/floor/plating/ground/snow/layer1,
 /area/icy_caves/caves/east)
+"RW" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden{
+	dir = 4
+	},
+/obj/structure/cable,
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark,
+/area/icy_caves/outpost/office)
 "RX" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -10464,7 +10496,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 ZP
 ZP
@@ -10620,7 +10652,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Ww
 ZY
@@ -10776,7 +10808,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Ww
 ZP
@@ -10932,7 +10964,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Ww
 ZP
@@ -11088,7 +11120,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Ww
 ZP
@@ -11244,7 +11276,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Ww
 TM
@@ -11400,7 +11432,7 @@ ZI
 ZI
 ZI
 ZI
-ZP
+vV
 ZI
 Ww
 TM
@@ -11556,7 +11588,7 @@ ZI
 ZI
 WI
 WI
-ZP
+vV
 ZP
 Ww
 sK
@@ -11712,7 +11744,7 @@ WI
 WI
 WI
 WI
-ZP
+vV
 ZP
 Tf
 TM
@@ -12977,7 +13009,7 @@ uw
 uw
 uw
 uw
-uw
+fO
 uw
 uw
 uw
@@ -14238,9 +14270,9 @@ Za
 Za
 Za
 XO
-ZP
-ZP
-ZP
+vV
+vV
+vV
 EM
 "}
 (27,1,1) = {"
@@ -16227,7 +16259,7 @@ qt
 Gw
 aD
 XU
-DY
+Qh
 Dv
 qt
 Gw
@@ -21535,7 +21567,7 @@ li
 FZ
 yl
 Mj
-Ix
+RW
 hQ
 Nf
 Nf
@@ -23427,7 +23459,7 @@ Zo
 Ye
 Zr
 bO
-Ie
+Rw
 Ah
 LU
 IH
@@ -27045,7 +27077,7 @@ ZP
 ZP
 DC
 aJ
-sH
+MB
 aO
 cM
 SR
@@ -28836,7 +28868,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 ZP
 ZP
@@ -28873,7 +28905,7 @@ nI
 nI
 Tl
 XO
-ZP
+vV
 ZP
 ZP
 ZP
@@ -28992,7 +29024,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZI
 ZI
 ZI
@@ -29029,7 +29061,7 @@ nI
 nI
 En
 ZI
-ZP
+vV
 ZP
 ZP
 ZP
@@ -29148,7 +29180,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 ZP
 ZI
@@ -29185,7 +29217,7 @@ oP
 oP
 Uj
 ZI
-ZP
+vV
 ZP
 ZP
 ZP
@@ -29304,10 +29336,10 @@ ZP
 ZP
 ZP
 ZP
-ZP
-ZP
-ZP
-ZP
+vV
+vV
+vV
+vV
 ZI
 Up
 ZI
@@ -29341,7 +29373,7 @@ oP
 ZI
 Uj
 ZI
-ZP
+vV
 ZP
 ZP
 ZP
@@ -29463,7 +29495,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Up
 ZI
@@ -29497,7 +29529,7 @@ oP
 ZI
 Uj
 ZI
-ZP
+vV
 ZP
 ZP
 ZP
@@ -29619,7 +29651,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZI
@@ -29653,7 +29685,7 @@ oP
 nI
 Uj
 ZI
-ZP
+vV
 ZP
 ZP
 ZP
@@ -29775,7 +29807,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -29809,7 +29841,7 @@ oP
 ZI
 Uj
 ZI
-ZP
+vV
 ZP
 ZP
 ZP
@@ -29931,7 +29963,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -29965,7 +29997,7 @@ oP
 nI
 Uj
 ZI
-ZP
+vV
 ZP
 ZP
 ZP
@@ -30087,7 +30119,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -30121,7 +30153,7 @@ oP
 ZI
 Uj
 ZI
-ZP
+vV
 ZP
 ZP
 ZP
@@ -30243,7 +30275,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -30277,7 +30309,7 @@ oP
 ZI
 Uj
 ZI
-ZP
+vV
 ZP
 ZP
 ZP
@@ -30399,7 +30431,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -30433,7 +30465,7 @@ ZI
 ZI
 Uj
 ZI
-ZP
+vV
 ZP
 ZP
 ZP
@@ -30555,7 +30587,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -30588,8 +30620,8 @@ oP
 ZI
 ZI
 Uj
-ZP
-ZP
+vV
+vV
 ZP
 ZP
 ZP
@@ -30711,7 +30743,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -30744,7 +30776,7 @@ oP
 ZI
 ZI
 Yx
-ZP
+vV
 ZP
 ZP
 ZP
@@ -30867,7 +30899,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -30900,7 +30932,7 @@ sT
 Yf
 Yf
 Yx
-ZP
+vV
 ZP
 ZP
 ZP
@@ -31023,7 +31055,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -31056,7 +31088,7 @@ oP
 Yf
 Yf
 Yx
-ZP
+vV
 ZP
 ZP
 ZP
@@ -31179,7 +31211,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -31196,7 +31228,7 @@ IT
 oP
 lS
 sX
-IT
+mm
 IT
 oP
 IT
@@ -31212,7 +31244,7 @@ oP
 Yf
 Yf
 Yx
-ZP
+vV
 ZP
 ZP
 ZP
@@ -31335,7 +31367,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -31368,7 +31400,7 @@ oP
 Yf
 Yf
 Yx
-ZP
+vV
 ZP
 ZP
 ZP
@@ -31491,7 +31523,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -31524,7 +31556,7 @@ oP
 Yf
 Yf
 Yx
-ZP
+vV
 ZP
 ZP
 ZP
@@ -31647,7 +31679,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -31680,7 +31712,7 @@ QK
 nI
 Yf
 Yx
-ZP
+vV
 ZP
 ZP
 ZP
@@ -31803,7 +31835,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -31836,7 +31868,7 @@ wa
 nI
 Yf
 Yx
-ZP
+vV
 ZP
 ZP
 ZP
@@ -31959,7 +31991,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -31992,7 +32024,7 @@ wa
 oP
 Yf
 Yx
-ZP
+vV
 ZP
 ZP
 ZP
@@ -32115,7 +32147,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -32148,7 +32180,7 @@ wa
 oP
 Yf
 Yx
-ZP
+vV
 ZP
 ZP
 ZP
@@ -32271,7 +32303,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -32304,7 +32336,7 @@ wa
 oP
 Yf
 Yx
-ZP
+vV
 ZP
 ZP
 ZP
@@ -32427,7 +32459,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -32460,7 +32492,7 @@ wa
 oP
 Yf
 Xo
-ZP
+vV
 ZP
 ZP
 ZP
@@ -32583,7 +32615,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -32616,7 +32648,7 @@ wa
 Hz
 Yf
 Xo
-ZP
+vV
 ZP
 ZP
 ZP
@@ -32739,7 +32771,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -32772,7 +32804,7 @@ wa
 oP
 Yf
 Xo
-ZP
+vV
 ZP
 ZP
 ZP
@@ -32895,7 +32927,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -32928,7 +32960,7 @@ wa
 oP
 Yf
 Xo
-ZP
+vV
 ZP
 ZP
 ZP
@@ -33051,7 +33083,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -33084,7 +33116,7 @@ wa
 oP
 Yf
 Xo
-ZP
+vV
 ZP
 ZP
 ZP
@@ -33207,7 +33239,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -33240,7 +33272,7 @@ oP
 oP
 Yf
 Xo
-ZP
+vV
 ZP
 ZP
 ZP
@@ -33363,7 +33395,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -33396,7 +33428,7 @@ oP
 Yf
 Yf
 Xo
-ZP
+vV
 ZP
 ZP
 ZP
@@ -33519,7 +33551,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -33552,7 +33584,7 @@ nI
 Yf
 Yf
 Xo
-ZP
+vV
 ZP
 ZP
 ZP
@@ -33675,7 +33707,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -33708,7 +33740,7 @@ on
 Yf
 Yf
 Xo
-ZP
+vV
 ZP
 ZP
 ZP
@@ -33831,7 +33863,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -33864,7 +33896,7 @@ Yf
 Yf
 Yf
 Xo
-ZP
+vV
 ZP
 ZP
 ZP
@@ -33987,7 +34019,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 Xo
 ZP
@@ -34020,7 +34052,7 @@ Yf
 Yf
 Yf
 Xo
-ZP
+vV
 ZP
 ZP
 ZP
@@ -34143,8 +34175,8 @@ ZP
 ZP
 ZP
 ZP
+vV
 ZP
-ZP
 Vd
 Vd
 Vd
@@ -34176,7 +34208,7 @@ Vd
 Vd
 Vd
 Vd
-ZP
+vV
 ZP
 ZP
 ZP
@@ -34299,43 +34331,43 @@ ZP
 ZP
 ZP
 ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
-ZP
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
+vV
 EM
 EM
 EM
@@ -34455,7 +34487,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 ZP
 ZP
@@ -34611,7 +34643,7 @@ ZP
 ZP
 ZP
 ZP
-ZP
+vV
 ZP
 ZP
 ZP

@@ -36,6 +36,11 @@
 /obj/item/stack/sheet/metal,
 /turf/open/floor/plating/dmg1,
 /area/bigredv2/outside/space_port)
+"bF" = (
+/obj/structure/cable,
+/obj/machinery/holopad,
+/turf/open/floor/plating,
+/area/bigredv2/outside/space_port)
 "bK" = (
 /obj/machinery/light,
 /turf/open/floor/tile/red/redtaupecorner,
@@ -633,6 +638,9 @@
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/marshal_office)
+"pe" = (
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "pg" = (
 /obj/machinery/light{
 	dir = 4
@@ -697,7 +705,7 @@
 "qJ" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
-/turf/closed/mineral/smooth/bigred,
+/turf/closed/mineral/smooth/bigred/indestructible,
 /area/bigredv2/caves/rock)
 "qM" = (
 /obj/item/stack/sheet/metal,
@@ -1003,6 +1011,10 @@
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/space_port)
+"yi" = (
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark,
+/area/bigredv2/outside/space_port)
 "yD" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/weed_node,
@@ -1166,6 +1178,12 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/asteroidfloor,
 /area/bigredv2/outside/space_port)
+"Cq" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone{
+	dir = 2
+	},
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "CG" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/marking/asteroidwarning{
@@ -1401,6 +1419,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/machinery/holopad,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
 "IK" = (
@@ -1997,6 +2016,10 @@
 	},
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
+"XE" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone,
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "XO" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/window_frame/colony,
@@ -2132,27 +2155,27 @@ wT
 wT
 wT
 wT
-wT
-jg
-jg
-jg
-jg
-jg
-jg
-jg
-jg
-jg
-jg
+pe
+XE
+XE
+XE
+XE
+XE
+XE
+XE
+XE
+XE
+XE
 qJ
-jg
-jg
-jg
-jg
-jg
-jg
-jg
-jg
-jg
+XE
+XE
+XE
+XE
+XE
+XE
+XE
+XE
+XE
 wT
 "}
 (3,1,1) = {"
@@ -2172,7 +2195,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 OO
 OO
@@ -2192,7 +2215,7 @@ Bk
 Bk
 Bk
 Bk
-pG
+Cq
 wT
 "}
 (4,1,1) = {"
@@ -2212,7 +2235,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 OO
 DX
@@ -2232,7 +2255,7 @@ PV
 PV
 PV
 Bk
-pG
+Cq
 wT
 "}
 (5,1,1) = {"
@@ -2252,7 +2275,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 OO
 Mg
@@ -2292,7 +2315,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 OO
 Cc
@@ -2329,10 +2352,10 @@ wT
 wT
 wT
 wT
-wT
-wT
-wT
-wT
+pe
+pe
+pe
+pe
 pG
 OO
 Cc
@@ -2369,7 +2392,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 jg
 jg
 jg
@@ -2409,7 +2432,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Bk
@@ -2449,7 +2472,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 iF
@@ -2480,16 +2503,16 @@ wT
 wT
 wT
 wT
-wT
-wT
-wT
-wT
-wT
-wT
-wT
-wT
-wT
-wT
+pe
+pe
+pe
+pe
+pe
+pe
+pe
+pe
+pe
+pe
 pG
 Bk
 PV
@@ -2520,7 +2543,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 jg
 jg
 jg
@@ -2560,7 +2583,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Bk
@@ -2600,7 +2623,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 rg
@@ -2640,7 +2663,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Oi
@@ -2680,7 +2703,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Nx
@@ -2720,7 +2743,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Oi
@@ -2760,7 +2783,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Oi
@@ -2800,7 +2823,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Oi
@@ -2840,7 +2863,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Oi
@@ -2880,7 +2903,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Oi
@@ -2920,7 +2943,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Oi
@@ -2960,7 +2983,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 QK
@@ -3000,7 +3023,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Oi
@@ -3040,7 +3063,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Oi
@@ -3080,7 +3103,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Oi
@@ -3120,7 +3143,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Oi
@@ -3160,7 +3183,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Oi
@@ -3200,7 +3223,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Oi
@@ -3240,7 +3263,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 HT
@@ -3280,7 +3303,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 Oi
@@ -3320,7 +3343,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 kq
@@ -3360,7 +3383,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 wg
@@ -3400,7 +3423,7 @@ wT
 wT
 wT
 wT
-wT
+pe
 pG
 Bk
 iu
@@ -3548,7 +3571,7 @@ El
 tP
 tP
 tP
-tP
+bF
 tP
 wA
 hb
@@ -3731,7 +3754,7 @@ CH
 xE
 CH
 xE
-CH
+yi
 CH
 LW
 cX

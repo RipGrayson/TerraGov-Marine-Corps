@@ -5765,6 +5765,7 @@
 /area/ice_colony/surface/hydroponics/south)
 "aIW" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/machinery/holopad,
 /turf/open/floor/wood,
 /area/ice_colony/surface/clinic/treatment)
 "aIX" = (
@@ -6299,6 +6300,7 @@
 /obj/machinery/atmospherics/pipe/manifold/green/hidden,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
+/obj/machinery/holopad,
 /turf/open/floor/wood,
 /area/ice_colony/surface/bar/bar)
 "aNj" = (
@@ -14522,6 +14524,7 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/command/checkpoint)
 "bIY" = (
+/obj/machinery/holopad,
 /turf/open/shuttle/dropship/five,
 /area/ice_colony/underground/responsehangar)
 "bIZ" = (
@@ -21301,6 +21304,11 @@
 	dir = 6
 	},
 /area/ice_colony/underground/hallway/south_east/garbledradio)
+"gQY" = (
+/obj/structure/cable,
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark2,
+/area/ice_colony/surface/engineering/generator)
 "gSl" = (
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/wood,
@@ -22311,6 +22319,10 @@
 /obj/item/clothing/under/colonist,
 /turf/open/floor/wood,
 /area/ice_colony/surface/dorms)
+"iCi" = (
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark,
+/area/ice_colony/exterior/surface/landing_pad2)
 "iCp" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/decal/cleanable/blood/xeno,
@@ -23911,6 +23923,7 @@
 	dir = 8
 	},
 /obj/effect/ai_node,
+/obj/machinery/holopad,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/research)
 "kFT" = (
@@ -24206,6 +24219,10 @@
 	},
 /turf/closed/mineral/smooth/bluefrostwall,
 /area/ice_colony/exterior/underground/caves/rock)
+"lhK" = (
+/obj/machinery/holopad,
+/turf/open/floor/plating/icefloor,
+/area/ice_colony/exterior/surface/landing_pad)
 "liE" = (
 /obj/structure/disposalpipe/segment{
 	dir = 8
@@ -26737,8 +26754,9 @@
 /turf/open/floor/tile/dark2,
 /area/ice_colony/underground/hallway/south_east/garbledradio)
 "oAn" = (
-/turf/closed/mineral/smooth/bluefrostwall,
-/area/ice_colony/exterior/surface/landing_pad)
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark2,
+/area/ice_colony/surface/engineering)
 "oBc" = (
 /obj/effect/spawner/random/misc/structure/closet/welding,
 /turf/open/floor/plating,
@@ -27626,6 +27644,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/ai_node,
 /obj/effect/landmark/weed_node,
+/obj/machinery/holopad,
 /turf/open/floor/wood,
 /area/ice_colony/underground/crew/library)
 "pRJ" = (
@@ -30626,6 +30645,7 @@
 	dir = 2
 	},
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/machinery/holopad,
 /turf/open/floor/tile/white,
 /area/ice_colony/underground/medical/treatment/garbledradio)
 "tET" = (
@@ -31126,6 +31146,7 @@
 	},
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/machinery/holopad,
 /turf/open/floor/tile/dark2,
 /area/ice_colony/surface/engineering)
 "usw" = (
@@ -39825,7 +39846,7 @@ xGZ
 xGZ
 ajG
 xGZ
-xGZ
+iCi
 dWh
 qDA
 sQr
@@ -63991,7 +64012,7 @@ rgq
 aed
 aed
 afY
-vdr
+oAn
 agH
 ahf
 ahL
@@ -65901,7 +65922,7 @@ aej
 aej
 afU
 aej
-aeP
+gQY
 aej
 adC
 aeh
@@ -70446,8 +70467,8 @@ aMt
 nlt
 bZR
 bZR
-oAn
-oAn
+uSg
+uSg
 bZR
 bZR
 bbf
@@ -70659,8 +70680,8 @@ nlt
 bZR
 bZR
 bZR
-oAn
-oAn
+uSg
+uSg
 bZR
 oaD
 aYB
@@ -70878,7 +70899,7 @@ fYO
 aYB
 uEc
 aYC
-aYC
+lhK
 aYC
 aYC
 aZR

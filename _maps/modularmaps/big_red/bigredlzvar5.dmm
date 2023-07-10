@@ -367,6 +367,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/machinery/holopad,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
 "iD" = (
@@ -557,6 +558,11 @@
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
+"nb" = (
+/obj/structure/cable,
+/obj/machinery/holopad,
+/turf/open/floor/plating,
+/area/bigredv2/outside/space_port)
 "nl" = (
 /obj/effect/turf_decal/sandedge{
 	dir = 1
@@ -671,6 +677,9 @@
 	},
 /turf/open/shuttle/elevator/grating,
 /area/bigredv2/outside/space_port)
+"qA" = (
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "qI" = (
 /turf/open/floor/plating/icefloor/warnplate{
 	dir = 5
@@ -1192,7 +1201,7 @@
 "Fg" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
-/turf/closed/mineral/smooth/bigred,
+/turf/closed/mineral/smooth/bigred/indestructible,
 /area/bigredv2/caves/rock)
 "Fx" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
@@ -1223,12 +1232,22 @@
 /obj/machinery/computer/security,
 /turf/open/floor/tile/darkgreen/darkgreen2,
 /area/bigredv2/outside/space_port)
+"Ge" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone{
+	dir = 2
+	},
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "Gf" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/red/redtaupecorner{
 	dir = 4
 	},
 /area/bigredv2/outside/marshal_office)
+"Gr" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "Gt" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 2
@@ -1291,6 +1310,10 @@
 	},
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/northwest)
+"Ig" = (
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark,
+/area/bigredv2/outside/space_port)
 "Il" = (
 /obj/machinery/landinglight/ds1/delayone{
 	dir = 8
@@ -1953,6 +1976,10 @@
 "Yr" = (
 /turf/open/floor/tile/darkgreen/darkgreen2,
 /area/bigredv2/outside/space_port)
+"YM" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone,
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "YV" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/machinery/door/airlock/mainship/security/glass/free_access{
@@ -2057,32 +2084,32 @@ ws
 ws
 ws
 ws
-SG
-SG
-SG
-SG
-SG
-SG
-SG
-SG
-SG
-SG
-SG
-SG
-SG
-SG
-SG
-SG
+YM
+YM
+YM
+YM
+YM
+YM
+YM
+YM
+YM
+YM
+YM
+YM
+YM
+YM
+YM
+YM
 Fg
-SG
-SG
-SG
-SG
-SG
-SG
-SG
-SG
-SG
+YM
+YM
+YM
+YM
+YM
+YM
+YM
+YM
+YM
 ws
 "}
 (3,1,1) = {"
@@ -2097,7 +2124,7 @@ ws
 ws
 ws
 ws
-PX
+Ge
 ws
 ws
 ws
@@ -2122,7 +2149,7 @@ kz
 kz
 kz
 kz
-PX
+Ge
 ws
 "}
 (4,1,1) = {"
@@ -2137,7 +2164,7 @@ ws
 ws
 ws
 ws
-PX
+Ge
 ws
 kz
 kz
@@ -2162,7 +2189,7 @@ Vd
 Vd
 Vd
 kz
-PX
+Ge
 ws
 "}
 (5,1,1) = {"
@@ -2177,7 +2204,7 @@ ws
 ws
 ws
 ws
-PX
+Ge
 dU
 kz
 Ue
@@ -2217,7 +2244,7 @@ ws
 ws
 ws
 ws
-PX
+Ge
 dU
 kz
 Ue
@@ -2257,7 +2284,7 @@ SG
 SG
 SG
 SG
-SG
+YM
 dU
 vp
 Ue
@@ -2297,7 +2324,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 ws
 bs
 fB
@@ -2337,7 +2364,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 ws
 bs
 cH
@@ -2370,14 +2397,14 @@ ws
 ws
 ws
 ws
-ws
-PX
-ws
-ws
-ws
-ws
-ws
-ws
+qA
+Ge
+qA
+qA
+qA
+qA
+qA
+qA
 ws
 vp
 Vd
@@ -2410,7 +2437,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 ws
 ws
@@ -2450,7 +2477,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 kz
@@ -2490,7 +2517,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 Vd
@@ -2530,7 +2557,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 ai
@@ -2570,7 +2597,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 po
@@ -2610,7 +2637,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 yV
@@ -2650,7 +2677,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 po
@@ -2690,7 +2717,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 po
@@ -2730,7 +2757,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 po
@@ -2770,7 +2797,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 po
@@ -2810,7 +2837,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 po
@@ -2850,7 +2877,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 po
@@ -2890,7 +2917,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 xu
@@ -2930,7 +2957,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 po
@@ -2970,7 +2997,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 po
@@ -3010,7 +3037,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 po
@@ -3050,7 +3077,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 ns
@@ -3090,7 +3117,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 po
@@ -3130,7 +3157,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 po
@@ -3170,7 +3197,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 zl
@@ -3210,7 +3237,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 po
@@ -3250,7 +3277,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 ae
@@ -3290,7 +3317,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 SK
@@ -3330,7 +3357,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 SK
@@ -3370,7 +3397,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 PX
 kz
 kz
@@ -3410,7 +3437,7 @@ HA
 HA
 HA
 HA
-HA
+Gr
 iD
 iD
 iD
@@ -3450,10 +3477,10 @@ ws
 ws
 ws
 ws
-ws
-ws
-ws
-ws
+qA
+qA
+qA
+qA
 Jb
 kz
 SK
@@ -3478,7 +3505,7 @@ Qr
 Qr
 QS
 Qr
-Qr
+nb
 Qr
 Hc
 HV
@@ -3493,7 +3520,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 Jb
 kz
 SK
@@ -3533,7 +3560,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 Jb
 kz
 lz
@@ -3573,7 +3600,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 Jb
 kz
 cZ
@@ -3613,7 +3640,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 Jb
 kz
 hM
@@ -3653,7 +3680,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 Jb
 kz
 Um
@@ -3661,7 +3688,7 @@ fs
 BJ
 fs
 BJ
-fs
+Ig
 fs
 Xm
 aJ
@@ -3693,7 +3720,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 Jb
 kz
 Um
@@ -3733,7 +3760,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 Jb
 kz
 ZU
@@ -3773,7 +3800,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 Jb
 kz
 fs
@@ -3813,7 +3840,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 Jb
 kz
 fq
@@ -3853,7 +3880,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 Jb
 kz
 kz
@@ -3893,7 +3920,7 @@ ws
 ws
 ws
 ws
-ws
+qA
 CT
 iD
 iD
@@ -3933,16 +3960,16 @@ ws
 ws
 ws
 ws
-ws
-ws
-ws
-ws
-ws
-ws
-ws
-ws
-ws
-ws
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
+qA
 Sc
 CT
 CT
@@ -3982,9 +4009,9 @@ ws
 ws
 ws
 ws
-ws
-ws
-ws
+qA
+qA
+qA
 Sc
 Ir
 Ir

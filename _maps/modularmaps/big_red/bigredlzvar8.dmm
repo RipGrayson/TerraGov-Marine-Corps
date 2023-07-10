@@ -128,6 +128,11 @@
 /obj/effect/ai_node,
 /turf/open/floor/marking/asteroidwarning,
 /area/bigredv2/outside/space_port)
+"do" = (
+/obj/structure/cable,
+/obj/machinery/holopad,
+/turf/open/floor/plating,
+/area/bigredv2/outside/space_port)
 "ds" = (
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
@@ -563,6 +568,10 @@
 	dir = 1
 	},
 /area/bigredv2/outside/space_port)
+"pM" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "pS" = (
 /obj/structure/cable,
 /obj/effect/decal/cleanable/dirt,
@@ -908,6 +917,9 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/bigredv2/outside/n)
+"zF" = (
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "zJ" = (
 /obj/structure/sign/safety/vent{
 	dir = 1
@@ -917,7 +929,7 @@
 "zN" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
-/turf/closed/mineral/smooth/bigred,
+/turf/closed/mineral/smooth/bigred/indestructible,
 /area/bigredv2/caves/rock)
 "zS" = (
 /obj/structure/table,
@@ -973,6 +985,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/machinery/holopad,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
 "BD" = (
@@ -1447,6 +1460,12 @@
 	dir = 1
 	},
 /area/bigredv2/outside/space_port)
+"LO" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone{
+	dir = 2
+	},
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "Mc" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/red/redtaupecorner,
@@ -1667,6 +1686,10 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/marshal_office)
+"Qi" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone,
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "Qk" = (
 /obj/effect/decal/cleanable/blood/gibs/core,
 /turf/open/floor/plating,
@@ -1925,6 +1948,10 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/marshal_office)
+"Xq" = (
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark,
+/area/bigredv2/outside/space_port)
 "Xr" = (
 /obj/structure/cargo_container/green{
 	dir = 8
@@ -2063,27 +2090,27 @@ ds
 ds
 ds
 ds
-ds
-VX
-VX
-VX
-VX
-VX
-VX
-VX
-VX
-VX
-VX
+zF
+Qi
+Qi
+Qi
+Qi
+Qi
+Qi
+Qi
+Qi
+Qi
+Qi
 zN
-VX
-VX
-VX
-VX
-VX
-VX
-VX
-VX
-VX
+Qi
+Qi
+Qi
+Qi
+Qi
+Qi
+Qi
+Qi
+Qi
 ds
 "}
 (3,1,1) = {"
@@ -2103,7 +2130,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 cj
 cj
@@ -2123,7 +2150,7 @@ MN
 MN
 MN
 MN
-Ge
+LO
 ds
 "}
 (4,1,1) = {"
@@ -2143,7 +2170,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 cj
 Ko
@@ -2163,7 +2190,7 @@ bg
 bg
 bg
 MN
-Ge
+LO
 ds
 "}
 (5,1,1) = {"
@@ -2183,7 +2210,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 cj
 Ux
@@ -2223,7 +2250,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 cj
 uc
@@ -2260,10 +2287,10 @@ ds
 ds
 ds
 ds
-ds
-ds
-ds
-ds
+zF
+zF
+zF
+zF
 Ge
 cj
 uc
@@ -2300,7 +2327,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 VX
 VX
 VX
@@ -2340,7 +2367,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 MN
@@ -2380,7 +2407,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 Ry
@@ -2411,16 +2438,16 @@ ds
 ds
 ds
 ds
-ds
-ds
-ds
-ds
-ds
-ds
-ds
-ds
-ds
-ds
+zF
+zF
+zF
+zF
+zF
+zF
+zF
+zF
+zF
+zF
 Ge
 MN
 bg
@@ -2451,7 +2478,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 VX
 VX
 VX
@@ -2491,7 +2518,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 MN
@@ -2531,7 +2558,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 DY
@@ -2571,7 +2598,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 ed
@@ -2611,7 +2638,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 on
@@ -2651,7 +2678,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 ed
@@ -2691,7 +2718,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 ed
@@ -2731,7 +2758,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 ed
@@ -2771,7 +2798,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 ed
@@ -2811,7 +2838,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 ed
@@ -2851,7 +2878,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 ed
@@ -2891,7 +2918,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 cb
@@ -2931,7 +2958,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 pK
@@ -2971,7 +2998,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 ed
@@ -3011,7 +3038,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 ed
@@ -3051,7 +3078,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 ed
@@ -3091,7 +3118,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 ed
@@ -3131,7 +3158,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 ed
@@ -3171,7 +3198,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 uO
@@ -3211,7 +3238,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 ed
@@ -3251,7 +3278,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 BP
@@ -3291,7 +3318,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 GL
@@ -3331,7 +3358,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 MN
 Tz
@@ -3371,7 +3398,7 @@ ds
 ds
 ds
 ds
-ds
+zF
 Ge
 jU
 MN
@@ -3411,7 +3438,7 @@ Dn
 Dn
 Dn
 Dn
-Dn
+pM
 kH
 kH
 kH
@@ -3479,7 +3506,7 @@ eZ
 RP
 eZ
 eZ
-eZ
+do
 eZ
 Pm
 dV
@@ -3662,7 +3689,7 @@ nF
 Ht
 nF
 Ht
-nF
+Xq
 nF
 fL
 Cg

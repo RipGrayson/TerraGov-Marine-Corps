@@ -4491,6 +4491,10 @@
 	},
 /turf/open/floor/plating/ground/snow/layer0,
 /area/gelida/outdoors/colony_streets/central_streets)
+"cYF" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2,
+/turf/closed/mineral/smooth/snowrock/indestructible,
+/area/gelida/outdoors/rock)
 "cYN" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 10
@@ -5151,6 +5155,12 @@
 /obj/structure/prop/mainship/sensor_computer3,
 /turf/open/floor/prison/plate,
 /area/gelida/indoors/a_block/admin)
+"dwe" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone{
+	dir = 1
+	},
+/turf/closed/mineral/smooth/snowrock/indestructible,
+/area/gelida/outdoors/rock)
 "dwh" = (
 /obj/structure/prop/mainship/gelida/barrier,
 /turf/open/floor/prison,
@@ -5175,6 +5185,10 @@
 	dir = 1
 	},
 /area/gelida/indoors/a_block/bridges/op_centre)
+"dxp" = (
+/obj/machinery/holopad,
+/turf/open/floor/prison,
+/area/gelida/landing_zone_1)
 "dxx" = (
 /obj/structure/bed/chair/comfy,
 /obj/effect/landmark/start/job/survivor,
@@ -6135,6 +6149,12 @@
 	dir = 8
 	},
 /area/gelida/outdoors/colony_streets/central_streets)
+"ebW" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
+	dir = 2
+	},
+/turf/closed/mineral/smooth/snowrock/indestructible,
+/area/gelida/outdoors/colony_streets/south_west_street)
 "ebZ" = (
 /turf/closed/wall,
 /area/gelida/outdoors/colony_streets/north_street)
@@ -9222,7 +9242,7 @@
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
 	dir = 2
 	},
-/turf/closed/mineral/smooth/snowrock,
+/turf/closed/mineral/smooth/snowrock/indestructible,
 /area/gelida/indoors/lone_buildings/spaceport)
 "gkC" = (
 /obj/effect/landmark/xeno_resin_wall,
@@ -12427,6 +12447,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/prison,
 /area/gelida/indoors/c_block/garage)
+"ipY" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone,
+/turf/closed/mineral/smooth/snowrock/indestructible,
+/area/gelida/outdoors/rock)
 "iqm" = (
 /turf/closed/wall/r_wall,
 /area/gelida/powergen)
@@ -13140,6 +13164,12 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating,
 /area/gelida/powergen)
+"iQb" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2{
+	dir = 2
+	},
+/turf/closed/mineral/smooth/snowrock/indestructible,
+/area/gelida/outdoors/rock)
 "iQf" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -13660,6 +13690,10 @@
 /obj/item/lightstick/red/anchored,
 /turf/open/floor/plating/ground/snow/layer1,
 /area/gelida/outdoors/colony_streets/north_east_street)
+"jlq" = (
+/obj/machinery/holopad,
+/turf/open/floor/prison,
+/area/gelida/landing_zone_2)
 "jlx" = (
 /obj/structure/rack/nometal,
 /obj/item/tool/shovel/spade{
@@ -36020,7 +36054,7 @@ ndb
 ndb
 ndb
 ndb
-ndb
+nsK
 ndb
 ndb
 ndb
@@ -36242,7 +36276,7 @@ ndb
 ndb
 ndb
 nvd
-gEI
+cYF
 gEI
 gEI
 gEI
@@ -36464,7 +36498,7 @@ ndb
 ndb
 ndb
 nvd
-ndb
+nsK
 ndb
 ndb
 ndb
@@ -36686,7 +36720,7 @@ ndb
 ndb
 ndb
 nvd
-ndb
+nsK
 ndb
 fsz
 fsz
@@ -36908,7 +36942,7 @@ ndb
 ndb
 ndb
 nvd
-ndb
+nsK
 hbX
 wOd
 lIC
@@ -37130,7 +37164,7 @@ ndb
 ndb
 ndb
 nvd
-ndb
+nsK
 eHG
 wOd
 wOd
@@ -37352,7 +37386,7 @@ ndb
 ndb
 ndb
 nvd
-gEI
+cYF
 wOd
 wOd
 lIC
@@ -37574,7 +37608,7 @@ ndb
 ndb
 ndb
 ndb
-nvd
+iQb
 wOd
 wOd
 wOd
@@ -37796,7 +37830,7 @@ ndb
 ndb
 ndb
 ndb
-nvd
+iQb
 ngP
 ngP
 ngP
@@ -38018,7 +38052,7 @@ ndb
 ndb
 ndb
 ndb
-nvd
+iQb
 ndb
 ngP
 hbX
@@ -38240,7 +38274,7 @@ ndb
 ndb
 ndb
 ndb
-nvd
+iQb
 ndb
 ngP
 eHG
@@ -38462,7 +38496,7 @@ ndb
 ndb
 ndb
 ndb
-nvd
+iQb
 ngP
 ngP
 ngP
@@ -38906,7 +38940,7 @@ ndb
 ndb
 ndb
 ndb
-nvd
+iQb
 ndb
 ngP
 tAx
@@ -39128,7 +39162,7 @@ ndb
 ndb
 ndb
 tqi
-nvd
+iQb
 ngP
 ngP
 ngP
@@ -39350,7 +39384,7 @@ ndb
 ndb
 tqi
 tqi
-nvd
+iQb
 ndb
 ngP
 npE
@@ -39572,7 +39606,7 @@ ndb
 tqi
 tqi
 tqi
-nvd
+iQb
 ndb
 ngP
 wOd
@@ -39794,7 +39828,7 @@ ndb
 tqi
 tqi
 tqF
-nvd
+iQb
 ngP
 ngP
 ngP
@@ -40016,7 +40050,7 @@ tqi
 tqi
 tqi
 tqF
-cNp
+ebW
 rhC
 ngP
 ngP
@@ -40238,7 +40272,7 @@ tqi
 tqi
 tqF
 qOV
-cNp
+ebW
 rhC
 ngP
 ngP
@@ -41142,7 +41176,7 @@ pHY
 wIz
 jTN
 uDG
-gve
+jlq
 jQE
 abc
 jQE
@@ -45379,11 +45413,11 @@ hEt
 nSm
 ngP
 cym
-ndb
-ndb
-ndb
-ndb
-nvd
+nsK
+nsK
+nsK
+nsK
+iQb
 nsK
 "}
 (45,1,1) = {"
@@ -64231,29 +64265,29 @@ txG
 hcL
 txG
 txG
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-rIi
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+dwe
 nsK
 "}
 (130,1,1) = {"
@@ -69117,7 +69151,7 @@ orn
 qOf
 kfN
 syu
-bHK
+dxp
 bHK
 xyj
 bHK
@@ -69991,7 +70025,7 @@ hCY
 hCY
 hCY
 hCY
-hCY
+ipY
 hCY
 nzX
 jDt
@@ -70205,15 +70239,15 @@ eWY
 eWY
 eWY
 eWY
-ndb
-rIi
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
+nsK
+dwe
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
 ndb
 fBC
 jDt
@@ -70427,7 +70461,7 @@ uGS
 ndb
 eWY
 ndb
-ndb
+nsK
 rIi
 tjQ
 ndb
@@ -70649,7 +70683,7 @@ uGS
 ndb
 ndb
 ndb
-ndb
+nsK
 wwL
 ndb
 rkR
@@ -70871,7 +70905,7 @@ uGS
 uGS
 ndb
 ndb
-ndb
+nsK
 rIi
 rkR
 rkR
@@ -71093,7 +71127,7 @@ oMs
 uGS
 ndb
 ndb
-ndb
+nsK
 rIi
 rkR
 oXo
@@ -71315,7 +71349,7 @@ uGS
 ndb
 ndb
 ndb
-ndb
+nsK
 rIi
 rkR
 vbK
@@ -71537,7 +71571,7 @@ ndb
 ndb
 ndb
 ndb
-ndb
+nsK
 rIi
 rkR
 oXo
@@ -71759,7 +71793,7 @@ ndb
 ndb
 ndb
 ndb
-ndb
+nsK
 rIi
 rkR
 rkR
@@ -71981,7 +72015,7 @@ ndb
 ndb
 ndb
 ndb
-ndb
+nsK
 lFR
 ndb
 rkR
@@ -72203,7 +72237,7 @@ ndb
 ndb
 ndb
 ndb
-ndb
+nsK
 rIi
 ayZ
 ndb
@@ -72425,14 +72459,14 @@ ndb
 ndb
 ndb
 ndb
-ndb
-rIi
-ndb
-ndb
-ndb
-ndb
-ndb
-ndb
+nsK
+dwe
+nsK
+nsK
+nsK
+nsK
+nsK
+nsK
 ndb
 ndb
 fBC
@@ -72654,7 +72688,7 @@ ndb
 ndb
 ndb
 ndb
-ndb
+nsK
 ndb
 fBC
 fBC
@@ -72876,7 +72910,7 @@ ndb
 ndb
 ndb
 ndb
-ndb
+nsK
 ndb
 ndb
 rkR
@@ -73098,7 +73132,7 @@ ndb
 ndb
 ndb
 ndb
-ndb
+nsK
 ndb
 ndb
 rkR
@@ -73320,7 +73354,7 @@ ndb
 ndb
 ndb
 ndb
-ndb
+nsK
 ndb
 fBC
 fBC
@@ -73542,7 +73576,7 @@ ndb
 ndb
 ndb
 ndb
-ndb
+nsK
 ndb
 ndb
 rkR
@@ -73764,7 +73798,7 @@ ndb
 ndb
 ndb
 ndb
-ndb
+nsK
 ndb
 ndb
 rkR
@@ -73986,7 +74020,7 @@ ndb
 ndb
 ndb
 ndb
-ndb
+nsK
 ndb
 ndb
 ndb
@@ -74208,7 +74242,7 @@ hCY
 hCY
 hCY
 hCY
-hCY
+ipY
 hCY
 hCY
 hCY

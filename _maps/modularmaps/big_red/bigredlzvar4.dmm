@@ -554,6 +554,10 @@
 "po" = (
 /turf/open/floor/plating/ground/mars/random/cave/rock,
 /area/bigredv2/caves/north)
+"pw" = (
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark,
+/area/bigredv2/outside/space_port)
 "pA" = (
 /obj/structure/closet/l3closet/security,
 /turf/open/floor/tile/vault{
@@ -792,6 +796,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/machinery/holopad,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
 "uM" = (
@@ -944,6 +949,12 @@
 	},
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
+"ys" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone{
+	dir = 2
+	},
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "yA" = (
 /turf/open/floor/tile/red/redtaupecorner{
 	dir = 4
@@ -1041,6 +1052,11 @@
 /obj/effect/decal/cleanable/blood/gibs/core,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/space_port)
+"Ba" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone,
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "Bb" = (
 /obj/machinery/computer/security,
 /turf/open/floor/tile/darkgreen/darkgreen2,
@@ -1321,7 +1337,7 @@
 "Ia" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
-/turf/closed/mineral/smooth/bigred,
+/turf/closed/mineral/smooth/bigred/indestructible,
 /area/bigredv2/caves/rock)
 "Ie" = (
 /obj/structure/cable,
@@ -1385,6 +1401,10 @@
 /obj/structure/closet/firecloset,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/space_port)
+"Jt" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone,
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "Jz" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
 	dir = 1;
@@ -1889,6 +1909,10 @@
 	dir = 8
 	},
 /area/bigredv2/outside/marshal_office)
+"Wt" = (
+/obj/effect/landmark/lv624/fog_blocker,
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "WJ" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -1955,6 +1979,9 @@
 	dir = 6
 	},
 /area/bigredv2/outside/space_port)
+"YJ" = (
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "YP" = (
 /obj/structure/cargo_container/green{
 	dir = 1
@@ -2007,6 +2034,11 @@
 	},
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
+"ZW" = (
+/obj/structure/cable,
+/obj/machinery/holopad,
+/turf/open/floor/plating,
+/area/bigredv2/outside/space_port)
 "ZZ" = (
 /obj/effect/landmark/weed_node,
 /obj/structure/nuke_disk_candidate,
@@ -2065,32 +2097,32 @@ mL
 mL
 mL
 mL
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
+Jt
+Jt
+Jt
+Jt
+Jt
+Jt
+Jt
+Jt
+Jt
+Jt
+Jt
+Jt
+Jt
+Jt
+Jt
+Jt
 Ia
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
-TO
+Jt
+Jt
+Jt
+Jt
+Jt
+Jt
+Jt
+Jt
+Jt
 mL
 "}
 (3,1,1) = {"
@@ -2105,7 +2137,7 @@ mL
 mL
 mL
 mL
-Na
+ys
 mL
 mL
 mL
@@ -2130,7 +2162,7 @@ PE
 PE
 PE
 PE
-Na
+ys
 mL
 "}
 (4,1,1) = {"
@@ -2145,7 +2177,7 @@ mL
 mL
 mL
 mL
-Na
+ys
 mL
 PE
 PE
@@ -2170,7 +2202,7 @@ dV
 nh
 dV
 PE
-Na
+ys
 mL
 "}
 (5,1,1) = {"
@@ -2185,7 +2217,7 @@ mL
 mL
 mL
 mL
-Na
+ys
 Od
 PE
 Lg
@@ -2225,7 +2257,7 @@ mL
 mL
 mL
 mL
-Na
+ys
 Od
 PE
 Lg
@@ -2265,7 +2297,7 @@ TO
 TO
 TO
 TO
-TO
+Jt
 Od
 HD
 Lg
@@ -2305,7 +2337,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 mL
 EJ
 St
@@ -2345,7 +2377,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 mL
 EJ
 fH
@@ -2378,14 +2410,14 @@ mL
 mL
 mL
 mL
-mL
-Na
-mL
-mL
-mL
-mL
-mL
-mL
+YJ
+ys
+YJ
+YJ
+YJ
+YJ
+YJ
+YJ
 mL
 HD
 dV
@@ -2418,7 +2450,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 mL
 mL
@@ -2458,7 +2490,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 PE
@@ -2498,7 +2530,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 dV
@@ -2538,7 +2570,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 GP
@@ -2578,7 +2610,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 gI
@@ -2618,7 +2650,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 CW
@@ -2658,7 +2690,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 gI
@@ -2698,7 +2730,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 gI
@@ -2738,7 +2770,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 gI
@@ -2778,7 +2810,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 gI
@@ -2818,7 +2850,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 gI
@@ -2858,7 +2890,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 gI
@@ -2898,7 +2930,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 fr
@@ -2938,7 +2970,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 gI
@@ -2978,7 +3010,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 gI
@@ -3018,7 +3050,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 gI
@@ -3058,7 +3090,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 gI
@@ -3098,7 +3130,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 gI
@@ -3138,7 +3170,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 gI
@@ -3178,7 +3210,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 MA
@@ -3218,7 +3250,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 gI
@@ -3258,7 +3290,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 XP
@@ -3298,7 +3330,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 oX
@@ -3338,7 +3370,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 oX
@@ -3378,7 +3410,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 Na
 PE
 PE
@@ -3418,7 +3450,7 @@ cb
 cb
 cb
 cb
-cb
+Wt
 jh
 jh
 jh
@@ -3458,10 +3490,10 @@ mL
 mL
 mL
 mL
-mL
-mL
-mL
-mL
+YJ
+YJ
+YJ
+YJ
 qo
 PE
 oX
@@ -3486,7 +3518,7 @@ FX
 FX
 hR
 FX
-FX
+ZW
 FX
 eJ
 zV
@@ -3501,7 +3533,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 qo
 PE
 oX
@@ -3541,7 +3573,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 qo
 PE
 HK
@@ -3581,7 +3613,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 qo
 PE
 KU
@@ -3621,7 +3653,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 qo
 PE
 tQ
@@ -3661,7 +3693,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 qo
 PE
 Js
@@ -3669,7 +3701,7 @@ Sd
 bw
 Sd
 bw
-Sd
+pw
 Sd
 mY
 ep
@@ -3701,7 +3733,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 qo
 PE
 Js
@@ -3741,7 +3773,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 qo
 PE
 yU
@@ -3781,7 +3813,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 qo
 PE
 Sd
@@ -3821,7 +3853,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 qo
 PE
 bv
@@ -3861,7 +3893,7 @@ mL
 mL
 mL
 mL
-mL
+YJ
 qo
 PE
 PE
@@ -3901,10 +3933,10 @@ mL
 mL
 mL
 mL
-mL
-TO
-jh
-jh
+YJ
+Jt
+Ba
+Ba
 Xr
 Oi
 si

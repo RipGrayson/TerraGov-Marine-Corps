@@ -114,6 +114,10 @@
 /obj/machinery/computer/camera_advanced/shuttle_docker/minidropship,
 /turf/open/floor/plating/plating_catwalk,
 /area/shuttle/minidropship)
+"M" = (
+/obj/machinery/holopad,
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/minidropship)
 "P" = (
 /obj/effect/attach_point/crew_weapon/minidropship,
 /turf/open/floor/plating/plating_catwalk,
@@ -124,10 +128,10 @@
 /area/shuttle/minidropship)
 "S" = (
 /obj/machinery/door_control{
+	dir = 4;
 	id = "minidropship_podlock";
 	name = "inner door-control";
-	pixel_x = -25;
-	dir = 4
+	pixel_x = -25
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/minidropship)
@@ -213,7 +217,7 @@ X
 Z
 J
 V
-q
+M
 u
 P
 q

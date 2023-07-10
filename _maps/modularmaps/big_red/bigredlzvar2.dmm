@@ -382,6 +382,12 @@
 /obj/item/tool/hand_labeler,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
+"jU" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone{
+	dir = 2
+	},
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "ka" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
 /obj/effect/landmark/weed_node,
@@ -668,6 +674,10 @@
 "rd" = (
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/bigredv2/outside/nw)
+"rm" = (
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark,
+/area/bigredv2/outside/space_port)
 "ru" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 2
@@ -738,6 +748,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/marshal_office)
+"sT" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone,
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "sZ" = (
 /obj/effect/landmark/patrol_point{
 	id = "TGMC_22";
@@ -1612,7 +1626,7 @@
 "Rs" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
-/turf/closed/mineral/smooth/bigred,
+/turf/closed/mineral/smooth/bigred/indestructible,
 /area/bigredv2/caves/rock)
 "Rv" = (
 /obj/machinery/light{
@@ -1771,6 +1785,9 @@
 	},
 /turf/open/floor/tile/green/whitegreenfull,
 /area/bigredv2/outside/marshal_office)
+"VU" = (
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "VW" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 2
@@ -1792,6 +1809,11 @@
 /obj/structure/closet/secure_closet/marshal,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/marshal_office)
+"Ws" = (
+/obj/structure/cable,
+/obj/machinery/holopad,
+/turf/open/floor/plating,
+/area/bigredv2/outside/space_port)
 "Wt" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
 	dir = 2
@@ -1926,6 +1948,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/machinery/holopad,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
 "YY" = (
@@ -2030,27 +2053,27 @@ LR
 LR
 LR
 LR
-LR
-bp
-bp
-bp
-bp
-bp
-bp
-bp
-bp
-bp
-bp
+VU
+sT
+sT
+sT
+sT
+sT
+sT
+sT
+sT
+sT
+sT
 Rs
-bp
-bp
-bp
-bp
-bp
-bp
-bp
-bp
-bp
+sT
+sT
+sT
+sT
+sT
+sT
+sT
+sT
+sT
 LR
 "}
 (3,1,1) = {"
@@ -2070,7 +2093,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 qy
 qy
@@ -2090,7 +2113,7 @@ Ei
 Ei
 Ei
 Ei
-Wt
+jU
 LR
 "}
 (4,1,1) = {"
@@ -2110,7 +2133,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 qy
 vy
@@ -2130,7 +2153,7 @@ gM
 gM
 gM
 Ei
-Wt
+jU
 LR
 "}
 (5,1,1) = {"
@@ -2150,7 +2173,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 qy
 up
@@ -2190,7 +2213,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 qy
 HX
@@ -2227,10 +2250,10 @@ LR
 LR
 LR
 LR
-LR
-LR
-LR
-LR
+VU
+VU
+VU
+VU
 Wt
 qy
 HX
@@ -2267,7 +2290,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 bp
 bp
 bp
@@ -2307,7 +2330,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 Ei
@@ -2347,7 +2370,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 uZ
@@ -2378,16 +2401,16 @@ LR
 LR
 LR
 LR
-LR
-LR
-LR
-LR
-LR
-LR
-LR
-LR
-LR
-LR
+VU
+VU
+VU
+VU
+VU
+VU
+VU
+VU
+VU
+VU
 Wt
 Ei
 sZ
@@ -2418,7 +2441,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 bp
 bp
 bp
@@ -2458,7 +2481,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 Ei
@@ -2498,7 +2521,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 uL
@@ -2538,7 +2561,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 jg
@@ -2578,7 +2601,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 PM
@@ -2618,7 +2641,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 su
@@ -2658,7 +2681,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 su
@@ -2698,7 +2721,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 su
@@ -2738,7 +2761,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 su
@@ -2778,7 +2801,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 su
@@ -2818,7 +2841,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 su
@@ -2858,7 +2881,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 hf
@@ -2898,7 +2921,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 EK
@@ -2938,7 +2961,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 su
@@ -2978,7 +3001,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 su
@@ -3018,7 +3041,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 su
@@ -3058,7 +3081,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 su
@@ -3098,7 +3121,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 su
@@ -3138,7 +3161,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 My
@@ -3178,7 +3201,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 su
@@ -3218,7 +3241,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 zB
@@ -3258,7 +3281,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 NS
@@ -3298,7 +3321,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 nF
@@ -3338,7 +3361,7 @@ LR
 LR
 LR
 LR
-LR
+VU
 Wt
 Ei
 Ei
@@ -3446,7 +3469,7 @@ ba
 Ox
 Ox
 Ox
-Ox
+Ws
 Ox
 FI
 xP
@@ -3629,7 +3652,7 @@ RG
 ig
 RG
 ig
-RG
+rm
 RG
 iq
 CW

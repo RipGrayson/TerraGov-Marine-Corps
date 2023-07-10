@@ -4,6 +4,11 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/tile/white,
 /area/bigredv2/outside/marshal_office)
+"ag" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark,
+/area/bigredv2/outside/space_port)
 "aA" = (
 /obj/machinery/atmospherics/components/unary/vent_pump,
 /turf/open/floor/tile/white,
@@ -206,6 +211,7 @@
 /obj/effect/decal/cleanable/dirt,
 /obj/structure/cable,
 /obj/effect/ai_node,
+/obj/machinery/holopad,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
 "fy" = (
@@ -335,7 +341,7 @@
 "jz" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
-/turf/closed/mineral/smooth/bigred,
+/turf/closed/mineral/smooth/bigred/indestructible,
 /area/bigredv2/caves/rock)
 "jB" = (
 /obj/machinery/light{
@@ -572,6 +578,10 @@
 	dir = 1
 	},
 /area/bigredv2/outside/marshal_office)
+"pg" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone,
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "pu" = (
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/marking/asteroidwarning{
@@ -1557,6 +1567,9 @@
 /obj/structure/nuke_disk_candidate,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/marshal_office)
+"Mr" = (
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "Mu" = (
 /obj/structure/cable,
 /obj/machinery/light,
@@ -1906,6 +1919,12 @@
 	dir = 10
 	},
 /area/bigredv2/outside/nw)
+"UH" = (
+/obj/machinery/door/poddoor/timed_late/containment/landing_zone{
+	dir = 2
+	},
+/turf/closed/mineral/smooth/bigred/indestructible,
+/area/bigredv2/caves/rock)
 "Va" = (
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/bigredv2/caves/north)
@@ -1979,6 +1998,10 @@
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/bigredv2/outside/telecomm)
+"Xd" = (
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark,
+/area/bigredv2/outside/space_port)
 "Xl" = (
 /obj/item/radio/headset/survivor,
 /turf/open/floor/tile/dark,
@@ -2153,27 +2176,27 @@ LS
 LS
 LS
 LS
-LS
-oR
-oR
-oR
-oR
-oR
-oR
-oR
-oR
-oR
-oR
+Mr
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
 jz
-oR
-oR
-oR
-oR
-oR
-oR
-oR
-oR
-oR
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
+pg
 LS
 "}
 (3,1,1) = {"
@@ -2193,7 +2216,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 hI
 hI
@@ -2213,7 +2236,7 @@ gb
 gb
 gb
 gb
-LT
+UH
 LS
 "}
 (4,1,1) = {"
@@ -2233,7 +2256,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 hI
 xX
@@ -2253,7 +2276,7 @@ IU
 IU
 IU
 gb
-LT
+UH
 LS
 "}
 (5,1,1) = {"
@@ -2273,7 +2296,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 hI
 lZ
@@ -2313,7 +2336,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 hI
 YQ
@@ -2350,10 +2373,10 @@ LS
 LS
 LS
 LS
-LS
-LS
-LS
-LS
+Mr
+Mr
+Mr
+Mr
 LT
 hI
 YQ
@@ -2390,7 +2413,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 oR
 oR
 oR
@@ -2430,7 +2453,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 gb
@@ -2470,7 +2493,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 mi
@@ -2501,16 +2524,16 @@ LS
 LS
 LS
 LS
-LS
-LS
-LS
-LS
-LS
-LS
-LS
-LS
-LS
-LS
+Mr
+Mr
+Mr
+Mr
+Mr
+Mr
+Mr
+Mr
+Mr
+Mr
 LT
 gb
 IU
@@ -2541,7 +2564,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 oR
 oR
 oR
@@ -2581,7 +2604,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 gb
@@ -2621,7 +2644,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 eK
@@ -2661,7 +2684,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 fN
@@ -2701,7 +2724,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 Hx
@@ -2741,7 +2764,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 fN
@@ -2781,7 +2804,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 fN
@@ -2821,7 +2844,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 fN
@@ -2861,7 +2884,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 fN
@@ -2901,7 +2924,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 fN
@@ -2941,7 +2964,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 fN
@@ -2981,7 +3004,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 jB
@@ -3021,7 +3044,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 fN
@@ -3061,7 +3084,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 fN
@@ -3101,7 +3124,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 fN
@@ -3141,7 +3164,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 fN
@@ -3181,7 +3204,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 fN
@@ -3221,7 +3244,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 fN
@@ -3261,7 +3284,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 aK
@@ -3301,7 +3324,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 fN
@@ -3341,7 +3364,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 Wp
@@ -3381,7 +3404,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 Xw
@@ -3421,7 +3444,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 gb
 EP
@@ -3461,7 +3484,7 @@ LS
 LS
 LS
 LS
-LS
+Mr
 LT
 tL
 gb
@@ -3752,7 +3775,7 @@ St
 FU
 St
 FU
-St
+Xd
 St
 PO
 eT
@@ -3849,7 +3872,7 @@ EP
 cN
 Lx
 St
-FU
+ag
 FU
 Hj
 Mx

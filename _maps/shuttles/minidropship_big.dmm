@@ -178,6 +178,10 @@
 	},
 /turf/closed/wall/mainship/outer/canterbury,
 /area/shuttle/minidropship)
+"U" = (
+/obj/machinery/holopad,
+/turf/open/floor/plating/plating_catwalk,
+/area/shuttle/minidropship)
 "V" = (
 /turf/closed/shuttle/ert/engines/left{
 	dir = 1
@@ -188,10 +192,10 @@
 	dir = 1
 	},
 /obj/machinery/door_control{
+	dir = 4;
 	id = "minidropship_podlock";
 	name = "inner door-control";
 	pixel_x = -25;
-	dir = 4;
 	pixel_y = 3
 	},
 /obj/effect/turf_decal/tile/transparent/dark_blue/anticorner/contrasted{
@@ -239,7 +243,7 @@ y
 c
 D
 o
-c
+U
 c
 g
 C

@@ -4607,6 +4607,10 @@
 "dQe" = (
 /turf/closed/wall,
 /area/lv624/ground/jungle9)
+"dQs" = (
+/obj/machinery/holopad,
+/turf/open/floor/tile/whiteyellow/full,
+/area/lv624/lazarus/quart)
 "dQY" = (
 /obj/machinery/light/small{
 	dir = 1
@@ -7984,6 +7988,11 @@
 	},
 /turf/open/floor/tile/barber,
 /area/lv624/lazarus/kitchen)
+"iva" = (
+/obj/structure/cable,
+/obj/machinery/holopad,
+/turf/open/floor/plating,
+/area/lv624/lazarus/engineering)
 "ivB" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
@@ -9824,6 +9833,11 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand6)
+"kOr" = (
+/obj/effect/landmark/weed_node,
+/obj/machinery/holopad,
+/turf/open/floor/tile/dark,
+/area/lv624/lazarus/engineering)
 "kOt" = (
 /obj/structure/window/framed/colony,
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone{
@@ -15111,6 +15125,7 @@
 /area/lv624/lazarus/sleep_male)
 "rJe" = (
 /obj/item/tool/crowbar,
+/obj/machinery/holopad,
 /turf/open/floor,
 /area/lv624/lazarus/spaceport2)
 "rKh" = (
@@ -16443,6 +16458,10 @@
 /obj/structure/flora/ausbushes/fullgrass,
 /turf/open/ground/grass/grass2,
 /area/lv624/ground/jungle3)
+"tvg" = (
+/obj/machinery/holopad,
+/turf/open/floor,
+/area/lv624/lazarus/spaceport)
 "tvF" = (
 /obj/item/storage/box/beakers,
 /obj/structure/table,
@@ -16682,6 +16701,11 @@
 	},
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/quartstorage)
+"tJI" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/machinery/holopad,
+/turf/open/floor/wood,
+/area/lv624/lazarus/bar)
 "tJR" = (
 /obj/effect/decal/cleanable/blood/gibs/robot/limb,
 /turf/open/floor/wood,
@@ -24628,7 +24652,7 @@ mmV
 rRG
 lex
 fSS
-ezO
+tJI
 kjU
 jnU
 eUV
@@ -42621,7 +42645,7 @@ qTM
 bdv
 tch
 tch
-tch
+iva
 tch
 rvs
 rKU
@@ -43689,7 +43713,7 @@ aDZ
 lma
 lma
 xys
-gvo
+kOr
 sjx
 ygV
 ygV
@@ -50842,7 +50866,7 @@ xsa
 hAS
 upl
 kPJ
-uBN
+dQs
 uBN
 poe
 xsa
@@ -54388,7 +54412,7 @@ gcK
 mlv
 tbe
 uMc
-tbe
+tvg
 mlv
 tbe
 hJt

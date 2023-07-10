@@ -612,12 +612,7 @@
 /area/sulaco/engineering/engine)
 "aco" = (
 /obj/structure/cable,
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -2081,12 +2076,7 @@
 /turf/open/floor/prison/whitegreen/corner,
 /area/sulaco/medbay)
 "akN" = (
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /turf/open/floor/mainship/ai,
 /area/sulaco/command/ai)
 "akQ" = (
@@ -3386,12 +3376,7 @@
 /obj/machinery/door/window/secure/bridge{
 	name = "Commander's Deck"
 	},
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /turf/open/floor/prison/bright_clean,
 /area/sulaco/bridge)
 "asv" = (
@@ -5971,12 +5956,7 @@
 /obj/machinery/atmospherics/pipe/simple/yellow/hidden{
 	dir = 9
 	},
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /turf/open/floor/prison/sterilewhite,
 /area/sulaco/cryosleep)
 "aEM" = (
@@ -12398,12 +12378,7 @@
 /turf/closed/wall/mainship/gray,
 /area/sulaco/hydro)
 "eXM" = (
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /obj/item/radio/intercom/general{
 	dir = 1
 	},
@@ -13011,12 +12986,7 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 10
 	},
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /obj/structure/disposalpipe/segment/corner{
 	dir = 4
 	},
@@ -13521,12 +13491,7 @@
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/yellow/hidden,
 /obj/structure/cable,
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /obj/structure/disposalpipe/segment,
 /turf/open/floor/plating/plating_catwalk/prison,
 /area/sulaco/hallway/lower_foreship)
@@ -14471,12 +14436,7 @@
 	},
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/manifold/yellow/hidden,
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -14896,12 +14856,7 @@
 	dir = 2;
 	id = "supply_elevator_railing"
 	},
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /turf/open/floor/prison/arrow{
 	dir = 1
 	},
@@ -15739,12 +15694,7 @@
 /turf/open/floor/wood,
 /area/mainship/living/basketball)
 "jsp" = (
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /turf/open/floor/prison/bright_clean,
 /area/sulaco/hangar)
 "jsq" = (
@@ -18313,12 +18263,7 @@
 /obj/item/radio/intercom/general{
 	dir = 8
 	},
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /turf/open/floor/prison/sterilewhite,
 /area/sulaco/cafeteria/kitchen)
 "mDl" = (
@@ -18637,6 +18582,7 @@
 	dir = 6
 	},
 /obj/effect/ai_node,
+/obj/machinery/holopad,
 /turf/open/floor/prison/plate,
 /area/shuttle/distress/arrive_2)
 "nae" = (
@@ -19584,12 +19530,7 @@
 /turf/open/floor/prison/bright_clean,
 /area/sulaco/hangar)
 "orc" = (
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /turf/open/floor/prison,
 /area/mainship/shipboard/weapon_room)
 "orB" = (
@@ -19657,12 +19598,7 @@
 /turf/open/floor/mainship/tcomms,
 /area/mainship/command/self_destruct)
 "ovJ" = (
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /turf/open/floor/prison/whitegreen/corner{
 	dir = 8
 	},
@@ -20161,6 +20097,20 @@
 "oYE" = (
 /turf/closed/wall/mainship/gray/outer,
 /area/sulaco/disposal)
+"pak" = (
+/obj/structure/cable,
+/obj/structure/disposalpipe/segment{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/hidden{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
+	dir = 8
+	},
+/obj/machinery/holopad,
+/turf/open/floor/prison,
+/area/sulaco/hangar/storage)
 "pbw" = (
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 4
@@ -20568,6 +20518,14 @@
 /obj/machinery/vending/uniform_supply,
 /turf/open/floor/prison,
 /area/sulaco/cargo)
+"pwU" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/machinery/atmospherics/pipe/simple/yellow/hidden,
+/obj/machinery/holopad,
+/turf/open/floor/prison/plate,
+/area/shuttle/distress/arrive_1)
 "pxg" = (
 /obj/structure/window/reinforced{
 	dir = 4
@@ -21215,12 +21173,7 @@
 /turf/open/floor/plating,
 /area/mainship/command/self_destruct)
 "qxQ" = (
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /turf/open/floor/prison/red/corner,
 /area/sulaco/cargo/prep)
 "qye" = (
@@ -23551,12 +23504,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -23706,12 +23654,7 @@
 /area/sulaco/cargo)
 "tvk" = (
 /obj/effect/decal/cleanable/dirt,
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /obj/structure/disposalpipe/segment{
 	dir = 4
 	},
@@ -23869,12 +23812,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /turf/open/floor/prison/bright_clean,
 /area/sulaco/hangar/droppod)
 "tHn" = (
@@ -24504,12 +24442,7 @@
 /area/mainship/living/starboard_garden)
 "uyW" = (
 /obj/structure/cable,
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
 	dir = 5
 	},
@@ -26390,12 +26323,7 @@
 /turf/open/floor/prison/sterilewhite,
 /area/sulaco/cafeteria/kitchen)
 "xba" = (
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /turf/open/floor/tile/hydro,
 /area/sulaco/hydro)
 "xbD" = (
@@ -26893,12 +26821,7 @@
 /area/sulaco/cafeteria/kitchen)
 "xKv" = (
 /obj/structure/cable,
-/obj/machinery/holopad{
-	active_power_usage = 130;
-	desc = "It's a floor-mounted device for projecting holographic images. This one appears to have a larger lense.";
-	holo_range = 7;
-	name = "modfied holopad"
-	},
+/obj/machinery/holopad,
 /obj/machinery/atmospherics/pipe/manifold/cyan/hidden/layer1,
 /obj/machinery/atmospherics/pipe/manifold/yellow/hidden,
 /obj/effect/ai_node,
@@ -57292,7 +57215,7 @@ dkb
 dsw
 dsw
 dsw
-dsw
+pwU
 dsw
 iAC
 ube
@@ -71516,7 +71439,7 @@ kOr
 aSf
 jYO
 aWo
-ftU
+pak
 jYO
 jYO
 fCq
