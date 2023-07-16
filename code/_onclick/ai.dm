@@ -156,6 +156,9 @@
 	if(aiControlDisabled)
 		to_chat(user, span_notice("[src] AI remote control has been disabled."))
 		return
+	if(emergency)
+		to_chat(user, span_notice("You can't lock a door that's on emergency access."))
+		return
 	if(locked)
 		bolt_raise(user)
 	else if(hasPower())
@@ -166,6 +169,20 @@
 		to_chat(user, span_notice("[src] AI remote control has been disabled."))
 		return
 	user_toggle_open(user)
+
+/obj/machinery/door/airlock/AICtrlShiftClick(mob/living/silicon/ai/user)
+	if(aiControlDisabled)
+		to_chat(user, span_notice("[src] AI remote control has been disabled."))
+		return
+	if(locked || !hasPower())
+		to_chat(user, span_notice("Emergency access mechanism inaccessible."))
+		return
+	if(emergency)
+		to_chat(user, span_notice("[src] emergency access has been disabled."))
+		emergency_off(user)
+	else
+		to_chat(user, span_notice("[src] emergency access has been enabled."))
+		emergency_on(user)
 
 /obj/machinery/door/airlock/dropship_hatch/AICtrlClick(mob/living/silicon/ai/user)
 	return

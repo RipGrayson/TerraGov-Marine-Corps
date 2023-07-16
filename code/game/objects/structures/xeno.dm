@@ -104,7 +104,7 @@
 	if(!ishuman(crosser))
 		return
 
-	if(CHECK_MULTIPLE_BITFIELDS(crosser.flags_pass, HOVERING))
+	if(CHECK_MULTIPLE_BITFIELDS(crosser.allow_pass_flags, HOVERING))
 		return
 
 	var/mob/living/carbon/human/victim = crosser
@@ -335,7 +335,7 @@
 	SEND_SIGNAL(user, COMSIG_XENOMORPH_RESIN_JELLY_APPLIED)
 	qdel(src)
 
-/obj/item/resin_jelly/throw_at(atom/target, range, speed, thrower, spin, flying)
+/obj/item/resin_jelly/throw_at(atom/target, range, speed, thrower, spin, flying = FALSE, targetted_throw = TRUE)
 	if(isxenohivelord(thrower))
 		RegisterSignal(src, COMSIG_MOVABLE_IMPACT, PROC_REF(jelly_throw_hit))
 	. = ..()

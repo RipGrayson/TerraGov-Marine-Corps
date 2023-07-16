@@ -17,7 +17,6 @@
 #define FACTION_HIVEBOT "Hivebot"
 #define FACTION_HOSTILE "Hostile"
 #define FACTION_PIRATE "Pirate"
-#define FACTION_VALHALLA "Valhalla"
 #define FACTION_SPECFORCE "Special Forces"
 #define FACTION_AISUPREME "Malf AI"
 
@@ -88,4 +87,9 @@ GLOBAL_LIST_INIT(faction_to_iff, list(
 GLOBAL_LIST_INIT(faction_to_data_hud, list(
 	FACTION_TERRAGOV = DATA_HUD_SQUAD_TERRAGOV,
 	FACTION_SOM = DATA_HUD_SQUAD_SOM,
+))
+
+GLOBAL_LIST_INIT(faction_to_squad_hud, list(
+	FACTION_TERRAGOV = SQUAD_HUD_TERRAGOV,
+	FACTION_SOM = SQUAD_HUD_SOM,
 ))

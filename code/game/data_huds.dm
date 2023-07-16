@@ -307,9 +307,6 @@
 				var/mob/dead/observer/ghost = get_ghost()
 				if(!ghost?.can_reenter_corpse)
 					status_hud.icon_state = "huddead"
-					if(istype(wear_ear, /obj/item/radio/headset/mainship))
-						var/obj/item/radio/headset/mainship/headset = wear_ear
-						headset.set_undefibbable_on_minimap()
 					return TRUE
 			var/stage
 			switch(dead_ticks)
@@ -346,9 +343,13 @@
 				simple_status_hud.icon_state = "hud_con_stun"
 				status_hud.icon_state = "hud_con_stun"
 				return TRUE
-			if(stagger || slowdown)
+			if(stagger)
 				simple_status_hud.icon_state = "hud_con_stagger"
 				status_hud.icon_state = "hud_con_stagger"
+				return TRUE
+			if(slowdown)
+				simple_status_hud.icon_state = "hud_con_slowdown"
+				status_hud.icon_state = "hud_con_slowdown"
 				return TRUE
 			else
 				if(species.species_flags & ROBOTIC_LIMBS)

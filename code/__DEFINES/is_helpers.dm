@@ -23,6 +23,8 @@
 
 #define islava(A) (istype(A, /turf/open/liquid/lava))
 
+#define iswater(A) (istype(A, /turf/open/liquid/water))
+
 #define isbasalt(A) (istype(A, /turf/open/lavaland/basalt))
 
 #define islavacatwalk(A) (istype(A, /turf/open/lavaland/catwalk))
@@ -183,8 +185,6 @@
 
 #define ismodulararmorarmorpiece(A) (istype(A, /obj/item/armor_module/armor))
 
-#define isgreyscaleattachment(A) (istype(A, /obj/item/armor_module/greyscale))
-
 #define ishat(A) (istype(A, /obj/item/clothing/head))
 
 #define ismodularhelmet(A) (istype(A, /obj/item/clothing/head/modular))
@@ -261,8 +261,6 @@
 #define isainode(O) (istype(O, /obj/effect/ai_node))
 
 //Gamemode
-#define isdistressgamemode(O) (istype(O, /datum/game_mode/infestation/distress))
-#define ishuntgamemode(O) (istype(O, /datum/game_mode/infestation/hunt))
 #define iscrashgamemode(O) (istype(O, /datum/game_mode/infestation/crash))
 #define isinfestationgamemode(O) (istype(O, /datum/game_mode/infestation))
 #define iscombatpatrolgamemode(O) (istype(O, /datum/game_mode/combat_patrol))

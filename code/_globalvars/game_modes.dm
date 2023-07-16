@@ -1,4 +1,4 @@
-GLOBAL_VAR_INIT(master_mode, "Distress Signal")
+GLOBAL_VAR_INIT(master_mode, "Nuclear War")
 
 /proc/init_rts_types() //initializes, creates and populates a global list of rts buildings
 	var/list/buildings = list()
