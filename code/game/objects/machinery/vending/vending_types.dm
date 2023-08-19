@@ -215,6 +215,8 @@
 			/obj/item/tool/research/excavation_tool = -1,
 			/obj/item/storage/pouch/surgery = -1,
 			/obj/item/armor_module/storage/uniform/surgery_webbing = -1,
+			/obj/item/reagent_containers/spray/surgery = -1,
+			/obj/item/tool/soap = 3,
 			/obj/item/clothing/glasses/hud/health = 6,
 			/obj/item/roller = 6,
 		),
@@ -564,6 +566,9 @@
 
 /obj/machinery/vending/engivend/nopower
 	use_power = NO_POWER_USE
+
+/obj/machinery/vending/engivend/nopower/valhalla
+	resistance_flags = INDESTRUCTIBLE
 
 //This one's from bay12
 /obj/machinery/vending/robotics
