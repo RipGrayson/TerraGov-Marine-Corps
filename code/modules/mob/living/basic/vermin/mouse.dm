@@ -34,7 +34,7 @@
 
 	src.tame = tame
 	if(isnull(body_color))
-		icon_state = pick("brownmouse", "graymouse", "whitemouse")
+		icon_state = pick("mouse_brown", "mouse_gray", "mouse_white")
 	AddComponent(/datum/component/squeak, list('sound/effects/mousesqueek.ogg' = 1), 100, extrarange = SHORT_RANGE_SOUND_EXTRARANGE) //as quiet as a mouse or whatever
 	var/static/list/loc_connections = list(
 		COMSIG_ATOM_ENTERED = PROC_REF(on_entered),

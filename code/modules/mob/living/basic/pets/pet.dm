@@ -1,5 +1,5 @@
 /mob/living/basic/pet
-	icon = 'icons/mob/simple/pets.dmi'
+	icon = 'icons/mob/pets.dmi'
 	mob_size = MOB_SIZE_SMALL
 	blood_volume = BLOOD_VOLUME_NORMAL
 
@@ -47,7 +47,7 @@
 	name = "\improper pug"
 	real_name = "pug"
 	desc = "They're a pug."
-	icon = 'icons/mob/simple/pets.dmi'
+	icon = 'icons/mob/pets.dmi'
 	icon_state = "pug"
 	icon_living = "pug"
 	icon_dead = "pug_dead"
@@ -60,7 +60,7 @@
 	name = "\improper bull terrier"
 	real_name = "bull terrier"
 	desc = "They're a bull terrier."
-	icon = 'icons/mob/simple/pets.dmi'
+	icon = 'icons/mob/pets.dmi'
 	icon_state = "bullterrier"
 	icon_living = "bullterrier"
 	icon_dead = "bullterrier_dead"
@@ -68,7 +68,7 @@
 /mob/living/basic/pet/dog/corgi/exoticcorgi
 	name = "Exotic Corgi"
 	desc = "As cute as they are colorful!"
-	icon = 'icons/mob/simple/pets.dmi'
+	icon = 'icons/mob/pets.dmi'
 	icon_state = "corgigrey"
 	icon_living = "corgigrey"
 	icon_dead = "corgigrey_dead"
