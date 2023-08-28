@@ -409,7 +409,7 @@
 			return
 		REMOVE_TRAIT(src, TRAIT_IS_RESURRECTING, REVIVE_TO_CRIT_TRAIT)
 		if(should_zombify || istype(species, /datum/species/zombie))
-			AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno/zombie/patrolling, src) //Zombie patrol
+			AddComponent(/datum/component/ai_controller, /datum/ai_behavior_nodebased/xeno/zombie/patrolling, src) //Zombie patrol
 			a_intent = INTENT_HARM
 	if(should_zombify)
 		set_species("Strong zombie")

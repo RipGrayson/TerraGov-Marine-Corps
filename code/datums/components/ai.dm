@@ -14,7 +14,7 @@ The main purpose of this is to handle cleanup and setting up the initial ai beha
 
 //The most basic of AI; can pathfind to a turf and path around objects in it's path if needed to
 /datum/component/ai_controller
-	var/datum/ai_behavior/ai_behavior //Calculates the action states to take and the parameters it gets; literally the brain
+	var/datum/ai_behavior_nodebased/ai_behavior //Calculates the action states to take and the parameters it gets; literally the brain
 
 /datum/component/ai_controller/Initialize(behavior_type, atom/atom_to_escort)
 	. = ..()

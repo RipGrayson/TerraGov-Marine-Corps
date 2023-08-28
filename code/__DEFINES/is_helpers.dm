@@ -100,7 +100,6 @@
 #define isxenopraetorian(A) (istype(A, /mob/living/carbon/xenomorph/praetorian))
 #define isxenoravager(A) (istype(A, /mob/living/carbon/xenomorph/ravager))
 #define isxenorunner(A) (istype(A, /mob/living/carbon/xenomorph/runner))
-#define isxenobaneling(A) (istype(A, /mob/living/carbon/xenomorph/baneling))
 #define isxenospitter(A) (istype(A, /mob/living/carbon/xenomorph/spitter))
 #define isxenosentinel(A) (istype(A, /mob/living/carbon/xenomorph/sentinel))
 #define isxenowarrior(A) (istype(A, /mob/living/carbon/xenomorph/warrior))
@@ -124,6 +123,9 @@
 
 //Simple animals
 #define isanimal(A) (istype(A, /mob/living/simple_animal))
+
+// basic mobs
+#define isbasicmob(A) (istype(A, /mob/living/basic))
 
 #define isshade(A) (istype(A, /mob/living/simple_animal/shade))
 
@@ -220,6 +222,10 @@
 #define iscable(A) (istype(A, /obj/structure/cable))
 
 #define ismachinery(A) (istype(A, /obj/machinery))
+
+#define isatmosscrubber(A) (istype(A, /obj/machinery/atmospherics/components/unary/vent_scrubber))
+
+#define isatmosvent(A) (istype(A, /obj/machinery/atmospherics/components/unary/vent_pump))
 
 #define ispowermachinery(A) (istype(A, /obj/machinery/power))
 

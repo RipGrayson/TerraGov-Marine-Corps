@@ -806,3 +806,27 @@
 	animate(visual, pixel_x = (tile.x - our_tile.x) * world.icon_size + pointed_atom.pixel_x, pixel_y = (tile.y - our_tile.y) * world.icon_size + pointed_atom.pixel_y, time = 1.7, easing = EASE_OUT)
 	SEND_SIGNAL(src, COMSIG_POINT_TO_ATOM, pointed_atom)
 	return TRUE
+
+/**
+ * Check if the other mob has any factions the same as us
+ *
+ * If exact match is set, then all our factions must match exactly
+ */
+/mob/proc/faction_check_mob(mob/target)
+	return faction_check(faction, target.faction, FALSE)
+/*
+ * Compare two lists of factions, returning true if any match
+ *
+ * If exact match is passed through we only return true if both faction lists match equally
+ */
+/proc/faction_check(list/faction_A, list/faction_B, exact_match)
+	var/list/match_list
+	if(exact_match)
+		match_list = faction_A&faction_B //only items in both lists
+		var/length = LAZYLEN(match_list)
+		if(length)
+			return (length == LAZYLEN(faction_A)) //if they're not the same len(gth) or we don't have a len, then this isn't an exact match.
+	else
+		match_list = faction_A&faction_B
+		return LAZYLEN(match_list)
+	return FALSE

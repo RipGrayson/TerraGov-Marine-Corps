@@ -119,6 +119,8 @@
 	///The acid currently on this atom
 	var/obj/effect/xenomorph/acid/current_acid = null
 
+	var/datum/ai_controller/ai_controller
+
 /*
 We actually care what this returns, since it can return different directives.
 Not specifically here, but in other variations of this. As a general safety,
@@ -1041,3 +1043,28 @@ Proc for attack log creation, because really why not
 ///Adds the debris element for projectile impacts
 /atom/proc/add_debris_element()
 	AddElement(/datum/element/debris, null, -15, 8, 0.7)
+
+///Setter for the `density` variable to append behavior related to its changing.
+/atom/proc/set_density(new_value)
+	SHOULD_CALL_PARENT(TRUE)
+	if(density == new_value)
+		return
+	. = density
+	density = new_value
+
+///Returns the closest atom of a specific type in a list from a source
+/proc/get_closest_atom(type, list/atom_list, source)
+	var/closest_atom
+	var/closest_distance
+	for(var/atom in atom_list)
+		if(!istype(atom, type))
+			continue
+		var/distance = get_dist(source, atom)
+		if(!closest_atom)
+			closest_distance = distance
+			closest_atom = atom
+		else
+			if(closest_distance > distance)
+				closest_distance = distance
+				closest_atom = atom
+	return closest_atom

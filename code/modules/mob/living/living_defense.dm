@@ -232,7 +232,7 @@
 		S.reagents?.reaction(src, TOUCH, S.fraction)
 	return protection
 
-/mob/living/proc/check_shields(attack_type, damage, damage_type = "melee", silent, penetration = 0)
+/mob/living/proc/check_shields(attack_type, damage, damage_type = MELEE, silent, penetration = 0)
 	if(!damage)
 		stack_trace("check_shields called without a damage value")
 		return 0
@@ -260,3 +260,14 @@
 	blur_eyes(rad_strength) //adds a visual indicator that you've just been irradiated
 	adjust_radiation(rad_strength * 20) //Radiation status effect, duration is in deciseconds
 	to_chat(src, span_warning("Your body tingles as you suddenly feel the strength drain from your body!"))
+
+
+/mob/living/attack_basic_mob(mob/living/basic/user, list/modifiers)
+	if(user.attack_sound)
+		playsound(loc, user.attack_sound, 50, TRUE, TRUE)
+	user.do_attack_animation(src)
+	visible_message(span_danger("\The [user] [user.attack_verb_continuous] [src]!"), \
+					span_userdanger("\The [user] [user.attack_verb_continuous] you!"), null, COMBAT_MESSAGE_RANGE, user)
+	to_chat(user, span_danger("You [user.attack_verb_simple] [src]!"))
+	log_combat(user, src, "attacked")
+	return TRUE

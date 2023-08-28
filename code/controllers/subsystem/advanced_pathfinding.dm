@@ -3,9 +3,9 @@ SUBSYSTEM_DEF(advanced_pathfinding)
 	priority = FIRE_PRIORITY_ADVANCED_PATHFINDING
 	wait = 1 SECONDS
 	///List of ai_behaviour datum asking for a tile pathfinding
-	var/list/datum/ai_behavior/tile_pathfinding_to_do = list()
+	var/list/datum/ai_behavior_nodebased/tile_pathfinding_to_do = list()
 	///List of ai_behaviour datum asking for a tile pathfinding
-	var/list/datum/ai_behavior/node_pathfinding_to_do = list()
+	var/list/datum/ai_behavior_nodebased/node_pathfinding_to_do = list()
 
 /datum/controller/subsystem/advanced_pathfinding/Initialize()
 	var/list/nodes = list()
@@ -48,12 +48,12 @@ SUBSYSTEM_DEF(advanced_pathfinding)
 #endif //TESTING
 
 /datum/controller/subsystem/advanced_pathfinding/fire()
-	for(var/datum/ai_behavior/ai_behavior AS in tile_pathfinding_to_do)
+	for(var/datum/ai_behavior_nodebased/ai_behavior AS in tile_pathfinding_to_do)
 		ai_behavior.look_for_tile_path()
 		tile_pathfinding_to_do -= ai_behavior
 		if (MC_TICK_CHECK)
 			return
-	for(var/datum/ai_behavior/ai_behavior AS in node_pathfinding_to_do)
+	for(var/datum/ai_behavior_nodebased/ai_behavior AS in node_pathfinding_to_do)
 		ai_behavior.look_for_node_path()
 		node_pathfinding_to_do -= ai_behavior
 		ai_behavior.registered_for_node_pathfinding = FALSE
@@ -158,7 +158,7 @@ GLOBAL_LIST_EMPTY(goal_nodes)
 		return
 	src.creator = creator
 	RegisterSignal(creator, COMSIG_QDELETING, PROC_REF(clean_creator))
-	goal_image = image('icons/Xeno/actions.dmi', src, "minion_rendez_vous")
+	goal_image = image('icons/mob/actions.dmi', src, "minion_rendez_vous")
 	goal_image.layer = HUD_PLANE
 	goal_image.alpha = 180
 	goal_image.pixel_y += 10

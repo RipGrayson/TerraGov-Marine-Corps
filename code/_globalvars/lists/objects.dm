@@ -11,6 +11,7 @@ GLOBAL_LIST_INIT(ammo_list, init_ammo_list())						//List of all ammo types. Use
 
 GLOBAL_LIST_EMPTY(marine_turrets)
 
+GLOBAL_LIST_EMPTY(airlocks)
 GLOBAL_LIST_EMPTY(droppod_list)
 GLOBAL_LIST_EMPTY(tank_list)
 GLOBAL_LIST_EMPTY(mechas_list)

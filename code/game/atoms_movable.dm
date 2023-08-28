@@ -77,6 +77,10 @@
 	///only the last container of a client eye has this list assuming no movement since SSparallax's last fire
 	var/list/client_mobs_in_contents
 
+	///A weakref to the mob who threw the item
+	var/datum/weakref/thrownby = null //I cannot verbally describe how much I hate this var
+
+
 //===========================================================================
 /atom/movable/Initialize(mapload, ...)
 	. = ..()
@@ -496,6 +500,8 @@
 
 	if(spin)
 		animation_spin(5, 1)
+
+	thrownby = WEAKREF(thrower)
 
 	set_throwing(TRUE)
 	src.thrower = thrower

@@ -526,6 +526,35 @@
 		if(A.density)
 			return TRUE
 
+/**
+ * Check whether the specified turf is blocked by something dense inside it with respect to a specific atom.
+ *
+ * Returns truthy value TURF_BLOCKED_TURF_DENSE if the turf is blocked because the turf itself is dense.
+ * Returns truthy value TURF_BLOCKED_CONTENT_DENSE if one of the turf's contents is dense and would block
+ * a source atom's movement.
+ * Returns falsey value TURF_NOT_BLOCKED if the turf is not blocked.
+ *
+ * Arguments:
+ * * exclude_mobs - If TRUE, ignores dense mobs on the turf.
+ * * source_atom - If this is not null, will check whether any contents on the turf can block this atom specifically. Also ignores itself on the turf.
+ * * ignore_atoms - Check will ignore any atoms in this list. Useful to prevent an atom from blocking itself on the turf.
+ */
+/turf/proc/is_blocked_turf_advanced(exclude_mobs = FALSE, source_atom = null, list/ignore_atoms)
+	if(density)
+		return TRUE
+
+	for(var/atom/movable/movable_content as anything in contents)
+		// We don't want to block ourselves or consider any ignored atoms.
+		if((movable_content == source_atom) || (movable_content in ignore_atoms))
+			continue
+		// If the thing is dense AND we're including mobs or the thing isn't a mob AND if there's a source atom and
+		// it cannot pass through the thing on the turf,  we consider the turf blocked.
+		if(movable_content.density && (!exclude_mobs || !ismob(movable_content)))
+			if(source_atom && movable_content.CanPass(source_atom, get_dir(src, source_atom)))
+				continue
+			return TRUE
+	return FALSE
+
 //Takes: Anything that could possibly have variables and a varname to check.
 //Returns: TRUE if found, FALSE if not.
 /proc/hasvar(datum/A, varname)
@@ -1298,4 +1327,22 @@ GLOBAL_LIST_INIT(survivor_outfits, typecacheof(/datum/outfit/job/survivor))
 		if(LinkBlocked(path_to_target[line_count], path_to_target[line_count + 1], bypass_window, projectile, bypass_xeno, air_pass))
 			return FALSE
 		line_count ++
+	return TRUE
+
+//Step-towards method of determining whether one atom can see another. Similar to viewers()
+/proc/can_see(atom/source, atom/target, length=5) // I couldnt be arsed to do actual raycasting :I This is horribly inaccurate.
+	var/turf/current = get_turf(source)
+	var/turf/target_turf = get_turf(target)
+	if(get_dist(source, target) > length)
+		return FALSE
+	var/steps = 1
+	if(current != target_turf)
+		current = get_step_towards(current, target_turf)
+		while(current != target_turf)
+			if(steps > length)
+				return FALSE
+			if(IS_OPAQUE_TURF(current))
+				return FALSE
+			current = get_step_towards(current, target_turf)
+			steps++
 	return TRUE

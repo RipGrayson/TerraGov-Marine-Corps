@@ -115,7 +115,7 @@ Contains most of the procs that are called when a mob is attacked by something
 
 	var/damage = I.force + round(I.force * 0.3 * user.skills.getRating(SKILL_MELEE_WEAPONS)) //30% bonus per melee level
 	if(user != src)
-		damage = check_shields(COMBAT_MELEE_ATTACK, damage, "melee")
+		damage = check_shields(COMBAT_MELEE_ATTACK, damage, MELEE)
 		if(!damage)
 			log_combat(user, src, "attacked", I, "(FAILED: shield blocked) (INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(I.damtype)])")
 			return TRUE
@@ -457,3 +457,17 @@ Contains most of the procs that are called when a mob is attacked by something
 				break
 	cut_overlay(GLOB.welding_sparks)
 	return TRUE
+
+
+/mob/living/carbon/human/attack_basic_mob(mob/living/basic/user, list/modifiers)
+	. = ..()
+	if(!.)
+		return
+	var/damage = rand(user.melee_damage_lower, 10)
+	if(check_shields(user, damage, "the [user.name]", MELEE, user.armour_penetration))
+		return FALSE
+	var/dam_zone = pick(BODY_ZONE_CHEST, BODY_ZONE_PRECISE_L_HAND, BODY_ZONE_PRECISE_R_HAND, BODY_ZONE_L_LEG, BODY_ZONE_R_LEG)
+	var/datum/limb/affecting = get_bodypart(ran_zone(dam_zone))
+	if(!affecting)
+		affecting = get_bodypart(BODY_ZONE_CHEST)
+	apply_damage(damage, user.melee_damage_type, affecting, sharp = user.sharpness)

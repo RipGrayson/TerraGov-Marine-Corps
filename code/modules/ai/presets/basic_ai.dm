@@ -2,4 +2,4 @@
 
 /mob/living/carbon/human/node_pathing/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/ai_controller, /datum/ai_behavior)
+	AddComponent(/datum/component/ai_controller, /datum/ai_behavior_nodebased)

@@ -59,6 +59,7 @@
 
 /obj/machinery/door/airlock/Initialize()
 	..()
+	GLOB.airlocks += src
 	return INITIALIZE_HINT_LATELOAD
 
 /obj/machinery/door/airlock/LateInitialize()
@@ -529,6 +530,7 @@
 /obj/machinery/door/airlock/Destroy()
 	QUEUE_SMOOTH_NEIGHBORS(loc)
 	QDEL_NULL(wires)
+	GLOB.airlocks -= src
 	return ..()
 
 

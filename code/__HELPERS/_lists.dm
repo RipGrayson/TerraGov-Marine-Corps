@@ -605,3 +605,12 @@
 ///uses sort_list() but uses the var's name specifically. This should probably be using mergeAtom() instead
 /proc/sort_names(list/list_to_sort, order=1)
 	return sortTim(list_to_sort.Copy(), order >= 0 ? GLOBAL_PROC_REF(cmp_name_asc) : GLOBAL_PROC_REF(cmp_name_dsc))
+
+//returns a new list with only atoms that are in typecache L
+/proc/typecache_filter_list(list/atoms, list/typecache)
+	RETURN_TYPE(/list)
+	. = list()
+	for(var/thing in atoms)
+		var/atom/A = thing
+		if (typecache[A.type])
+			. += A

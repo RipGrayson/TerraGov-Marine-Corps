@@ -10,6 +10,8 @@
 /atom/proc/attack_animal(mob/user as mob)
 	return
 
+/atom/proc/attack_basic_mob(mob/user, list/modifiers)
+	SEND_SIGNAL(src, COMSIG_ATOM_ATTACK_BASIC_MOB, user)
 
 /atom/proc/attack_hand(mob/living/user)
 	. = FALSE

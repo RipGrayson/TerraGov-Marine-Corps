@@ -95,7 +95,7 @@
 		animal_parent.toggle_ai(AI_OFF)
 	if(hello_message)
 		COMPANION_SAY(hello_message)
-	mob_parent.AddComponent(/datum/component/ai_controller, /datum/ai_behavior, mob_master)
+	mob_parent.AddComponent(/datum/component/ai_controller, /datum/ai_behavior_nodebased, mob_master)
 	///This needs to be after the AI component as that sets the intent to harm
 	mob_parent.a_intent = INTENT_HELP
 

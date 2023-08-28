@@ -1466,3 +1466,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	update_icon()
 	update_greyscale()
 
+/obj/item/attack_basic_mob(mob/living/basic/user, list/modifiers)
+	if (obj_flags & CAN_BE_HIT)
+		return ..()
+	return 0

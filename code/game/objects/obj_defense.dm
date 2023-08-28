@@ -118,9 +118,9 @@
 	else
 		var/play_soundeffect = 1
 		if(M.obj_damage)
-			. = attack_generic(M, M.obj_damage, M.melee_damage_type, "melee", play_soundeffect, M.armour_penetration)
+			. = attack_generic(M, M.obj_damage, M.melee_damage_type, MELEE, play_soundeffect, M.armour_penetration)
 		else
-			. = attack_generic(M, M.melee_damage, M.melee_damage_type, "melee", play_soundeffect, M.armour_penetration)
+			. = attack_generic(M, M.melee_damage, M.melee_damage_type, MELEE, play_soundeffect, M.armour_penetration)
 		if(. && !play_soundeffect)
 			playsound(loc, 'sound/effects/meteorimpact.ogg', 100, 1)
 
@@ -191,3 +191,15 @@
 ///returns how much the object blocks an explosion. Used by subtypes.
 /obj/proc/GetExplosionBlock(explosion_dir)
 	CRASH("Unimplemented GetExplosionBlock()")
+
+/obj/attack_basic_mob(mob/living/basic/user, list/modifiers)
+	if(!user.melee_damage_upper && !user.obj_damage) //No damage
+		user.emote("custom", message = "[user.friendly_verb_continuous] [src].")
+		return FALSE
+	else
+		if(user.obj_damage)
+			. = attack_generic(user, user.obj_damage, user.melee_damage_type, MELEE, TRUE, user.armour_penetration)
+		else
+			. = attack_generic(user, rand(user.melee_damage_lower,user.melee_damage_upper), user.melee_damage_type, MELEE,TRUE, user.armour_penetration)
+		if(.)
+			playsound(src, 'sound/effects/meteorimpact.ogg', 100, TRUE)

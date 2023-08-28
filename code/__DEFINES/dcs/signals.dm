@@ -267,7 +267,6 @@
 #define COMSIG_TURF_JUMP_ENDED_HERE "turf_jump_ended_here"      //from datum/element/jump/end_jump(): (jumper)
 #define COMSIG_TURF_RESUME_PROJECTILE_MOVE "resume_projetile"
 #define COMSIG_TURF_PROJECTILE_MANIPULATED "projectile_manipulated"
-#define COMSIG_TURF_CHECK_COVERED "turf_check_covered" //from /turf/open/liquid/Entered checking if something is covering the turf
 
 // /obj signals
 #define COMSIG_OBJ_SETANCHORED "obj_setanchored"				//called in /obj/structure/setAnchored(): (value)
@@ -398,8 +397,6 @@
 
 // /mob signals
 #define COMSIG_MOB_DEATH "mob_death"							//from base of mob/death(): (gibbing)
-#define COMSIG_MOB_PRE_DEATH "mob_pre_death"
-	#define COMPONENT_CANCEL_DEATH (1<<0)						//interrupt death
 #define COMSIG_MOB_REVIVE "mob_revive"							//from base of mob/on_revive(): ()
 #define COMSIG_MOB_STAT_CHANGED "stat_changed"					//from base of mob/stat_change(): (old_stat, new_stat)
 #define COMSIG_MOB_MOUSEDOWN "mob_mousedown"					//from /client/MouseDown(): (atom/object, turf/location, control, params)
@@ -843,7 +840,6 @@
 #define COMSIG_XENOABILITY_LEASH_BALL "xenoability_leash_ball"
 #define COMSIG_XENOABILITY_CREATE_SPIDERLING "xenoability_create_spiderling"
 #define COMSIG_XENOABILITY_ATTACH_SPIDERLINGS "xenoability_attach_spiderlings"
-#define COMSIG_XENOABILITY_CANNIBALISE_SPIDERLING "xenoability_cannibalise_spiderling"
 #define COMSIG_XENOABILITY_WEB_HOOK "xenoability_web_hook"
 #define COMSIG_XENOABILITY_SPIDERLING_MARK "xenoability_spiderling_mark"
 
@@ -851,11 +847,6 @@
 #define COMSIG_XENOABILITY_TRIGGER_PSYCHIC_SHIELD "xenoability_trigger_psychic_shield"
 #define COMSIG_XENOABILITY_PSYCHIC_BLAST "xenoability_psychic_blast"
 #define COMSIG_XENOABILITY_PSYCHIC_CRUSH "xenoability_psychic_crush"
-
-#define COMSIG_XENOABILITY_BANELING_EXPLODE "xenoability_baneling_explode"
-#define COMSIG_XENOABILITY_BANELING_SPAWN_POD "xenoability_baneling_spawn_pod"
-#define COMSIG_XENOABILITY_BANELING_CHOOSE_REAGENT "xenoability_baneling_choose_reagent"
-#define COMSIG_XENOABILITY_BANELING_DASH_EXPLOSION "xenoability_baneling_dash_explosion"
 
 // throw parry signals
 #define COMSIG_THROW_PARRY_CHECK "throw_parry_check"
@@ -969,3 +960,20 @@
 
 // widow spiderling mark signals
 #define COMSIG_SPIDERLING_MARK "spiderling_mark"
+
+//from base of atom/attack_basic_mob(): (/mob/user)
+#define COMSIG_ATOM_ATTACK_BASIC_MOB "attack_basic_mob"
+
+///Basic mob signals
+///Called on /basic when updating its speed, from base of /mob/living/basic/update_basic_mob_varspeed(): ()
+#define POST_BASIC_MOB_UPDATE_VARSPEED "post_basic_mob_update_varspeed"
+
+// /mob/living/simple_animal/hostile signals
+///before attackingtarget has happened, source is the attacker and target is the attacked
+#define COMSIG_HOSTILE_PRE_ATTACKINGTARGET "hostile_pre_attackingtarget"
+	#define COMPONENT_HOSTILE_NO_ATTACK (1<<0) //cancel the attack, only works before attack happens
+///after attackingtarget has happened, source is the attacker and target is the attacked, extra argument for if the attackingtarget was successful
+#define COMSIG_HOSTILE_POST_ATTACKINGTARGET "hostile_post_attackingtarget"
+
+///from relay_attackers element: (atom/attacker)
+#define COMSIG_ATOM_WAS_ATTACKED "atom_was_attacked"

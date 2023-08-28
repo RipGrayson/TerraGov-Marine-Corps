@@ -128,3 +128,17 @@
 **/
 /mob/living/proc/enable_throw_parry(duration)
 	SEND_SIGNAL(src, COMSIG_PARRY_TRIGGER, duration)
+
+///Get the bodypart for whatever hand we have active, Only relevant for carbons
+/mob/proc/get_active_hand()
+	return FALSE
+
+/mob/living/proc/get_bodypart(zone)
+	return
+
+/mob/living/carbon/get_bodypart(zone)
+	if(!zone)
+		zone = BODY_ZONE_CHEST
+	for(var/obj/item/limb/bodypart as anything in GLOB.human_body_parts)
+		if(get_limb(bodypart) == zone)
+			return bodypart

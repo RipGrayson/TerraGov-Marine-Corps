@@ -3,18 +3,18 @@
 
 /mob/living/carbon/human/species/zombie/ai/stay/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno/zombie/idle, null)
+	AddComponent(/datum/component/ai_controller, /datum/ai_behavior_nodebased/xeno/zombie/idle, null)
 
 /mob/living/carbon/human/species/zombie/ai/patrol
 	race = "Zombie"
 
 /mob/living/carbon/human/species/zombie/ai/patrol/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno/zombie/patrolling , null)
+	AddComponent(/datum/component/ai_controller, /datum/ai_behavior_nodebased/xeno/zombie/patrolling , null)
 
 /mob/living/carbon/human/species/zombie/ai/follower/Initialize(mapload, atom_to_escort)
 	. = ..()
-	AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno/zombie, atom_to_escort)
+	AddComponent(/datum/component/ai_controller, /datum/ai_behavior_nodebased/xeno/zombie, atom_to_escort)
 
 /mob/living/carbon/human/species/zombie/ai/patrol/fast
 	race = "Fast zombie"
