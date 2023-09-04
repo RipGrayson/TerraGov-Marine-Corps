@@ -200,6 +200,10 @@
 
 
 /obj/machinery/attack_ai(mob/living/silicon/ai/user)
+	#ifndef TESTING
+	if(isbadAI(user) && is_mainship_level(user.eyeobj.z)) //blanket ban on rts AIs messing with shipside
+		return
+	#endif
 	if(!is_operational())
 		return FALSE
 	if(!(interaction_flags & INTERACT_SILICON_ALLOWED))

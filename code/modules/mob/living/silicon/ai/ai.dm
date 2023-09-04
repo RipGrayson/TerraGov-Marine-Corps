@@ -359,6 +359,9 @@
 /mob/living/silicon/ai/get_status_tab_items()
 	. = ..()
 
+	if(isbadAI(src))
+		return
+
 	if(stat != CONSCIOUS)
 		. += "System status: Nonfunctional"
 		return
@@ -377,19 +380,17 @@
 
 	. += "Current dropship points: [round(SSpoints.dropship_points)]"
 
-	. += "Current alert level: [GLOB.marine_main_ship.get_security_level()]"
-
-	. += "Number of living marines: [SSticker.mode.count_humans_and_xenos()[1]]"
+	. += "Current rts points: [round(SSrtspoints.ai_points)]"
 
 	if(GLOB.marine_main_ship?.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE > world.time)
 		. += "Railgun status: Cooling down, next fire in [(GLOB.marine_main_ship?.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE - world.time)/10] seconds."
 	else
 		. += "Railgun status: Railgun is ready to fire."
 
-		if(last_ai_bioscan + COOLDOWN_AI_BIOSCAN > world.time)
-			stat("AI bioscan status:", "Instruments recalibrating, next scan in [(last_ai_bioscan  + COOLDOWN_AI_BIOSCAN - world.time)/10] seconds.") //about 10 minutes
-		else
-			stat("AI bioscan status:", "Instruments are ready to scan the planet.")
+	if(last_ai_bioscan + COOLDOWN_AI_BIOSCAN > world.time)
+		. += "Bioscan Instruments recalibrating, next scan in [(last_ai_bioscan  + COOLDOWN_AI_BIOSCAN - world.time)/10] seconds." //about 10 minutes
+	else
+		. += "AI bioscan status: Instruments are ready to scan the planet."
 
 /mob/living/silicon/ai/fully_replace_character_name(oldname, newname)
 	. = ..()
@@ -576,32 +577,36 @@
 			to_chat(M, span_notice("<b>ALERT! The ship AI has detected Hostile/Unknown: [A.name] at: [AREACOORD_NO_Z(A)].</b>"))
 
 /mob/living/silicon/ai/malf
-	available_networks = list("malfAI")
+	available_networks = list()
 	var/obj/structure/rts_building/held_building = /obj/structure/rts_building/precursor
 	///the last structure that built something
 	var/obj/structure/rts_building/last_built_structure = null
 	///refs to the last unit built
 	var/datum/weakref/last_built_unit = null
+	///refs to the last building selected
+	var/obj/structure/rts_building/last_touched_building = null
+	hud_type = /datum/hud/ai_rts
 
-/mob/living/silicon/ai/malf/Stat()
+/mob/living/silicon/ai/malf/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_SEE_IN_DARK, src)
+	for(var/datum/atom_hud/rts_info/rts_hd in GLOB.huds) //Add to the squad HUD
+		rts_hd.add_to_hud(src)
 
-	if(statpanel("Game"))
+/mob/living/silicon/ai/malf/get_status_tab_items()
+	. = ..()
 
-		if(stat != CONSCIOUS)
-			stat("System status:", "Nonfunctional")
-			return
+	if(stat != CONSCIOUS)
+		. += "System status: Nonfunctional"
+		return
 
-		stat("System integrity:", "[(health + 100) / 2]%")
-		stat("<BR>- Operation information - <BR>")
+	. += "System integrity: [(health + 100) / 2]%"
+	. += ""
+	. += "- Operation information -"
 
-		stat("Current resource points:", "[round(SSrtspoints.ai_points)]")
+	. += "Current rts points: [round(SSrtspoints.ai_points)]"
 
-		stat("Resource point gain:", "[round(SSrtspoints.ailastrecordedpointgain)]")
-
-		if(GLOB.marine_main_ship?.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE > world.time)
-			stat("Railgun status:", "Cooling down, next fire in [(GLOB.marine_main_ship?.rail_gun?.last_firing_ai + COOLDOWN_RAILGUN_FIRE - world.time)/10] seconds.")
-		else
-			stat("Railgun status:", "Railgun is ready to fire.")
+	. += "Resource point gain: [round(SSrtspoints.ailastrecordedpointgain)]"
 
 ///shows available building options, performs some logic to make sure that options obey tech requirements
 /mob/living/silicon/ai/malf/proc/show_rts_build_options()

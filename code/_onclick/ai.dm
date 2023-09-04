@@ -107,6 +107,10 @@
 /atom/proc/attack_ai(mob/user)
 	return
 
+/obj/machinery/computer/shuttle/marine_dropship/attack_ai(mob/living/silicon/ai/AI)
+	. = ..()
+	if(isbadAI(AI))
+		return
 
 /*
 	Since the AI handles shift, ctrl, and alt-click differently
@@ -404,7 +408,8 @@
 				to_chat(user, "Another object here is dense")
 				return
 	to_chat(user, "You begin the construction of [initial(user.held_building.name)].")
-	new user.held_building(src)
+	var/obj/structure/rts_building/precursor/newbuilding = new user.held_building(src)
+	newbuilding.constructingai = user
 
 /obj/structure/rts_building/precursor/AICtrlClick(mob/living/silicon/ai/malf/user)
 	to_chat(user, "You cancel the construction of this [name] for [pointcost] resources.")

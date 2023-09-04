@@ -31,6 +31,8 @@
 	)
 	///what flags we require to exist before we allow this building to be constructed
 	var/required_buildings_flags_for_construction = AI_NONE
+	///what AI created this building
+	var/mob/living/silicon/ai/malf/constructingai
 
 /obj/structure/rts_building/engineering
 	name = "AI engineering"
@@ -69,7 +71,8 @@
 
 ///generates the building
 /obj/structure/rts_building/precursor/proc/createbuilding(obj/structure/rts_building/constructedbuilding = /obj/structure/rts_building)
-	new constructedbuilding(get_turf(src))
+	var/obj/structure/rts_building/newbuilding = new constructedbuilding(get_turf(src))
+	newbuilding.constructingai = src.constructingai
 	qdel(src)
 
 ///handles cost, prereq checking and build queuing before creating a unit
@@ -106,9 +109,11 @@
 
 /obj/structure/rts_building/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	rts_set_building_health()
 
 /obj/structure/rts_building/Initialize(mapload, start_dir)
 	. = ..()
+	//rts_set_building_health()
 	unit_type = new
 	GLOB.constructed_rts_builds += src
 

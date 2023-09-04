@@ -1,3 +1,5 @@
+#define TESTING
+
 // points per minute
 #define AI_SUPPLY_POINT_RATE 20 * (GLOB.current_orbit/3)
 

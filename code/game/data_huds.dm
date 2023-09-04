@@ -106,6 +106,8 @@
 /mob/proc/med_hud_set_health()
 	return
 
+/datum/atom_hud/rts_info
+	hud_icons = list(HEALTH_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, XENO_DEBUFF_HUD, STATUS_HUD, MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD, RTS_INFO_HUD)
 
 /mob/living/carbon/xenomorph/med_hud_set_health()
 	var/image/holder = hud_list[HEALTH_HUD_XENO]
@@ -703,3 +705,19 @@
 	if(internal_damage)
 		holder.icon_state = "hudwarn"
 	holder.icon_state = null
+
+///Mecha health hud updates
+/obj/structure/rts_building/proc/rts_set_building_health()
+	var/image/holder = hud_list[RTS_INFO_HUD]
+
+	if(!holder)
+		return
+
+	if(obj_integrity < 1)
+		holder.icon_state = "xenohealth0"
+		return
+
+	var/amount = round(obj_integrity * 100 / max_integrity, 10)
+	if(!amount)
+		amount = 1 //don't want the 'zero health' icon when we still have 4% of our health
+	holder.icon_state = "xenohealth[amount]"

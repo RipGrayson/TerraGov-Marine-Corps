@@ -23,6 +23,7 @@
 #define XENO_DEBUFF_HUD "xeno_debuff_hud" // displays xeno debuffs; part of /datum/atom_hud/xeno_debuff
 #define HEART_STATUS_HUD "heart_status_hud" // display if revivable, along with blood level
 #define XENO_FIRE_HUD "xeno_fire_hud" // displays how many fire stacks a xeno has
+#define RTS_INFO_HUD "rts_info" // displays how many fire stacks a xeno has
 
 #define ADD_HUD_TO_COOLDOWN 20 //cooldown for being shown the images for any particular data hud
 
@@ -48,6 +49,7 @@
 #define DATA_HUD_SQUAD_SOM 14
 #define DATA_HUD_XENO_DEBUFF 15
 #define DATA_HUD_XENO_HEART 16
+#define DATA_HUD_RTS_INFO 17
 
 
 // Notification action types
