@@ -1,5 +1,5 @@
 /obj/structure/rts_building
-	name = "AI headquarters"
+	name = "buildingplaceholder"
 	desc = "A featureless block meant for testing core mechanics, how did you even see this?"
 	icon = 'icons/obj/structures/rtsstructures.dmi'
 	base_icon_state = "holder1"
@@ -19,7 +19,7 @@
 	bound_height = 64
 	bound_width = 64
 	///what building flags this building has
-	var/has_building_flags = AI_HEADQUARTERS
+	var/has_building_flags = null
 	//holder for unit datums
 	var/datum/rts_units/unit_type
 	///icon for activation, so we can show off fancy working graphics
@@ -29,19 +29,36 @@
 		/datum/rts_units/beetle,
 		/datum/rts_units/mantis,
 	)
+	var/list/buildable_structures = list(
+		/obj/structure/rts_building/precursor,
+		/obj/structure/rts_building/precursor/engineering,
+	)
+	///holds the icon_state for the hud
+	var/buildable_icon_state = "hq"
 	///what flags we require to exist before we allow this building to be constructed
 	var/required_buildings_flags_for_construction = AI_NONE
 	///what AI created this building
 	var/mob/living/silicon/ai/malf/constructingai
+	///units to be built, yes I'm actually working on a sensible implementation
+	var/list/queuedunits = list()
+	///holds our position in a theoretical list of buildings
+	var/buildingorder = 0
 
-/obj/structure/rts_building/engineering
+/obj/structure/rts_building/structure/headquarters
+	name = "AI headquarters"
+	desc = "AI headquarters, the brain of any operation"
+	has_building_flags = AI_HEADQUARTERS
+
+/obj/structure/rts_building/structure/engineering
 	name = "AI engineering"
+	buildable_icon_state = "engi"
 	has_building_flags = AI_ENGINEERING
 	required_buildings_flags_for_construction = AI_HEADQUARTERS
 
 ///ghost of the building we're constructing
 /obj/structure/rts_building/precursor
 	name = "AI headquarters"
+	desc = "A building under construction"
 	max_integrity = 100
 	alpha = 100
 	pointvalue = 0
@@ -52,9 +69,13 @@
 	var/buildtime = 10 SECONDS
 	unit_type = null
 
+/obj/structure/rts_building/precursor/headquarters
+	name = "AI headquarters"
+	buildtype = /obj/structure/rts_building/structure/headquarters
+
 /obj/structure/rts_building/precursor/engineering
 	name = "AI engineering"
-	buildtype = /obj/structure/rts_building/engineering
+	buildtype = /obj/structure/rts_building/structure/engineering
 	buildtime = 20 SECONDS
 	pointcost = 500
 	required_buildings_flags_for_construction = AI_HEADQUARTERS
@@ -71,12 +92,15 @@
 
 ///generates the building
 /obj/structure/rts_building/precursor/proc/createbuilding(obj/structure/rts_building/constructedbuilding = /obj/structure/rts_building)
-	var/obj/structure/rts_building/newbuilding = new constructedbuilding(get_turf(src))
+	if(locate(/obj/structure/rts_building/structure/engineering) in GLOB.constructed_rts_builds)
+		to_chat(constructingai, "test")
+	var/obj/structure/rts_building/structure/newbuilding = new constructedbuilding(get_turf(src))
 	newbuilding.constructingai = src.constructingai
 	qdel(src)
 
 ///handles cost, prereq checking and build queuing before creating a unit
-/obj/structure/rts_building/proc/queueunit(mob/living/silicon/ai/malf/user)
+//this is being deprecated after UI rework
+/obj/structure/rts_building/structure/proc/queueunit(mob/living/silicon/ai/malf/user)
 	if(HAS_TRAIT(src, BUILDING_BUSY))
 		to_chat(user, "This building is already producing [unit_type.name]")
 		return
@@ -92,13 +116,13 @@
 	///TODO at some point this needs a refactor to handle multiple units in a queue, current implementation can't do it
 
 ///actually generates the unit
-/obj/structure/rts_building/proc/createunit(mob/living/generatedunit = /mob/living/carbon/xenomorph/mantis/ai, mob/living/silicon/ai/malf/user)
+/obj/structure/rts_building/structure/proc/createunit(mob/living/generatedunit = /mob/living/carbon/xenomorph/mantis/ai, mob/living/silicon/ai/malf/user)
 	new generatedunit(get_step(src, SOUTH))
 	icon_state = base_icon_state
 	if(HAS_TRAIT(src, BUILDING_BUSY))
 		REMOVE_TRAIT(src, BUILDING_BUSY, BUILDING_BUSY)
 
-/obj/structure/rts_building/ex_act(severity)
+/obj/structure/rts_building/structure/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
 			deconstruct(FALSE)
@@ -107,23 +131,23 @@
 		if(EXPLODE_LIGHT)
 			take_damage(rand(50, 75))
 
-/obj/structure/rts_building/attackby(obj/item/I, mob/user, params)
+/obj/structure/rts_building/structure/attackby(obj/item/I, mob/user, params)
 	. = ..()
 	rts_set_building_health()
 
-/obj/structure/rts_building/Initialize(mapload, start_dir)
+/obj/structure/rts_building/structure/Initialize(mapload, start_dir)
 	. = ..()
 	//rts_set_building_health()
 	unit_type = new
 	GLOB.constructed_rts_builds += src
 
-/obj/structure/rts_building/Destroy()
+/obj/structure/rts_building/structure/Destroy()
 	density = FALSE
 	GLOB.constructed_rts_builds -= src
 	QDEL_NULL(unit_type)
 	return ..()
 
-/obj/structure/rts_building/fire_act(exposed_temperature, exposed_volume)
+/obj/structure/rts_building/structure/fire_act(exposed_temperature, exposed_volume)
 	if(exposed_temperature > T0C + 800)
 		take_damage(round(exposed_volume / 100), BURN, "fire")
 	return ..()

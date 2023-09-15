@@ -24,7 +24,7 @@ SUBSYSTEM_DEF(rtspoints)
 
 /datum/controller/subsystem/rtspoints/proc/calculatepoints()
 	var/sumofpoints = null
-	for(var/obj/structure/rts_building/structure in GLOB.constructed_rts_builds)
+	for(var/obj/structure/rts_building/structure/structure in GLOB.constructed_rts_builds)
 		sumofpoints += structure.pointvalue
 	return sumofpoints
 

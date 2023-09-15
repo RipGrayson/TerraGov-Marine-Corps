@@ -114,22 +114,23 @@
 	RegisterSignal(SSdcs, COMSIG_GLOB_CLONE_PRODUCED, PROC_REF(show_fresh_clone))
 	RegisterSignal(SSdcs, COMSIG_GLOB_HOLOPAD_AI_CALLED, PROC_REF(ping_ai))
 
-	var/datum/action/innate/order/attack_order/send_attack_order = new
-	var/datum/action/innate/order/defend_order/send_defend_order = new
-	var/datum/action/innate/order/retreat_order/send_retreat_order = new
-	var/datum/action/innate/order/rally_order/send_rally_order = new
-	var/datum/action/control_vehicle/control = new
-	var/datum/action/innate/squad_message/squad_message = new
-	send_attack_order.target = src
-	send_attack_order.give_action(src)
-	send_defend_order.target = src
-	send_defend_order.give_action(src)
-	send_retreat_order.target = src
-	send_retreat_order.give_action(src)
-	send_rally_order.target = src
-	send_rally_order.give_action(src)
-	control.give_action(src)
-	squad_message.give_action(src)
+	if(!isbadAI(src)) //gets the job done
+		var/datum/action/innate/order/attack_order/send_attack_order = new
+		var/datum/action/innate/order/defend_order/send_defend_order = new
+		var/datum/action/innate/order/retreat_order/send_retreat_order = new
+		var/datum/action/innate/order/rally_order/send_rally_order = new
+		var/datum/action/control_vehicle/control = new
+		var/datum/action/innate/squad_message/squad_message = new
+		send_attack_order.target = src
+		send_attack_order.give_action(src)
+		send_defend_order.target = src
+		send_defend_order.give_action(src)
+		send_retreat_order.target = src
+		send_retreat_order.give_action(src)
+		send_rally_order.target = src
+		send_rally_order.give_action(src)
+		control.give_action(src)
+		squad_message.give_action(src)
 
 /mob/living/silicon/ai/Destroy()
 	GLOB.ai_list -= src
@@ -578,13 +579,13 @@
 
 /mob/living/silicon/ai/malf
 	available_networks = list()
-	var/obj/structure/rts_building/held_building = /obj/structure/rts_building/precursor
+	var/obj/structure/rts_building/structure/held_building = /obj/structure/rts_building/precursor/headquarters
 	///the last structure that built something
-	var/obj/structure/rts_building/last_built_structure = null
+	var/obj/structure/rts_building/structure/last_built_structure = null
 	///refs to the last unit built
 	var/datum/weakref/last_built_unit = null
 	///refs to the last building selected
-	var/obj/structure/rts_building/last_touched_building = null
+	var/obj/structure/rts_building/structure/last_touched_building = null
 	hud_type = /datum/hud/ai_rts
 
 /mob/living/silicon/ai/malf/Initialize(mapload)
@@ -622,7 +623,7 @@
 
 	var/list/allowedbuildings = list()
 	for(var/word in GLOB.rts_buildings) //go through the global list of available buildings and validate requirements for each one
-		var/obj/structure/rts_building/new_building = GLOB.rts_buildings[word]
+		var/obj/structure/rts_building/structure/new_building = GLOB.rts_buildings[word]
 		if(CHECK_BITFIELD(initial(new_building.required_buildings_flags_for_construction), AI_NONE)) //buildings with no requirements are always on the list
 			allowedbuildings += initial(new_building.name)
 			continue
@@ -637,7 +638,7 @@
 		if(last_built_structure != null) //if our held_building is null but our last structure isn't, recover from that
 			held_building = last_built_structure //TODO, this is exploitable, add logic for validation
 			return
-		held_building = /obj/structure/rts_building/precursor //reset to base precursor, currently hq
+		held_building = /obj/structure/rts_building/precursor/headquarters //reset to base precursor, currently hq
 		to_chat(src, "Cannot find building, resetting to [initial(held_building.name)]")
 		return
 

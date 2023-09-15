@@ -1,6 +1,6 @@
 /datum/rts_units
 	///name of the unit in question
-	var/name = "Mantis Unit"
+	var/name = "Placeholder Unit"
 	///how long it takes to build
 	var/buildtime = 10 SECONDS
 	///how many resource points it costs
@@ -11,10 +11,14 @@
 	var/required_unit_building_flags = AI_NONE
 	///icon we use to display when constructing
 	var/display_icon = null
+	///holds the icon_state for the hud
+	var/unit_buildable_icon_state = null
 
 /datum/rts_units/mantis
+	name = "Mantis Unit"
 	buildtime = 15 SECONDS
 	cost = 15
+	unit_buildable_icon_state = "mantis"
 
 /datum/rts_units/beetle
 	name = "Beetle Unit"
@@ -22,3 +26,4 @@
 	cost = 30
 	spawntype = /mob/living/carbon/xenomorph/beetle/ai
 	required_unit_building_flags = AI_ENGINEERING
+	unit_buildable_icon_state = "beetle"

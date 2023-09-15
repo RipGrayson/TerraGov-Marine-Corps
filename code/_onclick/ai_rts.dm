@@ -130,12 +130,12 @@
 	SSrtspoints.ai_points += pointcost
 	qdel(src)
 
-/obj/structure/rts_building/MalfCtrlClick(mob/living/silicon/ai/malf/user)
+/obj/structure/rts_building/structure/MalfCtrlClick(mob/living/silicon/ai/malf/user)
 	user.last_touched_building = src
 	queueunit(user)
 	//do hud action
 
-/obj/structure/rts_building/MalfMiddleClick(mob/living/silicon/ai/malf/user)
+/obj/structure/rts_building/structure/MalfMiddleClick(mob/living/silicon/ai/malf/user)
 	user.last_touched_building = src
 	user.show_unit_build_options(src)
 
