@@ -1,4 +1,12 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"a" = (
+/obj/structure/window/framed/mainship/canterbury/dropship/reinforced,
+/obj/machinery/door/poddoor/shutters/transit/nonsmoothing,
+/obj/machinery/door/poddoor/mainship/open{
+	id = "minidropship_podlock"
+	},
+/turf/open/floor/mainship/floor,
+/area/shuttle/minidropship)
 "b" = (
 /turf/template_noop,
 /area/template_noop)
@@ -166,6 +174,7 @@
 "Q" = (
 /obj/structure/table/mainship,
 /obj/effect/turf_decal/tile/transparent/dark_blue/full,
+/obj/item/stack/barbed_wire/small_stack,
 /turf/open/floor/mainship/floor,
 /area/shuttle/minidropship)
 "R" = (
@@ -285,9 +294,9 @@ N
 P
 f
 F
-z
-z
-z
+a
+a
+a
 F
 F
 f
