@@ -92,6 +92,15 @@
 	icon_state = "wall-invincible"
 	resistance_flags = RESIST_ALL
 
+/turf/closed/wall/mainship/tube
+	walltype = "gwall"
+	icon = 'icons/turf/walls/tube_wall.dmi'
+	base_icon_state = "tube_wall"
+	icon_state = "tube_wall-0"
+
+/turf/closed/wall/mainship/tube/outer
+	resistance_flags = RESIST_ALL
+
 /turf/closed/wall/mainship/research/containment/wall
 	icon = 'icons/turf/mainshipwalls.dmi'
 	name = "cell wall"
@@ -456,3 +465,9 @@
 		'icons/turf/walls/siding_red_2.dmi',
 		'icons/turf/walls/siding_red_3.dmi',
 	)
+
+/turf/closed/wall/mainship/almayer_white
+	icon = 'icons/turf/walls/almayer_white.dmi'
+	icon_state = "almayer_white-0"
+	walltype = "wall"
+	base_icon_state = "almayer_white"

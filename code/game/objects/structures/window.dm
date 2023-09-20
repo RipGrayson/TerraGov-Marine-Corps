@@ -590,6 +590,15 @@
 	base_icon_state = "wood_regular"
 	window_frame = /obj/structure/window_frame/wood
 
+/obj/structure/window/framed/oldwindow
+	name = "reinforced window"
+	max_integrity = 100
+	icon = 'icons/obj/smooth_objects/oldwindow.dmi'
+	icon_state = "oldwindow-0"
+	basestate = "oldwindow"
+	base_icon_state = "oldwindow"
+	window_frame = /obj/structure/window_frame/oldship
+
 /obj/structure/window/framed/wood/reinforced
 	name = "reinforced window"
 	desc = "A glass window with a special rod matrice inside a wall frame. It looks rather strong. Might take a few good hits to shatter it."

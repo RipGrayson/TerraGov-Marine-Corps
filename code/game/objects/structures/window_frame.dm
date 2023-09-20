@@ -186,3 +186,9 @@
 		SMOOTH_GROUP_SURVIVAL_TITANIUM_WALLS,
 		SMOOTH_GROUP_CANTERBURY,
 	)
+
+/obj/structure/window_frame/oldship
+	icon = 'icons/obj/smooth_objects/oldwindowframe.dmi'
+	icon_state = "oldwindowframe-12"
+	basestate = "col_rwindow_frame"
+	base_icon_state = "oldwindowframe"
