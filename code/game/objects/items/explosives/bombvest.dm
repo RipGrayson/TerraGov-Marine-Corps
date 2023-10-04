@@ -56,11 +56,13 @@
 		message_admins("[activator] has detonated an explosive vest with no warcry at [ADMIN_VERBOSEJMP(target)]")
 		log_game("[activator] has detonated an explosive vest with no warcry at [AREACOORD(target)]")
 
+	activator.record_tactical_unalive()
+
 	for(var/datum/limb/appendage AS in activator.limbs) //Oops we blew all our limbs off
 		if(istype(appendage, /datum/limb/chest) || istype(appendage, /datum/limb/groin) || istype(appendage, /datum/limb/head))
 			continue
 		appendage.droplimb()
-	explosion(target, 2, 2, 6, 5, 5)
+	explosion(target, 2, 2, 6, 7, 5, 5)
 	qdel(src)
 
 /obj/item/clothing/suit/storage/marine/boomvest/attack_hand_alternate(mob/living/user)
@@ -108,5 +110,5 @@
 		if(istype(appendage, /datum/limb/chest) || istype(appendage, /datum/limb/groin) || istype(appendage, /datum/limb/head))
 			continue
 		appendage.droplimb()
-	explosion(target, 15, 15, 15, 15, 15)
+	explosion(target, 15, 0, 0, 0, 15, 15)
 	qdel(src)

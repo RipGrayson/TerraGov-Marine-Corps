@@ -207,10 +207,11 @@
 	add_cooldown()
 	succeed_activate()
 
-	if(X.stagger) //If we got staggered, return
+	if(X.IsStaggered()) //If we got staggered, return
 		to_chat(X, span_xenowarning("We try to emit toxins but are staggered!"))
 		return fail_activate()
 
+	owner.record_war_crime()
 	GLOB.round_statistics.defiler_neurogas_uses++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "defiler_neurogas_uses")
 
@@ -239,7 +240,7 @@
 			if(/datum/reagent/toxin/xeno_ozelomelyn)
 				emitted_gas = new /datum/effect_system/smoke_spread/xeno/ozelomelyn(defiler_owner)
 
-	if(defiler_owner.stagger) //If we got staggered, return
+	if(defiler_owner.IsStaggered()) //If we got staggered, return
 		to_chat(defiler_owner, span_xenowarning("We try to emit toxins but are staggered!"))
 		toggle_particles(FALSE)
 		return
@@ -337,6 +338,7 @@
 			newegg.gas_type = /datum/effect_system/smoke_spread/xeno/transvitox
 	qdel(alien_egg)
 
+	owner.record_war_crime()
 	GLOB.round_statistics.defiler_inject_egg_neurogas++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "defiler_inject_egg_neurogas")
 
@@ -384,11 +386,13 @@
 
 /datum/action/xeno_action/select_reagent/proc/select_reagent_radial()
 	//List of toxin images
+	// This is cursed, don't copy this code its the WRONG way to do this.
+	// TODO: generate this from GLOB.defiler_toxin_type_list
 	var/static/list/defiler_toxin_images_list = list(
-			DEFILER_NEUROTOXIN = image('icons/mob/actions.dmi', icon_state = DEFILER_NEUROTOXIN),
-			DEFILER_HEMODILE = image('icons/mob/actions.dmi', icon_state = DEFILER_HEMODILE),
-			DEFILER_TRANSVITOX = image('icons/mob/actions.dmi', icon_state = DEFILER_TRANSVITOX),
-			DEFILER_OZELOMELYN = image('icons/mob/actions.dmi', icon_state = DEFILER_OZELOMELYN),
+			DEFILER_NEUROTOXIN = image('icons/Xeno/actions.dmi', icon_state = DEFILER_NEUROTOXIN),
+			DEFILER_HEMODILE = image('icons/Xeno/actions.dmi', icon_state = DEFILER_HEMODILE),
+			DEFILER_TRANSVITOX = image('icons/Xeno/actions.dmi', icon_state = DEFILER_TRANSVITOX),
+			DEFILER_OZELOMELYN = image('icons/Xeno/actions.dmi', icon_state = DEFILER_OZELOMELYN),
 			)
 	var/toxin_choice = show_radial_menu(owner, owner, defiler_toxin_images_list, radius = 48)
 	if(!toxin_choice)
@@ -559,7 +563,7 @@
 /datum/action/xeno_action/activable/tentacle/use_ability(atom/movable/target)
 	var/atom/movable/tentacle_end/tentacle_end = new (get_turf(owner))
 	tentacle = owner.beam(tentacle_end,"curse0",'icons/effects/beam.dmi')
-	RegisterSignal(tentacle_end, list(COMSIG_MOVABLE_POST_THROW, COMSIG_MOVABLE_IMPACT), PROC_REF(finish_grab))
+	RegisterSignals(tentacle_end, list(COMSIG_MOVABLE_POST_THROW, COMSIG_MOVABLE_IMPACT), PROC_REF(finish_grab))
 	tentacle_end.throw_at(target, TENTACLE_ABILITY_RANGE * 1.5, 3, owner, FALSE) //Too hard to hit if just TENTACLE_ABILITY_RANGE
 	succeed_activate()
 	add_cooldown()
@@ -581,8 +585,8 @@
 	target.throw_at(owner, TENTACLE_ABILITY_RANGE, 1, owner, FALSE)
 	if(isliving(target))
 		var/mob/living/loser = target
-		loser.apply_effects(weaken = 0.1)
-		loser.adjust_stagger(5)
+		loser.apply_effect(0.2 SECONDS, WEAKEN)
+		loser.adjust_stagger(5 SECONDS)
 
 ///signal handler to delete tetacle after we are done draggging owner along
 /datum/action/xeno_action/activable/tentacle/proc/delete_beam(datum/source, atom/impacted)

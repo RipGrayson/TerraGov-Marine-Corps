@@ -233,6 +233,8 @@
 			qdel(I)
 	//BubbleWrap END
 
+	if(istype(O, /obj/structure))
+		user.record_structures_built()
 
 /obj/item/stack/proc/building_checks(mob/user, datum/stack_recipe/R, multiplier)
 	if (get_amount() < R.req_amount*multiplier)
@@ -374,7 +376,7 @@
 
 /// Proc for special actions and radial menus on subtypes. Returning FALSE cancels the recipe menu for a stack.
 /obj/item/stack/proc/select_radial(mob/user)
-	return
+	return TRUE
 
 /*
 * Recipe datum

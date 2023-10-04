@@ -10,7 +10,9 @@
 		SQUAD_ENGINEER = 0,
 		SQUAD_CORPSMAN = 0,
 		SQUAD_SMARTGUNNER = 0,
-		SQUAD_LEADER = 0)
+		SQUAD_LEADER = 0,
+		SQUAD_ROBOT = 0, //for campaign
+	)
 	var/max_positions = list(
 		SQUAD_MARINE = -1,
 		SQUAD_LEADER = 1)
@@ -140,6 +142,15 @@
 	. = ..()
 	tracking_id = SSdirection.init_squad(name, squad_leader)
 
+	for(var/state in GLOB.playable_squad_icons)
+		var/icon/top = icon('icons/UI_icons/map_blips.dmi', state, frame = 1)
+		top.Blend(color, ICON_MULTIPLY)
+		var/icon/bottom = icon('icons/UI_icons/map_blips.dmi', "squad_underlay", frame = 1)
+		top.Blend(bottom, ICON_UNDERLAY)
+
+		var/icon_state = lowertext(name) + "_" + state
+		GLOB.minimap_icons[icon_state] = icon2base64(top)
+
 
 /datum/squad/proc/get_all_members()
 	return marines_list
@@ -168,7 +179,7 @@
 	if((ismarineleaderjob(new_squaddie.job) || issommarineleaderjob(new_squaddie.job)) && !squad_leader)
 		squad_leader = new_squaddie
 		SSdirection.set_leader(tracking_id, new_squaddie)
-		SSdirection.start_tracking(TRACKING_ID_MARINE_COMMANDER, new_squaddie)
+		SSdirection.start_tracking(faction == FACTION_SOM ? TRACKING_ID_SOM_COMMANDER : TRACKING_ID_MARINE_COMMANDER, new_squaddie)
 
 	var/obj/item/radio/headset/mainship/headset = new_squaddie.wear_ear
 	if(give_radio && !istype(headset))
@@ -258,6 +269,7 @@
 
 	SSdirection.clear_leader(tracking_id)
 	SSdirection.stop_tracking(TRACKING_ID_MARINE_COMMANDER, squad_leader)
+	SSdirection.stop_tracking(TRACKING_ID_SOM_COMMANDER, squad_leader)
 
 	//Handle aSL skill level and radio
 	if(!ismarineleaderjob(squad_leader.job) && !issommarineleaderjob(squad_leader.job))
@@ -288,11 +300,11 @@
 
 	squad_leader = H
 	SSdirection.set_leader(tracking_id, H)
-	SSdirection.start_tracking(TRACKING_ID_MARINE_COMMANDER, H)
+	SSdirection.start_tracking(faction == FACTION_SOM ? TRACKING_ID_SOM_COMMANDER : TRACKING_ID_MARINE_COMMANDER, H)
 
 	//Handle aSL skill level and radio
 	if(!ismarineleaderjob(squad_leader.job) && !issommarineleaderjob(squad_leader.job))
-		squad_leader.set_skills(squad_leader.skills.setRating(leadership = SKILL_LEAD_EXPERT))
+		squad_leader.set_skills(squad_leader.skills.setRating(leadership = SKILL_LEAD_TRAINED))
 		squad_leader.comm_title = "aSL"
 		var/obj/item/card/id/ID = squad_leader.get_idcard()
 		if(istype(ID))
@@ -332,13 +344,6 @@
 
 	for(var/mob/living/marine AS in marines_list)
 		marine.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>[header]</u></span><br>" + message, /atom/movable/screen/text/screen_text/command_order)
-
-/datum/squad/proc/message_member(mob/living/target, message, mob/living/carbon/human/sender)
-	if(!target.client)
-		return
-	target.play_screen_text("<span class='maptext' style=font-size:24pt;text-align:center valign='top'><u>CIC MESSAGE FROM [sender.real_name]:</u></span><br>" + message, /atom/movable/screen/text/screen_text/command_order)
-	return TRUE
-
 
 /datum/squad/proc/check_entry(datum/job/job)
 	if(!(job.title in current_positions))

@@ -7,12 +7,11 @@
 
 	var/caste_type_path = null
 
-	var/ancient_message = ""
 	///primordial message that is shown when a caste becomes primordial
 	var/primordial_message = ""
 
 	var/tier = XENO_TIER_ZERO
-	var/upgrade = XENO_UPGRADE_ZERO
+	var/upgrade = XENO_UPGRADE_NORMAL
 	///used to match appropriate wound overlays
 	var/wound_type = "alien"
 	var/language = "Xenomorph"
@@ -106,8 +105,6 @@
 	///list of datum projectile types the xeno can use.
 	var/list/spit_types
 
-	///numerical type of charge for a xenomorph caste
-	var/charge_type = 0
 	///amount of time between pounce ability uses
 	var/pounce_delay = 4 SECONDS
 
@@ -255,7 +252,7 @@
 /mob/living/carbon/xenomorph
 	name = "Drone"
 	desc = "What the hell is THAT?"
-	icon = 'icons/Xeno/1x1_Xenos.dmi'
+	icon = 'icons/Xeno/castes/larva.dmi'
 	icon_state = "Drone Walking"
 	speak_emote = list("hisses")
 	melee_damage = 5 //Arbitrary damage value
@@ -276,10 +273,11 @@
 	appearance_flags = TILE_BOUND|PIXEL_SCALE|KEEP_TOGETHER
 	see_infrared = TRUE
 	hud_type = /datum/hud/alien
-	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_DEBUFF_HUD, XENO_FIRE_HUD)
+	hud_possible = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, XENO_RANK_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_DEBUFF_HUD, XENO_FIRE_HUD)
 	buckle_flags = NONE
 	faction = FACTION_XENO
 	initial_language_holder = /datum/language_holder/xeno
+	voice_filter = @{"[0:a] asplit [out0][out2]; [out0] asetrate=%SAMPLE_RATE%*0.8,aresample=%SAMPLE_RATE%,atempo=1/0.8,aformat=channel_layouts=mono [p0]; [out2] asetrate=%SAMPLE_RATE%*1.2,aresample=%SAMPLE_RATE%,atempo=1/1.2,aformat=channel_layouts=mono[p2]; [p0][0][p2] amix=inputs=3"}
 	gib_chance = 5
 	light_system = MOVABLE_LIGHT
 
@@ -313,8 +311,6 @@
 	var/upgrade = XENO_UPGRADE_INVALID
 	///sunder affects armour values and does a % removal before dmg is applied. 50 sunder == 50% effective armour values
 	var/sunder = 0
-
-	var/obj/structure/xeno/tunnel/start_dig = null
 	///The ammo datum for our spit projectiles. We're born with this, it changes sometimes.
 	var/datum/ammo/xeno/ammo = null
 
@@ -393,6 +389,10 @@
 	// Defender vars
 	var/fortify = 0
 	var/crest_defense = 0
+
+	// Baneling vars
+	/// Respawn charges, each charge makes respawn take 30 seconds. Maximum of 2 charges. If there is no charge the respawn takes 120 seconds.
+	var/stored_charge = 0
 
 	//Runner vars
 	var/savage = FALSE

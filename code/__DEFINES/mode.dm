@@ -82,10 +82,6 @@
 				list(/obj/item/weapon/gun/shotgun/pump/bolt, /obj/item/ammo_magazine/rifle/bolt),\
 				list(/obj/item/weapon/gun/shotgun/pump/lever, /obj/item/ammo_magazine/packet/magnum))
 
-
-#define LATEJOIN_LARVA_DISABLED 0
-
-
 //Balance defines
 #define MARINE_GEAR_SCALING 30
 
@@ -95,9 +91,8 @@
 
 #define EVACUATION_TIME_LOCK 30 MINUTES
 
-//Distress mode collapse duration
-#define DISTRESS_ORPHAN_HIVEMIND 5 MINUTES
-#define DISTRESS_SILO_COLLAPSE 5 MINUTES
+//Nuclear war mode collapse duration
+#define NUCLEAR_WAR_ORPHAN_HIVEMIND 5 MINUTES
 
 #define SHUTTLE_HIJACK_LOCK 30 MINUTES
 
@@ -112,6 +107,9 @@
 
 #define DEATHTIME_CHECK(M) ((world.time - GLOB.key_to_time_of_role_death[M.key]) < SSticker.mode?.respawn_time)
 #define DEATHTIME_MESSAGE(M) to_chat(M, span_warning("You have been dead for [(world.time - GLOB.key_to_time_of_role_death[M.key]) * 0.1] second\s.</span><br><span class='warning'>You must wait [SSticker.mode?.respawn_time * 0.1] seconds before rejoining the game!"))
+
+#define XENODEATHTIME_CHECK(M) ((world.time - (GLOB.key_to_time_of_xeno_death[M.key] ? GLOB.key_to_time_of_xeno_death[M.key] : -INFINITY) < SSticker.mode?.xenorespawn_time))
+#define XENODEATHTIME_MESSAGE(M) to_chat(M, span_warning("You have been dead for [(world.time - GLOB.key_to_time_of_xeno_death[M.key]) * 0.1] second\s.</span><br><span class ='warning'>You must wait [SSticker.mode?.xenorespawn_time * 0.1] seconds before rejoining the game as a Xenomorph! You can take a SSD minion without resetting your timer."))
 
 #define COUNT_IGNORE_HUMAN_SSD (1<<0)
 #define COUNT_IGNORE_XENO_SSD (1<<1)
@@ -140,14 +138,12 @@
 #define SILO_BASE_OUTPUT_PER_MARINE 0.035
 /// This is used to ponderate the number of silo, so to reduces the diminishing returns of having more and more silos
 #define SILO_OUTPUT_PONDERATION 1.75
-//Time (after shutters open) before siloless timer can start
-#define MINIMUM_TIME_SILO_LESS_COLLAPSE 15 MINUTES
 
 #define INFESTATION_MARINE_DEPLOYMENT 0
 #define INFESTATION_MARINE_CRASHING 1
 #define INFESTATION_DROPSHIP_CAPTURED_XENOS 2
 
-#define DISTRESS_LARVA_POINTS_NEEDED 8
+#define NUCLEAR_WAR_LARVA_POINTS_NEEDED 8
 #define CRASH_LARVA_POINTS_NEEDED 10
 
 #define FREE_XENO_AT_START 2
@@ -156,3 +152,17 @@
 
 #define SENSOR_CAP_ADDITION_TIME_BONUS 3 MINUTES //additional time granted by capturing a sensor tower
 #define SENSOR_CAP_TIMER_PAUSED "paused"
+
+//mission defines
+#define MISSION_STATE_NEW "mission state new"
+#define MISSION_STATE_ACTIVE "mission state active"
+#define MISSION_STATE_FINISHED "mission state finished"
+
+#define MISSION_OUTCOME_MAJOR_VICTORY "major victory"
+#define MISSION_OUTCOME_MINOR_VICTORY "minor victory"
+#define MISSION_OUTCOME_DRAW "draw"
+#define MISSION_OUTCOME_MINOR_LOSS "minor loss"
+#define MISSION_OUTCOME_MAJOR_LOSS "major loss"
+
+#define MISSION_DISALLOW_DROPPODS (1<<0)
+#define MISSION_DISALLOW_FIRESUPPORT (1<<1)

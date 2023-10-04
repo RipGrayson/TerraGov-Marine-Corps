@@ -23,6 +23,8 @@
 
 #define islava(A) (istype(A, /turf/open/liquid/lava))
 
+#define iswater(A) (istype(A, /turf/open/liquid/water))
+
 #define isbasalt(A) (istype(A, /turf/open/lavaland/basalt))
 
 #define islavacatwalk(A) (istype(A, /turf/open/lavaland/catwalk))
@@ -98,6 +100,7 @@
 #define isxenopraetorian(A) (istype(A, /mob/living/carbon/xenomorph/praetorian))
 #define isxenoravager(A) (istype(A, /mob/living/carbon/xenomorph/ravager))
 #define isxenorunner(A) (istype(A, /mob/living/carbon/xenomorph/runner))
+#define isxenobaneling(A) (istype(A, /mob/living/carbon/xenomorph/baneling))
 #define isxenospitter(A) (istype(A, /mob/living/carbon/xenomorph/spitter))
 #define isxenosentinel(A) (istype(A, /mob/living/carbon/xenomorph/sentinel))
 #define isxenowarrior(A) (istype(A, /mob/living/carbon/xenomorph/warrior))
@@ -182,8 +185,6 @@
 
 #define ismodulararmorarmorpiece(A) (istype(A, /obj/item/armor_module/armor))
 
-#define isgreyscaleattachment(A) (istype(A, /obj/item/armor_module/greyscale))
-
 #define ishat(A) (istype(A, /obj/item/clothing/head))
 
 #define ismodularhelmet(A) (istype(A, /obj/item/clothing/head/modular))
@@ -260,12 +261,11 @@
 #define isainode(O) (istype(O, /obj/effect/ai_node))
 
 //Gamemode
-#define isdistressgamemode(O) (istype(O, /datum/game_mode/infestation/distress))
-#define ishuntgamemode(O) (istype(O, /datum/game_mode/infestation/hunt))
 #define iscrashgamemode(O) (istype(O, /datum/game_mode/infestation/crash))
 #define isinfestationgamemode(O) (istype(O, /datum/game_mode/infestation))
-#define iscombatpatrolgamemode(O) (istype(O, /datum/game_mode/combat_patrol))
-#define issensorcapturegamemode(O) (istype(O, /datum/game_mode/combat_patrol/sensor_capture))
+#define iscombatpatrolgamemode(O) (istype(O, /datum/game_mode/hvh/combat_patrol))
+#define issensorcapturegamemode(O) (istype(O, /datum/game_mode/hvh/combat_patrol/sensor_capture))
+#define iscampaigngamemode(O) (istype(O, /datum/game_mode/hvh/campaign))
 
 #define isxenoresearcharea(A) (istype(A, /area/mainship/medical/medical_science))
 

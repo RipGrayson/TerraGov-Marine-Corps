@@ -58,7 +58,7 @@
 		/obj/item/flashlight/lamp = 100,
 		/obj/item/flashlight/lamp/green = 5,
 		/obj/item/flashlight/lantern = 3,
-		/obj/item/flashlight/flashlight = 3,
+		/obj/item/flashlight/combat = 3,
 		/obj/item/flashlight/pen = 3,
 		/obj/item/flashlight/lamp/menorah = 1,
 	)
@@ -140,6 +140,17 @@
 
 /obj/effect/spawner/random/misc/plushie/nospawnninetynine
 	spawn_loot_chance = 1
+
+/obj/effect/spawner/random/misc/gnome
+	name = "Random gnome spawner"
+	icon_state = "random_gnome"
+	spawn_loot_chance = 15
+	loot = list(
+		/obj/item/toy/plush/gnome,
+	)
+
+/obj/effect/spawner/random/misc/gnome/fiftyfifty
+	spawn_loot_chance = 50
 
 /obj/effect/spawner/random/misc/plant
 	name = "Random potted plant spawner"

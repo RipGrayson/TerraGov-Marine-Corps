@@ -55,6 +55,7 @@
 	max_integrity = 120
 	opacity = FALSE
 	alpha = 180
+	allow_pass_flags = PASS_GLASS
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_XENO_STRUCTURES)
 	canSmoothWith = list(SMOOTH_GROUP_XENO_STRUCTURES)
@@ -81,13 +82,15 @@
 			take_damage(rand(400), BRUTE, BOMB)
 		if(EXPLODE_LIGHT)
 			take_damage(rand(75, 100), BRUTE, BOMB)
+		if(EXPLODE_WEAK)
+			take_damage(rand(30, 50), BRUTE, BOMB)
 
 
 /turf/closed/wall/resin/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
 	if(X.status_flags & INCORPOREAL)
 		return
 	if(CHECK_BITFIELD(SSticker.mode.flags_round_type, MODE_ALLOW_XENO_QUICKBUILD) && SSresinshaping.active)
-		SSresinshaping.quickbuilds++
+		SSresinshaping.quickbuild_points_by_hive[X.hivenumber]++
 		take_damage(max_integrity) // Ensure its destroyed
 		return
 	X.visible_message(span_xenonotice("\The [X] starts tearing down \the [src]!"), \
@@ -129,12 +132,6 @@
 	damage *= max(0, multiplier)
 	take_damage(damage, BRUTE, MELEE)
 	playsound(src, "alien_resin_break", 25)
-
-
-/turf/closed/wall/resin/CanAllowThrough(atom/movable/mover, turf/target)
-	. = ..()
-	if(istype(mover) && CHECK_BITFIELD(mover.flags_pass, PASSGLASS))
-		return !opacity
 
 /turf/closed/wall/resin/dismantle_wall(devastated = 0, explode = 0)
 	ScrapeAway()

@@ -41,11 +41,11 @@
 ///Set the connected var
 /obj/machinery/sleep_console/proc/set_connected(obj/future_connected)
 	if(connected)
-		UnregisterSignal(connected, COMSIG_PARENT_QDELETING)
+		UnregisterSignal(connected, COMSIG_QDELETING)
 	connected = null
 	if(future_connected)
 		connected = future_connected
-		RegisterSignal(connected, COMSIG_PARENT_QDELETING, PROC_REF(clean_connected))
+		RegisterSignal(connected, COMSIG_QDELETING, PROC_REF(clean_connected))
 
 ///Clean the connected var
 /obj/machinery/sleep_console/proc/clean_connected()
@@ -76,13 +76,13 @@
 			dat += "[occupant.health > 50 ? "<font color='#487553'>" : "<font color='#b54646'>"]\tHealth %: [occupant.health] ([t1])</FONT><BR>"
 			if(ishuman(occupant))
 				if(connected.filtering)
-					dat += "<A href='?src=\ref[src];togglefilter=1'>Stop Dialysis</A><BR>"
+					dat += "<A href='?src=[text_ref(src)];togglefilter=1'>Stop Dialysis</A><BR>"
 				else
-					dat += "<HR><A href='?src=\ref[src];togglefilter=1'>Start Dialysis</A><BR>"
+					dat += "<HR><A href='?src=[text_ref(src)];togglefilter=1'>Start Dialysis</A><BR>"
 				if(connected.stasis)
-					dat += "<HR><A href='?src=\ref[src];togglestasis=1'>Deactivate Cryostasis</A><BR><HR>"
+					dat += "<HR><A href='?src=[text_ref(src)];togglestasis=1'>Deactivate Cryostasis</A><BR><HR>"
 				else
-					dat += "<HR><A href='?src=\ref[src];togglestasis=1'>Activate Cryostasis</A><BR><HR>"
+					dat += "<HR><A href='?src=[text_ref(src)];togglestasis=1'>Activate Cryostasis</A><BR><HR>"
 			else
 				dat += "<HR>Dialysis Disabled - Non-human present.<BR><HR>"
 				var/mob/living/carbon/human/patient = occupant
@@ -96,10 +96,10 @@
 			for(var/chemical in connected.available_chemicals)
 				dat += "<label style='width:180px; display: inline-block'>[connected.available_chemicals[chemical]] ([round(occupant.reagents.get_reagent_amount(chemical), 0.01)] units)</label> Inject:"
 				for(var/amount in connected.amounts)
-					dat += " <a href ='?src=\ref[src];chemical=[chemical];amount=[amount]'>[amount] units</a>"
+					dat += " <a href ='?src=[text_ref(src)];chemical=[chemical];amount=[amount]'>[amount] units</a>"
 				dat += "<br>"
-			dat += "<A href='?src=\ref[src];refresh=1'>Refresh Meter Readings</A><BR>"
-			dat += "<HR><A href='?src=\ref[src];ejectify=1'>Eject Patient</A>"
+			dat += "<A href='?src=[text_ref(src)];refresh=1'>Refresh Meter Readings</A><BR>"
+			dat += "<HR><A href='?src=[text_ref(src)];ejectify=1'>Eject Patient</A>"
 		else
 			dat += "The sleeper is empty."
 	var/datum/browser/popup = new(user, "sleeper", "<div align='center'>Sleeper Console</div>", 400, 670)
@@ -182,11 +182,11 @@
 ///Set the connected var
 /obj/machinery/sleeper/proc/set_connected(obj/future_connected)
 	if(connected)
-		UnregisterSignal(connected, COMSIG_PARENT_QDELETING)
+		UnregisterSignal(connected, COMSIG_QDELETING)
 	connected = null
 	if(future_connected)
 		connected = future_connected
-		RegisterSignal(connected, COMSIG_PARENT_QDELETING, PROC_REF(clean_connected))
+		RegisterSignal(connected, COMSIG_QDELETING, PROC_REF(clean_connected))
 
 ///Clean the connected var
 /obj/machinery/sleeper/proc/clean_connected()
@@ -224,7 +224,7 @@
 		if(!(R.fields["last_scan_time"]))
 			. += span_deptradio("No scan report on record")
 		else
-			. += span_deptradio("<a href='?src=\ref[src];scanreport=1'>It contains [occupant]: Scan from [R.fields["last_scan_time"]].[feedback]</a>")
+			. += span_deptradio("<a href='?src=[text_ref(src)];scanreport=1'>It contains [occupant]: Scan from [R.fields["last_scan_time"]].[feedback]</a>")
 		break
 
 /obj/machinery/sleeper/Topic(href, href_list)

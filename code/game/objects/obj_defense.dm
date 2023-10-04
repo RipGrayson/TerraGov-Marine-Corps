@@ -25,9 +25,14 @@
 	if(obj_integrity <= 0)
 		obj_destruction(damage_amount, damage_type, damage_flag)
 
-
-/obj/proc/repair_damage(repair_amount)
-	obj_integrity = min(obj_integrity + repair_amount, max_integrity)
+///Increase obj_integrity and record it to the repairer's stats
+/obj/proc/repair_damage(repair_amount, mob/user)
+	repair_amount = min(repair_amount, max_integrity - obj_integrity)
+	if(user?.client)
+		var/datum/personal_statistics/personal_statistics = GLOB.personal_statistics_list[user.ckey]
+		personal_statistics.integrity_repaired += repair_amount
+		personal_statistics.times_repaired++
+	obj_integrity += repair_amount
 
 
 ///returns the damage value of the attack after processing the obj's various armor protections
@@ -78,9 +83,11 @@
 			take_damage(rand(100, 250), BRUTE, BOMB, 0)
 		if(EXPLODE_LIGHT)
 			take_damage(rand(10, 90), BRUTE, BOMB, 0)
+		if(EXPLODE_WEAK)
+			take_damage(rand(5, 45), BRUTE, BOMB, 0)
 
 
-/obj/hitby(atom/movable/AM)
+/obj/hitby(atom/movable/AM, speed = 5)
 	. = ..()
 	visible_message(span_warning("[src] was hit by [AM]."), visible_message_flags = COMBAT_MESSAGE)
 	var/tforce = 0
