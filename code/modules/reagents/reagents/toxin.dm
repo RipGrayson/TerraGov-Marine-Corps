@@ -98,7 +98,7 @@
 /datum/reagent/toxin/cyanide/on_mob_life(mob/living/L, metabolism)
 	L.adjustOxyLoss(2*effect_str)
 	if(current_cycle > 10)
-		L.Sleeping(40)
+		L.Sleeping(4 SECONDS)
 	return ..()
 
 /datum/reagent/toxin/minttoxin
@@ -194,8 +194,8 @@
 		qdel(O)
 	else if(istype(O,/obj/effect/plantsegment))
 		if(prob(50)) qdel(O) //Kills kudzu too.
-	else if(istype(O,/obj/machinery/portable_atmospherics/hydroponics))
-		var/obj/machinery/portable_atmospherics/hydroponics/tray = O
+	else if(istype(O,/obj/machinery/hydroponics))
+		var/obj/machinery/hydroponics/tray = O
 
 		if(tray.seed)
 			tray.health -= rand(30,50)
@@ -206,14 +206,6 @@
 			tray.toxins += 4
 			tray.check_level_sanity()
 			tray.update_icon()
-
-/datum/reagent/toxin/plantbgone/reaction_mob(mob/living/L, method = TOUCH, volume, show_message = TRUE, touch_protection = 0)
-	. = ..()
-	if(!ishuman(L))
-		return
-	var/mob/living/carbon/human/H = L
-	if(H.species.species_flags & IS_PLANT) //plantmen take a LOT of damage
-		H.adjustToxLoss(10 * touch_protection)
 
 /datum/reagent/toxin/sleeptoxin
 	name = "Soporific"
@@ -235,10 +227,10 @@
 		if(7 to 10)
 			if(prob(10))
 				L.Sleeping(10 SECONDS)
-			L.drowsyness  = max(L.drowsyness, 20)
+			L.drowsyness = max(L.drowsyness, 20)
 		if(11 to 80)
 			L.Sleeping(10 SECONDS) //previously knockdown, no good for a soporific.
-			L.drowsyness  = max(L.drowsyness, 30)
+			L.drowsyness = max(L.drowsyness, 30)
 		if(81 to INFINITY)
 			L.adjustDrowsyness(2)
 	L.reagent_pain_modifier += PAIN_REDUCTION_HEAVY
@@ -473,12 +465,12 @@
 
 	//Apply stamina damage, then apply any 'excess' stamina damage beyond our maximum as tox and oxy damage
 	var/stamina_loss_limit = L.maxHealth * 2
-	L.adjustStaminaLoss(min(power, max(0, stamina_loss_limit - L.staminaloss))) //If we're under our stamina_loss limit, apply the difference between our limit and current stamina damage or power, whichever's less
-
-	var/stamina_excess_damage = (L.staminaloss + power) - stamina_loss_limit
-	if(stamina_excess_damage > 0) //If we exceed maxHealth * 2 stamina damage, apply any excess as toxloss and oxyloss
-		L.adjustToxLoss(stamina_excess_damage * 0.5)
-		L.adjustOxyLoss(stamina_excess_damage * 0.5)
+	var/applied_damage = clamp(power, 0, (stamina_loss_limit - L.getStaminaLoss()))
+	L.adjustStaminaLoss(applied_damage) //If we're under our stamina_loss limit, apply the difference between our limit and current stamina damage or power, whichever's less
+	var/damage_overflow = power - applied_damage
+	if(damage_overflow > 0) //If we exceed maxHealth * 2 stamina damage, apply any excess as toxloss and oxyloss
+		L.adjustToxLoss(damage_overflow * 0.5)
+		L.adjustOxyLoss(damage_overflow * 0.5)
 		L.Losebreath(2) //So the oxy loss actually means something.
 
 	L.set_timed_status_effect(2 SECONDS, /datum/status_effect/speech/stutter, only_if_higher = TRUE)
@@ -512,12 +504,15 @@
 			slowdown_multiplier *= 2 //Each other Defiler toxin increases the multiplier by 2x; 2x if we have 1 combo chem, 4x if we have 2
 
 	switch(slowdown_multiplier) //Description varies in severity and probability with the multiplier
-		if(0 to 1 && prob(10))
-			to_chat(L, span_warning("You feel your legs tense up.") )
-		if(2 to 3.9 && prob(20))
-			to_chat(L, span_warning("You feel your legs go numb.") )
-		if(4 to INFINITY && prob(30))
-			to_chat(L, span_danger("You can barely feel your legs!") )
+		if(0 to 1)
+			if(prob(10))
+				to_chat(L, span_warning("You feel your legs tense up.") )
+		if(2 to 3.9)
+			if(prob(20))
+				to_chat(L, span_warning("You feel your legs go numb.") )
+		if(4 to INFINITY)
+			if(prob(30))
+				to_chat(L, span_danger("You can barely feel your legs!") )
 
 	L.add_movespeed_modifier(MOVESPEED_ID_XENO_HEMODILE, TRUE, 0, NONE, TRUE, 1.5 * slowdown_multiplier)
 
@@ -538,7 +533,7 @@
 	toxpwr = 0
 
 /datum/reagent/toxin/xeno_transvitox/on_mob_add(mob/living/L, metabolism, affecting)
-	RegisterSignal(L, COMSIG_HUMAN_DAMAGE_TAKEN, .proc/transvitox_human_damage_taken)
+	RegisterSignal(L, COMSIG_HUMAN_DAMAGE_TAKEN, PROC_REF(transvitox_human_damage_taken))
 
 /datum/reagent/toxin/xeno_transvitox/on_mob_life(mob/living/L, metabolism)
 	var/fire_loss = L.getFireLoss(TRUE)
@@ -650,7 +645,7 @@
 	overdose_crit_threshold = 50
 
 /datum/reagent/zombium/on_overdose_start(mob/living/L, metabolism)
-	RegisterSignal(L, COMSIG_HUMAN_SET_UNDEFIBBABLE, .proc/zombify)
+	RegisterSignal(L, COMSIG_HUMAN_SET_UNDEFIBBABLE, PROC_REF(zombify))
 
 /datum/reagent/zombium/on_overdose_stop(mob/living/L, metabolism)
 	UnregisterSignal(L, COMSIG_HUMAN_SET_UNDEFIBBABLE)
@@ -674,7 +669,7 @@
 	if(!H.has_working_organs())
 		return
 	H.do_jitter_animation(1000)
-	addtimer(CALLBACK(H, /mob/living/carbon/human.proc/revive_to_crit, TRUE, TRUE), SSticker.mode?.zombie_transformation_time)
+	addtimer(CALLBACK(H, TYPE_PROC_REF(/mob/living/carbon/human, revive_to_crit), TRUE, TRUE), SSticker.mode?.zombie_transformation_time)
 
 
 //SOM nerve agent
@@ -711,8 +706,9 @@
 	if(current_cycle > 21)
 		L.adjustStaminaLoss(effect_str)
 		if(iscarbon(L) && prob(min(current_cycle - 10,30)))
-			L.emote("me", 1, "coughs up blood!")
-			L:drip(10)
+			var/mob/living/carbon/C = L
+			C.emote("me", 1, "coughs up blood!")
+			C.drip(10)
 		if(prob(min(current_cycle - 5,30)))
 			L.emote("me", 1, "gasps for air!")
 			L.Losebreath(4)

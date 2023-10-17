@@ -1,6 +1,7 @@
 /obj/item/flash
 	name = "flash"
 	desc = "Used for blinding and being an asshole."
+	icon = 'icons/obj/device.dmi'
 	icon_state = "flash"
 	item_state = "flashbang"	//looks exactly like a flash (and nothing like a flashbang)
 	throwforce = 5
@@ -30,7 +31,7 @@
 
 	log_combat(user, M, "attempted to flash", src)
 
-	if(user.skills.getRating("police") < SKILL_POLICE_FLASH)
+	if(user.skills.getRating(SKILL_POLICE) < SKILL_POLICE_FLASH)
 		to_chat(user, span_warning("You don't seem to know how to use [src]..."))
 		return
 
@@ -89,7 +90,7 @@
 	if(!user)
 		return
 
-	if(user.skills.getRating("police") < SKILL_POLICE_FLASH)
+	if(user.skills.getRating(SKILL_POLICE) < SKILL_POLICE_FLASH)
 		to_chat(user, span_warning("You don't seem to know how to use [src]..."))
 		return
 

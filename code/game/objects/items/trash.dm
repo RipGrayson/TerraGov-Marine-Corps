@@ -9,6 +9,12 @@
 	name = "4no raisins"
 	icon_state= "4no_raisins"
 
+/obj/item/trash/pillpacket
+	name = "crumpled pill packet"
+	desc = "After healing a lot of damage, the empty packet is laid to rest"
+	icon = 'icons/obj/items/trash.dmi'
+	icon_state = "pillpacketempty"
+
 /obj/item/trash/candy
 	name = "Candy"
 	icon_state= "candy"
@@ -43,7 +49,7 @@
 
 /obj/item/trash/snack_bowl
 	name = "Snack bowl"
-	icon_state	= "snack_bowl"
+	icon_state = "snack_bowl"
 
 /obj/item/trash/pistachios
 	name = "Pistachios pack"
@@ -100,7 +106,7 @@
 /obj/item/trash/c_tube
 	name = "cardboard tube"
 	desc = "A tube... of cardboard."
-	icon = 'icons/obj/items/items.dmi'
+	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "c_tube"
 	throwforce = 1
 	throw_speed = 4

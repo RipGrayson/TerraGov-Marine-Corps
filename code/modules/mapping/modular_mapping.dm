@@ -668,7 +668,7 @@
 	template_height = 24
 
 /datum/map_template/modular/bigred/medbaypassageone
-	name = "Big red nedbay passage"
+	name = "Big red medbaypassage"
 	mappath = "_maps/modularmaps/big_red/bigredmedbaypassagevar1.dmm"
 	modular_id = "brmedbaypassage"
 	template_width = 6
@@ -1132,14 +1132,89 @@
 	mappath = "_maps/modularmaps/big_red/barracks.dmm"
 	modular_id = "broperations"
 	template_width = 29
-	template_height = 25
+	template_height = 24
 
 /datum/map_template/modular/bigred/operations
 	name = "Big red administration"
 	mappath = "_maps/modularmaps/big_red/operation.dmm"
 	modular_id = "broperations"
 	template_width = 29
-	template_height = 25
+	template_height = 24
+
+/datum/map_template/modular/oscaroutposttopone
+	name = "Oscar outpost map top half"
+	mappath = "_maps/modularmaps/oscaroutpost/oscarnorthvar1.dmm"
+	modular_id = "oscartop"
+	template_width = 150
+	template_height = 153
+
+/datum/map_template/modular/oscaroutposttoptwo
+	name = "Oscar outpost map top half"
+	mappath = "_maps/modularmaps/oscaroutpost/oscarnorthvar2.dmm"
+	modular_id = "oscartop"
+	template_width = 150
+	template_height = 153
+
+/datum/map_template/modular/oscaroutposttopthree
+	mappath = "_maps/modularmaps/oscaroutpost/oscarnorthvar3.dmm"
+	modular_id = "oscartop"
+	template_width = 150
+	template_height = 153
+
+/datum/map_template/modular/oscaroutposttopfour
+	mappath = "_maps/modularmaps/oscaroutpost/oscarnorthvar4.dmm"
+	modular_id = "oscartop"
+	template_width = 150
+	template_height = 153
+
+/datum/map_template/modular/oscaroutzetabaseone
+	name = "Oscar outpost abandoned base"
+	mappath = "_maps/modularmaps/oscaroutpost/oscarsouthvar1.dmm"
+	modular_id = "oscarbase"
+	template_width = 79
+	template_height = 29
+
+/datum/map_template/modular/oscaroutzetabasetwo
+	name = "Oscar outpost abandoned base"
+	mappath = "_maps/modularmaps/oscaroutpost/oscarsouthvar2.dmm"
+	modular_id = "oscarbase"
+	template_width = 79
+	template_height = 29
+
+/datum/map_template/modular/oscaroutzetabasethree
+	name = "Oscar outpost abandoned base"
+	mappath = "_maps/modularmaps/oscaroutpost/oscarsouthvar3.dmm"
+	modular_id = "oscarbase"
+	template_width = 79
+	template_height = 29
+
+/datum/map_template/modular/oscaroutzetabasefour
+	name = "Oscar outpost abandoned base"
+	mappath = "_maps/modularmaps/oscaroutpost/oscarsouthvar4.dmm"
+	modular_id = "oscarbase"
+	template_width = 79
+	template_height = 29
+
+/datum/map_template/modular/oscaroutzetabasefive
+	name = "Oscar outpost abandoned base"
+	mappath = "_maps/modularmaps/oscaroutpost/oscarsouthvar5.dmm"
+	modular_id = "oscarbase"
+	template_width = 79
+	template_height = 29
+
+/datum/map_template/modular/oscaroutzetabasesix
+	name = "Oscar outpost abandoned base"
+	mappath = "_maps/modularmaps/oscaroutpost/oscarsouthvar6.dmm"
+	modular_id = "oscarbase"
+	template_width = 79
+	template_height = 29
+
+/datum/map_template/modular/oscaroutzetabaseseven
+	name = "Oscar outpost abandoned base"
+	mappath = "_maps/modularmaps/oscaroutpost/oscarsouthvar7.dmm"
+	modular_id = "oscarbase"
+	template_width = 79
+	template_height = 29
 
 /datum/map_template/modular/end_of_round/original
 	name = "Original EORG"

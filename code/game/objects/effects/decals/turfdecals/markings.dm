@@ -34,6 +34,9 @@
 /obj/effect/turf_decal/tile/full/brown
 	color = "#443529"
 
+/obj/effect/turf_decal/tile/white
+	icon_state = "whitedecal"
+
 /obj/effect/turf_decal/tile/gray
 	icon_state = "graydecal"
 
@@ -62,7 +65,7 @@
 	icon_state = "grid"
 
 /obj/effect/turf_decal/tile/corsatstraight
-	icon_state = "corsattile"
+	icon_state = "corsattiletwo"
 
 /obj/effect/turf_decal/tile/corsatstraight/red
 	color = "#722729"
@@ -98,7 +101,7 @@
 	color = "#d3d3d3c0"
 
 /obj/effect/turf_decal/tile/corsatcorner
-	icon_state = "corsatlinecorner"
+	icon_state = "corsatlinecornertwo"
 
 /obj/effect/turf_decal/tile/corsatcorner/red
 	color = "#722729"
@@ -131,7 +134,7 @@
 	color = "#d3d3d3"
 
 /obj/effect/turf_decal/tile/corsatsemi
-	icon_state = "corsatlinesemi"
+	icon_state = "corsatlinesemitwo"
 
 /obj/effect/turf_decal/tile/corsatsemi/red
 	color = "#722729"
@@ -169,7 +172,7 @@
 /obj/effect/turf_decal/woodsiding/alt
 	icon_state = "wood_sidingalt"
 
-/obj/effect/turf_decal/woodsiding/Initialize()
+/obj/effect/turf_decal/woodsiding/Initialize(mapload)
 	. = ..()
 	loc.overlays += image(icon, icon_state, dir = src.dir)
 	return INITIALIZE_HINT_QDEL
@@ -180,7 +183,7 @@
 /obj/effect/turf_decal/siding/alt
 	icon_state = "sidingalt"
 
-/obj/effect/turf_decal/siding/Initialize()
+/obj/effect/turf_decal/siding/Initialize(mapload)
 	. = ..()
 	loc.overlays += image(icon, icon_state, dir = src.dir)
 	return INITIALIZE_HINT_QDEL

@@ -1,9 +1,14 @@
 /obj/item/detective_scanner
 	name = "forensic scanner"
 	desc = "Used to scan objects for DNA and fingerprints."
+	icon = 'icons/obj/device.dmi'
 	icon_state = "forensic1"
 	var/list/stored = list()
 	w_class = WEIGHT_CLASS_NORMAL
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/equipment/engineering_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/equipment/engineering_right.dmi',
+	)
 	item_state = "electronic"
 	flags_atom = CONDUCT
 	flags_item = NOBLUDGEON

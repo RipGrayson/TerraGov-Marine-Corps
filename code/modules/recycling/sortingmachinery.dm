@@ -226,10 +226,10 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 
 /obj/item/packageWrap
 	name = "package wrapper"
-	icon = 'icons/obj/items/items.dmi'
+	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "deliveryPaper"
 	w_class = WEIGHT_CLASS_NORMAL
-	var/amount = 25.0
+	var/amount = 25
 
 
 /obj/item/packageWrap/afterattack(obj/target, mob/user, proximity)
@@ -319,10 +319,15 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 /obj/item/destTagger
 	name = "destination tagger"
 	desc = "Used to set the destination of properly wrapped packages."
+	icon = 'icons/obj/device.dmi'
 	icon_state = "dest_tagger"
 	var/currTag = 0
 
 	w_class = WEIGHT_CLASS_SMALL
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/equipment/engineering_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/equipment/engineering_right.dmi',
+	)
 	item_state = "electronic"
 	flags_atom = CONDUCT
 	flags_equip_slot = ITEM_SLOT_BELT
@@ -332,7 +337,7 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 
 	dat += "<table style='width:100%; padding:4px;'><tr>"
 	for(var/i in 1 to length(GLOB.tagger_locations))
-		dat += "<td><a href='?src=\ref[src];nextTag=[GLOB.tagger_locations[i]]'>[GLOB.tagger_locations[i]]</a></td>"
+		dat += "<td><a href='?src=[text_ref(src)];nextTag=[GLOB.tagger_locations[i]]'>[GLOB.tagger_locations[i]]</a></td>"
 
 		if (i%4==0)
 			dat += "</tr><tr>"
@@ -361,7 +366,7 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 
 	var/c_mode = 0
 
-/obj/machinery/disposal/deliveryChute/Initialize()
+/obj/machinery/disposal/deliveryChute/Initialize(mapload)
 	. = ..()
 	set_trunk(locate(/obj/structure/disposalpipe/trunk) in loc)
 	if(trunk)
@@ -442,7 +447,7 @@ GLOBAL_LIST_EMPTY(tagger_locations)
 
 		to_chat(user, "You sliced the floorweld off the delivery chute.")
 		var/obj/structure/disposalconstruct/C = new(loc)
-		C.ptype = 8 // 8 =  Delivery chute
+		C.ptype = 8 // 8 = Delivery chute
 		C.update()
 		C.anchored = TRUE
 		C.density = TRUE

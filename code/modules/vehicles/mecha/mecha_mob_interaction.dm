@@ -42,13 +42,21 @@
 		return FALSE
 	newoccupant.drop_all_held_items()
 	add_occupant(newoccupant)
-	newoccupant.forceMove(src)
+	if(newoccupant.loc != src)
+		newoccupant.forceMove(src)
 	newoccupant.update_mouse_pointer()
-	add_fingerprint(newoccupant)
+	add_fingerprint(newoccupant, "moved in as pilot")
 	log_message("[newoccupant] moved in as pilot.", LOG_MECHA)
 	setDir(dir_in)
 	playsound(src, 'sound/machines/windowdoor.ogg', 50, TRUE)
 	set_mouse_pointer()
+	for(var/faction in GLOB.faction_to_data_hud)
+		var/datum/atom_hud/squad/hud_type = GLOB.huds[GLOB.faction_to_data_hud[faction]]
+		if(faction == newoccupant.faction)
+			hud_type.add_to_hud(src)
+		else
+			hud_type.remove_from_hud(src)
+
 	if(!internal_damage)
 		SEND_SOUND(newoccupant, sound('sound/mecha/nominal.ogg',volume=50))
 	return TRUE
@@ -68,10 +76,10 @@
 	return ..()
 
 /obj/vehicle/sealed/mecha/add_occupant(mob/M, control_flags)
-	RegisterSignal(M, COMSIG_MOB_DEATH, .proc/mob_exit, TRUE)
-	RegisterSignal(M, COMSIG_MOB_MOUSEDOWN, .proc/on_mouseclick, TRUE)
-	RegisterSignal(M, COMSIG_MOB_SAY, .proc/display_speech_bubble, TRUE)
-	RegisterSignal(M, COMSIG_LIVING_DO_RESIST, /atom/movable.proc/resisted_against, TRUE)
+	RegisterSignal(M, COMSIG_MOB_DEATH, PROC_REF(mob_exit), TRUE)
+	RegisterSignal(M, COMSIG_MOB_MOUSEDOWN, PROC_REF(on_mouseclick), TRUE)
+	RegisterSignal(M, COMSIG_MOB_SAY, PROC_REF(display_speech_bubble), TRUE)
+	RegisterSignal(M, COMSIG_LIVING_DO_RESIST, TYPE_PROC_REF(/atom/movable, resisted_against), TRUE)
 	. = ..()
 	update_icon()
 	//tgmc addition start
