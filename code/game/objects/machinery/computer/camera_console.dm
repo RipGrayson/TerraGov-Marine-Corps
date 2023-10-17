@@ -10,7 +10,7 @@
 	var/long_ranged = FALSE
 
 
-/obj/machinery/computer/security/Initialize()
+/obj/machinery/computer/security/Initialize(mapload)
 	. = ..()
 	for(var/i in network)
 		network -= i
@@ -221,6 +221,11 @@
 /obj/machinery/computer/security/marine_network
 	network = list("marine")
 
+/obj/machinery/computer/security/som_mainship
+	network = list("sommainship")
+
+/obj/machinery/computer/security/som_network
+	network = list("som")
 
 /obj/machinery/computer/security/dropship
 	name = "abstract dropship camera computer"

@@ -7,8 +7,12 @@
 	desc = "A suitcase-sized automated storage and retrieval system. Designed to efficiently store and selectively dispense small items."
 	icon = 'icons/obj/items/storage/storage.dmi'
 	icon_state = "secure"
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/items/containers_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items/containers_right.dmi',
+	)
 	flags_atom = CONDUCT
-	force = 8.0
+	force = 8
 	hitsound = "swing_hit"
 	throw_speed = 1
 	throw_range = 4
@@ -70,7 +74,7 @@
 	var/list/display_list = list()
 
 
-	for(var/i in 1 to listed_products.len)
+	for(var/i in 1 to length(listed_products))
 		var/list/myprod = listed_products[i]
 		var/p_name = myprod[1]
 		var/p_cost = myprod[2]
@@ -156,7 +160,7 @@
 	points = min(max_points, points+0.05)
 
 
-/obj/item/portable_vendor/Initialize()
+/obj/item/portable_vendor/Initialize(mapload)
 	. = ..()
 	START_PROCESSING(SSobj, src)
 	update_overlays()
@@ -204,6 +208,12 @@
 		list("INCENTIVES", 0, null, null, null),
 		list("Cash", 2, /obj/item/spacecash/c500, "white", "$500 USD, unmarked bills"),
 		list("Cigars", 5, /obj/item/storage/fancy/cigar, "white", "Case of premium cigars, untampered."),
+		list("Space Drug Autoinjector", 10, /obj/item/reagent_containers/hypospray/autoinjector/spacedrugs, "white", "Drugs for junkie marines who still need that fix."),
+		list("Nanotrasen 'Space-Aged' 60-Year Old Whiskey", 20, /obj/item/reagent_containers/food/drinks/bottle/specialwhiskey, "white", "Aged at the bottom of a starship since 2378. You can guess how much it's worth."),
+		list("Mindbreaker Toxin Autoinjector", 30, /obj/item/reagent_containers/hypospray/autoinjector/mindbreaker, "white", "Drugs for people whose PTSD have permanently scarred them."),
+		list("Roulettium Autoinjector", 30, /obj/item/reagent_containers/hypospray/autoinjector/roulettium, "white", "Drugs for people who really, really miss gambling. Enough for their life." ),
+		list("NT-06 Experimental Liquor", 40, /obj/item/reagent_containers/food/drinks/bottle/experimentalliquor, "white", "An experimental liquor we cooked up in the lab a few years back. Composed of ██████."),
+		list("Elite Autoinjector", 50, /obj/item/reagent_containers/hypospray/autoinjector/elite, "white", "A combat injector 'supposedly' used by our 'Deathsquads'. Don't give it out unless they have something to give in return."),
 		list("De Void of Soul", 51, /obj/item/clothing/under/liaison_suit/galaxy_blue, "white", "The latest in ultrafashion. for those with a cool demeanor."),
 		list("Pulsar Gonne", 51, /obj/item/clothing/under/liaison_suit/galaxy_red, "white", "The latest in ultrafashion. for those with a fiery temper.")
 	)

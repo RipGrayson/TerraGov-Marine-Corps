@@ -1,6 +1,7 @@
 SUBSYSTEM_DEF(weeds)
 	name = "Weed"
 	priority = FIRE_PRIORITY_WEED
+	flags = SS_NO_INIT
 	runlevels = RUNLEVEL_LOBBY|RUNLEVEL_SETUP|RUNLEVEL_GAME|RUNLEVEL_POSTGAME
 	wait = 5 SECONDS
 
@@ -84,7 +85,7 @@ SUBSYSTEM_DEF(weeds)
 		if(istype(O, /obj/structure/window/framed))
 			weed_to_spawn = /obj/alien/weeds/weedwall/window
 		else if(istype(O, /obj/structure/window_frame))
-			weed_to_spawn = /obj/alien/weeds/weedwall/frame
+			weed_to_spawn = /obj/alien/weeds/weedwall/window/frame
 		else if(istype(O, /obj/machinery/door) && O.density)
 			return
 		else if(istype(O, /obj/alien/weeds))

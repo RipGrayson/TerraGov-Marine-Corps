@@ -3,12 +3,17 @@
 	desc = ""
 	icon = 'icons/obj/items/chemistry.dmi'
 	icon_state = null
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/equipment/medical_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/equipment/medical_right.dmi',
+	)
 	throwforce = 3
 	w_class = WEIGHT_CLASS_SMALL
 	throw_speed = 1
 	throw_range = 5
 	var/init_reagent_flags
 	var/amount_per_transfer_from_this = 5
+	///Used to adjust how many units are transfered/injected in a single click
 	var/possible_transfer_amounts = list(5,10,15,25,30)
 	var/volume = 30
 	var/liquifier = FALSE //Can liquify/grind pills without needing fluid to dissolve.
@@ -17,7 +22,7 @@
 	var/free_refills = TRUE
 
 
-/obj/item/reagent_containers/Initialize()
+/obj/item/reagent_containers/Initialize(mapload)
 	. = ..()
 	create_reagents(volume, init_reagent_flags, list_reagents)
 	if(!possible_transfer_amounts)
@@ -36,6 +41,10 @@
 	if(.)
 		return
 
+	open_ui(user)
+
+///Opens the relevant UI
+/obj/item/reagent_containers/proc/open_ui(mob/user)
 	if(!length(possible_transfer_amounts))
 		return
 
@@ -44,7 +53,6 @@
 		return
 
 	amount_per_transfer_from_this = N
-
 
 /obj/item/reagent_containers/verb/set_APTFT()
 	set name = "Set transfer amount"
@@ -60,11 +68,11 @@
 
 //returns a text listing the reagents (and their volume) in the atom. Used by Attack logs for reagents in pills
 /obj/item/reagent_containers/proc/get_reagent_list_text()
-	if(reagents.reagent_list && reagents.reagent_list.len)
+	if(reagents.reagent_list && length(reagents.reagent_list))
 		var/datum/reagent/R = reagents.reagent_list[1]
 		. = "[R.name]([R.volume]u)"
-		if(reagents.reagent_list.len < 2) return
-		for (var/i = 2, i <= reagents.reagent_list.len, i++)
+		if(length(reagents.reagent_list) < 2) return
+		for (var/i = 2, i <= length(reagents.reagent_list), i++)
 			R = reagents.reagent_list[i]
 			if(!R) continue
 			. += "; [R.name]([R.volume]u)"

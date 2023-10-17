@@ -57,8 +57,8 @@
 /mob/living/carbon/xenomorph/proc/do_evolve(caste_type, forced_caste_name, regression = FALSE)
 	if(!generic_evolution_checks())
 		return
-	
-	if(caste_type == /mob/living/carbon/xenomorph/hivemind && tgui_alert(src, "You are about to evolve into a hivemind, which places its core on the tile you're on when evolving. This core cannot be moved and you cannot regress. Are you sure you would like to place your core here?", "Evolving to hivemind", list("Yes", "No"), FALSE) == "No")
+
+	if(caste_type == /mob/living/carbon/xenomorph/hivemind && tgui_alert(src, "You are about to evolve into a hivemind, which places its core on the tile you're on when evolving. This core cannot be moved and you cannot regress. Are you sure you would like to place your core here?", "Evolving to hivemind", list("Yes", "No"), FALSE) != "Yes")
 		return
 
 	var/new_mob_type
@@ -166,12 +166,14 @@
 
 		new_xeno.update_leader_icon(TRUE)
 
-	if(upgrade == XENO_UPGRADE_THREE || upgrade == XENO_UPGRADE_FOUR)
+	if(upgrade == XENO_UPGRADE_PRIMO)
 		switch(tier)
 			if(XENO_TIER_TWO)
-				SSmonitor.stats.ancient_T2--
+				SSmonitor.stats.primo_T2--
 			if(XENO_TIER_THREE)
-				SSmonitor.stats.ancient_T3--
+				SSmonitor.stats.primo_T3--
+			if(XENO_TIER_FOUR)
+				SSmonitor.stats.primo_T4--
 
 	new_xeno.upgrade_stored = max(upgrade_stored, new_xeno.upgrade_stored)
 	while(new_xeno.upgrade_possible() && new_xeno.upgrade_stored >= new_xeno.xeno_caste.upgrade_threshold)
@@ -180,6 +182,8 @@
 	selector?.set_selected_zone(zone_selected, new_xeno)
 	qdel(src)
 	INVOKE_ASYNC(new_xeno, TYPE_PROC_REF(/mob/living, do_jitter_animation), 1000)
+
+	overlay_fullscreen_timer(2 SECONDS, 20, "roundstart2", /atom/movable/screen/fullscreen/spawning_in)
 
 ///Check if the xeno is currently able to evolve
 /mob/living/carbon/xenomorph/proc/generic_evolution_checks()
@@ -193,10 +197,6 @@
 
 	if(!isturf(loc))
 		balloon_alert(src, "We can't evolve here")
-		return FALSE
-
-	if(xeno_caste.hardcore)
-		balloon_alert(src, "Nuh-uh")
 		return FALSE
 
 	if(is_banned_from(ckey, ROLE_XENOMORPH))
@@ -233,8 +233,8 @@
 		balloon_alert(src, "We cannot evolve with a belly full")
 		return FALSE
 
-	if(xeno_caste.hardcore)
-		balloon_alert(src, "Nuh-uhh")
+	if(HAS_TRAIT_FROM(src, TRAIT_IMMOBILE, BOILER_ROOTED_TRAIT))
+		balloon_alert(src, "We cannot evolve while rooted to the ground")
 		return FALSE
 
 	return TRUE
@@ -273,7 +273,7 @@
 			to_chat(src, span_warning("The hivemind is still recovering from the last [initial(new_caste_type.display_name)]'s death. We must wait [DisplayTimeText(timeleft(death_timer))] before we can evolve."))
 			return FALSE
 	var/maximum_active_caste = new_caste_type.maximum_active_caste
-	if(maximum_active_caste != INFINITY && maximum_active_caste <= hive.xenos_by_typepath[new_mob_type].len)
+	if(maximum_active_caste != INFINITY && maximum_active_caste <= length(hive.xenos_by_typepath[new_mob_type]))
 		to_chat(src, span_warning("There is already a [initial(new_caste_type.display_name)] in the hive. We must wait for it to die."))
 		return FALSE
 	var/turf/T = get_turf(src)

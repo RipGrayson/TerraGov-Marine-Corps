@@ -49,7 +49,7 @@
 
 /obj/item/trash/snack_bowl
 	name = "Snack bowl"
-	icon_state	= "snack_bowl"
+	icon_state = "snack_bowl"
 
 /obj/item/trash/pistachios
 	name = "Pistachios pack"
@@ -106,7 +106,7 @@
 /obj/item/trash/c_tube
 	name = "cardboard tube"
 	desc = "A tube... of cardboard."
-	icon = 'icons/obj/items/items.dmi'
+	icon = 'icons/obj/stack_objects.dmi'
 	icon_state = "c_tube"
 	throwforce = 1
 	throw_speed = 4

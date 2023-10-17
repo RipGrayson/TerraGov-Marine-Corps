@@ -22,10 +22,7 @@
 	var/faction = FACTION_TERRAGOV
 	COOLDOWN_DECLARE(next_fire)
 
-/obj/machinery/computer/supplydrop_console/rebel
-	faction = FACTION_TERRAGOV_REBEL
-
-/obj/machinery/computer/supplydrop_console/Initialize()
+/obj/machinery/computer/supplydrop_console/Initialize(mapload)
 	. = ..()
 	return INITIALIZE_HINT_LATELOAD
 
@@ -74,17 +71,17 @@
 			if(!istype(supply_beacon_choice))
 				return
 			supply_beacon = supply_beacon_choice
-			RegisterSignal(supply_beacon, COMSIG_PARENT_QDELETING, PROC_REF(clean_supply_beacon))
+			RegisterSignal(supply_beacon, COMSIG_QDELETING, PROC_REF(clean_supply_beacon), override = TRUE)
 			refresh_pad()
 		if("set_x")
 			var/new_x = text2num(params["set_x"])
-			if(!new_x)
+			if(!isnum(new_x))
 				return
 			x_offset = new_x
 
 		if("set_y")
 			var/new_y = text2num(params["set_y"])
-			if(!new_y)
+			if(!isnum(new_y))
 				return
 			y_offset = new_y
 
@@ -127,7 +124,7 @@
 	for(var/obj/C in supply_pad.loc)
 		if(is_type_in_typecache(C, GLOB.supply_drops) && !C.anchored) //Can only send vendors, crates, unmanned vehicles and large crates
 			supplies.Add(C)
-		if(supplies.len > MAX_SUPPLY_DROPS)
+		if(length(supplies) > MAX_SUPPLY_DROPS)
 			break
 
 ///Start the supply drop process
@@ -169,7 +166,7 @@
 		visible_message("[icon2html(supply_pad, usr)] [span_warning("Launch aborted! Supply beacon signal lost.")]")
 		return
 
-	if(!supplies.len)
+	if(!length(supplies))
 		visible_message("[icon2html(supply_pad, usr)] [span_warning("Launch aborted! No deployable object detected on the drop pad.")]")
 		return
 

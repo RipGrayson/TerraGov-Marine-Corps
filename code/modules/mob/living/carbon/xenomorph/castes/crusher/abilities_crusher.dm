@@ -65,7 +65,7 @@
 /datum/action/xeno_action/activable/cresttoss
 	name = "Crest Toss"
 	action_icon_state = "cresttoss"
-	desc = "Fling an adjacent target over and behind you. Also works over barricades."
+	desc = "Fling an adjacent target over and behind you, or away from you while on harm intent. Also works over barricades."
 	ability_name = "crest toss"
 	plasma_cost = 75
 	cooldown_timer = 12 SECONDS
@@ -124,6 +124,10 @@
 		if(isclosedturf(throw_origin)) //Make sure the victim can actually go to the target turf
 			to_chat(X, span_xenowarning("We try to fling [A] behind us, but there's no room!"))
 			return fail_activate()
+		if(!X.issamexenohive(A)) //xenos should be able to fling xenos into xeno passable areas!
+			for(var/obj/effect/forcefield/fog/fog in T)
+				A.balloon_alert(X, "cannot, fog")
+				return fail_activate()
 		for(var/obj/O in throw_origin)
 			if(!O.CanPass(A, get_turf(X)) && !istype(O, /obj/structure/barricade)) //Ignore barricades because they will once thrown anyway
 				to_chat(X, span_xenowarning("We try to fling [A] behind us, but there's no room!"))
@@ -193,6 +197,7 @@
 	. = ..()
 	if(!.)
 		return FALSE
+
 	if(get_dist(owner, A) > 7)
 		return FALSE
 
@@ -202,13 +207,15 @@
 	X.face_atom(A)
 	X.set_canmove(FALSE)
 	if(!do_after(X, 10, TRUE, X, BUSY_ICON_DANGER))
-		X.set_canmove(TRUE)
+		if(!X.stat)
+			X.set_canmove(TRUE)
 		return fail_activate()
 	X.set_canmove(TRUE)
 
 	var/datum/action/xeno_action/ready_charge/charge = X.actions_by_path[/datum/action/xeno_action/ready_charge]
 	var/aimdir = get_dir(X,A)
 	if(charge)
+		charge.charge_on(FALSE)
 		charge.do_stop_momentum(FALSE) //Reset charge so next_move_limit check_momentum() does not cuck us and 0 out steps_taken
 		charge.do_start_crushing()
 		charge.valid_steps_taken = charge.max_steps_buildup - 1

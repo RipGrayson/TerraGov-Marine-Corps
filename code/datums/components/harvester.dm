@@ -17,8 +17,9 @@
 	var/datum/action/harvester/reagent_select/reagent_select_action
 	///The maximum amount that one chemical can be loaded
 	var/max_loadable_reagent_amount = 30
+	var/loadup_on_attack = FALSE
 
-/datum/component/harvester/Initialize(max_reagent_amount)
+/datum/component/harvester/Initialize(max_reagent_amount, loadup_on_attack)
 	if(!isitem(parent))
 		return COMPONENT_INCOMPATIBLE
 
@@ -26,14 +27,16 @@
 
 	if(max_reagent_amount)
 		max_loadable_reagent_amount = max_reagent_amount
+	if(loadup_on_attack)
+		src.loadup_on_attack = loadup_on_attack
 
 	reagent_select_action = new
 	LAZYADD(item_parent.actions, reagent_select_action)
 
-	RegisterSignal(parent, COMSIG_PARENT_EXAMINE, PROC_REF(examine))
+	RegisterSignal(parent, COMSIG_ATOM_EXAMINE, PROC_REF(examine))
 	RegisterSignal(parent, COMSIG_ITEM_UNIQUE_ACTION, PROC_REF(activate_blade))
 	RegisterSignal(parent, COMSIG_ITEM_ATTACK, PROC_REF(attack))
-	RegisterSignal(parent, COMSIG_PARENT_ATTACKBY, PROC_REF(attackby))
+	RegisterSignal(parent, COMSIG_ATOM_ATTACKBY, PROC_REF(attackby))
 	RegisterSignal(reagent_select_action, COMSIG_ACTION_TRIGGER, PROC_REF(select_reagent))
 
 /datum/component/harvester/Destroy(force, silent)
@@ -42,13 +45,14 @@
 	QDEL_NULL(reagent_select_action)
 	return ..()
 
-/datum/component/chem_booster/UnregisterFromParent()
+/datum/component/harvester/UnregisterFromParent()
 	. = ..()
 	UnregisterSignal(parent, list(
-		COMSIG_PARENT_EXAMINE,
+		COMSIG_ATOM_EXAMINE,
 		COMSIG_ITEM_UNIQUE_ACTION,
 		COMSIG_ITEM_ATTACK,
-		COMSIG_PARENT_ATTACKBY))
+		COMSIG_ATOM_ATTACKBY,
+	))
 
 ///Adds additional text for the component when examining the item
 /datum/component/harvester/proc/examine(datum/source, mob/user, list/examine_list)
@@ -72,7 +76,7 @@
 	if(user.do_actions)
 		return
 
-	if(!isreagentcontainer(cont) || istype(cont, /obj/item/reagent_containers/pill))
+	if(!isreagentcontainer(cont))
 		user.balloon_alert(user, "incompatible")
 		return
 
@@ -109,10 +113,11 @@
 	user.balloon_alert(user, "[loaded_reagents[reagent_to_load]]u")
 	if(length(loaded_reagents) == 1)
 		update_selected_reagent(reagent_to_load)
+	if(istype(container, /obj/item/reagent_containers/pill))
+		qdel(container)
 
 ///Handles behavior when activating the weapon
 /datum/component/harvester/proc/activate_blade_async(datum/source, mob/user)
-
 	if(loaded_reagent)
 		user.balloon_alert(user, "[initial(loaded_reagent.name)]")
 		return
@@ -196,6 +201,9 @@
 		update_selected_reagent(null)
 		user.balloon_alert(user, "[initial(loaded_reagent.name)]: empty")
 	loaded_reagent = null
+
+	if(loadup_on_attack)
+		INVOKE_ASYNC(src, PROC_REF(activate_blade_async), source, user)
 
 /datum/component/harvester/proc/select_reagent(datum/source)
 	var/list/options = list()

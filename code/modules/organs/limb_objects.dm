@@ -1,8 +1,12 @@
 
 /obj/item/limb
 	icon = 'icons/mob/human_races/r_human.dmi'
+	item_icons = list(
+		slot_l_hand_str = 'icons/mob/inhands/items/bodyparts_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items/bodyparts_right.dmi',
+	)
 
-/obj/item/limb/Initialize(loc, mob/living/carbon/human/H)
+/obj/item/limb/Initialize(mapload, mob/living/carbon/human/H)
 	. = ..()
 	if(!istype(H))
 		return
@@ -117,6 +121,7 @@
 	brainmob = new(src)
 	brainmob.name = H.real_name
 	brainmob.real_name = H.real_name
+	brainmob.faction = H.faction
 	if(H.mind)
 		H.mind.transfer_to(brainmob)
 	brainmob.container = src

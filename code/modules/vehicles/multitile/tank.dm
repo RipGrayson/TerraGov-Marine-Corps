@@ -29,7 +29,7 @@
 	spawn_dir = EAST
 	var/list/spawn_hardpoints = list()
 
-/obj/effect/multitile_spawner/cm_armored/tank/Initialize()
+/obj/effect/multitile_spawner/cm_armored/tank/Initialize(mapload)
 	. = ..()
 	return INITIALIZE_HINT_QDEL
 
@@ -135,7 +135,7 @@
 	if(!isliving(occupant))
 		return
 	var/mob/living/L = occupant
-	L.Paralyze(80)
+	L.Paralyze(8 SECONDS)
 
 //Two seats, gunner and driver
 //Must have the skills to do so
