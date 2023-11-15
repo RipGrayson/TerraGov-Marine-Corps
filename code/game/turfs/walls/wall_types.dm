@@ -181,7 +181,8 @@
 	icon_state = "rwall"
 
 /turf/closed/wall/swall
-	icon_state = "swall0"
+	icon = 'icons/turf/walls/swall.dmi'
+	icon_state = "swall-0"
 
 //Sulaco walls.
 /turf/closed/wall/sulaco
