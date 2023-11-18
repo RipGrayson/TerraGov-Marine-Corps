@@ -9,6 +9,8 @@
 	if(mob_size == MOB_SIZE_BIG)
 		move_resist = MOVE_FORCE_EXTREMELY_STRONG
 		move_force = MOVE_FORCE_EXTREMELY_STRONG
+	light_pixel_x -= pixel_x
+	light_pixel_y -= pixel_y
 	. = ..()
 	set_datum()
 	time_of_birth = world.time
@@ -45,7 +47,7 @@
 	wound_overlay = new(null, src)
 	vis_contents += wound_overlay
 
-	fire_overlay = mob_size == MOB_SIZE_BIG ? new(null, src) : new /atom/movable/vis_obj/xeno_wounds/fire_overlay/small(null, src)
+	fire_overlay = new(src, src)
 	vis_contents += fire_overlay
 
 	generate_nicknumber()
@@ -79,7 +81,7 @@
 	RegisterSignal(src, COMSIG_LIVING_WEEDS_AT_LOC_CREATED, PROC_REF(handle_weeds_on_movement))
 	handle_weeds_on_movement()
 
-	AddElement(/datum/element/footstep, FOOTSTEP_XENO_MEDIUM, mob_size >= MOB_SIZE_BIG ? 0.8 : 0.5)
+	AddElement(/datum/element/footstep, footstep_type, mob_size >= MOB_SIZE_BIG ? 0.8 : 0.5)
 	set_jump_component()
 
 ///Change the caste of the xeno. If restore health is true, then health is set to the new max health
@@ -222,12 +224,13 @@
 
 /mob/living/carbon/xenomorph/proc/grabbed_self_attack()
 	SIGNAL_HANDLER
-	if(!(xeno_caste.can_flags & CASTE_CAN_RIDE_CRUSHER) || !isxenocrusher(pulling))
+	if(!(xeno_caste.can_flags & CASTE_CAN_RIDE_CRUSHER))
 		return NONE
-	var/mob/living/carbon/xenomorph/crusher/grabbed = pulling
-	if(grabbed.stat == CONSCIOUS && stat == CONSCIOUS)
-		INVOKE_ASYNC(grabbed, TYPE_PROC_REF(/mob/living/carbon/xenomorph/crusher, carry_xeno), src, TRUE)
-		return COMSIG_GRAB_SUCCESSFUL_SELF_ATTACK
+	if(isxenocrusher(pulling) || isxenobehemoth(pulling))
+		var/mob/living/carbon/xenomorph/crusher/grabbed = pulling
+		if(grabbed.stat == CONSCIOUS && stat == CONSCIOUS)
+			INVOKE_ASYNC(grabbed, TYPE_PROC_REF(/mob/living/carbon/xenomorph/crusher, carry_xeno), src, TRUE)
+			return COMSIG_GRAB_SUCCESSFUL_SELF_ATTACK
 	return NONE
 
 ///Initiate of form changing on the xeno
@@ -442,11 +445,21 @@
 		return
 	loc_weeds_type = null
 
-/// Handles logic for the xeno moving to a new weeds tile
+/**  Handles logic for the xeno moving to a new weeds tile.
+Returns TRUE when loc_weeds_type changes. Returns FALSE when it doesn’t change */
 /mob/living/carbon/xenomorph/proc/handle_weeds_on_movement(datum/source)
 	SIGNAL_HANDLER
 	var/obj/alien/weeds/found_weed = locate(/obj/alien/weeds) in loc
+	if(loc_weeds_type == found_weed?.type)
+		return FALSE
 	loc_weeds_type = found_weed?.type
+	return TRUE
+
+/mob/living/carbon/xenomorph/hivemind/handle_weeds_on_movement(datum/source)
+	. = ..()
+	if(!.)
+		return
+	update_icon()
 
 /mob/living/carbon/xenomorph/lay_down()
 	var/datum/action/xeno_action/xeno_resting/resting_action = actions_by_path[/datum/action/xeno_action/xeno_resting]

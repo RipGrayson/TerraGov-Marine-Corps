@@ -17,8 +17,8 @@
 	var/datum/space_level/mission_z_level
 	///Optional delay for each faction to be able to deploy, typically used in attacker/defender missions
 	var/list/shutter_open_delay = list(
-		"starting_faction" = 0,
-		"hostile_faction" = 0,
+		MISSION_STARTING_FACTION = 0,
+		MISSION_HOSTILE_FACTION = 0,
 	)
 	///Any mission behavior flags
 	var/mission_flags = null
@@ -42,6 +42,10 @@
 	var/starting_faction_mission_brief = "starting faction mission brief here"
 	///Detailed mission description for the hostile faction
 	var/hostile_faction_mission_brief = "hostile faction mission brief here"
+	///Optional mission parameters for the starting faction. Some are autopopulated
+	var/starting_faction_mission_parameters
+	///Optional mission parameters for the hostile faction. Some are autopopulated
+	var/hostile_faction_mission_parameters
 	///Any additional rewards for the starting faction, for display purposes
 	var/starting_faction_additional_rewards = "starting faction mission rewards here"
 	///Any additional rewards for the hostile faction, for display purposes
@@ -74,29 +78,29 @@
 	var/game_timer_delay = 3 MINUTES
 	///Map text intro message for the start of the mission
 	var/list/intro_message = list(
-		"starting_faction" = "starting faction intro text here",
-		"hostile_faction" = "hostile faction intro text here",
+		MISSION_STARTING_FACTION = "starting faction intro text here",
+		MISSION_HOSTILE_FACTION = "hostile faction intro text here",
 	)
 	var/list/outro_message = list(
 		MISSION_OUTCOME_MAJOR_VICTORY = list(
-			"starting_faction" = "<u>Major victory</u><br> All mission objectives achieved, outstanding work!",
-			"hostile_faction" = "<u>Major loss</u><br> All surviving forces fallback, we'll get them next time.",
+			MISSION_STARTING_FACTION = "<u>Major victory</u><br> All mission objectives achieved, outstanding work!",
+			MISSION_HOSTILE_FACTION = "<u>Major loss</u><br> All surviving forces fallback, we'll get them next time.",
 		),
 		MISSION_OUTCOME_MINOR_VICTORY = list(
-			"starting_faction" = "<u>Minor victory</u><br> That's a successful operation team, nice work. Head back to base!",
-			"hostile_faction" = "<u>Minor loss</u><br> Pull back all forces, we'll get them next time.",
+			MISSION_STARTING_FACTION = "<u>Minor victory</u><br> That's a successful operation team, nice work. Head back to base!",
+			MISSION_HOSTILE_FACTION = "<u>Minor loss</u><br> Pull back all forces, we'll get them next time.",
 		),
 		MISSION_OUTCOME_DRAW = list(
-			"starting_faction" = "<u>Draw</u><br> Mission objectives not met, pull back and regroup.",
-			"hostile_faction" = "<u>Draw</u><br> Enemy operation disrupted, they're getting nothing out of this one. Good work.",
+			MISSION_STARTING_FACTION = "<u>Draw</u><br> Mission objectives not met, pull back and regroup.",
+			MISSION_HOSTILE_FACTION = "<u>Draw</u><br> Enemy operation disrupted, they're getting nothing out of this one. Good work.",
 		),
 		MISSION_OUTCOME_MINOR_LOSS = list(
-			"starting_faction" = "<u>Minor loss</u><br> All forces pull back, mission failure. We'll get them next time.",
-			"hostile_faction" = "<u>Minor victory</u><br> Excellent work, the enemy operation is in disarray. Get ready for the next move.",
+			MISSION_STARTING_FACTION = "<u>Minor loss</u><br> All forces pull back, mission failure. We'll get them next time.",
+			MISSION_HOSTILE_FACTION = "<u>Minor victory</u><br> Excellent work, the enemy operation is in disarray. Get ready for the next move.",
 		),
 		MISSION_OUTCOME_MAJOR_LOSS = list(
-			"starting_faction" = "<u>Major loss</u><br> All surviving forces retreat. The operation is a failure.",
-			"hostile_faction" = "<u>Major victory</u><br> Enemy forces routed, outstanding work! Regroup and get ready to counter attack!",
+			MISSION_STARTING_FACTION = "<u>Major loss</u><br> All surviving forces retreat. The operation is a failure.",
+			MISSION_HOSTILE_FACTION = "<u>Major victory</u><br> Enemy forces routed, outstanding work! Regroup and get ready to counter attack!",
 		),
 	)
 	///Operation name for starting faction
@@ -157,7 +161,7 @@
 /datum/campaign_mission/proc/load_map()
 	mission_z_level = load_new_z_level(map_file, map_name, TRUE, map_traits)
 	set_z_lighting(mission_z_level.z_value, map_light_colours[1], map_light_levels[1], map_light_colours[2], map_light_levels[2], map_light_colours[3], map_light_levels[3], map_light_colours[4], map_light_levels[4])
-
+	mission_state = MISSION_STATE_LOADED
 	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CAMPAIGN_MISSION_LOADED, mission_z_level.z_value)
 
 ///Generates the mission brief for the mission if it needs to be late loaded
@@ -239,15 +243,15 @@
 /datum/campaign_mission/proc/start_mission()
 	SHOULD_CALL_PARENT(TRUE)
 	SEND_SIGNAL(SSdcs, COMSIG_GLOB_CAMPAIGN_MISSION_STARTED)
-	if(!shutter_open_delay["starting_faction"])
+	if(!shutter_open_delay[MISSION_STARTING_FACTION])
 		SEND_GLOBAL_SIGNAL(GLOB.faction_to_campaign_door_signal[starting_faction])
 	else
-		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(send_global_signal), GLOB.faction_to_campaign_door_signal[starting_faction]), shutter_open_delay["starting_faction"])
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(send_global_signal), GLOB.faction_to_campaign_door_signal[starting_faction]), shutter_open_delay[MISSION_STARTING_FACTION])
 
-	if(!shutter_open_delay["hostile_faction"])
+	if(!shutter_open_delay[MISSION_HOSTILE_FACTION])
 		SEND_GLOBAL_SIGNAL(GLOB.faction_to_campaign_door_signal[hostile_faction])
 	else
-		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(send_global_signal), GLOB.faction_to_campaign_door_signal[hostile_faction]), shutter_open_delay["hostile_faction"])
+		addtimer(CALLBACK(GLOBAL_PROC, GLOBAL_PROC_REF(send_global_signal), GLOB.faction_to_campaign_door_signal[hostile_faction]), shutter_open_delay[MISSION_HOSTILE_FACTION])
 
 	START_PROCESSING(SSslowprocess, src) //this may be excessive
 	play_start_intro()
@@ -260,6 +264,7 @@
 ///Mission end wrap up
 /datum/campaign_mission/proc/end_mission()
 	SHOULD_CALL_PARENT(TRUE)
+	unregister_mission_signals()
 	QDEL_LIST(GLOB.campaign_objectives)
 	QDEL_LIST(GLOB.campaign_structures)
 	QDEL_LIST(GLOB.patrol_point_list) //purge all existing links, cutting off the current ground map. Start point links are auto severed, and will reconnect to new points when a new map is loaded and upon use.
@@ -267,11 +272,15 @@
 	mission_state = MISSION_STATE_FINISHED
 	apply_outcome()
 	play_outro()
-	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CAMPAIGN_MISSION_ENDED, winning_faction)
+	SEND_GLOBAL_SIGNAL(COMSIG_GLOB_CAMPAIGN_MISSION_ENDED, src, winning_faction)
 	for(var/i in GLOB.quick_loadouts)
 		var/datum/outfit/quick/outfit = GLOB.quick_loadouts[i]
 		outfit.quantity = initial(outfit.quantity)
 
+///Unregisters all signals when the mission finishes
+/datum/campaign_mission/proc/unregister_mission_signals()
+	SHOULD_CALL_PARENT(TRUE)
+	UnregisterSignal(SSdcs, list(COMSIG_GLOB_CAMPAIGN_TELEBLOCKER_DISABLED, COMSIG_GLOB_CAMPAIGN_DROPBLOCKER_DISABLED))
 
 ///Intro when the mission is selected
 /datum/campaign_mission/proc/play_selection_intro()
@@ -282,8 +291,8 @@
 
 ///Intro when the mission is started
 /datum/campaign_mission/proc/play_start_intro()
-	map_text_broadcast(starting_faction, intro_message["starting_faction"], op_name_starting)
-	map_text_broadcast(hostile_faction, intro_message["hostile_faction"], op_name_hostile)
+	map_text_broadcast(starting_faction, intro_message[MISSION_STARTING_FACTION], op_name_starting)
+	map_text_broadcast(hostile_faction, intro_message[MISSION_HOSTILE_FACTION], op_name_hostile)
 
 ///Outro when the mission is finished
 /datum/campaign_mission/proc/play_outro() //todo: make generic
@@ -291,8 +300,8 @@
 	log_game("[outcome]\nMission: [name]")
 	to_chat(world, span_round_body("Thus ends the story of the brave men and women of both the [starting_faction] and [hostile_faction], and their struggle on [map_name]."))
 
-	map_text_broadcast(starting_faction, outro_message[outcome]["starting_faction"], op_name_starting)
-	map_text_broadcast(hostile_faction, outro_message[outcome]["hostile_faction"], op_name_hostile)
+	map_text_broadcast(starting_faction, outro_message[outcome][MISSION_STARTING_FACTION], op_name_starting)
+	map_text_broadcast(hostile_faction, outro_message[outcome][MISSION_HOSTILE_FACTION], op_name_hostile)
 
 ///Applies the correct outcome for the mission
 /datum/campaign_mission/proc/apply_outcome()
@@ -421,3 +430,31 @@
 
 	map_text_broadcast(destroying_team, "[blocker] destroyed, we can now deploy via drop pod!", "Drop pods unblocked")
 	map_text_broadcast(losing_faction, "[blocker] destroyed, the enemy can now drop pod at will!", "Drop pods unblocked")
+
+///Removes the object from the campaign_structrures list if they are destroyed mid mission
+/datum/campaign_mission/proc/remove_mission_object(obj/mission_obj)
+	SIGNAL_HANDLER
+	GLOB.campaign_structures -= mission_obj
+
+///spawns mechs for a faction
+/datum/campaign_mission/proc/spawn_mech(mech_faction, heavy_mech, medium_mech, light_mech)
+	if(!mech_faction)
+		return
+	var/total_count = (heavy_mech + medium_mech + light_mech)
+	for(var/obj/effect/landmark/campaign/mech_spawner/mech_spawner AS in GLOB.campaign_mech_spawners[mech_faction])
+		if(!heavy_mech && !medium_mech && !light_mech)
+			break
+		var/new_mech
+		if(heavy_mech && (mech_spawner.type == GLOB.faction_to_mech_spawner[mech_faction]["heavy"]))
+			heavy_mech --
+		else if(medium_mech && (mech_spawner.type == GLOB.faction_to_mech_spawner[mech_faction]["medium"]))
+			medium_mech --
+		else if(light_mech && (mech_spawner.type == GLOB.faction_to_mech_spawner[mech_faction]["light"]))
+			light_mech --
+		else
+			continue
+		new_mech = mech_spawner.spawn_mech()
+		GLOB.campaign_structures += new_mech
+		RegisterSignal(new_mech, COMSIG_QDELETING, TYPE_PROC_REF(/datum/campaign_mission, remove_mission_object))
+
+	map_text_broadcast(mech_faction, "[total_count] mechs have been deployed for this mission.", "Mechs available")

@@ -332,7 +332,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 ///When hit by a thrown object, play the associated hitsound of the object
 /obj/item/throw_impact(atom/hit_atom, speed, bounce)
 	. = ..()
-	if(isliving(hit_atom))
+	if(. && isliving(hit_atom))
 		playsound(src, hitsound, 50)
 
 // apparently called whenever an item is removed from a slot, container, or anything else.
@@ -366,7 +366,7 @@ GLOBAL_DATUM_INIT(welding_sparks_prepdoor, /mutable_appearance, mutable_appearan
 				break
 			if(!affected_limbs.Find(X.name) )
 				continue
-			if(istype(X) && X.take_damage_limb(0, H.modify_by_armor(raw_damage * rand(0.75, 1.25), ACID, def_zone = X.name)))
+			if(istype(X) && X.take_damage_limb(0, H.modify_by_armor(raw_damage * randfloat(0.75, 1.25), ACID, def_zone = X.name)))
 				H.UpdateDamageIcon()
 			limb_count++
 		UPDATEHEALTH(H)
@@ -1024,7 +1024,7 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 			if(istype(user.buckled, /obj/structure/bed/chair))
 				C = user.buckled
 			var/obj/B = user.buckled
-			var/movementdirection = turn(direction,180)
+			var/movementdirection = REVERSE_DIR(direction)
 			if(C)
 				C.propelled = 4
 			B.Move(get_step(user,movementdirection), movementdirection)
@@ -1215,8 +1215,9 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 	var/mutable_appearance/standing = mutable_appearance(iconfile2use, state2use, layer2use)
 
 	//Apply any special features
+	apply_custom(standing, inhands, iconfile2use, state2use) //image overrideable proc to customize the onmob icon.
+	//Apply any special features
 	if(!inhands)
-		apply_custom(standing)		//image overrideable proc to customize the onmob icon.
 		apply_blood(standing)			//Some items show blood when bloodied.
 		apply_accessories(standing)		//Some items sport accessories like webbings or ties.
 
@@ -1274,9 +1275,11 @@ modules/mob/living/carbon/human/life.dm if you die, you will be zoomed out.
 		return icon_state
 
 ///applies any custom thing to the sprite, caled by make_worn_icon().
-/obj/item/proc/apply_custom(mutable_appearance/standing)
+/obj/item/proc/apply_custom(mutable_appearance/standing, inhands, icon_used, state_used)
 	SHOULD_CALL_PARENT(TRUE)
-	SEND_SIGNAL(src, COMSIG_ITEM_APPLY_CUSTOM_OVERLAY, standing)
+	if(blocks_emissive != EMISSIVE_BLOCK_NONE)
+		standing.overlays += emissive_blocker(icon_used, state_used, alpha = standing.alpha)
+	SEND_SIGNAL(src, COMSIG_ITEM_APPLY_CUSTOM_OVERLAY, standing, inhands, icon_used, state_used)
 	return standing
 
 ///applies blood on the item, called by make_worn_icon().
