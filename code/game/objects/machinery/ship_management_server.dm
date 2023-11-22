@@ -155,3 +155,4 @@
 		decision_state = MANAGEMENT_IDLE //reset to idle, this is important so we don't spam the same action over and over
 
 /obj/machinery/shipmanagement/standard //standard AI
+	name = "Ship AI"
