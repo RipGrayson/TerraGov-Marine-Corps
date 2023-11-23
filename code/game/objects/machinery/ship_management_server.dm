@@ -83,9 +83,8 @@
 	sourcearea = get_area(src)
 	for(var/turf/i in get_area_turfs(sourcearea, z)) //this is probably expensive, but we only need to do it once
 		for(var/obj/machinery/machines in i.contents)
-			switch(machines)
-				if(istype(machines, /obj/machinery/door))
-					areadoors += machines
+			if(istype(machines, /obj/machinery/door))
+				areadoors += machines
 	addtimer(CALLBACK(src, PROC_REF(processing_loop)), rand(30,90) SECONDS)
 
 /obj/machinery/shipmanagement/proc/grab_mobs_by_area()
@@ -150,7 +149,6 @@
 	switch(decision_state)
 		if(MANAGEMENT_IDLE)
 			do_hallucinate() //we shouldn't get here, but if we do hallucinate
-		if(MANAGEMENT_IDLE)
 	if(reset_to_idle)
 		decision_state = MANAGEMENT_IDLE //reset to idle, this is important so we don't spam the same action over and over
 
