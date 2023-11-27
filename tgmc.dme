@@ -926,6 +926,7 @@
 #include "code\game\objects\machinery\robotic_cradle.dm"
 #include "code\game\objects\machinery\science.dm"
 #include "code\game\objects\machinery\scoreboard.dm"
+#include "code\game\objects\machinery\ship_defense_turret.dm"
 #include "code\game\objects\machinery\ship_management_server.dm"
 #include "code\game\objects\machinery\seed_extractor.dm"
 #include "code\game\objects\machinery\self_destruct.dm"

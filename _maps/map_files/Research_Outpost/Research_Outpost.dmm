@@ -71,11 +71,6 @@
 /obj/docking_port/stationary/crashmode,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/south)
-"ch" = (
-/turf/open/floor/plating/ground/mars/dirttosand{
-	dir = 8
-	},
-/area/outpost/yard/south)
 "cm" = (
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating/ground/mars/random/dirt,
@@ -89,6 +84,12 @@
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_east)
+"cy" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
+	dir = 4
+	},
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "cz" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -219,6 +220,12 @@
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/south)
+"fi" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	dir = 1
+	},
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "fo" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/dirttosand{
@@ -261,6 +268,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/outpost/caves/east)
+"gg" = (
+/obj/machinery/robotic_cradle,
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "gw" = (
 /turf/closed/mineral/smooth/bigred/indestructible,
 /area/space)
@@ -435,6 +446,9 @@
 	dir = 4
 	},
 /area/outpost/arrivals)
+"jp" = (
+/turf/closed/mineral/smooth/bigred,
+/area/space)
 "jr" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 9
@@ -528,6 +542,19 @@
 	dir = 8
 	},
 /area/outpost/lz2)
+"kV" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
+	dir = 8
+	},
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
+"kZ" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic{
+	dir = 1
+	},
+/obj/structure/cable,
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "lx" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone/lz2,
 /turf/open/floor/marking/asteroidwarning,
@@ -624,6 +651,11 @@
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/south)
+"mT" = (
+/obj/machinery/power/fusion_engine/preset,
+/obj/structure/cable,
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "na" = (
 /turf/open/floor/plating/ground/mars/dirttosand,
 /area/outpost/yard/west)
@@ -687,6 +719,13 @@
 /obj/structure/cable,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/outpost/yard/east)
+"on" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
+	dir = 8
+	},
+/obj/structure/cable,
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "oq" = (
 /turf/open/floor/plating/asteroidwarning{
 	dir = 10
@@ -788,10 +827,6 @@
 /obj/machinery/computer/shuttle/shuttle_control/dropship,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/outpost/lz1)
-"qZ" = (
-/obj/effect/landmark/weed_node,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/outpost/yard/south_east)
 "rd" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/open/floor/plating/asteroidfloor,
@@ -851,6 +886,10 @@
 	},
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_east)
+"rY" = (
+/obj/machinery/shipmanagement,
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "sd" = (
 /obj/effect/ai_node,
 /turf/open/floor/marking/asteroidwarning{
@@ -888,10 +927,6 @@
 	dir = 4
 	},
 /area/outpost/caves/north_west)
-"sE" = (
-/obj/effect/landmark/corpsespawner/chef,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/outpost/yard/south_east)
 "sH" = (
 /obj/machinery/door/poddoor/timed_late/containment/landing_zone,
 /turf/closed/mineral/smooth/bigred,
@@ -947,6 +982,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_east)
+"tP" = (
+/obj/machinery/telecomms/relay/preset/telecomms,
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "tR" = (
 /obj/structure/cable,
 /turf/open/floor/marking/asteroidwarning,
@@ -1075,6 +1114,12 @@
 	dir = 10
 	},
 /area/outpost/caves/north_west)
+"vZ" = (
+/obj/machinery/light/mainship{
+	dir = 8
+	},
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "wa" = (
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/outpost/yard/south)
@@ -1119,6 +1164,10 @@
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/south_west)
+"wI" = (
+/obj/machinery/door/airlock/multi_tile/mainship/generic,
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "wM" = (
 /turf/open/floor/plating/ground/mars/cavetodirt{
 	dir = 1
@@ -1184,6 +1233,12 @@
 	dir = 1
 	},
 /area/outpost/lz1)
+"yl" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on{
+	dir = 1
+	},
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "yr" = (
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/mars/cavetodirt{
@@ -1215,6 +1270,12 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/asteroidfloor,
 /area/outpost/yard/central)
+"yQ" = (
+/obj/machinery/light/mainship{
+	dir = 1
+	},
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "yW" = (
 /turf/closed/mineral/smooth/bigred,
 /area/bigredv2/caves/rock)
@@ -1368,6 +1429,10 @@
 	},
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/outpost/caves/north_east)
+"BI" = (
+/obj/machinery/light/mainship,
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "BJ" = (
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/outpost/yard/south_east)
@@ -1447,6 +1512,12 @@
 	dir = 5
 	},
 /area/outpost/lz2)
+"CT" = (
+/obj/machinery/light/mainship{
+	dir = 4
+	},
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "CW" = (
 /obj/effect/ai_node,
 /turf/open/floor/marking/asteroidwarning,
@@ -1595,11 +1666,8 @@
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_east)
 "Fy" = (
-/obj/effect/landmark/excavation_site_spawner,
-/turf/open/floor/plating/asteroidwarning{
-	dir = 8
-	},
-/area/outpost/yard/south_east)
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "FH" = (
 /turf/open/floor/marking/asteroidwarning{
 	dir = 1
@@ -1682,6 +1750,10 @@
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_west)
+"GS" = (
+/obj/structure/cable,
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "GU" = (
 /turf/open/floor/plating/asteroidwarning{
 	dir = 5
@@ -1798,6 +1870,9 @@
 	dir = 1
 	},
 /area/outpost/yard/north_east)
+"IF" = (
+/turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
+/area/outpost/yard/south)
 "IH" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -1964,6 +2039,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave,
 /area/outpost/caves/north_east)
+"Lg" = (
+/obj/machinery/atmospherics/components/unary/vent_scrubber/on,
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "Li" = (
 /obj/effect/landmark/weed_node,
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
@@ -2252,6 +2331,11 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/asteroidfloor,
 /area/outpost/yard/central)
+"Rk" = (
+/obj/structure/cable,
+/obj/machinery/power/apc/mainship,
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "Rp" = (
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/mars/cavetodirt,
@@ -2602,6 +2686,9 @@
 /obj/effect/landmark/excavation_site_spawner,
 /turf/open/floor/plating/ground/mars/random/dirt,
 /area/outpost/caves/north_east)
+"WS" = (
+/turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
+/area/outpost/yard/south_east)
 "WV" = (
 /turf/open/floor/plating/asteroidfloor,
 /area/outpost/cargo)
@@ -2614,9 +2701,8 @@
 /turf/open/floor/plating/ground/mars/cavetodirt,
 /area/outpost/caves/north_west)
 "Xf" = (
-/obj/machinery/miner/damaged,
-/turf/open/floor/plating/ground/mars/random/cave,
-/area/outpost/yard/south_east)
+/turf/closed/wall/r_wall,
+/area/deltastation/ai_monitored/aisat)
 "Xl" = (
 /turf/open/floor/plating/ground/mars/dirttosand{
 	dir = 1
@@ -2632,6 +2718,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/mars/random/sand,
 /area/outpost/yard/east)
+"Xy" = (
+/obj/machinery/ship_defense_turret,
+/turf/open/floor/grayscale,
+/area/deltastation/ai_monitored/aisat)
 "XD" = (
 /turf/open/floor/plating/ground/mars/cavetodirt{
 	dir = 8
@@ -2744,6 +2834,9 @@
 "ZS" = (
 /turf/open/floor/plating/asteroidwarning,
 /area/outpost/yard/east)
+"ZW" = (
+/turf/open/floor/plating/ground/mars/dirttosand/autosmooth,
+/area/deltastation/ai_monitored/aisat)
 "ZX" = (
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/mars/random/cave,
@@ -13783,10 +13876,10 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-mN
-wj
+Xf
+Xf
+Xf
+Xf
 Mb
 mN
 ES
@@ -13914,12 +14007,12 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-mN
-wj
-Mb
+Xf
+Fy
+Fy
+Fy
+Fy
+Xf
 mN
 ES
 yW
@@ -14045,14 +14138,14 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-jF
-Hs
-Mb
-mN
+Xf
+Fy
+Fy
+cy
+Fy
+Fy
+Fy
+Xf
 ES
 wa
 ZZ
@@ -14177,14 +14270,14 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-Np
-Np
-rA
-mN
+Xf
+Fy
+mT
+Fy
+mT
+Fy
+mT
+Xf
 ES
 wa
 ZZ
@@ -14309,14 +14402,14 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-mN
-mN
-mN
-mN
+Xf
+Fy
+mT
+GS
+mT
+GS
+mT
+Xf
 ES
 wa
 ZZ
@@ -14441,14 +14534,14 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-mN
-mN
-mN
-ep
+Xf
+Fy
+Fy
+Fy
+GS
+Fy
+Fy
+Xf
 wa
 wa
 ZZ
@@ -14568,26 +14661,26 @@ yW
 ZZ
 ZZ
 ZZ
+Xf
+Xf
+Xf
+Xf
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ch
-ch
-ch
+Xf
+CT
+Fy
+GS
+CT
+Xf
 wa
-wa
+IF
+Xf
+Xf
+Xf
+Xf
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+jp
 yW
 yW
 yW
@@ -14699,26 +14792,26 @@ yW
 yW
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-wa
-wa
-wa
-wa
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+Xf
+Fy
+Fy
+Fy
+Fy
+Xf
+Xf
+Xf
+Xf
+Fy
+kZ
+Xf
+Xf
+Xf
+Xf
+tP
+Fy
+tP
+Fy
+Xf
 ZZ
 ZZ
 yW
@@ -14830,28 +14923,28 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+Xf
+Fy
+Fy
+Fy
+Fy
+Fy
+BI
+Xf
+Xy
+vZ
+Fy
+GS
+vZ
+Xy
+Xf
+yQ
+Fy
+Fy
+Fy
+Fy
+Fy
+Xf
 ZZ
 ZZ
 ZZ
@@ -14962,28 +15055,28 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+Xf
+Fy
+Fy
+Fy
+Fy
+Fy
+Fy
+wI
+Fy
+Fy
+yl
+GS
+Fy
+Fy
+wI
+Fy
+tP
+Fy
+tP
+Fy
+Fy
+Xf
 ZZ
 ZZ
 ZZ
@@ -15094,28 +15187,28 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+Xf
+rY
+GS
+GS
+on
+GS
+GS
+GS
+GS
+GS
+GS
+GS
+Fy
+Fy
+Fy
+Fy
+Fy
+Fy
+Lg
+Fy
+Fy
+Xf
 ZZ
 ZZ
 ZZ
@@ -15226,28 +15319,28 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+Xf
+Rk
+GS
+Fy
+Fy
+Fy
+BI
+Xf
+Xy
+CT
+Fy
+Fy
+CT
+Xy
+Xf
+yQ
+tP
+Fy
+tP
+Fy
+Fy
+Xf
 ZZ
 ZZ
 ZZ
@@ -15359,26 +15452,26 @@ ai
 YR
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-NF
-NF
-NF
-NF
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+Xf
+Fy
+Fy
+Fy
+Fy
+Xf
+Xf
+Xf
+Xf
+Fy
+fi
+Xf
+Xf
+Xf
+Xf
+Fy
+Fy
+Fy
+Fy
+Xf
 ZZ
 ZZ
 ZZ
@@ -15491,25 +15584,25 @@ YR
 EA
 ZZ
 ZZ
+ZW
+Xf
+Xf
+Xf
+Xf
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-ZZ
+Xf
+vZ
+Fy
+Fy
+vZ
+Xf
 NF
-NF
-NF
-NF
-NF
-ZZ
-ZZ
-ZZ
-ZZ
+WS
+Xf
+Xf
+Xf
+Xf
 ZZ
 ZZ
 ZZ
@@ -15629,13 +15722,13 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-NF
-NF
-NF
+Xf
+Fy
+Fy
+Fy
+Fy
+Fy
+Fy
 Xf
 NF
 NF
@@ -15761,14 +15854,14 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-NF
-NF
-sE
-NF
+Xf
+Fy
+gg
+Fy
+Fy
+gg
+Fy
+Xf
 NF
 NF
 NF
@@ -15893,14 +15986,14 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-sl
+Xf
 Fy
-jl
-jl
+kV
+Fy
+Fy
+Fy
+Fy
+Xf
 jl
 jl
 jl
@@ -16025,14 +16118,14 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-ZZ
-wf
-wf
-wf
-wf
+Xf
+Fy
+gg
+Fy
+Fy
+gg
+Fy
+Xf
 HP
 HP
 wf
@@ -16158,12 +16251,12 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-ZZ
-NF
-NF
-NF
+Xf
+Fy
+Fy
+Fy
+Fy
+Xf
 NF
 oK
 VN
@@ -16291,10 +16384,10 @@ ZZ
 ZZ
 ZZ
 ZZ
-ZZ
-ZZ
-yW
-qZ
+Xf
+Xf
+Xf
+Xf
 NF
 NF
 oK
