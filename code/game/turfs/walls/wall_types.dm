@@ -183,6 +183,12 @@
 /turf/closed/wall/swall
 	icon = 'icons/turf/walls/swall.dmi'
 	icon_state = "swall-0"
+	base_icon_state = "swall"
+
+/turf/closed/wall/bswall
+	icon = 'icons/turf/walls/bshipwall.dmi'
+	icon_state = "bshipwall-0"
+	base_icon_state = "bshipwall"
 
 //Sulaco walls.
 /turf/closed/wall/sulaco

@@ -122,6 +122,17 @@
 		SMOOTH_GROUP_WINDOW_FRAME,
 	)
 
+/turf/open/floor/plating/ground/metalfloor/autosmooth
+	name = "Metal flooring"
+	icon = 'icons/turf/floors/metalfloor.dmi'
+	icon_state = "metalfloor-0"
+	base_icon_state = "metalfloor"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_JUNGLE_FLOOR)
+	canSmoothWith = list(
+		SMOOTH_GROUP_METAL_SHIP_FLOOR,
+	)
+
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth
 	icon = 'icons/turf/floors/jungle-border.dmi'
 	icon_state = "jungle-border-icon"
