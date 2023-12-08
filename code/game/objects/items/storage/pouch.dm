@@ -594,7 +594,7 @@
 	sprite_slots = 3
 	storage_slots = 3
 
-	can_hold = list(/obj/item/storage/box/combat_lolipop,)
+	can_hold = list(/obj/item/storage/box/combat_lolipop)
 
 /obj/item/storage/pouch/med_lolipops/Initialize(mapload)
 	. = ..()
@@ -677,6 +677,7 @@
 		/obj/item/compass,
 		/obj/item/deployable_camera,
 		/obj/item/hud_tablet,
+		/obj/item/squad_transfer_tablet,
 		/obj/item/minimap_tablet,
 		/obj/item/supplytablet,
 		/obj/item/megaphone,
@@ -840,7 +841,7 @@
 
 
 			to_chat(user, span_notice("You start refilling [src] with [M]."))
-			if(!do_after(user, 1.5 SECONDS, TRUE, src, BUSY_ICON_GENERIC))
+			if(!do_after(user, 1.5 SECONDS, NONE, src, BUSY_ICON_GENERIC))
 				return
 
 			for(var/x in 1 to (storage_slots - length(contents)))
