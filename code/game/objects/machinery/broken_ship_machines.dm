@@ -6,6 +6,8 @@
 	max_integrity = 100
 
 /obj/machinery/broken_ship/power_gen
+	name = "Shipside Power Generator"
+	desc = "Commonly seen on colonization starships that need power for a long duration."
 	var/is_active = TRUE
 	icon_state = "generator_on"
 	max_integrity = 300
