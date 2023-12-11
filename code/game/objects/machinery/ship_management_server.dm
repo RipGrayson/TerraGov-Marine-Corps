@@ -85,6 +85,8 @@
 		for(var/obj/machinery/machines in i.contents)
 			if(istype(machines, /obj/machinery/door))
 				areadoors += machines
+			if(istype(machines, /obj/machinery/broken_ship/power_gen))
+				defencemachines += machines
 	addtimer(CALLBACK(src, PROC_REF(processing_loop)), rand(30,90) SECONDS)
 
 /obj/machinery/shipmanagement/proc/grab_mobs_by_area()
