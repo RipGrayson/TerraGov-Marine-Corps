@@ -1,6 +1,6 @@
 /obj/machinery/ship_defense_turret
 	icon = 'icons/Marine/mainship_props.dmi'
-	icon_state = "turretprop"
+	icon_state = "maxim_turret"
 	name = "defence turret"
 	desc = "A shipside defence turret."
 	bound_width = 32
@@ -11,7 +11,7 @@
 	density = TRUE
 	resistance_flags = RESIST_ALL
 	allow_pass_flags = PASS_AIR|PASS_THROW
-	///What kind of spit it uses
+	///What kind of ammo it uses
 	var/datum/ammo/ammo = /datum/ammo/energy/lasgun/M43/disabler
 	///Range of the turret
 	var/range = 7
@@ -34,10 +34,10 @@
 
 /obj/machinery/ship_defense_turret/Initialize(mapload, _hivenumber)
 	. = ..()
-	if(!is_damaged)
-		flick("turretclose", src)
+	if(is_damaged)
+		icon_state = "maxim_base"
 	else
-		icon_state = "broketurret"
+		icon_state = "maxim_turret"
 	ammo = GLOB.ammo_list[ammo]
 	potential_hostiles = list()
 	START_PROCESSING(SSobj, src)
@@ -48,11 +48,14 @@
 /obj/machinery/ship_defense_turret/proc/activate()
 	if(is_active)
 		return
-	flick("turretraise", src)
-	icon_state = "turretregular"
-	sleep(5)
 	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PORTAL_IMMUNE | XENO_DAMAGEABLE
 	is_active = TRUE
+
+/obj/machinery/ship_defense_turret/proc/deactivate()
+	resistance_flags = RESIST_ALL
+	is_active = FALSE
+	explosion(loc, 2, 2)
+	icon_state = "maxim_base"
 
 /obj/machinery/ship_defense_turret/attack_ai(mob/living/silicon/ai/user)
 	. = ..()
@@ -67,14 +70,22 @@
 	playsound(loc,'sound/effects/xeno_turret_death.ogg', 70)
 	return ..()
 
+/obj/machinery/ship_defense_turret/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
+	. = ..()
+    if(!.)
+        return
+	if(obj_integrity <= 30)
+		deactivate()
+
+
 /obj/machinery/ship_defense_turret/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
-			take_damage(1500, BRUTE, BOMB)
-		if(EXPLODE_HEAVY)
 			take_damage(750, BRUTE, BOMB)
-		if(EXPLODE_LIGHT)
+		if(EXPLODE_HEAVY)
 			take_damage(300, BRUTE, BOMB)
+		if(EXPLODE_LIGHT)
+			take_damage(150, BRUTE, BOMB)
 
 /obj/machinery/ship_defense_turret/process()
 	if(world.time > last_scan_time + TURRET_SCAN_FREQUENCY)
