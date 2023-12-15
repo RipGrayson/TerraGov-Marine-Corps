@@ -72,8 +72,6 @@
 
 /obj/machinery/ship_defense_turret/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
 	. = ..()
-    if(!.)
-        return
 	if(obj_integrity <= 30)
 		deactivate()
 

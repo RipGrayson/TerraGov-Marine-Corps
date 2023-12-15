@@ -131,7 +131,8 @@
 
 /turf/closed/mineral/smooth/fleshwall
 	icon = 'icons/turf/walls/fleshwall.dmi'
-	icon_state = "fleshwall-0-0-0-0"
+	icon_state = "fleshwall-0"
+	base_icon_state = "fleshwall"
 	walltype = "fleshwall"
 
 /turf/closed/mineral/smooth/fleshwall/indestructible
