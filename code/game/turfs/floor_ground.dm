@@ -128,7 +128,7 @@
 	icon_state = "metalfloor-0"
 	base_icon_state = "metalfloor"
 	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_JUNGLE_FLOOR)
+	smoothing_groups = list(SMOOTH_GROUP_METAL_SHIP_FLOOR)
 	canSmoothWith = list(
 		SMOOTH_GROUP_METAL_SHIP_FLOOR,
 	)

@@ -5,7 +5,7 @@
 	desc = "A shipside defence turret."
 	bound_width = 32
 	bound_height = 32
-	obj_integrity = 600
+	obj_integrity = 1500
 	max_integrity = 1500
 	layer = MOB_LAYER
 	density = TRUE
@@ -34,6 +34,8 @@
 
 /obj/machinery/ship_defense_turret/Initialize(mapload, _hivenumber)
 	. = ..()
+	if(is_active)
+		activate()
 	if(is_damaged)
 		icon_state = "maxim_base"
 	else
@@ -45,16 +47,22 @@
 	RegisterSignal(src, COMSIG_AUTOMATIC_SHOOTER_SHOOT, PROC_REF(shoot))
 	update_icon()
 
+/obj/machinery/ship_defense_turret/start_active
+	is_active = TRUE
+
 /obj/machinery/ship_defense_turret/proc/activate()
+	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PORTAL_IMMUNE | XENO_DAMAGEABLE
 	if(is_active)
 		return
-	resistance_flags = UNACIDABLE | DROPSHIP_IMMUNE | PORTAL_IMMUNE | XENO_DAMAGEABLE
+	icon_state = "maxim_turret"
 	is_active = TRUE
 
 /obj/machinery/ship_defense_turret/proc/deactivate()
 	resistance_flags = RESIST_ALL
+	obj_integrity = initial(obj_integrity)
+	if(is_active)
+		explosion(get_turf(src), 1, 1)
 	is_active = FALSE
-	explosion(loc, 2, 2)
 	icon_state = "maxim_base"
 
 /obj/machinery/ship_defense_turret/attack_ai(mob/living/silicon/ai/user)
@@ -67,14 +75,12 @@
 	set_hostile(null)
 	set_last_hostile(null)
 	STOP_PROCESSING(SSobj, src)
-	playsound(loc,'sound/effects/xeno_turret_death.ogg', 70)
 	return ..()
 
 /obj/machinery/ship_defense_turret/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
 	. = ..()
 	if(obj_integrity <= 30)
 		deactivate()
-
 
 /obj/machinery/ship_defense_turret/ex_act(severity)
 	switch(severity)
@@ -97,8 +103,6 @@
 		if(last_hostile)
 			set_last_hostile(null)
 		return
-	if(!TIMER_COOLDOWN_CHECK(src, COOLDOWN_XENO_TURRETS_ALERT))
-		TIMER_COOLDOWN_START(src, COOLDOWN_XENO_TURRETS_ALERT, 20 SECONDS)
 	if(hostile != last_hostile)
 		set_last_hostile(hostile)
 		SEND_SIGNAL(src, COMSIG_AUTOMATIC_SHOOTER_START_SHOOTING_AT)
@@ -206,6 +210,8 @@
 ///Signal handler to make the turret shoot at its target
 /obj/machinery/ship_defense_turret/proc/shoot()
 	SIGNAL_HANDLER
+	if(!is_active)
+		return
 	if(!hostile)
 		SEND_SIGNAL(src, COMSIG_AUTOMATIC_SHOOTER_STOP_SHOOTING_AT)
 		firing = FALSE

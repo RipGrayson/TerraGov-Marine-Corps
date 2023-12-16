@@ -2835,7 +2835,10 @@ GLOBAL_LIST_INIT(no_sticky_resin, typecacheof(list(/obj/item/clothing/mask/faceh
 	var/burn_damage = 6
 
 /datum/ammo/energy/lasgun/M43/disabler/on_hit_mob(mob/M,obj/projectile/P)
-	staggerstun(M, P, stagger = 1 SECONDS, slowdown = 0.75)
+	staggerstun(M, P, stagger = 2 SECONDS, slowdown = 0.75)
+	if(isrobot(M))
+		var/mob/living/carbon/human/species/robot/affectedrobot = M
+		affectedrobot.adjustFireLoss(burn_damage)
 	if(isxeno(M))
 		var/mob/living/carbon/xenomorph/X = M
 		X.adjustFireLoss(burn_damage)

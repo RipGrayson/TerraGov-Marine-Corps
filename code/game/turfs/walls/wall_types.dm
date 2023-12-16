@@ -184,6 +184,9 @@
 	icon = 'icons/turf/walls/swall.dmi'
 	icon_state = "swall-0"
 	base_icon_state = "swall"
+	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 0, BOMB = 50, BIO = 0, FIRE = 0, ACID = 0)
+	max_integrity = 4000
+
 
 /turf/closed/wall/bswall
 	icon = 'icons/turf/walls/bshipwall.dmi'
