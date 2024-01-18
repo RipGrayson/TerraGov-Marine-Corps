@@ -101,6 +101,17 @@
 #define ui_ai_multicam "SOUTH:6,WEST+17"
 #define ui_ai_add_multicam "SOUTH:6,WEST+18"
 
+// AI RTS
+#define ui_ai_slot_one "SOUTH:6,WEST:11"
+#define ui_ai_slot_two "SOUTH:6,WEST+1:8"
+#define ui_ai_slot_three "SOUTH:6,WEST+2:5"
+#define ui_ai_slot_four "SOUTH:6,WEST+3:2"
+#define ui_ai_slot_five "SOUTH:35,WEST:11"
+#define ui_ai_slot_six "SOUTH:35,WEST+1:8"
+#define ui_ai_slot_seven "SOUTH:35,WEST+2:5"
+#define ui_ai_slot_eight "SOUTH:35,WEST+3:2"
+#define ui_ai_slot_special "SOUTH:65:-1,WEST:25"
+
 // Plane group keys, used to group swaths of plane masters that need to appear in subwindows
 /// The primary group, holds everything on the main window
 #define PLANE_GROUP_MAIN "main"

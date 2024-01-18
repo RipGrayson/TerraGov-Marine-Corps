@@ -270,6 +270,8 @@
 /obj/machinery/power/apc/proc/can_use(mob/user, loud = FALSE) //used by attack_hand() and Topic()
 	if(IsAdminGhost(user))
 		return TRUE
+	if(isbadAI(user))
+		return
 	if(isAI(user) && aidisabled)
 		if(!loud)
 			balloon_alert(user, "eee is disabled")
