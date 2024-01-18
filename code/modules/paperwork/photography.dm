@@ -77,7 +77,7 @@
 
 /obj/item/camera_film
 	name = "film cartridge"
-	icon = 'icons/obj/items/items.dmi'
+	icon = 'icons/obj/device.dmi'
 	desc = "A camera film cartridge. Insert it into a camera to reload it."
 	icon_state = "film"
 	item_state = "electropack"
@@ -103,7 +103,8 @@
 	return ..()
 
 
-/obj/item/photo/update_icon()
+/obj/item/photo/update_icon_state()
+	. = ..()
 	if(!istype(picture) || !picture.picture_image)
 		return
 	var/icon/I = picture.get_small_icon()
@@ -164,7 +165,7 @@
 
 /obj/item/camera
 	name = "camera"
-	icon = 'icons/obj/items/items.dmi'
+	icon = 'icons/obj/device.dmi'
 	desc = "A polaroid camera."
 	icon_state = "camera"
 	item_state = "camera"

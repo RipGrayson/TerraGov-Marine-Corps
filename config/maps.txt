@@ -13,7 +13,6 @@ Format:
 endmap
 
 map lv624
-	default
 	minplayers 25
 endmap
 
@@ -31,6 +30,7 @@ map prison_station_fop
 endmap
 
 map vapor_processing
+	default
 endmap
 
 map icy_caves
@@ -63,6 +63,9 @@ map deltastation
 	minplayers 60
 endmap
 
+map fort_phobos
+endmap
+
 map desparity
 	maxplayers 30
 endmap
@@ -73,4 +76,9 @@ endmap
 
 map slumbridge
   minplayers 35
+endmap
+
+
+map daedalusprison
+	minplayers 50
 endmap

@@ -55,9 +55,11 @@
 	. = ..()
 	if(!.)
 		return
+	ADD_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
 	ADD_TRAIT(owner, TRAIT_FLOORED, TRAIT_STATUS_EFFECT(id))
 
 /datum/status_effect/incapacitating/knockdown/on_remove()
+	REMOVE_TRAIT(owner, TRAIT_INCAPACITATED, TRAIT_STATUS_EFFECT(id))
 	REMOVE_TRAIT(owner, TRAIT_FLOORED, TRAIT_STATUS_EFFECT(id))
 	return ..()
 
@@ -389,6 +391,8 @@
 	. = ..()
 	if(!.)
 		return
+	if(HAS_TRAIT(owner, TRAIT_SLOWDOWNIMMUNE))
+		return
 	owner.add_movespeed_modifier(MOVESPEED_ID_HARVEST_TRAM_SLOWDOWN, TRUE, 0, NONE, TRUE, debuff_slowdown)
 
 /datum/status_effect/incapacitating/harvester_slowdown/on_remove()
@@ -422,6 +426,7 @@
 	return ..()
 
 /datum/status_effect/spacefreeze
+	alert_type = /atom/movable/screen/alert/status_effect/spacefreeze
 	id = "spacefreeze"
 
 /datum/status_effect/spacefreeze/on_creation(mob/living/new_owner)
@@ -544,7 +549,7 @@
 /datum/status_effect/stacking/intoxicated/proc/resist_debuff()
 	if(length(debuff_owner.do_actions))
 		return
-	if(!do_after(debuff_owner, 5 SECONDS, TRUE, debuff_owner, BUSY_ICON_GENERIC))
+	if(!do_after(debuff_owner, 5 SECONDS, NONE, debuff_owner, BUSY_ICON_GENERIC))
 		debuff_owner?.balloon_alert(debuff_owner, "Interrupted")
 		return
 	if(!debuff_owner)
@@ -556,6 +561,40 @@
 		resist_debuff() // We repeat ourselves as long as the debuff persists.
 		return
 
+
+// ***************************************
+// *********** dread
+// ***************************************
+/atom/movable/screen/alert/status_effect/dread
+	name = "Dread"
+	desc = "A dreadful presence. You are slowed down until this expires."
+	icon_state = "dread"
+
+/datum/status_effect/dread
+	id = "dread"
+	status_type = STATUS_EFFECT_REPLACE
+	tick_interval = 2 SECONDS
+	alert_type = /atom/movable/screen/alert/status_effect/dread
+
+/datum/status_effect/dread/on_creation(mob/living/new_owner, set_duration)
+	owner = new_owner
+	duration = set_duration
+	return ..()
+
+/datum/status_effect/dread/tick()
+	. = ..()
+	var/mob/living/living_owner = owner
+	living_owner.do_jitter_animation(250)
+
+/datum/status_effect/dread/on_apply()
+	. = ..()
+	if(!.)
+		return
+	owner.add_movespeed_modifier(MOVESPEED_ID_XENO_DREAD, TRUE, 0, NONE, TRUE, 0.4)
+
+/datum/status_effect/dread/on_remove()
+	owner.remove_movespeed_modifier(MOVESPEED_ID_XENO_DREAD)
+	return ..()
 
 // ***************************************
 // *********** Melting
@@ -782,3 +821,8 @@
 	scale = generator(GEN_VECTOR, list(0.6, 0.6), list(1, 1), NORMAL_RAND)
 	friction = -0.05
 	color = "#818181"
+
+/atom/movable/screen/alert/status_effect/spacefreeze
+	name = "Freezing"
+	desc = "Space is very very cold, who would've thought?"
+	icon_state = "cold3"

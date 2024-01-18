@@ -10,6 +10,15 @@
 
 #define isweakref(D) (istype(D, /datum/weakref))
 
+#define isimage(thing) (istype(thing, /image))
+
+GLOBAL_VAR_INIT(magic_appearance_detecting_image, new /image) // appearances are awful to detect safely, but this seems to be the best way ~ninjanomnom
+#define isappearance(thing) (!isimage(thing) && !ispath(thing) && istype(GLOB.magic_appearance_detecting_image, thing))
+
+// The filters list has the same ref type id as a filter, but isnt one and also isnt a list, so we have to check if the thing has Cut() instead
+GLOBAL_VAR_INIT(refid_filter, TYPEID(filter(type="angular_blur")))
+#define isfilter(thing) (!hascall(thing, "Cut") && TYPEID(thing) == GLOB.refid_filter)
+
 #define isgenerator(A) (istype(A, /generator))
 
 //Turfs
@@ -79,6 +88,7 @@
 #define issommarineleaderjob(J) (istype(J, /datum/job/som/squad/leader))
 #define ismarinecommandjob(J) (istype(J, /datum/job/terragov/command))
 #define ismarinecaptainjob(J) (istype(J, /datum/job/terragov/command/captain))
+#define issommarinecommandjob(J) (istype(J, /datum/job/som/command))
 #define iscorporateliaisonjob(J) (istype(J, /datum/job/terragov/civilian/liaison))
 #define issurvivorjob(J) (istype(J, /datum/job/survivor))
 #define ischaplainjob(J) (istype(J, /datum/job/survivor/chaplain))
@@ -114,6 +124,7 @@
 #define isxenowidow(A) (istype(A, /mob/living/carbon/xenomorph/widow))
 #define isxenowarlock(A) (istype(A, /mob/living/carbon/xenomorph/warlock))
 #define isxenoking(A) (istype(A, /mob/living/carbon/xenomorph/king))
+#define isxenobehemoth(A) (istype(A, /mob/living/carbon/xenomorph/behemoth))
 
 //Silicon mobs
 #define issilicon(A) (istype(A, /mob/living/silicon))
@@ -166,6 +177,8 @@
 
 #define issuit(A) (istype(A, /obj/item/clothing/suit))
 
+#define isfood(A) (istype(A, /obj/item/reagent_containers/food))
+
 #define isgun(A) (istype(A, /obj/item/weapon/gun))
 
 #define isammomagazine(A) (istype(A, /obj/item/ammo_magazine))
@@ -189,6 +202,10 @@
 #define ishat(A) (istype(A, /obj/item/clothing/head))
 
 #define ismodularhelmet(A) (istype(A, /obj/item/clothing/head/modular))
+
+#define isatmosscrubber(A) (istype(A, /obj/machinery/atmospherics/components/unary/vent_scrubber))
+
+#define isatmosvent(A) (istype(A, /obj/machinery/atmospherics/components/unary/vent_pump))
 
 #define isattachmentflashlight(A) (istype(A, /obj/item/attachable/flashlight))
 
@@ -220,6 +237,8 @@
 
 #define iscable(A) (istype(A, /obj/structure/cable))
 
+#define isladder(A) (istype(A, /obj/structure/ladder))
+
 #define ismachinery(A) (istype(A, /obj/machinery))
 
 #define ispowermachinery(A) (istype(A, /obj/machinery/power))
@@ -236,6 +255,8 @@
 
 #define isidcard(A) (istype(A, /obj/item/card/id))
 
+#define isinjector(A) (istype(A, /obj/item/reagent_containers/hypospray/autoinjector))
+
 #define isuav(A) (istype(A, /obj/vehicle/unmanned))
 
 #define isdroid(A) (istype(A, /obj/vehicle/unmanned/droid))
@@ -243,6 +264,8 @@
 #define isreagentcontainer(A) (istype(A, /obj/item/reagent_containers)) //Checks for if something is a reagent container.
 
 #define is_research_product(A) (istype(A, /obj/item/research_product)) //Checks if item is research item
+
+#define isearthpillar(A) (istype(A, /obj/structure/earth_pillar))
 
 //Assemblies
 #define isassembly(O) (istype(O, /obj/item/assembly))
@@ -264,8 +287,9 @@
 //Gamemode
 #define iscrashgamemode(O) (istype(O, /datum/game_mode/infestation/crash))
 #define isinfestationgamemode(O) (istype(O, /datum/game_mode/infestation))
-#define iscombatpatrolgamemode(O) (istype(O, /datum/game_mode/combat_patrol))
-#define issensorcapturegamemode(O) (istype(O, /datum/game_mode/combat_patrol/sensor_capture))
+#define iscombatpatrolgamemode(O) (istype(O, /datum/game_mode/hvh/combat_patrol))
+#define issensorcapturegamemode(O) (istype(O, /datum/game_mode/hvh/combat_patrol/sensor_capture))
+#define iscampaigngamemode(O) (istype(O, /datum/game_mode/hvh/campaign))
 
 #define isxenoresearcharea(A) (istype(A, /area/mainship/medical/medical_science))
 

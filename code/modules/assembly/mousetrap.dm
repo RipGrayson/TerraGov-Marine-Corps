@@ -31,6 +31,7 @@
 
 
 /obj/item/assembly/mousetrap/update_icon_state()
+	. = ..()
 	if(armed)
 		icon_state = "mousetraparmed"
 	else
@@ -72,7 +73,7 @@
 	armed = !armed
 	update_icon()
 	playsound(src, 'sound/weapons/handcuffs.ogg', 30, TRUE, -3)
-
+	user.record_traps_created()
 
 /obj/item/assembly/mousetrap/proc/on_cross(atom/movable/AM)
 	SIGNAL_HANDLER
