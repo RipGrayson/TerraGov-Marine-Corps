@@ -119,7 +119,7 @@
 			if(A.density || istype(A, /obj/structure/rts_building/precursor))
 				to_chat(user, "Another object here is dense")
 				return
-	to_chat(user, "You begin the construction of [initial(user.held_building.name)].")
+	to_chat(user, "You begin the construction of [initial(user.held_building.name)] for [initial(user.held_building.pointcost)].")
 	var/obj/structure/rts_building/precursor/newbuilding = new user.held_building(src)
 	newbuilding.constructingai = user
 	user.last_touched_building = newbuilding.buildtype

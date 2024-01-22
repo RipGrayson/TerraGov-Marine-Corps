@@ -710,8 +710,7 @@
 		holder.icon_state = "hudwarn"
 	holder.icon_state = null
 
-///Mecha health hud updates
-/obj/structure/rts_building/structure/proc/rts_set_building_health()
+/obj/proc/rts_set_building_health()
 	var/image/holder = hud_list[RTS_INFO_HUD]
 
 	if(!holder)

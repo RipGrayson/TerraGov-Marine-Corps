@@ -19,7 +19,7 @@
 	bound_height = 64
 	bound_width = 64
 	///what building flags this building has
-	var/has_building_flags = null
+	var/list/has_building_flags = null
 	//holder for unit datums
 	var/datum/rts_units/unit_type
 	///icon for activation, so we can show off fancy working graphics
@@ -30,30 +30,48 @@
 		/datum/rts_units/mantis,
 	)
 	var/list/buildable_structures = list(
-		/obj/structure/rts_building/precursor,
 		/obj/structure/rts_building/precursor/engineering,
 	)
+	///view range of AI from buildings
+	var/camera_range = 7
 	///holds the icon_state for the hud
 	var/buildable_icon_state = "hq"
 	///what flags we require to exist before we allow this building to be constructed
-	var/required_buildings_flags_for_construction = AI_NONE
+	var/list/required_buildings_flags_for_construction = list(
+		AI_NONE,
+		)
 	///what AI created this building
 	var/mob/living/silicon/ai/malf/constructingai
 	///units to be built, yes I'm actually working on a sensible implementation
 	var/list/queuedunits = list()
 	///holds our position in a theoretical list of buildings
 	var/buildingorder = 0
+	hud_possible = list(HEALTH_HUD, STATUS_HUD_SIMPLE, STATUS_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, WANTED_HUD, SQUAD_HUD_TERRAGOV, SQUAD_HUD_SOM, ORDER_HUD, PAIN_HUD, XENO_DEBUFF_HUD, HEART_STATUS_HUD)
+
+/obj/structure/rts_building/structure/Initialize(mapload)
+	. = ..()
+	var/obj/machinery/camera/building_camera = new /obj/machinery/camera(src)
+	building_camera.network = list("marinemainship")
+	building_camera.view_range = camera_range
+	building_camera.internal_light = FALSE
 
 /obj/structure/rts_building/structure/headquarters
 	name = "AI headquarters"
 	desc = "AI headquarters, the brain of any operation"
-	has_building_flags = AI_HEADQUARTERS
+	has_building_flags = list(
+		AI_HEADQUARTERS,
+		)
+	camera_range = 14
 
 /obj/structure/rts_building/structure/engineering
 	name = "AI engineering"
 	buildable_icon_state = "engi"
-	has_building_flags = AI_ENGINEERING
-	required_buildings_flags_for_construction = AI_HEADQUARTERS
+	has_building_flags = list(
+		AI_ENGINEERING,
+	)
+	required_buildings_flags_for_construction = list(
+		AI_HEADQUARTERS,
+	)
 
 ///ghost of the building we're constructing
 /obj/structure/rts_building/precursor
@@ -95,6 +113,7 @@
 	if(locate(/obj/structure/rts_building/structure/engineering) in GLOB.constructed_rts_builds)
 		to_chat(constructingai, "test")
 	var/obj/structure/rts_building/structure/newbuilding = new constructedbuilding(get_turf(src))
+	constructingai.last_touched_building = src
 	newbuilding.constructingai = src.constructingai
 	qdel(src)
 
@@ -131,7 +150,7 @@
 		if(EXPLODE_LIGHT)
 			take_damage(rand(50, 75))
 
-/obj/structure/rts_building/structure/attackby(obj/item/I, mob/user, params)
+/obj/structure/rts_building/structure/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
 	. = ..()
 	rts_set_building_health()
 

@@ -586,7 +586,7 @@
 			to_chat(M, span_notice("<b>ALERT! The ship AI has detected Hostile/Unknown: [A.name] at: [AREACOORD_NO_Z(A)].</b>"))
 
 /mob/living/silicon/ai/malf
-	available_networks = list()
+	available_networks = list("marinemainship")
 	var/obj/structure/rts_building/structure/held_building = /obj/structure/rts_building/precursor/headquarters
 	///the last structure that built something
 	var/obj/structure/rts_building/structure/last_built_structure = null
@@ -594,13 +594,19 @@
 	var/datum/weakref/last_built_unit = null
 	///refs to the last building selected
 	var/obj/structure/rts_building/structure/last_touched_building = null
+	///used to hold where we are when scrolling certain HUD elements
+	var/index_scroll_value = 1
+	hud_possible = list(MACHINE_HEALTH_HUD)
 	hud_type = /datum/hud/ai_rts
 
 /mob/living/silicon/ai/malf/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_SEE_IN_DARK, src)
-	for(var/datum/atom_hud/rts_info/rts_hd in GLOB.huds) //Add to the squad HUD
-		rts_hd.add_to_hud(src)
+	var/datum/atom_hud/H = GLOB.huds[DATA_HUD_RTS_INFO]
+	H.add_hud_to(src)
+	prepare_huds()
+	//for(var/datum/atom_hud/rts_info/rts_hd in GLOB.huds) //Add to the squad HUD
+		//rts_hd.add_to_hud(src)
 
 /mob/living/silicon/ai/malf/get_status_tab_items()
 	. = ..()
@@ -622,22 +628,25 @@
 
 	if(incapacitated())
 		return
+	//update_build_icons()
 
 //	var/target_name = tgui_input_list(src, "Choose what you want to build", "Building", GLOB.rts_buildings)
 //	held_building = GLOB.rts_buildings [target_name]
 
 	if(held_building != null) //store whatever we built last if it's not null
 		last_built_structure = held_building
+		update_build_icons()
 
 	var/list/allowedbuildings = list()
 	for(var/word in GLOB.rts_buildings) //go through the global list of available buildings and validate requirements for each one
 		var/obj/structure/rts_building/structure/new_building = GLOB.rts_buildings[word]
-		if(CHECK_BITFIELD(initial(new_building.required_buildings_flags_for_construction), AI_NONE)) //buildings with no requirements are always on the list
-			allowedbuildings += initial(new_building.name)
-			continue
-		for(var/wordtwo in GLOB.constructed_rts_builds)
+		//if(CHECK_BITFIELD(initial(new_building.required_buildings_flags_for_construction), AI_NONE)) //buildings with no requirements are always on the list
+			//allowedbuildings += initial(new_building.name)
+			//continue
+		/* for(var/wordtwo in GLOB.constructed_rts_builds)
 			if(validate_build_reqs(new_building, wordtwo))
 				allowedbuildings += initial(new_building.name)
+		*/
 
 	var/target_name = tgui_input_list(src, "Choose what you want to build", "Building", allowedbuildings)
 	held_building = GLOB.rts_buildings[target_name]
@@ -671,9 +680,10 @@
 		if(CHECK_BITFIELD(initial(new_unit.required_unit_building_flags), AI_NONE)) //buildings with no requirements are always on the list
 			allowedunits += initial(new_unit)
 			continue
-		for(var/wordtwo in GLOB.constructed_rts_builds)
+		/* for(var/wordtwo in GLOB.constructed_rts_builds)
 			if(validate_build_reqs_unit(new_unit, wordtwo))
 				allowedunits += initial(new_unit)
+		*/
 
 	var/target_name = tgui_input_list(src, "Choose what you want to build", "Building", allowedunits)
 	if(target_name == null)
@@ -681,13 +691,48 @@
 	selectedstructure.unit_type = new target_name
 	to_chat(src, "The [selectedstructure] will now produce [selectedstructure.unit_type.name]")
 
+/*
 ///takes two sets of structures, if the first one's build requirements are met by the second, return true
 /mob/living/silicon/ai/malf/proc/validate_build_reqs(obj/structure/rts_building/firstbuilding, obj/structure/rts_building/selectedbuilding)
 	if(CHECK_BITFIELD(initial(firstbuilding.required_buildings_flags_for_construction), initial(selectedbuilding.has_building_flags)))
 		return TRUE
 	return FALSE
+*/
 
-/mob/living/silicon/ai/malf/proc/validate_build_reqs_unit(datum/rts_units/firstunit, obj/structure/rts_building/selectedbuilding) //yes I know I could probably combine procs and be more efficient, save it for post completion cleanup
+/* /mob/living/silicon/ai/malf/proc/validate_build_reqs_unit(datum/rts_units/firstunit, obj/structure/rts_building/selectedbuilding) //yes I know I could probably combine procs and be more efficient, save it for post completion cleanup
 	if(CHECK_BITFIELD(initial(firstunit.required_unit_building_flags), initial(selectedbuilding.has_building_flags)))
 		return TRUE
+	return FALSE
+*/
+
+/mob/living/silicon/ai/malf/proc/update_build_icons(obj/structure/rts_building/selectedstructure)
+	for(var/uislots in index_scroll_value to (index_scroll_value + 7))
+		var/atom/movable/screen/ai_rts/construction_slot/doesthiswork = hud_used.static_inventory[uislots]
+		if(!last_touched_building)
+			return
+		for(var/building in last_touched_building.buildable_structures)
+			var/obj/structure/rts_building/precursor/possible_building = building
+			if(validate_build_reqs(possible_building))
+				doesthiswork.potential_building = possible_building
+				doesthiswork.name = initial(possible_building.name)
+			else
+				doesthiswork.name = initial(name)
+				doesthiswork.potential_building = initial(doesthiswork.potential_building)
+				doesthiswork.potential_unit_type = initial(doesthiswork.potential_unit_type)
+
+/mob/living/silicon/ai/malf/proc/validate_build_reqs(obj/structure/rts_building/selectedstructure)
+	var/list/what_building_flags = list()
+	for(var/obj/structure/rts_building/buildingsdone in GLOB.constructed_rts_builds) //compile a list of tags across all our buildings
+		what_building_flags += buildingsdone.has_building_flags
+	for(var/flags in what_building_flags)
+		if(locate_list(flags, what_building_flags) in what_building_flags || selectedstructure.required_buildings_flags_for_construction == AI_NONE)
+			continue
+		else
+			return FALSE
+	return TRUE
+
+/mob/living/silicon/ai/malf/proc/locate_list(searchedstring, list/searchedlist)
+	for(var/i in searchedlist to length(searchedlist))
+		if(searchedstring == searchedlist[i])
+			return TRUE
 	return FALSE
