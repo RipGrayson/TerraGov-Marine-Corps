@@ -2915,6 +2915,10 @@
 /obj/vehicle/unmanned/droid/scout,
 /turf/open/floor/mech_bay_recharge_floor,
 /area/mainship/command/telecomms)
+"xij" = (
+/mob/living/silicon/ai/malf,
+/turf/open/floor/mainship,
+/area/mainship/hallways/hangar)
 "xot" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -5326,7 +5330,7 @@ lmD
 oPy
 aaC
 fAT
-dwY
+xij
 dwY
 acF
 acX

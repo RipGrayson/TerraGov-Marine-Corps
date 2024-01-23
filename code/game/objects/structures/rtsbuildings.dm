@@ -19,7 +19,7 @@
 	bound_height = 64
 	bound_width = 64
 	///what building flags this building has
-	var/list/has_building_flags = null
+	var/list/has_building_flags = list()
 	//holder for unit datums
 	var/datum/rts_units/unit_type
 	///icon for activation, so we can show off fancy working graphics
@@ -37,40 +37,41 @@
 	///holds the icon_state for the hud
 	var/buildable_icon_state = "hq"
 	///what flags we require to exist before we allow this building to be constructed
-	var/list/required_buildings_flags_for_construction = list(
-		AI_NONE,
-		)
+	var/list/required_buildings_flags_for_construction = list()
 	///what AI created this building
 	var/mob/living/silicon/ai/malf/constructingai
 	///units to be built, yes I'm actually working on a sensible implementation
 	var/list/queuedunits = list()
 	///holds our position in a theoretical list of buildings
 	var/buildingorder = 0
+	///holds our position in a theoretical list of buildings
+	var/is_selected = FALSE
 	hud_possible = list(HEALTH_HUD, STATUS_HUD_SIMPLE, STATUS_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, WANTED_HUD, SQUAD_HUD_TERRAGOV, SQUAD_HUD_SOM, ORDER_HUD, PAIN_HUD, XENO_DEBUFF_HUD, HEART_STATUS_HUD)
 
-/obj/structure/rts_building/structure/Initialize(mapload)
+/obj/structure/rts_building/construct/Initialize(mapload)
 	. = ..()
 	var/obj/machinery/camera/building_camera = new /obj/machinery/camera(src)
 	building_camera.network = list("marinemainship")
 	building_camera.view_range = camera_range
 	building_camera.internal_light = FALSE
 
-/obj/structure/rts_building/structure/headquarters
+/obj/structure/rts_building/construct/headquarters
 	name = "AI headquarters"
 	desc = "AI headquarters, the brain of any operation"
 	has_building_flags = list(
 		AI_HEADQUARTERS,
 		)
 	camera_range = 14
+	buildable_structures = list(
+		/obj/structure/rts_building/precursor/engineering,
+		/obj/structure/rts_building/precursor/headquarters,
+	)
 
-/obj/structure/rts_building/structure/engineering
+/obj/structure/rts_building/construct/engineering
 	name = "AI engineering"
 	buildable_icon_state = "engi"
 	has_building_flags = list(
 		AI_ENGINEERING,
-	)
-	required_buildings_flags_for_construction = list(
-		AI_HEADQUARTERS,
 	)
 
 ///ghost of the building we're constructing
@@ -89,14 +90,20 @@
 
 /obj/structure/rts_building/precursor/headquarters
 	name = "AI headquarters"
-	buildtype = /obj/structure/rts_building/structure/headquarters
+	buildtype = /obj/structure/rts_building/construct/headquarters
+	required_buildings_flags_for_construction = list(
+		AI_NONE,
+	)
+
 
 /obj/structure/rts_building/precursor/engineering
 	name = "AI engineering"
-	buildtype = /obj/structure/rts_building/structure/engineering
+	buildtype = /obj/structure/rts_building/construct/engineering
 	buildtime = 20 SECONDS
 	pointcost = 500
-	required_buildings_flags_for_construction = AI_HEADQUARTERS
+	required_buildings_flags_for_construction = list(
+		AI_HEADQUARTERS,
+	)
 
 ///on init check for resources and if we meet the reqs add a construction timer
 /obj/structure/rts_building/precursor/Initialize()
@@ -110,16 +117,16 @@
 
 ///generates the building
 /obj/structure/rts_building/precursor/proc/createbuilding(obj/structure/rts_building/constructedbuilding = /obj/structure/rts_building)
-	if(locate(/obj/structure/rts_building/structure/engineering) in GLOB.constructed_rts_builds)
+	if(locate(/obj/structure/rts_building/construct/engineering) in GLOB.constructed_rts_builds)
 		to_chat(constructingai, "test")
-	var/obj/structure/rts_building/structure/newbuilding = new constructedbuilding(get_turf(src))
+	var/obj/structure/rts_building/construct/newbuilding = new constructedbuilding(get_turf(src))
 	constructingai.last_touched_building = src
 	newbuilding.constructingai = src.constructingai
 	qdel(src)
 
 ///handles cost, prereq checking and build queuing before creating a unit
 //this is being deprecated after UI rework
-/obj/structure/rts_building/structure/proc/queueunit(mob/living/silicon/ai/malf/user)
+/obj/structure/rts_building/construct/proc/queueunit(mob/living/silicon/ai/malf/user)
 	if(HAS_TRAIT(src, BUILDING_BUSY))
 		to_chat(user, "This building is already producing [unit_type.name]")
 		return
@@ -135,13 +142,13 @@
 	///TODO at some point this needs a refactor to handle multiple units in a queue, current implementation can't do it
 
 ///actually generates the unit
-/obj/structure/rts_building/structure/proc/createunit(mob/living/generatedunit = /mob/living/carbon/xenomorph/mantis/ai, mob/living/silicon/ai/malf/user)
+/obj/structure/rts_building/construct/proc/createunit(mob/living/generatedunit = /mob/living/carbon/xenomorph/mantis/ai, mob/living/silicon/ai/malf/user)
 	new generatedunit(get_step(src, SOUTH))
 	icon_state = base_icon_state
 	if(HAS_TRAIT(src, BUILDING_BUSY))
 		REMOVE_TRAIT(src, BUILDING_BUSY, BUILDING_BUSY)
 
-/obj/structure/rts_building/structure/ex_act(severity)
+/obj/structure/rts_building/construct/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
 			deconstruct(FALSE)
@@ -150,24 +157,33 @@
 		if(EXPLODE_LIGHT)
 			take_damage(rand(50, 75))
 
-/obj/structure/rts_building/structure/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
+/obj/structure/rts_building/construct/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
 	. = ..()
 	rts_set_building_health()
 
-/obj/structure/rts_building/structure/Initialize(mapload, start_dir)
+/obj/structure/rts_building/construct/Initialize(mapload, start_dir)
 	. = ..()
 	//rts_set_building_health()
 	unit_type = new
 	GLOB.constructed_rts_builds += src
 
-/obj/structure/rts_building/structure/Destroy()
+/obj/structure/rts_building/construct/Destroy()
 	density = FALSE
 	GLOB.constructed_rts_builds -= src
 	QDEL_NULL(unit_type)
 	return ..()
 
-/obj/structure/rts_building/structure/fire_act(exposed_temperature, exposed_volume)
+/obj/structure/rts_building/construct/fire_act(exposed_temperature, exposed_volume)
 	if(exposed_temperature > T0C + 800)
 		take_damage(round(exposed_volume / 100), BURN, "fire")
 	return ..()
 
+/obj/structure/rts_building/construct/proc/set_active(mob/living/silicon/ai/malf/linkedai)
+	if(!length(GLOB.constructed_rts_builds))
+		return FALSE
+	for(var/obj/structure/rts_building/buildingsdone in GLOB.constructed_rts_builds) //make sure nothing else is selected
+		if(buildingsdone.is_selected)
+			buildingsdone.is_selected = FALSE
+	is_selected = !is_selected
+	linkedai.last_touched_building = src
+	return TRUE

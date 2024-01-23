@@ -92,6 +92,13 @@
 	else
 		alarm()
 
+/* building */
+/obj/structure/rts_building/construct/MalfCtrlClick(mob/living/silicon/ai/malf/user) // set a rts building to active
+	to_chat(user, "You select the [src]")
+	set_active(user)
+	user.update_build_icons(src)
+
+
 //
 // Override TurfAdjacent for AltClicking
 //
@@ -130,12 +137,12 @@
 	SSrtspoints.ai_points += pointcost
 	qdel(src)
 
-/obj/structure/rts_building/structure/MalfCtrlClick(mob/living/silicon/ai/malf/user)
-	user.last_touched_building = src
-	queueunit(user)
+///obj/structure/rts_building/construct/MalfCtrlClick(mob/living/silicon/ai/malf/user)
+	//user.last_touched_building = src
+	//queueunit(user)
 	//do hud action
 
-/obj/structure/rts_building/structure/MalfMiddleClick(mob/living/silicon/ai/malf/user)
+/obj/structure/rts_building/construct/MalfMiddleClick(mob/living/silicon/ai/malf/user)
 	user.last_touched_building = src
 	user.show_unit_build_options(src)
 
