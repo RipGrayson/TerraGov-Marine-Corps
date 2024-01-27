@@ -272,6 +272,17 @@
 /turf/open/floor/plating/ground/concrete/edge
 	icon_state = "concrete_edge"
 
+/turf/open/floor/plating/ground/concrete/autosmooth
+	name = "concrete"
+	icon = 'icons/turf/concretesmooth.dmi'
+	icon_state = "concrete-0"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_ASPHALT)
+	canSmoothWith = list(
+		SMOOTH_GROUP_ASPHALT,
+	)
+
+
 //Desert Map
 
 /turf/open/floor/plating/ground/desertdam //Basic groundmap turf parent
