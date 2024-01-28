@@ -109,6 +109,9 @@
 	return
 
 /turf/MalfCtrlClick(mob/living/silicon/ai/malf/user)
+	if(!user.held_building)
+		to_chat(user, "You have nothing selected.")
+		return
 	var/turf/checkedturf
 	//if(is_mainship_level(user.eyeobj.z)) //no building bases shipside
 		//return
@@ -129,6 +132,7 @@
 	to_chat(user, "You begin the construction of [initial(user.held_building.name)] for [initial(user.held_building.pointcost)].")
 	var/obj/structure/rts_building/precursor/newbuilding = new user.held_building(src)
 	newbuilding.constructingai = user
+	user.held_building = null
 	user.last_touched_building = newbuilding.buildtype
 
 /obj/structure/rts_building/precursor/MalfCtrlClick(mob/living/silicon/ai/malf/user)

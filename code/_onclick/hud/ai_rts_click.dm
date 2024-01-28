@@ -55,6 +55,12 @@
 		return //nothing has been set for this slot, return
 	if(potential_building && potential_unit_type)
 		CRASH("A construction slot on [AI] has both building and unit types at once!")
+	if(potential_building)
+		to_chat(AI, "You will now build a [potential_building]")
+		AI.held_building = potential_building
+	if(potential_unit_type)
+		to_chat(AI, "You have started a [potential_unit_type]")
+		AI.last_touched_building.queueunit(potential_unit_type)
 
 /atom/movable/screen/ai_rts/construction_slot/build_slotone
 	name = "build options one"

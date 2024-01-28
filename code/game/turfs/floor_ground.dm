@@ -274,14 +274,36 @@
 
 /turf/open/floor/plating/ground/concrete/autosmooth
 	name = "concrete"
-	icon = 'icons/turf/concretesmooth.dmi'
-	icon_state = "concrete-0"
+	icon = 'icons/turf/floors/concretesmooth.dmi'
+	icon_state = "concretesmooth-0"
 	smoothing_flags = SMOOTH_BITMASK
 	smoothing_groups = list(SMOOTH_GROUP_ASPHALT)
 	canSmoothWith = list(
 		SMOOTH_GROUP_ASPHALT,
 	)
+	base_icon_state = "concretesmooth"
+	var/obj/associated_building_outline = null
 
+/turf/open/floor/plating/ground/concrete/autosmooth/MouseEntered(location, control, params)
+	. = ..()
+	if(isbadAI(usr))
+		var/mob/living/silicon/ai/malf/hovering_ai = usr
+		if(hovering_ai.held_building)
+			associated_building_outline = hovering_ai.held_building
+			update_overlays()
+
+/turf/open/floor/plating/ground/concrete/autosmooth/update_overlays()
+	. = ..()
+	if(associated_building_outline) //I don't like doing it this way either chief
+		var/image/access_overlay = image(associated_building_outline.icon, associated_building_outline.icon_state, layer = ABOVE_ALL_MOB_LAYER)
+		overlays += access_overlay
+		associated_building_outline = null
+	else
+		overlays.Cut() ///yell at me for this one, or tell me a better way
+
+/turf/open/floor/plating/ground/concrete/autosmooth/MouseExited(location, control, params)
+	. = ..()
+	update_overlays()
 
 //Desert Map
 

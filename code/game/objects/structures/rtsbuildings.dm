@@ -24,14 +24,10 @@
 	var/datum/rts_units/unit_type
 	///icon for activation, so we can show off fancy working graphics
 	var/activation_icon = "holder2"
-	///list of all units that can be built, remember that selectable units require certain buildings before they show up, this is just all the units that can theoretically be built
-	var/list/buildable_units = list(
-		/datum/rts_units/beetle,
-		/datum/rts_units/mantis,
-	)
-	var/list/buildable_structures = list(
-		/obj/structure/rts_building/precursor/engineering,
-	)
+	///list of all units that can a building can produce
+	var/list/buildable_units = list()
+	///list of all structures that our building can produce
+	var/list/buildable_structures = list()
 	///view range of AI from buildings
 	var/camera_range = 7
 	///holds the icon_state for the hud
@@ -62,9 +58,14 @@
 		AI_HEADQUARTERS,
 		)
 	camera_range = 14
+	pointvalue = 300
 	buildable_structures = list(
 		/obj/structure/rts_building/precursor/engineering,
 		/obj/structure/rts_building/precursor/headquarters,
+	)
+	buildable_units = list(
+		/datum/rts_units/mantis,
+		/datum/rts_units/beetle,
 	)
 
 /obj/structure/rts_building/construct/engineering
@@ -73,6 +74,16 @@
 	has_building_flags = list(
 		AI_ENGINEERING,
 	)
+	buildable_structures = list(
+		/obj/structure/rts_building/precursor/powergenerator,
+	)
+	buildable_units = list(
+		/datum/rts_units/beetle,
+	)
+
+/obj/structure/rts_building/construct/powergenerator
+	name = "AI power generation"
+	buildable_icon_state = "engi"
 
 ///ghost of the building we're constructing
 /obj/structure/rts_building/precursor
@@ -91,10 +102,6 @@
 /obj/structure/rts_building/precursor/headquarters
 	name = "AI headquarters"
 	buildtype = /obj/structure/rts_building/construct/headquarters
-	required_buildings_flags_for_construction = list(
-		AI_NONE,
-	)
-
 
 /obj/structure/rts_building/precursor/engineering
 	name = "AI engineering"
@@ -102,7 +109,16 @@
 	buildtime = 20 SECONDS
 	pointcost = 500
 	required_buildings_flags_for_construction = list(
-		AI_HEADQUARTERS,
+		/obj/structure/rts_building/construct/headquarters,
+	)
+
+/obj/structure/rts_building/precursor/powergenerator
+	name = "AI power generation"
+	buildtype = /obj/structure/rts_building/construct/powergenerator
+	buildtime = 5 SECONDS
+	pointcost = 200
+	required_buildings_flags_for_construction = list(
+		/obj/structure/rts_building/construct/engineering,
 	)
 
 ///on init check for resources and if we meet the reqs add a construction timer
@@ -122,6 +138,7 @@
 	var/obj/structure/rts_building/construct/newbuilding = new constructedbuilding(get_turf(src))
 	constructingai.last_touched_building = src
 	newbuilding.constructingai = src.constructingai
+	constructingai.update_build_icons() //todo in the distant future, this could be a signal
 	qdel(src)
 
 ///handles cost, prereq checking and build queuing before creating a unit
@@ -171,6 +188,7 @@
 	density = FALSE
 	GLOB.constructed_rts_builds -= src
 	QDEL_NULL(unit_type)
+	constructingai.update_build_icons() //force owning AI to reload their hud
 	return ..()
 
 /obj/structure/rts_building/construct/fire_act(exposed_temperature, exposed_volume)

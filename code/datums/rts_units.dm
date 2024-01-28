@@ -8,7 +8,7 @@
 	///what mob is getting spawned from this
 	var/spawntype = /mob/living/carbon/xenomorph/mantis/ai
 	///required building flags before a unit can be spawned
-	var/required_unit_building_flags = AI_NONE
+	var/list/required_unit_building_flags = list()
 	///icon we use to display when constructing
 	var/display_icon = null
 	///holds the icon_state for the hud
@@ -25,5 +25,7 @@
 	buildtime = 15 SECONDS
 	cost = 30
 	spawntype = /mob/living/carbon/xenomorph/beetle/ai
-	required_unit_building_flags = AI_ENGINEERING
+	required_unit_building_flags = list(
+		/obj/structure/rts_building/precursor/engineering,
+	)
 	unit_buildable_icon_state = "beetle"
