@@ -103,14 +103,14 @@
 #define ui_ai_rts "SOUTH:6,WEST+13"
 
 // AI RTS
-#define ui_ai_slot_one "SOUTH:6,WEST:11"
-#define ui_ai_slot_two "SOUTH:6,WEST+1:8"
-#define ui_ai_slot_three "SOUTH:6,WEST+2:5"
-#define ui_ai_slot_four "SOUTH:6,WEST+3:2"
-#define ui_ai_slot_five "SOUTH:35,WEST:11"
-#define ui_ai_slot_six "SOUTH:35,WEST+1:8"
-#define ui_ai_slot_seven "SOUTH:35,WEST+2:5"
-#define ui_ai_slot_eight "SOUTH:35,WEST+3:2"
+#define ui_ai_slot_eight "SOUTH:6,WEST+3:2"
+#define ui_ai_slot_seven "SOUTH:6,WEST+2:5"
+#define ui_ai_slot_six "SOUTH:6,WEST+1:8"
+#define ui_ai_slot_five "SOUTH:6,WEST:11"
+#define ui_ai_slot_four "SOUTH:35,WEST+3:2"
+#define ui_ai_slot_three "SOUTH:35,WEST+2:5"
+#define ui_ai_slot_two "SOUTH:35,WEST+1:8"
+#define ui_ai_slot_one "SOUTH:35,WEST:11"
 #define ui_ai_slot_special "SOUTH:65:-1,WEST:25"
 
 #define ui_ai_slot_down_arrow "SOUTH:20,WEST+4:1"

@@ -670,25 +670,31 @@
 	to_chat(src, "The [selectedstructure] will now produce [selectedstructure.unit_type.name]")
 
 
+///update HUD buttons for the controlling RTS player
+///this is a very delicate proc, change with care and test frequently. If this breaks it will make the entire rts mode unplayable, you have been warned.
 /mob/living/silicon/ai/malf/proc/update_build_icons(obj/structure/rts_building/selectedstructure)
 	for(var/i in 1 to 8)
 		var/atom/movable/screen/ai_rts/construction_slot/buildingslots = hud_used.static_inventory[i]
+		buildingslots.icon = 'icons/mob/screen_ai.dmi'
 		buildingslots.potential_unit_type = null
 		buildingslots.potential_building = null
 		buildingslots.name = initial(buildingslots.name)
+		buildingslots.icon_state = initial(buildingslots.icon_state)
 	var/global_index_value = 1
-	for(var/building in last_touched_building.buildable_structures)
+	for(var/building in last_touched_building.buildable_structures) //todo this can probably become a standard loop instead of a ranged for loop
 		var/atom/movable/screen/ai_rts/construction_slot/buildingslots = hud_used.static_inventory[global_index_value]
 		var/obj/structure/rts_building/precursor/newbuilding = new building ///blarg, we need to call new on this or the contents of required_buildings_flags_for_construction will be empty. I don't know why.
 		if(validate_build_reqs(newbuilding))
 			buildingslots.potential_building = building
 			buildingslots.name = initial(newbuilding.name)
 			buildingslots.icon_state = initial(newbuilding.buildable_icon_state)
+			buildingslots.icon = 'icons/mob/rts_icons.dmi'
 		else
 			buildingslots.name = initial(buildingslots.name)
 			buildingslots.potential_building = initial(buildingslots.potential_building)
 			buildingslots.potential_unit_type = initial(buildingslots.potential_unit_type)
 		++global_index_value
+		SSrtspoints.ai_points += newbuilding.pointcost //this is extremely hacky, but otherwise (new) will deduct points for just selecting a building
 		qdel(newbuilding) //get rid of the newbuilding afterwards
 	for(var/minions in last_touched_building.buildable_units)
 		var/atom/movable/screen/ai_rts/construction_slot/buildingslots = hud_used.static_inventory[global_index_value]
@@ -704,6 +710,7 @@
 		++global_index_value
 		qdel(newunit)
 
+///search through constructed buildings and make sure we have the prereqs to build something
 /mob/living/silicon/ai/malf/proc/validate_build_reqs(obj/structure/rts_building/precursor/selectedstructure)
 	for(var/flags in selectedstructure.required_buildings_flags_for_construction)
 		if(locate(flags) in GLOB.constructed_rts_builds)

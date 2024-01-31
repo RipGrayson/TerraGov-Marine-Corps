@@ -45,6 +45,7 @@
 /atom/movable/screen/ai_rts/construction_slot
 	name = "build options generic"
 	icon_state = "template_small"
+	icon = 'icons/mob/rts_icons.dmi'
 	var/obj/structure/rts_building/precursor/potential_building = null
 	var/datum/rts_units/potential_unit_type = null
 
@@ -56,8 +57,15 @@
 	if(potential_building && potential_unit_type)
 		CRASH("A construction slot on [AI] has both building and unit types at once!")
 	if(potential_building)
-		to_chat(AI, "You will now build a [potential_building]")
-		AI.held_building = potential_building
+		if(potential_building.is_upgrade) //handle logic for building upgrade types, basically check for cost, and if met delete old building and put precursor on top of it
+			if((pointswehave -= pointcost) <= 0) //little hacky to do this here but eh, building upgrades are weird
+				return
+			var/obj/structure/rts_building/precursor/newbuilding = new potential_building(get_turf(AI.last_touched_building)) //build precursor on top of old building
+			newbuilding.constructingai = AI
+			qdel(AI.last_touched_building) //delete old building
+		else
+			to_chat(AI, "You will now build a [potential_building]")
+			AI.held_building = potential_building
 	if(potential_unit_type)
 		to_chat(AI, "You have started a [potential_unit_type]")
 		AI.last_touched_building.queueunit(potential_unit_type)

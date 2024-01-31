@@ -42,6 +42,8 @@
 	var/buildingorder = 0
 	///holds our position in a theoretical list of buildings
 	var/is_selected = FALSE
+	///is this a building an upgrade to an existing building, if so replace existing building with upgrade
+	var/is_upgrade = FALSE
 	hud_possible = list(HEALTH_HUD, STATUS_HUD_SIMPLE, STATUS_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, WANTED_HUD, SQUAD_HUD_TERRAGOV, SQUAD_HUD_SOM, ORDER_HUD, PAIN_HUD, XENO_DEBUFF_HUD, HEART_STATUS_HUD)
 
 /obj/structure/rts_building/construct/Initialize(mapload)
@@ -63,6 +65,9 @@
 	buildable_structures = list(
 		/obj/structure/rts_building/precursor/engineering,
 		/obj/structure/rts_building/precursor/headquarters,
+		/obj/structure/rts_building/precursor/factory,
+		/obj/structure/rts_building/precursor/techcenter,
+		/obj/structure/rts_building/precursor/mechfound,
 	)
 	buildable_units = list(
 		/datum/rts_units/mantis,
@@ -88,6 +93,49 @@
 	name = "AI power generation"
 	buildable_icon_state = "hud_gen"
 	icon_state = "built_gen"
+
+/obj/structure/rts_building/construct/techcenter
+	name = "AI tech center"
+	buildable_icon_state = "hud_tech"
+	icon_state = "built_tech"
+
+/obj/structure/rts_building/construct/teleporter
+	name = "AI teleporter"
+	buildable_icon_state = "hud_tele"
+	icon_state = "built_tele"
+
+/obj/structure/rts_building/construct/satcommand
+	name = "AI satellite command"
+	buildable_icon_state = "hud_satcomm"
+	icon_state = "built_satcomm"
+
+/obj/structure/rts_building/construct/factory
+	name = "AI factory"
+	buildable_icon_state = "hud_fact"
+	icon_state = "built_fact"
+	buildable_structures = list(
+		/obj/structure/rts_building/precursor/factory_two,
+	)
+
+/obj/structure/rts_building/construct/factory_two
+	name = "AI upgraded factory"
+	buildable_icon_state = "hud_fact_two"
+	icon_state = "built_fact_two"
+
+/obj/structure/rts_building/construct/mechfound
+	name = "AI mech foundry"
+	buildable_icon_state = "hud_bar"
+	icon_state = "built_bar"
+
+/obj/structure/rts_building/construct/engi
+	name = "AI mech foundry"
+	buildable_icon_state = "hud_engi"
+	icon_state = "built_engi"
+
+/obj/structure/rts_building/construct/commandpost
+	name = "AI command post"
+	buildable_icon_state = "hud_commpo"
+	icon_state = "built_commpo"
 
 ///ghost of the building we're constructing
 /obj/structure/rts_building/precursor
@@ -131,6 +179,96 @@
 	buildable_icon_state = "hud_gen"
 	icon_state = "built_gen"
 
+/obj/structure/rts_building/precursor/techcenter
+	name = "AI tech center"
+	buildtype = /obj/structure/rts_building/construct/techcenter
+	buildtime = 5 SECONDS
+	pointcost = 200
+	required_buildings_flags_for_construction = list(
+		/obj/structure/rts_building/construct/headquarters,
+	)
+	buildable_icon_state = "hud_tech"
+	icon_state = "built_tech"
+
+/obj/structure/rts_building/precursor/teleporter
+	name = "AI teleporter"
+	buildtype = /obj/structure/rts_building/construct/teleporter
+	buildtime = 5 SECONDS
+	pointcost = 200
+	required_buildings_flags_for_construction = list(
+		/obj/structure/rts_building/construct/techcenter,
+	)
+	buildable_icon_state = "hud_tele"
+	icon_state = "built_tele"
+
+/obj/structure/rts_building/precursor/satcommand
+	name = "AI satellite command"
+	buildtype = /obj/structure/rts_building/construct/satcommand
+	buildtime = 5 SECONDS
+	pointcost = 200
+	required_buildings_flags_for_construction = list(
+		/obj/structure/rts_building/construct/techcenter,
+	)
+	buildable_icon_state = "hud_satcomm"
+	icon_state = "built_satcomm"
+
+/obj/structure/rts_building/precursor/factory
+	name = "AI factory"
+	buildtype = /obj/structure/rts_building/construct/factory
+	buildtime = 5 SECONDS
+	pointcost = 200
+	required_buildings_flags_for_construction = list(
+		/obj/structure/rts_building/construct/headquarters,
+	)
+	buildable_icon_state = "hud_fact"
+	icon_state = "built_fact"
+
+/obj/structure/rts_building/precursor/factory_two
+	name = "AI factory"
+	buildtype = /obj/structure/rts_building/construct/factory_two
+	buildtime = 5 SECONDS
+	pointcost = 200
+	required_buildings_flags_for_construction = list(
+		/obj/structure/rts_building/construct/factory,
+	)
+	buildable_icon_state = "hud_fact_two"
+	icon_state = "built_fact_two"
+	is_upgrade = TRUE
+
+/obj/structure/rts_building/precursor/mechfound
+	name = "AI mech foundry"
+	buildtype = /obj/structure/rts_building/construct/mechfound
+	buildtime = 5 SECONDS
+	pointcost = 200
+	required_buildings_flags_for_construction = list(
+		/obj/structure/rts_building/construct/headquarters,
+	)
+	buildable_icon_state = "hud_bar"
+	icon_state = "built_bar"
+
+/obj/structure/rts_building/precursor/engi
+	name = "AI engineering"
+	buildtype = /obj/structure/rts_building/construct/engineering
+	buildtime = 5 SECONDS
+	pointcost = 200
+	required_buildings_flags_for_construction = list(
+		/obj/structure/rts_building/construct/headquarters,
+	)
+	buildable_icon_state = "hud_engi"
+	icon_state = "built_engi"
+
+/obj/structure/rts_building/precursor/commandpost
+	name = "AI command post"
+	buildtype = /obj/structure/rts_building/construct/commandpost
+	buildtime = 5 SECONDS
+	pointcost = 200
+	required_buildings_flags_for_construction = list(
+		/obj/structure/rts_building/construct/engineering,
+		/obj/structure/rts_building/construct/techcenter,
+	)
+	buildable_icon_state = "hud_commpo"
+	icon_state = "built_commpo"
+
 ///on init check for resources and if we meet the reqs add a construction timer
 /obj/structure/rts_building/precursor/Initialize()
 	. = ..()
@@ -146,7 +284,7 @@
 	if(locate(/obj/structure/rts_building/construct/engineering) in GLOB.constructed_rts_builds)
 		to_chat(constructingai, "test")
 	var/obj/structure/rts_building/construct/newbuilding = new constructedbuilding(get_turf(src))
-	constructingai.last_touched_building = src
+	constructingai.last_touched_building = newbuilding
 	newbuilding.constructingai = src.constructingai
 	constructingai.update_build_icons() //todo in the distant future, this could be a signal
 	qdel(src)
@@ -206,6 +344,7 @@
 		take_damage(round(exposed_volume / 100), BURN, "fire")
 	return ..()
 
+///set a building to active, linking it to AI in process. Important for managing huds
 /obj/structure/rts_building/construct/proc/set_active(mob/living/silicon/ai/malf/linkedai)
 	if(!length(GLOB.constructed_rts_builds))
 		return FALSE
