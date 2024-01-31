@@ -59,6 +59,7 @@
 		)
 	camera_range = 14
 	pointvalue = 300
+	buildable_icon_state = "hud_hq"
 	buildable_structures = list(
 		/obj/structure/rts_building/precursor/engineering,
 		/obj/structure/rts_building/precursor/headquarters,
@@ -67,10 +68,11 @@
 		/datum/rts_units/mantis,
 		/datum/rts_units/beetle,
 	)
+	icon_state = "built_hq"
 
 /obj/structure/rts_building/construct/engineering
 	name = "AI engineering"
-	buildable_icon_state = "engi"
+	buildable_icon_state = "hud_engi"
 	has_building_flags = list(
 		AI_ENGINEERING,
 	)
@@ -80,10 +82,12 @@
 	buildable_units = list(
 		/datum/rts_units/beetle,
 	)
+	icon_state = "built_engi"
 
 /obj/structure/rts_building/construct/powergenerator
 	name = "AI power generation"
-	buildable_icon_state = "engi"
+	buildable_icon_state = "hud_gen"
+	icon_state = "built_gen"
 
 ///ghost of the building we're constructing
 /obj/structure/rts_building/precursor
@@ -102,6 +106,8 @@
 /obj/structure/rts_building/precursor/headquarters
 	name = "AI headquarters"
 	buildtype = /obj/structure/rts_building/construct/headquarters
+	buildable_icon_state = "hud_hq"
+	icon_state = "built_hq"
 
 /obj/structure/rts_building/precursor/engineering
 	name = "AI engineering"
@@ -111,6 +117,8 @@
 	required_buildings_flags_for_construction = list(
 		/obj/structure/rts_building/construct/headquarters,
 	)
+	buildable_icon_state = "hud_engi"
+	icon_state = "built_engi"
 
 /obj/structure/rts_building/precursor/powergenerator
 	name = "AI power generation"
@@ -120,6 +128,8 @@
 	required_buildings_flags_for_construction = list(
 		/obj/structure/rts_building/construct/engineering,
 	)
+	buildable_icon_state = "hud_gen"
+	icon_state = "built_gen"
 
 ///on init check for resources and if we meet the reqs add a construction timer
 /obj/structure/rts_building/precursor/Initialize()

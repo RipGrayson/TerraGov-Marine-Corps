@@ -683,6 +683,7 @@
 		if(validate_build_reqs(newbuilding))
 			buildingslots.potential_building = building
 			buildingslots.name = initial(newbuilding.name)
+			buildingslots.icon_state = initial(newbuilding.buildable_icon_state)
 		else
 			buildingslots.name = initial(buildingslots.name)
 			buildingslots.potential_building = initial(buildingslots.potential_building)
