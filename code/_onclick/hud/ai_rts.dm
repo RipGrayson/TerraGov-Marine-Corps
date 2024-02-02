@@ -63,21 +63,9 @@
 	var/mob/living/silicon/ai/malf/AI = usr
 	AI.show_camera_list()
 
-/atom/movable/screen/ai_rts/rts_stuff
-	name = "rts manager"
-	icon_state = "alerts"
-
-/atom/movable/screen/ai_rts/rts_stuff/Click()
-	. = ..()
-	if(.)
-		return
-	var/mob/living/silicon/ai/malf/AI = usr
-	AI.show_rts_build_options()
-
 /atom/movable/screen/ai_rts/camera_track
 	name = "Track With Camera"
 	icon_state = "track"
-
 
 /atom/movable/screen/ai_rts/camera_track/Click()
 	. = ..()

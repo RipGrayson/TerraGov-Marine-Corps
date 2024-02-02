@@ -27,17 +27,6 @@
 	var/mob/living/silicon/ai/malf/AI = usr
 	AI.show_camera_list()
 
-/atom/movable/screen/ai_rts/rts_stuff
-	name = "rts manager"
-	icon_state = "alerts"
-
-/atom/movable/screen/ai_rts/rts_stuff/Click()
-	. = ..()
-	if(.)
-		return
-	var/mob/living/silicon/ai/malf/AI = usr
-	AI.show_rts_build_options()
-
 /atom/movable/screen/ai_rts/camera_track
 	name = "Track With Camera"
 	icon_state = "track"
@@ -58,10 +47,10 @@
 		CRASH("A construction slot on [AI] has both building and unit types at once!")
 	if(potential_building)
 		if(potential_building.is_upgrade) //handle logic for building upgrade types, basically check for cost, and if met delete old building and put precursor on top of it
-			if((pointswehave -= pointcost) <= 0) //little hacky to do this here but eh, building upgrades are weird
+			if(!check_for_resource_cost(potential_building.pointcost))
 				return
 			var/obj/structure/rts_building/precursor/newbuilding = new potential_building(get_turf(AI.last_touched_building)) //build precursor on top of old building
-			newbuilding.constructingai = AI
+			newbuilding.access_owning_ai(AI)
 			qdel(AI.last_touched_building) //delete old building
 		else
 			to_chat(AI, "You will now build a [potential_building]")

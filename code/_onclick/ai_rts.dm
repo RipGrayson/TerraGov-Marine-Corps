@@ -131,7 +131,7 @@
 				return
 	to_chat(user, "You begin the construction of [initial(user.held_building.name)] for [initial(user.held_building.pointcost)].")
 	var/obj/structure/rts_building/precursor/newbuilding = new user.held_building(src)
-	newbuilding.constructingai = user
+	newbuilding.access_owning_ai(user)
 	user.held_building = null
 	user.last_touched_building = newbuilding.buildtype
 

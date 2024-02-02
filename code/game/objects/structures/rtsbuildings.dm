@@ -272,8 +272,7 @@
 ///on init check for resources and if we meet the reqs add a construction timer
 /obj/structure/rts_building/precursor/Initialize()
 	. = ..()
-	var/pointswehave = SSrtspoints.ai_points
-	if((pointswehave -= pointcost) <= 0)
+	if(!check_for_resource_cost(pointcost))
 		qdel(src)
 		return
 	SSrtspoints.ai_points -= pointcost
@@ -297,8 +296,8 @@
 		return
 	icon_state = activation_icon
 	to_chat(user, "You start production on a [unit_type.name]")
-	var/pointswehave = SSrtspoints.ai_points
-	if((pointswehave -= unit_type.cost) <= 0)
+	if(!check_for_resource_cost(unit_type.cost))
+		to_chat(user, "We lack the resources to build[unit_type.name]!")
 		return
 	///AT THIS POINT DOES NOT ACTUALLY DO QUEUEING AAAAAH
 	SSrtspoints.ai_points -= unit_type.cost
@@ -336,7 +335,8 @@
 	density = FALSE
 	GLOB.constructed_rts_builds -= src
 	QDEL_NULL(unit_type)
-	constructingai.update_build_icons() //force owning AI to reload their hud
+	if(constructingai)
+		constructingai.update_build_icons() //force owning AI to reload their hud
 	return ..()
 
 /obj/structure/rts_building/construct/fire_act(exposed_temperature, exposed_volume)
@@ -354,3 +354,11 @@
 	is_selected = !is_selected
 	linkedai.last_touched_building = src
 	return TRUE
+
+/obj/structure/rts_building/proc/access_owning_ai(mob/living/silicon/ai/malf/AI, linktogether = FALSE)
+	if(!AI)
+		return
+	constructingai = AI
+	if(linktogether)
+		AI.last_touched_building = src
+	AI.update_build_icons()

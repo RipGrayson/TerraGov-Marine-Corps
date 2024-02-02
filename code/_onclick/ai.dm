@@ -412,7 +412,7 @@
 				return
 	to_chat(user, "You begin the construction of [initial(user.held_building.name)].")
 	var/obj/structure/rts_building/precursor/newbuilding = new user.held_building(src)
-	newbuilding.constructingai = user
+	newbuilding.access_owning_ai(user)
 
 /obj/structure/rts_building/precursor/AICtrlClick(mob/living/silicon/ai/malf/user)
 	to_chat(user, "You cancel the construction of this [name] for [pointcost] resources.")

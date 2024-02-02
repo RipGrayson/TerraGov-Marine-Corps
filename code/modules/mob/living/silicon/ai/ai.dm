@@ -731,3 +731,10 @@
 	for(var/obj/structure/rts_building/construct/buildingsdone in GLOB.constructed_rts_builds) //make sure nothing else is selected
 		if(buildingsdone.is_selected)
 			buildingsdone.set_active(src)
+
+///take in an arbitrary cost and make sure it doesn't cost more than we can afford
+/proc/check_for_resource_cost(pointscost)
+	var/pointswehave = SSrtspoints.ai_points
+	if((pointswehave -= pointscost) <= 0)
+		return FALSE
+	return TRUE
