@@ -113,6 +113,15 @@
 #define ui_ai_slot_one "SOUTH:35,WEST:11"
 #define ui_ai_slot_special "SOUTH:65:-1,WEST:25"
 
+#define ui_build_slot_one "SOUTH:6,WEST+5:9"
+#define ui_build_slot_two "SOUTH:6,WEST+6:7"
+#define ui_build_slot_three "SOUTH:6,WEST+7:5"
+#define ui_build_slot_four "SOUTH:6,WEST+8:3"
+#define ui_build_slot_five "SOUTH:6,WEST+12:2"
+#define ui_build_slot_six "SOUTH:6,WEST+13:1"
+#define ui_build_slot_seven "SOUTH:6,WEST+14:0"
+#define ui_build_slot_eight "SOUTH:6,WEST+15:-1"
+
 #define ui_ai_slot_down_arrow "SOUTH:20,WEST+4:1"
 #define ui_ai_slot_up_arrow "SOUTH:21,WEST+4:1"
 

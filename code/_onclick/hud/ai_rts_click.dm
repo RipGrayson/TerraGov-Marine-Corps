@@ -57,7 +57,7 @@
 			AI.held_building = potential_building
 	if(potential_unit_type)
 		to_chat(AI, "You have started a [potential_unit_type]")
-		AI.last_touched_building.queueunit(potential_unit_type)
+		AI.last_touched_building.queueunit(potential_unit_type, TRUE)
 
 /atom/movable/screen/ai_rts/construction_slot/build_slotone
 	name = "build options one"
@@ -93,6 +93,38 @@
 
 /atom/movable/screen/ai_rts/construction_slot/build_slotspecial
 	name = "build options special"
+	icon_state = "template_small"
+
+/atom/movable/screen/ai_rts/construction_slot/build_queue_one
+	name = "build queue one"
+	icon_state = "template_small"
+
+/atom/movable/screen/ai_rts/construction_slot/build_queue_two
+	name = "build queue two"
+	icon_state = "template_small"
+
+/atom/movable/screen/ai_rts/construction_slot/build_queue_three
+	name = "build queue three"
+	icon_state = "template_small"
+
+/atom/movable/screen/ai_rts/construction_slot/build_queue_four
+	name = "build queue four"
+	icon_state = "template_small"
+
+/atom/movable/screen/ai_rts/construction_slot/build_queue_five
+	name = "build queue five"
+	icon_state = "template_small"
+
+/atom/movable/screen/ai_rts/construction_slot/build_queue_six
+	name = "build queue six"
+	icon_state = "template_small"
+
+/atom/movable/screen/ai_rts/construction_slot/build_queue_seven
+	name = "build queue seven"
+	icon_state = "template_small"
+
+/atom/movable/screen/ai_rts/construction_slot/build_queue_eight
+	name = "build queue eight"
 	icon_state = "template_small"
 
 /atom/movable/screen/ai_rts/uparrow
@@ -152,6 +184,38 @@
 	using.screen_loc = ui_ai_slot_special
 	static_inventory += using
 
+	using = new /atom/movable/screen/ai_rts/construction_slot/build_queue_one()
+	using.screen_loc = ui_build_slot_one
+	static_inventory += using
+
+	using = new /atom/movable/screen/ai_rts/construction_slot/build_queue_two()
+	using.screen_loc = ui_build_slot_two
+	static_inventory += using
+
+	using = new /atom/movable/screen/ai_rts/construction_slot/build_queue_three()
+	using.screen_loc = ui_build_slot_three
+	static_inventory += using
+
+	using = new /atom/movable/screen/ai_rts/construction_slot/build_queue_four()
+	using.screen_loc = ui_build_slot_four
+	static_inventory += using
+
+	using = new /atom/movable/screen/ai_rts/construction_slot/build_queue_five()
+	using.screen_loc = ui_build_slot_five
+	static_inventory += using
+
+	using = new /atom/movable/screen/ai_rts/construction_slot/build_queue_six()
+	using.screen_loc = ui_build_slot_six
+	static_inventory += using
+
+	using = new /atom/movable/screen/ai_rts/construction_slot/build_queue_seven()
+	using.screen_loc = ui_build_slot_seven
+	static_inventory += using
+
+	using = new /atom/movable/screen/ai_rts/construction_slot/build_queue_eight()
+	using.screen_loc = ui_build_slot_eight
+	static_inventory += using
+
 	using = new /atom/movable/screen/ai_rts/uparrow
 	using.screen_loc = ui_ai_slot_up_arrow
 	static_inventory += using
@@ -174,11 +238,6 @@
 	//using = new /atom/movable/screen/ai_rts/camera_track()
 	//using.screen_loc = ui_ai_track_with_camera
 	//static_inventory += using
-
-//rts stuff
-	using = new /atom/movable/screen/ai_rts/rts_stuff()
-	using.screen_loc = ui_ai_rts
-	static_inventory += using
 
 /atom/movable/screen/alert/ai_notify/Click()
 	var/mob/living/silicon/ai/malf/recipientai = usr

@@ -146,7 +146,3 @@
 	//queueunit(user)
 	//do hud action
 
-/obj/structure/rts_building/construct/MalfMiddleClick(mob/living/silicon/ai/malf/user)
-	user.last_touched_building = src
-	user.show_unit_build_options(src)
-

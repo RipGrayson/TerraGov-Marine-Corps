@@ -26,6 +26,8 @@
 	cost = 30
 	spawntype = /mob/living/carbon/xenomorph/beetle/ai
 	required_unit_building_flags = list(
-		/obj/structure/rts_building/precursor/engineering,
+		/obj/structure/rts_building/construct/engineering,
 	)
 	unit_buildable_icon_state = "beetle"
+
+/mob/living/silicon/rtsmob

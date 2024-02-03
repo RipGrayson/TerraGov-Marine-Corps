@@ -52,6 +52,9 @@
 	building_camera.network = list("marinemainship")
 	building_camera.view_range = camera_range
 	building_camera.internal_light = FALSE
+	//rts_set_building_health()
+	unit_type = new
+	GLOB.constructed_rts_builds += src
 
 /obj/structure/rts_building/construct/headquarters
 	name = "AI headquarters"
@@ -289,28 +292,34 @@
 	qdel(src)
 
 ///handles cost, prereq checking and build queuing before creating a unit
-//this is being deprecated after UI rework
-/obj/structure/rts_building/construct/proc/queueunit(mob/living/silicon/ai/malf/user)
-	if(HAS_TRAIT(src, BUILDING_BUSY))
-		to_chat(user, "This building is already producing [unit_type.name]")
+/obj/structure/rts_building/construct/proc/queueunit(datum/rts_units/unit_type, add_unit = FALSE)
+	if(queuedunits.len >= 8)
+		to_chat(constructingai, "You can't queue more than 8 units at a time!")
 		return
-	icon_state = activation_icon
-	to_chat(user, "You start production on a [unit_type.name]")
 	if(!check_for_resource_cost(unit_type.cost))
-		to_chat(user, "We lack the resources to build[unit_type.name]!")
+		to_chat(constructingai, "We lack the resources to build[unit_type.name]!")
 		return
-	///AT THIS POINT DOES NOT ACTUALLY DO QUEUEING AAAAAH
+	if(add_unit)
+		queuedunits += unit_type
+	icon_state = activation_icon
+	to_chat(constructingai, "You start production on a [unit_type.name]")
 	SSrtspoints.ai_points -= unit_type.cost
-	ADD_TRAIT(src, BUILDING_BUSY, BUILDING_BUSY) //passed all checks, assign busy status
-	addtimer(CALLBACK(src, PROC_REF(createunit), unit_type.spawntype), unit_type.buildtime)
-	///TODO at some point this needs a refactor to handle multiple units in a queue, current implementation can't do it
+	if(!HAS_TRAIT(src, BUILDING_BUSY))
+		addtimer(CALLBACK(src, PROC_REF(createunit), unit_type.spawntype), unit_type.buildtime)
+		ADD_TRAIT(src, BUILDING_BUSY, BUILDING_BUSY)
+	constructingai.update_unit_construction_icons(queuedunits)
 
 ///actually generates the unit
 /obj/structure/rts_building/construct/proc/createunit(mob/living/generatedunit = /mob/living/carbon/xenomorph/mantis/ai, mob/living/silicon/ai/malf/user)
 	new generatedunit(get_step(src, SOUTH))
+	queuedunits.Cut(1,2)
 	icon_state = base_icon_state
 	if(HAS_TRAIT(src, BUILDING_BUSY))
 		REMOVE_TRAIT(src, BUILDING_BUSY, BUILDING_BUSY)
+	if(queuedunits.len > 0)
+		var/datum/rts_units/next_type = queuedunits[1] //fml, byond arrays are weird
+		queueunit(next_type)
+		constructingai.update_unit_construction_icons(queuedunits)
 
 /obj/structure/rts_building/construct/ex_act(severity)
 	switch(severity)
@@ -324,12 +333,6 @@
 /obj/structure/rts_building/construct/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
 	. = ..()
 	rts_set_building_health()
-
-/obj/structure/rts_building/construct/Initialize(mapload, start_dir)
-	. = ..()
-	//rts_set_building_health()
-	unit_type = new
-	GLOB.constructed_rts_builds += src
 
 /obj/structure/rts_building/construct/Destroy()
 	density = FALSE
@@ -355,10 +358,12 @@
 	linkedai.last_touched_building = src
 	return TRUE
 
+///wrapper for accessing AI parent
 /obj/structure/rts_building/proc/access_owning_ai(mob/living/silicon/ai/malf/AI, linktogether = FALSE)
 	if(!AI)
 		return
 	constructingai = AI
 	if(linktogether)
 		AI.last_touched_building = src
-	AI.update_build_icons()
+	if(AI.last_touched_building) //shouldn't happen in theory, but updating build icons is dependent on accessing last touched AI building, so we check for it anyway
+		AI.update_build_icons()

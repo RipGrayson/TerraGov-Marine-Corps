@@ -419,12 +419,6 @@
 	SSrtspoints.ai_points += pointcost
 	qdel(src)
 
-/obj/structure/rts_building/construct/AICtrlClick(mob/living/silicon/ai/malf/user)
-	queueunit(user)
-
-/obj/structure/rts_building/construct/AIMiddleClick(mob/living/silicon/ai/malf/user)
-	user.show_unit_build_options(src)
-
 #undef AI_MAX_RAILGUN_SHOTS_FIRED_UPPER_RANGE
 #undef AI_MAX_RAILGUN_SHOTS_FIRED_LOWER_RANGE
 #undef AI_RAILGUN_FIRING_TIME_DELAY

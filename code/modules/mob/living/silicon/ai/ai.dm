@@ -587,15 +587,20 @@
 
 /mob/living/silicon/ai/malf
 	available_networks = list("marinemainship")
+	///are we commanding units?
+	var/commanding_units = FALSE
+	///the building we are "holding" in our hands, ready to be placed
 	var/obj/structure/rts_building/construct/held_building = /obj/structure/rts_building/precursor/headquarters
 	///the last structure that built something
 	var/obj/structure/rts_building/construct/last_built_structure = null
 	///refs to the last unit built
 	var/datum/weakref/last_built_unit = null
-	///refs to the last building selected
+	///the last building selected, and the one that actively has the building HUD
 	var/obj/structure/rts_building/construct/last_touched_building = null
 	///used to hold where we are when scrolling certain HUD elements
 	var/index_scroll_value = 1
+	///list all of units we're selecting and giving orders to
+	var/list/selected_units = list()
 	hud_possible = list(MACHINE_HEALTH_HUD)
 	hud_type = /datum/hud/ai_rts
 
@@ -643,32 +648,6 @@
 
 	to_chat(src, "You will now construct [initial(held_building.name)]")
 
-///handles selection of units from a buildings unit build pool
-/mob/living/silicon/ai/malf/proc/show_unit_build_options(obj/structure/rts_building/selectedstructure)
-
-	if(incapacitated())
-		return
-
-	if(length(selectedstructure.buildable_units) <= 1) //we have one or less options, don't bother with a popup
-		return
-
-	if(HAS_TRAIT(selectedstructure, BUILDING_BUSY))
-		to_chat(src, "Can't switch production types while already building a unit.")
-		return
-
-	var/list/allowedunits = list()
-	for(var/word in selectedstructure.buildable_units) //go through the global list of available buildings and validate requirements for each one
-		var/datum/rts_units/new_unit = word
-		if(CHECK_BITFIELD(initial(new_unit.required_unit_building_flags), AI_NONE)) //buildings with no requirements are always on the list
-			allowedunits += initial(new_unit)
-			continue
-
-	var/target_name = tgui_input_list(src, "Choose what you want to build", "Building", allowedunits)
-	if(target_name == null)
-		return
-	selectedstructure.unit_type = new target_name
-	to_chat(src, "The [selectedstructure] will now produce [selectedstructure.unit_type.name]")
-
 
 ///update HUD buttons for the controlling RTS player
 ///this is a very delicate proc, change with care and test frequently. If this breaks it will make the entire rts mode unplayable, you have been warned.
@@ -701,14 +680,41 @@
 		var/datum/rts_units/newunit = new minions
 		var/list/listofflags = newunit.required_unit_building_flags
 		if(validate_unit_build_reqs(listofflags))
-			buildingslots.potential_unit_type = newunit.spawntype
+			buildingslots.potential_unit_type = newunit
 			buildingslots.name = initial(newunit.name)
+			buildingslots.icon_state = newunit.unit_buildable_icon_state
+			buildingslots.icon = 'icons/mob/rts_icons.dmi'
 		else
 			buildingslots.name = initial(buildingslots.name)
 			buildingslots.potential_building = initial(buildingslots.potential_building)
 			buildingslots.potential_unit_type = initial(buildingslots.potential_unit_type)
+			buildingslots.icon_state = initial(buildingslots.icon_state)
 		++global_index_value
 		qdel(newunit)
+	update_unit_construction_icons(last_touched_building.queuedunits)
+
+///update building unit construction queue HUD
+/mob/living/silicon/ai/malf/proc/update_unit_construction_icons(list/testlist)
+	if(testlist.len > 8)
+		CRASH("Tried to update unit construction icons but somehow unit queue was bigger than 8!")
+	var/global_index_value = 10
+	for(var/i in 10 to 17)
+		var/atom/movable/screen/ai_rts/construction_slot/buildingslots = hud_used.static_inventory[i]
+		buildingslots.icon = initial(buildingslots.icon)
+		buildingslots.name = initial(buildingslots.name)
+		buildingslots.icon_state = initial(buildingslots.icon_state)
+	for(var/i in testlist)
+		var/atom/movable/screen/ai_rts/construction_slot/buildingslots = hud_used.static_inventory[global_index_value]
+		if(istype(i, /datum/rts_units))
+			buildingslots.icon = 'icons/mob/rts_icons.dmi'
+			var/datum/rts_units/selecteddatum = i
+			buildingslots.name = selecteddatum.name
+			buildingslots.icon_state = selecteddatum.unit_buildable_icon_state
+		else
+			buildingslots.icon = initial(buildingslots.icon)
+			buildingslots.name = initial(buildingslots.name)
+			buildingslots.icon_state = initial(buildingslots.icon_state)
+		++global_index_value
 
 ///search through constructed buildings and make sure we have the prereqs to build something
 /mob/living/silicon/ai/malf/proc/validate_build_reqs(obj/structure/rts_building/precursor/selectedstructure)
