@@ -537,6 +537,40 @@
 	else
 		airlock.cyclelinkeddir = dir
 
+/obj/effect/mapping_helpers/rtsprefab
+	name = "rts construction placer"
+	icon_state = "airlock_unres_helper"
+	var/construct_building_type = /obj/structure/rts_building/construct/headquarters
+
+/obj/effect/mapping_helpers/rtsprefab/Initialize(mapload)
+	. = ..()
+	var/obj/structure/rts_building/construct/newbuilding = new construct_building_type(get_turf(src))
+	var/mob/living/silicon/ai/malf/masterai = locate(/mob/living/silicon/ai/malf) in GLOB.mob_living_list
+	newbuilding.constructingai = masterai
+
+/obj/effect/mapping_helpers/rtsprefab/engineering
+	construct_building_type = /obj/structure/rts_building/construct/engineering
+
+/obj/effect/mapping_helpers/rtsprefab/powergen
+	construct_building_type = /obj/structure/rts_building/construct/powergenerator
+
+/obj/effect/mapping_helpers/rtsprefab/tech
+	construct_building_type = /obj/structure/rts_building/construct/techcenter
+
+/obj/effect/mapping_helpers/rtsprefab/factory
+	construct_building_type = /obj/structure/rts_building/construct/factory
+
+/obj/effect/mapping_helpers/rtsprefab/factory_two
+	construct_building_type = /obj/structure/rts_building/construct/factory_two
+
+/obj/effect/mapping_helpers/rtsprefab/mechfound
+	construct_building_type = /obj/structure/rts_building/construct/mechfound
+
+/obj/effect/mapping_helpers/rtsprefab/satcommand
+	construct_building_type = /obj/structure/rts_building/construct/satcommand
+
+/obj/effect/mapping_helpers/rtsprefab/commandpo
+	construct_building_type = /obj/structure/rts_building/construct/commandpost
 //needs to do its thing before spawn_rivers() is called
 /*
 INITIALIZE_IMMEDIATE(/obj/effect/mapping_helpers/no_lava)

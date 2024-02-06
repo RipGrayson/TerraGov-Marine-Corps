@@ -591,6 +591,8 @@
 	var/commanding_units = FALSE
 	///the building we are "holding" in our hands, ready to be placed
 	var/obj/structure/rts_building/construct/held_building = /obj/structure/rts_building/precursor/headquarters
+	///the action we are "holding" in our hands, ready to be placed
+	var/datum/ai_action/held_action = null
 	///the last structure that built something
 	var/obj/structure/rts_building/construct/last_built_structure = null
 	///refs to the last unit built
@@ -628,37 +630,15 @@
 
 	. += "Resource point gain: [round(SSrtspoints.ailastrecordedpointgain)]"
 
-///shows available building options, performs some logic to make sure that options obey tech requirements
-/mob/living/silicon/ai/malf/proc/show_rts_build_options()
-
-	if(incapacitated())
-		return
-
-	if(held_building != null) //store whatever we built last if it's not null
-		last_built_structure = held_building
-		update_build_icons()
-
-	if(held_building == null)
-		if(last_built_structure != null) //if our held_building is null but our last structure isn't, recover from that
-			held_building = last_built_structure //TODO, this is exploitable, add logic for validation
-			return
-		held_building = /obj/structure/rts_building/precursor/headquarters //reset to base precursor, currently hq
-		to_chat(src, "Cannot find building, resetting to [initial(held_building.name)]")
-		return
-
-	to_chat(src, "You will now construct [initial(held_building.name)]")
-
-
 ///update HUD buttons for the controlling RTS player
 ///this is a very delicate proc, change with care and test frequently. If this breaks it will make the entire rts mode unplayable, you have been warned.
-/mob/living/silicon/ai/malf/proc/update_build_icons(obj/structure/rts_building/selectedstructure)
+/mob/living/silicon/ai/malf/proc/update_build_icons()
+	if(!last_touched_building)
+		reacquire_active_building()
+	if(QDELETED(last_touched_building))
+		return
 	for(var/i in 1 to 8)
-		var/atom/movable/screen/ai_rts/construction_slot/buildingslots = hud_used.static_inventory[i]
-		buildingslots.icon = 'icons/mob/screen_ai.dmi'
-		buildingslots.potential_unit_type = null
-		buildingslots.potential_building = null
-		buildingslots.name = initial(buildingslots.name)
-		buildingslots.icon_state = initial(buildingslots.icon_state)
+		reset_slot_to_default(i)
 	var/global_index_value = 1
 	for(var/building in last_touched_building.buildable_structures) //todo this can probably become a standard loop instead of a ranged for loop
 		var/atom/movable/screen/ai_rts/construction_slot/buildingslots = hud_used.static_inventory[global_index_value]
@@ -668,10 +648,11 @@
 			buildingslots.name = initial(newbuilding.name)
 			buildingslots.icon_state = initial(newbuilding.buildable_icon_state)
 			buildingslots.icon = 'icons/mob/rts_icons.dmi'
+			buildingslots.maptext = "<span class='maptext' style=font-size:5px>[newbuilding.pointcost]</span>"
+			buildingslots.maptext_x = 4
+			buildingslots.maptext_y = 4
 		else
-			buildingslots.name = initial(buildingslots.name)
-			buildingslots.potential_building = initial(buildingslots.potential_building)
-			buildingslots.potential_unit_type = initial(buildingslots.potential_unit_type)
+			reset_slot_to_default(global_index_value)
 		++global_index_value
 		SSrtspoints.ai_points += newbuilding.pointcost //this is extremely hacky, but otherwise (new) will deduct points for just selecting a building
 		qdel(newbuilding) //get rid of the newbuilding afterwards
@@ -684,26 +665,44 @@
 			buildingslots.name = initial(newunit.name)
 			buildingslots.icon_state = newunit.unit_buildable_icon_state
 			buildingslots.icon = 'icons/mob/rts_icons.dmi'
+			buildingslots.maptext = "<span class='maptext' style=font-size:5px>[newunit.cost]</span>"
+			buildingslots.maptext_x = 4
+			buildingslots.maptext_y = 4
 		else
-			buildingslots.name = initial(buildingslots.name)
-			buildingslots.potential_building = initial(buildingslots.potential_building)
-			buildingslots.potential_unit_type = initial(buildingslots.potential_unit_type)
-			buildingslots.icon_state = initial(buildingslots.icon_state)
+			reset_slot_to_default(global_index_value)
 		++global_index_value
 		qdel(newunit)
+	for(var/actions in last_touched_building.doable_actions)
+		var/atom/movable/screen/ai_rts/construction_slot/buildingslots = hud_used.static_inventory[global_index_value]
+		var/datum/ai_action/newaction = new actions
+		var/list/listofflags = newaction.required_action_building_flags
+		if(validate_unit_build_reqs(listofflags))
+			buildingslots.potential_action_type = newaction
+			buildingslots.name = initial(newaction.name)
+			buildingslots.icon_state = newaction.action_buildable_icon_state
+			buildingslots.icon = 'icons/mob/rts_icons.dmi'
+			buildingslots.maptext = "<span class='maptext' style=font-size:5px>[newaction.cost]</span>"
+			buildingslots.maptext_x = 4
+			buildingslots.maptext_y = 4
+		else
+			reset_slot_to_default(global_index_value)
+		++global_index_value
+		qdel(newaction)
 	update_unit_construction_icons(last_touched_building.queuedunits)
 
 ///update building unit construction queue HUD
-/mob/living/silicon/ai/malf/proc/update_unit_construction_icons(list/testlist)
-	if(testlist.len > 8)
-		CRASH("Tried to update unit construction icons but somehow unit queue was bigger than 8!")
+/mob/living/silicon/ai/malf/proc/update_unit_construction_icons(list/unitlist)
+	if(!unitlist)
+		return
+	if(unitlist.len > 8)
+		CRASH("Tried to update unit construction icons but unit queue was bigger than 8!")
 	var/global_index_value = 10
 	for(var/i in 10 to 17)
 		var/atom/movable/screen/ai_rts/construction_slot/buildingslots = hud_used.static_inventory[i]
 		buildingslots.icon = initial(buildingslots.icon)
 		buildingslots.name = initial(buildingslots.name)
 		buildingslots.icon_state = initial(buildingslots.icon_state)
-	for(var/i in testlist)
+	for(var/i in unitlist)
 		var/atom/movable/screen/ai_rts/construction_slot/buildingslots = hud_used.static_inventory[global_index_value]
 		if(istype(i, /datum/rts_units))
 			buildingslots.icon = 'icons/mob/rts_icons.dmi'
@@ -716,6 +715,18 @@
 			buildingslots.icon_state = initial(buildingslots.icon_state)
 		++global_index_value
 
+/mob/living/silicon/ai/malf/proc/reset_slot_to_default(slotnumber)
+	var/atom/movable/screen/ai_rts/construction_slot/affectedbuildingslot = hud_used.static_inventory[slotnumber]
+	affectedbuildingslot.icon = 'icons/mob/screen_ai.dmi'
+	affectedbuildingslot.potential_unit_type = null
+	affectedbuildingslot.potential_building = null
+	affectedbuildingslot.potential_action_type = null
+	affectedbuildingslot.name = initial(affectedbuildingslot.name)
+	affectedbuildingslot.icon_state = initial(affectedbuildingslot.icon_state)
+	affectedbuildingslot.maptext = null
+	affectedbuildingslot.maptext_x = 0
+	affectedbuildingslot.maptext_y = 0
+
 ///search through constructed buildings and make sure we have the prereqs to build something
 /mob/living/silicon/ai/malf/proc/validate_build_reqs(obj/structure/rts_building/precursor/selectedstructure)
 	for(var/flags in selectedstructure.required_buildings_flags_for_construction)
@@ -725,8 +736,8 @@
 			return FALSE
 	return TRUE
 
-/mob/living/silicon/ai/malf/proc/validate_unit_build_reqs(list/testlist)
-	for(var/flags in testlist)
+/mob/living/silicon/ai/malf/proc/validate_unit_build_reqs(list/validatedlist)
+	for(var/flags in validatedlist)
 		if(locate(flags) in GLOB.constructed_rts_builds)
 			continue
 		else
@@ -734,9 +745,14 @@
 	return TRUE
 
 /mob/living/silicon/ai/malf/proc/reacquire_active_building()
+	if(!GLOB.constructed_rts_builds)
+		return
 	for(var/obj/structure/rts_building/construct/buildingsdone in GLOB.constructed_rts_builds) //make sure nothing else is selected
 		if(buildingsdone.is_selected)
 			buildingsdone.set_active(src)
+			return
+	var/obj/structure/rts_building/construct/foundbuilding = pick(GLOB.constructed_rts_builds) //fallback, choose anything from our list of buildings
+	foundbuilding.set_active(src)
 
 ///take in an arbitrary cost and make sure it doesn't cost more than we can afford
 /proc/check_for_resource_cost(pointscost)

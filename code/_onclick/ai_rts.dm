@@ -94,9 +94,15 @@
 
 /* building */
 /obj/structure/rts_building/construct/MalfCtrlClick(mob/living/silicon/ai/malf/user) // set a rts building to active
+	if(istype(user.held_action, /datum/ai_action/structurebased))
+		user.held_action.preactivation(src)
+		user.held_action = null
+	if(user.last_touched_building == src)
+		to_chat(user, "[src] already selected!")
+		return
 	to_chat(user, "You select the [src]")
 	set_active(user)
-	user.update_build_icons(src)
+	user.update_build_icons()
 
 
 //
@@ -133,7 +139,6 @@
 	var/obj/structure/rts_building/precursor/newbuilding = new user.held_building(src)
 	newbuilding.access_owning_ai(user)
 	user.held_building = null
-	user.last_touched_building = newbuilding.buildtype
 
 /obj/structure/rts_building/precursor/MalfCtrlClick(mob/living/silicon/ai/malf/user)
 	user.last_touched_building = src

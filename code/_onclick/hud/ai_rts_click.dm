@@ -37,14 +37,18 @@
 	icon = 'icons/mob/rts_icons.dmi'
 	var/obj/structure/rts_building/precursor/potential_building = null
 	var/datum/rts_units/potential_unit_type = null
+	var/datum/ai_action/potential_action_type = null
 
 /atom/movable/screen/ai_rts/construction_slot/Click()
 	. = ..()
 	var/mob/living/silicon/ai/malf/AI = usr
-	if(!potential_building && !potential_unit_type)
+	if(!potential_building && !potential_unit_type && !potential_action_type)
 		return //nothing has been set for this slot, return
 	if(potential_building && potential_unit_type)
 		CRASH("A construction slot on [AI] has both building and unit types at once!")
+	if(potential_action_type)
+		to_chat(AI, "You have started a [potential_action_type]")
+		AI.held_action = potential_action_type
 	if(potential_building)
 		if(potential_building.is_upgrade) //handle logic for building upgrade types, basically check for cost, and if met delete old building and put precursor on top of it
 			if(!check_for_resource_cost(potential_building.pointcost))

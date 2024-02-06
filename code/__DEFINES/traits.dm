@@ -248,3 +248,6 @@
 
 //added to rts structures doing things
 #define BUILDING_BUSY "building_busy"
+
+//added to rts structures being repaired
+#define BUILDING_BEING_REPAIRED "building_repairing"

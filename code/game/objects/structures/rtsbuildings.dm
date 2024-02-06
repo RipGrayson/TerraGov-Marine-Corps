@@ -28,6 +28,8 @@
 	var/list/buildable_units = list()
 	///list of all structures that our building can produce
 	var/list/buildable_structures = list()
+	///list of all actions that a building can hold
+	var/list/doable_actions = list()
 	///view range of AI from buildings
 	var/camera_range = 7
 	///holds the icon_state for the hud
@@ -36,7 +38,7 @@
 	var/list/required_buildings_flags_for_construction = list()
 	///what AI created this building
 	var/mob/living/silicon/ai/malf/constructingai
-	///units to be built, yes I'm actually working on a sensible implementation
+	///units to be built
 	var/list/queuedunits = list()
 	///holds our position in a theoretical list of buildings
 	var/buildingorder = 0
@@ -89,6 +91,9 @@
 	)
 	buildable_units = list(
 		/datum/rts_units/beetle,
+	)
+	doable_actions = list(
+		/datum/ai_action/structurebased/repair,
 	)
 	icon_state = "built_engi"
 
@@ -283,13 +288,13 @@
 
 ///generates the building
 /obj/structure/rts_building/precursor/proc/createbuilding(obj/structure/rts_building/constructedbuilding = /obj/structure/rts_building)
-	if(locate(/obj/structure/rts_building/construct/engineering) in GLOB.constructed_rts_builds)
-		to_chat(constructingai, "test")
 	var/obj/structure/rts_building/construct/newbuilding = new constructedbuilding(get_turf(src))
-	constructingai.last_touched_building = newbuilding
+	if(!constructingai.last_touched_building)
+		constructingai.last_touched_building = newbuilding
 	newbuilding.constructingai = src.constructingai
 	constructingai.update_build_icons() //todo in the distant future, this could be a signal
 	qdel(src)
+///reminder, last_touched_building needs its own handler, it's entering a global style situation where too many things are touching it
 
 ///handles cost, prereq checking and build queuing before creating a unit
 /obj/structure/rts_building/construct/proc/queueunit(datum/rts_units/unit_type, add_unit = FALSE)
@@ -307,7 +312,8 @@
 	if(!HAS_TRAIT(src, BUILDING_BUSY))
 		addtimer(CALLBACK(src, PROC_REF(createunit), unit_type.spawntype), unit_type.buildtime)
 		ADD_TRAIT(src, BUILDING_BUSY, BUILDING_BUSY)
-	constructingai.update_unit_construction_icons(queuedunits)
+	if(is_selected)
+		constructingai.update_unit_construction_icons(queuedunits)
 
 ///actually generates the unit
 /obj/structure/rts_building/construct/proc/createunit(mob/living/generatedunit = /mob/living/carbon/xenomorph/mantis/ai, mob/living/silicon/ai/malf/user)
@@ -317,8 +323,9 @@
 	if(HAS_TRAIT(src, BUILDING_BUSY))
 		REMOVE_TRAIT(src, BUILDING_BUSY, BUILDING_BUSY)
 	if(queuedunits.len > 0)
-		var/datum/rts_units/next_type = queuedunits[1] //fml, byond arrays are weird
+		var/datum/rts_units/next_type = queuedunits[1]
 		queueunit(next_type)
+	if(is_selected)
 		constructingai.update_unit_construction_icons(queuedunits)
 
 /obj/structure/rts_building/construct/ex_act(severity)
@@ -339,6 +346,9 @@
 	GLOB.constructed_rts_builds -= src
 	QDEL_NULL(unit_type)
 	if(constructingai)
+		if(constructingai.last_touched_building == src)
+			var/obj/structure/rts_building/construct/foundbuilding = pick(GLOB.constructed_rts_builds) //we already removed ourselves from the global list, so we won't select ourselves twice
+			foundbuilding.set_active(constructingai)
 		constructingai.update_build_icons() //force owning AI to reload their hud
 	return ..()
 
@@ -354,8 +364,11 @@
 	for(var/obj/structure/rts_building/buildingsdone in GLOB.constructed_rts_builds) //make sure nothing else is selected
 		if(buildingsdone.is_selected)
 			buildingsdone.is_selected = FALSE
+			buildingsdone.update_overlays()
 	is_selected = !is_selected
 	linkedai.last_touched_building = src
+	linkedai.update_build_icons()
+	update_overlays()
 	return TRUE
 
 ///wrapper for accessing AI parent
@@ -367,3 +380,9 @@
 		AI.last_touched_building = src
 	if(AI.last_touched_building) //shouldn't happen in theory, but updating build icons is dependent on accessing last touched AI building, so we check for it anyway
 		AI.update_build_icons()
+
+/obj/structure/rts_building/construct/update_overlays()
+	. = ..()
+	overlays.Cut()
+	if(is_selected)
+		overlays += image(icon, "selectedarrow")
