@@ -357,7 +357,7 @@
 
 	if(hud_used?.static_inventory)
 		for(var/atom/movable/screen/mov_intent/selector in hud_used.static_inventory)
-			selector.update_icon(src)
+			selector.update_icon()
 
 	return TRUE
 
@@ -370,7 +370,7 @@
 
 
 /mob/living/carbon/human/toggle_move_intent(new_intent)
-	if(species.species_flags & NO_STAMINA && (m_intent == MOVE_INTENT_WALK || new_intent == MOVE_INTENT_RUN))
+	if((m_intent == MOVE_INTENT_WALK || new_intent == MOVE_INTENT_RUN) && (staminaloss >= 0 || (species.species_flags & NO_STAMINA)))
 		return
 	return ..()
 

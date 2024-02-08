@@ -1,14 +1,14 @@
 
 /datum/greyscale_config/screwdriver
-	icon_file = 'icons/obj/items/screwdriver.dmi'
+	icon_file = 'icons/obj/items/tools.dmi'
 	json_config = 'code/datums/greyscale/json_configs/screwdriver.json'
 
 /datum/greyscale_config/screwdriver_inhand_left
-	icon_file = 'icons/obj/items/screwdriver.dmi'
+	icon_file = 'icons/mob/inhands/equipment/tools_left.dmi'
 	json_config = 'code/datums/greyscale/json_configs/screwdriver_inhand_left.json'
 
 /datum/greyscale_config/screwdriver_inhand_right
-	icon_file = 'icons/obj/items/screwdriver.dmi'
+	icon_file = 'icons/mob/inhands/equipment/tools_right.dmi'
 	json_config = 'code/datums/greyscale/json_configs/screwdriver_inhand_right.json'
 
 /datum/greyscale_config/pillbottle
@@ -97,8 +97,22 @@
 /datum/greyscale_config/armor_mk1/skirmisher
 	icon_file = 'icons/mob/modular/mark_one/skirmisher.dmi'
 
-/datum/greyscale_config/armor_mk1/kabuto
-	icon_file = 'icons/mob/modular/mark_one/kabuto.dmi'
+//Hardsuits
+
+/datum/greyscale_config/hardsuit_variant
+	prefix = "markone_"
+	icon_file = 'icons/mob/modular/syndicate_hardsuits.dmi'
+	json_config = 'code/datums/greyscale/json_configs/hardsuit_variant.json'
+
+/datum/greyscale_config/hardsuit_variant/syndicate_markthree
+	prefix = "markthree_"
+
+/datum/greyscale_config/hardsuit_variant/syndicate_markfive
+	prefix = "markfive_"
+
+/datum/greyscale_config/exoskeleton
+	icon_file = 'icons/mob/modular/syndicate_hardsuits.dmi'
+	json_config = 'code/datums/greyscale/json_configs/exoskeleton.json'
 
 //Mark 2
 

@@ -1,7 +1,7 @@
 #define UPLOAD_LIMIT 1000000	//Restricts client uploads to the server to 1MB
 #define UPLOAD_LIMIT_ADMIN 10000000	//Restricts admin uploads to the server to 10MB
 
-#define MAX_RECOMMENDED_CLIENT 1604
+
 #define MIN_RECOMMENDED_CLIENT 1575
 #define REQUIRED_CLIENT_MAJOR 514
 #define REQUIRED_CLIENT_MINOR 1493
@@ -143,6 +143,9 @@
 	GLOB.clients += src
 	GLOB.directory[ckey] = src
 
+	//On creation of a client, add an entry into the GLOB list of the client with their stats
+	GLOB.personal_statistics_list[ckey] = new /datum/personal_statistics
+
 	// Instantiate stat panel
 	stat_panel = new(src, "statbrowser")
 	stat_panel.subscribe(src, PROC_REF(on_stat_panel_message))
@@ -257,10 +260,6 @@
 		to_chat(src, span_userdanger("Your version of byond might have rendering lag issues, it is recommended you update your version to above Byond version 1555 if you encounter them."))
 		to_chat(src, span_danger("You can go to <a href=\"https://secure.byond.com/download/build\">BYOND's website</a> to download other versions."))
 
-	if(byond_build > MAX_RECOMMENDED_CLIENT)
-		to_chat(src, span_userdanger("Your version of byond is likely to be very buggy."))
-		to_chat(src, span_danger("It is recommended you install an older version of byond. You can go to <a href=\"https://secure.byond.com/download/build\">BYOND's website</a> to download 514.[MAX_RECOMMENDED_CLIENT]."))
-
 	if(num2text(byond_build) in GLOB.blacklisted_builds)
 		log_access("Failed login: [key] - blacklisted byond version")
 		to_chat(src, span_userdanger("Your version of byond is blacklisted."))
@@ -270,10 +269,7 @@
 		return
 
 	if(GLOB.custom_info)
-		to_chat(src, "<h1 class='alert'>Custom Information</h1>")
-		to_chat(src, "<h2 class='alert'>The following custom information has been set for this round:</h2>")
-		to_chat(src, span_alert("[GLOB.custom_info]"))
-		to_chat(src, "<br>")
+		to_chat(src, "[span_faction_alert("[span_faction_alert_title("Custom Information")][span_faction_alert_subtitle("The following custom information has been set for this round.")]<br>[span_faction_alert_text("[GLOB.custom_info]")]")]")
 
 	connection_time = world.time
 	connection_realtime = world.realtime
@@ -409,14 +405,13 @@
 				"Forever alone :("\
 			)
 			send2adminchat("Server", "[cheesy_message] (No staff online)")
+	if(mob)
+		mob.become_uncliented()
 	GLOB.ahelp_tickets.ClientLogout(src)
 	GLOB.directory -= ckey
 	GLOB.clients -= src
 	seen_messages = null
 	QDEL_LIST_ASSOC_VAL(char_render_holders)
-	if(movingmob != null)
-		LAZYREMOVE(movingmob.client_mobs_in_contents, mob)
-		movingmob = null
 	SSping.currentrun -= src
 	QDEL_NULL(tooltips)
 	Master.UpdateTickRate()
@@ -886,7 +881,7 @@
 	apply_clickcatcher()
 	mob.reload_fullscreens()
 	if(prefs.auto_fit_viewport)
-		INVOKE_NEXT_TICK(src, .verb/fit_viewport, 1 SECONDS) //Delayed to avoid wingets from Login calls.
+		INVOKE_NEXT_TICK(src, VERB_REF(fit_viewport), 1 SECONDS) //Delayed to avoid wingets from Login calls.
 
 ///Change the fullscreen setting of the client
 /client/proc/set_fullscreen(fullscreen_mode)

@@ -60,7 +60,7 @@
 			return
 		bioscanning_ai.last_ai_bioscan = world.time
 		to_chat(bioscanning_ai, span_warning("Scanning for hostile lifeforms..."))
-		if(!do_after(usr, AI_SCAN_DELAY, TRUE, usr, BUSY_ICON_GENERIC)) //initial windup time until firing begins
+		if(!do_after(usr, AI_SCAN_DELAY, NONE, usr, BUSY_ICON_GENERIC)) //initial windup time until firing begins
 			bioscanning_ai.last_ai_bioscan = 0
 			return
 
@@ -124,10 +124,10 @@
 				to_chat(usr, span_warning("Signal analysis reveals excellent detail about hostile movements and numbers."))
 				return
 			if(3)
-				to_chat(usr, span_warning("Minor corruption detected in our bioscan instruments, some information about hostile activity may be incorrect."))
+				to_chat(usr, span_warning("Minor corruption detected in our bioscan instruments due to ship elevation, some information about hostile activity may be incorrect."))
 				return
 			if(5)
-				to_chat(usr, span_warning("Major corruption detected in our bioscan readings, information heavily corrupted."))
+				to_chat(usr, span_warning("Major corruption detected in our bioscan readings due to ship elevation, information heavily corrupted."))
 		return
 
 	if(announce_humans)
@@ -141,8 +141,8 @@
 
 	for(var/i in GLOB.observer_list)
 		var/mob/M = i
-		to_chat(M, "<h2 class='alert'>Detailed Information</h2>")
-		to_chat(M, {"<span class='alert'>[numXenosPlanet] xeno\s on the planet.
+		to_chat(M, "<span class='announce_header'>Detailed Information</span>")
+		to_chat(M, {"<span class='announce_body'>[numXenosPlanet] xeno\s on the planet.
 [numXenosShip] xeno\s on the ship.
 [numHostsPlanet] human\s on the planet.
 [numHostsShip] human\s on the ship.
@@ -295,9 +295,9 @@
 /datum/game_mode/infestation/announce()
 	to_chat(world, span_round_header("The current map is - [SSmapping.configs[GROUND_MAP].map_name]!"))
 
-/datum/game_mode/infestation/attempt_to_join_as_larva(mob/dead/observer/observer)
+/datum/game_mode/infestation/attempt_to_join_as_larva(client/waiter)
 	var/datum/hive_status/normal/HS = GLOB.hive_datums[XENO_HIVE_NORMAL]
-	return HS.add_to_larva_candidate_queue(observer)
+	return HS.add_to_larva_candidate_queue(waiter)
 
 
 /datum/game_mode/infestation/spawn_larva(mob/xeno_candidate, mob/living/carbon/xenomorph/mother)

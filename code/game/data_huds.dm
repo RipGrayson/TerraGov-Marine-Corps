@@ -127,7 +127,7 @@
 		holder.icon_state = "hudhealth-100"
 		return
 
-	var/percentage = round(health * 100 / species.total_health)
+	var/percentage = round(health * 100 / maxHealth)
 	switch(percentage)
 		if(100 to INFINITY)
 			holder.icon_state = "hudhealth100"
@@ -259,14 +259,19 @@
 		simple_status_hud.icon_state = ""
 		if(stat != DEAD)
 			status_hud.icon_state = "hudsynth"
+		else if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
+			status_hud.icon_state = "hudsynthdnr"
+			return TRUE
 		else
-			if(!client)
-				var/mob/dead/observer/G = get_ghost(FALSE, TRUE)
+			if(!mind)
+				var/mob/dead/observer/G = get_ghost(TRUE)
 				if(!G)
 					status_hud.icon_state = "hudsynthdnr"
 				else
 					status_hud.icon_state = "hudsynthdead"
-			return
+			else
+				status_hud.icon_state = "hudsynthdead"
+			return TRUE
 		infection_hud.icon_state = "hudsynth" //Xenos can feel synths are not human.
 		return TRUE
 
@@ -303,8 +308,8 @@
 				hud_list[HEART_STATUS_HUD].icon_state = "still_heart"
 				status_hud.icon_state = "huddead"
 				return TRUE
-			if(!client)
-				var/mob/dead/observer/ghost = get_ghost()
+			if(!mind)
+				var/mob/dead/observer/ghost = get_ghost(TRUE)
 				if(!ghost?.can_reenter_corpse)
 					status_hud.icon_state = "huddead"
 					return TRUE
@@ -379,24 +384,22 @@
 		holder.icon_state = "hudhealth-100"
 		return TRUE
 
-	var/perceived_health = health
+	var/perceived_health = health / maxHealth * 100
 	if(!(species.species_flags & NO_PAIN))
 		perceived_health -= PAIN_RATIO_PAIN_HUD * traumatic_shock
 	if(!(species.species_flags & NO_STAMINA) && staminaloss > 0)
 		perceived_health -= STAMINA_RATIO_PAIN_HUD * staminaloss
 
-	switch(perceived_health)
-		if(100 to INFINITY)
-			holder.icon_state = "hudhealth100"
-		if(0 to 100)
-			holder.icon_state = "hudhealth[round(perceived_health, 10)]"
-		if(-50 to 0)
-			holder.icon_state = "hudhealth-0"
-		else
-			holder.icon_state = "hudhealth-50"
+	if(perceived_health >= 100)
+		holder.icon_state = "hudhealth100"
+	else if(perceived_health > 0)
+		holder.icon_state = "hudhealth[round(perceived_health, 10)]"
+	else if(health > (health_threshold_dead * 0.5))
+		holder.icon_state = "hudhealth-0"
+	else
+		holder.icon_state = "hudhealth-50"
 
 	return TRUE
-
 
 //infection status that appears on humans and monkeys, viewed by xenos only.
 /datum/atom_hud/xeno_infection
@@ -416,7 +419,7 @@
 
 //Xeno status hud, for xenos
 /datum/atom_hud/xeno
-	hud_icons = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_FIRE_HUD)
+	hud_icons = list(HEALTH_HUD_XENO, PLASMA_HUD, PHEROMONE_HUD, QUEEN_OVERWATCH_HUD, ARMOR_SUNDER_HUD, XENO_FIRE_HUD, XENO_RANK_HUD, XENO_BLESSING_HUD, XENO_EVASION_HUD)
 
 /datum/atom_hud/xeno_heart
 	hud_icons = list(HEART_STATUS_HUD)
@@ -467,11 +470,13 @@
 	var/image/holder = hud_list[PLASMA_HUD]
 	if(!holder)
 		return
+	holder.overlays.Cut()
 	if(stat == DEAD)
-		holder.icon_state = "[xeno_caste.plasma_icon_state]0"
-	else
-		var/amount = round(plasma_stored * 100 / xeno_caste.plasma_max, 10)
-		holder.icon_state = "[xeno_caste.plasma_icon_state][amount]"
+		return
+	var/plasma_amount = xeno_caste.plasma_max? round(plasma_stored * 100 / xeno_caste.plasma_max, 10) : 0
+	holder.overlays += xeno_caste.plasma_icon_state? "[xeno_caste.plasma_icon_state][plasma_amount]" : null
+	var/wrath_amount = xeno_caste.wrath_max? round(wrath_stored * 100 / xeno_caste.wrath_max, 10) : 0
+	holder.overlays += "wrath[wrath_amount]"
 
 
 /mob/living/carbon/xenomorph/proc/hud_set_pheromone()
@@ -515,11 +520,15 @@
 			if(queen_chosen_lead)
 				var/image/I = image('icons/mob/hud.dmi',src, "hudxenoleader")
 				holder.overlays += I
-		if(upgrade_as_number() > 0) // theres only icons for 1 2 3, not for -1
-			var/image/J = image('icons/mob/hud.dmi',src, "hudxenoupgrade[upgrade_as_number()]")
-			holder.overlays += J
 	hud_list[QUEEN_OVERWATCH_HUD] = holder
 
+/mob/living/carbon/xenomorph/proc/hud_update_rank()
+	var/image/holder = hud_list[XENO_RANK_HUD]
+	holder.icon_state = "hudblank"
+	if(stat != DEAD && playtime_as_number() > 0)
+		holder.icon_state = "hudxenoupgrade[playtime_as_number()]"
+
+	hud_list[XENO_RANK_HUD] = holder
 
 /datum/atom_hud/security
 	hud_icons = list(WANTED_HUD)
@@ -643,11 +652,11 @@
 
 	if(!holder)
 		return
-	var/obj/item/weapon/gun/gun = internal_item
-	if(!gun.rounds)
+	var/obj/item/weapon/gun/internal_gun = internal_item.resolve()
+	if(!internal_gun?.rounds)
 		holder.icon_state = "plasma0"
 		return
-	var/amount = gun.max_rounds ? round(gun.rounds * 100 / gun.max_rounds, 10) : 0
+	var/amount = internal_gun.max_rounds ? round(internal_gun.rounds * 100 / internal_gun.max_rounds, 10) : 0
 	holder.icon_state = "plasma[amount]"
 
 ///Makes unmanned vehicle ammo visible

@@ -349,6 +349,7 @@
 	spawn_number = 5
 
 /obj/item/storage/box/explosive_mines/update_icon_state()
+	. = ..()
 	icon_state = initial(icon_state)
 	if(!length(contents))
 		icon_state += "_e"
@@ -365,6 +366,13 @@
 	name = "\improper M20P mine box"
 	spawn_type = /obj/item/explosive/mine/pmc
 
+/obj/item/storage/box/explosive_mines/antitank
+	name = "\improper M92 mine box"
+	desc = "A secure box holding anti-tank proximity mines."
+	icon_state = "atminebox"
+	spawn_type = /obj/item/explosive/mine/anti_tank
+	spawn_number = 5
+
 /obj/item/storage/box/m94
 	name = "\improper M40 FLDP flare pack"
 	desc = "A packet of seven M40 FLDP Flares. Carried by TGMC marines to light dark areas that cannot be reached with the usual TNR Shoulder Lamp. Can be launched from an underslung grenade launcher."
@@ -374,7 +382,8 @@
 	spawn_type = /obj/item/explosive/grenade/flare
 	spawn_number = 14
 
-/obj/item/storage/box/m94/update_icon()
+/obj/item/storage/box/m94/update_icon_state()
+	. = ..()
 	icon_state = initial(icon_state)
 	if(!length(contents))
 		icon_state += "_e"
@@ -438,7 +447,8 @@
 	if(. && !length(contents) && !gc_destroyed)
 		qdel(src)
 
-/obj/item/storage/box/MRE/update_icon()
+/obj/item/storage/box/MRE/update_icon_state()
+	. = ..()
 	if(!isopened)
 		isopened = 1
 		icon_state += "opened"

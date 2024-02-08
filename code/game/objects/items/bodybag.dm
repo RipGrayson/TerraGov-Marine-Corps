@@ -68,6 +68,8 @@
 	var/obj/item/bodybag/foldedbag_instance = null
 	var/obj/structure/bed/roller/roller_buckled //the roller bed this bodybag is attached to.
 	var/mob/living/bodybag_occupant
+	///Should the name of the person inside be displayed?
+	var/display_name = TRUE
 
 
 /obj/structure/closet/bodybag/Initialize(mapload, foldedbag)
@@ -94,7 +96,10 @@
 	return ..()
 
 
-/obj/structure/closet/bodybag/proc/update_name()
+/obj/structure/closet/bodybag/update_name(updates)
+	. = ..()
+	if(!display_name)
+		return
 	if(opened)
 		name = bag_name
 	else
@@ -145,7 +150,7 @@
 		var/mob/living/carbon/human/new_guest = locate() in contents
 		if(new_guest)
 			bodybag_occupant = new_guest
-		update_name()
+		update_appearance()
 		return TRUE
 	return FALSE
 
@@ -154,7 +159,7 @@
 	. = ..()
 	if(bodybag_occupant)
 		bodybag_occupant = null
-	update_name()
+	update_appearance()
 
 
 /obj/structure/closet/bodybag/MouseDrop(over_object, src_location, over_location)
@@ -188,7 +193,8 @@
 	return ..()
 
 
-/obj/structure/closet/bodybag/update_icon()
+/obj/structure/closet/bodybag/update_icon_state()
+	. = ..()
 	if(!opened)
 		icon_state = icon_closed
 		for(var/mob/living/L in contents)
@@ -198,7 +204,7 @@
 		icon_state = icon_opened
 
 
-/obj/structure/closet/bodybag/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = 0, isrightclick = FALSE)
+/obj/structure/closet/bodybag/attack_alien(mob/living/carbon/xenomorph/X, damage_amount = X.xeno_caste.melee_damage, damage_type = BRUTE, damage_flag = "", effects = TRUE, armor_penetration = X.xeno_caste.melee_ap, isrightclick = FALSE)
 	if(X.status_flags & INCORPOREAL)
 		return FALSE
 	if(opened)
@@ -300,6 +306,7 @@
 	if(bodybag_occupant)
 		REMOVE_TRAIT(bodybag_occupant, TRAIT_STASIS, STASIS_BAG_TRAIT)
 		UnregisterSignal(bodybag_occupant, list(COMSIG_MOB_DEATH, COMSIG_PREQDELETED))
+		bodybag_occupant.record_time_in_stasis()
 	return ..()
 
 
@@ -314,7 +321,7 @@
 	if(bodybag_occupant)
 		ADD_TRAIT(bodybag_occupant, TRAIT_STASIS, STASIS_BAG_TRAIT)
 		RegisterSignals(bodybag_occupant, list(COMSIG_MOB_DEATH, COMSIG_PREQDELETED), PROC_REF(on_bodybag_occupant_death))
-
+		bodybag_occupant.time_entered_stasis = world.time
 
 /obj/structure/closet/bodybag/cryobag/proc/on_bodybag_occupant_death(mob/source, gibbing)
 	SIGNAL_HANDLER
@@ -335,7 +342,7 @@
 		if(!(medical_record.fields["last_scan_time"]))
 			. += "<span class = 'deptradio'>No scan report on record</span>"
 		else
-			. += "<span class = 'deptradio'><a href='?src=\ref[src];scanreport=1'>Scan from [medical_record.fields["last_scan_time"]]</a></span>"
+			. += "<span class = 'deptradio'><a href='?src=[text_ref(src)];scanreport=1'>Scan from [medical_record.fields["last_scan_time"]]</a></span>"
 		break
 
 
@@ -415,6 +422,7 @@
 	close_sound = 'sound/effects/vegetation_walk_2.ogg'
 	foldedbag_path = /obj/item/bodybag/tarp
 	closet_stun_delay = 0.5 SECONDS //Short delay to prevent ambushes from being too degenerate.
+	display_name = FALSE
 	var/serial_number //Randomized serial number used to stop point macros and such.
 
 
@@ -451,11 +459,6 @@
 /obj/structure/closet/bodybag/tarp/proc/on_bodybag_occupant_death(mob/source, gibbing)
 	SIGNAL_HANDLER
 	open()
-
-
-/obj/structure/closet/bodybag/tarp/update_name()
-	return //Shouldn't be revealing who's inside.
-
 
 /obj/structure/closet/bodybag/tarp/MouseDrop(over_object, src_location, over_location)
 	. = ..()
