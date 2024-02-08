@@ -641,7 +641,7 @@
 		reset_slot_to_default(i)
 	var/global_index_value = 1
 	for(var/building in last_touched_building.buildable_structures) //todo this can probably become a standard loop instead of a ranged for loop
-		var/atom/movable/screen/ai_rts/construction_slot/buildingslots = hud_used.static_inventory[global_index_value]
+		var/atom/movable/screen/ai_rts/construction_slot/build_queue/buildingslots = hud_used.static_inventory[global_index_value]
 		var/obj/structure/rts_building/precursor/newbuilding = new building ///blarg, we need to call new on this or the contents of required_buildings_flags_for_construction will be empty. I don't know why.
 		if(validate_build_reqs(newbuilding))
 			buildingslots.potential_building = building
@@ -657,7 +657,7 @@
 		SSrtspoints.ai_points += newbuilding.pointcost //this is extremely hacky, but otherwise (new) will deduct points for just selecting a building
 		qdel(newbuilding) //get rid of the newbuilding afterwards
 	for(var/minions in last_touched_building.buildable_units)
-		var/atom/movable/screen/ai_rts/construction_slot/buildingslots = hud_used.static_inventory[global_index_value]
+		var/atom/movable/screen/ai_rts/construction_slot/build_queue/buildingslots = hud_used.static_inventory[global_index_value]
 		var/datum/rts_units/newunit = new minions
 		var/list/listofflags = newunit.required_unit_building_flags
 		if(validate_unit_build_reqs(listofflags))
@@ -673,7 +673,7 @@
 		++global_index_value
 		qdel(newunit)
 	for(var/actions in last_touched_building.doable_actions)
-		var/atom/movable/screen/ai_rts/construction_slot/buildingslots = hud_used.static_inventory[global_index_value]
+		var/atom/movable/screen/ai_rts/construction_slot/build_queue/buildingslots = hud_used.static_inventory[global_index_value]
 		var/datum/ai_action/newaction = new actions
 		var/list/listofflags = newaction.required_action_building_flags
 		if(validate_unit_build_reqs(listofflags))
@@ -691,19 +691,23 @@
 	update_unit_construction_icons(last_touched_building.queuedunits)
 
 ///update building unit construction queue HUD
-/mob/living/silicon/ai/malf/proc/update_unit_construction_icons(list/unitlist)
+/mob/living/silicon/ai/malf/proc/update_unit_construction_icons(list/unitlist, progressquadrant = 0)
 	if(!unitlist)
 		return
 	if(unitlist.len > 8)
 		CRASH("Tried to update unit construction icons but unit queue was bigger than 8!")
 	var/global_index_value = 10
 	for(var/i in 10 to 17)
-		var/atom/movable/screen/ai_rts/construction_slot/buildingslots = hud_used.static_inventory[i]
+		var/atom/movable/screen/ai_rts/construction_slot/build_queue/buildingslots = hud_used.static_inventory[i]
 		buildingslots.icon = initial(buildingslots.icon)
 		buildingslots.name = initial(buildingslots.name)
 		buildingslots.icon_state = initial(buildingslots.icon_state)
+		buildingslots.overlays.Cut()
 	for(var/i in unitlist)
-		var/atom/movable/screen/ai_rts/construction_slot/buildingslots = hud_used.static_inventory[global_index_value]
+		var/atom/movable/screen/ai_rts/construction_slot/build_queue/buildingslots = hud_used.static_inventory[global_index_value]
+		if(global_index_value == 10)
+			buildingslots.quadrant_progress = progressquadrant
+			buildingslots.update_overlays()
 		if(istype(i, /datum/rts_units))
 			buildingslots.icon = 'icons/mob/rts_icons.dmi'
 			var/datum/rts_units/selecteddatum = i

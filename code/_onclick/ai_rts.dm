@@ -123,19 +123,18 @@
 		//return
 	for(var/dirn in GLOB.alldirs)
 		checkedturf = get_step(src, dirn)
-		if(checkedturf.density)
-			to_chat(user, "You can't, the building would clip into dense turf")
+		if(is_blocked_turf(checkedturf))
+			to_chat(user, "You can't, the [user.held_building.name] would clip into something!")
 			return
 		if(isspaceturf(checkedturf) || islava(checkedturf) || iswater(checkedturf))
 			to_chat(user, span_warning("Unsuitable terrain for building"))
 			return
 		for(var/atom/A in checkedturf)
-			if(isliving(A))
-				continue
 			if(A.density || istype(A, /obj/structure/rts_building/precursor))
 				to_chat(user, "Another object here is dense")
 				return
 	to_chat(user, "You begin the construction of [initial(user.held_building.name)] for [initial(user.held_building.pointcost)].")
+	pick(playsound(usr, 'sound/effects/button4.ogg', 35), playsound(usr, 'sound/effects/button5.ogg', 35))
 	var/obj/structure/rts_building/precursor/newbuilding = new user.held_building(src)
 	newbuilding.access_owning_ai(user)
 	user.held_building = null
@@ -145,9 +144,4 @@
 	to_chat(user, "You cancel the construction of this [name] for [pointcost] resources.")
 	SSrtspoints.ai_points += pointcost
 	qdel(src)
-
-///obj/structure/rts_building/construct/MalfCtrlClick(mob/living/silicon/ai/malf/user)
-	//user.last_touched_building = src
-	//queueunit(user)
-	//do hud action
 

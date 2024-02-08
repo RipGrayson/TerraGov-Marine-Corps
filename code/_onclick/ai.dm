@@ -397,23 +397,6 @@
 			GLOB.marine_main_ship?.rail_gun?.fire_rail_gun(laser, user, TRUE, TRUE)
 			++timesfired
 
-/turf/AICtrlClick(mob/living/silicon/ai/malf/user)
-	var/turf/checkedturf
-	for(var/dirn in GLOB.alldirs)
-		checkedturf = get_step(src, dirn)
-		if(checkedturf.density)
-			to_chat(user, "You can't, the building would clip into dense turf")
-			return
-		for(var/atom/A in checkedturf)
-			if(isliving(A))
-				continue
-			if(A.density || istype(A, /obj/structure/rts_building/precursor))
-				to_chat(user, "Another object here is dense")
-				return
-	to_chat(user, "You begin the construction of [initial(user.held_building.name)].")
-	var/obj/structure/rts_building/precursor/newbuilding = new user.held_building(src)
-	newbuilding.access_owning_ai(user)
-
 /obj/structure/rts_building/precursor/AICtrlClick(mob/living/silicon/ai/malf/user)
 	to_chat(user, "You cancel the construction of this [name] for [pointcost] resources.")
 	SSrtspoints.ai_points += pointcost

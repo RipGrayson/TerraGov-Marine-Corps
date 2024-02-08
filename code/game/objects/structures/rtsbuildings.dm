@@ -46,6 +46,8 @@
 	var/is_selected = FALSE
 	///is this a building an upgrade to an existing building, if so replace existing building with upgrade
 	var/is_upgrade = FALSE
+	///holds unit progression progress on the hud bar
+	var/progressquadrant = 1
 	hud_possible = list(HEALTH_HUD, STATUS_HUD_SIMPLE, STATUS_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, WANTED_HUD, SQUAD_HUD_TERRAGOV, SQUAD_HUD_SOM, ORDER_HUD, PAIN_HUD, XENO_DEBUFF_HUD, HEART_STATUS_HUD)
 
 /obj/structure/rts_building/construct/Initialize(mapload)
@@ -311,15 +313,27 @@
 	SSrtspoints.ai_points -= unit_type.cost
 	if(!HAS_TRAIT(src, BUILDING_BUSY))
 		addtimer(CALLBACK(src, PROC_REF(createunit), unit_type.spawntype), unit_type.buildtime)
+		addtimer(CALLBACK(src, PROC_REF(update_build_queue_quadrant), unit_type.buildtime / 8), (unit_type.buildtime / 8))
 		ADD_TRAIT(src, BUILDING_BUSY, BUILDING_BUSY)
 	if(is_selected)
 		constructingai.update_unit_construction_icons(queuedunits)
+
+/obj/structure/rts_building/construct/proc/update_build_queue_quadrant(calltime)
+	if(progressquadrant > 7)
+		progressquadrant = 1
+		constructingai.update_unit_construction_icons(queuedunits, progressquadrant)
+		return
+	to_chat(constructingai, "[progressquadrant]")
+	constructingai.update_unit_construction_icons(queuedunits, progressquadrant)
+	++progressquadrant
+	addtimer(CALLBACK(src, PROC_REF(update_build_queue_quadrant), calltime), calltime)
+
 
 ///actually generates the unit
 /obj/structure/rts_building/construct/proc/createunit(mob/living/generatedunit = /mob/living/carbon/xenomorph/mantis/ai, mob/living/silicon/ai/malf/user)
 	new generatedunit(get_step(src, SOUTH))
 	queuedunits.Cut(1,2)
-	icon_state = base_icon_state
+	icon_state = initial(icon_state)
 	if(HAS_TRAIT(src, BUILDING_BUSY))
 		REMOVE_TRAIT(src, BUILDING_BUSY, BUILDING_BUSY)
 	if(queuedunits.len > 0)
