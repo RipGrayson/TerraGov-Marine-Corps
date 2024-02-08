@@ -52,6 +52,49 @@
 /proc/get_playable_species()
 	return GLOB.roundstart_species
 
+/proc/do_mob(mob/user, mob/target, delay = 30, user_display, target_display, prog_bar = PROGRESS_GENERIC, ignore_flags = NONE, datum/callback/extra_checks)
+	if(!user || !target)
+		return FALSE
+	var/user_loc = user.loc
+
+	var/target_loc = target.loc
+
+	var/holding = user.get_active_held_item()
+	var/datum/progressbar/P = prog_bar ? new prog_bar(user, delay, target, user_display, target_display) : null
+
+	LAZYINCREMENT(user.do_actions, target)
+	var/endtime = world.time + delay
+	var/starttime = world.time
+	. = TRUE
+	while (world.time < endtime)
+		stoplag(1)
+		P?.update(world.time - starttime)
+
+		if(QDELETED(user) || QDELETED(target) || (extra_checks && !extra_checks.Invoke()))
+			. = FALSE
+			break
+
+		if(!(ignore_flags & IGNORE_USER_LOC_CHANGE) && user.loc != user_loc)
+			. = FALSE
+			break
+
+		if(!(ignore_flags & IGNORE_TARGET_LOC_CHANGE) && target.loc != target_loc)
+			. = FALSE
+			break
+
+		if(!(ignore_flags & IGNORE_HAND) && user.get_active_held_item() != holding)
+			. = FALSE
+			break
+
+		if(user.incapacitated())
+			. = FALSE
+			break
+
+	if(P)
+		qdel(P)
+
+	LAZYDECREMENT(user.do_actions, target)
+
 //some additional checks as a callback for for do_afters that want to break on losing health or on the mob taking action
 /mob/proc/break_do_after_checks(list/checked_health, check_clicks, selected_zone_check)
 	if(check_clicks && next_move > world.time)

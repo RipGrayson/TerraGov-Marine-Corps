@@ -204,10 +204,6 @@ GLOBAL_VAR_INIT(refid_filter, TYPEID(filter(type="angular_blur")))
 
 #define ismodularhelmet(A) (istype(A, /obj/item/clothing/head/modular))
 
-#define isatmosscrubber(A) (istype(A, /obj/machinery/atmospherics/components/unary/vent_scrubber))
-
-#define isatmosvent(A) (istype(A, /obj/machinery/atmospherics/components/unary/vent_pump))
-
 #define isattachmentflashlight(A) (istype(A, /obj/item/attachable/flashlight))
 
 #define isgunattachment(A) (istype(A, /obj/item/attachable))

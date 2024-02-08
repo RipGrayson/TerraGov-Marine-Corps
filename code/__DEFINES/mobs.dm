@@ -799,6 +799,7 @@ GLOBAL_LIST_INIT(human_body_parts, list(BODY_ZONE_HEAD,
 #define IGNORE_INCAPACITATED (1<<3)
 /// Used to prevent important slowdowns from being abused by drugs like kronkaine
 #define IGNORE_SLOWDOWNS (1<<4)
+#define IGNORE_HAND (1<<5)
 
 #define IGNORE_LOC_CHANGE (IGNORE_USER_LOC_CHANGE|IGNORE_TARGET_LOC_CHANGE)
 

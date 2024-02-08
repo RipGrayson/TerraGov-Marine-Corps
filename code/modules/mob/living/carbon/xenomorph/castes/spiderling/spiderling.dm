@@ -30,10 +30,10 @@
 	. = ..()
 	spidermother = mother
 	if(spidermother)
-		AddComponent(/datum/component/ai_controller, /datum/ai_behavior/spiderling, spidermother)
+		AddComponent(/datum/component/ai_controller, /datum/ai_behavior_nodebased/spiderling, spidermother)
 		transfer_to_hive(spidermother.get_xeno_hivenumber())
 	else
-		AddComponent(/datum/component/ai_controller, /datum/ai_behavior/xeno)
+		AddComponent(/datum/component/ai_controller, /datum/ai_behavior_nodebased/xeno)
 
 /mob/living/carbon/xenomorph/spiderling/update_icons(state_change = TRUE)
 	. = ..()
@@ -101,7 +101,7 @@
 		return
 
 /// Sets escorted atom to our pre-defined default escorted atom, which by default is this spiderling's widow, and commands the spiderling to follow it
-/datum/ai_behavior/spiderling/proc/revert_to_default_escort(source)
+/datum/ai_behavior_nodebased/spiderling/proc/revert_to_default_escort(source)
 	SIGNAL_HANDLER
 	escorted_atom = default_escorted_atom.resolve()
 	change_action(ESCORTING_ATOM, escorted_atom)
@@ -163,14 +163,14 @@
 	return ..()
 
 /// If the spiderling's mother goes into crit, the spiderlings will stop what they are doing and attempt to shield her
-/datum/ai_behavior/spiderling/proc/attempt_guard()
+/datum/ai_behavior_nodebased/spiderling/proc/attempt_guard()
 	SIGNAL_HANDLER
 	if(guarding_status == SPIDERLING_NOT_GUARDING) //Nothing to cleanup
 		INVOKE_ASYNC(src, PROC_REF(guard_owner))
 		return
 
 /// Spiderling's mother woke up from crit; reset stuff back to normal
-/datum/ai_behavior/spiderling/proc/attempt_unguard()
+/datum/ai_behavior_nodebased/spiderling/proc/attempt_unguard()
 	SIGNAL_HANDLER
 	INVOKE_ASYNC(src, PROC_REF(revert_to_default_escort))
 	guarding_status = SPIDERLING_NOT_GUARDING
@@ -178,7 +178,7 @@
 	X?.spiderling_state = SPIDERLING_NORMAL
 	X?.update_icons()
 
-/datum/ai_behavior/spiderling/ai_do_move()
+/datum/ai_behavior_nodebased/spiderling/ai_do_move()
 	if((guarding_status == SPIDERLING_ATTEMPTING_GUARD) && (get_dist(mob_parent, atom_to_walk_to) <= 1))
 		var/mob/living/carbon/xenomorph/spiderling/X = mob_parent
 		if(prob(50))
@@ -190,7 +190,7 @@
 	return ..()
 
 /// Moves spiderlings to the widow
-/datum/ai_behavior/spiderling/proc/guard_owner()
+/datum/ai_behavior_nodebased/spiderling/proc/guard_owner()
 	var/mob/living/carbon/xenomorph/spiderling/X = mob_parent
 	if(QDELETED(X))
 		return
@@ -205,7 +205,7 @@
 	guarding_status = SPIDERLING_ATTEMPTING_GUARD
 
 /// This happens when the spiderlings mother dies, they move faster and will attack any nearby marines
-/datum/ai_behavior/spiderling/proc/spiderling_rage()
+/datum/ai_behavior_nodebased/spiderling/proc/spiderling_rage()
 	SIGNAL_HANDLER
 	escorted_atom = null
 	var/mob/living/carbon/xenomorph/spiderling/x = mob_parent
@@ -227,7 +227,7 @@
 	addtimer(CALLBACK(src, PROC_REF(kill_parent)), 10 SECONDS)
 
 /// Makes the spiderling roar and then kill themselves after some time
-/datum/ai_behavior/spiderling/proc/triggered_spiderling_rage(mob/M, mob/victim)
+/datum/ai_behavior_nodebased/spiderling/proc/triggered_spiderling_rage(mob/M, mob/victim)
 	var/mob/living/carbon/xenomorph/spiderling/spiderling_parent = mob_parent
 	if(QDELETED(spiderling_parent))
 		return
@@ -243,26 +243,26 @@
 	spiderling_parent?.death(gibbing = FALSE)
 
 /// resist when widow does
-/datum/ai_behavior/spiderling/proc/parent_resist()
+/datum/ai_behavior_nodebased/spiderling/proc/parent_resist()
 	SIGNAL_HANDLER
 	var/mob/living/carbon/xenomorph/spiderling/spiderling_parent = mob_parent
 	spiderling_parent?.do_resist()
 
 /// rest when widow does
-/datum/ai_behavior/spiderling/proc/start_resting(mob/source)
+/datum/ai_behavior_nodebased/spiderling/proc/start_resting(mob/source)
 	SIGNAL_HANDLER
 	var/mob/living/living = mob_parent
 	living?.set_resting(TRUE)
 
 /// stop resting when widow does, plus unbuckle all mobs so the widow won't get stuck
-/datum/ai_behavior/spiderling/proc/stop_resting(mob/source)
+/datum/ai_behavior_nodebased/spiderling/proc/stop_resting(mob/source)
 	SIGNAL_HANDLER
 	var/mob/living/living = mob_parent
 	living?.set_resting(FALSE)
 	source?.unbuckle_all_mobs()
 
 /// Signal handler to make the spiderling jump when widow does
-/datum/ai_behavior/spiderling/proc/do_jump()
+/datum/ai_behavior_nodebased/spiderling/proc/do_jump()
 	SIGNAL_HANDLER
 	var/datum/component/jump/jumpy_spider = mob_parent.GetComponent(/datum/component/jump)
 	jumpy_spider?.do_jump(mob_parent)
