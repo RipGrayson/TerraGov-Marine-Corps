@@ -48,7 +48,7 @@
 	var/is_upgrade = FALSE
 	///holds unit progression progress on the hud bar
 	var/progressquadrant = 1
-	hud_possible = list(HEALTH_HUD, STATUS_HUD_SIMPLE, STATUS_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, WANTED_HUD, SQUAD_HUD_TERRAGOV, SQUAD_HUD_SOM, ORDER_HUD, PAIN_HUD, XENO_DEBUFF_HUD, HEART_STATUS_HUD)
+	hud_possible = list(HEALTH_HUD, STATUS_HUD_SIMPLE, STATUS_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, WANTED_HUD, SQUAD_HUD_TERRAGOV, SQUAD_HUD_SOM, ORDER_HUD, PAIN_HUD, XENO_DEBUFF_HUD, HEART_STATUS_HUD, RTS_INFO_HUD)
 
 /obj/structure/rts_building/construct/Initialize(mapload)
 	. = ..()
@@ -56,7 +56,7 @@
 	building_camera.network = list("marinemainship")
 	building_camera.view_range = camera_range
 	building_camera.internal_light = FALSE
-	//rts_set_building_health()
+	rts_set_building_health()
 	unit_type = new
 	GLOB.constructed_rts_builds += src
 
@@ -286,6 +286,7 @@
 		qdel(src)
 		return
 	SSrtspoints.ai_points -= pointcost
+	addtimer(CALLBACK(src, PROC_REF(create_building_countdown), (buildtime / 10)), 1 SECONDS)
 	addtimer(CALLBACK(src, PROC_REF(createbuilding), buildtype), buildtime)
 
 ///generates the building
@@ -297,6 +298,12 @@
 	constructingai.update_build_icons() //todo in the distant future, this could be a signal
 	qdel(src)
 ///reminder, last_touched_building needs its own handler, it's entering a global style situation where too many things are touching it
+
+///generates the building
+/obj/structure/rts_building/precursor/proc/create_building_countdown(countdown)
+	maptext = "[countdown]s"
+	countdown -= 1
+	addtimer(CALLBACK(src, PROC_REF(create_building_countdown), countdown), 1 SECONDS)
 
 ///handles cost, prereq checking and build queuing before creating a unit
 /obj/structure/rts_building/construct/proc/queueunit(datum/rts_units/unit_type, add_unit = FALSE)
@@ -313,18 +320,16 @@
 	SSrtspoints.ai_points -= unit_type.cost
 	if(!HAS_TRAIT(src, BUILDING_BUSY))
 		addtimer(CALLBACK(src, PROC_REF(createunit), unit_type.spawntype), unit_type.buildtime)
-		addtimer(CALLBACK(src, PROC_REF(update_build_queue_quadrant), unit_type.buildtime / 8), (unit_type.buildtime / 8))
+		addtimer(CALLBACK(src, PROC_REF(update_build_queue_quadrant), unit_type.buildtime / 8), (unit_type.buildtime / 8)) //create the routine to handle unit progress overlays
 		ADD_TRAIT(src, BUILDING_BUSY, BUILDING_BUSY)
-	if(is_selected)
-		constructingai.update_unit_construction_icons(queuedunits)
+	constructingai.update_unit_construction_icons(queuedunits, src)
 
 /obj/structure/rts_building/construct/proc/update_build_queue_quadrant(calltime)
 	if(progressquadrant > 7)
 		progressquadrant = 1
-		constructingai.update_unit_construction_icons(queuedunits, progressquadrant)
+		constructingai.update_unit_construction_icons(queuedunits, src, progressquadrant)
 		return
-	to_chat(constructingai, "[progressquadrant]")
-	constructingai.update_unit_construction_icons(queuedunits, progressquadrant)
+	constructingai.update_unit_construction_icons(queuedunits, src, progressquadrant)
 	++progressquadrant
 	addtimer(CALLBACK(src, PROC_REF(update_build_queue_quadrant), calltime), calltime)
 

@@ -67,7 +67,7 @@
 			newbuilding.access_owning_ai(AI)
 			qdel(AI.last_touched_building) //delete old building
 		else
-			to_chat(AI, "You will now build a [potential_building]")
+			to_chat(AI, "You will now build a [potential_building.name]")
 			AI.held_building = potential_building
 	if(potential_unit_type)
 		to_chat(AI, "You have started a [potential_unit_type]")

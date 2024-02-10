@@ -106,9 +106,6 @@
 /mob/proc/med_hud_set_health()
 	return
 
-/datum/atom_hud/rts_info
-	hud_icons = list(HEALTH_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, XENO_DEBUFF_HUD, STATUS_HUD, MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD, RTS_INFO_HUD)
-
 /mob/living/carbon/xenomorph/med_hud_set_health()
 	var/image/holder = hud_list[HEALTH_HUD_XENO]
 	if(!holder)
@@ -715,7 +712,12 @@
 		holder.icon_state = "hudwarn"
 	holder.icon_state = null
 
+
+/datum/atom_hud/rts_info
+	hud_icons = list(HEALTH_HUD, XENO_EMBRYO_HUD, XENO_REAGENT_HUD, XENO_DEBUFF_HUD, STATUS_HUD, MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD, RTS_INFO_HUD)
+
 /obj/proc/rts_set_building_health()
+	return
 	var/image/holder = hud_list[RTS_INFO_HUD]
 
 	if(!holder)

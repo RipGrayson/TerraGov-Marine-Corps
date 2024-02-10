@@ -603,7 +603,7 @@
 	var/index_scroll_value = 1
 	///list all of units we're selecting and giving orders to
 	var/list/selected_units = list()
-	hud_possible = list(MACHINE_HEALTH_HUD)
+	hud_possible = list(MACHINE_HEALTH_HUD, RTS_INFO_HUD)
 	hud_type = /datum/hud/ai_rts
 
 /mob/living/silicon/ai/malf/Initialize(mapload)
@@ -691,9 +691,12 @@
 	update_unit_construction_icons(last_touched_building.queuedunits)
 
 ///update building unit construction queue HUD
-/mob/living/silicon/ai/malf/proc/update_unit_construction_icons(list/unitlist, progressquadrant = 0)
+/mob/living/silicon/ai/malf/proc/update_unit_construction_icons(list/unitlist, obj/structure/rts_building/checkedbuilding, progressquadrant = 0)
 	if(!unitlist)
 		return
+	if(checkedbuilding)
+		if(!checkedbuilding.is_selected)
+			return
 	if(unitlist.len > 8)
 		CRASH("Tried to update unit construction icons but unit queue was bigger than 8!")
 	var/global_index_value = 10
