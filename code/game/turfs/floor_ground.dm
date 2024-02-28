@@ -412,3 +412,11 @@
 	mediumxenofootstep = FOOTSTEP_CONCRETE
 	barefootstep = FOOTSTEP_CONCRETE
 	shoefootstep = FOOTSTEP_CONCRETE
+
+/turf/open/floor/plating/ground/shale
+	icon_state = "shale_0"
+	icon = 'icons/turf/floors/autoshale.dmi'
+	icon_variants = 8
+	mediumxenofootstep = FOOTSTEP_GRAVEL
+	barefootstep = FOOTSTEP_GRAVEL
+	shoefootstep = FOOTSTEP_GRAVEL

@@ -154,6 +154,15 @@
 	icon_state = "rock_dark"
 	resistance_flags = RESIST_ALL
 
+/turf/closed/mineral/smooth/blackwall
+	icon = 'icons/turf/walls/black_wall.dmi'
+	icon_state = "black_wall-0"
+	walltype = "black_wall"
+	base_icon_state = "black_wall"
+
+/turf/closed/mineral/smooth/blackwall/indestructible
+	resistance_flags = RESIST_ALL
+
 //desertdam rock, seen in certain EORD maps. Surprisingly not seen in Desert Dam.
 /turf/closed/mineral/smooth/desertdamrockwall
 	name = "rockwall"
