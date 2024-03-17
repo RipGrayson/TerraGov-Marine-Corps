@@ -555,6 +555,13 @@
 	base_icon_state = "col_window"
 	window_frame = /obj/structure/window_frame/colony
 
+/obj/structure/window/framed/colony/cmwindow
+	name = "window"
+	icon = 'icons/obj/smooth_objects/cmwindow.dmi'
+	icon_state = "cmwindow-0"
+	base_icon_state = "cmwindow"
+	window_frame = /obj/structure/window_frame/colony
+
 /obj/structure/window/framed/colony/reinforced
 	name = "reinforced window"
 	icon = 'icons/obj/smooth_objects/col_rwindow.dmi'
