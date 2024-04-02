@@ -1,5 +1,5 @@
 /obj/vehicle/sealed/armored/multitile
-	name = "TAV - Rhino"
+	name = "\improper MT - Ares"
 	desc = "A gigantic wall of metal designed for maximum Xeno destruction. Drag yourself onto it at an entrance to get inside."
 	icon = 'icons/obj/armored/3x3/tank.dmi'
 	turret_icon = 'icons/obj/armored/3x3/tank_gun.dmi'
@@ -7,8 +7,11 @@
 	damage_icon_path = 'icons/obj/armored/3x3/tank_damage.dmi'
 	icon_state = "tank"
 	hitbox = /obj/hitbox
-	flags_atom = DIRLOCK|BUMP_ATTACKABLE|PREVENT_CONTENTS_EXPLOSION
-	flags_armored = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_SECONDARY_WEAPON|ARMORED_HAS_UNDERLAY|ARMORED_HAS_MAP_VARIANTS|ARMORED_HAS_HEADLIGHTS
+	interior = /datum/interior/armored
+	minimap_icon_state = "tank"
+	required_entry_skill = SKILL_LARGE_VEHICLE_TRAINED
+	atom_flags = DIRLOCK|BUMP_ATTACKABLE|PREVENT_CONTENTS_EXPLOSION
+	armored_flags = ARMORED_HAS_PRIMARY_WEAPON|ARMORED_HAS_SECONDARY_WEAPON|ARMORED_HAS_UNDERLAY|ARMORED_HAS_MAP_VARIANTS|ARMORED_HAS_HEADLIGHTS
 	pixel_x = -48
 	pixel_y = -48
 	max_integrity = 900
@@ -16,7 +19,7 @@
 	hard_armor = list(MELEE = 0, BULLET = 20, LASER = 20, ENERGY = 20, BOMB = 0, BIO = 0, FIRE = 0, ACID = 0)
 	max_occupants = 4
 	move_delay = 0.9 SECONDS
-	ram_damage = 70
+	ram_damage = 100
 
 ///returns a list of possible locations that this vehicle may be entered from
 /obj/vehicle/sealed/armored/multitile/proc/enter_locations(mob/M)
@@ -26,7 +29,7 @@
 	return pick(enter_locations(M))
 
 /obj/vehicle/sealed/armored/multitile/mob_try_enter(mob/M)
-	if(!(M.loc in enter_locations(M)))
+	if(!isobserver(M) && !(M.loc in enter_locations(M)))
 		balloon_alert(M, "Not at entrance")
 		return FALSE
 	return ..()

@@ -77,7 +77,7 @@
 	///What sound gets played when the item is tactical refilled
 	var/refill_sound = null
 	///Flags for specifically storage items
-	var/flags_storage = NONE
+	var/storage_flags = NONE
 
 /obj/item/storage/MouseDrop(obj/over_object as obj)
 	if(!ishuman(usr))
@@ -550,6 +550,8 @@
 ///This proc is called when you want to place an item into the storage item.
 /obj/item/storage/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(length(refill_types))
 		for(var/typepath in refill_types)

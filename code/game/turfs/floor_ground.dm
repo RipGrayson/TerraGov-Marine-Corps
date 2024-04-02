@@ -187,6 +187,7 @@
 /turf/open/floor/plating/ground/mars/random/cave
 	name = "cave"
 	icon_state = "mars_cave"
+	smoothing_groups = list(SMOOTH_GROUP_SAND)
 
 /turf/open/floor/plating/ground/mars/random/cave/darker
 	color = "#948a7c"
@@ -426,6 +427,23 @@
 	mediumxenofootstep = FOOTSTEP_CONCRETE
 	barefootstep = FOOTSTEP_CONCRETE
 	shoefootstep = FOOTSTEP_CONCRETE
+
+///These are entirely for decoration purposes, do not make them functional, it will cause salt.
+/turf/open/floor/chasm
+	name = "chasm"
+	desc = "Watch your step."
+	icon = 'icons/turf/floors/chasms.dmi'
+	icon_state = "chasms-0"
+	base_icon_state = "chasms"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_TURF_CHASM)
+	canSmoothWith = list(SMOOTH_GROUP_TURF_CHASM)
+	density = TRUE //keep people from stepping on it
+
+/turf/open/floor/chasm/junglechasm
+	icon = 'icons/turf/floors/junglechasm.dmi'
+	icon_state = "junglechasm-0"
+	base_icon_state = "junglechasm"
 
 /turf/open/floor/plating/ground/shale
 	icon_state = "shale_0"

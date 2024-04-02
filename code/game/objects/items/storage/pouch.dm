@@ -4,7 +4,7 @@
 	icon_state = "small_drop"
 	w_class = WEIGHT_CLASS_BULKY //does not fit in backpack
 	max_w_class = WEIGHT_CLASS_SMALL
-	flags_equip_slot = ITEM_SLOT_POCKET
+	equip_slot_flags = ITEM_SLOT_POCKET
 	storage_slots = 1
 	draw_mode = 0
 	allow_drawing_method = TRUE
@@ -400,6 +400,13 @@
 	new /obj/item/explosive/grenade/chem_grenade/razorburn_small(src)
 	new /obj/item/explosive/grenade/chem_grenade/razorburn_large(src)
 
+/obj/item/storage/pouch/explosive/antigas/Initialize(mapload)
+	. = ..()
+	new /obj/item/explosive/grenade/smokebomb/antigas(src)
+	new /obj/item/explosive/grenade/smokebomb/antigas(src)
+	new /obj/item/explosive/grenade/smokebomb/antigas(src)
+	new /obj/item/explosive/grenade/smokebomb/antigas(src)
+
 /obj/item/storage/pouch/explosive/upp
 	fill_type = /obj/item/explosive/grenade/upp
 	fill_number = 4
@@ -438,6 +445,15 @@
 	new /obj/item/explosive/grenade/flashbang/stun(src)
 	new /obj/item/explosive/grenade/flashbang/stun(src)
 
+/obj/item/storage/pouch/grenade/standard/Initialize(mapload)
+	. = ..()
+	new /obj/item/explosive/grenade(src)
+	new /obj/item/explosive/grenade(src)
+	new /obj/item/explosive/grenade(src)
+	new /obj/item/explosive/grenade/bullet/laser(src)
+	new /obj/item/explosive/grenade/bullet/laser(src)
+	new /obj/item/explosive/grenade/incendiary(src)
+
 /obj/item/storage/pouch/grenade/som
 	desc = "It can contain grenades. This one looks to be made out of traditional SOM leather."
 	icon_state = "grenade_som"
@@ -460,6 +476,15 @@
 	new /obj/item/explosive/grenade/smokebomb/satrapine(src)
 	new /obj/item/explosive/grenade/som(src)
 	new /obj/item/explosive/grenade/som(src)
+
+/obj/item/storage/pouch/grenade/som/standard/Initialize(mapload)
+	. = ..()
+	new /obj/item/explosive/grenade/som(src)
+	new /obj/item/explosive/grenade/som(src)
+	new /obj/item/explosive/grenade/som(src)
+	new /obj/item/explosive/grenade/som(src)
+	new /obj/item/explosive/grenade/incendiary/som(src)
+	new /obj/item/explosive/grenade/incendiary/som(src)
 
 /obj/item/storage/pouch/medkit
 	name = "medkit pouch"
@@ -838,9 +863,9 @@
 /obj/item/storage/pouch/shotgun/attackby(obj/item/I, mob/user, params)
 	if(istype(I, /obj/item/ammo_magazine))
 		var/obj/item/ammo_magazine/M = I
-		if(CHECK_BITFIELD(M.flags_magazine, MAGAZINE_HANDFUL))
+		if(CHECK_BITFIELD(M.magazine_flags, MAGAZINE_HANDFUL))
 			return ..()
-		if(M.flags_magazine & MAGAZINE_REFILLABLE)
+		if(M.magazine_flags & MAGAZINE_REFILLABLE)
 			if(!M.current_rounds)
 				to_chat(user, span_warning("[M] is empty."))
 				return

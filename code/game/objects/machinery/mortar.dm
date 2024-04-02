@@ -189,6 +189,8 @@
 
 /obj/machinery/deployable/mortar/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(firing)
 		user.balloon_alert(user, "The barrel is steaming hot. Wait till it cools off")
@@ -271,8 +273,8 @@
 	var/obj/projectile/shell = new /obj/projectile(loc)
 	var/datum/ammo/ammo = GLOB.ammo_list[arty_shell.ammo_type]
 	shell.generate_bullet(ammo)
-	var/shell_range = min(get_dist_euclide(src, target), ammo.max_range)
-	shell.fire_at(target, src, src, shell_range, ammo.shell_speed)
+	var/shell_range = min(get_dist_euclidean(src, target), ammo.max_range)
+	shell.fire_at(target, null, src, shell_range, ammo.shell_speed)
 
 	perform_firing_visuals()
 
@@ -373,7 +375,7 @@
 	location.ceiling_debris_check(2)
 	log_game("[key_name(user)] has fired the [src] at [AREACOORD(target)]")
 
-	var/max_offset = round(abs((get_dist_euclide(src,target)))/offset_per_turfs)
+	var/max_offset = round(abs((get_dist_euclidean(src,target)))/offset_per_turfs)
 	var/firing_spread = max_offset + spread
 	if(firing_spread > max_spread)
 		firing_spread = max_spread
@@ -425,7 +427,7 @@
 	icon_state = "mortar"
 	max_integrity = 200
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 15, BIO = 100, FIRE = 0, ACID = 0)
-	flags_item = IS_DEPLOYABLE
+	item_flags = IS_DEPLOYABLE
 	/// What item is this going to deploy when we put down the mortar?
 	var/deployable_item = /obj/machinery/deployable/mortar
 	resistance_flags = RESIST_ALL
@@ -454,7 +456,7 @@
 	desc = "A manual, crew-operated mortar system intended to rain down 80mm goodness on anything it's aimed at. Needs to be set down first to fire. This one is a double barreled mortar that can hold 4 rounds usually fitted in TAV's."
 	icon_state = "mortar_db"
 	max_integrity = 400
-	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
+	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 	w_class = WEIGHT_CLASS_HUGE
 	deployable_item = /obj/machinery/deployable/mortar/double
 
@@ -475,7 +477,7 @@
 	icon = 'icons/Marine/howitzer.dmi'
 	icon_state = "howitzer"
 	max_integrity = 400
-	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
+	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 	w_class = WEIGHT_CLASS_HUGE
 	deployable_item = /obj/machinery/deployable/mortar/howitzer
 
@@ -560,7 +562,7 @@
 	desc = "A manual, crew-operated and towable multiple rocket launcher system piece used by the TerraGov Marine Corps, it is meant to saturate an area with munitions to total up to large amounts of firepower, it thus has high scatter when firing to accomplish such a task. Fires in only bursts of up to 16 rockets, it can hold 32 rockets in total. Uses 60mm Rockets."
 	icon_state = "mlrs"
 	max_integrity = 400
-	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
+	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 	w_class = WEIGHT_CLASS_HUGE
 	deployable_item = /obj/machinery/deployable/mortar/howitzer/mlrs
 
@@ -658,7 +660,7 @@
 	)
 	icon_state = "mortar_ammo_cas"
 	w_class = WEIGHT_CLASS_SMALL
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	///Ammo datum typepath that the shell uses
 	var/ammo_type
 
@@ -786,7 +788,7 @@
 	desc = "A crate containing a basic set of a mortar and some shells, to get an engineer started."
 
 /obj/structure/closet/crate/mortar_ammo/mortar_kit/PopulateContents()
-	new /obj/item/mortar_kit(src)
+	new /obj/item/storage/holster/backholster/mortar/full(src)
 	new /obj/item/mortal_shell/he(src)
 	new /obj/item/mortal_shell/he(src)
 	new /obj/item/mortal_shell/he(src)

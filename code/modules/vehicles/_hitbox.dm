@@ -24,7 +24,7 @@
 	. = ..()
 	root = new_root
 	allow_pass_flags = root.allow_pass_flags
-	flags_atom = root.flags_atom
+	atom_flags = root.atom_flags
 	resistance_flags = root.resistance_flags
 	RegisterSignal(new_root, COMSIG_MOVABLE_MOVED, PROC_REF(root_move))
 	RegisterSignal(new_root, COMSIG_QDELETING, PROC_REF(root_delete))
@@ -125,7 +125,7 @@
 	if(ISDIAGONALDIR(direction))
 		return COMPONENT_DRIVER_BLOCK_MOVE
 	if((root.dir != direction) && (root.dir != REVERSE_DIR(direction)))
-		root.setDir(direction) // tivi todo dupe on medium size kill me
+		root.setDir(direction)
 		if(isarmoredvehicle(root))
 			var/obj/vehicle/sealed/armored/armor = root
 			playsound(armor, armor.engine_sound, 100, TRUE, 20)
@@ -160,7 +160,7 @@
 		return TRUE
 
 /obj/hitbox/projectile_hit(obj/projectile/proj)
-	if(proj.firer == root)
+	if(proj.shot_from == root)
 		return FALSE
 	return root.projectile_hit(arglist(args))
 
@@ -169,7 +169,7 @@
 	SEND_SIGNAL(src, COMSIG_ATOM_BULLET_ACT, proj)
 	return root.bullet_act(proj)
 
-/obj/hitbox/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", effects = TRUE, attack_dir, armour_penetration = 0, mob/living/blame_mob)
+/obj/hitbox/take_damage(damage_amount, damage_type = BRUTE, armor_type = null, effects = TRUE, attack_dir, armour_penetration = 0, mob/living/blame_mob)
 	return root.take_damage(arglist(args))
 
 /obj/hitbox/ex_act(severity)

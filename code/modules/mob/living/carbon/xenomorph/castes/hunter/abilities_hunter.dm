@@ -211,8 +211,6 @@
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_DISGUISE,
 	)
-	///the regular appearance of the hunter
-	var/old_appearance
 
 /datum/action/ability/xeno_action/stealth/disguise/action_activate()
 	if(stealth)
@@ -229,33 +227,28 @@
 	if(ishuman(mark.marked_target))
 		to_chat(owner, "You cannot turn into a human!")
 		return
-	old_appearance = xenoowner.appearance
-	ADD_TRAIT(xenoowner, TRAIT_MOB_ICON_UPDATE_BLOCKED, STEALTH_TRAIT)
+	var/image/disguised_icon = image(icon = mark.marked_target.icon, icon_state = mark.marked_target.icon_state, loc = owner)
+	disguised_icon.override = TRUE
+	xenoowner.add_alt_appearance(/datum/atom_hud/alternate_appearance/basic/everyone, "hunter_disguise", disguised_icon)
+	ADD_TRAIT(xenoowner, TRAIT_XENOMORPH_INVISIBLE_BLOOD, STEALTH_TRAIT)
 	xenoowner.update_wounds()
 	return ..()
 
 /datum/action/ability/xeno_action/stealth/disguise/cancel_stealth()
 	. = ..()
-	owner.appearance = old_appearance
-	REMOVE_TRAIT(owner, TRAIT_MOB_ICON_UPDATE_BLOCKED, STEALTH_TRAIT)
 	var/mob/living/carbon/xenomorph/xenoowner = owner
+	REMOVE_TRAIT(xenoowner, TRAIT_XENOMORPH_INVISIBLE_BLOOD, STEALTH_TRAIT)
+	xenoowner.remove_alt_appearance("hunter_disguise")
 	xenoowner.update_wounds()
 
 /datum/action/ability/xeno_action/stealth/disguise/handle_stealth()
 	var/mob/living/carbon/xenomorph/xenoowner = owner
-	var/datum/action/ability/activable/xeno/hunter_mark/mark = xenoowner.actions_by_path[/datum/action/ability/activable/xeno/hunter_mark]
-	var/old_layer = xenoowner.layer
-	xenoowner.appearance = mark.marked_target.appearance
-	//Retaining old rendering layer to prevent rendering under objects.
-	xenoowner.layer = old_layer
-	xenoowner.underlays.Cut()
 	if(owner.last_move_intent >= world.time - HUNTER_STEALTH_STEALTH_DELAY)
 		xenoowner.use_plasma(owner.m_intent == MOVE_INTENT_WALK ? HUNTER_STEALTH_WALK_PLASMADRAIN : HUNTER_STEALTH_RUN_PLASMADRAIN)
 	//If we have 0 plasma after expending stealth's upkeep plasma, end stealth.
 	if(!xenoowner.plasma_stored)
 		to_chat(xenoowner, span_xenodanger("We lack sufficient plasma to remain disguised."))
 		cancel_stealth()
-
 
 // ***************************************
 // *********** Hunter's Pounce
@@ -282,8 +275,6 @@
 /datum/action/ability/activable/xeno/pounce/on_cooldown_finish()
 	owner.balloon_alert(owner, "Pounce ready")
 	owner.playsound_local(owner, 'sound/effects/xeno_newlarva.ogg', 25, 0, 1)
-	var/mob/living/carbon/xenomorph/xeno_owner = owner
-	xeno_owner.usedPounce = FALSE
 	return ..()
 
 /datum/action/ability/activable/xeno/pounce/can_use_ability(atom/A, silent = FALSE, override_flags)
@@ -302,11 +293,11 @@
 		owner.buckled.unbuckle_mob(owner)
 	RegisterSignal(owner, COMSIG_MOVABLE_MOVED, PROC_REF(movement_fx))
 	RegisterSignal(owner, COMSIG_XENO_OBJ_THROW_HIT, PROC_REF(object_hit))
-	RegisterSignal(owner, COMSIG_XENO_LIVING_THROW_HIT, PROC_REF(mob_hit))
+	RegisterSignal(owner, COMSIG_XENOMORPH_LEAP_BUMP, PROC_REF(mob_hit))
 	RegisterSignal(owner, COMSIG_MOVABLE_POST_THROW, PROC_REF(pounce_complete))
 	SEND_SIGNAL(owner, COMSIG_XENOMORPH_POUNCE)
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
-	xeno_owner.usedPounce = TRUE
+	xeno_owner.xeno_flags |= XENO_LEAPING
 	xeno_owner.pass_flags |= PASS_LOW_STRUCTURE|PASS_FIRE|PASS_XENO
 	xeno_owner.throw_at(A, pounce_range, XENO_POUNCE_SPEED, xeno_owner)
 	addtimer(CALLBACK(src, PROC_REF(reset_pass_flags)), 0.6 SECONDS)
@@ -324,15 +315,17 @@
 
 /datum/action/ability/activable/xeno/pounce/proc/mob_hit(datum/source, mob/living/living_target)
 	SIGNAL_HANDLER
-	if(living_target.stat)
+	. = TRUE
+	if(living_target.stat || isxeno(living_target)) //we leap past xenos
 		return
+
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
 	if(ishuman(living_target) && (angle_to_dir(Get_Angle(xeno_owner.throw_source, living_target)) in reverse_nearby_direction(living_target.dir)))
 		var/mob/living/carbon/human/human_target = living_target
 		if(!human_target.check_shields(COMBAT_TOUCH_ATTACK, 30, "melee"))
 			xeno_owner.Paralyze(XENO_POUNCE_SHIELD_STUN_DURATION)
 			xeno_owner.set_throwing(FALSE)
-			return COMPONENT_KEEP_THROWING
+			return
 	trigger_pounce_effect(living_target)
 	pounce_complete()
 
@@ -346,8 +339,10 @@
 
 /datum/action/ability/activable/xeno/pounce/proc/pounce_complete()
 	SIGNAL_HANDLER
-	UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_XENO_OBJ_THROW_HIT, COMSIG_XENO_LIVING_THROW_HIT, COMSIG_MOVABLE_POST_THROW))
+	UnregisterSignal(owner, list(COMSIG_MOVABLE_MOVED, COMSIG_XENO_OBJ_THROW_HIT, COMSIG_XENOMORPH_LEAP_BUMP, COMSIG_MOVABLE_POST_THROW))
 	SEND_SIGNAL(owner, COMSIG_XENOMORPH_POUNCE_END)
+	var/mob/living/carbon/xenomorph/xeno_owner = owner
+	xeno_owner.xeno_flags &= ~XENO_LEAPING
 
 /datum/action/ability/activable/xeno/pounce/proc/reset_pass_flags()
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
@@ -542,7 +537,7 @@
 	var/swap_used = FALSE
 
 /datum/action/ability/xeno_action/mirage/remove_action()
-	clean_illusions()
+	illusions = list() //the actual illusions fade on their own, and the cooldown object may be qdel'd
 	return ..()
 
 /datum/action/ability/xeno_action/mirage/can_use_action(silent = FALSE, override_flags)

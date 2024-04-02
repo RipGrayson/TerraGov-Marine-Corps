@@ -214,7 +214,8 @@
 		fuel_warning = "Warhead fuel level: incorrect.<br>Warhead may be inaccurate."
 
 	var/turf/target = locate(T.x + inaccurate_fuel * pick(-1,1),T.y + inaccurate_fuel * pick(-1,1),T.z)
-
+	GLOB.round_statistics.obs_fired++
+	SSblackbox.record_feedback("tally", "round_statistics", 1, "obs_fired")
 	priority_announce(
 		message = "Get out of danger close!<br><br>Warhead type: [tray.warhead.warhead_kind].<br>[fuel_warning]<br>Estimated location of impact: [get_area(T)].",
 		title = "Orbital bombardment launch command detected!",
@@ -378,7 +379,7 @@
 /obj/structure/ob_ammo/warhead/incendiary/warhead_impact(turf/target, inaccuracy_amt = 0)
 	. = ..()
 	var/range_num = max(15 - inaccuracy_amt, 12)
-	flame_radius(range_num, target,	burn_intensity = 36, burn_duration = 40, colour = "blue")
+	flame_radius(range_num, target,	burn_intensity = 46, burn_duration = 40, colour = "blue")
 	var/datum/effect_system/smoke_spread/phosphorus/warcrime = new
 	warcrime.set_up(17, target, 20)
 	warcrime.start()
@@ -398,7 +399,7 @@
 	var/total_amt = max(25 - inaccuracy_amt, 20)
 	for(var/i = 1 to total_amt)
 		var/turf/U = pick_n_take(turf_list)
-		explosion(U, 1, 4, 6, 0, 6, throw_range = 0, adminlog = FALSE) //rocket barrage
+		explosion(U, 2, 4, 6, 0, 6, throw_range = 0, adminlog = FALSE) //rocket barrage
 		sleep(0.1 SECONDS)
 
 /obj/structure/ob_ammo/warhead/plasmaloss
@@ -433,7 +434,7 @@
 	icon_state = "ob_console"
 	screen_overlay = "ob_console_screen"
 	dir = WEST
-	flags_atom = ON_BORDER|CONDUCT
+	atom_flags = ON_BORDER|CONDUCT
 	var/orbital_window_page = 0
 
 /obj/machinery/computer/orbital_cannon_console/Initialize(mapload)

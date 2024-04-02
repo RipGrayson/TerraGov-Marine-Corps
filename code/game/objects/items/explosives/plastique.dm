@@ -5,7 +5,7 @@
 	icon = 'icons/obj/det.dmi'
 	icon_state = "plastic-explosive"
 	item_state = "plasticx"
-	flags_item = NOBLUDGEON
+	item_flags = NOBLUDGEON
 	w_class = WEIGHT_CLASS_TINY
 	/// whether the plastic explosive is armed or not
 	var/armed = FALSE
@@ -190,7 +190,7 @@
 		flame_target.ignite(10, 5)
 		qdel(src)
 		return
-	new /obj/flamer_fire/autospread(flame_target, 17, 31)
+	new /obj/flamer_fire/autospread(flame_target, 9, 62)
 	playsound(plant_target, sound(get_sfx("explosion_small")), 100, FALSE, 25)
 	qdel(src)
 
@@ -226,7 +226,7 @@
 		spread_directions |= old_spreader.possible_directions
 	if(old_flame)
 		qdel(old_flame)
-	new /obj/flamer_fire/autospread(turf_to_burn, 17, 31, flame_color, 0, 0, spread_directions)
+	new /obj/flamer_fire/autospread(turf_to_burn, 9, 62, flame_color, 0, 0, spread_directions)
 
 ///Allows the c4 timer to be tweaked on certain atoms as required
 /atom/proc/plastique_time_mod(time)
