@@ -4,6 +4,7 @@
 /datum/action/ability/activable/xeno/stomp
 	name = "Stomp"
 	action_icon_state = "stomp"
+	action_icon = 'icons/Xeno/actions/crusher.dmi'
 	desc = "Knocks all adjacent targets away and down."
 	ability_cost = 100
 	cooldown_duration = 20 SECONDS
@@ -64,6 +65,7 @@
 /datum/action/ability/activable/xeno/cresttoss
 	name = "Crest Toss"
 	action_icon_state = "cresttoss"
+	action_icon = 'icons/Xeno/actions/crusher.dmi'
 	desc = "Fling an adjacent target over and behind you, or away from you while on harm intent. Also works over barricades."
 	ability_cost = 75
 	cooldown_duration = 12 SECONDS
@@ -105,6 +107,9 @@
 		for(var/obj/effect/forcefield/fog/fog in throw_origin)
 			A.balloon_alert(X, "Cannot, fog")
 			return fail_activate()
+	if(isarmoredvehicle(A))
+		A.balloon_alert(X, "Too heavy!")
+		return fail_activate()
 	if(isliving(A))
 		var/mob/living/L = A
 		if(L.mob_size >= MOB_SIZE_BIG) //Penalize toss distance for big creatures
@@ -167,12 +172,15 @@
 /datum/action/ability/activable/xeno/advance
 	name = "Rapid Advance"
 	action_icon_state = "crest_defense"
+	action_icon = 'icons/Xeno/actions/defender.dmi'
 	desc = "Charges up the crushers charge in place, then unleashes the full bulk of the crusher at the target location. Does not crush in diagonal directions."
 	ability_cost = 175
 	cooldown_duration = 30 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_ADVANCE,
 	)
+	///Max charge range
+	var/advance_range = 7
 
 /datum/action/ability/activable/xeno/advance/on_cooldown_finish()
 	to_chat(owner, span_xenowarning("<b>We can now rapidly charge forward again.</b>"))
@@ -184,7 +192,7 @@
 	if(!.)
 		return FALSE
 
-	if(get_dist(owner, A) > 7)
+	if(get_dist(owner, A) > advance_range)
 		return FALSE
 
 
@@ -192,26 +200,26 @@
 	var/mob/living/carbon/xenomorph/X = owner
 	X.face_atom(A)
 	X.set_canmove(FALSE)
-	if(!do_after(X, 10, NONE, X, BUSY_ICON_DANGER))
+	if(!do_after(X, 1 SECONDS, NONE, X, BUSY_ICON_DANGER) || (QDELETED(A)) || X.z != A.z)
 		if(!X.stat)
 			X.set_canmove(TRUE)
 		return fail_activate()
 	X.set_canmove(TRUE)
 
 	var/datum/action/ability/xeno_action/ready_charge/charge = X.actions_by_path[/datum/action/ability/xeno_action/ready_charge]
-	var/aimdir = get_dir(X,A)
+	var/aimdir = get_dir(X, A)
 	if(charge)
 		charge.charge_on(FALSE)
 		charge.do_stop_momentum(FALSE) //Reset charge so next_move_limit check_momentum() does not cuck us and 0 out steps_taken
 		charge.do_start_crushing()
 		charge.valid_steps_taken = charge.max_steps_buildup - 1
 		charge.charge_dir = aimdir //Set dir so check_momentum() does not cuck us
-	for(var/i=0 to get_dist(X, A))
+	for(var/i=0 to max(get_dist(X, A), advance_range))
 		if(i % 2)
-			playsound(X, "alien_charge", 50)
-			new /obj/effect/temp_visual/xenomorph/afterimage(get_turf(X), X)
+			playsound(X, SFX_ALIEN_CHARGE, 50)
+			new /obj/effect/temp_visual/after_image(get_turf(X), X)
 		X.Move(get_step(X, aimdir), aimdir)
-		aimdir = get_dir(X,A)
+		aimdir = get_dir(X, A)
 	succeed_activate()
 	add_cooldown()
 

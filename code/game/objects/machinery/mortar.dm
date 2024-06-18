@@ -109,6 +109,11 @@
 
 	ui_interact(user)
 
+/obj/machinery/deployable/mortar/disassemble(mob/user)
+	for(var/obj/loaded_item in chamber_items)
+		chamber_items -= loaded_item
+		loaded_item.forceMove(get_turf(src))
+	return ..()
 
 /obj/machinery/deployable/mortar/ui_interact(mob/user, datum/tgui/ui)
 	ui = SStgui.try_update_ui(user, src, ui)
@@ -189,6 +194,8 @@
 
 /obj/machinery/deployable/mortar/attackby(obj/item/I, mob/user, params)
 	. = ..()
+	if(.)
+		return
 
 	if(firing)
 		user.balloon_alert(user, "The barrel is steaming hot. Wait till it cools off")
@@ -266,13 +273,13 @@
 		if(TALLY_ROCKET_ARTY)
 			GLOB.round_statistics.rocket_shells_fired++
 			SSblackbox.record_feedback("tally", "round_statistics", 1, "rocket_shells_fired")
-	playsound(loc, fire_sound, 50, 1)
+	playsound(loc, fire_sound, GUN_FIRE_SOUND_VOLUME, 1)
 	flick(icon_state + "_fire", src)
 	var/obj/projectile/shell = new /obj/projectile(loc)
 	var/datum/ammo/ammo = GLOB.ammo_list[arty_shell.ammo_type]
 	shell.generate_bullet(ammo)
-	var/shell_range = min(get_dist_euclide(src, target), ammo.max_range)
-	shell.fire_at(target, src, src, shell_range, ammo.shell_speed)
+	var/shell_range = min(get_dist_euclidean(src, target), ammo.max_range)
+	shell.fire_at(target, null, src, shell_range, ammo.shell_speed)
 
 	perform_firing_visuals()
 
@@ -373,11 +380,11 @@
 	location.ceiling_debris_check(2)
 	log_game("[key_name(user)] has fired the [src] at [AREACOORD(target)]")
 
-	var/max_offset = round(abs((get_dist_euclide(src,target)))/offset_per_turfs)
+	var/max_offset = round(abs((get_dist_euclidean(src,target)))/offset_per_turfs)
 	var/firing_spread = max_offset + spread
 	if(firing_spread > max_spread)
 		firing_spread = max_spread
-	var/list/turf_list = list()
+	var/list/turf_list = RANGE_TURFS(firing_spread, target)
 	var/obj/in_chamber
 	var/next_chamber_position = length(chamber_items)
 	var/amount_to_fire = fire_amount
@@ -385,8 +392,6 @@
 		amount_to_fire = length(chamber_items)
 	if(amount_to_fire > length(chamber_items))
 		amount_to_fire = length(chamber_items)
-	for(var/turf/spread_turf in RANGE_TURFS(firing_spread, target))
-		turf_list += spread_turf
 	//Probably easier to declare and update a counter than it is to keep accessing a client and datum multiple times
 	var/shells_fired = 0
 	var/war_crimes_counter = 0
@@ -421,11 +426,11 @@
 /obj/item/mortar_kit
 	name = "\improper TA-50S mortar"
 	desc = "A manual, crew-operated mortar system intended to rain down 80mm goodness on anything it's aimed at. Needs to be set down first to fire. Ctrl+Click on a tile to deploy, drag the mortar's sprites to mob's sprite to undeploy."
-	icon = 'icons/Marine/mortar.dmi'
+	icon = 'icons/obj/machines/deployable/mortar.dmi'
 	icon_state = "mortar"
 	max_integrity = 200
 	soft_armor = list(MELEE = 0, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 15, BIO = 100, FIRE = 0, ACID = 0)
-	flags_item = IS_DEPLOYABLE
+	item_flags = IS_DEPLOYABLE
 	/// What item is this going to deploy when we put down the mortar?
 	var/deployable_item = /obj/machinery/deployable/mortar
 	resistance_flags = RESIST_ALL
@@ -454,7 +459,7 @@
 	desc = "A manual, crew-operated mortar system intended to rain down 80mm goodness on anything it's aimed at. Needs to be set down first to fire. This one is a double barreled mortar that can hold 4 rounds usually fitted in TAV's."
 	icon_state = "mortar_db"
 	max_integrity = 400
-	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
+	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 	w_class = WEIGHT_CLASS_HUGE
 	deployable_item = /obj/machinery/deployable/mortar/double
 
@@ -472,10 +477,10 @@
 /obj/item/mortar_kit/howitzer
 	name = "\improper TA-100Y howitzer"
 	desc = "A manual, crew-operated and towable howitzer, will rain down 150mm laserguided and accurate shells on any of your foes."
-	icon = 'icons/Marine/howitzer.dmi'
+	icon = 'icons/obj/machines/deployable/howitzer.dmi'
 	icon_state = "howitzer"
 	max_integrity = 400
-	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
+	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 	w_class = WEIGHT_CLASS_HUGE
 	deployable_item = /obj/machinery/deployable/mortar/howitzer
 
@@ -560,7 +565,7 @@
 	desc = "A manual, crew-operated and towable multiple rocket launcher system piece used by the TerraGov Marine Corps, it is meant to saturate an area with munitions to total up to large amounts of firepower, it thus has high scatter when firing to accomplish such a task. Fires in only bursts of up to 16 rockets, it can hold 32 rockets in total. Uses 60mm Rockets."
 	icon_state = "mlrs"
 	max_integrity = 400
-	flags_item = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
+	item_flags = IS_DEPLOYABLE|TWOHANDED|DEPLOYED_NO_PICKUP|DEPLOY_ON_INITIALIZE
 	w_class = WEIGHT_CLASS_HUGE
 	deployable_item = /obj/machinery/deployable/mortar/howitzer/mlrs
 
@@ -596,7 +601,7 @@
 		user.balloon_alert(user, "The barrel is steaming hot. Wait till it cools off")
 		return
 
-	if(!istype(I, /obj/item/storage/box/mlrs_rockets) && !istype(I, /obj/item/storage/box/mlrs_rockets_gas))
+	if(!istype(I, /obj/item/storage/box/mlrs_rockets))
 		return ..()
 
 	var/obj/item/storage/box/rocket_box = I
@@ -641,24 +646,23 @@
 		span_notice("You load \a [mortar_shell.name] into [src]."))
 		chamber_items += mortar_shell
 
-		rocket_box.remove_from_storage(mortar_shell,null,user)
+		rocket_box.storage_datum.remove_from_storage(mortar_shell,null,user)
 		rocketsloaded++
 	user.balloon_alert(user, "Right click to fire")
-
 
 // Shells themselves //
 
 /obj/item/mortal_shell
 	name = "\improper 80mm mortar shell"
 	desc = "An unlabeled 80mm mortar shell, probably a casing."
-	icon = 'icons/Marine/mortar.dmi'
-	item_icons = list(
+	icon = 'icons/obj/items/ammo.dmi'
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/weapons/ammo_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/weapons/ammo_right.dmi',
 	)
 	icon_state = "mortar_ammo_cas"
 	w_class = WEIGHT_CLASS_SMALL
-	flags_atom = CONDUCT
+	atom_flags = CONDUCT
 	///Ammo datum typepath that the shell uses
 	var/ammo_type
 
@@ -695,7 +699,6 @@
 /obj/item/mortal_shell/howitzer
 	name = "\improper 150mm artillery shell"
 	desc = "An unlabeled 150mm shell, probably a casing."
-	icon = 'icons/Marine/howitzer.dmi'
 	icon_state = "howitzer_ammo"
 	w_class = WEIGHT_CLASS_BULKY
 
@@ -707,7 +710,7 @@
 /obj/item/mortal_shell/howitzer/plasmaloss
 	name = "\improper 150mm 'Tanglefoot' artillery shell"
 	desc = "An 150mm artillery shell, loaded with a toxic intoxicating gas, whatever is hit by this will have their abilities sapped slowly. Acommpanied by a small moderate explosion."
-	icon_state = "howitzer_ammo_purp"
+	icon_state = "howitzer_ammo_plasmaloss"
 	ammo_type = /datum/ammo/mortar/smoke/howi/plasmaloss
 
 /obj/item/mortal_shell/howitzer/incendiary
@@ -747,7 +750,7 @@
 	name = "\improper 60mm 'S-2' cloak rocket"
 	desc = "A 60mm rocket loaded with cloak smoke that hides any friendlies inside of it with advanced chemical technology."
 	icon_state = "mlrs_rocket_cloak"
-	ammo_type = /datum/ammo/mortar/rocket/smoke/mlrs
+	ammo_type = /datum/ammo/mortar/rocket/smoke/mlrs/cloak
 
 /obj/item/mortal_shell/rocket/mlrs/incendiary
 	name = "\improper 60mm incendiary rocket"
@@ -758,10 +761,9 @@
 /obj/structure/closet/crate/mortar_ammo
 	name = "\improper T-50S mortar ammo crate"
 	desc = "A crate containing live mortar shells with various payloads. DO NOT DROP. KEEP AWAY FROM FIRE SOURCES."
-	icon = 'icons/Marine/mortar.dmi'
-	icon_state = "closed_mortar_crate"
-	icon_opened = "open_mortar_crate"
-	icon_closed = "closed_mortar_crate"
+	icon_state = "closed_mortar"
+	icon_opened = "open_mortar"
+	icon_closed = "closed_mortar"
 
 /obj/structure/closet/crate/mortar_ammo/full/PopulateContents()
 	new /obj/item/mortal_shell/he(src)
@@ -786,7 +788,7 @@
 	desc = "A crate containing a basic set of a mortar and some shells, to get an engineer started."
 
 /obj/structure/closet/crate/mortar_ammo/mortar_kit/PopulateContents()
-	new /obj/item/mortar_kit(src)
+	new /obj/item/storage/holster/backholster/mortar/full(src)
 	new /obj/item/mortal_shell/he(src)
 	new /obj/item/mortal_shell/he(src)
 	new /obj/item/mortal_shell/he(src)
@@ -888,10 +890,12 @@
 /obj/item/storage/box/mlrs_rockets
 	name = "\improper TA-40L rocket crate"
 	desc = "A large case containing rockets in a compressed setting for the TA-40L MLRS. Drag this sprite into you to open it up!\nNOTE: You cannot put items back inside this case."
-	storage_slots = 16
 
 /obj/item/storage/box/mlrs_rockets/Initialize(mapload)
 	. = ..()
+	storage_datum.storage_slots = 16
+
+/obj/item/storage/box/mlrs_rockets/PopulateContents()
 	new /obj/item/mortal_shell/rocket/mlrs(src)
 	new /obj/item/mortal_shell/rocket/mlrs(src)
 	new /obj/item/mortal_shell/rocket/mlrs(src)
@@ -909,13 +913,15 @@
 	new /obj/item/mortal_shell/rocket/mlrs(src)
 	new /obj/item/mortal_shell/rocket/mlrs(src)
 
-/obj/item/storage/box/mlrs_rockets_gas
+/obj/item/storage/box/mlrs_rockets/gas
 	name = "\improper TA-40L X-50 rocket crate"
 	desc = "A large case containing rockets in a compressed setting for the TA-40L MLRS. Drag this sprite into you to open it up!\nNOTE: You cannot put items back inside this case."
-	storage_slots = 16
 
-/obj/item/storage/box/mlrs_rockets_gas/Initialize(mapload)
+/obj/item/storage/box/mlrs_rockets/gas/Initialize(mapload)
 	. = ..()
+	storage_datum.storage_slots = 16
+
+/obj/item/storage/box/mlrs_rockets/gas/PopulateContents()
 	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
 	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
 	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
@@ -933,53 +939,53 @@
 	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
 	new /obj/item/mortal_shell/rocket/mlrs/gas(src)
 
-/obj/item/storage/box/mlrs_rocket_incendiary
+/obj/item/storage/box/mlrs_rockets/cloak
+	name = "\improper TA-40L 'S-2' rocket crate"
+
+/obj/item/storage/box/mlrs_rockets/cloak/PopulateContents()
+	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+
+/obj/item/storage/box/mlrs_rockets/incendiary
 	name = "\improper TA-40L incendiary rocket crate"
 	desc = "A large case containing rockets in a compressed setting for the TA-40L MLRS. Drag this sprite into you to open it up!\nNOTE: You cannot put items back inside this case."
-	storage_slots = 16
 
-/obj/item/storage/box/mlrs_rocket_incendiary/Initialize(mapload)
+/obj/item/storage/box/mlrs_rockets/incendiary/Initialize(mapload)
 	. = ..()
-	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
-	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
-	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
-	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
-	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
-	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
-	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
-	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
-	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
-	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
-	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
-	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
-	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
-	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
-	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
-	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
+	storage_datum.storage_slots = 16
 
-/obj/item/storage/box/mlrs_rocket_gas_cloak
-	name = "\improper TA-40L 'S-2' rocket crate"
-	desc = "A large case containing rockets in a compressed setting for the TA-40L MLRS. Drag this sprite into you to open it up!\nNOTE: You cannot put items back inside this case."
-	storage_slots = 16
-
-/obj/item/storage/box/mlrs_rocket_gas_cloak/Initialize(mapload)
-	. = ..()
-	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
-	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
-	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
-	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
-	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
-	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
-	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
-	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
-	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
-	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
-	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
-	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
-	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
-	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
-	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
-	new /obj/item/mortal_shell/rocket/mlrs/cloak(src)
+/obj/item/storage/box/mlrs_rockets/incendiary/PopulateContents()
+	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
+	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
+	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
+	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
+	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
+	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
+	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
+	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
+	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
+	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
+	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
+	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
+	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
+	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
+	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
+	new /obj/item/mortal_shell/rocket/mlrs/incendiary(src)
 
 #undef TALLY_MORTAR
 #undef TALLY_HOWITZER
+#undef TALLY_ROCKET_ARTY

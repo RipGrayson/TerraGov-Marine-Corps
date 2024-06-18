@@ -23,7 +23,7 @@
 		weed_type = pickweight(GLOB.weed_prob_list)
 		new weed_type(T)
 	for(var/turf/T AS in GLOB.xeno_resin_wall_turfs)
-		T.ChangeTurf(/turf/closed/wall/resin, T.type)
+		T.ChangeTurf(/turf/closed/wall/resin/regenerating, T.type)
 	for(var/i in GLOB.xeno_resin_door_turfs)
 		new /obj/structure/mineral_door/resin(i)
 	for(var/i in GLOB.xeno_tunnel_spawn_turfs)
@@ -52,9 +52,8 @@
 /datum/game_mode/infestation/announce_bioscans(show_locations = TRUE, delta = 2, ai_operator = FALSE, announce_humans = TRUE, announce_xenos = TRUE, send_fax = TRUE)
 
 	if(ai_operator)
-		var/mob/living/silicon/ai/bioscanning_ai = usr
 		#ifndef TESTING
-
+		var/mob/living/silicon/ai/bioscanning_ai = usr
 		if((bioscanning_ai.last_ai_bioscan + COOLDOWN_AI_BIOSCAN) > world.time)
 			to_chat(bioscanning_ai, "Bioscan instruments are still recalibrating from their last use.")
 			return
@@ -103,7 +102,7 @@
 	var/numHostsTransitr = BIOSCAN_DELTA(numHostsTransit, delta)
 	var/numXenosTransitr = BIOSCAN_DELTA(numXenosTransit, delta)
 
-	var/sound/S = sound(get_sfx("queen"), channel = CHANNEL_ANNOUNCEMENTS, volume = 50)
+	var/sound/S = sound(get_sfx(SFX_QUEEN), channel = CHANNEL_ANNOUNCEMENTS, volume = 50)
 	if(announce_xenos)
 		for(var/i in GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
 			var/mob/M = i
@@ -216,7 +215,12 @@
 
 /datum/game_mode/infestation/declare_completion()
 	. = ..()
+	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
+
+/datum/game_mode/infestation/end_round_fluff()
+	. = ..()
 	to_chat(world, span_round_header("|[round_finished]|"))
+
 	var/sound/xeno_track
 	var/sound/human_track
 	var/sound/ghost_track
@@ -269,8 +273,6 @@
 
 		SEND_SOUND(M, ghost_track)
 
-	log_game("[round_finished]\nGame mode: [name]\nRound time: [duration2text()]\nEnd round player population: [length(GLOB.clients)]\nTotal xenos spawned: [GLOB.round_statistics.total_xenos_created]\nTotal humans spawned: [GLOB.round_statistics.total_humans_created]")
-
 /datum/game_mode/infestation/can_start(bypass_checks = FALSE)
 	. = ..()
 	if(!.)
@@ -302,6 +304,7 @@
 		title = "High Command Update",
 		subtitle = "Good morning, marines.",
 		message = "Cryosleep disengaged by TGMC High Command.<br><br>ATTN: [SSmapping.configs[SHIP_MAP].map_name].<br>[SSmapping.configs[GROUND_MAP].announce_text]",
+		sound = 'sound/AI/ares_online.ogg',
 		color_override = "red"
 	)
 

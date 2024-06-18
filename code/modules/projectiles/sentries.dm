@@ -1,11 +1,9 @@
 /obj/machinery/deployable/mounted/sentry
-
 	resistance_flags = UNACIDABLE|XENO_DAMAGEABLE
 	use_power = 0
 	req_one_access = list(ACCESS_MARINE_ENGINEERING, ACCESS_MARINE_ENGPREP, ACCESS_MARINE_LEADER)
 	hud_possible = list(MACHINE_HEALTH_HUD, MACHINE_AMMO_HUD)
 	allow_pass_flags = PASSABLE
-
 	///Spark system for making sparks
 	var/datum/effect_system/spark_spread/spark_system
 	///Camera for viewing with cam consoles
@@ -14,18 +12,14 @@
 	var/range = 7
 	///Damage required to knock the sentry over and disable it
 	var/knockdown_threshold = 150
-
 	///List of targets that can be shot at
 	var/list/atom/potential_targets = list()
-
 	///Time of last alert
 	var/last_alert = 0
 	///Time of last damage alert
 	var/last_damage_alert = 0
-
 	///Radio so that the sentry can scream for help
 	var/obj/item/radio/radio
-
 	///Iff signal of the sentry. If the /gun has a set IFF then this will be the same as that. If not the sentry will get its IFF signal from the deployer
 	var/iff_signal = NONE
 	///List of terrains/structures/machines that the sentry ignores for targetting. (If a window is inside the list, the sentry will shot at targets even if the window breaks los) For accuracy, this is on a specific typepath base and not istype().
@@ -88,6 +82,11 @@
 	if(!CHECK_BITFIELD(machine_stat, KNOCKED_DOWN))
 		return
 	icon_state += "_f"
+
+/obj/machinery/deployable/mounted/sentry/update_overlays()
+	. = ..()
+	if(machine_stat & EMPED)
+		. += image('icons/effects/effects.dmi', src, "shieldsparkles")
 
 /obj/machinery/deployable/mounted/sentry/Destroy()
 	QDEL_NULL(radio)
@@ -302,7 +301,7 @@
 	set_on(FALSE)
 	update_icon()
 
-/obj/machinery/deployable/mounted/sentry/take_damage(damage_amount, damage_type = BRUTE, damage_flag = "", effects = TRUE, attack_dir, armour_penetration = 0, mob/living/blame_mob)
+/obj/machinery/deployable/mounted/sentry/take_damage(damage_amount, damage_type = BRUTE, armor_type = null, effects = TRUE, attack_dir, armour_penetration = 0, mob/living/blame_mob)
 	if(damage_amount <= 0)
 		return
 	if(prob(10))
@@ -316,14 +315,27 @@
 	sentry_alert(SENTRY_ALERT_DAMAGE)
 	update_icon()
 
+/obj/machinery/deployable/mounted/sentry/emp_act(severity)
+	. = ..()
+	machine_stat |= EMPED
+	playsound(loc, 'sound/magic/lightningshock.ogg', 50, FALSE)
+	addtimer(CALLBACK(src, PROC_REF(remove_emp)), (5 - severity) * 2 SECONDS, TIMER_UNIQUE|TIMER_OVERRIDE) //will need to add something later to be additive or something
+	update_appearance(UPDATE_OVERLAYS)
+
+///Lifts EMP effects
+/obj/machinery/deployable/mounted/sentry/proc/remove_emp()
+	machine_stat &= ~EMPED
+	update_appearance(UPDATE_OVERLAYS)
+	playsound(loc, 'sound/machines/warning-buzzer.ogg', 50, FALSE)
+
 //----------------------------------------------------------------------------
 // Sentry Functions
 
 ///Sentry wants to scream for help.
 /obj/machinery/deployable/mounted/sentry/proc/sentry_alert(alert_code, mob/mob)
-	if(!internal_item)
-		return
 	var/obj/item/weapon/gun/gun = get_internal_item()
+	if(!gun)
+		return
 	if(!alert_code || !CHECK_BITFIELD(gun.turret_flags, TURRET_ALERTS) || !CHECK_BITFIELD(gun.turret_flags, TURRET_ON))
 		return
 
@@ -352,10 +364,9 @@
 	playsound(loc, 'sound/machines/warning-buzzer.ogg', 50, FALSE)
 	radio.talk_into(src, "[notice]", FREQ_COMMON)
 
-
 /obj/machinery/deployable/mounted/sentry/process()
 	update_icon()
-	if(!scan())
+	if((machine_stat & EMPED) || !scan())
 		var/obj/item/weapon/gun/gun = get_internal_item()
 		gun?.stop_fire()
 		firing = FALSE
@@ -370,7 +381,7 @@
 	var/obj/item/weapon/gun/gun = get_internal_item()
 	potential_targets.Cut()
 	if(!gun)
-		return length(potential_targets)
+		return FALSE
 	for(var/mob/living/carbon/human/nearby_human AS in cheap_get_humans_near(src, range))
 		if(nearby_human.stat == DEAD || CHECK_BITFIELD(nearby_human.status_flags, INCORPOREAL)  || (CHECK_BITFIELD(gun.turret_flags, TURRET_SAFETY) || nearby_human.wear_id?.iff_signal & iff_signal))
 			continue
@@ -396,7 +407,7 @@
 		return
 	if(CHECK_BITFIELD(internal_gun.reciever_flags, AMMO_RECIEVER_REQUIRES_UNIQUE_ACTION) && length(internal_gun.chamber_items))
 		INVOKE_ASYNC(internal_gun, TYPE_PROC_REF(/obj/item/weapon/gun, do_unique_action))
-	if(!CHECK_BITFIELD(internal_gun.flags_item, IS_DEPLOYED) || get_dist(src, gun_target) > range || (!CHECK_BITFIELD(get_dir(src, gun_target), dir) && !CHECK_BITFIELD(internal_gun.turret_flags, TURRET_RADIAL)) || !check_target_path(gun_target))
+	if(!CHECK_BITFIELD(internal_gun.item_flags, IS_DEPLOYED) || get_dist(src, gun_target) > range || (!CHECK_BITFIELD(get_dir(src, gun_target), dir) && !CHECK_BITFIELD(internal_gun.turret_flags, TURRET_RADIAL)) || !check_target_path(gun_target))
 		internal_gun.stop_fire()
 		firing = FALSE
 		update_minimap_icon()
@@ -408,9 +419,10 @@
 ///Sees if theres a target to shoot, then handles firing.
 /obj/machinery/deployable/mounted/sentry/proc/sentry_start_fire()
 	var/obj/item/weapon/gun/gun = get_internal_item()
-	var/mob/living/target = get_target()
+	var/atom/target = get_target()
+	sentry_alert(SENTRY_ALERT_HOSTILE, target)
 	update_icon()
-	if(!target || get_dist(src, target) > range)
+	if(!target)
 		gun.stop_fire()
 		firing = FALSE
 		update_minimap_icon()
@@ -433,6 +445,8 @@
 
 ///Checks the path to the target for obstructions. Returns TRUE if the path is clear, FALSE if not.
 /obj/machinery/deployable/mounted/sentry/proc/check_target_path(atom/target)
+	if(target.loc == loc)
+		return TRUE
 	var/list/turf/path = getline(src, target)
 	var/turf/starting_turf = get_turf(src)
 	var/turf/target_turf = path[length(path)-1]
@@ -448,6 +462,8 @@
 				break
 			if(i==2)
 				return FALSE
+
+	var/obj/item/weapon/gun/gun = get_internal_item()
 	for(var/turf/T AS in path)
 		var/obj/effect/particle_effect/smoke/smoke = locate() in T
 		if(smoke?.opacity)
@@ -456,36 +472,29 @@
 		if(IS_OPAQUE_TURF(T) || T.density && !(T.allow_pass_flags & PASS_PROJECTILE) && !(T.type in ignored_terrains))
 			return FALSE
 
-		for(var/obj/machinery/MA in T)
-			if(MA.density && !(MA.allow_pass_flags & PASS_PROJECTILE) && !(MA.type in ignored_terrains))
+		for(var/atom/movable/AM AS in T)
+			if(AM.opacity)
 				return FALSE
-
-		for(var/obj/structure/S in T)
-			if(S.density && !(S.allow_pass_flags & PASS_PROJECTILE) && !(S.type in ignored_terrains))
+			if(!AM.density)
+				continue
+			if(ismob(AM))
+				continue
+			if(!(AM.allow_pass_flags & (gun.ammo_datum_type::ammo_behavior_flags & AMMO_ENERGY ? (PASS_GLASS|PASS_PROJECTILE) : PASS_PROJECTILE) && !(AM.type in ignored_terrains))) //todo:accurately populate ignored_terrains
 				return FALSE
 
 	return TRUE
 
 ///Works through potential targets. First checks if they are in range, and if they are friend/foe. Then checks the path to them. Returns the first eligable target.
 /obj/machinery/deployable/mounted/sentry/proc/get_target()
-	var/distance = range + 0.5 //we add 0.5 so if a potential target is at range, it is accepted by the system
-	var/buffer_distance
 	var/obj/item/weapon/gun/gun = get_internal_item()
-	for (var/atom/nearby_target AS in potential_targets)
+	for(var/atom/nearby_target AS in potential_targets)
+		if(nearby_target.loc == loc)
+			return nearby_target
+
 		if(!(get_dir(src, nearby_target) & dir) && !CHECK_BITFIELD(gun.turret_flags, TURRET_RADIAL))
 			continue
-
-		buffer_distance = get_dist(nearby_target, src)
-
-		if (distance <= buffer_distance)
-			continue
-
 		if(!check_target_path(nearby_target))
 			continue
-
-		sentry_alert(SENTRY_ALERT_HOSTILE, nearby_target)
-
-		distance = buffer_distance
 		return nearby_target
 
 /obj/machinery/deployable/mounted/sentry/disassemble(mob/user)
@@ -517,7 +526,7 @@
 	var/obj/item/internal_sentry = get_internal_item()
 	if(internal_sentry)
 		name = "Deployed " + internal_sentry.name
-	icon = 'icons/Marine/sentry.dmi'
+	icon = 'icons/obj/machines/deployable/sentry/build_a_sentry.dmi'
 	default_icon_state = "build_a_sentry"
 	update_icon()
 
@@ -525,8 +534,7 @@
 	. = ..()
 	var/obj/item/weapon/gun/internal_gun = get_internal_item()
 	if(internal_gun)
-		. += image('icons/Marine/sentry.dmi', src, internal_gun.placed_overlay_iconstate, dir = dir)
-
+		. += image('icons/obj/machines/deployable/sentry/build_a_sentry.dmi', src, internal_gun.placed_overlay_iconstate, dir = dir)
 
 //Throwable turret
 /obj/machinery/deployable/mounted/sentry/cope
@@ -542,8 +550,8 @@
 	var/obj/item/item = get_internal_item()
 	if(!item)
 		return
-	if(CHECK_BITFIELD(item.flags_item, DEPLOYED_NO_PICKUP))
-		to_chat(user, span_notice("[src] is anchored in place and cannot be disassembled."))
+	if(CHECK_BITFIELD(item.item_flags, DEPLOYED_NO_PICKUP))
+		balloon_alert(user, "Cannot disassemble")
 		return
 	if(!match_iff(user)) //You can't steal other faction's turrets
 		to_chat(user, span_notice("Access denied."))
@@ -560,7 +568,7 @@
 		set_on(TRUE)
 		return
 
-	DISABLE_BITFIELD(attached_item.flags_item, IS_DEPLOYED)
+	DISABLE_BITFIELD(attached_item.item_flags, IS_DEPLOYED)
 
 	attached_item.reset()
 	user.unset_interaction()

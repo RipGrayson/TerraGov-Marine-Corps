@@ -5,7 +5,7 @@
 /obj/item/stack/medical
 	name = "medical pack"
 	singular_name = "medical pack"
-	item_icons = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/equipment/medical_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/equipment/medical_right.dmi',
 	)
@@ -18,6 +18,10 @@
 	var/skill_level_needed = SKILL_MEDICAL_UNTRAINED
 	///Fumble delay applied without sufficient skill
 	var/unskilled_delay = SKILL_TASK_TRIVIAL
+
+/obj/item/stack/medical/attack_self(mob/user)
+	. = ..()
+	attack(user, user)
 
 /obj/item/stack/medical/attack(mob/living/M, mob/living/user)
 	. = ..()
@@ -62,7 +66,6 @@
 	var/heal_burn = 0
 	///Set of wound flags applied by use, including BANDAGE, SALVE, and DISINFECT
 	var/heal_flags = NONE
-
 
 /obj/item/stack/medical/heal_pack/attack(mob/living/M, mob/living/user)
 	. = ..()
@@ -177,7 +180,7 @@
 
 /obj/item/stack/medical/heal_pack/advanced
 	dir = NORTH
-	flags_atom = DIRLOCK
+	atom_flags = DIRLOCK
 	skill_level_needed = SKILL_MEDICAL_PRACTICED
 	unskilled_delay = SKILL_TASK_EASY
 
@@ -222,7 +225,6 @@
 	unskilled_delay = SKILL_TASK_TOUGH
 	///How much splint health per medical skill is applied
 	var/applied_splint_health = 15
-
 
 /obj/item/stack/medical/splint/attack(mob/living/M, mob/living/user)
 	. = ..()

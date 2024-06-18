@@ -171,10 +171,10 @@
 	if(!penetrate_thick)
 		switch(target_zone)
 			if("head")
-				if(head?.flags_inventory & BLOCKSHARPOBJ)
+				if(head?.inventory_flags & BLOCKSHARPOBJ)
 					. = FALSE
 			else
-				if(wear_suit?.flags_inventory & BLOCKSHARPOBJ)
+				if(wear_suit?.inventory_flags & BLOCKSHARPOBJ)
 					. = FALSE
 	if(!. && error_msg && user)
 		// Might need re-wording.
@@ -215,24 +215,39 @@
 		.++
 
 /mob/living/carbon/human/get_permeability_protection()
-	var/list/prot = list("hands"=0, "chest"=0, "groin"=0, "legs"=0, "feet"=0, "arms"=0, "head"=0)
+	// hands = 1 | chest = 2 | groin = 3 | legs = 4 | feet = 5 | arms = 6 | head = 7
+	var/list/prot = list(0,0,0,0,0,0,0)
 	for(var/obj/item/I in get_equipped_items())
-		if(I.flags_armor_protection & HANDS)
-			prot["hands"] = max(1 - I.permeability_coefficient, prot["hands"])
-		if(I.flags_armor_protection & CHEST)
-			prot["chest"] = max(1 - I.permeability_coefficient, prot["chest"])
-		if(I.flags_armor_protection & GROIN)
-			prot["groin"] = max(1 - I.permeability_coefficient, prot["groin"])
-		if(I.flags_armor_protection & LEGS)
-			prot["legs"] = max(1 - I.permeability_coefficient, prot["legs"])
-		if(I.flags_armor_protection & FEET)
-			prot["feet"] = max(1 - I.permeability_coefficient, prot["feet"])
-		if(I.flags_armor_protection & ARMS)
-			prot["arms"] = max(1 - I.permeability_coefficient, prot["arms"])
-		if(I.flags_armor_protection & HEAD)
-			prot["head"] = max(1 - I.permeability_coefficient, prot["head"])
-	var/protection = (prot["head"] + prot["arms"] + prot["feet"] + prot["legs"] + prot["groin"] + prot["chest"] + prot["hands"])/7
+		if(I.armor_protection_flags & HANDS)
+			prot[1] = max(1 - I.permeability_coefficient, prot[1])
+		if(I.armor_protection_flags & CHEST)
+			prot[2] = max(1 - I.permeability_coefficient, prot[2])
+		if(I.armor_protection_flags & GROIN)
+			prot[3] = max(1 - I.permeability_coefficient, prot[3])
+		if(I.armor_protection_flags & LEGS)
+			prot[4] = max(1 - I.permeability_coefficient, prot[4])
+		if(I.armor_protection_flags & FEET)
+			prot[5] = max(1 - I.permeability_coefficient, prot[5])
+		if(I.armor_protection_flags & ARMS)
+			prot[6] = max(1 - I.permeability_coefficient, prot[6])
+		if(I.armor_protection_flags & HEAD)
+			prot[7] = max(1 - I.permeability_coefficient, prot[7])
+	var/protection = (prot[7] + prot[6] + prot[5] + prot[4] + prot[3] + prot[2] + prot[1])/7
 	return protection
+
+/mob/living/carbon/human/get_soft_acid_protection()
+	var/protection = 0
+	for(var/def_zone in GLOB.human_body_parts)
+		protection += get_soft_armor(ACID, def_zone)
+	// adds arms and feet twice since precise.(acid armor goes from 0 to 100)
+	return protection/1100
+
+/mob/living/carbon/human/get_hard_acid_protection()
+	var/protection = 0
+	for(var/def_zone in GLOB.human_body_parts)
+		protection += get_hard_armor(ACID, def_zone)
+	// adds arms and feet twice since precise.
+	return protection/11
 
 /mob/living/carbon/human/get_standard_bodytemperature()
 	return species.body_temperature
@@ -241,3 +256,70 @@
 	. = ..()
 	if(species.name)
 		. += species.name
+
+///wrapper for a signal to handle opening the squad selector ui just before drop
+/mob/living/carbon/human/proc/suggest_squad_assign()
+	SIGNAL_HANDLER
+	UnregisterSignal(SSdcs, COMSIG_GLOB_DEPLOY_TIMELOCK_ENDED)
+	GLOB.squad_selector.interact(src)
+
+/**
+ * Proc to check if a carbon human has the required organs to sustain life.
+ *
+ * Returns false if `has_brain` returns false, this human is missing a heart, or their current heart is broken
+ *
+ * Returns true otherwise
+ */
+/mob/living/carbon/human/proc/has_working_organs()
+	var/datum/internal_organ/heart/heart = internal_organs_by_name["heart"]
+
+	if(species.species_flags & ROBOTIC_LIMBS)
+		return TRUE // combat robots and synthetics don't have any of these for some reason
+	if(!has_brain())
+		return FALSE
+	if(!heart || heart.organ_status == ORGAN_BROKEN)
+		return FALSE
+	return TRUE
+
+/**
+ * Proc that brings a carbon human back to life. Only works if their health is higher than their death threshold and they are dead in the first place.
+ *
+ * Intended to be called by defibrillators or anything that brings a carbon human back to life
+ */
+/mob/living/carbon/human/proc/resuscitate()
+	if(stat != DEAD || health <= get_death_threshold())
+		return
+	set_stat(UNCONSCIOUS)
+	chestburst = CARBON_NO_CHEST_BURST
+	regenerate_icons()
+	reload_fullscreens()
+	handle_regular_hud_updates()
+	updatehealth() //One more time, so it doesn't show the target as dead on HUDs
+	dead_ticks = 0 //We reset the DNR timer
+	REMOVE_TRAIT(src, TRAIT_PSY_DRAINED, TRAIT_PSY_DRAINED)
+
+/**
+ * Proc for checking parameters of a human for defibrillation.
+ *
+ * Checks decapitation, DNR status, organ damage and health status (in that order) for defibrillation.
+ *
+ * See defines in `__DEFINES/defibrillator.dm` for bitflags.
+ *
+ * `additional_health_increase` can be used to add additional health when calculating health for situations like grabbing ghost.
+ */
+/mob/living/carbon/human/proc/check_defib(additional_health_increase = 0)
+
+	var/datum/limb/head/head = get_limb("head")
+	if(head.limb_status & LIMB_DESTROYED)
+		return DEFIB_FAIL_DECAPITATED
+
+	if(HAS_TRAIT(src, TRAIT_UNDEFIBBABLE))
+		return DEFIB_FAIL_BRAINDEAD
+
+	if(!has_working_organs())
+		return DEFIB_FAIL_BAD_ORGANS
+
+	if(health + getOxyLoss() + additional_health_increase <= get_death_threshold())
+		return DEFIB_FAIL_TOO_MUCH_DAMAGE
+
+	return DEFIB_POSSIBLE

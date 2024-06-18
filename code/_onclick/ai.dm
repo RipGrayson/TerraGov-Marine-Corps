@@ -203,7 +203,7 @@
 /* Firealarm */
 /obj/machinery/firealarm/AICtrlClick(mob/living/silicon/ai/user) // toggle the fire alarm
 	var/area/A = get_area(src)
-	if(A.flags_alarm_state & ALARM_WARNING_FIRE)
+	if(A.alarm_state_flags & ALARM_WARNING_FIRE)
 		reset()
 	else
 		alarm()
@@ -216,6 +216,10 @@
 /obj/alien/weeds/AICtrlShiftClick(mob/living/silicon/ai/user)
 	var/turf/firedturf = get_turf(src)
 	firedturf.AICtrlShiftClick(user)
+
+/obj/alien/weeds/AICtrlClick(mob/living/silicon/ai/user)
+	var/turf/firedturf = get_turf(src)
+	firedturf.AICtrlClick(user)
 
 /* Xenos */
 /mob/living/carbon/xenomorph/AIMiddleClick(mob/living/silicon/ai/user)
@@ -257,9 +261,6 @@
 
 /obj/structure/xeno/trap/AIMiddleClick(mob/living/silicon/ai/user)
 	user.ai_ping(src, COOLDOWN_AI_PING_NORMAL)
-
-/obj/structure/xeno/baneling_pod/AIMiddleClick(mob/living/silicon/ai/user)
-	user.ai_ping(src, COOLDOWN_AI_PING_LOW)
 
 /* acid */
 

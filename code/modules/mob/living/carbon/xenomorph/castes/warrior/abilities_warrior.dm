@@ -71,6 +71,7 @@
 /datum/action/ability/xeno_action/toggle_agility
 	name = "Agility"
 	action_icon_state = "agility_on"
+	action_icon = 'icons/Xeno/actions/warrior.dmi'
 	cooldown_duration = 0.4 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_AGILITY,
@@ -144,11 +145,11 @@
 		var/obj/hit_object = hit_atom
 		if(istype(hit_object, /obj/structure/xeno))
 			return
-		hit_object.take_damage(thrown_damage, BRUTE)
+		hit_object.take_damage(thrown_damage, BRUTE, MELEE)
 	if(iswallturf(hit_atom))
 		var/turf/closed/wall/hit_wall = hit_atom
 		if(!(hit_wall.resistance_flags & INDESTRUCTIBLE))
-			hit_wall.take_damage(thrown_damage, BRUTE)
+			hit_wall.take_damage(thrown_damage, BRUTE, MELEE)
 
 /// Ends the target's throw.
 /datum/action/ability/activable/xeno/warrior/proc/throw_ended(datum/source)
@@ -199,6 +200,7 @@
 /datum/action/ability/activable/xeno/warrior/lunge
 	name = "Lunge"
 	action_icon_state = "lunge"
+	action_icon = 'icons/Xeno/actions/warrior.dmi'
 	ability_cost = 30
 	cooldown_duration = 20 SECONDS
 	keybinding_signals = list(
@@ -230,7 +232,7 @@
 		if(!silent)
 			owner.balloon_alert(owner, "Dead")
 		return FALSE
-	if(get_dist_euclide_square(living_target, owner) > WARRIOR_LUNGE_RANGE * 5)
+	if(get_dist_euclidean_square(living_target, owner) > WARRIOR_LUNGE_RANGE * 5)
 		if(!silent)
 			owner.balloon_alert(owner, "Too far")
 		return FALSE
@@ -303,6 +305,7 @@
 /datum/action/ability/activable/xeno/warrior/fling
 	name = "Fling"
 	action_icon_state = "fling"
+	action_icon = 'icons/Xeno/actions/shrike.dmi'
 	ability_cost = 20
 	cooldown_duration = WARRIOR_FLING_TOSS_COOLDOWN
 	keybinding_signals = list(
@@ -389,6 +392,7 @@
 /datum/action/ability/activable/xeno/warrior/grapple_toss
 	name = "Grapple Toss"
 	action_icon_state = "grapple_toss"
+	action_icon = 'icons/Xeno/actions/warrior.dmi'
 	ability_cost = 20
 	cooldown_duration = WARRIOR_FLING_TOSS_COOLDOWN
 	keybinding_signals = list(
@@ -467,6 +471,7 @@
 /datum/action/ability/activable/xeno/warrior/punch
 	name = "Punch"
 	action_icon_state = "punch"
+	action_icon = 'icons/Xeno/actions/warrior.dmi'
 	desc = "Strike a target, inflicting stamina damage, stagger and slowdown. Deals double damage, stagger and slowdown to grappled targets. Deals quadruple damage to structures and machinery."
 	ability_cost = 15
 	cooldown_duration = 10 SECONDS
@@ -670,6 +675,7 @@
 /datum/action/ability/activable/xeno/warrior/punch/flurry
 	name = "Flurry"
 	action_icon_state = "flurry"
+	action_icon = 'icons/Xeno/actions/warrior.dmi'
 	desc = "Strike at your target with blinding speed."
 	ability_cost = 10
 	cooldown_duration = 7 SECONDS
@@ -716,16 +722,18 @@
 
 /datum/action/ability/activable/xeno/warrior/punch/flurry/do_ability(atom/A)
 	var/mob/living/carbon/xenomorph/xeno_owner = owner
-	var/mob/living/living_target = A
 	var/jab_damage = round((xeno_owner.xeno_caste.melee_damage * xeno_owner.xeno_melee_damage_modifier) * WARRIOR_JAB_DAMAGE_MULTIPLIER)
-	if(!living_target.punch_act(xeno_owner, jab_damage, FALSE))
+	if(!A.punch_act(xeno_owner, jab_damage, FALSE))
 		return fail_activate()
 	current_charges--
 	succeed_activate()
 	add_cooldown()
-	var/datum/action/ability/xeno_action/empower/empower_action = xeno_owner.actions_by_path[/datum/action/ability/xeno_action/empower]
-	if(!empower_action?.check_empower(living_target))
+	if(!isliving(A))
 		return
+	var/datum/action/ability/xeno_action/empower/empower_action = xeno_owner.actions_by_path[/datum/action/ability/xeno_action/empower]
+	if(!empower_action?.check_empower(A))
+		return
+	var/mob/living/living_target = A
 	living_target.adjust_blindness(WARRIOR_JAB_BLIND)
 	living_target.adjust_blurriness(WARRIOR_JAB_BLUR)
 	living_target.apply_status_effect(STATUS_EFFECT_CONFUSED, WARRIOR_JAB_CONFUSION_DURATION)

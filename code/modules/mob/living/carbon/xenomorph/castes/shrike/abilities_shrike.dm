@@ -7,6 +7,7 @@
 	name = "Call of the Burrowed"
 	desc = "Attempts to summon all currently burrowed larva."
 	action_icon_state = "larva_growth"
+	action_icon = 'icons/Xeno/actions/leader.dmi'
 	ability_cost = 400
 	cooldown_duration = 2 MINUTES
 	keybinding_signals = list(
@@ -57,6 +58,7 @@
 /datum/action/ability/activable/xeno/psychic_fling
 	name = "Psychic Fling"
 	action_icon_state = "fling"
+	action_icon = 'icons/Xeno/actions/shrike.dmi'
 	desc = "Sends an enemy or an item flying. A close ranged ability."
 	cooldown_duration = 12 SECONDS
 	ability_cost = 100
@@ -140,6 +142,7 @@
 /datum/action/ability/activable/xeno/unrelenting_force
 	name = "Unrelenting Force"
 	action_icon_state = "screech"
+	action_icon = 'icons/Xeno/actions/queen.dmi'
 	desc = "Unleashes our raw psychic power, pushing aside anyone who stands in our path."
 	cooldown_duration = 50 SECONDS
 	ability_cost = 300
@@ -160,7 +163,7 @@
 	add_cooldown()
 	addtimer(CALLBACK(owner, TYPE_PROC_REF(/mob, update_icons)), 1 SECONDS)
 	var/mob/living/carbon/xenomorph/xeno = owner
-	owner.icon_state = "[xeno.xeno_caste.caste_name][xeno.is_a_rouny ? " rouny" : ""] Screeching"
+	owner.icon_state = "[xeno.xeno_caste.caste_name][(xeno.xeno_flags & XENO_ROUNY) ? " rouny" : ""] Screeching"
 	if(target) // Keybind use doesn't have a target
 		owner.face_atom(target)
 
@@ -205,7 +208,7 @@
 	span_xenowarning("We send out a huge blast of psychic energy!"))
 
 	playsound(owner,'sound/effects/bamf.ogg', 75, TRUE)
-	playsound(owner, "alien_roar", 50)
+	playsound(owner, SFX_ALIEN_ROAR, 50)
 
 			//Held facehuggers get killed for balance reasons
 	if(istype(owner.r_hand, /obj/item/clothing/mask/facehugger))
@@ -225,6 +228,7 @@
 /datum/action/ability/activable/xeno/psychic_cure
 	name = "Psychic Cure"
 	action_icon_state = "heal_xeno"
+	action_icon = 'icons/Xeno/actions/drone.dmi'
 	desc = "Heal and remove debuffs from a target."
 	cooldown_duration = 1 MINUTES
 	ability_cost = 200
@@ -312,6 +316,7 @@
 /datum/action/ability/xeno_action/place_acidwell
 	name = "Place acid well"
 	action_icon_state = "place_trap"
+	action_icon = 'icons/Xeno/actions/construction.dmi'
 	desc = "Place an acid well that can put out fires."
 	ability_cost = 400
 	cooldown_duration = 2 MINUTES
@@ -334,7 +339,7 @@
 			to_chat(owner, span_warning("We can only shape on weeds. We must find some resin before we start building!"))
 		return FALSE
 
-	if(!T.check_alien_construction(owner, silent))
+	if(!T.check_alien_construction(owner, silent, /obj/structure/xeno/acidwell))
 		return FALSE
 
 	if(!T.check_disallow_alien_fortification(owner, silent))
@@ -344,7 +349,7 @@
 	var/turf/T = get_turf(owner)
 	succeed_activate()
 
-	playsound(T, "alien_resin_build", 25)
+	playsound(T, SFX_ALIEN_RESIN_BUILD, 25)
 	new /obj/structure/xeno/acidwell(T, owner)
 
 	to_chat(owner, span_xenonotice("We place an acid well; it can be filled with more acid."))
@@ -362,6 +367,7 @@
 /datum/action/ability/activable/xeno/psychic_vortex
 	name = "Pyschic vortex"
 	action_icon_state = "vortex"
+	action_icon = 'icons/Xeno/actions/shrike.dmi'
 	desc = "Channel a sizable vortex of psychic energy, drawing in nearby enemies."
 	ability_cost = 600
 	cooldown_duration = 2 MINUTES
