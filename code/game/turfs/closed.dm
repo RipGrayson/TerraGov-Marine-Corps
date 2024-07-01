@@ -142,6 +142,26 @@
 	resistance_flags = RESIST_ALL
 	icon_state = "wall-invincible"
 
+/turf/closed/mineral/smooth/rockwall
+	icon = 'icons/turf/walls/cavewall.dmi'
+	icon_state = "cavewall-0"
+	walltype = "cavewall"
+	base_icon_state = "cavewall"
+
+/turf/closed/mineral/smooth/rockwall/indestructible
+	resistance_flags = RESIST_ALL
+	icon_state = "wall-invincible"
+
+/turf/closed/mineral/smooth/rockwall/greyscale
+	icon = 'icons/turf/walls/cavewall_greyscale.dmi'
+	icon_state = "cavewall_greyscale-0"
+	walltype = "cavewall"
+	base_icon_state = "cavewall_greyscale"
+
+/turf/closed/mineral/smooth/rockwall/greyscale/indestructible
+	resistance_flags = RESIST_ALL
+	icon_state = "wall-invincible"
+
 /turf/closed/mineral/bigred
 	name = "rock"
 	icon = 'icons/turf/walls.dmi'

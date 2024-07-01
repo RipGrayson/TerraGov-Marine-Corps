@@ -336,7 +336,7 @@
 /area/lv624/ground/caves/central1/garbledradio)
 "alB" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/mineral/smooth,
+/turf/closed/mineral/smooth/rockwall,
 /area/lv624/ground/caves/rock)
 "alD" = (
 /obj/effect/landmark/weed_node,
@@ -3636,7 +3636,7 @@
 /area/lv624/lazarus/comms)
 "crG" = (
 /obj/effect/landmark/xeno_resin_wall,
-/turf/closed/mineral/smooth,
+/turf/closed/mineral/smooth/rockwall,
 /area/lv624/ground/caves/rock)
 "crL" = (
 /obj/item/frame/table,
@@ -4083,7 +4083,7 @@
 /area/lv624/lazarus/canteen)
 "cTi" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
-/turf/closed/mineral/smooth/indestructible,
+/turf/closed/mineral/smooth/rockwall/indestructible,
 /area/lv624/ground/caves/rock)
 "cTw" = (
 /obj/machinery/door/airlock/multi_tile/mainship/generic{
@@ -5496,7 +5496,7 @@
 /turf/open/floor,
 /area/lv624/ground/jungle6)
 "evp" = (
-/turf/closed/mineral/smooth/indestructible,
+/turf/closed/mineral/smooth/rockwall/indestructible,
 /area/lv624/ground/caves/rock)
 "evx" = (
 /obj/effect/landmark/start/job/survivor,
@@ -6749,7 +6749,7 @@
 /area/lv624/ground/jungle4)
 "fYF" = (
 /obj/machinery/telecomms/relay/preset/telecomms,
-/turf/closed/mineral/smooth/indestructible,
+/turf/closed/mineral/smooth/rockwall/indestructible,
 /area/storage/testroom)
 "fYW" = (
 /obj/structure/cable,
@@ -7379,7 +7379,7 @@
 	},
 /area/lv624/lazarus/corporate_affairs)
 "gKr" = (
-/turf/closed/mineral/smooth,
+/turf/closed/mineral/smooth/rockwall,
 /area/lv624/ground/caves/rock)
 "gLd" = (
 /obj/structure/flora/jungle/vines,
@@ -13239,7 +13239,7 @@
 /area/lv624/ground/jungle6)
 "nqt" = (
 /obj/effect/landmark/lv624/fog_blocker,
-/turf/closed/mineral/smooth/indestructible,
+/turf/closed/mineral/smooth/rockwall/indestructible,
 /area/lv624/ground/caves/rock)
 "nqA" = (
 /obj/effect/spawner/random/weaponry/ammo/sidearm,
@@ -13325,7 +13325,7 @@
 /area/lv624/ground/jungle4)
 "nwU" = (
 /obj/effect/landmark/lv624/fog_blocker,
-/turf/closed/mineral/smooth,
+/turf/closed/mineral/smooth/rockwall,
 /area/lv624/ground/caves/rock)
 "nxk" = (
 /obj/structure/largecrate/random/barrel/yellow,
@@ -14859,7 +14859,7 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage)
 "psZ" = (
-/turf/closed/mineral/smooth/indestructible,
+/turf/closed/mineral/smooth/rockwall/indestructible,
 /area/space)
 "ptl" = (
 /obj/effect/decal/remains/human,
@@ -17792,7 +17792,7 @@
 /turf/open/floor/wood,
 /area/lv624/ground/jungle8)
 "sDY" = (
-/turf/closed/mineral/smooth,
+/turf/closed/mineral/smooth/rockwall,
 /area/lv624/lazarus/sandtemple/garbledradio)
 "sDZ" = (
 /obj/structure/table,
@@ -22234,7 +22234,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle3)
 "xoL" = (
-/turf/closed/mineral/smooth/indestructible,
+/turf/closed/mineral/smooth/rockwall/indestructible,
 /area/storage/testroom)
 "xoN" = (
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
