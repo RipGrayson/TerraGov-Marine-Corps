@@ -452,3 +452,12 @@
 	mediumxenofootstep = FOOTSTEP_CATWALK
 	barefootstep = FOOTSTEP_CATWALK
 	shoefootstep = FOOTSTEP_CATWALK
+
+/turf/open/floor/urban_concrete
+	name = "concrete"
+	icon = 'icons/turf/floors/hybrisa_concrete.dmi'
+	icon_state = "hybrisa_concrete-0"
+	base_icon_state = "hybrisa_concrete"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_ASPHALT)
+	canSmoothWith = list(SMOOTH_GROUP_ASPHALT)

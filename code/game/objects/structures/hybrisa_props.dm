@@ -992,6 +992,35 @@
 /obj/structure/prop/urban/cavedecor/stalagmite5
 	icon_state = "stalagmite5"
 
+/obj/structure/prop/urban/trafficpillar
+	name = "traffic pillar"
+	desc = "A traffic pillar."
+	icon = 'icons/obj/structures/prop/urban/64x64_urbanrandomprops.dmi'
+	icon_state = "pillar_1"
+
+/obj/structure/prop/urban/trafficpillar/two
+	icon_state = "pillar_2"
+
+/obj/structure/prop/urban/trafficpillar/three
+	icon_state = "pillar_3"
+
+/obj/structure/prop/urban/trafficpillar/four
+	icon_state = "pillar_4"
+
+/obj/structure/prop/urban/trafficpillar/five
+	icon_state = "pillar_5"
+
+/obj/structure/prop/urban/trafficpillar/six
+	icon_state = "pillar_6"
+
+/obj/structure/prop/urban/trafficpillar/seven
+	icon_state = "pillar_7"
+
+/obj/structure/prop/urban/trafficpillar/eight
+	icon_state = "pillar_8"
+
+/obj/structure/prop/urban/trafficpillar/nine
+	icon_state = "pillar_9"
 
 // Supermart
 
@@ -2295,6 +2324,18 @@
 	desc = "A decorative concrete planter."
 	icon_state = "planterempty"
 
+/obj/structure/prop/urban/misc/stoneplanterseats/empty/autosmooth
+	mouse_opacity = MOUSE_OPACITY_ICON
+	icon = 'icons/obj/smooth_objects/smooth_planter.dmi'
+	icon_state = "girder-display"
+	base_icon_state = "girder"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_STONE_PLANTERS)
+	canSmoothWith = list(
+		SMOOTH_GROUP_STONE_PLANTERS,
+	)
+
+
 /obj/structure/prop/urban/misc/concretestatue
 	name = "concrete statue"
 	desc = "A decorative statue with the Nanotrasen 'Wings' adorned on it, A corporate brutalist piece of art."
@@ -2522,3 +2563,16 @@
 
 /obj/structure/prop/urban/lattice_prop/lattice_6
 	icon_state = "lattice6"
+
+/obj/structure/prop/urban/drainhole
+	name = "drainhole"
+	icon = 'icons/obj/structures/prop/urban/urbanrandomprops.dmi'
+	icon_state = "drainhole_regular"
+
+/obj/structure/prop/urban/drainhole/barred
+	name = "barred drainhole"
+	icon_state = "drainhole_barred"
+
+/obj/structure/prop/urban/drainhole/grate
+	name = "drainage grate"
+	icon_state = "grate"

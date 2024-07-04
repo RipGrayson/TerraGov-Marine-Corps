@@ -122,6 +122,8 @@
 #define SMOOTH_GROUP_GLASS_TABLES S_OBJ(55)				///obj/structure/table/glass
 #define SMOOTH_GROUP_TABLES_GENERAL S_OBJ(56)
 
+#define SMOOTH_GROUP_STONE_PLANTERS S_OBJ(57)
+
 #define SMOOTH_GROUP_ALIEN_NEST S_OBJ(59)				///obj/structure/bed/nest
 #define SMOOTH_GROUP_ALIEN_RESIN S_OBJ(60)				///obj/structure/alien/resin
 #define SMOOTH_GROUP_ALIEN_WALLS S_OBJ(61)				///obj/structure/alien/resin/wall, /obj/structure/alien/resin/membrane

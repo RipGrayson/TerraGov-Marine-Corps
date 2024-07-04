@@ -163,6 +163,10 @@
 /turf/open/liquid/water/river/desertdam/clean/deep_water_clean
 	icon_state = "deep_water_clean"
 
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic
+	icon_state = "deep_water_toxic"
+
+
 //shallow water coast
 /turf/open/liquid/water/river/desertdam/clean/shallow_water_desert_coast
 	icon_state = "shallow_water_desert_coast"

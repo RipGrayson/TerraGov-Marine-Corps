@@ -428,3 +428,9 @@
 /obj/structure/tankholder/emergencyoxygentwo
 	icon_state = "holder_emergency_engi"
 
+/obj/structure/ledge
+	name = "concrete ledge"
+	icon_state = "ledge_regular"
+
+/obj/structure/ledge/corner
+	icon_state = "ledge_corner"
