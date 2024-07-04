@@ -1689,6 +1689,27 @@
 	light_power = 2
 	light_range = 3
 
+/obj/structure/prop/urban/misc/fire/firebarrel/red
+	icon_state = "fire_barrel_red"
+
+/obj/structure/prop/urban/misc/fire/firebarrel/green
+	icon_state = "fire_barrel_green"
+
+/obj/structure/prop/urban/misc/fire/firebarrel/yellow
+	icon_state = "fire_barrel_yellow"
+
+/obj/structure/prop/urban/misc/fire/firebarrel/black
+	icon_state = "fire_barrel_black"
+
+/obj/structure/prop/urban/misc/fire/firebarrel/white
+	icon_state = "fire_barrel_white"
+
+/obj/structure/prop/urban/misc/fire/firebarrel/blue
+	icon_state = "fire_barrel_blue"
+
+/obj/structure/prop/urban/misc/fire/firebarrel/brown
+	icon_state = "fire_barrel_brown"
+
 // Misc
 
 /obj/structure/prop/urban/misc/commandosuitemptyprop
@@ -2576,3 +2597,13 @@
 /obj/structure/prop/urban/drainhole/grate
 	name = "drainage grate"
 	icon_state = "grate"
+
+/obj/structure/prop/urban/elevated_street
+	name = "drainage grate"
+	icon = 'icons/obj/structures/prop/urban/urbanstreets.dmi'
+	icon_state = "road_north"
+	layer = 4.44
+
+/obj/structure/prop/urban/elevated_street/west
+	icon_state = "road_west"
+	layer = ABOVE_ALL_MOB_LAYER
