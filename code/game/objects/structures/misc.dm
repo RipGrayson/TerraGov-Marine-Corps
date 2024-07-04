@@ -432,5 +432,17 @@
 	name = "concrete ledge"
 	icon_state = "ledge_regular"
 
+/obj/structure/ledge/water
+	icon_state = "ledge_water_edge"
+
+/obj/structure/ledge/alt
+	icon_state = "ledge_alt"
+
 /obj/structure/ledge/corner
 	icon_state = "ledge_corner"
+
+/obj/structure/ledge/alt/corner
+	icon_state = "ledge_corner_alt"
+
+/obj/structure/ledge/alt/corner_two
+	icon_state = "ledge_corner_alt_two"
