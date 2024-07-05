@@ -446,3 +446,24 @@
 
 /obj/structure/ledge/alt/corner_two
 	icon_state = "ledge_corner_alt_two"
+
+/obj/structure/levee
+	name = "concrete levee"
+	icon_state = "dam_mid"
+	resistance_flags = RESIST_ALL
+	density = TRUE
+
+/obj/structure/levee/overflow
+	icon_state = "dam_mid_overflow"
+
+/obj/structure/levee/top
+	icon_state = "dam_high"
+
+/obj/structure/levee/top/overflow
+	icon_state = "dam_high_overflow"
+
+/obj/structure/levee/bottom
+	icon_state = "dam_low"
+
+/obj/structure/levee/bottom/overflow
+	icon_state = "dam_low_overflow"
