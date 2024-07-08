@@ -431,6 +431,7 @@
 /obj/structure/ledge
 	name = "concrete ledge"
 	icon_state = "ledge_regular"
+	plane = FLOOR_PLANE
 
 /obj/structure/ledge/water
 	icon_state = "ledge_water_edge"

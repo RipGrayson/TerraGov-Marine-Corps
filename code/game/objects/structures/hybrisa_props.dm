@@ -160,6 +160,36 @@
 	bound_width = 64
 	climbable = TRUE
 
+/obj/structure/prop/urban/trafficpillar
+	name = "traffic pillar"
+	desc = "A traffic pillar."
+	icon = 'icons/obj/structures/prop/urban/64x64_urbanrandomprops.dmi'
+	icon_state = "pillar_1"
+
+/obj/structure/prop/urban/trafficpillar/two
+	icon_state = "pillar_2"
+
+/obj/structure/prop/urban/trafficpillar/three
+	icon_state = "pillar_3"
+
+/obj/structure/prop/urban/trafficpillar/four
+	icon_state = "pillar_4"
+
+/obj/structure/prop/urban/trafficpillar/five
+	icon_state = "pillar_5"
+
+/obj/structure/prop/urban/trafficpillar/six
+	icon_state = "pillar_6"
+
+/obj/structure/prop/urban/trafficpillar/seven
+	icon_state = "pillar_7"
+
+/obj/structure/prop/urban/trafficpillar/eight
+	icon_state = "pillar_8"
+
+/obj/structure/prop/urban/trafficpillar/nine
+	icon_state = "pillar_9"
+
 // Chairs
 /obj/structure/bed/urban/chairs
 	name = "expensive chair"
@@ -591,7 +621,6 @@
 	desc = "A flaming barrel filled with hazardous substances."
 	icon = 'icons/obj/structures/prop/urban/64x96-urbanrandomprops.dmi'
 	icon_state = "zbarrelfireon"
-	layer = 5
 	light_on = TRUE
 	light_power = 2
 	light_range = 3
@@ -1202,35 +1231,6 @@
 
 // MISC
 
-/obj/structure/prop/urban/misc/stoneplanterseats
-	name = "concrete seated planter"
-	desc = "A decorative concrete planter with seating attached, the seats are fitted with synthetic leather, they've faded in time.."
-	icon = 'icons/obj/structures/prop/urban/64x64_urbanrandomprops.dmi'
-	icon_state = "planterseats"
-	set_bound_width = 32
-	set_bound_height = 64
-	density = TRUE
-	max_integrity = 200
-	anchored = TRUE
-	resistance_flags = XENO_DAMAGEABLE
-
-/obj/structure/prop/urban/misc/stoneplanterseats/empty
-	name = "concrete planter"
-	desc = "A decorative concrete planter."
-	icon_state = "planterempty"
-
-/obj/structure/prop/urban/misc/stoneplanterseats/empty/autosmooth
-	mouse_opacity = MOUSE_OPACITY_ICON
-	icon = 'icons/obj/smooth_objects/smooth_planter.dmi'
-	icon_state = "girder-display"
-	base_icon_state = "girder"
-	smoothing_flags = SMOOTH_BITMASK
-	smoothing_groups = list(SMOOTH_GROUP_STONE_PLANTERS)
-	canSmoothWith = list(
-		SMOOTH_GROUP_STONE_PLANTERS,
-	)
-
-
 /obj/structure/prop/urban/misc/concretestatue
 	name = "concrete statue"
 	desc = "A decorative statue with the Nanotrasen 'Wings' adorned on it, A corporate brutalist piece of art."
@@ -1472,3 +1472,17 @@
 /obj/structure/prop/urban/elevated_street/west
 	icon_state = "road_west"
 	layer = ABOVE_ALL_MOB_LAYER
+
+/obj/structure/prop/urban/simple_fence
+	name = "fence"
+	desc = "It's a fence."
+	icon = 'icons/obj/structures/prop/urban/urbanrandomprops.dmi'
+	icon_state = "simple_fence"
+	layer = ABOVE_MOB_LAYER
+	density = TRUE
+	resistance_flags = XENO_DAMAGEABLE
+	max_integrity = 200
+
+/obj/structure/prop/urban/simple_fence/end
+	icon_state = "simple_fence_end"
+	density = FALSE

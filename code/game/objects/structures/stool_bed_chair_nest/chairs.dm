@@ -192,11 +192,23 @@
 /obj/structure/bed/chair/sofa/corsat/single
 	icon_state = "sofa"
 
+/obj/structure/bed/chair/sofa/corsat/single/red
+	icon_state = "sofa_red"
+
+/obj/structure/bed/chair/sofa/corsat/single/black
+	icon_state = "sofa_black"
+
 /obj/structure/bed/chair/sofa/corsat/left
 	icon_state = "couch_hori1"
 
 /obj/structure/bed/chair/sofa/corsat/left/white
 	icon_state = "bench_hor1"
+
+/obj/structure/bed/chair/sofa/corsat/left/red
+	icon_state = "couch_hori1_red"
+
+/obj/structure/bed/chair/sofa/corsat/left/black
+	icon_state = "couch_hori1_black"
 
 /obj/structure/bed/chair/sofa/corsat/right
 	icon_state = "couch_hori3"
@@ -204,11 +216,23 @@
 /obj/structure/bed/chair/sofa/corsat/right/white
 	icon_state = "bench_hor3"
 
+/obj/structure/bed/chair/sofa/corsat/right/red
+	icon_state = "couch_hori3_red"
+
+/obj/structure/bed/chair/sofa/corsat/right/black
+	icon_state = "couch_hori3_black"
+
 /obj/structure/bed/chair/sofa/corsat/verticaltop
 	icon_state = "couch_vet3"
 
 /obj/structure/bed/chair/sofa/corsat/verticaltop/white
 	icon_state = "bench_vet3"
+
+/obj/structure/bed/chair/sofa/corsat/verticaltop/red
+	icon_state = "couch_vet3_red"
+
+/obj/structure/bed/chair/sofa/corsat/verticaltop/black
+	icon_state = "couch_vet3_black"
 
 /obj/structure/bed/chair/sofa/corsat/verticalmiddle
 	icon_state = "couch_vet2"
@@ -216,11 +240,23 @@
 /obj/structure/bed/chair/sofa/corsat/verticalmiddle/white
 	icon_state = "bench_vet2"
 
+/obj/structure/bed/chair/sofa/corsat/verticalmiddle/red
+	icon_state = "couch_vet2_red"
+
+/obj/structure/bed/chair/sofa/corsat/verticalmiddle/black
+	icon_state = "couch_vet2_black"
+
 /obj/structure/bed/chair/sofa/corsat/verticalsouth
 	icon_state = "couch_vet1"
 
 /obj/structure/bed/chair/sofa/corsat/verticalsouth/white
 	icon_state = "bench_vet1"
+
+/obj/structure/bed/chair/sofa/corsat/verticalsouth/red
+	icon_state = "couch_vet1_red"
+
+/obj/structure/bed/chair/sofa/corsat/verticalsouth/black
+	icon_state = "couch_vet1_black"
 
 //cm benches do not have corners
 

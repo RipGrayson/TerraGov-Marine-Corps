@@ -1139,6 +1139,8 @@
 	template_width = 79
 	template_height = 29
 
+/*
+
 /datum/map_template/modular/end_of_round/original
 	name = "Original EORG"
 	mappath = "_maps/modularmaps/EORG/original.dmm"
@@ -1146,12 +1148,24 @@
 	template_width = 46
 	template_height = 46
 
+
 /datum/map_template/modular/end_of_round/de_dust2
 	name = "de dust 2"
 	mappath = "_maps/modularmaps/EORG/de_dust2.dmm"
 	modular_id = "EORG"
 	template_width = 46
 	template_height = 46
+
+*/
+
+/datum/map_template/modular/end_of_round/urban
+	name = "Urban"
+	mappath = "_maps/modularmaps/EORG/urban.dmm"
+	modular_id = "EORG"
+	template_width = 46
+	template_height = 46
+
+/*
 
 /datum/map_template/modular/end_of_round/old
 	name = "Old EORG"
@@ -1201,6 +1215,8 @@
 	modular_id = "EORG"
 	template_width = 46
 	template_height = 46
+
+*/
 
 /datum/map_template/modular/jungle_outpost/westtowerone
 	name = "Western Dome"

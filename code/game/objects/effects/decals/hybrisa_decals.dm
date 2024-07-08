@@ -338,6 +338,42 @@
 /obj/effect/urban/decal/trash/seventeen
 	icon_state = "trash_17"
 
+/obj/effect/urban/decal/trash/eighteen
+	icon_state = "trash_18"
+
+/obj/effect/urban/decal/trash/nineteen
+	icon_state = "trash_19"
+
+/obj/effect/urban/decal/trash/twenty
+	icon_state = "trash_20"
+
+/obj/effect/urban/decal/trash/twentyone
+	icon_state = "trash_21"
+
+/obj/effect/urban/decal/trash/twentytwo
+	icon_state = "trash_22"
+
+/obj/effect/urban/decal/trash/twentythree
+	icon_state = "trash_23"
+
+/obj/effect/urban/decal/trash/twentyfour
+	icon_state = "trash_24"
+
+/obj/effect/urban/decal/trash/twentyfive
+	icon_state = "trash_25"
+
+/obj/effect/urban/decal/trash/twentysix
+	icon_state = "trash_26"
+
+/obj/effect/urban/decal/trash/twentyseven
+	icon_state = "trash_27"
+
+/obj/effect/urban/decal/trash/twentyeight
+	icon_state = "trash_28"
+
+/obj/effect/urban/decal/trash/twentynine
+	icon_state = "trash_29"
+
 /// Engineer_ship
 /obj/effect/urban/decal/engineership_corners
 	icon = 'icons/turf/desertdam_map.dmi'

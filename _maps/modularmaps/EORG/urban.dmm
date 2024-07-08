@@ -1,0 +1,2965 @@
+//MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"ap" = (
+/obj/structure/prop/urban/trafficpillar,
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"aZ" = (
+/obj/structure/prop/urban/simple_fence/end,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"bo" = (
+/obj/structure/platform/urban/metalplatform6{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/deathmatch)
+"br" = (
+/obj/structure/ledge/corner{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"bt" = (
+/obj/structure/barricade/handrail/urban/handrail,
+/obj/structure/platform/urban/metalplatform6,
+/obj/structure/prop/urban/trafficpillar{
+	pixel_y = -18
+	},
+/turf/open/floor/plating/plating_catwalk{
+	color = "#dfcfc0"
+	},
+/area/deathmatch)
+"bA" = (
+/obj/structure/barricade/handrail/urban/handrail,
+/obj/structure/platform/urban/metalplatform6,
+/obj/structure/prop/urban/trafficpillar{
+	pixel_x = -19;
+	pixel_y = -19
+	},
+/turf/open/floor/plating/plating_catwalk{
+	color = "#dfcfc0"
+	},
+/area/deathmatch)
+"bK" = (
+/obj/structure/ledge/corner{
+	dir = 4
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"cA" = (
+/obj/structure/ledge/alt,
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"di" = (
+/obj/structure/ledge/alt/corner_two{
+	dir = 1
+	},
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"dj" = (
+/obj/structure/ledge/alt{
+	dir = 10
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"dB" = (
+/obj/structure/ledge,
+/obj/structure/prop/urban/drainhole{
+	pixel_x = -17
+	},
+/obj/structure/prop/urban/drainhole/barred{
+	pixel_x = -2
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"dZ" = (
+/obj/structure/ledge/alt{
+	dir = 10
+	},
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"eG" = (
+/obj/structure/ledge/alt{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"eU" = (
+/obj/structure/stairs{
+	color = "#b7b8b2";
+	dir = 1
+	},
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"fv" = (
+/obj/structure/ledge/alt/corner_two{
+	dir = 1
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"fB" = (
+/obj/structure/ledge/alt{
+	dir = 1
+	},
+/obj/structure/levee/bottom/overflow,
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"fK" = (
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"gl" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"gM" = (
+/obj/structure/ledge/alt,
+/obj/structure/levee/top/overflow{
+	dir = 1
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"hb" = (
+/obj/structure/ledge/alt,
+/obj/structure/levee/top/overflow,
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"hv" = (
+/turf/open/space/basic,
+/area/deathmatch)
+"hX" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/obj/structure/prop/urban/trafficpillar{
+	pixel_y = -18
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"ih" = (
+/obj/structure/ledge/alt{
+	dir = 4
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"ix" = (
+/obj/structure/ledge/water{
+	dir = 5
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"iF" = (
+/obj/structure/ledge{
+	dir = 5
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"iU" = (
+/obj/effect/urban/decal/trash,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"jg" = (
+/obj/structure/ledge/alt{
+	dir = 5
+	},
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"jE" = (
+/obj/structure/ledge/alt,
+/obj/structure/levee/top,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"jT" = (
+/obj/structure/ledge/water{
+	dir = 1
+	},
+/obj/structure/ledge/alt{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"jV" = (
+/obj/structure/ledge{
+	dir = 6
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"kj" = (
+/obj/structure/ledge/alt{
+	dir = 1
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"kn" = (
+/obj/structure/barricade/handrail/urban/handrail,
+/obj/structure/platform/urban/metalplatform6,
+/obj/structure/prop/urban/trafficpillar{
+	pixel_x = -13;
+	pixel_y = -19
+	},
+/turf/open/floor/plating/plating_catwalk{
+	color = "#dfcfc0"
+	},
+/area/deathmatch)
+"lb" = (
+/obj/structure/ledge/alt/corner_two,
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"lF" = (
+/obj/structure/levee{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"ne" = (
+/obj/structure/ledge/alt{
+	dir = 9
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"nL" = (
+/obj/structure/ledge/water{
+	dir = 6
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"nO" = (
+/obj/structure/prop/urban/simple_fence,
+/obj/structure/ledge/alt{
+	dir = 4
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"os" = (
+/obj/structure/ledge/water{
+	dir = 10
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"pu" = (
+/obj/structure/prop/urban/drainhole/grate,
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"qh" = (
+/obj/structure/ledge/alt/corner_two,
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"qu" = (
+/obj/structure/levee,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"rb" = (
+/obj/structure/prop/urban/simple_fence,
+/obj/structure/ledge/alt{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"ro" = (
+/obj/structure/ledge/alt{
+	dir = 4
+	},
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"ru" = (
+/obj/structure/stairs/seamless{
+	color = "#a6aeab";
+	dir = 8
+	},
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"rW" = (
+/obj/structure/prop/urban/simple_fence,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"sa" = (
+/obj/structure/ledge/alt,
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"sV" = (
+/obj/structure/ledge/alt{
+	dir = 6
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"tn" = (
+/obj/structure/ledge/alt{
+	dir = 9
+	},
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"tB" = (
+/obj/structure/ledge/alt,
+/obj/structure/levee/top{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"tP" = (
+/obj/structure/barricade/handrail/urban/handrail,
+/obj/structure/platform/urban/metalplatform6,
+/turf/open/floor/plating/plating_catwalk{
+	color = "#dfcfc0"
+	},
+/area/deathmatch)
+"ur" = (
+/obj/structure/prop/urban/elevated_street,
+/turf/open/space/basic,
+/area/deathmatch)
+"ut" = (
+/obj/structure/platform/urban/metalplatform6{
+	dir = 1
+	},
+/turf/closed/wall/urban/colony,
+/area/deathmatch)
+"uG" = (
+/obj/structure/ledge{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"ve" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/obj/structure/prop/urban/trafficpillar{
+	pixel_x = -13;
+	pixel_y = -19
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"vm" = (
+/obj/structure/ledge/water{
+	dir = 9
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"vI" = (
+/obj/structure/ledge/alt{
+	dir = 4
+	},
+/obj/structure/prop/urban/simple_fence,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"vN" = (
+/obj/structure/ledge/alt/corner_two{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"vO" = (
+/obj/structure/ledge/alt{
+	dir = 6
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"wM" = (
+/obj/structure/concrete_planter/autosmooth,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"wN" = (
+/obj/structure/prop/urban/simple_fence{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"xr" = (
+/obj/structure/ledge/alt{
+	dir = 5
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"xB" = (
+/obj/structure/stairs/seamless/edge{
+	color = "#a6aeab"
+	},
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"xN" = (
+/obj/structure/ledge/alt/corner_two{
+	dir = 4
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"yY" = (
+/obj/structure/ledge/alt{
+	dir = 8
+	},
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"zZ" = (
+/obj/structure/ledge/alt{
+	dir = 6
+	},
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"Af" = (
+/obj/structure/ledge{
+	dir = 10
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"AJ" = (
+/obj/structure/ledge/alt{
+	dir = 1
+	},
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"AR" = (
+/obj/structure/stairs/seamless/edge{
+	color = "#a6aeab";
+	dir = 8
+	},
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"Bz" = (
+/obj/structure/ledge{
+	dir = 10
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"Cj" = (
+/obj/structure/platform/urban/metalplatform6{
+	dir = 8
+	},
+/turf/open/space/basic,
+/area/deathmatch)
+"Df" = (
+/obj/structure/ledge/alt/corner_two,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"DL" = (
+/obj/structure/ledge/alt,
+/obj/structure/prop/urban/misc/fire/firebarrel/red,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"DM" = (
+/obj/structure/ledge/corner{
+	dir = 8
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"Eb" = (
+/obj/structure/ledge/alt{
+	dir = 8
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"Eu" = (
+/obj/structure/ledge{
+	dir = 8
+	},
+/turf/open/space/basic,
+/area/deathmatch)
+"Ez" = (
+/obj/structure/stairs{
+	color = "#b7b8b2";
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"EA" = (
+/obj/structure/ledge,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"EE" = (
+/obj/effect/decal/cleanable/dirt,
+/turf/open/floor/urban/tile/tilewhite,
+/area/deathmatch)
+"Gl" = (
+/obj/structure/ledge/alt,
+/obj/structure/prop/urban/drainhole{
+	pixel_x = 7;
+	pixel_y = 7
+	},
+/obj/structure/prop/urban/drainhole{
+	pixel_x = -5;
+	pixel_y = 7
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"Gz" = (
+/obj/structure/levee/overflow{
+	dir = 1
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"GC" = (
+/obj/structure/ledge/alt{
+	dir = 10
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"HA" = (
+/obj/structure/ledge/alt{
+	dir = 1
+	},
+/obj/structure/levee/bottom,
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"IV" = (
+/obj/structure/ledge/alt{
+	dir = 4
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"Jr" = (
+/obj/structure/ledge/alt{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"JF" = (
+/obj/structure/ledge/alt{
+	dir = 9
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"JG" = (
+/obj/structure/ledge/alt/corner_two{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"Ky" = (
+/obj/structure/ledge/alt{
+	dir = 8
+	},
+/obj/structure/prop/urban/simple_fence,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"KA" = (
+/obj/structure/ledge/water{
+	dir = 4
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"KD" = (
+/obj/structure/stairs/seamless/edge{
+	color = "#a6aeab";
+	dir = 1
+	},
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"KP" = (
+/obj/structure/platform/urban/metalplatform6,
+/turf/closed/wall/urban/colony,
+/area/deathmatch)
+"Lu" = (
+/obj/structure/ledge/alt/corner_two{
+	dir = 8
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"Ma" = (
+/turf/closed/wall/urban/colony/engineering,
+/area/deathmatch)
+"Mj" = (
+/obj/structure/ledge/water{
+	dir = 8
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"Nm" = (
+/obj/structure/stairs/seamless/edge{
+	color = "#a6aeab";
+	dir = 4
+	},
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"NQ" = (
+/obj/structure/prop/urban/simple_fence,
+/obj/structure/prop/urban/misc/fire/firebarrel/red{
+	pixel_y = 6
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"Oh" = (
+/obj/structure/levee,
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"OP" = (
+/obj/structure/ledge/corner{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"OU" = (
+/obj/structure/ledge/alt{
+	dir = 5
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"Pk" = (
+/obj/structure/platform/urban/metalplatform6{
+	dir = 1
+	},
+/turf/open/floor/plating/plating_catwalk{
+	color = "#dfcfc0"
+	},
+/area/deathmatch)
+"Pq" = (
+/obj/structure/ledge/water,
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"Px" = (
+/obj/structure/ledge/water{
+	dir = 1
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"PG" = (
+/obj/structure/window/framed/urban/reinforced,
+/obj/structure/prop/urban/simple_fence,
+/turf/open/floor/plating,
+/area/deathmatch)
+"PQ" = (
+/obj/machinery/door/airlock/multi_tile/urban/medical{
+	dir = 4
+	},
+/turf/open/space/basic,
+/area/deathmatch)
+"Qe" = (
+/obj/structure/ledge{
+	dir = 9
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"Qf" = (
+/obj/structure/ledge/corner,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"Qq" = (
+/obj/structure/levee/overflow,
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"QO" = (
+/obj/structure/ledge/alt{
+	dir = 1
+	},
+/obj/structure/levee/bottom,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"Rb" = (
+/obj/structure/ledge,
+/obj/structure/prop/urban/drainhole/barred,
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"Re" = (
+/turf/open/floor/urban/tile/tilewhite,
+/area/deathmatch)
+"TC" = (
+/obj/structure/ledge,
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"Uc" = (
+/obj/structure/stairs{
+	color = "#a6aeab"
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"UF" = (
+/obj/structure/ledge{
+	dir = 9
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"Vb" = (
+/obj/structure/ledge/alt,
+/obj/structure/levee/top,
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"VI" = (
+/obj/structure/ledge{
+	dir = 4
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"VJ" = (
+/obj/structure/ledge{
+	dir = 8
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"VU" = (
+/obj/structure/ledge/corner{
+	dir = 4
+	},
+/obj/structure/prop/urban/trafficpillar{
+	pixel_x = -19;
+	pixel_y = -19
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"Wa" = (
+/obj/structure/prop/urban/misc/fire/firebarrel/white,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"Wu" = (
+/obj/structure/prop/urban/simple_fence{
+	dir = 4
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"WN" = (
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"Xv" = (
+/obj/structure/ledge/alt,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"Yc" = (
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"Ye" = (
+/obj/structure/stairs/seamless{
+	color = "#a6aeab";
+	dir = 4
+	},
+/turf/open/floor/urban_concrete,
+/area/deathmatch)
+"YF" = (
+/obj/structure/prop/urban/misc/fire/firebarrel/red,
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"YN" = (
+/obj/structure/ledge/corner{
+	dir = 8
+	},
+/turf/open/space/basic,
+/area/deathmatch)
+"ZD" = (
+/obj/structure/ledge/alt{
+	dir = 1
+	},
+/obj/structure/levee/bottom/overflow{
+	dir = 1
+	},
+/turf/open/liquid/water/river/desertdam/clean/deep_water_toxic,
+/area/deathmatch)
+"ZJ" = (
+/turf/closed/wall/urban/colony,
+/area/deathmatch)
+"ZO" = (
+/obj/structure/ledge{
+	dir = 1
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+"ZV" = (
+/obj/structure/ledge/alt{
+	dir = 1
+	},
+/obj/structure/levee/bottom{
+	dir = 8
+	},
+/turf/open/urban/street/sidewalkfull,
+/area/deathmatch)
+
+(1,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+"}
+(2,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+"}
+(3,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+Ma
+Ma
+Wu
+Wu
+Ma
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+"}
+(4,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+PG
+Re
+EE
+Re
+rW
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+"}
+(5,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+PG
+Re
+EE
+Re
+rW
+hv
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+hv
+hv
+hv
+hv
+hv
+"}
+(6,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+Ma
+iU
+Re
+gl
+Ma
+hv
+Ma
+sV
+ih
+ih
+ih
+ih
+ih
+ih
+xr
+Ma
+hv
+hv
+hv
+hv
+hv
+"}
+(7,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+PQ
+EE
+Re
+WN
+aZ
+hv
+Ma
+Xv
+br
+OP
+br
+OP
+br
+OP
+eG
+Ma
+hv
+hv
+hv
+hv
+hv
+"}
+(8,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+Re
+EE
+gl
+aZ
+hv
+Ma
+Xv
+hX
+EA
+hX
+EA
+hX
+EA
+eG
+Ma
+hv
+hv
+hv
+hv
+hv
+"}
+(9,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+Ma
+WN
+EE
+WN
+Ma
+hv
+Ma
+Xv
+hX
+EA
+hX
+EA
+hX
+EA
+eG
+Ma
+hv
+hv
+hv
+hv
+hv
+"}
+(10,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+PG
+EE
+Re
+Re
+rW
+hv
+Ma
+Xv
+bK
+Qf
+bK
+Qf
+bK
+Qf
+eG
+Ma
+hv
+hv
+hv
+hv
+hv
+"}
+(11,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+PG
+EE
+Re
+EE
+rW
+hv
+Ma
+GC
+Jr
+Jr
+Jr
+Jr
+Jr
+Jr
+JF
+Ma
+hv
+hv
+hv
+hv
+hv
+"}
+(12,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+Ma
+Ma
+wN
+wN
+Ma
+hv
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+hv
+hv
+hv
+hv
+hv
+"}
+(13,1,1) = {"
+hv
+hv
+hv
+hv
+ZJ
+ZJ
+ZJ
+ZJ
+ZJ
+ZJ
+ZJ
+ZJ
+ZJ
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+"}
+(14,1,1) = {"
+hv
+hv
+hv
+hv
+ZJ
+vO
+IV
+IV
+IV
+IV
+IV
+OU
+ZJ
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+"}
+(15,1,1) = {"
+hv
+hv
+hv
+hv
+ZJ
+cA
+Yc
+Yc
+Yc
+Yc
+Yc
+kj
+ZJ
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+Ma
+Ma
+Ma
+Ma
+Ma
+hv
+hv
+hv
+hv
+hv
+"}
+(16,1,1) = {"
+hv
+hv
+hv
+hv
+ZJ
+cA
+Yc
+Yc
+Yc
+Yc
+Yc
+kj
+ZJ
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+Ma
+nL
+KA
+ix
+Ma
+hv
+hv
+hv
+hv
+hv
+"}
+(17,1,1) = {"
+hv
+hv
+hv
+hv
+ZJ
+cA
+Yc
+Yc
+Yc
+Yc
+Yc
+kj
+ZJ
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+bo
+bo
+bo
+bo
+bo
+bo
+bo
+hv
+hv
+hv
+Ma
+Pq
+Yc
+Px
+Ma
+hv
+hv
+hv
+hv
+hv
+"}
+(18,1,1) = {"
+hv
+hv
+hv
+ZJ
+ZJ
+dj
+Eb
+fv
+Yc
+Lu
+Eb
+ne
+ZJ
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+tP
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Pk
+hv
+hv
+Ma
+Pq
+Yc
+Px
+Ma
+hv
+hv
+hv
+hv
+hv
+"}
+(19,1,1) = {"
+hv
+hv
+hv
+ZJ
+ZJ
+ZJ
+fK
+cA
+Yc
+kj
+ZJ
+ZJ
+ZJ
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+tP
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Pk
+hv
+hv
+Ma
+Pq
+Yc
+Px
+Ma
+hv
+hv
+hv
+hv
+hv
+"}
+(20,1,1) = {"
+hv
+hv
+hv
+ZJ
+fK
+fK
+fK
+gM
+Gz
+ZD
+ZJ
+ZJ
+ZJ
+ZJ
+ZJ
+WN
+WN
+WN
+ZJ
+ZJ
+ZJ
+ZJ
+hv
+hv
+hv
+tP
+jV
+VI
+iF
+jV
+VI
+iF
+Ma
+Pk
+hv
+hv
+Ma
+Pq
+Yc
+Px
+Ma
+hv
+hv
+hv
+hv
+hv
+"}
+(21,1,1) = {"
+hv
+hv
+hv
+ZJ
+fK
+nL
+KA
+Yc
+Yc
+Yc
+KA
+ix
+zZ
+ro
+ro
+AR
+Ye
+KD
+ro
+ro
+jg
+ZJ
+hv
+hv
+hv
+KP
+EA
+WN
+ZO
+EA
+WN
+ZO
+Ma
+ut
+hv
+hv
+Ma
+Pq
+Yc
+Px
+Ma
+hv
+hv
+hv
+hv
+hv
+"}
+(22,1,1) = {"
+hv
+hv
+hv
+ZJ
+fK
+Pq
+Yc
+Yc
+Yc
+Yc
+Yc
+Px
+sa
+wM
+wM
+WN
+WN
+WN
+wM
+wM
+AJ
+ZJ
+hv
+hv
+hv
+bA
+EA
+WN
+VU
+Qf
+WN
+ZO
+Ma
+Pk
+hv
+hv
+Ma
+jE
+qu
+QO
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+"}
+(23,1,1) = {"
+hv
+hv
+hv
+ZJ
+fK
+Pq
+Yc
+Yc
+Yc
+Yc
+Yc
+Px
+sa
+wM
+wM
+WN
+WN
+WN
+wM
+wM
+AJ
+ZJ
+hv
+hv
+hv
+tP
+EA
+WN
+br
+OP
+YF
+ZO
+Ma
+Pk
+hv
+hv
+Ma
+Xv
+WN
+xN
+ih
+nO
+ih
+ih
+xr
+Ma
+"}
+(24,1,1) = {"
+hv
+hv
+hv
+ZJ
+fK
+os
+Mj
+Yc
+Yc
+Yc
+Mj
+vm
+sa
+wM
+wM
+WN
+WN
+WN
+wM
+wM
+AJ
+ZJ
+hv
+hv
+hv
+bt
+EA
+WN
+hX
+EA
+WN
+ZO
+Ma
+Pk
+hv
+hv
+Ma
+Xv
+WN
+WN
+WN
+NQ
+WN
+WN
+eG
+Ma
+"}
+(25,1,1) = {"
+hv
+hv
+hv
+ZJ
+fK
+fK
+fK
+Vb
+Oh
+HA
+zZ
+ro
+lb
+WN
+WN
+WN
+WN
+WN
+WN
+WN
+AJ
+ZJ
+hv
+hv
+hv
+KP
+Rb
+pu
+bK
+Qf
+WN
+ZO
+Ma
+ut
+hv
+hv
+Ma
+DL
+WN
+JG
+Jr
+rb
+Jr
+vN
+eG
+Ma
+"}
+(26,1,1) = {"
+hv
+hv
+hv
+ZJ
+WN
+WN
+WN
+Uc
+WN
+WN
+Ez
+WN
+WN
+WN
+WN
+WN
+WN
+WN
+WN
+WN
+eU
+WN
+hv
+hv
+hv
+tP
+dB
+Yc
+DM
+OP
+WN
+ZO
+Ma
+Pk
+hv
+hv
+Ma
+Xv
+WN
+eG
+fK
+Ma
+Ma
+Xv
+eG
+Ma
+"}
+(27,1,1) = {"
+hv
+hv
+hv
+ZJ
+WN
+WN
+WN
+Uc
+WN
+WN
+Ez
+WN
+WN
+WN
+WN
+WN
+WN
+WN
+WN
+WN
+eU
+WN
+hv
+hv
+hv
+kn
+TC
+Yc
+ve
+EA
+WN
+ZO
+Ma
+Pk
+hv
+hv
+Ma
+Xv
+WN
+eG
+fK
+fK
+fK
+Xv
+eG
+Ma
+"}
+(28,1,1) = {"
+hv
+hv
+hv
+ZJ
+ZJ
+ZJ
+fK
+Xv
+WN
+JG
+dZ
+yY
+di
+WN
+WN
+WN
+WN
+WN
+WN
+WN
+AJ
+ZJ
+hv
+hv
+hv
+tP
+Af
+VJ
+Qe
+Bz
+uG
+UF
+Ma
+Pk
+hv
+hv
+Ma
+tB
+lF
+ZV
+fK
+fK
+fK
+Xv
+eG
+Ma
+"}
+(29,1,1) = {"
+hv
+hv
+hv
+ZJ
+ZJ
+ZJ
+fK
+Xv
+WN
+eG
+ZJ
+ZJ
+sa
+wM
+wM
+WN
+WN
+WN
+wM
+wM
+AJ
+ZJ
+hv
+hv
+hv
+KP
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+ut
+hv
+hv
+Ma
+Pq
+Yc
+Px
+fK
+fK
+fK
+Xv
+eG
+Ma
+"}
+(30,1,1) = {"
+hv
+hv
+hv
+ZJ
+fK
+fK
+fK
+Xv
+WN
+eG
+ZJ
+ZJ
+sa
+wM
+wM
+WN
+WN
+WN
+wM
+wM
+AJ
+ZJ
+hv
+hv
+hv
+tP
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Pk
+hv
+hv
+Ma
+Pq
+Yc
+Px
+fK
+ap
+fK
+Xv
+eG
+Ma
+"}
+(31,1,1) = {"
+hv
+hv
+hv
+ZJ
+fK
+sV
+ih
+Df
+WN
+xN
+ih
+xr
+sa
+wM
+wM
+WN
+WN
+WN
+wM
+wM
+AJ
+ZJ
+hv
+hv
+hv
+tP
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Pk
+hv
+hv
+Ma
+Pq
+Yc
+Px
+fK
+fK
+fK
+Xv
+eG
+Ma
+"}
+(32,1,1) = {"
+hv
+hv
+hv
+ZJ
+fK
+Xv
+WN
+WN
+WN
+WN
+WN
+jT
+dZ
+yY
+yY
+Nm
+ru
+xB
+yY
+yY
+tn
+ZJ
+hv
+hv
+hv
+tP
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Pk
+hv
+hv
+Ma
+Pq
+Yc
+Px
+fK
+fK
+fK
+Xv
+eG
+Ma
+"}
+(33,1,1) = {"
+hv
+hv
+hv
+ZJ
+fK
+Xv
+WN
+WN
+WN
+WN
+WN
+jT
+fK
+ZJ
+ZJ
+WN
+WN
+WN
+ZJ
+ZJ
+ZJ
+ZJ
+hv
+hv
+hv
+hv
+Cj
+Cj
+Cj
+Cj
+Cj
+Cj
+Cj
+hv
+hv
+hv
+Ma
+Pq
+Yc
+Px
+fK
+fK
+fK
+Xv
+eG
+Ma
+"}
+(34,1,1) = {"
+hv
+hv
+hv
+ZJ
+fK
+GC
+Jr
+Jr
+Jr
+Jr
+Jr
+JF
+fK
+ZJ
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+Ma
+Pq
+Yc
+Px
+fK
+ap
+fK
+Xv
+eG
+Ma
+"}
+(35,1,1) = {"
+hv
+hv
+hv
+ZJ
+fK
+fK
+fK
+fK
+fK
+fK
+fK
+fK
+fK
+ZJ
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+Ma
+Ma
+Ma
+hb
+Qq
+fB
+fK
+Ma
+Ma
+Xv
+eG
+Ma
+"}
+(36,1,1) = {"
+hv
+hv
+hv
+ZJ
+ZJ
+ZJ
+ZJ
+ZJ
+ZJ
+ZJ
+ZJ
+ZJ
+ZJ
+ZJ
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+YN
+Eu
+hv
+hv
+hv
+Ma
+vO
+IV
+qh
+Yc
+Yc
+IV
+vI
+ih
+Df
+eG
+Ma
+"}
+(37,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+ur
+hv
+ur
+hv
+ur
+hv
+ur
+hv
+ur
+Ma
+Gl
+Yc
+Yc
+Yc
+Yc
+Wa
+rW
+WN
+WN
+eG
+Ma
+"}
+(38,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+Ma
+dj
+Eb
+Jr
+Jr
+Jr
+Jr
+Ky
+Jr
+Jr
+JF
+Ma
+"}
+(39,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+Ma
+"}
+(40,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+"}
+(41,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+"}
+(42,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+"}
+(43,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+fK
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+"}
+(44,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+"}
+(45,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+"}
+(46,1,1) = {"
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+hv
+"}
