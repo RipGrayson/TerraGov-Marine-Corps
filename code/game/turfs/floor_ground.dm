@@ -194,10 +194,29 @@
 	. = ..()
 	dir = pick(GLOB.alldirs)
 
+/turf/open/floor/plating/ground/mars/random/red_stripes
+	name = "sand"
+	icon_state = "mars_sand_dune"
+	dir = EAST
+
+/turf/open/floor/plating/ground/mars/random/red_stripes/Initialize(mapload)
+	. = ..()
+	dir = pick(GLOB.cardinals)
+
 /turf/open/floor/plating/ground/mars/dirttosand
 	name = "sand"
 	icon_state = "mars_dirt_to_sand"
 	smoothing_groups = list(SMOOTH_GROUP_RED_DIRT, SMOOTH_GROUP_OPEN_FLOOR)
+
+/turf/open/floor/plating/ground/mars/stonebed
+	icon = 'icons/turf/floors/river_bed.dmi'
+	icon_state = "river_bed-0"
+	base_icon_state = "river_bed"
+	smoothing_flags = SMOOTH_BITMASK
+	smoothing_groups = list(SMOOTH_GROUP_RED_DIRT)
+	canSmoothWith = list(
+		SMOOTH_GROUP_RED_DIRT,
+	)
 
 /turf/open/floor/plating/ground/mars/cavetodirt
 	name = "cave"

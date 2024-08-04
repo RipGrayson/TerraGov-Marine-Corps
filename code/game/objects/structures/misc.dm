@@ -448,6 +448,12 @@
 /obj/structure/ledge/alt/corner_two
 	icon_state = "ledge_corner_alt_two"
 
+/obj/structure/ledge/rock
+	icon_state = "ledge_rock"
+
+/obj/structure/ledge/corner/rock
+	icon_state = "ledge_corner_rock"
+
 /obj/structure/levee
 	name = "concrete levee"
 	icon_state = "dam_mid"

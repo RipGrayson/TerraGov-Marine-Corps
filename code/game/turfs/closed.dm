@@ -143,10 +143,10 @@
 	icon_state = "wall-invincible"
 
 /turf/closed/mineral/smooth/sandwall
-	icon = 'icons/turf/walls/orange_wall.dmi'
-	icon_state = "orange_wall-0"
-	walltype = "orange_wall"
-	base_icon_state = "orange_wall"
+	icon = 'icons/turf/walls/sand_wall.dmi'
+	icon_state = "sand_wall-0"
+	walltype = "sand_wall"
+	base_icon_state = "sand_wall"
 
 /turf/closed/mineral/smooth/sandwall/indestructible
 	resistance_flags = RESIST_ALL

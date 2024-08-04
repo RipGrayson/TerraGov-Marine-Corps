@@ -425,6 +425,14 @@
 	table_prefix = "reinf"
 	parts = /obj/item/frame/table/reinforced
 
+/obj/structure/table/grate
+	name = "grate table"
+	desc = "A square metal surface resting on four legs. This is made of a metal grate, it looks impossible to flip."
+	icon = 'icons/obj/smooth_objects/grate_table.dmi'
+	icon_state = "grate_table-0"
+	base_icon_state = "grate_table"
+	max_integrity = 100
+	parts = /obj/item/frame/table
 
 /obj/structure/table/reinforced/flipped
 	flipped = TRUE

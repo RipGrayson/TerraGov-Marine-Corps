@@ -122,6 +122,16 @@
 /turf/open/liquid/water/river/autosmooth/desert
 	icon = 'icons/turf/floors/river_desert.dmi'
 
+/turf/open/liquid/water/river/autosmooth/desertstone
+	icon_state = "river_bed_wet-0"
+	base_icon_state = "river_bed_wet-0"
+	icon = 'icons/turf/floors/river_bed_wet.dmi'
+
+/turf/open/liquid/water/river/autosmooth/desertstone/deep
+	mob_liquid_height = 18
+	mob_liquid_depth = -8
+	slowdown_multiplier = 1.5
+
 /turf/open/liquid/water/river/autosmooth/desert/deep
 	icon_state = "river_deep-icon"
 	mob_liquid_height = 18
