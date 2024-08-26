@@ -356,9 +356,10 @@
 		if(EXPLODE_LIGHT)
 			take_damage(rand(50, 75))
 
-/obj/structure/rts_building/construct/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
+/*/obj/structure/rts_building/construct/take_damage(damage_amount, damage_type, damage_flag, effects, attack_dir, armour_penetration)
 	. = ..()
 	rts_set_building_health()
+*/
 
 /obj/structure/rts_building/construct/Destroy()
 	density = FALSE

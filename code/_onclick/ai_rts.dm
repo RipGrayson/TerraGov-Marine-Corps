@@ -87,7 +87,7 @@
 /* Firealarm */
 /obj/machinery/firealarm/MalfCtrlClick(mob/living/silicon/ai/user) // toggle the fire alarm
 	var/area/A = get_area(src)
-	if(A.flags_alarm_state & ALARM_WARNING_FIRE)
+	if(A.alarm_state_flags & ALARM_WARNING_FIRE)
 		reset()
 	else
 		alarm()
