@@ -638,6 +638,9 @@
 
 /datum/ammo/energy/plasma/cannon_heavy/on_hit_obj(obj/target_obj, obj/projectile/proj)
 	var/damage_mult = 3
+	if(ishitbox(target_obj))
+		var/obj/hitbox/target_hitbox = target_obj
+		target_obj = target_hitbox.root
 	if(isvehicle(target_obj))
 		var/obj/vehicle/vehicle_target = target_obj
 		if(ismecha(vehicle_target) || isarmoredvehicle(vehicle_target))
@@ -658,24 +661,29 @@
 
 /datum/ammo/energy/plasma/smg_standard
 	icon_state = "plasma_ball_small"
-	damage = 22
+	damage = 14
 	penetration = 10
 	sundering = 0.5
-
-/datum/ammo/energy/plasma/smg_standard/one
-	bonus_projectiles_type = /datum/ammo/energy/plasma/smg_standard
-
-/datum/ammo/energy/plasma/smg_standard/two
-	bonus_projectiles_type = /datum/ammo/energy/plasma/smg_standard/one
-
-/datum/ammo/energy/plasma/smg_standard/three
-	bonus_projectiles_type = /datum/ammo/energy/plasma/smg_standard/two
-
-/datum/ammo/energy/plasma/smg_standard/four
-	bonus_projectiles_type = /datum/ammo/energy/plasma/smg_standard/three
+	damage_falloff = 1.5
 
 /datum/ammo/energy/plasma/smg_standard/on_hit_turf(turf/target_turf, obj/projectile/proj)
 	reflect(target_turf, proj, 5)
+
+/datum/ammo/energy/plasma/smg_standard/one
+	damage = 16
+	bonus_projectiles_type = /datum/ammo/energy/plasma/smg_standard
+
+/datum/ammo/energy/plasma/smg_standard/two
+	damage = 18
+	bonus_projectiles_type = /datum/ammo/energy/plasma/smg_standard/one
+
+/datum/ammo/energy/plasma/smg_standard/three
+	damage = 20
+	bonus_projectiles_type = /datum/ammo/energy/plasma/smg_standard/two
+
+/datum/ammo/energy/plasma/smg_standard/four
+	damage = 22
+	bonus_projectiles_type = /datum/ammo/energy/plasma/smg_standard/three
 
 // Plasma //
 /datum/ammo/energy/sectoid_plasma
@@ -734,3 +742,43 @@
 
 /datum/ammo/energy/plasma_pistol/do_at_max_range(turf/target_turf, obj/projectile/proj)
 	drop_fire(target_turf, proj)
+
+/datum/ammo/energy/particle_lance
+	name = "particle beam"
+	hitscan_effect_icon = "particle_lance"
+	hud_state = "plasma_blast"
+	hud_state_empty = "battery_empty_flash"
+	ammo_behavior_flags = AMMO_ENERGY|AMMO_HITSCAN|AMMO_PASS_THROUGH_MOVABLE|AMMO_SNIPER
+	bullet_color = LIGHT_COLOR_PURPLE_PINK
+	armor_type = ENERGY
+	max_range = 40
+	accurate_range = 10
+	accuracy = 25
+	damage = 850
+	penetration = 120
+	sundering = 30
+	damage_falloff = 5
+	on_pierce_multiplier = 0.95
+	barricade_clear_distance = 4
+
+/datum/ammo/energy/particle_lance/on_hit_mob(mob/target_mob, obj/projectile/proj)
+	if(!isliving(target_mob))
+		return
+	var/mob/living/living_victim = target_mob
+	living_victim.apply_radiation(living_victim.modify_by_armor(15, BIO, 25), 3)
+
+
+/datum/ammo/energy/particle_lance/on_hit_obj(obj/target_obj, obj/projectile/proj)
+	if(ishitbox(target_obj)) //yes this is annoying.
+		var/obj/hitbox/hitbox = target_obj
+		target_obj = hitbox.root
+
+	if(isvehicle(target_obj))
+		var/obj/vehicle/vehicle_target = target_obj
+		for(var/mob/living/living_victim AS in vehicle_target.occupants)
+			living_victim.apply_radiation(living_victim.modify_by_armor(12, BIO, 25), 3)
+			living_victim.flash_pain()
+
+	if(target_obj.obj_integrity > target_obj.modify_by_armor(proj.damage, ENERGY, proj.penetration, attack_dir = get_dir(target_obj, proj)))
+		proj.proj_max_range = 0
+

@@ -17,6 +17,8 @@
 	. = ..()
 	var/static/list/connections = list(
 		COMSIG_OBJ_TRY_ALLOW_THROUGH = PROC_REF(can_climb_over),
+		COMSIG_FIND_FOOTSTEP_SOUND = TYPE_PROC_REF(/atom/movable, footstep_override),
+		COMSIG_TURF_CHECK_COVERED = TYPE_PROC_REF(/atom/movable, turf_cover_check),
 	)
 	AddElement(/datum/element/connect_loc, connections)
 
@@ -223,6 +225,19 @@
 	icon_state = "closed_trashcart"
 	icon_opened = "open_trashcart"
 	icon_closed = "closed_trashcart"
+
+/obj/structure/closet/crate/trashcart/Initialize(mapload, ...)
+	. = ..()
+	if(opened)
+		density = FALSE
+
+/obj/structure/closet/crate/trashcart/food
+	desc = "A heavy, metal foodcart with wheels."
+	icon = 'icons/obj/structures/prop/urban/urbanrandomprops.dmi';
+	icon_state = "foodcart2"
+	icon_closed = "foodcart2"
+	icon_opened = "foodcart2_open"
+	name = "food cart"
 
 /obj/structure/closet/crate/wayland
 	name = "Wayland crate"

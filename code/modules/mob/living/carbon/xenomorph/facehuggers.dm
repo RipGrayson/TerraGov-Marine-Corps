@@ -585,7 +585,7 @@
 		kill_hugger()
 	else
 		reset_attach_status(as_planned)
-		playsound(loc, 'sound/voice/alien_facehugger_dies.ogg', 25, 1)
+		playsound(loc, 'sound/voice/alien/facehugger_dies.ogg', 25, 1)
 		activetimer = addtimer(CALLBACK(src, PROC_REF(go_active)), activate_time, TIMER_STOPPABLE|TIMER_UNIQUE)
 		update_icon()
 
@@ -610,7 +610,7 @@
 	remove_danger_overlay() //Remove the danger overlay
 
 	update_icon()
-	playsound(loc, 'sound/voice/alien_facehugger_dies.ogg', 25, 1)
+	playsound(loc, 'sound/voice/alien/facehugger_dies.ogg', 25, 1)
 
 	layer = BELOW_MOB_LAYER //so dead hugger appears below live hugger if stacked on same tile.
 
@@ -640,13 +640,13 @@
 		return
 	kill_hugger()
 
-/obj/item/clothing/mask/facehugger/bullet_act(obj/projectile/P)
+/obj/item/clothing/mask/facehugger/bullet_act(obj/projectile/proj)
 	..()
-	if(P.ammo.ammo_behavior_flags & AMMO_XENO)
+	if(proj.ammo.ammo_behavior_flags & AMMO_XENO)
 		return FALSE //Xeno spits ignore huggers.
-	if(P.damage && !(P.ammo.damage_type in list(OXY, STAMINA)))
+	if(proj.damage && !(proj.ammo.damage_type in list(OXY, STAMINA)))
 		kill_hugger()
-	P.ammo.on_hit_obj(src,P)
+	proj.ammo.on_hit_obj(src, proj)
 	return TRUE
 
 /obj/item/clothing/mask/facehugger/fire_act(burn_level)

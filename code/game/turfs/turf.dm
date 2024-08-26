@@ -133,7 +133,6 @@
 	DISABLE_BITFIELD(atom_flags, INITIALIZED)
 	soft_armor = null
 	hard_armor = null
-	QDEL_NULL(current_acid)
 	..()
 	return QDEL_HINT_IWILLGC
 
@@ -291,11 +290,17 @@
 	lighting_corner_SW = old_lighting_corner_SW
 	lighting_corner_NW = old_lighting_corner_NW
 
+	var/area/thisarea = get_area(W)
 	//static Update
 	if(SSlighting.initialized)
 		recalculate_directional_opacity()
 
-		W.static_lighting_object = old_lighting_object
+		if(thisarea.static_lighting)
+			W.static_lighting_object = old_lighting_object || new /datum/static_lighting_object(src)
+		else
+			W.static_lighting_object = null
+			if(old_lighting_object)
+				qdel(old_lighting_object, TRUE)
 
 		if(static_lighting_object && !static_lighting_object.needs_update)
 			static_lighting_object.update()
@@ -308,9 +313,9 @@
 	if(W.directional_opacity != old_directional_opacity)
 		W.reconsider_lights()
 
-	var/area/thisarea = get_area(W)
-	if(thisarea.lighting_effect)
+	if(thisarea.area_has_base_lighting)
 		W.add_overlay(thisarea.lighting_effect)
+		W.luminosity = 1
 
 	if(!W.smoothing_behavior == NO_SMOOTHING)
 		return W
@@ -554,7 +559,7 @@
 			if(!silent)
 				to_chat(builder, span_warning("There is a plant growing here, destroying it would be a waste to the hive."))
 			return FALSE
-		if(istype(O, /obj/structure/mineral_door) || istype(O, /obj/structure/ladder) || istype(O, /obj/alien/resin))
+		if(istype(O, /obj/structure/door/mineral_door) || istype(O, /obj/structure/ladder) || istype(O, /obj/alien/resin))
 			has_obstacle = TRUE
 			break
 		if(istype(O, /obj/structure/bed))
@@ -643,6 +648,9 @@
 	return DIRT_TYPE_GROUND
 
 /turf/open/floor/plating/ground/get_dirt_type()
+	return DIRT_TYPE_GROUND
+
+/turf/open/urbanshale/get_dirt_type()
 	return DIRT_TYPE_GROUND
 
 /turf/open/floor/plating/ground/mars/get_dirt_type()
