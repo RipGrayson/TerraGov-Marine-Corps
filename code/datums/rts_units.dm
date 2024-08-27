@@ -30,4 +30,32 @@
 	)
 	unit_buildable_icon_state = "beetle"
 
+#define MOVEMENT_STATE_IDLE "movement_idle"
+#define MOVEMENT_STATE_MOVING "movement_moving"
+#define MOVEMENT_STATE_CHASING "movement_chasing"
+
+#define BEHAVIOR_STATE_GUARDING "behavior_guarding"
+#define BEHAVIOR_STATE_ATTACKING "behavior_attacking"
+#define BEHAVIOR_STATE_SCANNING "behavior_scanning"
+
 /mob/living/silicon/rtsmob
+	name = "placeholder rts mob"
+	desc = "If you see this in game, ping a maint"
+	icon = 'icons/Xeno/castes/beetle.dmi'
+	icon_state = "Beetle Walking"
+	///what movement state are we in, walking, sitting etc
+	var/movement_state = MOVEMENT_STATE_IDLE
+	///what behavior state are we in, guarding, chasing etc
+	var/behavior_state = BEHAVIOR_STATE_SCANNING
+	///are we currently being held by AI?
+	var/selected_by_ai = FALSE
+
+/mob/living/silicon/rtsmob/attack_ai(mob/user)
+	. = ..()
+	if(!isbadAI(user))
+		return
+	var/mob/living/silicon/ai/malf/evilai = user
+	if(!selected_by_ai)
+		evilai.selected_units += src
+		selected_by_ai = TRUE
+		to_chat(user, span_notice("[src] has been added to selected units."))

@@ -965,3 +965,16 @@ GLOBAL_LIST_INIT(blacklisted_automated_baseturfs, typecacheof(list(
 ///Returns the number that shows how far an AM is offset when submerged in this turf
 /turf/proc/get_submerge_depth()
 	return 0
+
+/turf/open/attack_ai(mob/user)
+	. = ..()
+	if(!isbadAI(user))
+		return
+	var/mob/living/silicon/ai/malf/evilai = user
+	for(var/mob/living/silicon/rtsmob/heldmobs in evilai.selected_units)
+		heldmobs.forceMove(src)
+		var/turf/targetturf = src
+		for(var/mob/A in src)
+			if(A.density)
+				targetturf = locate(targetturf.x + rand(1, 1), targetturf.y + rand(1, 1), targetturf.z)
+				heldmobs.forceMove(targetturf)
