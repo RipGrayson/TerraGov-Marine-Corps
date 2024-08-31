@@ -32,18 +32,16 @@
 	desc = "This custom machete has holes in the handle and on the blade and plays a somber sound. "
 	icon = 'icons/obj/metnal_objects.dmi'
 	icon_state = "knife_flute"
-	item_icons = list(
+	worn_icon_list = list(
 		slot_l_hand_str = 'icons/mob/inhands/items/instruments_left.dmi',
 		slot_r_hand_str = 'icons/mob/inhands/items/instruments_right.dmi',
 		slot_s_store_str = 'icons/mob/instruments_back.dmi',
 		)
-	item_state = "machete"
+	worn_icon_state = "machete"
 	allowed_instrument_ids = "recorder"
 	force = 65
 	attack_speed = 12
 	w_class = WEIGHT_CLASS_BULKY
-	flags_atom = CONDUCT
-	flags_equip_slot = ITEM_SLOT_BELT
 	throwforce = 10
 	sharp = IS_SHARP_ITEM_BIG
 	edge = 1

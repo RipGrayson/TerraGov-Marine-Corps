@@ -262,11 +262,11 @@
 /area/metnal/inside/landingzoneone
 	name = "Landing Zone One"
 	icon_state = "landingzone1"
-	flags_area = NO_DROPPOD
+	area_flags = NO_DROPPOD
 	minimap_color = MINIMAP_AREA_LZ
 
 /area/metnal/inside/telecomms
 	name = "Telecomms"
 	icon_state = "tcomsatcham"
-	flags_area = NO_DROPPOD
+	area_flags = NO_DROPPOD
 	requires_power = FALSE
