@@ -183,6 +183,12 @@
 	reinforced = TRUE
 	max_integrity = 300
 
+/obj/structure/window_frame/prison/colony
+	icon = 'icons/obj/smooth_objects/prison_window_frame.dmi'
+	icon_state = "prison_window_frame-0"
+	basestate = "prison_window_frame"
+	base_icon_state = "prison_window_frame"
+
 /obj/structure/window_frame/prison/hull
 	climbable = FALSE
 	allow_pass_flags = NONE
