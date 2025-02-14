@@ -164,6 +164,16 @@
 	icon_state = "kutjevo_wall-0"
 	base_icon_state = "kutjevo_wall"
 
+/turf/closed/wall/brcolony
+	icon = 'icons/turf/walls/scrapwall.dmi'
+	icon_state = "scrapwall-0"
+	base_icon_state = "scrapwall"
+
+/turf/closed/wall/brcolony/reinforced
+	icon = 'icons/turf/walls/scrapwall_reinforced.dmi'
+	icon_state = "scrapwall_reinforced-0"
+	base_icon_state = "scrapwall_reinforced"
+
 //tyson
 /turf/closed/wall/tyson
 	name = "outer wall"
