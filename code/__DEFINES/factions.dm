@@ -20,6 +20,7 @@
 #define FACTION_SPECFORCE "Special Forces"
 #define FACTION_VSD "Vyacheslav Security Detail"
 #define FACTION_ERP "Emergency Response Pranksters"
+#define FACTION_SURVIVOR "Survivors"
 
 //Alignement are currently only used by req.
 ///Mob with a neutral alignement cannot be sold by anyone
