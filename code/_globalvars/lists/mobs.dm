@@ -33,6 +33,9 @@ GLOBAL_LIST_EMPTY(silicon_mobs) //all silicon mobs
 GLOBAL_LIST_INIT(simple_animals, list(list(),list(),list(),list())) // One for each AI_* status define
 GLOBAL_LIST_EMPTY(living_cameras)
 GLOBAL_LIST_EMPTY(aiEyes)
+GLOBAL_LIST_EMPTY(exodus_xeno_spawns)
+GLOBAL_LIST_EMPTY(exodus_survivor_spawns)
+GLOBAL_LIST_EMPTY(exodus_utility_spawns)
 GLOBAL_LIST_EMPTY_TYPED(humans_by_zlevel, /list/mob/living/carbon/human)			//z level /list/list of alive humans
 
 GLOBAL_LIST_EMPTY(mob_config_movespeed_type_lookup)

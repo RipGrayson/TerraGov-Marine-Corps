@@ -61,6 +61,7 @@
 #define SHIP_TECH "Ship Technician"
 #define MEDICAL_DOCTOR "Medical Doctor"
 #define MEDICAL_RESEARCHER "Medical Researcher"
+#define SURVIVOR "Survivor"
 #define SQUAD_LEADER "Squad Leader"
 #define SQUAD_SPECIALIST "Squad Specialist"
 #define SQUAD_SMARTGUNNER "Squad Smartgunner"

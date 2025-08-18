@@ -277,7 +277,7 @@
 	var/datum/job/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
 	var/stored_larva = xeno_job.total_positions - xeno_job.current_positions
 	upgrade_stored += (1 + (stored_larva/6) + hive.get_upgrade_boost()) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD //Do this regardless of whether we can upgrade so age accrues at primo
-	if(!upgrade_possible())
+	if(client && !upgrade_possible())
 		return
 	if(upgrade_stored < xeno_caste.upgrade_threshold)
 		return

@@ -114,6 +114,10 @@
 	icon_state = "Shaft Miner"
 	job = /datum/job/survivor/rambo
 
+/obj/effect/landmark/start/job/survivor/Initialize(mapload)
+	. = ..()
+	GLOB.exodus_survivor_spawns += src
+
 /obj/effect/landmark/start/job/fallen
 	job = /datum/job/fallen/marine
 

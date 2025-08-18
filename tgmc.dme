@@ -595,6 +595,7 @@
 #include "code\datums\gamemodes\crash.dm"
 #include "code\datums\gamemodes\extended.dm"
 #include "code\datums\gamemodes\hvh.dm"
+#include "code\datums\gamemodes\exodus.dm"
 #include "code\datums\gamemodes\infestation.dm"
 #include "code\datums\gamemodes\nuclear_war.dm"
 #include "code\datums\gamemodes\objective.dm"

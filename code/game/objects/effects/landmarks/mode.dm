@@ -20,3 +20,19 @@
 
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn/store_location()
 	GLOB.xeno_spawn_protection_locations += loc
+
+/obj/effect/landmark/exodus/xenospawner
+	name = "exodus xeno spawner"
+	icon_state = "fog_spawn"
+
+/obj/effect/landmark/exodus/xenospawner/Initialize(mapload)
+	. = ..()
+	GLOB.exodus_xeno_spawns += src
+
+/obj/effect/landmark/exodus/utilityspawner
+	name = "exodus utility spawner"
+	icon_state = "fog_spawn"
+
+/obj/effect/landmark/exodus/utilityspawner/Initialize(mapload)
+	. = ..()
+	GLOB.exodus_utility_spawns += src

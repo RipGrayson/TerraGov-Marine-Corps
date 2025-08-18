@@ -8,3 +8,7 @@
 	)
 	icon_state = "blueprints"
 	attack_verb = list("attacks", "baps", "hits")
+
+/obj/item/blueprints/escape_pod
+	name = "escape pod blueprints"
+	desc = "Blueprints of an escape pod. You could use these to build an means of escape, if you had the materials..."

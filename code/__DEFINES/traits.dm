@@ -338,6 +338,9 @@
 #define TRAIT_HAS_ESCAPED "escaped_marine"
 #define TRAIT_HAS_BEEN_TARGETED "been_targeted"
 
+///human has died once
+#define TRAIT_DIED_ONCE "trait_died_once"
+
 //added to AIs firing railguns
 #define TRAIT_IS_FIRING_RAILGUN "firing_railgun"
 
