@@ -3,6 +3,10 @@
 #define STAGE_THRESHOLD_HIGH 3
 #define EXODUS_PROCESS_INTERVAL 20
 
+#define XENO_POWER_LOW 0.6
+#define XENO_POWER_MEDIUM 1.0
+#define XENO_POWER_MAXIMUM 1.4
+
 /datum/game_mode/exodus
 	name = "Exodus"
 	config_tag = "Exodus"
@@ -212,6 +216,10 @@
 		CRASH("Exodus: Could not find any Z-levels with ZTRAIT_GROUND to apply initial lighting.")
 	}
 
+	SSmonitor.is_automatic_balance_on = FALSE //do we need to do this?
+	GLOB.xeno_stat_multiplicator_buff = XENO_POWER_LOW
+	SSmonitor.apply_balance_changes()
+
 	START_PROCESSING(SSprocessing, src)
 	next_process_time = world.time + EXODUS_PROCESS_INTERVAL
 
@@ -271,9 +279,13 @@
 			target_light_alpha = 255
 			target_light_color = "#66e4c0"
 		if(STAGE_THRESHOLD_MEDIUM)
+			GLOB.xeno_stat_multiplicator_buff = XENO_POWER_MEDIUM
+			SSmonitor.apply_balance_changes()
 			target_light_alpha = 100
 			target_light_color = "#c5872a"
 		if(STAGE_THRESHOLD_HIGH)
+			GLOB.xeno_stat_multiplicator_buff = XENO_POWER_MAXIMUM
+			SSmonitor.apply_balance_changes()
 			target_light_alpha = 0
 			target_light_color = "#4682B4"
 
