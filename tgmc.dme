@@ -1305,6 +1305,7 @@
 #include "code\game\objects\structures\dropship_equipment.dm"
 #include "code\game\objects\structures\dummy_mapping_objects.dm"
 #include "code\game\objects\structures\electricchair.dm"
+#include "code\game\objects\structures\escape_pod.dm"
 #include "code\game\objects\structures\extinguisher.dm"
 #include "code\game\objects\structures\fence.dm"
 #include "code\game\objects\structures\flora.dm"

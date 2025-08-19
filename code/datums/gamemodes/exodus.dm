@@ -48,7 +48,7 @@
 	///multiplier for PvP kill threat
 	var/pvp_kill_threat_factor = 2.5
 	///target time that a hypothetical peaceful round would run absent of other factors
-	var/desired_peaceful_duration = 30 MINUTES
+	var/desired_peaceful_duration = 35 MINUTES
 	///time until PVP penalties are enforced to the max, intended to allow survivors to get some scavenging done without PVP rushing things to stage 2
 	var/pvp_threat_ramp_up_duration = 10 MINUTES
 	///percentage of players that schematics spawn for
@@ -67,12 +67,68 @@
 	var/light_transition_speed = 1
 
 	valid_job_types = list(
-		/datum/job/survivor = -1,	  // -1 means infinite slots for remaining players
+		/datum/job/survivor = -1,
 		/datum/job/xenomorph = 2
 	)
 
+	var/list/xeno_caste_slots_by_stage = list(
+		///number stands for minimum pop, so "1" would be for pop between 1 and 15, "15" would be between 15 and 25 etc
+		"1" = list(
+			STAGE_THRESHOLD_LOW = list(
+				/mob/living/carbon/xenomorph/runner = 1
+			),
+			STAGE_THRESHOLD_MEDIUM = list(
+				/mob/living/carbon/xenomorph/runner = 2,
+				/mob/living/carbon/xenomorph/warrior = 1
+			),
+			STAGE_THRESHOLD_HIGH = list(
+				/mob/living/carbon/xenomorph/runner = 1,
+				/mob/living/carbon/xenomorph/warrior = 2,
+				/mob/living/carbon/xenomorph/praetorian = 1
+			)
+		),
+		"15" = list(
+			STAGE_THRESHOLD_LOW = list(
+				/mob/living/carbon/xenomorph/runner = 2
+			),
+			STAGE_THRESHOLD_MEDIUM = list(
+				/mob/living/carbon/xenomorph/runner = 2,
+				/mob/living/carbon/xenomorph/warrior = 1,
+				/mob/living/carbon/xenomorph/spitter = 1
+			),
+			STAGE_THRESHOLD_HIGH = list(
+				/mob/living/carbon/xenomorph/runner = 2,
+				/mob/living/carbon/xenomorph/warrior = 2,
+				/mob/living/carbon/xenomorph/spitter = 1,
+				/mob/living/carbon/xenomorph/praetorian = 1,
+				/mob/living/carbon/xenomorph/crusher = 1
+			)
+		),
+		//anything over 25 uses this list
+		"25" = list(
+			STAGE_THRESHOLD_LOW = list(
+				/mob/living/carbon/xenomorph/runner = 2,
+				/mob/living/carbon/xenomorph/drone = 1 // Add a drone for utility at high pop
+			),
+			STAGE_THRESHOLD_MEDIUM = list(
+				/mob/living/carbon/xenomorph/runner = 3,
+				/mob/living/carbon/xenomorph/warrior = 2,
+				/mob/living/carbon/xenomorph/spitter = 1,
+				/mob/living/carbon/xenomorph/defender = 1
+			),
+			STAGE_THRESHOLD_HIGH = list(
+				/mob/living/carbon/xenomorph/runner = 2,
+				/mob/living/carbon/xenomorph/warrior = 3,
+				/mob/living/carbon/xenomorph/spitter = 2,
+				/mob/living/carbon/xenomorph/praetorian = 2,
+				/mob/living/carbon/xenomorph/crusher = 1
+			)
+		)
+	)
+	return INITIALIZE_SUCCESSFUL
+
 	// --- Temp Vars ---
-	var/round_end_timer = 15 MINUTES // Temporary win/loss for testing
+	var/round_end_timer = 1 HOURS // Temporary win/loss for testing
 
 	var/next_process_time
 
@@ -148,13 +204,11 @@
 	}
 	return TRUE
 
-/// Runs to create, spawn, and transfer characters.
 /datum/game_mode/exodus/setup()
 	GLOB.spawns_by_job[/datum/job/survivor] = GLOB.exodus_survivor_spawns
 	. = ..()
 	return .
 
-/// Runs after all players are in their bodies. Finalizes setup and starts the game loop.
 /datum/game_mode/exodus/post_setup()
 	. = ..()
 
@@ -188,6 +242,21 @@
 	var/player_xenos_spawned = length(GLOB.alive_xeno_list_hive[XENO_HIVE_NORMAL])
 	var/ai_to_spawn = max(0, stage_1_xeno_cap - player_xenos_spawned)
 
+	var/list/chosen_bracket = null
+	// Iterate brackets from highest pop to lowest to find the first one we match.
+	var/list/pop_brackets = sort_list(assoc_to_keys(xeno_caste_slots_by_stage), /proc/cmp_numeric_dsc)
+	for(var/pop_key in pop_brackets) {
+		if(initial_survivor_count >= text2num(pop_key)) {
+			chosen_bracket = xeno_caste_slots_by_stage[pop_key]
+			break
+		}
+	}
+	xeno_caste_slots_by_stage = chosen_bracket
+	if(!xeno_caste_slots_by_stage) { ///somehow we've broken our selection criterion
+		xeno_caste_slots_by_stage = list()
+		CRASH("Exodus: Could not determine a valid xeno slot bracket for [initial_survivor_count] players. Xenos may not spawn.")
+	}
+
 	if(GLOB.exodus_xeno_spawns.len > 0) {
 		for(var/i in 1 to ai_to_spawn) {
 			var/obj/effect/landmark/spawn_landmark = pick(GLOB.exodus_xeno_spawns)
@@ -206,7 +275,7 @@
 	target_light_color = COLOR_WHITE
 
 	var/list/ground_z_levels = SSmapping.levels_by_trait(ZTRAIT_GROUND)
-	if(ground_z_levels?.len) { // Use ?.len for safety
+	if(ground_z_levels?.len) {
 		for(var/area/A in GLOB.areas) {
 			if(A.z in ground_z_levels) {
 				A.set_base_lighting(COLOR_WHITE, 255)
@@ -216,7 +285,7 @@
 		CRASH("Exodus: Could not find any Z-levels with ZTRAIT_GROUND to apply initial lighting.")
 	}
 
-	SSmonitor.is_automatic_balance_on = FALSE //do we need to do this?
+	SSmonitor.is_automatic_balance_on = FALSE //do we need to do this? doing it anyway for safety
 	GLOB.xeno_stat_multiplicator_buff = XENO_POWER_LOW
 	SSmonitor.apply_balance_changes()
 
@@ -275,7 +344,7 @@
 	stage = new_stage
 
 	switch(stage)
-		if(STAGE_THRESHOLD_LOW) ///this should only naturally be reached during debugging
+		if(STAGE_THRESHOLD_LOW) ///this should only naturally be reached during debugging since we start in stage 1
 			target_light_alpha = 255
 			target_light_color = "#66e4c0"
 		if(STAGE_THRESHOLD_MEDIUM)
@@ -290,18 +359,17 @@
 			target_light_color = "#4682B4"
 
 	if(stage > old_stage) {
-		priority_announce("Hostile biomass readings are surging. Threat level has escalated to Stage [stage]!", "Threat Escalation")
+		priority_announce("Hostile biomass readings are surging. Threat level has escalated, analysis: escape advised.", "Threat Escalation")
 		log_game("Exodus: Threat escalated to Stage [stage]. Current threat: [threat_counter]/[stage_3_threshold]")
 		///SEND_GLOBAL_SIGNAL(COMSIG_EXODUS_STAGE_CHANGED, stage)
 	}
 	// TODO: Spawn new AI/Player xenos and unlock higher-tier castes.
 
-/// Checks for the round's end conditions.
 /datum/game_mode/exodus/check_finished()
 	if(round_finished) return TRUE
 
 	if(world.time > SSticker.round_start_time + round_end_timer) {
-		round_finished = "Time Limit Reached"
+		round_finished = "Time Limit Reached" ///failsafe in case we end up getting stuck somehow
 		return TRUE
 	}
 
