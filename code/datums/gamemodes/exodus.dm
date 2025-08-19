@@ -1,7 +1,7 @@
 #define STAGE_THRESHOLD_LOW 1
 #define STAGE_THRESHOLD_MEDIUM 2
 #define STAGE_THRESHOLD_HIGH 3
-#define EXODUS_PROCESS_INTERVAL 2
+#define EXODUS_PROCESS_INTERVAL 20
 
 /datum/game_mode/exodus
 	name = "Exodus"
@@ -62,18 +62,17 @@
 	///How many alpha points to change per process() tick. Higher = faster transition.
 	var/light_transition_speed = 1
 
+	valid_job_types = list(
+		/datum/job/survivor = -1,	  // -1 means infinite slots for remaining players
+		/datum/job/xenomorph = 2
+	)
+
 	// --- Temp Vars ---
 	var/round_end_timer = 15 MINUTES // Temporary win/loss for testing
 
 	var/next_process_time
 
-/// Checks if the round can start. Pre-assigns Xeno players and validates job setups.
 /datum/game_mode/exodus/can_start(bypass_checks = FALSE)
-	if(length(GLOB.ready_players) < required_players && !bypass_checks) {
-		to_chat(world, "<b>Unable to start [name].</b> Not enough players, [required_players] players needed.")
-		return FALSE
-	}
-
 	var/player_count = length(GLOB.ready_players)
 	var/initial_xeno_count = (player_count >= 15) ? 2 : 1
 	var/xenos_assigned = 0
@@ -104,15 +103,11 @@
 	}
 
 	if(xenos_assigned < initial_xeno_count && !bypass_checks) {
-		to_chat(world, "<b>Unable to start Exodus.</b> Could not assign the required [initial_xeno_count] Xenomorph roles (candidates might be banned or ineligible).")
+		to_chat(world, "<b>Unable to start Exodus.</b> Could not assign the required [initial_xeno_count] Xenomorph roles.")
 		return FALSE
 	}
 
-	if(!set_valid_job_types()) {
-		return FALSE
-	}
-
-	return TRUE
+	return ..()
 
 /// Announces the game mode to the players.
 /datum/game_mode/exodus/announce()
