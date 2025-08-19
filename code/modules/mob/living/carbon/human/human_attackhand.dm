@@ -118,6 +118,7 @@
 				if(!human_user.mind?.bypass_ff && !mind?.bypass_ff && human_user.faction == faction)
 					var/turf/T = get_turf(src)
 					log_ffattack("[key_name(human_user)] missed a punch against [key_name(src)] in [AREACOORD(T)].")
+					add_ff_fingerprint(user)
 					msg_admin_ff("[ADMIN_TPMONTY(human_user)] missed a punch against [ADMIN_TPMONTY(src)] in [ADMIN_VERBOSEJMP(T)].")
 				return FALSE
 
@@ -142,6 +143,8 @@
 			hit_report += "(RAW DMG: [damage])"
 
 			log_combat(human_user, src, "[attack_verb]", "[hit_report.Join(" ")]")
+			if(human_user.faction == faction)
+				add_ff_fingerprint(src, user)
 			if(!human_user.mind?.bypass_ff && !mind?.bypass_ff && human_user.faction == faction)
 				var/turf/T = get_turf(src)
 				human_user.ff_check(damage, src)

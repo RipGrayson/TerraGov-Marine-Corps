@@ -36,7 +36,7 @@
 	var/track_blood = 0
 	var/feet_blood_color
 	var/datum/skills/skills
-
+	var/ff_fingerprint = null
 
 	//Movement
 	///List of movement speed modifiers applying to this mob. Lazy list, see mob_movespeed.dm

@@ -116,7 +116,7 @@
 
 /obj/effect/landmark/start/job/survivor/Initialize(mapload)
 	. = ..()
-	GLOB.exodus_survivor_spawns += src
+	GLOB.exodus_survivor_spawns += get_turf(src)
 
 /obj/effect/landmark/start/job/fallen
 	job = /datum/job/fallen/marine

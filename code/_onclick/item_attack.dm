@@ -160,6 +160,8 @@
 
 	record_melee_damage(user, power)
 	log_combat(user, src, "attacked", attacking_item, "(INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(attacking_item.damtype)]) (RAW DMG: [power])")
+	if(power && user.faction == faction)
+		add_ff_fingerprint(src, user)
 	if(power && !user.mind?.bypass_ff && !mind?.bypass_ff && user.faction == faction)
 		var/turf/T = get_turf(src)
 		user.ff_check(power, src)
@@ -386,6 +388,8 @@
 
 	record_melee_damage(user, power)
 	log_combat(user, src, "attacked", I, "(INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(I.damtype)]) (RAW DMG: [power])")
+	if(power && user.faction == faction)
+		add_ff_fingerprint(src, user)
 	if(power && !user.mind?.bypass_ff && !mind?.bypass_ff && user.faction == faction)
 		var/turf/T = get_turf(src)
 		user.ff_check(power, src)

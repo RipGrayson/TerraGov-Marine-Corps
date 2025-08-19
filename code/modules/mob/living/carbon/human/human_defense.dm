@@ -211,6 +211,8 @@ Contains most of the procs that are called when a mob is attacked by something
 
 	record_melee_damage(user, applied_damage, affecting.limb_status & LIMB_DESTROYED)
 	log_combat(user, src, "attacked", I, "(INTENT: [uppertext(user.a_intent)]) (DAMTYE: [uppertext(I.damtype)]) [hit_report.Join(" ")]")
+	if(damage && user.faction == faction)
+		add_ff_fingerprint(src, user)
 	if(damage && !user.mind?.bypass_ff && !mind?.bypass_ff && user.faction == faction)
 		var/turf/T = get_turf(src)
 		user.ff_check(damage, src)
@@ -307,6 +309,8 @@ Contains most of the procs that are called when a mob is attacked by something
 
 	if(living_thrower)
 		log_combat(living_thrower, src, "thrown at", AM, "[hit_report.Join(" ")]")
+		if(throw_damage && living_thrower.faction == faction)
+			add_ff_fingerprint(src, living_thrower)
 		if(throw_damage && !living_thrower.mind?.bypass_ff && !mind?.bypass_ff && living_thrower.faction == faction)
 			var/turf/T = get_turf(src)
 			living_thrower.ff_check(throw_damage, src)

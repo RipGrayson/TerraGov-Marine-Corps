@@ -815,7 +815,6 @@ directive is properly returned.
 
 	return TRUE
 
-
 /atom/Topic(href, href_list)
 	if(usr?.client)
 		var/client/usr_client = usr.client

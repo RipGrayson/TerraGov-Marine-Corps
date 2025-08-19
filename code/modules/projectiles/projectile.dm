@@ -1364,6 +1364,8 @@ So if we are on the 32th absolute pixel coordinate we are on tile 1, but if we a
 	if(. != BULLET_MESSAGE_HUMAN_SHOOTER)
 		return
 	var/mob/living/carbon/human/firingMob = proj.firer
+	if(firingMob.faction == faction)
+		add_ff_fingerprint(src, firingMob)
 	if(!firingMob.mind?.bypass_ff && !mind?.bypass_ff && firingMob.faction == faction)
 		var/turf/T = get_turf(firingMob)
 		firingMob.ff_check(damage, src)

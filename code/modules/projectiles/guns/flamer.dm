@@ -276,6 +276,8 @@
 		else if(ishuman(mob_caught))
 			var/mob/living/carbon/human/human_caught = mob_caught
 			if(user)
+				if(user.faction == human_caught.faction)
+					add_ff_fingerprint(src, user)
 				if(!user.mind?.bypass_ff && !human_caught.mind?.bypass_ff && user.faction == human_caught.faction)
 					log_combat(user, human_caught, "flamed", src)
 					user.ff_check(30, human_caught) // avg between 20/40 dmg
