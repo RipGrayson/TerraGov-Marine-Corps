@@ -68,12 +68,12 @@
 
 	valid_job_types = list(
 		/datum/job/survivor = -1,
-		/datum/job/xenomorph = 2
+		/datum/job/xenomorph/runner = 2
 	)
 
 	var/list/xeno_caste_slots_by_stage = list(
 		///number stands for minimum pop, so "1" would be for pop between 1 and 15, "15" would be between 15 and 25 etc
-		"1" = list(
+		1 = list(
 			STAGE_THRESHOLD_LOW = list(
 				/mob/living/carbon/xenomorph/runner = 1
 			),
@@ -87,7 +87,7 @@
 				/mob/living/carbon/xenomorph/praetorian = 1
 			)
 		),
-		"15" = list(
+		15 = list(
 			STAGE_THRESHOLD_LOW = list(
 				/mob/living/carbon/xenomorph/runner = 2
 			),
@@ -105,7 +105,7 @@
 			)
 		),
 		//anything over 25 uses this list
-		"25" = list(
+		25 = list(
 			STAGE_THRESHOLD_LOW = list(
 				/mob/living/carbon/xenomorph/runner = 2,
 				/mob/living/carbon/xenomorph/drone = 1 // Add a drone for utility at high pop
@@ -132,43 +132,6 @@
 
 	var/next_process_time
 
-/datum/game_mode/exodus/can_start(bypass_checks = FALSE)
-	var/player_count = length(GLOB.ready_players)
-	var/initial_xeno_count = (player_count >= 15) ? 2 : 1
-	var/xenos_assigned = 0
-	var/list/xeno_candidates = list()
-
-	for(var/mob/new_player/p in GLOB.ready_players) {
-		if(p.client?.prefs?.job_preferences[ROLE_XENOMORPH] >= JOBS_PRIORITY_LOW) {
-			xeno_candidates += p
-		}
-	}
-
-	if(xeno_candidates.len < initial_xeno_count && !bypass_checks) {
-		to_chat(world, "<b>Unable to start Exodus.</b> Not enough players have 'Xenomorph' as a preference ([initial_xeno_count] required).")
-		return FALSE
-	}
-
-	shuffle_inplace(xeno_candidates)
-
-	var/datum/job/xenomorph/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
-	if(!xeno_job) CRASH("Exodus: Cannot find /datum/job/xenomorph datum.")
-
-	for(var/mob/new_player/candidate in xeno_candidates) {
-		if(xenos_assigned >= initial_xeno_count) break
-		if(candidate.assigned_role) continue
-		if(SSjob.AssignRole(candidate, xeno_job)) {
-			xenos_assigned++
-		}
-	}
-
-	if(xenos_assigned < initial_xeno_count && !bypass_checks) {
-		to_chat(world, "<b>Unable to start Exodus.</b> Could not assign the required [initial_xeno_count] Xenomorph roles.")
-		return FALSE
-	}
-
-	return ..()
-
 /// Announces the game mode to the players.
 /datum/game_mode/exodus/announce()
 	to_chat(world, span_round_header("The current map is - [SSmapping.configs[GROUND_MAP].map_name]!"))
@@ -178,6 +141,40 @@
 		type = ANNOUNCEMENT_PRIORITY,
 		color_override = "red"
 	)
+
+/datum/game_mode/exodus/can_start(bypass_checks = FALSE)
+	. = ..()
+	if(!.) {
+		return FALSE // Base checks failed.
+	}
+
+	var/player_count = length(GLOB.ready_players)
+	var/initial_xeno_count = (player_count >= 15) ? 2 : 1
+	var/xenos_assigned = 0
+
+	var/datum/job/xenomorph/runner/runner_job = SSjob.GetJobType(/datum/job/xenomorph/runner)
+	if(!runner_job) CRASH("Exodus: Cannot find the /datum/job/xenomorph/runner job datum.")
+
+	for(var/level = JOBS_PRIORITY_HIGH; level >= JOBS_PRIORITY_MEDIUM; level--) {
+		if(xenos_assigned >= initial_xeno_count) break
+
+		for(var/mob/new_player/p in shuffle(GLOB.ready_players)) {
+			if(p.assigned_role) continue
+			if(p.client.prefs.job_preferences[ROLE_XENOMORPH] == level) {
+				if(SSjob.AssignRole(p, runner_job)) {
+					xenos_assigned++
+					if(xenos_assigned >= initial_xeno_count) break
+				}
+			}
+		}
+	}
+
+	if(xenos_assigned < initial_xeno_count && !bypass_checks) {
+		to_chat(world, "<b>Unable to start Exodus.</b> Could not find enough eligible players with a Xenomorph preference to fill the required [initial_xeno_count] slots.")
+		return FALSE
+	}
+
+	return TRUE // We have successfully pre-assigned our xenos.
 
 /// Runs before character creation to set up the map with loot.
 /datum/game_mode/exodus/pre_setup()
@@ -269,8 +266,8 @@
 
 	log_game("Exodus: Setting initial daylight lighting for ground map.")
 	// Initialize our lighting state variables to match the desired start
-	current_light_alpha = 255
-	target_light_alpha = 255
+	current_light_alpha = 225
+	target_light_alpha = 225
 	current_light_color = COLOR_WHITE
 	target_light_color = COLOR_WHITE
 
@@ -278,7 +275,7 @@
 	if(ground_z_levels?.len) {
 		for(var/area/A in GLOB.areas) {
 			if(A.z in ground_z_levels) {
-				A.set_base_lighting(COLOR_WHITE, 255)
+				A.set_base_lighting(COLOR_WHITE, 225)
 			}
 		}
 	} else {
