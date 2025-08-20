@@ -12,7 +12,7 @@
 #define POD_FRAME_STAGE_CELL_INSERTED 11   // Power cell is in
 #define POD_FRAME_STAGE_CALIBRATED 12      // Final screwdriver step done
 
-/obj/structure/escape_pod
+/obj/structure/escape_pod_frame
 	name = "Escape Pod Frame"
 	icon = 'icons/obj/stationobjs.dmi'
 	icon_state = "labcage1"
@@ -28,10 +28,22 @@
 	var/construction_stage = POD_FRAME_STAGE_FOUNDATION
 	///used for holding when we need to do multiple steps like screwing a bolt multiple times
 	var/substep = 0
+	///metal cost
+	var/metal_needed = 0
+	///cable cost
+	var/cable_needed = 0
 	///used for keeping track of whether we added metal in a specific step
 	var/metal_invested = 0
 	///used for keeping track of how much cable we have inserted in a specific step
 	var/cable_invested = 0
+	///do we have an engine installed?
+	var/has_engine = FALSE
+	///do we have a fuel tank installed?
+	var/has_fuel_tank = FALSE
+	///do we have a console screen installed
+	var/has_console_screen = FALSE
+	///do we have a power cell installed?
+	var/has_power_cell
 
 /obj/structure/escape_pod_frame/examine(mob/user)
 	. = ..()
@@ -66,12 +78,12 @@
 
 	. += "</span>"
 
-/obj/structure/escape_pod/destroyed
+/obj/structure/escape_pod_frame/destroyed
 	icon_state = "labcageb0"
 	density = FALSE
 	occupied = FALSE
 
-/obj/structure/escape_pod/ex_act(severity)
+/obj/structure/escape_pod_frame/ex_act(severity)
 	switch(severity)
 		if(EXPLODE_DEVASTATE)
 			deconstruct(FALSE)
@@ -83,7 +95,7 @@
 				take_damage(5, BRUTE, BOMB)
 
 
-/obj/structure/escape_pod/attack_hand(mob/living/user)
+/obj/structure/escape_pod_frame/attack_hand(mob/living/user)
 	. = ..()
 	if(.)
 		return
@@ -91,27 +103,67 @@
 	take_damage(2, BRUTE, MELEE)
 
 /obj/structure/escape_pod_frame/attackby(obj/item/I, mob/user, params)
-	// --- Material Handling (No change, this part is good) ---
-	if(istype(I, /obj/item/stack/metal)) {
+	// --- Material Handling ---
+	if(istype(I, /obj/item/stack/sheet/metal)) {
+		// We are trying to add metal
 		if(metal_needed > 0 && metal_invested < metal_needed) {
-			var/obj/item/stack/metal/M = I
-			var/amount_to_add = min(M.amount, metal_needed - metal_invested)
-			if(user.transfer_item_to_atom(M, src, amount_to_add)) {
-				user.visible_message(span_notice("[user] adds [amount_to_add] metal sheets to the frame."), span_notice("You add [amount_to_add] metal sheets to the frame."))
-				metal_invested += amount_to_add
+			var/obj/item/stack/sheet/metal/metal_stack_in_hand = I
+			var/needed_now = metal_needed - metal_invested
+
+			// Can't proceed if the user isn't actively holding this stack
+			if(user.get_active_held_item() != metal_stack_in_hand) {
+				return ..() // Let parent handle it, or just return
+			}
+
+			var/amount_to_take = min(metal_stack_in_hand.get_amount(), needed_now)
+
+			if(amount_to_take <= 0) {
+				// This shouldn't happen if get_amount() is > 0, but good for safety
+				return
+			}
+
+			// Standard pattern: confirm action with the user, then consume the item.
+			to_chat(user, span_notice("You begin adding [amount_to_take] metal sheets to the frame..."))
+
+			// We can add a very short do_after to make it feel like an action,
+			// but for simple material adding, it's often instant. Let's make it instant.
+
+			// Consume the resource from the user's stack.
+			// The use() proc handles qdel'ing the stack if it's fully consumed.
+			if(metal_stack_in_hand.use(amount_to_take)) {
+				// Update our internal counter
+				metal_invested += amount_to_take
+				user.visible_message(
+					span_notice("[user] adds some metal sheets to the escape pod frame."),
+					span_notice("You add [amount_to_take] metal sheets to the frame. It now has [metal_invested]/[metal_needed] metal for this stage.")
+				)
+				playsound(loc, 'sound/effects/deconstruct.ogg', 50, TRUE) // A satisfying "clank" sound
 			}
 		} else {
 			to_chat(user, "<span class='warning'>The frame doesn't require any more metal for this construction phase.</span>")
 		}
-		return
+		return // Explicitly return after handling the material interaction
 	}
+
 	if(istype(I, /obj/item/stack/cable_coil)) {
+		// We are trying to add cable
 		if(cable_needed > 0 && cable_invested < cable_needed) {
-			var/obj/item/stack/cable_coil/C = I
-			var/amount_to_add = min(C.amount, cable_needed - cable_invested)
-			if(user.transfer_item_to_atom(C, src, amount_to_add)) {
-				user.visible_message(span_notice("[user] adds [amount_to_add] lengths of cable to the frame."), span_notice("You add [amount_to_add] lengths of cable to the frame."))
-				cable_invested += amount_to_add
+			var/obj/item/stack/cable_coil/cable_stack_in_hand = I
+			var/needed_now = cable_needed - cable_invested
+
+			if(user.get_active_held_item() != cable_stack_in_hand) return
+
+			var/amount_to_take = min(cable_stack_in_hand.get_amount(), needed_now)
+
+			if(amount_to_take <= 0) return
+
+			if(cable_stack_in_hand.use(amount_to_take)) {
+				cable_invested += amount_to_take
+				user.visible_message(
+					span_notice("[user] adds some cable to the escape pod frame."),
+					span_notice("You add [amount_to_take] lengths of cable to the frame. It now has [cable_invested]/[cable_needed] cable for this stage.")
+				)
+				playsound(loc, 'sound/items/zip.ogg', 50, TRUE)
 			}
 		} else {
 			to_chat(user, "<span class='warning'>The frame doesn't require any more cable for this construction phase.</span>")
@@ -276,3 +328,22 @@
 			}
 
 	return ..()
+
+// Helper proc to advance stage and reset counters
+/obj/structure/escape_pod_frame/proc/advance_stage_to(new_stage)
+	construction_stage = new_stage
+	icon_state = "frame_[new_stage]" // Or "hull_[...]", etc.
+	substep = 0
+	metal_invested = 0
+	metal_needed = 0
+	cable_invested = 0
+	cable_needed = 0
+	// TODO: Play a satisfying "chunk" or "kerr-chunk" sound on stage advance
+
+// Helper proc for do_after to ensure the state hasn't changed mid-action
+/obj/structure/escape_pod_frame/proc/check_construction_state(expected_stage)
+	if(QDELETED(src) || construction_stage != expected_stage)
+		return FALSE // Abort do_after
+	return TRUE
+
+#undef POD_FRAME_STAGE_FOUNDATION
