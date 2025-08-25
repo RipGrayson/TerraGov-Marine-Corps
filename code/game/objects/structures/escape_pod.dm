@@ -137,7 +137,7 @@
 					span_notice("[user] adds some metal sheets to the escape pod frame."),
 					span_notice("You add [amount_to_take] metal sheets to the frame. It now has [metal_invested]/[metal_needed] metal for this stage.")
 				)
-				playsound(loc, 'sound/effects/deconstruct.ogg', 50, TRUE) // A satisfying "clank" sound
+				playsound(loc, 'sound/items/deconstruct.ogg', 50, TRUE) // A satisfying "clank" sound
 			}
 		} else {
 			to_chat(user, "<span class='warning'>The frame doesn't require any more metal for this construction phase.</span>")
@@ -204,7 +204,7 @@
 				metal_needed = 50
 				if(metal_invested < metal_needed) return to_chat(user, span_warning("The frame needs [metal_needed] metal sheets for the support beams."))
 				var/obj/item/tool/weldingtool/welder = I
-				if(!welder.is_hot()) return to_chat(user, span_warning("The welder must be on!"))
+				if(!welder.isOn()) return to_chat(user, span_warning("The welder must be on!"))
 
 				if(do_after(user, 60 SECONDS * skill_multiplier, target = src, extra_checks = CALLBACK(src, PROC_REF(check_construction_state), POD_FRAME_STAGE_STRUTS_SECURED))) {
 					user.visible_message(span_notice("[user] welds the main support beams onto the frame."), span_notice("You finish welding the support beams."))
@@ -237,7 +237,7 @@
 		if(POD_FRAME_STAGE_HULL_ATTACHED)
 			if(iswelder(I)) {
 				var/obj/item/tool/weldingtool/welder = I
-				if(!welder.is_hot()) return to_chat(user, span_warning("The welder must be on!"))
+				if(!welder.isOn()) return to_chat(user, span_warning("The welder must be on!"))
 
 				if(do_after(user, 60 SECONDS * skill_multiplier, target = src, extra_checks = CALLBACK(src, PROC_REF(check_construction_state), POD_FRAME_STAGE_HULL_ATTACHED))) {
 					user.visible_message(span_notice("[user] seals the hull seams, making the pod airtight."), span_notice("You finish welding the hull."))
@@ -267,7 +267,7 @@
 			} else if(iswelder(I)) {
 				if(substep < 1) return to_chat(user, span_warning("You need to secure the engine mounts with a wrench first."))
 				var/obj/item/tool/weldingtool/welder = I
-				if(!welder.is_hot()) return to_chat(user, span_warning("The welder must be on!"))
+				if(!welder.isOn()) return to_chat(user, span_warning("The welder must be on!"))
 
 				if(do_after(user, 20 SECONDS * skill_multiplier, target = src, extra_checks = CALLBACK(src, PROC_REF(check_construction_state), POD_FRAME_STAGE_AIRLOCK_INSTALLED))) {
 					user.visible_message(span_notice("[user] welds the engine into the frame."), span_notice("You weld the engine into place."))
