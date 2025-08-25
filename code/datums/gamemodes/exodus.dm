@@ -394,7 +394,7 @@
 		if(STAGE_THRESHOLD_MEDIUM)
 			GLOB.xeno_stat_multiplicator_buff = XENO_POWER_MEDIUM
 			SSmonitor.apply_balance_changes()
-			target_light_alpha = 100
+			target_light_alpha = 90
 			target_light_color = COLOR_EVENING_ORANGE
 		if(STAGE_THRESHOLD_HIGH)
 			GLOB.xeno_stat_multiplicator_buff = XENO_POWER_MAXIMUM
@@ -452,7 +452,7 @@
 		var/scaled_pvp_threat = LERP(threat_per_death, threat_per_pvp_kill, scaling_factor)
 		threat_counter += scaled_pvp_threat
 		message_admins("Exodus PvP Kill: [key_name(attacker)] killed [key_name(victim)]. Threat Added: [round(scaled_pvp_threat)].")
-		if(scaling_factor > 0.5) {
+		if(scaling_factor > 0.5 && prob(30)) {
 			priority_announce("The sounds of infighting echo across the sector, drawing the hive's attention...", "Sudden Aggression Detected")
 		}
 	else

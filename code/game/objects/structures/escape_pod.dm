@@ -76,6 +76,9 @@
 		if(POD_FRAME_STAGE_CALIBRATED)
 			. += "All systems are calibrated and online. A final <b>systems diagnostic</b> is required before it's ready for launch."
 
+	if(metal_needed)
+		. += "You need to add [metal_needed - metal_invested] metal to complete this step!"
+
 	. += "</span>"
 
 /obj/structure/escape_pod_frame/destroyed

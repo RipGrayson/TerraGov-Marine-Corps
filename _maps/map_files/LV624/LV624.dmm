@@ -671,6 +671,10 @@
 "auu" = (
 /turf/open/floor,
 /area/lv624/ground/sand6)
+"auv" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor,
+/area/lv624/ground/sand2)
 "auF" = (
 /obj/structure/cargo_container/horizontal{
 	dir = 4
@@ -1270,6 +1274,11 @@
 "aIm" = (
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central5/garbledradio)
+"aIq" = (
+/obj/structure/bookcase,
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/wood,
+/area/lv624/lazarus/corporate_affairs)
 "aIC" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/effect/ai_node,
@@ -1844,6 +1853,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/quart)
 "aXu" = (
@@ -2301,6 +2311,10 @@
 	dir = 4
 	},
 /area/lv624/lazarus/atmos)
+"biG" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/ground/grass,
+/area/lv624/ground/jungle3)
 "biK" = (
 /obj/structure/glowshroom,
 /turf/open/floor/freezer,
@@ -2466,6 +2480,7 @@
 /area/lv624/ground/sand9)
 "bnl" = (
 /obj/item/tool/surgery/surgicaldrill,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/sandtemple)
 "bnx" = (
@@ -2776,8 +2791,13 @@
 /area/lv624/ground/jungle9)
 "byd" = (
 /obj/effect/landmark/corpsespawner/security,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/overgrown)
+"byi" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/jungle3)
 "byC" = (
 /obj/structure/flora/tree/jungle,
 /turf/open/ground/grass/grass2,
@@ -3017,6 +3037,13 @@
 /obj/structure/flora/jungle/vines,
 /turf/open/floor/freezer,
 /area/lv624/lazarus/overgrown)
+"bIU" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/compound/n)
 "bJc" = (
 /obj/effect/decal/cleanable/dirt,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -3402,8 +3429,13 @@
 /obj/structure/table/wood,
 /obj/item/ashtray/bronze,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/cult/clock,
 /area/lv624/lazarus/bar)
+"chw" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/tile/vault,
+/area/lv624/lazarus/robotics)
 "chF" = (
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/floor/plating/ground/dirt,
@@ -3904,6 +3936,10 @@
 	},
 /turf/open/floor,
 /area/lv624/ground/river2)
+"cJV" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/plating,
+/area/lv624/lazarus/crashed_ship)
 "cKj" = (
 /obj/effect/spawner/random/misc/structure/closet/tool,
 /obj/machinery/light{
@@ -3943,6 +3979,7 @@
 	},
 /obj/item/ammo_casing,
 /obj/structure/cable,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/barber,
 /area/lv624/lazarus/main_hall)
 "cMv" = (
@@ -4726,6 +4763,13 @@
 /obj/effect/decal/remains/xeno,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle10)
+"dFu" = (
+/obj/machinery/shower{
+	dir = 4
+	},
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/freezer,
+/area/lv624/lazarus/toilet)
 "dFx" = (
 /obj/structure/flora/jungle/vines/heavy,
 /obj/effect/ai_node,
@@ -4816,6 +4860,10 @@
 /obj/structure/cargo_container,
 /turf/open/floor/marking/bot,
 /area/lv624/lazarus/spaceport2)
+"dKY" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/engine,
+/area/lv624/lazarus/hydroponics/aux)
 "dLj" = (
 /obj/effect/spawner/random/misc/structure/supplycrate,
 /obj/effect/landmark/weed_node,
@@ -4879,9 +4927,18 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central4)
+"dOJ" = (
+/obj/structure/cable,
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/tile/dark,
+/area/lv624/lazarus/engineering)
 "dOO" = (
 /obj/effect/decal/cleanable/blood/splatter/animated,
 /obj/item/ammo_casing,
+/turf/open/floor/tile/white,
+/area/lv624/lazarus/main_hall)
+"dOQ" = (
+/obj/effect/landmark/start/job/survivor,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "dOS" = (
@@ -6260,6 +6317,7 @@
 /area/lv624/lazarus/tablefort)
 "fvD" = (
 /obj/structure/table/wood,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
 "fvQ" = (
@@ -7502,6 +7560,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/c)
+"gTd" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/jungle9)
 "gTo" = (
 /obj/effect/spawner/random/misc/structure/girder/regularweighted,
 /turf/open/liquid/water/river/autosmooth/deep,
@@ -7890,6 +7952,7 @@
 /area/lv624/ground/compound/c)
 "hrD" = (
 /obj/effect/spawner/random/misc/trash,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/lazarus/overgrown)
 "hrK" = (
@@ -8046,7 +8109,6 @@
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage/dome)
 "hAx" = (
-/obj/structure/table/wood,
 /obj/effect/spawner/random/machinery/random_broken_computer/crewmonitor,
 /turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
@@ -8312,6 +8374,11 @@
 /obj/structure/flora/jungle/plantbot1/alien,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/ground/jungle7)
+"hPt" = (
+/obj/structure/cable,
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/tile/dark,
+/area/lv624/lazarus/engineering)
 "hPw" = (
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 9
@@ -8331,9 +8398,9 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/sandtemple/garbledradio)
 "hQq" = (
-/obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
-/turf/open/floor/tile/dark,
-/area/lv624/lazarus/secure_storage)
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/tile/red/yellowfull,
+/area/lv624/ground/sand4)
 "hRy" = (
 /turf/open/floor/plating,
 /area/lv624/lazarus/tablefort)
@@ -8856,6 +8923,7 @@
 "ivp" = (
 /obj/structure/table,
 /obj/item/weapon/gun/pistol/holdout,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/plating/platebot,
 /area/lv624/lazarus/robotics)
 "ivB" = (
@@ -9135,6 +9203,7 @@
 "iJT" = (
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/security/glass/free_access,
+/obj/machinery/door/poddoor/shutters/mainship,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/secure_storage)
 "iKa" = (
@@ -9254,6 +9323,10 @@
 	},
 /turf/open/floor/engine,
 /area/lv624/lazarus/atmos)
+"iRG" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/tile/barber,
+/area/lv624/lazarus/kitchen)
 "iRH" = (
 /obj/machinery/light{
 	dir = 1
@@ -9683,6 +9756,16 @@
 /obj/effect/landmark/xeno_tunnel_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1)
+"jtf" = (
+/obj/structure/closet,
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/tile/purple/taupepurple{
+	dir = 9
+	},
+/area/lv624/lazarus/sleep_female)
 "jtk" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
@@ -9812,10 +9895,19 @@
 /obj/structure/cable,
 /turf/open/floor/tile/dark/brown2,
 /area/lv624/lazarus/atmos)
+"jze" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/jungle10)
 "jzx" = (
 /obj/effect/spawner/random/misc/trash,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle4)
+"jAe" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/wood,
+/area/lv624/lazarus/bar)
 "jAg" = (
 /obj/machinery/door/poddoor/mainship{
 	dir = 4;
@@ -9989,6 +10081,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/purple/whitepurple{
 	dir = 5
 	},
@@ -10367,6 +10460,10 @@
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
+"kcL" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor,
+/area/lv624/lazarus/spaceport2)
 "kdf" = (
 /turf/open/ground/grass/grass2,
 /area/lv624/ground/jungle7)
@@ -12466,6 +12563,14 @@
 /obj/item/clothing/mask/cigarette/cigar,
 /turf/open/floor/cult/clock,
 /area/lv624/lazarus/bar)
+"muV" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/effect/landmark/weed_node,
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor,
+/area/lv624/ground/sand8)
 "mvb" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
@@ -13237,6 +13342,10 @@
 	},
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/secure_storage)
+"nol" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/ground/grass,
+/area/lv624/ground/jungle7)
 "not" = (
 /obj/effect/landmark/weed_node,
 /obj/structure/cable,
@@ -13658,6 +13767,7 @@
 /obj/item/tool/candle,
 /obj/item/storage/box/matches,
 /obj/effect/spawner/random/weaponry/melee,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/wood,
 /area/lv624/ground/jungle8)
 "nRq" = (
@@ -13672,6 +13782,7 @@
 /obj/structure/table,
 /obj/item/clothing/head/soft/blue,
 /obj/machinery/light,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/brown{
 	dir = 9
 	},
@@ -13764,6 +13875,10 @@
 	dir = 8
 	},
 /area/lv624/lazarus/robotics)
+"nXu" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/caves/west1)
 "nYm" = (
 /obj/structure/flora/tree/jungle/small,
 /turf/open/ground/grass,
@@ -14319,6 +14434,18 @@
 /obj/structure/flora/jungle/vines/heavy,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle8)
+"oHl" = (
+/obj/structure/largecrate/random,
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/plating/platebot,
+/area/lv624/lazarus/robotics)
+"oHn" = (
+/obj/structure/table,
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/tile/blue/taupebluecorner{
+	dir = 2
+	},
+/area/lv624/lazarus/sleep_male)
 "oHs" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -14421,6 +14548,12 @@
 	},
 /turf/open/ground/grass,
 /area/lv624/ground/jungle5)
+"oOf" = (
+/obj/structure/table/mainship,
+/obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/tile/dark,
+/area/lv624/lazarus/secure_storage)
 "oOu" = (
 /obj/structure/flora/ausbushes/sunnybush,
 /turf/open/ground/grass,
@@ -14713,6 +14846,10 @@
 	},
 /turf/closed/wall/r_wall/chigusa,
 /area/lv624/lazarus/sandtemple/garbledradio)
+"pfI" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/plating,
+/area/lv624/ground/river1)
 "pfU" = (
 /obj/structure/catwalk,
 /turf/open/liquid/water/river/autosmooth/deep,
@@ -14819,8 +14956,13 @@
 	},
 /obj/structure/cable,
 /obj/machinery/door/airlock/mainship/security/glass/free_access,
+/obj/machinery/door/poddoor/shutters/mainship,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/secure_storage)
+"ppO" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/marking/bot,
+/area/lv624/lazarus/spaceport2)
 "ppS" = (
 /obj/structure/cargo_container/nt{
 	dir = 8
@@ -14859,6 +15001,11 @@
 /obj/effect/landmark/xeno_tunnel_spawn,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle8)
+"pqW" = (
+/obj/effect/landmark/weed_node,
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/ground/jungle6)
 "psp" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating,
@@ -14912,12 +15059,17 @@
 /obj/structure/rack,
 /obj/item/roller,
 /obj/item/roller,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage/dome)
 "pwD" = (
 /obj/effect/landmark/corpsespawner/colonist,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/engineering)
+"pwL" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/tile/dark,
+/area/lv624/lazarus/atmos)
 "pwP" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
@@ -14965,6 +15117,13 @@
 	},
 /turf/open/floor/engine,
 /area/lv624/lazarus/atmos)
+"pzW" = (
+/obj/structure/rack,
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/tile/purple/whitepurplecorner{
+	dir = 4
+	},
+/area/lv624/lazarus/fitness)
 "pAi" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 4;
@@ -15202,6 +15361,11 @@
 /obj/structure/flora/jungle/vines/heavy,
 /turf/open/liquid/water/river/autosmooth/deep,
 /area/lv624/ground/river1)
+"pRa" = (
+/obj/effect/spawner/random/machinery/machine_frame,
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/tile/vault,
+/area/lv624/lazarus/robotics)
 "pRj" = (
 /obj/structure/table/mainship,
 /obj/item/weapon/twohanded/spear,
@@ -15547,6 +15711,10 @@
 /obj/structure/closet/secure_closet/freezer/meat,
 /turf/open/floor/freezer,
 /area/lv624/lazarus/kitchen)
+"qiY" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/wood,
+/area/lv624/lazarus/captain)
 "qjM" = (
 /obj/structure/table,
 /obj/item/ammo_casing,
@@ -15738,6 +15906,7 @@
 /obj/machinery/cell_charger,
 /obj/effect/spawner/random/misc/cigarettes,
 /obj/effect/spawner/random/clothing/sunglasses,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/wood,
 /area/lv624/lazarus/captain)
 "qwx" = (
@@ -15907,6 +16076,11 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/central3/garbledradio)
+"qFO" = (
+/obj/item/stool,
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/tile/dark,
+/area/lv624/lazarus/atmos)
 "qGk" = (
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 5
@@ -16194,6 +16368,7 @@
 /obj/structure/table/reinforced/flipped{
 	dir = 1
 	},
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/plating,
 /area/lv624/lazarus/tablefort)
 "qWu" = (
@@ -16818,6 +16993,10 @@
 	dir = 8
 	},
 /area/lv624/lazarus/hydroponics/aux)
+"rBB" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/floor,
+/area/lv624/ground/sand2)
 "rBH" = (
 /obj/structure/rack,
 /obj/item/clothing/mask/gas,
@@ -16943,6 +17122,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle1)
+"rHk" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/plating,
+/area/lv624/ground/filtration)
 "rHl" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
@@ -17037,6 +17220,7 @@
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 8
 	},
+/obj/item/blueprints/escape_pod,
 /turf/open/floor,
 /area/lv624/lazarus/spaceport)
 "rLd" = (
@@ -17051,6 +17235,13 @@
 /obj/effect/decal/cleanable/dirt,
 /turf/open/floor/plating/asteroidfloor,
 /area/lv624/lazarus/spaceport)
+"rMy" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/tile/dark,
+/area/lv624/lazarus/quartstorage/dome)
 "rMB" = (
 /obj/structure/flora/jungle/vines,
 /obj/effect/spawner/random/misc/structure/supplycrate,
@@ -17483,6 +17674,10 @@
 	},
 /turf/open/floor/tile/red/full,
 /area/lv624/lazarus/security)
+"shN" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/tile/whiteyellow/full,
+/area/lv624/lazarus/quart)
 "sib" = (
 /obj/effect/decal/remains/human,
 /turf/open/floor/tile/vault,
@@ -17563,6 +17758,12 @@
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/atmos)
+"slR" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/engine/cult{
+	dir = 2
+	},
+/area/lv624/ground/caves/central5/garbledradio)
 "smV" = (
 /obj/structure/table/reinforced/flipped{
 	dir = 8
@@ -17948,6 +18149,7 @@
 	id = "secure_blast";
 	name = "Vault Access"
 	},
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/wood,
 /area/lv624/lazarus/corporate_affairs)
 "sOT" = (
@@ -18464,6 +18666,7 @@
 "tqS" = (
 /obj/effect/landmark/start/job/survivor,
 /obj/effect/spawner/random/engineering/wood,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage)
 "trb" = (
@@ -18759,6 +18962,7 @@
 "tHs" = (
 /obj/structure/table,
 /obj/item/flashlight,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/brown{
 	dir = 9
 	},
@@ -18920,6 +19124,7 @@
 /area/lv624/lazarus/engineering)
 "tRD" = (
 /obj/item/weapon/sword/machete,
+/obj/effect/landmark/start/job/survivor,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle4)
 "tRM" = (
@@ -19280,6 +19485,7 @@
 /area/lv624/ground/caves/central5/garbledradio)
 "unr" = (
 /obj/item/clothing/mask/facehugger/dead,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/purple/whitepurple{
 	dir = 5
 	},
@@ -19518,6 +19724,10 @@
 "uxW" = (
 /turf/closed/wall/r_wall,
 /area/lv624/lazarus/research)
+"uyx" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/plating/icefloor,
+/area/shuttle/drop2/lz2)
 "uyD" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/structure/cable,
@@ -19734,6 +19944,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating,
 /area/lv624/lazarus/tablefort)
+"uNK" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/tile/red/yellowfull,
+/area/lv624/ground/sand4)
 "uOn" = (
 /obj/structure/cable,
 /turf/open/floor/tile/dark,
@@ -19978,6 +20192,7 @@
 	pixel_x = 6;
 	pixel_y = 4
 	},
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 5
 	},
@@ -20190,6 +20405,15 @@
 /obj/structure/largecrate/supply/generator,
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage/dome)
+"vpK" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/tile/brown{
+	dir = 9
+	},
+/area/lv624/lazarus/comms)
 "vpO" = (
 /turf/closed/wall/r_wall,
 /area/lv624/lazarus/hydroponics/aux)
@@ -20717,6 +20941,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/quartstorage/outdoors)
+"vQV" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/tile/dark,
+/area/lv624/lazarus/crashed_ship)
 "vQZ" = (
 /obj/structure/flora/jungle/vines/heavy,
 /turf/open/liquid/water/river/autosmooth,
@@ -20907,6 +21135,10 @@
 /obj/effect/decal/cleanable/blood/splatter/animated,
 /turf/open/floor/tile/barber,
 /area/lv624/lazarus/main_hall)
+"wai" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor,
+/area/lv624/lazarus/spaceport)
 "waQ" = (
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -21734,6 +21966,11 @@
 	},
 /turf/open/floor,
 /area/lv624/ground/river2)
+"wSn" = (
+/obj/effect/decal/cleanable/dirt,
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/cult,
+/area/lv624/lazarus/bar)
 "wSP" = (
 /obj/structure/flora/jungle/vines/heavy,
 /turf/open/ground/grass,
@@ -22172,8 +22409,8 @@
 	},
 /area/lv624/lazarus/main_hall)
 "xlS" = (
-/obj/structure/window_frame/colony/reinforced,
-/obj/item/shard,
+/obj/effect/spawner/random/misc/structure/broken_reinforced_window/colonyspawn,
+/obj/machinery/door/poddoor/shutters/mainship,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/secure_storage)
 "xmB" = (
@@ -22322,6 +22559,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/purple/taupepurple{
 	dir = 9
 	},
@@ -22408,6 +22646,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
+"xyT" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/plating,
+/area/shuttle/drop1/lz1)
 "xzo" = (
 /obj/structure/device/broken_piano,
 /obj/machinery/light/small{
@@ -22517,6 +22759,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle3)
+"xFJ" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/plating/ground/dirt,
+/area/lv624/lazarus/quartstorage/outdoors)
 "xFL" = (
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle3)
@@ -22538,6 +22784,10 @@
 /obj/machinery/miner/damaged,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand7)
+"xGm" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/tile/darkish,
+/area/lv624/lazarus/sandtemple)
 "xGM" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
@@ -22597,6 +22847,7 @@
 	pixel_x = 6;
 	pixel_y = 4
 	},
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 9
 	},
@@ -25348,7 +25599,7 @@ dAK
 wLI
 ucI
 udH
-gGr
+oOf
 qyE
 gGr
 udH
@@ -26244,7 +26495,7 @@ wWk
 xLz
 rtU
 qrD
-xLz
+jze
 xLz
 xLz
 rtU
@@ -26260,7 +26511,7 @@ nbQ
 jcF
 xlS
 iJT
-hQq
+xlS
 jcF
 nbQ
 bIw
@@ -26412,7 +26663,7 @@ csO
 tlr
 sHI
 gEc
-csO
+wSn
 wkG
 lQR
 fSS
@@ -26624,7 +26875,7 @@ nbQ
 nbQ
 xlS
 poE
-hQq
+xlS
 bIw
 cmh
 lTN
@@ -27502,7 +27753,7 @@ mmV
 rRG
 lex
 fSS
-ezO
+jAe
 kjU
 jnU
 eUV
@@ -30422,7 +30673,7 @@ mOs
 mOs
 avd
 wPF
-tlt
+pqW
 tRD
 yda
 mOs
@@ -31129,7 +31380,7 @@ rpQ
 tlk
 aWz
 odE
-odE
+pfI
 xwr
 wFb
 odE
@@ -32143,7 +32394,7 @@ gKr
 gKr
 gKr
 gKr
-abc
+nXu
 abc
 abc
 abc
@@ -32627,7 +32878,7 @@ oZt
 yiV
 qLL
 xgO
-bvs
+dKY
 lHk
 teZ
 yag
@@ -33265,7 +33516,7 @@ gcF
 vzp
 mFE
 vzp
-vzp
+slR
 vzp
 vzp
 naV
@@ -33734,7 +33985,7 @@ xFL
 xFL
 caQ
 ffd
-xFL
+byi
 xFL
 fXn
 gjs
@@ -35560,7 +35811,7 @@ pyH
 gIu
 bch
 mOs
-bch
+biG
 bch
 mOs
 fIY
@@ -36617,7 +36868,7 @@ szs
 szs
 szs
 ohD
-szs
+uyx
 szs
 szs
 szs
@@ -37377,7 +37628,7 @@ uXf
 iCV
 rgl
 aED
-aWD
+qFO
 yfP
 vye
 mFM
@@ -38258,14 +38509,14 @@ tSf
 tSf
 rOf
 fcJ
-vvX
+kcL
 xWW
 xWW
 xWW
 vvX
 vVq
 qVk
-vVq
+ppO
 vVq
 vVq
 vVq
@@ -38834,7 +39085,7 @@ dad
 rgl
 aED
 aWD
-rgl
+pwL
 vye
 mFM
 bch
@@ -40071,7 +40322,7 @@ mJO
 rJm
 krO
 krO
-hVZ
+oHl
 fRm
 avd
 bdO
@@ -40265,7 +40516,7 @@ vfk
 aES
 aES
 hGk
-pEO
+aIq
 xVF
 aRg
 mgb
@@ -40973,7 +41224,7 @@ fRm
 lXD
 mJO
 mJO
-mJO
+chw
 sib
 ieB
 hCC
@@ -41341,7 +41592,7 @@ beb
 fRy
 jVX
 hCC
-tUF
+pRa
 fRy
 gII
 krO
@@ -41834,7 +42085,7 @@ jVV
 tXY
 baa
 bab
-bab
+uNK
 bab
 bab
 tXY
@@ -42379,7 +42630,7 @@ bSe
 jVV
 tEj
 aJD
-bab
+hQq
 bab
 bab
 aJD
@@ -43365,7 +43616,7 @@ xVL
 dQe
 wNs
 cFK
-cIl
+gTd
 xYe
 aES
 aET
@@ -44467,7 +44718,7 @@ sct
 pir
 ezx
 ezx
-bib
+vpK
 pir
 pir
 ezx
@@ -45823,7 +46074,7 @@ wsP
 hdP
 nzo
 nzo
-lma
+dOJ
 nzo
 lIH
 spx
@@ -46005,7 +46256,7 @@ wsP
 czt
 sTw
 sTw
-lma
+hPt
 sTw
 osD
 aEb
@@ -47527,7 +47778,7 @@ mkE
 wgH
 jtZ
 uDA
-uDA
+pzW
 ofY
 aRP
 aES
@@ -47877,7 +48128,7 @@ gMc
 wEZ
 wEZ
 uYP
-hlt
+bIU
 uYP
 uYP
 uYP
@@ -49643,7 +49894,7 @@ aut
 aut
 aut
 axO
-axO
+auv
 axO
 axO
 axO
@@ -50633,7 +50884,7 @@ nFP
 liM
 nQe
 xSg
-xSg
+dFu
 fxN
 oZY
 qNw
@@ -51281,7 +51532,7 @@ oZj
 aut
 aut
 axO
-axO
+rBB
 axO
 axO
 aqW
@@ -51536,7 +51787,7 @@ wdr
 vso
 aRT
 mKv
-gvj
+oHn
 tjj
 aSB
 jOV
@@ -51644,7 +51895,7 @@ ati
 awY
 nwb
 aut
-axO
+auv
 gqa
 axO
 axO
@@ -51664,7 +51915,7 @@ lZC
 alm
 alm
 alm
-pYM
+muV
 qfn
 bvp
 cJx
@@ -52106,7 +52357,7 @@ ngY
 saF
 vpz
 xuv
-iyl
+qiY
 oXD
 mYW
 eOC
@@ -52455,7 +52706,7 @@ wVU
 wjy
 wjy
 wjy
-wjy
+dOQ
 wjy
 fMC
 tzQ
@@ -53483,7 +53734,7 @@ lwf
 nMg
 eAz
 nJA
-dmb
+rHk
 bmy
 aLK
 tUt
@@ -53622,10 +53873,10 @@ aeV
 bdj
 aeV
 nGo
-dtO
+cJV
 unv
 wID
-wID
+vQV
 wID
 aiD
 dtO
@@ -54290,7 +54541,7 @@ rGR
 iPi
 fjZ
 cyB
-bVy
+iRG
 qbI
 iok
 qhY
@@ -54451,13 +54702,13 @@ hpU
 dzB
 cEv
 avb
-ggF
+jtf
 xsa
 hAS
 upl
 kPJ
 uBN
-uBN
+shN
 poe
 xsa
 vGr
@@ -55279,7 +55530,7 @@ gKr
 oRZ
 xsN
 aMA
-bgL
+xGm
 tnH
 xsN
 oRZ
@@ -55335,7 +55586,7 @@ ozm
 hlQ
 pMn
 pMn
-pMn
+xFJ
 pMn
 pMn
 tql
@@ -57746,7 +57997,7 @@ tbe
 hWp
 qoW
 xfb
-tbe
+wai
 hPw
 rKm
 sQz
@@ -58961,7 +59212,7 @@ mOs
 mOs
 mOs
 mOs
-arW
+nol
 nFG
 nFG
 oGS
@@ -59712,7 +59963,7 @@ ecr
 ygk
 xNj
 vjo
-vjo
+rMy
 vjo
 xqE
 vjo
@@ -59913,7 +60164,7 @@ euA
 hWp
 kLN
 wvz
-ydT
+xyT
 ydT
 ydT
 ydT
