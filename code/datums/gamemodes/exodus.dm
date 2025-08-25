@@ -60,9 +60,9 @@
 	///The alpha value the lighting system is currently animating towards.
 	var/target_light_alpha = 0
 	///The actual current color of the area lighting overlay.
-	var/current_light_color = COLOR_WHITE
+	var/current_light_color = COLOR_EVENING_BLUE
 	///The color the lighting system is currently targeting.
-	var/target_light_color = COLOR_WHITE
+	var/target_light_color = COLOR_EVENING_BLUE
 	///How many alpha points to change per process() tick. Higher = faster transition.
 	var/light_transition_speed = 1
 
@@ -71,9 +71,59 @@
 		/datum/job/xenomorph = FREE_XENO_AT_START
 	)
 
+	var/list/xeno_caste_slots_by_stage_poplow = list(
+			STAGE_THRESHOLD_LOW = list(
+				/mob/living/carbon/xenomorph/runner = 1
+			),
+			STAGE_THRESHOLD_MEDIUM = list(
+				/mob/living/carbon/xenomorph/runner = 2,
+				/mob/living/carbon/xenomorph/warrior = 1
+			),
+			STAGE_THRESHOLD_HIGH = list(
+				/mob/living/carbon/xenomorph/runner = 1,
+				/mob/living/carbon/xenomorph/warrior = 2,
+				/mob/living/carbon/xenomorph/praetorian = 1
+			)
+		)
+	var/list/xeno_caste_slots_by_stage_popmid = list(
+			STAGE_THRESHOLD_LOW = list(
+				/mob/living/carbon/xenomorph/runner = 2
+			),
+			STAGE_THRESHOLD_MEDIUM = list(
+				/mob/living/carbon/xenomorph/runner = 2,
+				/mob/living/carbon/xenomorph/warrior = 1,
+				/mob/living/carbon/xenomorph/spitter = 1
+			),
+			STAGE_THRESHOLD_HIGH = list(
+				/mob/living/carbon/xenomorph/runner = 2,
+				/mob/living/carbon/xenomorph/warrior = 2,
+				/mob/living/carbon/xenomorph/spitter = 1,
+				/mob/living/carbon/xenomorph/praetorian = 1,
+				/mob/living/carbon/xenomorph/crusher = 1
+			)
+		)
+	var/list/xeno_caste_slots_by_stage_pophigh = list(
+			STAGE_THRESHOLD_LOW = list(
+				/mob/living/carbon/xenomorph/runner = 2,
+				/mob/living/carbon/xenomorph/drone = 1 // Add a drone for utility at high pop
+			),
+			STAGE_THRESHOLD_MEDIUM = list(
+				/mob/living/carbon/xenomorph/runner = 3,
+				/mob/living/carbon/xenomorph/warrior = 2,
+				/mob/living/carbon/xenomorph/spitter = 1,
+				/mob/living/carbon/xenomorph/defender = 1
+			),
+			STAGE_THRESHOLD_HIGH = list(
+				/mob/living/carbon/xenomorph/runner = 2,
+				/mob/living/carbon/xenomorph/warrior = 3,
+				/mob/living/carbon/xenomorph/spitter = 2,
+				/mob/living/carbon/xenomorph/praetorian = 2,
+				/mob/living/carbon/xenomorph/crusher = 1
+			)
+		)
 	var/list/xeno_caste_slots_by_stage = list(
 		///number stands for minimum pop, so "1" would be for pop between 1 and 15, "15" would be between 15 and 25 etc
-		1 = list(
+		"1" = list(
 			STAGE_THRESHOLD_LOW = list(
 				/mob/living/carbon/xenomorph/runner = 1
 			),
@@ -87,7 +137,7 @@
 				/mob/living/carbon/xenomorph/praetorian = 1
 			)
 		),
-		15 = list(
+		"15" = list(
 			STAGE_THRESHOLD_LOW = list(
 				/mob/living/carbon/xenomorph/runner = 2
 			),
@@ -105,7 +155,7 @@
 			)
 		),
 		//anything over 25 uses this list
-		25 = list(
+		"25" = list(
 			STAGE_THRESHOLD_LOW = list(
 				/mob/living/carbon/xenomorph/runner = 2,
 				/mob/living/carbon/xenomorph/drone = 1 // Add a drone for utility at high pop
@@ -133,11 +183,8 @@
 
 /datum/game_mode/exodus/can_start(bypass_checks = FALSE)
 	. = ..()
-	if(!.) {
-		return FALSE
-	}
-
-	///all of this is a loose reimplementation of infestation logic since we don't inherit from it, save for initial_xeno_count
+	if(!.)
+		return FALSE // Base checks failed.
 
 	var/player_count = length(GLOB.ready_players)
 	var/initial_xeno_count = (player_count >= 15) ? 2 : 1
@@ -146,30 +193,27 @@
 	if(!set_valid_job_types() && !bypass_checks)
 		return FALSE
 
-	var/datum/job/xenomorph/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
-	if(!xeno_job) CRASH("Exodus: Cannot find the /datum/job/xenomorph job datum.") ///does our job even exist?
+	var/datum/job/xenomorph/runner_job = SSjob.GetJobType(/datum/job/xenomorph)
+	if(!runner_job) CRASH("Exodus: Cannot find the /datum/job/xenomorph/runner job datum.")
 
-	for(var/level = JOBS_PRIORITY_HIGH; level >= JOBS_PRIORITY_MEDIUM; level--) {
+	for(var/level = JOBS_PRIORITY_HIGH; level >= JOBS_PRIORITY_MEDIUM; level--)
 		if(xenos_assigned >= initial_xeno_count) break
 
-		for(var/mob/new_player/p in GLOB.ready_players) {
+		for(var/mob/new_player/p in GLOB.ready_players)
 			if(p.assigned_role) continue
-			if(p.client.prefs.job_preferences[ROLE_XENOMORPH] == level) {
-				if(SSjob.AssignRole(p, xeno_job)) {
+			if(p.client.prefs.job_preferences[ROLE_XENOMORPH] == level)
+				if(SSjob.AssignRole(p, runner_job))
 					xenos_assigned++
 					if(xenos_assigned >= initial_xeno_count) break
-				}
-			}
-		}
-	}
 
-	if(xenos_assigned < initial_xeno_count && !bypass_checks) {
-		to_chat(world, "<b>Unable to start Exodus.</b> Could not find enough eligible players with a Xenomorph preference to fill the required [initial_xeno_count] slots.")
-		return FALSE
-	}
+///	if(xenos_assigned < initial_xeno_count && !bypass_checks)
+///		to_chat(world, "<b>Unable to start Exodus.</b> Could not find enough eligible players with a Xenomorph preference to fill the required [initial_xeno_count] slots.")
+//		return FALSE
 
-	return TRUE
 
+	return TRUE // We have successfully pre-assigned our xenos.
+
+/// Announces the game mode to the players.
 /datum/game_mode/exodus/announce()
 	to_chat(world, span_round_header("The current map is - [SSmapping.configs[GROUND_MAP].map_name]!"))
 	priority_announce(
@@ -184,36 +228,33 @@
 	. = ..()
 
 	var/player_count = length(GLOB.ready_players)
-	if(player_count > 0) {
+	if(player_count > 0)
 		var/schematic_count = ceil(player_count * schematic_ratio)
 		schematic_count = max(schematic_count, 1)
 
 		var/list/potential_spawn_locations = GLOB.exodus_utility_spawns.Copy()
-		if(!potential_spawn_locations.len) {
+		if(!potential_spawn_locations.len)
 			CRASH("Exodus: No 'exodus_utility_spawn' landmarks found to spawn schematics.")
-		}
+
 		shuffle_inplace(potential_spawn_locations)
 
-		for(var/i in 1 to min(schematic_count, potential_spawn_locations.len)) {
+		for(var/i in 1 to min(schematic_count, potential_spawn_locations.len))
 			var/obj/effect/landmark/spawn_landmark = pick_n_take(potential_spawn_locations)
-			if(spawn_landmark) {
+			if(spawn_landmark)
 				new /obj/item/blueprints/escape_pod(spawn_landmark.loc)
 				log_game("Exodus: Spawned escape pod schematic at [spawn_landmark.loc].")
-			}
-		}
-	}
+
 	return TRUE
 
 /datum/game_mode/exodus/setup()
-	GLOB.spawns_by_job[/datum/job/survivor] = GLOB.exodus_survivor_spawns //does this even work? god only knows
+	GLOB.spawns_by_job[/datum/job/survivor] = GLOB.exodus_survivor_spawns
 	. = ..()
 	return .
-
 /datum/game_mode/exodus/post_setup()
 	. = ..()
 
 	initial_survivor_count = length(GLOB.alive_human_list_faction[FACTION_SURVIVOR])
-	if(initial_survivor_count > 0) {
+	if(initial_survivor_count > 0)
 		var/total_threat_budget = initial_survivor_count * threat_budget_per_survivor
 		stage_2_threshold = total_threat_budget * stage_2_threshold_percent
 		stage_3_threshold = total_threat_budget
@@ -222,14 +263,13 @@
 		threat_per_pvp_kill = threat_budget_per_survivor * pvp_kill_threat_factor
 
 		var/total_ticks_in_duration = desired_peaceful_duration / EXODUS_PROCESS_INTERVAL
-		if(total_ticks_in_duration > 0) {
+		if(total_ticks_in_duration > 0)
 			threat_per_tick = total_threat_budget / total_ticks_in_duration
-		}
-	} else {
+
+	else
 		threat_per_tick = 1
 		stage_2_threshold = 1000
 		stage_3_threshold = 3000
-	}
 
 	log_game("Exodus mode starting with [initial_survivor_count] survivors.")
 	log_game("Threat thresholds: Stage 2 at [stage_2_threshold], Stage 3 at [stage_3_threshold].")
@@ -243,48 +283,52 @@
 	var/ai_to_spawn = max(0, stage_1_xeno_cap - player_xenos_spawned)
 
 	var/list/chosen_bracket = null
-	// Iterate brackets from highest pop to lowest to find the first one we match.
+	switch(initial_survivor_count)
+		if(0 to 15)
+			chosen_bracket = xeno_caste_slots_by_stage_poplow.Copy()
+		if(15 to 25)
+			chosen_bracket = xeno_caste_slots_by_stage_popmid.Copy()
+		if(25 to INFINITY)
+			chosen_bracket = xeno_caste_slots_by_stage_pophigh.Copy()
+	switch(stage)
+		if(1) chosen_bracket = chosen_bracket[1]
+		if(2) chosen_bracket = chosen_bracket[2]
+		if(3) chosen_bracket = chosen_bracket[3]
+/*	// Iterate brackets from highest pop to lowest to find the first one we match.
 	var/list/pop_brackets = sort_list(assoc_to_keys(xeno_caste_slots_by_stage), /proc/cmp_numeric_dsc)
-	for(var/pop_key in pop_brackets) {
-		if(initial_survivor_count >= text2num(pop_key)) {
-			chosen_bracket = xeno_caste_slots_by_stage[pop_key]
+	for(var/pop_key in pop_brackets)
+		if(initial_survivor_count >= text2num(pop_key))
+			chosen_bracket = xeno_caste_slots_by_stage[text2num(pop_key)]
 			break
-		}
-	}
-	///todo none of this works yet, stuck on other things
+
 	xeno_caste_slots_by_stage = chosen_bracket
-	if(!xeno_caste_slots_by_stage) { ///somehow we've broken our selection criterion
+	if(!xeno_caste_slots_by_stage) ///somehow we've broken our selection criterion
 		xeno_caste_slots_by_stage = list()
 		CRASH("Exodus: Could not determine a valid xeno slot bracket for [initial_survivor_count] players. Xenos may not spawn.")
-	}
+*/
 
-	if(GLOB.exodus_xeno_spawns.len > 0) {
-		for(var/i in 1 to ai_to_spawn) {
+	if(GLOB.exodus_xeno_spawns.len > 0)
+		for(var/i in 1 to ai_to_spawn)
 			var/obj/effect/landmark/spawn_landmark = pick(GLOB.exodus_xeno_spawns)
 			new /mob/living/carbon/xenomorph/runner/ai(spawn_landmark.loc)
-		}
 		if(ai_to_spawn > 0) log_game("Exodus: Spawned [ai_to_spawn] initial AI Xenos.")
-	} else if (ai_to_spawn > 0) {
+	else if (ai_to_spawn > 0)
 		CRASH("Exodus: Could not find any 'exodus_xeno_spawn' landmarks to spawn AI threat.")
-	}
 
 	log_game("Exodus: Setting initial daylight lighting for ground map.")
 	// Initialize our lighting state variables to match the desired start
 	current_light_alpha = 225
 	target_light_alpha = 225
-	current_light_color = COLOR_WHITE
-	target_light_color = COLOR_WHITE
+	current_light_color = COLOR_EVENING_BLUE
+	target_light_color = COLOR_EVENING_BLUE
 
 	var/list/ground_z_levels = SSmapping.levels_by_trait(ZTRAIT_GROUND)
-	if(ground_z_levels?.len) {
-		for(var/area/A in GLOB.areas) {
-			if(A.z in ground_z_levels) {
-				A.set_base_lighting(COLOR_WHITE, 225)
-			}
-		}
-	} else {
+	if(ground_z_levels?.len)
+		for(var/area/A in GLOB.areas)
+			if(A.z in ground_z_levels)
+				A.set_base_lighting(COLOR_EVENING_BLUE, 225)
+	else
 		CRASH("Exodus: Could not find any Z-levels with ZTRAIT_GROUND to apply initial lighting.")
-	}
 
 	SSmonitor.is_automatic_balance_on = FALSE //do we need to do this? doing it anyway for safety
 	GLOB.xeno_stat_multiplicator_buff = XENO_POWER_LOW
@@ -297,9 +341,9 @@
 
 /// Called by SSprocessing to drive the game mode's main loop.
 /datum/game_mode/exodus/process()
-	if(world.time < next_process_time) {
+	if(world.time < next_process_time)
 		return
-	}
+
 	next_process_time = world.time + EXODUS_PROCESS_INTERVAL
 
 	if(round_finished)
@@ -308,11 +352,10 @@
 	threat_counter += threat_per_tick
 	var/old_stage = stage
 
-	if(stage == STAGE_THRESHOLD_LOW && threat_counter >= stage_2_threshold) {
+	if(stage == STAGE_THRESHOLD_LOW && threat_counter >= stage_2_threshold)
 		escalate_to_stage(STAGE_THRESHOLD_MEDIUM)
-	} else if(stage == STAGE_THRESHOLD_MEDIUM && threat_counter >= stage_3_threshold) {
+	else if(stage == STAGE_THRESHOLD_MEDIUM && threat_counter >= stage_3_threshold)
 		escalate_to_stage(STAGE_THRESHOLD_HIGH)
-	}
 
 	var/lighting_changed = FALSE
 	if(current_light_alpha < target_light_alpha) {
@@ -347,32 +390,35 @@
 	switch(stage)
 		if(STAGE_THRESHOLD_LOW) ///this should only naturally be reached during debugging since we start in stage 1
 			target_light_alpha = 255
-			target_light_color = "#66e4c0"
+			target_light_color = COLOR_EVENING_BLUE
 		if(STAGE_THRESHOLD_MEDIUM)
 			GLOB.xeno_stat_multiplicator_buff = XENO_POWER_MEDIUM
 			SSmonitor.apply_balance_changes()
 			target_light_alpha = 100
-			target_light_color = "#c5872a"
+			target_light_color = COLOR_EVENING_ORANGE
 		if(STAGE_THRESHOLD_HIGH)
 			GLOB.xeno_stat_multiplicator_buff = XENO_POWER_MAXIMUM
 			SSmonitor.apply_balance_changes()
 			target_light_alpha = 0
-			target_light_color = "#4682B4"
+			target_light_color = COLOR_EVENING_BLACK
 
-	if(stage > old_stage) {
-		priority_announce("Hostile biomass readings are surging. Threat level has escalated, analysis: escape advised.", "Threat Escalation")
+	if(stage > old_stage)
+		switch(stage)
+			if(2)
+				priority_announce("Hostile biomass readings are surging. Threat level has escalated, analysis: escape advised.", "Threat Escalation")
+			if(3)
+				priority_announce("Hostile biomass readings have reached critical levels. Threat level has escalated, analysis: survival unlikely.", "Threat Escalation")
 		log_game("Exodus: Threat escalated to Stage [stage]. Current threat: [threat_counter]/[stage_3_threshold]")
 		///SEND_GLOBAL_SIGNAL(COMSIG_EXODUS_STAGE_CHANGED, stage)
-	}
+
 	// TODO: Spawn new AI/Player xenos and unlock higher-tier castes.
 
 /datum/game_mode/exodus/check_finished()
 	if(round_finished) return TRUE
 
-	if(world.time > SSticker.round_start_time + round_end_timer) {
+	if(world.time > SSticker.round_start_time + round_end_timer)
 		round_finished = "Time Limit Reached" ///failsafe in case we end up getting stuck somehow
 		return TRUE
-	}
 
 	var/survivors_left = length(GLOB.alive_human_list_faction[FACTION_SURVIVOR])
 	if(survivors_left <= 0 && initial_survivor_count > 0) {
@@ -385,10 +431,9 @@
 	}
 
 	var/kill_percentage_for_xeno_win = 0.80
-	if(initial_survivor_count > 0 && survivors_killed >= initial_survivor_count * kill_percentage_for_xeno_win) {
+	if(initial_survivor_count > 0 && survivors_killed >= initial_survivor_count * kill_percentage_for_xeno_win)
 		round_finished = "XENOMORPH VICTORY (Attrition)"
 		return TRUE
-	}
 
 	return ..()
 
@@ -401,7 +446,7 @@
 
 	survivors_killed++
 
-	if(ishuman(attacker) && issurvivorjob(attacker.job) && !HAS_TRAIT(victim, TRAIT_DIED_ONCE)) {
+	if(ishuman(attacker) && issurvivorjob(attacker.job) && !HAS_TRAIT(victim, TRAIT_DIED_ONCE))
 		var/round_duration_so_far = world.time - SSticker.round_start_time
 		var/scaling_factor = min(round_duration_so_far / pvp_threat_ramp_up_duration, 1.0)
 		var/scaled_pvp_threat = LERP(threat_per_death, threat_per_pvp_kill, scaling_factor)
@@ -410,9 +455,8 @@
 		if(scaling_factor > 0.5) {
 			priority_announce("The sounds of infighting echo across the sector, drawing the hive's attention...", "Sudden Aggression Detected")
 		}
-	} else {
+	else
 		threat_counter += threat_per_death
-	}
 	if(!HAS_TRAIT(victim, TRAIT_DIED_ONCE))
 		ADD_TRAIT(victim, TRAIT_DIED_ONCE, attacker)
 

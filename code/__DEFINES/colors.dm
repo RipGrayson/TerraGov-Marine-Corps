@@ -77,6 +77,9 @@
 #define COLOR_PULSE_BLUE "#BEFFFF"
 #define COLOR_TESLA_BLUE "#DAD9FF"
 #define COLOR_TRAM_BLUE "#6160A8"
+#define COLOR_EVENING_BLUE "#cadbfa"
+#define COLOR_EVENING_ORANGE "#fae9ca"
+#define COLOR_EVENING_BLACK "#fae9cabb"
 
 #define COLOR_PINK "#FFC0CB"
 #define COLOR_MOSTLY_PURE_PINK "#E4005B"

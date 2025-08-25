@@ -332,7 +332,7 @@
 // Helper proc to advance stage and reset counters
 /obj/structure/escape_pod_frame/proc/advance_stage_to(new_stage)
 	construction_stage = new_stage
-	icon_state = "frame_[new_stage]" // Or "hull_[...]", etc.
+	///icon_state = "frame_[new_stage]" // Or "hull_[...]", etc.
 	substep = 0
 	metal_invested = 0
 	metal_needed = 0
