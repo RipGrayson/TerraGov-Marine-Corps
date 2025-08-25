@@ -3,7 +3,9 @@
 #define STAGE_THRESHOLD_HIGH 3
 #define EXODUS_PROCESS_INTERVAL 20
 
-#define XENO_POWER_LOW 0.6
+#define STAGE_LOWPOP_ESCALATION_MULTIPLIER 0.20
+
+#define XENO_POWER_LOW 0.5
 #define XENO_POWER_MEDIUM 1.0
 #define XENO_POWER_MAXIMUM 1.4
 
@@ -339,7 +341,6 @@
 
 	return TRUE
 
-/// Called by SSprocessing to drive the game mode's main loop.
 /datum/game_mode/exodus/process()
 	if(world.time < next_process_time)
 		return
@@ -358,27 +359,26 @@
 		escalate_to_stage(STAGE_THRESHOLD_HIGH)
 
 	var/lighting_changed = FALSE
-	if(current_light_alpha < target_light_alpha) {
+	if(current_light_alpha < target_light_alpha)
 		current_light_alpha = min(current_light_alpha + light_transition_speed, target_light_alpha)
 		lighting_changed = TRUE
-	} else if(current_light_alpha > target_light_alpha) {
+	else if(current_light_alpha > target_light_alpha)
 		current_light_alpha = max(current_light_alpha - light_transition_speed, target_light_alpha)
 		lighting_changed = TRUE
-	}
-	if(stage != old_stage) {
+
+	if(stage != old_stage)
 		current_light_color = target_light_color
 		lighting_changed = TRUE
-	}
-	if(lighting_changed) {
+
+	if(lighting_changed)
 		var/list/ground_z_levels = SSmapping.levels_by_trait(ZTRAIT_GROUND)
-		if(ground_z_levels?.len) {
-			for(var/area/A in GLOB.areas) {
-				if(A.z in ground_z_levels) {
+		if(ground_z_levels?.len)
+			for(var/area/A in GLOB.areas)
+				if(A.z in ground_z_levels)
 					A.set_base_lighting(current_light_color, round(current_light_alpha))
-				}
-			}
-		}
-	}
+
+	if(initial_survivor_count <= initial_survivor_count * STAGE_LOWPOP_ESCALATION_MULTIPLIER && initial_survivor_count >= 2) ///escalate to stage 3 if we hit pop this low
+		threat_counter = stage_3_threshold
 
 /// Escalates the threat to the next stage, making the game more difficult.
 /datum/game_mode/exodus/proc/escalate_to_stage(new_stage)
@@ -389,7 +389,7 @@
 
 	switch(stage)
 		if(STAGE_THRESHOLD_LOW) ///this should only naturally be reached during debugging since we start in stage 1
-			target_light_alpha = 255
+			target_light_alpha = 225
 			target_light_color = COLOR_EVENING_BLUE
 		if(STAGE_THRESHOLD_MEDIUM)
 			GLOB.xeno_stat_multiplicator_buff = XENO_POWER_MEDIUM
@@ -399,7 +399,7 @@
 		if(STAGE_THRESHOLD_HIGH)
 			GLOB.xeno_stat_multiplicator_buff = XENO_POWER_MAXIMUM
 			SSmonitor.apply_balance_changes()
-			target_light_alpha = 0
+			target_light_alpha = 10
 			target_light_color = COLOR_EVENING_BLACK
 
 	if(stage > old_stage)
