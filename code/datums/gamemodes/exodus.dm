@@ -146,8 +146,8 @@
 	if(!set_valid_job_types() && !bypass_checks)
 		return FALSE
 
-	var/datum/job/xenomorph/runner_job = SSjob.GetJobType(/datum/job/xenomorph)
-	if(!runner_job) CRASH("Exodus: Cannot find the /datum/job/xenomorph/runner job datum.")
+	var/datum/job/xenomorph/xeno_job = SSjob.GetJobType(/datum/job/xenomorph)
+	if(!xeno_job) CRASH("Exodus: Cannot find the /datum/job/xenomorph job datum.") ///does our job even exist?
 
 	for(var/level = JOBS_PRIORITY_HIGH; level >= JOBS_PRIORITY_MEDIUM; level--) {
 		if(xenos_assigned >= initial_xeno_count) break
@@ -155,7 +155,7 @@
 		for(var/mob/new_player/p in GLOB.ready_players) {
 			if(p.assigned_role) continue
 			if(p.client.prefs.job_preferences[ROLE_XENOMORPH] == level) {
-				if(SSjob.AssignRole(p, runner_job)) {
+				if(SSjob.AssignRole(p, xeno_job)) {
 					xenos_assigned++
 					if(xenos_assigned >= initial_xeno_count) break
 				}
