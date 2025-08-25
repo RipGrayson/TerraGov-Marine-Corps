@@ -444,6 +444,10 @@
 /obj/effect/spawner/random/engineering/tool,
 /turf/open/floor/tile/dark/yellow2,
 /area/outpost/engineering)
+"cv" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/wood,
+/area/outpost/dormitories)
 "cw" = (
 /obj/structure/closet/secure_closet/security,
 /obj/item/weapon/gun/rifle/mpi_km,
@@ -562,6 +566,7 @@
 /obj/item/tank/anesthetic,
 /obj/item/clothing/mask/breath/medical,
 /obj/effect/decal/cleanable/blood,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/dark,
 /area/outpost/medbay/surgery)
 "cZ" = (
@@ -1038,6 +1043,7 @@
 /obj/effect/spawner/random/engineering/powercell,
 /obj/effect/spawner/random/engineering/powercell,
 /obj/effect/spawner/random/engineering/powercell,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/dark/yellow2{
 	dir = 8
 	},
@@ -1106,6 +1112,7 @@
 "fx" = (
 /obj/structure/table,
 /obj/item/radio,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/dark,
 /area/outpost/science/rd_office)
 "fz" = (
@@ -1382,6 +1389,10 @@
 	dir = 1
 	},
 /area/outpost/science/xenobiology)
+"gK" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/tile/dark,
+/area/outpost/engineering)
 "gM" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 4
@@ -3837,6 +3848,7 @@
 	},
 /area/outpost/dormitories)
 "rQ" = (
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/dark/brown2{
 	dir = 6
 	},
@@ -3913,6 +3925,10 @@
 /obj/structure/window/framed/colony/reinforced,
 /turf/open/floor/tile/dark2,
 /area/outpost/cargo)
+"sj" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/plating/ground/mars/random/dirt,
+/area/outpost/yard/central)
 "sl" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating/asteroidwarning{
@@ -4030,6 +4046,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/dark/brown2{
 	dir = 5
 	},
@@ -4986,6 +5003,7 @@
 /obj/machinery/atmospherics/pipe/simple/green/hidden{
 	dir = 6
 	},
+/obj/effect/landmark/start/job/survivor,
 /turf/open/floor/tile/dark,
 /area/outpost/brig/gear_room)
 "xl" = (
@@ -5171,6 +5189,7 @@
 /obj/machinery/atmospherics/pipe/manifold/green/hidden{
 	dir = 8
 	},
+/obj/effect/landmark/start/job/survivor,
 /turf/open/floor/tile/dark,
 /area/outpost/hallway/central)
 "yg" = (
@@ -6112,6 +6131,10 @@
 "CD" = (
 /turf/closed/wall/r_wall,
 /area/outpost/medbay/security)
+"CE" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/plating/ground/mars/random/sand,
+/area/outpost/yard/north)
 "CF" = (
 /obj/structure/largecrate/random,
 /turf/open/floor/tile/dark/brown2{
@@ -7013,6 +7036,10 @@
 	dir = 8
 	},
 /area/outpost/yard/east)
+"GZ" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/tile/dark2,
+/area/outpost/cargo)
 "Ha" = (
 /obj/structure/cable,
 /obj/machinery/computer/shuttle/shuttle_control/dropship,
@@ -7070,6 +7097,7 @@
 	dir = 4
 	},
 /obj/item/trash/pistachios,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/dark/brown2{
 	dir = 4
 	},
@@ -8057,6 +8085,7 @@
 "Mf" = (
 /obj/structure/table,
 /obj/item/tool/analyzer/plant_analyzer,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/dark/purple2{
 	dir = 1
 	},
@@ -8414,6 +8443,7 @@
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/powercell,
 /obj/effect/spawner/random/engineering/powercell,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/dark/yellow2{
 	dir = 4
 	},
@@ -8579,6 +8609,7 @@
 /obj/structure/table,
 /obj/item/tool/pen,
 /obj/item/radio,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/dark/brown2,
 /area/outpost/cargo/office)
 "Os" = (
@@ -8724,6 +8755,13 @@
 	dir = 4
 	},
 /area/outpost/hallway/west)
+"Pb" = (
+/obj/machinery/atmospherics/pipe/simple/green/hidden,
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/tile/dark/blue2{
+	dir = 8
+	},
+/area/outpost/medbay)
 "Pe" = (
 /obj/machinery/power/apc/drained,
 /obj/structure/cable,
@@ -9300,6 +9338,7 @@
 "RJ" = (
 /obj/structure/table,
 /obj/item/tool/pen,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/dark/red2,
 /area/outpost/brig/gear_room)
 "RL" = (
@@ -9340,6 +9379,10 @@
 	dir = 4
 	},
 /area/outpost/science)
+"RR" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/plating/ground/mars/random/cave,
+/area/outpost/yard/south_east)
 "RS" = (
 /turf/open/floor/tile/dark/brown2{
 	dir = 8
@@ -9500,6 +9543,10 @@
 "SB" = (
 /turf/open/floor/tile/dark/brown2,
 /area/outpost/hallway/west)
+"SF" = (
+/obj/item/blueprints/escape_pod,
+/turf/open/floor/plating,
+/area/outpost/engineering/engine)
 "SJ" = (
 /obj/machinery/light{
 	dir = 1
@@ -10008,6 +10055,7 @@
 "US" = (
 /obj/structure/table,
 /obj/item/radio,
+/obj/item/blueprints/escape_pod,
 /turf/open/floor/tile/dark/red2{
 	dir = 4
 	},
@@ -18807,7 +18855,7 @@ CL
 dK
 Mi
 yd
-Mi
+Pb
 DV
 Ux
 Cl
@@ -18849,7 +18897,7 @@ DS
 Ul
 Jc
 EH
-Jc
+GZ
 pw
 Xj
 CF
@@ -22250,7 +22298,7 @@ LJ
 LJ
 pQ
 Qh
-LJ
+CE
 LJ
 LJ
 aN
@@ -23854,7 +23902,7 @@ fG
 dY
 vn
 fG
-HT
+cv
 HT
 HT
 fG
@@ -24765,7 +24813,7 @@ ye
 Xt
 gX
 ye
-ai
+sj
 RD
 EA
 FH
@@ -24784,7 +24832,7 @@ HT
 fG
 yW
 yW
-NF
+RR
 NF
 oK
 VN
@@ -24814,7 +24862,7 @@ Sz
 Db
 DX
 DX
-MG
+SF
 MG
 wz
 MG
@@ -25596,7 +25644,7 @@ Mr
 KM
 vf
 lA
-lA
+gK
 lA
 sZ
 gR
