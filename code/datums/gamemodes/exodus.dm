@@ -68,7 +68,7 @@
 
 	valid_job_types = list(
 		/datum/job/survivor = -1,
-		/datum/job/xenomorph/runner = 2
+		/datum/job/xenomorph = FREE_XENO_AT_START
 	)
 
 	var/list/xeno_caste_slots_by_stage = list(
@@ -125,40 +125,34 @@
 			)
 		)
 	)
-	return INITIALIZE_SUCCESSFUL
 
 	// --- Temp Vars ---
 	var/round_end_timer = 1 HOURS // Temporary win/loss for testing
 
 	var/next_process_time
 
-/// Announces the game mode to the players.
-/datum/game_mode/exodus/announce()
-	to_chat(world, span_round_header("The current map is - [SSmapping.configs[GROUND_MAP].map_name]!"))
-	priority_announce(
-		message = "You are a survivor. Your colony has been overrun and the creatures are stirring. Find a way to escape.",
-		title = "Exodus",
-		type = ANNOUNCEMENT_PRIORITY,
-		color_override = "red"
-	)
-
 /datum/game_mode/exodus/can_start(bypass_checks = FALSE)
 	. = ..()
 	if(!.) {
-		return FALSE // Base checks failed.
+		return FALSE
 	}
+
+	///all of this is a loose reimplementation of infestation logic since we don't inherit from it, save for initial_xeno_count
 
 	var/player_count = length(GLOB.ready_players)
 	var/initial_xeno_count = (player_count >= 15) ? 2 : 1
 	var/xenos_assigned = 0
 
-	var/datum/job/xenomorph/runner/runner_job = SSjob.GetJobType(/datum/job/xenomorph/runner)
+	if(!set_valid_job_types() && !bypass_checks)
+		return FALSE
+
+	var/datum/job/xenomorph/runner_job = SSjob.GetJobType(/datum/job/xenomorph)
 	if(!runner_job) CRASH("Exodus: Cannot find the /datum/job/xenomorph/runner job datum.")
 
 	for(var/level = JOBS_PRIORITY_HIGH; level >= JOBS_PRIORITY_MEDIUM; level--) {
 		if(xenos_assigned >= initial_xeno_count) break
 
-		for(var/mob/new_player/p in shuffle(GLOB.ready_players)) {
+		for(var/mob/new_player/p in GLOB.ready_players) {
 			if(p.assigned_role) continue
 			if(p.client.prefs.job_preferences[ROLE_XENOMORPH] == level) {
 				if(SSjob.AssignRole(p, runner_job)) {
@@ -174,7 +168,16 @@
 		return FALSE
 	}
 
-	return TRUE // We have successfully pre-assigned our xenos.
+	return TRUE
+
+/datum/game_mode/exodus/announce()
+	to_chat(world, span_round_header("The current map is - [SSmapping.configs[GROUND_MAP].map_name]!"))
+	priority_announce(
+		message = "You are a survivor. Your colony has been overrun and the creatures are stirring. Find a way to escape.",
+		title = "Exodus",
+		type = ANNOUNCEMENT_PRIORITY,
+		color_override = "red"
+	)
 
 /// Runs before character creation to set up the map with loot.
 /datum/game_mode/exodus/pre_setup()
@@ -202,7 +205,7 @@
 	return TRUE
 
 /datum/game_mode/exodus/setup()
-	GLOB.spawns_by_job[/datum/job/survivor] = GLOB.exodus_survivor_spawns
+	GLOB.spawns_by_job[/datum/job/survivor] = GLOB.exodus_survivor_spawns //does this even work? god only knows
 	. = ..()
 	return .
 
@@ -248,6 +251,7 @@
 			break
 		}
 	}
+	///todo none of this works yet, stuck on other things
 	xeno_caste_slots_by_stage = chosen_bracket
 	if(!xeno_caste_slots_by_stage) { ///somehow we've broken our selection criterion
 		xeno_caste_slots_by_stage = list()
@@ -387,33 +391,6 @@
 	}
 
 	return ..()
-
-/// Configures the available jobs for the roundstart lobby.
-/datum/game_mode/exodus/set_valid_job_types()
-	var/list/exodus_jobs = list(
-		/datum/job/survivor = -1,
-		/datum/job/xenomorph = -1
-	)
-
-	SSjob.active_occupations.Cut()
-
-	for(var/datum/job/job_datum in SSjob.occupations) {
-		if(exodus_jobs[job_datum.type]) {
-			job_datum.set_job_positions(exodus_jobs[job_datum.type])
-			SSjob.active_occupations += job_datum
-		} else if (job_datum.faction != FACTION_XENO && !(job_datum.job_flags & JOB_FLAG_ROUNDSTARTJOINABLE)) {
-			job_datum.set_job_positions(0)
-		}
-	}
-
-	if(!length(SSjob.active_occupations)) {
-		to_chat(world, span_boldnotice("Error: Exodus game mode has no valid survivor jobs assigned."))
-		return FALSE
-	}
-
-	SSjob.active_joinable_occupations = SSjob.active_occupations.Copy()
-	SSjob.set_active_joinable_occupations_by_category()
-	return TRUE
 
 /// Signal handler for mob deaths. Updates threat counter.
 /datum/game_mode/exodus/proc/handle_survivor_death(datum/source, mob/living/victim)
