@@ -96,6 +96,15 @@ GLOBAL_LIST_EMPTY(fog_blocker_locations)		//list of turfs marked by /obj/effect/
 GLOBAL_LIST_EMPTY(xeno_spawn_protection_locations)
 GLOBAL_LIST_EMPTY(fog_blockers)
 
+GLOBAL_LIST_EMPTY(exodus_xeno_spawns)
+GLOBAL_LIST_EMPTY(exodus_survivor_spawns)
+GLOBAL_LIST_EMPTY(exodus_utility_spawns)
+GLOBAL_LIST_EMPTY(exodus_blueprint_spawns)
+GLOBAL_LIST_EMPTY(exodus_tool_spawns)
+GLOBAL_LIST_EMPTY(exodus_medical_spawns)
+GLOBAL_LIST_EMPTY(exodus_resource_spawns)
+GLOBAL_LIST_EMPTY(exodus_aux_spawns)
+
 GLOBAL_LIST_EMPTY(huntergames_primary_spawns)
 GLOBAL_LIST_EMPTY(huntergames_secondary_spawns)
 

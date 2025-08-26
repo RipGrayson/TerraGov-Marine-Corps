@@ -746,7 +746,7 @@
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /obj/structure/table,
 /obj/item/storage/box/donkpockets,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/dark,
 /area/deltastation/security/courtroom)
 "ahu" = (
@@ -1026,7 +1026,7 @@
 	},
 /obj/effect/spawner/random/misc/folder,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/grimy,
 /area/deltastation/security/detectives_office/private_investigators_office)
 "aky" = (
@@ -2098,7 +2098,7 @@
 	id = "cafe_counter";
 	name = "Kitchen Counter Shutters"
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/white/smooth_half{
 	dir = 1
 	},
@@ -3394,7 +3394,7 @@
 /obj/effect/turf_decal/siding/green{
 	dir = 1
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/medical/virology)
 "aKA" = (
@@ -3501,7 +3501,7 @@
 /obj/item/stock_parts/manipulator,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /obj/machinery/air_alarm,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/engineering/storage/tech)
 "aLG" = (
@@ -9169,7 +9169,7 @@
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/engineering/mineral,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/maintenance/port)
 "bTh" = (
@@ -9826,7 +9826,7 @@
 /obj/effect/turf_decal/stripes/line{
 	dir = 1
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/engineering/main)
 "bZH" = (
@@ -11949,7 +11949,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 10
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/dark,
 /area/deltastation/service/chapel/funeral)
 "cxK" = (
@@ -21215,7 +21215,7 @@
 "ens" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/gcircuit,
 /area/deltastation/science/xenobiology)
 "env" = (
@@ -26832,7 +26832,7 @@
 /area/deltastation/medical/medbay)
 "ftb" = (
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/dark,
 /area/deltastation/engineering/gravity_generator)
 "ftd" = (
@@ -29135,7 +29135,7 @@
 /obj/machinery/light/small{
 	dir = 1
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/command/heads_quarters/cmo)
 "fQM" = (
@@ -29170,7 +29170,7 @@
 	dir = 8
 	},
 /obj/item/tool/analyzer/plant_analyzer,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/checker,
 /area/deltastation/service/hydroponics/garden/abandoned)
 "fRb" = (
@@ -31376,7 +31376,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden,
 /obj/structure/table/mainship,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/medical/treatment_center)
 "gnz" = (
@@ -32291,7 +32291,7 @@
 /obj/effect/spawner/random/misc/structure/directional_window,
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/engineering/computercircuit,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/dark,
 /area/deltastation/science/robotics/lab)
 "gww" = (
@@ -33886,7 +33886,7 @@
 /obj/effect/turf_decal/tile/transparent/brown/anticorner/contrasted{
 	dir = 1
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/cargo/lobby)
 "gNv" = (
@@ -35395,7 +35395,7 @@
 "hcF" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/command/heads_quarters/ce)
 "hcI" = (
@@ -37667,6 +37667,7 @@
 /obj/structure/table/wood,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/carpet,
 /area/deltastation/hallway/secondary/service)
 "hBP" = (
@@ -37954,7 +37955,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/dark,
 /area/deltastation/command/corporate_showroom)
 "hFH" = (
@@ -39789,7 +39790,7 @@
 /obj/item/storage/toolbox/mechanical,
 /obj/effect/decal/cleanable/dirt,
 /obj/effect/spawner/random/clothing/coloredgloves,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating,
 /area/deltastation/science/research/abandoned)
 "ian" = (
@@ -42673,7 +42674,7 @@
 "iGs" = (
 /obj/structure/table/wood,
 /obj/effect/spawner/random/misc/structure/directional_window/west,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/grimy,
 /area/deltastation/command/bridge)
 "iGx" = (
@@ -46674,7 +46675,7 @@
 	dir = 10;
 	id = "maint_contraption"
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating,
 /area/deltastation/maintenance/port/aft)
 "jxD" = (
@@ -49929,7 +49930,7 @@
 /obj/machinery/air_alarm{
 	dir = 8
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/engineering/storage)
 "khn" = (
@@ -50833,7 +50834,7 @@
 /obj/effect/turf_decal/sandedge/corner{
 	dir = 1
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating,
 /area/deltastation/maintenance/port/aft)
 "krj" = (
@@ -52536,7 +52537,7 @@
 "kHY" = (
 /obj/structure/table/wood,
 /obj/structure/cable,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/command/corporate_showroom)
 "kIf" = (
@@ -53585,7 +53586,7 @@
 /obj/effect/turf_decal/trimline/neutral/filled/corner{
 	dir = 4
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/commons/fitness/recreation)
 "kTN" = (
@@ -53881,7 +53882,7 @@
 /obj/effect/spawner/random/engineering/powercell,
 /obj/machinery/cell_charger,
 /obj/structure/extinguisher_cabinet,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/science/robotics/mechbay)
 "kYb" = (
@@ -54544,7 +54545,7 @@
 	name = "Lock Control"
 	},
 /obj/effect/ai_node,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/commons/toilet/locker)
 "leX" = (
@@ -56318,7 +56319,7 @@
 /area/deltastation/security/checkpoint/escape)
 "lxF" = (
 /obj/structure/table,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/carpet,
 /area/deltastation/maintenance/port)
 "lxH" = (
@@ -56695,7 +56696,7 @@
 	},
 /obj/structure/closet/crate,
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/dark,
 /area/security/nuke_storage)
 "lAW" = (
@@ -57866,7 +57867,7 @@
 /area/deltastation/service/chapel)
 "lMA" = (
 /obj/structure/table/reinforced,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating,
 /area/deltastation/medical/abandoned)
 "lMD" = (
@@ -60140,7 +60141,7 @@
 	pixel_x = 7;
 	pixel_y = -4
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/white,
 /area/deltastation/command/heads_quarters/rd)
 "mkl" = (
@@ -63259,7 +63260,7 @@
 	},
 /obj/structure/table/reinforced,
 /obj/effect/spawner/random/misc/structure/directional_window/west,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/medical/storage)
 "mTo" = (
@@ -71315,7 +71316,7 @@
 "oCC" = (
 /obj/structure/table/reinforced,
 /obj/effect/turf_decal/siding/purple/end,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/science/lab)
 "oCD" = (
@@ -74213,7 +74214,7 @@
 /obj/machinery/atmospherics/pipe/manifold/scrubbers/hidden{
 	dir = 1
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/grimy,
 /area/deltastation/command/heads_quarters/hos)
 "phu" = (
@@ -74611,7 +74612,7 @@
 /turf/open/floor/iron/corner,
 /area/deltastation/engineering/lobby)
 "pmh" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/maintenance/starboard/aft)
 "pmE" = (
@@ -77958,7 +77959,7 @@
 	},
 /obj/structure/table/wood,
 /obj/item/clothing/glasses/monocle,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/wood,
 /area/deltastation/service/theater)
 "pRD" = (
@@ -78950,7 +78951,7 @@
 /obj/effect/turf_decal/sandedge{
 	dir = 8
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/shuttle,
 /area/deltastation/commons/fitness/recreation)
 "qcG" = (
@@ -79413,7 +79414,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/checker,
 /area/deltastation/engineering/supermatter/room)
 "qgl" = (
@@ -80555,7 +80556,7 @@
 /obj/effect/turf_decal/trimline/purple/filled/line{
 	dir = 4
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/white,
 /area/deltastation/science/research)
 "qsl" = (
@@ -81429,7 +81430,7 @@
 "qBa" = (
 /obj/structure/table/wood,
 /obj/effect/decal/cleanable/dirt,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/carpet,
 /area/deltastation/service/library/abandoned)
 "qBb" = (
@@ -82782,7 +82783,7 @@
 /obj/machinery/atmospherics/pipe/simple/scrubbers/hidden{
 	dir = 4
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/grimy,
 /area/deltastation/ai_monitored/turret_protected/aisat_interior)
 "qOr" = (
@@ -86041,6 +86042,7 @@
 /obj/machinery/atmospherics/pipe/heat_exchanging/simple{
 	dir = 4
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/gcircuit,
 /area/deltastation/tcommsat/server)
 "rxP" = (
@@ -87915,7 +87917,7 @@
 /obj/structure/table/wood,
 /obj/effect/spawner/random/misc/folder,
 /obj/effect/spawner/random/misc/hand_labeler,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/carpet,
 /area/deltastation/security/detectives_office)
 "rRX" = (
@@ -88142,7 +88144,7 @@
 /obj/structure/rack,
 /obj/effect/turf_decal/stripes/line,
 /obj/item/prop/aimodule,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/engineering/storage/tech)
 "rUK" = (
@@ -93225,7 +93227,7 @@
 	pixel_y = 1
 	},
 /obj/effect/spawner/random/medical/syringe,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/dark,
 /area/deltastation/medical/chemistry)
 "sWq" = (
@@ -93724,7 +93726,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 5
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/carpet,
 /area/deltastation/command/meeting_room/council)
 "tbJ" = (
@@ -94725,7 +94727,7 @@
 	},
 /obj/machinery/power/apc/drained,
 /obj/structure/cable,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating,
 /area/deltastation/maintenance/department/security)
 "tmb" = (
@@ -95510,7 +95512,7 @@
 	},
 /obj/structure/table,
 /obj/effect/spawner/random/misc/clipboard,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/command/heads_quarters/qm)
 "ttO" = (
@@ -101639,7 +101641,7 @@
 	name = "medbay camera"
 	},
 /obj/structure/table,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/white,
 /area/deltastation/medical/medbay/lobby)
 "uFe" = (
@@ -103381,7 +103383,7 @@
 	dir = 1
 	},
 /obj/effect/turf_decal/tile/transparent/neutral,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/dark/side{
 	dir = 9
 	},
@@ -104613,7 +104615,7 @@
 /obj/effect/turf_decal/tile/transparent/neutral/fourcorners,
 /obj/structure/table,
 /obj/item/mmi,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/dark,
 /area/deltastation/science/circuits)
 "vjm" = (
@@ -111560,7 +111562,7 @@
 /obj/effect/turf_decal/tile/transparent/brown/half/contrasted{
 	dir = 1
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron,
 /area/deltastation/cargo/sorting)
 "wAz" = (
@@ -112232,7 +112234,7 @@
 "wHn" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/iron/dark,
 /area/security/nuke_storage)
 "wHt" = (

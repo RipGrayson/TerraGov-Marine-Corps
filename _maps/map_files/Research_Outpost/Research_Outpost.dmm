@@ -445,7 +445,7 @@
 /turf/open/floor/tile/dark/yellow2,
 /area/outpost/engineering)
 "cv" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/wood,
 /area/outpost/dormitories)
 "cw" = (
@@ -566,7 +566,7 @@
 /obj/item/tank/anesthetic,
 /obj/item/clothing/mask/breath/medical,
 /obj/effect/decal/cleanable/blood,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/dark,
 /area/outpost/medbay/surgery)
 "cZ" = (
@@ -1043,7 +1043,7 @@
 /obj/effect/spawner/random/engineering/powercell,
 /obj/effect/spawner/random/engineering/powercell,
 /obj/effect/spawner/random/engineering/powercell,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/dark/yellow2{
 	dir = 8
 	},
@@ -1112,7 +1112,7 @@
 "fx" = (
 /obj/structure/table,
 /obj/item/radio,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/dark,
 /area/outpost/science/rd_office)
 "fz" = (
@@ -3848,7 +3848,7 @@
 	},
 /area/outpost/dormitories)
 "rQ" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/dark/brown2{
 	dir = 6
 	},
@@ -4046,7 +4046,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/dark/brown2{
 	dir = 5
 	},
@@ -7037,7 +7037,7 @@
 	},
 /area/outpost/yard/east)
 "GZ" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/dark2,
 /area/outpost/cargo)
 "Ha" = (
@@ -7097,7 +7097,7 @@
 	dir = 4
 	},
 /obj/item/trash/pistachios,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/dark/brown2{
 	dir = 4
 	},
@@ -8085,7 +8085,7 @@
 "Mf" = (
 /obj/structure/table,
 /obj/item/tool/analyzer/plant_analyzer,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/dark/purple2{
 	dir = 1
 	},
@@ -8443,7 +8443,7 @@
 /obj/structure/table,
 /obj/effect/spawner/random/engineering/powercell,
 /obj/effect/spawner/random/engineering/powercell,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/dark/yellow2{
 	dir = 4
 	},
@@ -8609,7 +8609,7 @@
 /obj/structure/table,
 /obj/item/tool/pen,
 /obj/item/radio,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/dark/brown2,
 /area/outpost/cargo/office)
 "Os" = (
@@ -8757,7 +8757,7 @@
 /area/outpost/hallway/west)
 "Pb" = (
 /obj/machinery/atmospherics/pipe/simple/green/hidden,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/dark/blue2{
 	dir = 8
 	},
@@ -9338,7 +9338,7 @@
 "RJ" = (
 /obj/structure/table,
 /obj/item/tool/pen,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/dark/red2,
 /area/outpost/brig/gear_room)
 "RL" = (
@@ -9544,7 +9544,7 @@
 /turf/open/floor/tile/dark/brown2,
 /area/outpost/hallway/west)
 "SF" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating,
 /area/outpost/engineering/engine)
 "SJ" = (
@@ -10055,7 +10055,7 @@
 "US" = (
 /obj/structure/table,
 /obj/item/radio,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/dark/red2{
 	dir = 4
 	},

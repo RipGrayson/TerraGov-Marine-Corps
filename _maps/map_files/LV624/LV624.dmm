@@ -1276,7 +1276,7 @@
 /area/lv624/ground/caves/central5/garbledradio)
 "aIq" = (
 /obj/structure/bookcase,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/wood,
 /area/lv624/lazarus/corporate_affairs)
 "aIC" = (
@@ -1853,7 +1853,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/quart)
 "aXu" = (
@@ -2312,7 +2312,7 @@
 	},
 /area/lv624/lazarus/atmos)
 "biG" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle3)
 "biK" = (
@@ -2480,7 +2480,7 @@
 /area/lv624/ground/sand9)
 "bnl" = (
 /obj/item/tool/surgery/surgicaldrill,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/sandtemple)
 "bnx" = (
@@ -2791,7 +2791,7 @@
 /area/lv624/ground/jungle9)
 "byd" = (
 /obj/effect/landmark/corpsespawner/security,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/overgrown)
 "byi" = (
@@ -3041,7 +3041,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/n)
 "bJc" = (
@@ -3429,7 +3429,7 @@
 /obj/structure/table/wood,
 /obj/item/ashtray/bronze,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/cult/clock,
 /area/lv624/lazarus/bar)
 "chw" = (
@@ -3937,7 +3937,7 @@
 /turf/open/floor,
 /area/lv624/ground/river2)
 "cJV" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating,
 /area/lv624/lazarus/crashed_ship)
 "cKj" = (
@@ -3979,7 +3979,7 @@
 	},
 /obj/item/ammo_casing,
 /obj/structure/cable,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/barber,
 /area/lv624/lazarus/main_hall)
 "cMv" = (
@@ -4861,7 +4861,7 @@
 /turf/open/floor/marking/bot,
 /area/lv624/lazarus/spaceport2)
 "dKY" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/engine,
 /area/lv624/lazarus/hydroponics/aux)
 "dLj" = (
@@ -6317,7 +6317,7 @@
 /area/lv624/lazarus/tablefort)
 "fvD" = (
 /obj/structure/table/wood,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/wood,
 /area/lv624/lazarus/internal_affairs)
 "fvQ" = (
@@ -7561,7 +7561,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/compound/c)
 "gTd" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle9)
 "gTo" = (
@@ -7952,7 +7952,7 @@
 /area/lv624/ground/compound/c)
 "hrD" = (
 /obj/effect/spawner/random/misc/trash,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating/ground/dirtgrassborder/autosmooth,
 /area/lv624/lazarus/overgrown)
 "hrK" = (
@@ -8376,7 +8376,7 @@
 /area/lv624/ground/jungle7)
 "hPt" = (
 /obj/structure/cable,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/engineering)
 "hPw" = (
@@ -8398,7 +8398,7 @@
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/sandtemple/garbledradio)
 "hQq" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/red/yellowfull,
 /area/lv624/ground/sand4)
 "hRy" = (
@@ -8923,7 +8923,7 @@
 "ivp" = (
 /obj/structure/table,
 /obj/item/weapon/gun/pistol/holdout,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating/platebot,
 /area/lv624/lazarus/robotics)
 "ivB" = (
@@ -9761,7 +9761,7 @@
 /obj/structure/window/reinforced{
 	dir = 4
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/purple/taupepurple{
 	dir = 9
 	},
@@ -10081,7 +10081,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/purple/whitepurple{
 	dir = 5
 	},
@@ -13343,7 +13343,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/secure_storage)
 "nol" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/ground/grass,
 /area/lv624/ground/jungle7)
 "not" = (
@@ -13767,7 +13767,7 @@
 /obj/item/tool/candle,
 /obj/item/storage/box/matches,
 /obj/effect/spawner/random/weaponry/melee,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/wood,
 /area/lv624/ground/jungle8)
 "nRq" = (
@@ -13782,7 +13782,7 @@
 /obj/structure/table,
 /obj/item/clothing/head/soft/blue,
 /obj/machinery/light,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/brown{
 	dir = 9
 	},
@@ -13876,7 +13876,7 @@
 	},
 /area/lv624/lazarus/robotics)
 "nXu" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/west1)
 "nYm" = (
@@ -14436,12 +14436,12 @@
 /area/lv624/ground/jungle8)
 "oHl" = (
 /obj/structure/largecrate/random,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating/platebot,
 /area/lv624/lazarus/robotics)
 "oHn" = (
 /obj/structure/table,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/blue/taupebluecorner{
 	dir = 2
 	},
@@ -14551,7 +14551,7 @@
 "oOf" = (
 /obj/structure/table/mainship,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/secure_storage)
 "oOu" = (
@@ -14847,7 +14847,7 @@
 /turf/closed/wall/r_wall/chigusa,
 /area/lv624/lazarus/sandtemple/garbledradio)
 "pfI" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating,
 /area/lv624/ground/river1)
 "pfU" = (
@@ -14960,7 +14960,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/secure_storage)
 "ppO" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/marking/bot,
 /area/lv624/lazarus/spaceport2)
 "ppS" = (
@@ -15003,7 +15003,7 @@
 /area/lv624/ground/jungle8)
 "pqW" = (
 /obj/effect/landmark/weed_node,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle6)
 "psp" = (
@@ -15059,7 +15059,7 @@
 /obj/structure/rack,
 /obj/item/roller,
 /obj/item/roller,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage/dome)
 "pwD" = (
@@ -15119,7 +15119,7 @@
 /area/lv624/lazarus/atmos)
 "pzW" = (
 /obj/structure/rack,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/purple/whitepurplecorner{
 	dir = 4
 	},
@@ -15363,7 +15363,7 @@
 /area/lv624/ground/river1)
 "pRa" = (
 /obj/effect/spawner/random/machinery/machine_frame,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/vault,
 /area/lv624/lazarus/robotics)
 "pRj" = (
@@ -15906,7 +15906,7 @@
 /obj/machinery/cell_charger,
 /obj/effect/spawner/random/misc/cigarettes,
 /obj/effect/spawner/random/clothing/sunglasses,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/wood,
 /area/lv624/lazarus/captain)
 "qwx" = (
@@ -16078,7 +16078,7 @@
 /area/lv624/ground/caves/central3/garbledradio)
 "qFO" = (
 /obj/item/stool,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/atmos)
 "qGk" = (
@@ -16368,7 +16368,7 @@
 /obj/structure/table/reinforced/flipped{
 	dir = 1
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating,
 /area/lv624/lazarus/tablefort)
 "qWu" = (
@@ -16994,7 +16994,7 @@
 	},
 /area/lv624/lazarus/hydroponics/aux)
 "rBB" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor,
 /area/lv624/ground/sand2)
 "rBH" = (
@@ -17123,7 +17123,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle1)
 "rHk" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating,
 /area/lv624/ground/filtration)
 "rHl" = (
@@ -17220,7 +17220,7 @@
 /obj/effect/turf_decal/warning_stripes/thick{
 	dir = 8
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor,
 /area/lv624/lazarus/spaceport)
 "rLd" = (
@@ -17759,7 +17759,7 @@
 /turf/open/floor/tile/dark,
 /area/lv624/lazarus/atmos)
 "slR" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/engine/cult{
 	dir = 2
 	},
@@ -18149,7 +18149,7 @@
 	id = "secure_blast";
 	name = "Vault Access"
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/wood,
 /area/lv624/lazarus/corporate_affairs)
 "sOT" = (
@@ -18666,7 +18666,7 @@
 "tqS" = (
 /obj/effect/landmark/start/job/survivor,
 /obj/effect/spawner/random/engineering/wood,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating,
 /area/lv624/lazarus/quartstorage)
 "trb" = (
@@ -18962,7 +18962,7 @@
 "tHs" = (
 /obj/structure/table,
 /obj/item/flashlight,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/brown{
 	dir = 9
 	},
@@ -19485,7 +19485,7 @@
 /area/lv624/ground/caves/central5/garbledradio)
 "unr" = (
 /obj/item/clothing/mask/facehugger/dead,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/purple/whitepurple{
 	dir = 5
 	},
@@ -19725,7 +19725,7 @@
 /turf/closed/wall/r_wall,
 /area/lv624/lazarus/research)
 "uyx" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating/icefloor,
 /area/shuttle/drop2/lz2)
 "uyD" = (
@@ -20192,7 +20192,7 @@
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/green/whitegreen{
 	dir = 5
 	},
@@ -22559,7 +22559,7 @@
 	dir = 4
 	},
 /obj/structure/cable,
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/purple/taupepurple{
 	dir = 9
 	},
@@ -22647,7 +22647,7 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/main_hall)
 "xyT" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating,
 /area/shuttle/drop1/lz1)
 "xzo" = (
@@ -22760,7 +22760,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/jungle3)
 "xFJ" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/lazarus/quartstorage/outdoors)
 "xFL" = (
@@ -22785,7 +22785,7 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/sand7)
 "xGm" = (
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/darkish,
 /area/lv624/lazarus/sandtemple)
 "xGM" = (
@@ -22847,7 +22847,7 @@
 	pixel_x = 6;
 	pixel_y = 4
 	},
-/obj/item/blueprints/escape_pod,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/tile/green/greentaupe{
 	dir = 9
 	},

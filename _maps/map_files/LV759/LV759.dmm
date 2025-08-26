@@ -11048,7 +11048,7 @@
 	},
 /obj/machinery/computer/security{
 	desc = "An old TV hooked up to a video cassette recorder, you can even use it to time shift WOW.";
-	dir = 4;
+	dir = 8;
 	name = "Television set";
 	network = null;
 	pixel_y = 4
@@ -42569,6 +42569,7 @@
 	pixel_x = -10;
 	pixel_y = 14
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/prison{
 	dir = 4
 	},
@@ -49697,6 +49698,7 @@
 /area/lv759/indoors/hospital/operation)
 "iUt" = (
 /obj/effect/decal/cleanable/blood,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/shuttle/dropship/three,
 /area/lv759/indoors/spaceport/starglider)
 "iUz" = (
@@ -50685,6 +50687,7 @@
 /obj/structure/table/reinforced/prison,
 /obj/item/tool/multitool,
 /obj/effect/landmark/weed_node,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/shuttle/escapepod{
 	dir = 8
 	},
@@ -79339,6 +79342,7 @@
 	dir = 8
 	},
 /obj/structure/cable,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/prison{
 	dir = 10
 	},
@@ -84187,6 +84191,7 @@
 	pixel_y = 8
 	},
 /obj/structure/cable,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/prison/blue/plate,
 /area/lv759/indoors/hospital/outgoing)
 "pdQ" = (
@@ -132944,6 +132949,10 @@
 /obj/effect/urban/decal/dirt,
 /turf/open/urban/street/asphalt,
 /area/lv759/outdoors/colony_streets/north_east_street)
+"xDX" = (
+/obj/effect/landmark/exodus/blueprintspawner,
+/turf/open/floor/urban/tile/tilewhitecheckered,
+/area/lv759/indoors/nt_research_complex/medical_annex)
 "xDY" = (
 /obj/effect/urban/decal/dirt,
 /obj/effect/ai_node,
@@ -137924,7 +137933,7 @@ oZj
 kqT
 sBA
 uef
-vvf
+xDX
 uOp
 nMs
 rto

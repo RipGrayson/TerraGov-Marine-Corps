@@ -234,7 +234,7 @@
 		var/schematic_count = ceil(player_count * schematic_ratio)
 		schematic_count = max(schematic_count, 1)
 
-		var/list/potential_spawn_locations = GLOB.exodus_utility_spawns.Copy()
+		var/list/potential_spawn_locations = GLOB.exodus_blueprint_spawns.Copy()
 		if(!potential_spawn_locations.len)
 			CRASH("Exodus: No 'exodus_utility_spawn' landmarks found to spawn schematics.")
 
@@ -286,16 +286,19 @@
 
 	var/list/chosen_bracket = null
 	switch(initial_survivor_count)
-		if(0 to 15)
-			chosen_bracket = xeno_caste_slots_by_stage_poplow.Copy()
-		if(15 to 25)
-			chosen_bracket = xeno_caste_slots_by_stage_popmid.Copy()
-		if(25 to INFINITY)
-			chosen_bracket = xeno_caste_slots_by_stage_pophigh.Copy()
-	switch(stage)
-		if(1) chosen_bracket = chosen_bracket[1]
-		if(2) chosen_bracket = chosen_bracket[2]
-		if(3) chosen_bracket = chosen_bracket[3]
+		if(1 to 14) // Low Pop
+			chosen_bracket = xeno_caste_slots_by_stage_poplow
+		if(15 to 24) // Mid Pop
+			chosen_bracket = xeno_caste_slots_by_stage_popmid
+		if(25 to INFINITY) // High Pop
+			chosen_bracket = xeno_caste_slots_by_stage_pophigh
+
+	xeno_caste_slots_by_stage = chosen_bracket.Copy()
+	if(!xeno_caste_slots_by_stage) {
+		CRASH("Exodus: Could not determine a valid xeno slot bracket for [initial_survivor_count] players.")
+		xeno_caste_slots_by_stage = list() // Prevent runtimes
+	}
+	log_game("Exodus: Selected xeno population bracket for [initial_survivor_count] survivors.")
 /*	// Iterate brackets from highest pop to lowest to find the first one we match.
 	var/list/pop_brackets = sort_list(assoc_to_keys(xeno_caste_slots_by_stage), /proc/cmp_numeric_dsc)
 	for(var/pop_key in pop_brackets)
@@ -488,7 +491,11 @@
 		if(total_ticks_in_duration > 0) {
 			threat_per_tick = total_threat_budget / total_ticks_in_duration
 		}
-	} else { /* fallback */ }
+	} else {
+		threat_per_tick = 1
+		stage_2_threshold = 1000
+		stage_3_threshold = 3000
+	}
 
 	log_game("Exodus threat values recalculated for [initial_survivor_count] survivors.")
 	message_admins("Exodus threat values have been recalculated for the new total of [initial_survivor_count] survivors.")

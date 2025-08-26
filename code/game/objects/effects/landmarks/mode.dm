@@ -29,10 +29,43 @@
 	. = ..()
 	GLOB.exodus_xeno_spawns += src
 
-/obj/effect/landmark/exodus/utilityspawner
+/obj/effect/landmark/exodus/toolspawner ///tools
 	name = "exodus utility spawner"
 	icon_state = "fog_spawn"
 
-/obj/effect/landmark/exodus/utilityspawner/Initialize(mapload)
+/obj/effect/landmark/exodus/toolspawner/Initialize(mapload)
 	. = ..()
-	GLOB.exodus_utility_spawns += src
+	GLOB.exodus_tool_spawns += src
+
+/obj/effect/landmark/exodus/blueprintspawner ///blueprints
+	name = "exodus blueprint spawner"
+	icon_state = "fog_spawn"
+
+/obj/effect/landmark/exodus/blueprintspawner/Initialize(mapload)
+	. = ..()
+	GLOB.exodus_blueprint_spawns += src
+
+/obj/effect/landmark/exodus/medicalspawner ///medical supplies
+	name = "exodus medical spawner"
+	icon_state = "fog_spawn"
+
+/obj/effect/landmark/exodus/medicalspawner/Initialize(mapload)
+	. = ..()
+	GLOB.exodus_medical_spawns += src
+
+/obj/effect/landmark/exodus/resourcespawner ///metal plasteel etc
+	name = "exodus resource spawner"
+	icon_state = "fog_spawn"
+
+/obj/effect/landmark/exodus/resourcespawner/Initialize(mapload)
+	. = ..()
+	GLOB.exodus_resource_spawns += src
+
+/obj/effect/landmark/exodus/aux_component_spawner ///metal plasteel etc
+	name = "exodus special component spawner"
+	icon_state = "fog_spawn"
+
+/obj/effect/landmark/exodus/aux_component_spawner/Initialize(mapload)
+	. = ..()
+	GLOB.exodus_aux_spawns += src
+
