@@ -104,6 +104,7 @@ GLOBAL_LIST_EMPTY(exodus_tool_spawns)
 GLOBAL_LIST_EMPTY(exodus_medical_spawns)
 GLOBAL_LIST_EMPTY(exodus_resource_spawns)
 GLOBAL_LIST_EMPTY(exodus_aux_spawns)
+GLOBAL_LIST_EMPTY(exodus_weapon_spawns)
 
 GLOBAL_LIST_EMPTY(huntergames_primary_spawns)
 GLOBAL_LIST_EMPTY(huntergames_secondary_spawns)

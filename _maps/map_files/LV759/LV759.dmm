@@ -2922,6 +2922,7 @@
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/landmark/weed_node,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	color = "#a6aeab"
@@ -3650,6 +3651,7 @@
 /obj/machinery/power/apc/drained,
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/prison/blue{
 	dir = 1
 	},
@@ -3786,7 +3788,7 @@
 	dir = 4
 	},
 /obj/machinery/prop/computer/communications{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/table/black,
 /obj/structure/cable,
@@ -5550,6 +5552,7 @@
 /obj/effect/spawner/random/weaponry/ammo/rifle,
 /obj/effect/spawner/random/weaponry/ammo/rifle,
 /obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/machinery/light,
 /obj/effect/turf_decal/box,
 /turf/open/floor/mainship,
@@ -6472,6 +6475,7 @@
 	color = "#6b675e"
 	},
 /obj/machinery/recharger,
+/obj/effect/landmark/exodus/toolspawner,
 /turf/open/floor/prison/red,
 /area/lv759/indoors/colonial_marshals/armory_foyer)
 "biA" = (
@@ -7377,7 +7381,9 @@
 	dir = 4
 	},
 /obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/structure/window/reinforced,
 /obj/machinery/light/blue{
 	dir = 8
@@ -7409,7 +7415,7 @@
 	dir = 8
 	},
 /obj/machinery/computer/security{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/table/wood/fancy,
 /turf/open/floor/plating/kutjevo,
@@ -7583,6 +7589,7 @@
 /obj/structure/table/reinforced,
 /obj/machinery/recharger,
 /obj/item/reagent_containers/spray/cleaner,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/prison/whitegreen{
 	dir = 1
 	},
@@ -7881,6 +7888,7 @@
 /obj/structure/table/reinforced/prison,
 /obj/item/roller,
 /obj/item/reagent_containers/spray/cleaner,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/prison/blue/plate,
 /area/lv759/indoors/hospital/outgoing)
 "bwc" = (
@@ -8168,6 +8176,7 @@
 	pixel_y = 28
 	},
 /obj/structure/cable,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/urban/tile/lightbeige_bigtile,
 /area/lv759/indoors/hospital/paramedics_garage)
 "byl" = (
@@ -8252,6 +8261,7 @@
 /area/lv759/indoors/nt_research_complex_entrance)
 "bAa" = (
 /obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 10;
@@ -8503,14 +8513,14 @@
 /turf/closed/wall/r_wall/urban,
 /area/lv759/outdoors/colony_streets/east_central_street)
 "bCO" = (
-/obj/machinery/computer/security{
-	dir = 8
-	},
 /obj/structure/table/wood/fancy,
 /obj/structure/window/reinforced{
 	dir = 4
 	},
 /obj/machinery/light,
+/obj/machinery/computer/security{
+	dir = 4
+	},
 /turf/open/floor/plating/kutjevo,
 /area/lv759/indoors/colonial_marshals/office)
 "bCU" = (
@@ -8837,6 +8847,7 @@
 /obj/effect/spawner/random/weaponry/ammo/rifle,
 /obj/effect/spawner/random/weaponry/ammo/rifle,
 /obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/turf_decal/box,
 /obj/effect/landmark/weed_node,
 /turf/open/floor/mainship,
@@ -12054,6 +12065,10 @@
 /obj/structure/cable,
 /turf/open/floor/officetiles,
 /area/lv759/indoors/nt_research_complex/cafeteria)
+"cjj" = (
+/obj/effect/landmark/exodus/blueprintspawner,
+/turf/open/urbanshale/layer1,
+/area/lv759/outdoors/landing_zone_1)
 "cjs" = (
 /obj/item/clothing/head/warning_cone{
 	pixel_y = 17
@@ -13758,6 +13773,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/prison/sterilewhite,
 /area/lv759/indoors/hospital/emergency_room)
 "czK" = (
@@ -14113,6 +14129,7 @@
 "cDm" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/decal/cleanable/dirt/grime1,
 /turf/open/urban/street/sidewalk{
 	dir = 1
@@ -14826,6 +14843,7 @@
 	pixel_x = -1;
 	pixel_y = 9
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/urban/tile/tilewhite,
 /area/lv759/indoors/nt_research_complex/mainlabs)
 "cJi" = (
@@ -15580,6 +15598,7 @@
 /obj/effect/turf_decal/medical_decals/doc/stripe{
 	dir = 4
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/prison,
 /area/lv759/outdoors/landing_zone_1)
 "cQu" = (
@@ -15697,6 +15716,7 @@
 	pixel_x = -13;
 	pixel_y = 11
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/kutjevo/grey,
 /area/lv759/indoors/mining_outpost/northeast)
 "cRj" = (
@@ -16283,6 +16303,7 @@
 "cWH" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
@@ -17696,6 +17717,7 @@
 	pixel_y = 21
 	},
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /turf/open/urban/street/asphalt,
 /area/lv759/outdoors/landing_zone_2)
 "diV" = (
@@ -18195,6 +18217,7 @@
 "dng" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/item/ammo_magazine/revolver/cmb{
 	pixel_x = 6;
 	pixel_y = -4
@@ -18383,6 +18406,7 @@
 /area/lv759/indoors/mining_outpost/east_deploymentbay)
 "dpd" = (
 /obj/structure/cable,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/urban/tile/tilebeigecheckered,
 /area/lv759/indoors/apartment/eastfoyer)
 "dpf" = (
@@ -18502,6 +18526,7 @@
 "dqD" = (
 /obj/structure/closet/crate/weapon,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/item/weapon/shield/riot,
 /obj/item/clothing/suit/armor/det_suit,
@@ -19466,11 +19491,11 @@
 	},
 /area/lv759/indoors/hospital/central_hallway)
 "dzJ" = (
-/obj/machinery/computer/security{
-	dir = 4
-	},
 /obj/structure/table/wood/fancy,
 /obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/machinery/computer/security{
 	dir = 8
 	},
 /turf/open/floor/plating/kutjevo,
@@ -19762,6 +19787,7 @@
 /obj/item/ammo_casing/bullet,
 /obj/effect/spawner/random/weaponry/ammo/sidearm,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /turf/open/floor/prison/red/full,
 /area/lv759/indoors/colonial_marshals/armory_firingrange)
 "dCy" = (
@@ -20513,6 +20539,8 @@
 	color = "#a6aeab";
 	dir = 4
 	},
+/obj/effect/landmark/exodus/medicalspawner,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/prison/darkbrown,
 /area/lv759/indoors/power_plant)
 "dKA" = (
@@ -20624,6 +20652,16 @@
 	},
 /turf/closed/wall/urban/colony,
 /area/lv759/indoors/casino)
+"dLq" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/table/wood/fancy,
+/obj/machinery/computer/security{
+	dir = 8
+	},
+/turf/open/floor/plating/kutjevo,
+/area/lv759/indoors/colonial_marshals/office)
 "dLC" = (
 /obj/structure/barricade/handrail/kutjevo,
 /obj/effect/turf_decal/medical_decals/triage{
@@ -21243,6 +21281,7 @@
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /turf/open/floor/prison/red,
 /area/lv759/indoors/colonial_marshals/armory)
 "dRM" = (
@@ -22330,6 +22369,7 @@
 /obj/structure/prop/urban/furniture/tables/tablepool{
 	pixel_y = 16
 	},
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/carpet/orange,
 /area/lv759/indoors/bar/entertainment)
 "ebY" = (
@@ -22757,6 +22797,7 @@
 /obj/item/ammo_magazine/revolver,
 /obj/item/ammo_magazine/revolver,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/machinery/light/small{
 	dir = 1
 	},
@@ -22922,6 +22963,7 @@
 "ehF" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /turf/open/urban/street/sidewalk{
 	dir = 4
 	},
@@ -23096,7 +23138,7 @@
 	dir = 8
 	},
 /obj/machinery/computer/security{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/table/wood/fancy,
 /obj/machinery/light,
@@ -23202,6 +23244,7 @@
 	opened = 1
 	},
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /turf/open/urban/street/sidewalkfull,
 /area/lv759/outdoors/colony_streets/east_central_street)
 "ekk" = (
@@ -23741,7 +23784,7 @@
 /area/lv759/indoors/power_plant)
 "eox" = (
 /obj/structure/barricade/handrail/strata{
-	dir = 8
+	dir = 1
 	},
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 4
@@ -25206,6 +25249,7 @@
 /area/lv759/outdoors/colony_streets/north_street)
 "eCX" = (
 /obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/urban/decal/dirt,
 /obj/effect/ai_node,
 /turf/open/floor/prison,
@@ -25683,6 +25727,7 @@
 /area/lv759/indoors/power_plant/power_storage)
 "eGY" = (
 /obj/structure/closet/crate/medical,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/urban/tile/tilewhitecheckered,
 /area/lv759/indoors/nt_research_complex/medical_annex)
 "eGZ" = (
@@ -25847,6 +25892,11 @@
 "eIE" = (
 /turf/closed/wall/r_wall/bunker,
 /area/lv759/indoors/NTmart/maintenance)
+"eIF" = (
+/obj/structure/table/reinforced,
+/obj/effect/landmark/exodus/medicalspawner,
+/turf/open/floor/urban/metal/greenmetalfull,
+/area/lv759/indoors/colonial_marshals/prisoners_recreation_area)
 "eIH" = (
 /obj/structure/flora/pottedplant{
 	pixel_y = 6
@@ -27198,6 +27248,7 @@
 /obj/structure/bed/roller/hospital/bloody{
 	dir = 1
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/urban/tile/darkgrey_bigtile,
 /area/lv759/indoors/hospital/morgue)
 "eVt" = (
@@ -27550,6 +27601,7 @@
 "eZa" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1;
 	pixel_y = 2
@@ -28835,6 +28887,7 @@
 /area/lv759/outdoors/colony_streets/north_west_street)
 "fky" = (
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/urban_wood,
 /area/lv759/indoors/apartment/eastfoyer)
@@ -29280,6 +29333,7 @@
 	},
 /obj/item/card/id/guest,
 /obj/item/reagent_containers/food/drinks/coffee,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/urban/metal/bluemetalfull,
 /area/lv759/indoors/nt_research_complex/reception)
 "foj" = (
@@ -29984,6 +30038,7 @@
 /area/lv759/indoors/casino)
 "fuY" = (
 /obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/item/ammo_casing/bullet,
 /obj/item/ammo_casing/bullet,
 /turf/open/shuttle/dropship/three,
@@ -31457,6 +31512,7 @@
 /obj/structure/table/mainship,
 /obj/structure/window/reinforced/toughened,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /turf/open/floor/plating/plating_catwalk{
 	color = "#dfcfc0"
 	},
@@ -35375,9 +35431,11 @@
 "gqe" = (
 /obj/structure/table/mainship,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/structure/prop/urban/misc/buildinggreebliessmall3{
 	pixel_y = 28
 	},
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/plating/plating_catwalk{
 	color = "#dfcfc0"
 	},
@@ -38468,6 +38526,7 @@
 "gVn" = (
 /obj/structure/closet/cabinet,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /turf/open/floor/urban/wood/darkerwood,
 /area/lv759/indoors/meridian/meridian_managersoffice)
 "gVB" = (
@@ -38741,6 +38800,7 @@
 /area/lv759/indoors/meridian/meridian_foyer)
 "gYr" = (
 /obj/structure/closet/crate,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/urban/carpet/carpetgreen,
 /area/lv759/indoors/apartment/westbedrooms)
 "gYs" = (
@@ -38890,6 +38950,7 @@
 "gZt" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/item/ammo_casing/bullet,
 /turf/open/urban/street/sidewalkcenter,
 /area/lv759/outdoors/colony_streets/south_west_street)
@@ -39845,6 +39906,7 @@
 	pixel_y = 21
 	},
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/item/ammo_casing/bullet,
 /obj/item/ammo_casing/bullet,
 /obj/effect/decal/cleanable/blood/gibs/limb,
@@ -40902,6 +40964,7 @@
 "hpT" = (
 /obj/structure/table,
 /obj/item/radio,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/urban_wood,
 /area/lv759/indoors/apartment/eastfoyer)
 "hpV" = (
@@ -44460,6 +44523,7 @@
 /obj/structure/table/reinforced,
 /obj/item/restraints/handcuffs,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/structure/cable,
 /turf/open/floor/prison/red,
 /area/lv759/indoors/nt_security/checkpoint_northeast)
@@ -45404,6 +45468,7 @@
 	},
 /obj/item/trash/candle,
 /obj/effect/landmark/weed_node,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/carpet,
 /area/lv759/indoors/bar)
 "ifx" = (
@@ -45433,6 +45498,7 @@
 /obj/structure/table/mainship,
 /obj/item/reagent_containers/food/snacks/meatsteak,
 /obj/effect/landmark/weed_node,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/urban/tile/supermartfloor1,
 /area/lv759/indoors/bar/kitchen)
 "ifL" = (
@@ -45798,6 +45864,7 @@
 /obj/structure/rack,
 /obj/item/storage/firstaid/regular,
 /obj/item/storage/belt/lifesaver/full,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/mainship,
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "ijb" = (
@@ -46304,6 +46371,7 @@
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/prison{
 	dir = 1
 	},
@@ -46464,6 +46532,7 @@
 "ipM" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/structure/prop/urban/misc/buildinggreebliessmall3{
@@ -47599,6 +47668,7 @@
 /obj/item/ammo_casing/bullet,
 /obj/item/ammo_casing/bullet,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/decal/cleanable/blood/drip{
 	pixel_x = 10;
 	pixel_y = 21
@@ -47663,6 +47733,7 @@
 /obj/effect/spawner/random/weaponry/ammo/sidearm,
 /obj/effect/spawner/random/weaponry/ammo/sidearm,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/spawner/random/weaponry/ammo/sidearm,
 /obj/effect/spawner/random/weaponry/ammo/sidearm,
 /obj/structure/table/mainship,
@@ -48006,6 +48077,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/effect/urban/decal/dirt,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /turf/open/floor/plating,
 /area/lv759/outdoors/colony_streets/east_central_street)
 "iEF" = (
@@ -48332,6 +48404,17 @@
 	},
 /turf/open/floor/prison,
 /area/lv759/indoors/mining_outpost/vehicledeployment)
+"iHI" = (
+/obj/structure/window/reinforced{
+	dir = 8
+	},
+/obj/structure/window/reinforced/toughened,
+/obj/machinery/prop/computer/communications{
+	dir = 8
+	},
+/obj/structure/table/black,
+/turf/open/floor/urban/carpet/carpetblack,
+/area/lv759/indoors/nt_office/floor)
 "iHK" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/engineering/tool,
@@ -49355,6 +49438,7 @@
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/machinery/light{
 	dir = 8
 	},
@@ -50113,7 +50197,7 @@
 	dir = 8
 	},
 /obj/machinery/prop/computer/communications{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/table/black,
 /turf/open/floor/urban/carpet/carpetblack,
@@ -50569,6 +50653,7 @@
 "jcb" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
@@ -51695,6 +51780,7 @@
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 1
 	},
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/urban/tile/tilewhitecheckered,
 /area/lv759/indoors/nt_research_complex/medical_annex)
 "jkX" = (
@@ -51819,6 +51905,16 @@
 	dir = 1
 	},
 /area/lv759/outdoors/colony_streets/central_streets)
+"jmg" = (
+/obj/structure/table/mainship,
+/obj/machinery/light/spot/blue{
+	dir = 8
+	},
+/obj/effect/landmark/exodus/blueprintspawner,
+/turf/open/floor/orange_edge{
+	dir = 4
+	},
+/area/lv759/indoors/spaceport/docking_bay_1)
 "jmm" = (
 /obj/item/device/flashlight/lamp/tripod{
 	light_pixel_y = 1;
@@ -52091,6 +52187,11 @@
 /obj/structure/cable,
 /turf/open/floor/floorthree,
 /area/lv759/indoors/power_plant/geothermal_generators)
+"joU" = (
+/obj/structure/bed/chair/sofa/corsat/verticalmiddle/white,
+/obj/effect/landmark/exodus/blueprintspawner,
+/turf/open/floor/urban/carpet/carpetdarkerblue,
+/area/lv759/indoors/spaceport/docking_bay_1)
 "jpa" = (
 /obj/effect/turf_decal/medical_decals/doc/stripe,
 /turf/open/floor/prison{
@@ -52631,6 +52732,7 @@
 	pixel_x = -10;
 	pixel_y = 8
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating/kutjevo,
 /area/lv759/indoors/colonial_marshals/office)
 "jtN" = (
@@ -54488,6 +54590,7 @@
 	},
 /area/lv759/indoors/meridian/meridian_foyer)
 "jLZ" = (
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/urban/metal/bluemetal1{
 	dir = 5
 	},
@@ -54592,6 +54695,7 @@
 /obj/structure/table/reinforced/prison{
 	color = "#6b675e"
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/officetiles,
 /area/lv759/indoors/nt_research_complex/weaponresearchlab)
 "jMJ" = (
@@ -55079,6 +55183,7 @@
 /obj/structure/bed/roller/hospital_empty/bigrollerempty{
 	dir = 8
 	},
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/prison/whitegreen/full,
 /area/lv759/indoors/hospital/central_hallway)
 "jRP" = (
@@ -55668,6 +55773,7 @@
 "jXp" = (
 /obj/effect/decal/cleanable/blood/drip,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/item/ammo_casing/bullet,
 /obj/item/ammo_casing/bullet,
 /obj/item/ammo_casing/bullet,
@@ -55887,6 +55993,7 @@
 /obj/machinery/light/small{
 	dir = 4
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/urban/carpet/carpetfadedred,
 /area/lv759/indoors/apartment/northapartments)
 "jZb" = (
@@ -57096,6 +57203,7 @@
 /area/lv759/indoors/mining_outpost/east_command)
 "kli" = (
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /turf/open/floor/urban_wood,
 /area/lv759/indoors/apartment/eastfoyer)
 "klm" = (
@@ -57531,6 +57639,7 @@
 /area/lv759/indoors/apartment/northfoyer)
 "kpV" = (
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/spawner/random/misc/plushie{
 	dir = 4
 	},
@@ -57912,6 +58021,7 @@
 /area/lv759/indoors/electical_systems/substation2)
 "ktp" = (
 /obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/landmark/weed_node,
 /turf/open/urban/street/sidewalkcenter{
 	dir = 1
@@ -57940,6 +58050,7 @@
 /area/lv759/indoors/mining_outpost/vehicledeployment)
 "ktC" = (
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/ai_node,
 /obj/structure/cable,
 /turf/open/floor/prison{
@@ -58803,6 +58914,7 @@
 /obj/item/tank/oxygen/yellow,
 /obj/item/tank/oxygen/yellow,
 /obj/structure/cable,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/urban/tile/lightbeige_bigtile,
 /area/lv759/indoors/hospital/paramedics_garage)
 "kBT" = (
@@ -59078,6 +59190,7 @@
 	pixel_x = 5
 	},
 /obj/effect/spawner/random/engineering/technology_scanner,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/prison{
 	dir = 10
 	},
@@ -63681,6 +63794,7 @@
 	pixel_x = -4;
 	pixel_y = 11
 	},
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/prison{
 	dir = 10
 	},
@@ -63720,6 +63834,7 @@
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/structure/closet,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/structure/cable,
 /turf/open/floor/officetiles,
 /area/lv759/indoors/casino/casino_vault)
@@ -65309,6 +65424,7 @@
 	pixel_y = 12
 	},
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /turf/open/floor/carpet/orange,
 /area/lv759/indoors/bar/entertainment)
 "lLD" = (
@@ -65465,6 +65581,7 @@
 "lMS" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/item/ammo_magazine/revolver/cmb,
 /obj/item/ammo_magazine/revolver/cmb,
 /obj/effect/turf_decal/warning_stripes/thin,
@@ -65776,6 +65893,7 @@
 /obj/structure/prop/urban/furniture/tables/tableblack{
 	dir = 1
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/carpet/black,
 /area/lv759/indoors/nt_office/vip)
 "lPp" = (
@@ -66093,6 +66211,12 @@
 	},
 /turf/open/floor/mainship/black/full,
 /area/lv759/indoors/spaceport/heavyequip)
+"lRm" = (
+/obj/effect/landmark/exodus/blueprintspawner,
+/turf/open/floor/prison{
+	dir = 4
+	},
+/area/lv759/indoors/nt_research_complex/hangarbay)
 "lRo" = (
 /obj/structure/cable,
 /obj/effect/landmark/weed_node,
@@ -66361,6 +66485,13 @@
 /obj/structure/fence/dark,
 /turf/open/ground/sandrock,
 /area/lv759/outdoors/colony_streets/north_street)
+"lTQ" = (
+/obj/structure/table{
+	color = "#8B7B5B"
+	},
+/obj/effect/landmark/exodus/blueprintspawner,
+/turf/open/floor/urban/tile/beige_bigtile,
+/area/lv759/indoors/power_plant/workers_canteen)
 "lTR" = (
 /obj/effect/turf_decal/medical_decals/triage/top,
 /obj/effect/urban/decal/road/lines1,
@@ -66913,6 +67044,7 @@
 	pixel_x = -10;
 	pixel_y = 14
 	},
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/urban/carpet/carpetblack,
 /area/lv759/indoors/casino)
 "lYY" = (
@@ -67963,6 +68095,7 @@
 "miD" = (
 /obj/structure/table/reinforced,
 /obj/item/reagent_containers/spray/cleaner,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/prison/whitegreen{
 	dir = 1
 	},
@@ -69158,7 +69291,7 @@
 	dir = 8
 	},
 /obj/machinery/computer/security{
-	dir = 4
+	dir = 8
 	},
 /obj/structure/table/reinforced/prison{
 	color = "#6b675e"
@@ -70461,6 +70594,7 @@
 "mFg" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/urban/decal/dirt,
 /obj/item/restraints/handcuffs,
 /obj/item/restraints/handcuffs,
@@ -71320,6 +71454,7 @@
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/item/attachable/heavy_barrel,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 8
@@ -71715,6 +71850,7 @@
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating/plating_catwalk{
 	color = "#dfcfc0"
 	},
@@ -72252,7 +72388,7 @@
 "mVY" = (
 /obj/structure/table/reinforced/prison,
 /obj/machinery/prop/computer/communications{
-	dir = 8;
+	dir = 4;
 	pixel_y = 5
 	},
 /obj/item/reagent_containers/food/drinks/coffee,
@@ -72935,7 +73071,7 @@
 	color = "#6b675e"
 	},
 /obj/machinery/computer/security{
-	dir = 8
+	dir = 4
 	},
 /obj/machinery/light{
 	dir = 4
@@ -75584,6 +75720,7 @@
 /obj/structure/table{
 	color = "#8B7B5B"
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/urban/carpet/carpetgreendeco,
 /area/lv759/indoors/jacks_surplus)
 "nxR" = (
@@ -76278,6 +76415,7 @@
 	},
 /obj/structure/window/reinforced,
 /obj/structure/rack,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/mainship/black/full,
 /area/lv759/indoors/nt_research_complex/mainlabs)
 "nEt" = (
@@ -76340,7 +76478,7 @@
 	dir = 4
 	},
 /obj/machinery/computer/security{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/table/reinforced/prison{
 	color = "#6b675e"
@@ -80640,6 +80778,7 @@
 	pixel_x = -5;
 	pixel_y = 10
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/urban/carpet/carpetbluedeco,
 /area/lv759/indoors/colonial_marshals/north_office)
 "ouD" = (
@@ -81151,6 +81290,7 @@
 /area/lv759/indoors/apartment/northhallway)
 "ozF" = (
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/prison{
 	dir = 10
@@ -81267,6 +81407,16 @@
 	dir = 10
 	},
 /area/lv759/indoors/hospital/virology)
+"oAH" = (
+/obj/structure/window/reinforced{
+	dir = 4
+	},
+/obj/structure/table/wood/fancy,
+/obj/machinery/computer/security{
+	dir = 4
+	},
+/turf/open/floor/plating/kutjevo,
+/area/lv759/indoors/colonial_marshals/office)
 "oAK" = (
 /turf/closed/wall/r_wall/urban,
 /area/lv759/indoors/spaceport/flight_control_room)
@@ -82519,6 +82669,7 @@
 "oMT" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/item/ammo_magazine/revolver/cmb{
 	pixel_x = 6;
 	pixel_y = -4
@@ -82616,6 +82767,7 @@
 	color = "#6b675e"
 	},
 /obj/structure/cable,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/officetiles,
 /area/lv759/indoors/nt_research_complex/weaponresearchlab)
 "oNT" = (
@@ -83202,6 +83354,12 @@
 /obj/effect/landmark/weed_node,
 /turf/open/floor/urban_wood,
 /area/lv759/indoors/apartment/northapartments)
+"oTH" = (
+/obj/effect/landmark/exodus/medicalspawner,
+/turf/open/floor/prison/cellstripe{
+	dir = 8
+	},
+/area/lv759/indoors/nt_research_complex/xenobiology)
 "oTQ" = (
 /obj/machinery/light/spot,
 /obj/effect/turf_decal/warning_stripes/thin{
@@ -83283,6 +83441,9 @@
 	color = "#6b675e"
 	},
 /obj/structure/cable,
+/obj/machinery/computer/security{
+	dir = 4
+	},
 /turf/open/floor/officetiles,
 /area/lv759/indoors/nt_research_complex/researchanddevelopment)
 "oUI" = (
@@ -85807,6 +85968,8 @@
 /obj/structure/rack,
 /obj/machinery/light,
 /obj/effect/turf_decal/warning_stripes/thin,
+/obj/effect/landmark/exodus/medicalspawner,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/prison/red,
 /area/lv759/indoors/nt_security/checkpoint_northwest)
 "psg" = (
@@ -86001,6 +86164,7 @@
 /obj/item/ammo_magazine/shotgun/beanbag,
 /obj/item/storage/pouch/shotgun,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /turf/open/floor/prison/red{
 	dir = 5
 	},
@@ -88856,6 +89020,7 @@
 /obj/machinery/conveyor{
 	dir = 1
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/floorthree,
 /area/lv759/indoors/NTmart)
 "pTH" = (
@@ -89340,6 +89505,7 @@
 "pXv" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
@@ -89413,6 +89579,8 @@
 	},
 /obj/machinery/power/apc/drained,
 /obj/structure/cable,
+/obj/effect/landmark/exodus/medicalspawner,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/urban/tile/supermartfloor1,
 /area/lv759/indoors/bar/kitchen)
 "pYf" = (
@@ -89515,6 +89683,10 @@
 /obj/effect/ai_node,
 /turf/open/urban/street/asphalt,
 /area/lv759/outdoors/colony_streets/north_street)
+"pZl" = (
+/obj/effect/landmark/exodus/medicalspawner,
+/turf/open/floor/urban/tile/tilewhite,
+/area/lv759/indoors/nt_research_complex/xenoarcheology)
 "pZn" = (
 /obj/effect/urban/decal/dirt,
 /obj/item/trash/cigbutt{
@@ -90191,6 +90363,7 @@
 	dir = 1;
 	pixel_y = 20
 	},
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/urban/carpet/carpetpatternbrown,
 /area/lv759/indoors/apartment/eastbedroomsstorage)
 "qev" = (
@@ -90671,6 +90844,7 @@
 	color = "#a6aeab";
 	dir = 4
 	},
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/mainship/cargo,
 /area/lv759/indoors/nt_research_complex/cargo)
 "qiX" = (
@@ -90942,6 +91116,7 @@
 	},
 /obj/effect/spawner/random/weaponry/ammo/sidearm,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /turf/open/floor/prison/red/full,
 /area/lv759/indoors/colonial_marshals/armory_firingrange)
 "qli" = (
@@ -91792,6 +91967,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	color = "#a6aeab"
 	},
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/mainship/black/full,
 /area/lv759/indoors/nt_research_complex/cafeteria)
 "qtV" = (
@@ -93130,6 +93306,11 @@
 	},
 /turf/open/urban/street/sidewalk,
 /area/lv759/outdoors/colony_streets/east_central_street)
+"qIF" = (
+/obj/machinery/optable,
+/obj/effect/landmark/exodus/blueprintspawner,
+/turf/open/floor/urban/tile/tilewhitecheckered,
+/area/lv759/indoors/hospital/operation)
 "qIG" = (
 /obj/structure/table/mainship,
 /obj/structure/bedsheetbin{
@@ -93792,6 +93973,7 @@
 /area/lv759/indoors/NTmart)
 "qPp" = (
 /obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/spawner/random/weaponry/ammo/rifle,
 /obj/structure/barricade/solid/deployable{
 	dir = 8
@@ -94810,6 +94992,7 @@
 /area/lv759/indoors/landing_zone_2/kmcc_hub_lounge_south)
 "qYQ" = (
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/decal/cleanable/blood,
 /obj/item/trash/cigbutt{
 	pixel_x = -10;
@@ -95328,6 +95511,7 @@
 	},
 /obj/effect/spawner/random/weaponry/ammo/rifle,
 /obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/effect/landmark/exodus/weapon_spawner,
 /turf/open/floor/officetiles,
 /area/lv759/indoors/nt_research_complex/weaponresearchlabtesting)
 "reo" = (
@@ -95337,6 +95521,7 @@
 "rep" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/urban/decal/road/road_edge/four,
 /obj/effect/urban/decal/road/lines2,
 /obj/effect/urban/decal/doubleroad/lines3{
@@ -96575,6 +96760,7 @@
 	dir = 4
 	},
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/item/clothing/ears/earmuffs,
 /obj/item/ammo_casing/bullet,
 /obj/item/ammo_casing/bullet,
@@ -97960,6 +98146,7 @@
 /obj/effect/urban/decal/dirt,
 /obj/structure/closet/crate,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
@@ -98169,6 +98356,8 @@
 /obj/effect/turf_decal/medical_decals/triage/edge{
 	dir = 8
 	},
+/obj/effect/landmark/exodus/medicalspawner,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/prison/whitegreen{
 	dir = 8
 	},
@@ -99020,6 +99209,7 @@
 /obj/effect/spawner/random/weaponry/ammo/rifle,
 /obj/effect/spawner/random/weaponry/ammo/rifle,
 /obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/turf_decal/box,
 /turf/open/floor/mainship,
 /area/lv759/indoors/nt_research_complex/securityarmory)
@@ -99746,6 +99936,7 @@
 /area/lv759/indoors/nt_research_complex/hangarbayshuttle)
 "rSm" = (
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/item/ammo_magazine/revolver/cmb{
 	pixel_x = 6;
 	pixel_y = -4
@@ -99814,6 +100005,7 @@
 	},
 /obj/item/ammo_casing/bullet,
 /obj/structure/cable,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/carpet/orange,
 /area/lv759/indoors/bar/entertainment)
 "rSV" = (
@@ -100847,6 +101039,7 @@
 	pixel_x = -6;
 	pixel_y = -3
 	},
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/mainship/plate,
 /area/lv759/indoors/landing_zone_2/kmcc_hub_cargo)
 "sdZ" = (
@@ -101425,7 +101618,7 @@
 	dir = 4
 	},
 /obj/machinery/computer/security{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/table/wood/fancy,
 /turf/open/floor/plating/kutjevo,
@@ -102362,6 +102555,7 @@
 /obj/machinery/light/blue{
 	dir = 8
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/kutjevo/colors/red,
 /area/lv759/indoors/spaceport/security_office)
 "src" = (
@@ -104299,11 +104493,13 @@
 "sIO" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/spawner/random/weaponry/ammo/sidearm,
 /obj/effect/spawner/random/weaponry/ammo/sidearm,
 /obj/effect/spawner/random/weaponry/ammo/sidearm,
 /obj/effect/spawner/random/weaponry/ammo/sidearm,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/structure/sign/safety/laser,
 /turf/open/floor/prison/red{
 	dir = 1
@@ -104506,6 +104702,7 @@
 	pixel_y = 21
 	},
 /obj/item/ammo_casing/bullet,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/urban/carpet/carpetbeige,
 /area/lv759/indoors/apartment/eastfoyer)
 "sKs" = (
@@ -105727,6 +105924,21 @@
 	},
 /turf/open/floor/plating,
 /area/lv759/indoors/hospital/icu)
+"sVd" = (
+/obj/effect/turf_decal/warning_stripes/thin{
+	dir = 4
+	},
+/obj/machinery/space_heater/radiator/red{
+	dir = 8
+	},
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	color = "#a6aeab"
+	},
+/obj/effect/landmark/exodus/medicalspawner,
+/turf/open/floor/mainship/black{
+	dir = 4
+	},
+/area/lv759/indoors/nt_research_complex/mainlabs)
 "sVh" = (
 /obj/structure/prop/mainship/gelida/railbumper{
 	dir = 1
@@ -109543,6 +109755,7 @@
 "tEc" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
@@ -110620,6 +110833,7 @@
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /turf/open/floor/prison/red{
 	dir = 6
 	},
@@ -112188,6 +112402,7 @@
 /obj/machinery/light{
 	dir = 4
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plate,
 /area/lv759/indoors/colonial_marshals/garage)
 "uak" = (
@@ -113180,6 +113395,7 @@
 /obj/effect/decal/cleanable/blood,
 /obj/structure/bed/roller,
 /obj/machinery/light,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/prison/whitegreen,
 /area/lv759/indoors/hospital/east_hallway)
 "uiD" = (
@@ -113353,6 +113569,7 @@
 	color = "#a6aeab";
 	dir = 4
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/prison{
 	dir = 1
 	},
@@ -114959,6 +115176,7 @@
 /area/lv759/indoors/colonial_marshals/armory_firingrange)
 "uxD" = (
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/structure/bed/roller/hospital_empty/bigrollerempty2{
 	dir = 4
 	},
@@ -115900,6 +116118,7 @@
 /area/lv759/indoors/casino)
 "uGK" = (
 /obj/structure/rack,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/orange_edge{
 	dir = 1
 	},
@@ -116080,6 +116299,7 @@
 /obj/structure/table{
 	color = "#8B7B5B"
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/wood/variable,
 /area/lv759/indoors/jacks_surplus)
 "uHX" = (
@@ -117041,7 +117261,9 @@
 "uQR" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
@@ -117687,6 +117909,7 @@
 	color = "#6b675e"
 	},
 /obj/item/robot_parts/robot_suit,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/officetiles,
 /area/lv759/indoors/nt_research_complex/researchanddevelopment)
 "uXd" = (
@@ -118486,6 +118709,7 @@
 	pixel_y = 8
 	},
 /obj/structure/cable,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/urban/carpet/carpetbeige,
 /area/lv759/indoors/garage_reception)
 "veg" = (
@@ -119486,6 +119710,7 @@
 	pixel_x = -4;
 	pixel_y = 7
 	},
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/plating/plating_catwalk,
 /area/lv759/indoors/nt_research_complex/xenoarcheology)
 "vmb" = (
@@ -120280,6 +120505,7 @@
 /area/lv759/outdoors/colony_streets/north_west_street)
 "vsJ" = (
 /obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/decal/cleanable/blood,
 /turf/open/urban/street/sidewalkcenter{
 	dir = 1
@@ -122909,7 +123135,7 @@
 	dir = 4
 	},
 /obj/machinery/prop/computer/communications{
-	dir = 8
+	dir = 4
 	},
 /obj/item/reagent_containers/food/drinks/sillycup{
 	pixel_x = -5;
@@ -123094,6 +123320,7 @@
 /obj/effect/decal/cleanable/blood/gibs/limb,
 /obj/effect/decal/cleanable/blood,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/decal/cleanable/dirt/grime3,
 /obj/structure/prop/urban/misc/blood/blood3,
 /turf/open/floor/urban/tile/tilewhite,
@@ -123295,6 +123522,7 @@
 "vUs" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/turf_decal/warning_stripes/thin{
 	dir = 1
 	},
@@ -124161,6 +124389,7 @@
 	dir = 1
 	},
 /obj/structure/cable,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/urban/wood/darkerwood,
 /area/lv759/indoors/colonial_marshals/north_office)
 "wbr" = (
@@ -125249,6 +125478,7 @@
 	},
 /area/lv759/outdoors/colony_streets/east_central_street)
 "wld" = (
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/urban/tile/tilewhite,
 /area/lv759/indoors/nt_research_complex/xenobiology)
 "wlg" = (
@@ -127114,6 +127344,7 @@
 /obj/item/reagent_containers/food/drinks/cans/beer,
 /obj/item/reagent_containers/food/drinks/cans/beer,
 /obj/item/reagent_containers/food/drinks/cans/beer,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/shuttle/dropship/three,
 /area/lv759/indoors/spaceport/starglider)
 "wCW" = (
@@ -127164,6 +127395,7 @@
 /obj/structure/window/reinforced/tinted{
 	dir = 4
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/plating,
 /area/lv759/indoors/power_plant/gas_generators)
 "wDn" = (
@@ -127209,6 +127441,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	color = "#a6aeab"
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/prison{
 	dir = 10
 	},
@@ -128127,6 +128360,7 @@
 	color = "#a6aeab";
 	dir = 4
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/urban/tile/tilewhite,
 /area/lv759/indoors/southwest_public_restroom)
 "wLO" = (
@@ -128178,6 +128412,7 @@
 /obj/effect/decal/cleanable/dirt/grime4{
 	dir = 1
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/officetiles,
 /area/lv759/indoors/NTmart)
 "wMi" = (
@@ -128644,6 +128879,7 @@
 /obj/structure/table/reinforced,
 /obj/item/spacecash/c500,
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/machinery/light,
 /obj/item/laptop,
 /obj/effect/landmark/weed_node,
@@ -128657,6 +128893,7 @@
 	pixel_y = 15
 	},
 /obj/effect/spawner/random/weaponry/gun/sidearms,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/urban/decal/gold/line3,
 /obj/structure/table/black,
 /turf/open/floor/urban/carpet/carpetreddeco,
@@ -129103,6 +129340,7 @@
 /area/lv759/indoors/caves/central_caves)
 "wUb" = (
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/prison{
 	dir = 10
@@ -129378,6 +129616,7 @@
 "wWK" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/spawner/random/weaponry/gun/rifles,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	color = "#a6aeab";
 	dir = 4
@@ -129755,6 +129994,7 @@
 	},
 /obj/item/tool/pen,
 /obj/machinery/light/small,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/urban/carpet/carpetgreendeco,
 /area/lv759/indoors/apartment/northapartments)
 "xan" = (
@@ -130934,6 +131174,7 @@
 /obj/effect/urban/decal/dirt,
 /obj/structure/table/mainship,
 /obj/effect/spawner/random/engineering/powercell,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/prison,
 /area/lv759/indoors/hospital/maintenance)
 "xkf" = (
@@ -131796,6 +132037,12 @@
 /obj/effect/turf_decal/warning_stripes/thin,
 /turf/open/floor/plating,
 /area/lv759/indoors/caves/west_caves)
+"xst" = (
+/obj/machinery/light,
+/obj/structure/prop/urban/supermart/rack/longrackempty,
+/obj/effect/landmark/exodus/blueprintspawner,
+/turf/open/floor/officetiles,
+/area/lv759/indoors/NTmart/backrooms)
 "xsz" = (
 /obj/effect/urban/decal/dirt,
 /obj/effect/spawner/random/misc/structure/girder,
@@ -131949,6 +132196,7 @@
 	pixel_x = -6;
 	pixel_y = 12
 	},
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/mainship{
 	allow_construction = 0
 	},
@@ -132688,6 +132936,7 @@
 /area/lv759/indoors/recycling_plant)
 "xAM" = (
 /obj/structure/table,
+/obj/effect/landmark/exodus/blueprintspawner,
 /turf/open/floor/urban/wood/redwood,
 /area/lv759/indoors/apartment/westbedrooms)
 "xAN" = (
@@ -133123,6 +133372,7 @@
 /obj/item/roller,
 /obj/item/roller,
 /obj/structure/cable,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor/urban/tile/lightbeige_bigtile,
 /area/lv759/indoors/hospital/paramedics_garage)
 "xFi" = (
@@ -133144,7 +133394,7 @@
 /area/lv759/outdoors/landing_zone_1)
 "xFl" = (
 /obj/machinery/computer/secure_data{
-	dir = 8
+	dir = 4
 	},
 /obj/structure/table/reinforced/prison{
 	color = "#6b675e"
@@ -133613,7 +133863,9 @@
 "xJo" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
 /obj/effect/spawner/random/weaponry/ammo/shotgun,
@@ -133777,6 +134029,7 @@
 "xKP" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/spawner/random/weaponry/gun/shotgun,
+/obj/effect/landmark/exodus/weapon_spawner,
 /obj/item/ammo_casing/bullet,
 /obj/item/ammo_casing/bullet,
 /turf/open/urban/street/sidewalkcenter{
@@ -135903,6 +136156,13 @@
 	color = "#dfcfc0"
 	},
 /area/lv759/indoors/mining_outpost/vehicledeployment)
+"yfb" = (
+/obj/structure/bed/chair/office/light{
+	dir = 8
+	},
+/obj/effect/landmark/exodus/blueprintspawner,
+/turf/open/floor/urban/carpet/carpetblack,
+/area/lv759/indoors/nt_office/floor)
 "yff" = (
 /obj/effect/urban/decal/dirt,
 /obj/item/shard,
@@ -137650,7 +137910,7 @@ aRY
 lcz
 lcz
 lcz
-sus
+jmg
 qhJ
 nzS
 qiq
@@ -138446,7 +138706,7 @@ uBf
 guO
 onz
 jnn
-vug
+joU
 kjs
 eHU
 xYX
@@ -141206,7 +141466,7 @@ fNh
 lMj
 iva
 xdK
-emQ
+sVd
 emQ
 oio
 jQE
@@ -141630,7 +141890,7 @@ kbx
 wkF
 ljM
 xdF
-wLh
+pZl
 pFx
 xvE
 mrA
@@ -142048,7 +142308,7 @@ vcz
 lxe
 mAr
 aaX
-uff
+lRm
 xUi
 hQI
 pYL
@@ -144249,7 +144509,7 @@ mQA
 qfF
 lwF
 ljV
-ljV
+oTH
 rHy
 nhs
 dJH
@@ -151247,7 +151507,7 @@ vrw
 uUu
 luH
 oIo
-fyw
+iHI
 nIY
 rdM
 tsG
@@ -151449,7 +151709,7 @@ vrw
 vrw
 hxl
 oyS
-viz
+yfb
 viz
 afQ
 vFa
@@ -151728,7 +151988,7 @@ lqo
 tXg
 muL
 pdI
-jKw
+xst
 rkm
 eYy
 gCt
@@ -152059,7 +152319,7 @@ lIX
 aHm
 ayu
 iXN
-fyw
+iHI
 avt
 uNi
 fzP
@@ -160664,7 +160924,7 @@ dsg
 bKk
 ycb
 hKv
-wUX
+eIF
 mdV
 sqV
 hip
@@ -163323,7 +163583,7 @@ rXK
 nLz
 rfJ
 qfP
-siV
+oAH
 laJ
 bCO
 qqT
@@ -163526,7 +163786,7 @@ rXK
 osf
 blh
 qfP
-bsl
+dLq
 voP
 dzJ
 qqT
@@ -170578,7 +170838,7 @@ wDP
 fAL
 cUB
 cas
-mxV
+lTQ
 cKU
 sVN
 saz
@@ -173170,7 +173430,7 @@ iNs
 egh
 eMP
 qqZ
-rCO
+qIF
 hlW
 qdj
 egh
@@ -179644,7 +179904,7 @@ nhc
 nhc
 nhc
 nhc
-hfL
+cjj
 fmk
 tTu
 sum

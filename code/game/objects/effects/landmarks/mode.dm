@@ -31,7 +31,7 @@
 
 /obj/effect/landmark/exodus/toolspawner ///tools
 	name = "exodus utility spawner"
-	icon_state = "fog_spawn"
+	icon_state = "surv_tool"
 
 /obj/effect/landmark/exodus/toolspawner/Initialize(mapload)
 	. = ..()
@@ -39,7 +39,7 @@
 
 /obj/effect/landmark/exodus/blueprintspawner ///blueprints
 	name = "exodus blueprint spawner"
-	icon_state = "fog_spawn"
+	icon_state = "surv_blueprint"
 
 /obj/effect/landmark/exodus/blueprintspawner/Initialize(mapload)
 	. = ..()
@@ -47,7 +47,7 @@
 
 /obj/effect/landmark/exodus/medicalspawner ///medical supplies
 	name = "exodus medical spawner"
-	icon_state = "fog_spawn"
+	icon_state = "surv_med"
 
 /obj/effect/landmark/exodus/medicalspawner/Initialize(mapload)
 	. = ..()
@@ -55,17 +55,26 @@
 
 /obj/effect/landmark/exodus/resourcespawner ///metal plasteel etc
 	name = "exodus resource spawner"
-	icon_state = "fog_spawn"
+	icon_state = "surv_metal"
 
 /obj/effect/landmark/exodus/resourcespawner/Initialize(mapload)
 	. = ..()
 	GLOB.exodus_resource_spawns += src
 
-/obj/effect/landmark/exodus/aux_component_spawner ///metal plasteel etc
+/obj/effect/landmark/exodus/aux_component_spawner ///other components
 	name = "exodus special component spawner"
 	icon_state = "fog_spawn"
 
 /obj/effect/landmark/exodus/aux_component_spawner/Initialize(mapload)
 	. = ..()
 	GLOB.exodus_aux_spawns += src
+
+/obj/effect/landmark/exodus/weapon_spawner ///weapons
+	name = "exodus weapon spawner"
+	icon_state = "surv_gun"
+
+/obj/effect/landmark/exodus/weapon_spawner/Initialize(mapload)
+	. = ..()
+	GLOB.exodus_weapon_spawns += src
+
 

@@ -295,8 +295,8 @@
 
 	xeno_caste_slots_by_stage = chosen_bracket.Copy()
 	if(!xeno_caste_slots_by_stage) {
-		CRASH("Exodus: Could not determine a valid xeno slot bracket for [initial_survivor_count] players.")
 		xeno_caste_slots_by_stage = list() // Prevent runtimes
+		CRASH("Exodus: Could not determine a valid xeno slot bracket for [initial_survivor_count] players.")
 	}
 	log_game("Exodus: Selected xeno population bracket for [initial_survivor_count] survivors.")
 /*	// Iterate brackets from highest pop to lowest to find the first one we match.
