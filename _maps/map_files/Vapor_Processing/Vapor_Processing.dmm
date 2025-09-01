@@ -656,6 +656,10 @@
 "eq" = (
 /turf/closed/gm/dense,
 /area/lv624/ground/compound/c)
+"er" = (
+/obj/effect/landmark/exodus/toolspawner,
+/turf/open/floor/grimy,
+/area/lv624/lazarus/internal_affairs)
 "es" = (
 /obj/structure/cable,
 /turf/open/ground/grass/grass2,
@@ -842,6 +846,7 @@
 /area/lv624/lazarus/quartstorage)
 "ff" = (
 /obj/structure/cable,
+/obj/effect/landmark/exodus/resourcespawner,
 /turf/open/floor/tile/whiteyellow/corner{
 	dir = 1
 	},
@@ -939,6 +944,7 @@
 /area/vapor_processing/west_compound)
 "fJ" = (
 /obj/effect/ai_node,
+/obj/effect/landmark/exodus/weapon_spawner,
 /turf/open/floor/tile/blue/whiteblue{
 	dir = 4
 	},
@@ -1173,6 +1179,7 @@
 /obj/structure/bed/chair{
 	dir = 8
 	},
+/obj/effect/landmark/exodus/resourcespawner,
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/quart)
 "hF" = (
@@ -1252,6 +1259,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/landmark/exodus/resourcespawner,
 /turf/open/floor/prison/yellow,
 /area/lv624/lazarus/engineering)
 "ib" = (
@@ -1381,6 +1389,10 @@
 "iL" = (
 /turf/open/ground,
 /area/lv624/lazarus/quart)
+"iM" = (
+/obj/effect/landmark/exodus/weapon_spawner,
+/turf/open/floor/tile/whiteyellow/full,
+/area/lv624/lazarus/quart)
 "iN" = (
 /obj/structure/cable,
 /obj/machinery/power/apc/drained,
@@ -1469,6 +1481,7 @@
 "ji" = (
 /obj/structure/table/flipped,
 /obj/structure/cable,
+/obj/effect/landmark/exodus/resourcespawner,
 /turf/open/floor/prison/whitepurple,
 /area/lv624/lazarus/engineering)
 "jj" = (
@@ -1490,6 +1503,12 @@
 /obj/machinery/vending/tool,
 /turf/open/floor/prison/yellow/full,
 /area/lv624/lazarus/engineering)
+"jm" = (
+/obj/effect/landmark/exodus/weapon_spawner,
+/turf/open/floor/tile/whiteyellow/corner{
+	dir = 1
+	},
+/area/vapor_processing/cargo3)
 "jn" = (
 /obj/structure/closet/secure_closet/bar,
 /turf/open/floor/carpet,
@@ -2154,6 +2173,11 @@
 "mw" = (
 /turf/open/floor,
 /area/lv624/lazarus/research)
+"mx" = (
+/obj/structure/cable,
+/obj/effect/landmark/exodus/weapon_spawner,
+/turf/open/floor/prison/yellow,
+/area/lv624/lazarus/engineering)
 "my" = (
 /obj/machinery/vending/nanomed,
 /turf/closed/wall,
@@ -2375,6 +2399,10 @@
 /obj/structure/reagent_dispensers/fueltank,
 /turf/open/floor,
 /area/lv624/lazarus/research)
+"nT" = (
+/obj/effect/landmark/exodus/weapon_spawner,
+/turf/open/floor/prison/yellow,
+/area/lv624/lazarus/engineering)
 "nU" = (
 /obj/structure/cable,
 /turf/open/floor/wood,
@@ -3166,6 +3194,7 @@
 /area/lv624/lazarus/engineering)
 "rU" = (
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1,
+/obj/effect/landmark/exodus/resourcespawner,
 /turf/open/floor/prison/yellow/full,
 /area/lv624/lazarus/engineering)
 "rV" = (
@@ -3415,6 +3444,7 @@
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
 	},
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor,
 /area/lv624/lazarus/research)
 "sV" = (
@@ -3636,6 +3666,10 @@
 	},
 /turf/open/floor/wood/broken,
 /area/crew_quarters/sleep/bedrooms)
+"up" = (
+/obj/effect/landmark/exodus/blueprintspawner,
+/turf/open/floor,
+/area/lv624/lazarus/research)
 "us" = (
 /obj/structure/closet/radiation,
 /obj/structure/cable,
@@ -3684,9 +3718,14 @@
 /turf/closed/mineral/smooth/indestructible,
 /area/lv624/ground/caves/central1)
 "uU" = (
-/obj/effect/landmark/start/job/survivor,
-/turf/open/ground,
-/area/vapor_processing/west_compound)
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/effect/landmark/exodus/weapon_spawner,
+/turf/open/floor/tile/whiteyellow/corner{
+	dir = 1
+	},
+/area/vapor_processing/cargo3)
 "uV" = (
 /obj/machinery/light{
 	dir = 1
@@ -3743,9 +3782,9 @@
 /turf/open/floor,
 /area/maintenance/substation)
 "vE" = (
-/obj/effect/landmark/start/job/survivor,
-/turf/open/floor/grass,
-/area/lv624/ground/compound/c)
+/obj/effect/landmark/exodus/toolspawner,
+/turf/open/floor,
+/area/maintenance/substation)
 "vM" = (
 /obj/machinery/door/airlock/medical{
 	dir = 2
@@ -3809,6 +3848,12 @@
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor,
 /area/shuttle/drop1/lz1)
+"wF" = (
+/obj/effect/landmark/exodus/weapon_spawner,
+/turf/open/floor/tile/whiteyellow/corner{
+	dir = 1
+	},
+/area/vapor_processing/cargo2)
 "wI" = (
 /obj/effect/ai_node,
 /obj/machinery/landinglight/lz1{
@@ -3835,6 +3880,10 @@
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/ground,
 /area/lv624/ground/caves/east1)
+"xb" = (
+/obj/effect/landmark/exodus/weapon_spawner,
+/turf/open/floor/grass,
+/area/vapor_processing/south_compound)
 "xc" = (
 /obj/structure/nuke_disk_candidate,
 /turf/open/floor/plating,
@@ -3846,10 +3895,27 @@
 	},
 /turf/open/floor,
 /area/shuttle/drop1/lz1)
+"xn" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor,
+/area/shuttle/drop1/lz1)
 "xq" = (
 /obj/machinery/miner/damaged,
 /turf/open/floor/grass,
 /area/lv624/ground/compound/c)
+"xs" = (
+/obj/effect/landmark/exodus/resourcespawner,
+/turf/open/floor/prison/whitepurple,
+/area/lv624/lazarus/engineering)
+"xu" = (
+/obj/effect/landmark/exodus/blueprintspawner,
+/turf/open/floor/tile/whiteyellow/corner{
+	dir = 1
+	},
+/area/lv624/lazarus/quartstorage)
 "xF" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/wood,
@@ -3906,10 +3972,10 @@
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/west1)
 "yH" = (
-/obj/effect/landmark/start/job/survivor,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/landmark/exodus/toolspawner,
 /turf/open/floor/wood/broken,
 /area/crew_quarters/sleep/bedrooms)
 "yI" = (
@@ -3933,6 +3999,12 @@
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/closed/mineral/smooth/indestructible,
 /area/lv624/ground/caves/east1)
+"yY" = (
+/obj/effect/landmark/exodus/resourcespawner,
+/turf/open/floor/tile/whiteyellow/corner{
+	dir = 1
+	},
+/area/vapor_processing/cargo3)
 "yZ" = (
 /obj/structure/bed/chair{
 	dir = 8
@@ -3987,6 +4059,10 @@
 /obj/effect/spawner/random/engineering/tech_supply,
 /turf/open/floor/wood,
 /area/shuttle/drop1/lz1)
+"zT" = (
+/obj/effect/landmark/exodus/blueprintspawner,
+/turf/open/floor/prison/yellow,
+/area/lv624/lazarus/engineering)
 "zV" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/plating/dmg1,
@@ -4001,6 +4077,15 @@
 /obj/effect/ai_node,
 /turf/open/ground/grass/grass2,
 /area/vapor_processing/east_compound)
+"Ar" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
+	dir = 4
+	},
+/obj/effect/landmark/exodus/resourcespawner,
+/turf/open/floor/tile/whiteyellow/corner{
+	dir = 1
+	},
+/area/vapor_processing/cargo3)
 "Az" = (
 /obj/effect/decal/cleanable/blood,
 /obj/effect/decal/cleanable/blood,
@@ -4068,6 +4153,14 @@
 	},
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/quart)
+"AU" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor,
+/area/shuttle/drop1/lz1)
+"AW" = (
+/obj/effect/landmark/exodus/medicalspawner,
+/turf/open/floor/prison/yellow,
+/area/lv624/lazarus/engineering)
 "AX" = (
 /obj/machinery/landinglight/lz1{
 	dir = 1
@@ -4127,6 +4220,17 @@
 /obj/effect/ai_node,
 /turf/open/floor/wood/broken,
 /area/crew_quarters/sleep/bedrooms)
+"BB" = (
+/obj/structure/table/flipped,
+/obj/effect/spawner/random/engineering/bomb_supply,
+/obj/effect/landmark/exodus/toolspawner,
+/turf/open/floor,
+/area/storage/tools)
+"BD" = (
+/obj/structure/cable,
+/obj/effect/landmark/exodus/toolspawner,
+/turf/open/floor/wood,
+/area/crew_quarters/sleep/bedrooms)
 "BJ" = (
 /turf/closed/mineral/smooth,
 /area/lv624/ground/caves/east1)
@@ -4134,6 +4238,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/grass,
 /area/lv624/ground/compound/n)
+"BO" = (
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor/plating,
+/area/shuttle/drop1/lz1)
 "BP" = (
 /turf/closed/mineral/smooth/indestructible,
 /area/lv624/ground/caves/central1)
@@ -4143,6 +4251,18 @@
 /obj/effect/ai_node,
 /turf/open/ground,
 /area/lv624/ground/compound/se)
+"Ca" = (
+/obj/machinery/light{
+	dir = 8
+	},
+/obj/effect/ai_node,
+/obj/effect/landmark/exodus/resourcespawner,
+/turf/open/floor/prison/yellow/full,
+/area/lv624/lazarus/engineering)
+"Cb" = (
+/obj/effect/landmark/exodus/resourcespawner,
+/turf/open/floor/prison/yellow/full,
+/area/lv624/lazarus/engineering)
 "Cd" = (
 /obj/machinery/computer/area_atmos,
 /obj/machinery/atmospherics/pipe/manifold/supply/hidden/layer1{
@@ -4174,6 +4294,12 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/ground,
 /area/lv624/ground/compound/n)
+"Cr" = (
+/obj/structure/cable,
+/obj/effect/ai_node,
+/obj/effect/landmark/exodus/toolspawner,
+/turf/open/floor/wood,
+/area/crew_quarters/sleep/bedrooms)
 "Ct" = (
 /obj/machinery/door/airlock/mainship/generic,
 /turf/open/floor/wood/broken,
@@ -4183,6 +4309,10 @@
 /obj/effect/landmark/weed_node,
 /turf/open/ground,
 /area/vapor_processing/caves/se)
+"CA" = (
+/obj/effect/landmark/exodus/weapon_spawner,
+/turf/open/ground/grass/grass2,
+/area/lv624/ground/compound/c)
 "CG" = (
 /obj/effect/landmark/corpsespawner/doctor{
 	corpseback = null;
@@ -4193,6 +4323,13 @@
 /obj/effect/landmark/weed_node,
 /turf/open/ground,
 /area/lv624/ground/caves/east1)
+"CL" = (
+/obj/structure/cable,
+/obj/effect/landmark/exodus/weapon_spawner,
+/turf/open/floor/prison/yellow{
+	dir = 4
+	},
+/area/lv624/lazarus/engineering)
 "CO" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -4229,10 +4366,10 @@
 /turf/open/floor/tile/white,
 /area/lv624/lazarus/medbay)
 "Dr" = (
-/obj/effect/landmark/start/job/survivor,
 /obj/machinery/light{
 	dir = 1
 	},
+/obj/effect/landmark/exodus/weapon_spawner,
 /turf/open/floor/wood,
 /area/crew_quarters/sleep/bedrooms)
 "DL" = (
@@ -4285,6 +4422,11 @@
 	dir = 1
 	},
 /area/lv624/lazarus/quartstorage)
+"Eo" = (
+/obj/effect/ai_node,
+/obj/effect/landmark/exodus/medicalspawner,
+/turf/open/floor/prison/whitepurple,
+/area/lv624/lazarus/engineering)
 "Ep" = (
 /obj/item/stool,
 /obj/item/reagent_containers/food/drinks/bottle/patron,
@@ -4295,6 +4437,10 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/ground,
 /area/lv624/ground/compound/sw)
+"Ev" = (
+/obj/effect/landmark/exodus/resourcespawner,
+/turf/open/floor,
+/area/lv624/lazarus/research)
 "EC" = (
 /obj/machinery/door/airlock/multi_tile/mainship/engineering{
 	dir = 2
@@ -4353,6 +4499,11 @@
 /obj/machinery/door/airlock/multi_tile/mainship/generic,
 /turf/open/floor/tile/green/whitegreen,
 /area/medical/medbay2)
+"Fm" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/landmark/exodus/toolspawner,
+/turf/open/floor,
+/area/storage/tools)
 "Fp" = (
 /obj/effect/ai_node,
 /turf/open/floor/prison/yellow/full,
@@ -4370,6 +4521,10 @@
 	},
 /turf/open/floor/plating,
 /area/maintenance/apmaint)
+"Fz" = (
+/obj/effect/landmark/exodus/toolspawner,
+/turf/open/floor/prison/sterilewhite,
+/area/lv624/lazarus/fitness)
 "FC" = (
 /obj/machinery/door/airlock/glass,
 /turf/open/floor/carpet,
@@ -4388,6 +4543,11 @@
 /obj/docking_port/stationary/crashmode,
 /turf/open/floor/grass,
 /area/lv624/ground/compound/se)
+"FL" = (
+/obj/effect/decal/cleanable/blood/oil,
+/obj/effect/landmark/start/job/survivor,
+/turf/open/floor,
+/area/shuttle/drop1/lz1)
 "FQ" = (
 /obj/effect/ai_node,
 /turf/open/floor/plating,
@@ -4416,6 +4576,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/scorched/two,
 /area/storage/tools)
+"Gj" = (
+/obj/effect/landmark/exodus/toolspawner,
+/turf/open/floor,
+/area/storage/tools)
 "Gp" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 8;
@@ -4442,6 +4606,10 @@
 	},
 /turf/open/floor/tile/whiteyellow/full,
 /area/lv624/lazarus/quart)
+"GE" = (
+/obj/effect/landmark/exodus/medicalspawner,
+/turf/open/floor/tile/green/whitegreen,
+/area/medical/medbay2)
 "GI" = (
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/ground,
@@ -4520,6 +4688,11 @@
 "Ii" = (
 /turf/closed/mineral/smooth/indestructible,
 /area/lv624/ground/caves/west1)
+"Iq" = (
+/obj/structure/table/flipped,
+/obj/effect/landmark/exodus/resourcespawner,
+/turf/open/floor/prison/whitepurple,
+/area/lv624/lazarus/engineering)
 "Iu" = (
 /obj/structure/nuke_disk_candidate,
 /turf/open/floor/prison/yellow/full,
@@ -4583,6 +4756,13 @@
 	},
 /turf/open/ground,
 /area/lv624/ground/caves/east1)
+"Jy" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/landmark/exodus/weapon_spawner,
+/turf/open/floor/tile/whiteyellow/corner{
+	dir = 1
+	},
+/area/vapor_processing/cargo2)
 "Jz" = (
 /obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1{
 	dir = 4
@@ -4607,6 +4787,14 @@
 	},
 /turf/open/ground,
 /area/lv624/ground/caves/east1)
+"Kb" = (
+/obj/effect/landmark/exodus/toolspawner,
+/turf/open/floor/prison/yellow/full,
+/area/lv624/lazarus/engineering)
+"Kg" = (
+/obj/effect/landmark/exodus/resourcespawner,
+/turf/open/floor/tile/whiteyellow/full,
+/area/lv624/lazarus/quart)
 "Kh" = (
 /obj/machinery/door/airlock/glass_engineering,
 /obj/effect/ai_node,
@@ -4624,6 +4812,10 @@
 /obj/effect/spawner/random/engineering/toolbox,
 /turf/open/floor/wood,
 /area/crew_quarters/sleep_male)
+"Kp" = (
+/obj/effect/landmark/exodus/medicalspawner,
+/turf/open/floor/prison/sterilewhite,
+/area/lv624/lazarus/fitness)
 "Ks" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor/scorched/two,
@@ -4663,6 +4855,10 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/ground,
 /area/lv624/ground/compound/c)
+"KT" = (
+/obj/effect/landmark/exodus/weapon_spawner,
+/turf/open/floor,
+/area/lv624/lazarus/research)
 "KV" = (
 /obj/effect/landmark/xeno_resin_door,
 /turf/open/ground,
@@ -4820,6 +5016,13 @@
 /obj/effect/landmark/lv624/fog_blocker/xeno_spawn,
 /turf/open/ground,
 /area/vapor_processing/caves/se)
+"MV" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/obj/effect/landmark/exodus/weapon_spawner,
+/turf/open/floor/wood/broken,
+/area/crew_quarters/sleep/bedrooms)
 "Nd" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/ground,
@@ -4945,6 +5148,7 @@
 	dir = 4
 	},
 /obj/effect/ai_node,
+/obj/effect/landmark/exodus/medicalspawner,
 /turf/open/floor,
 /area/lv624/lazarus/research)
 "Pf" = (
@@ -5030,10 +5234,20 @@
 /obj/structure/cable,
 /turf/open/floor/carpet,
 /area/lv624/lazarus/canteen)
+"PV" = (
+/obj/effect/landmark/exodus/toolspawner,
+/turf/open/floor/tile/blue/whiteblue{
+	dir = 4
+	},
+/area/lv624/lazarus/comms)
 "PX" = (
 /obj/effect/ai_node,
 /turf/open/floor,
 /area/lv624/lazarus/robotics)
+"PY" = (
+/obj/effect/landmark/exodus/weapon_spawner,
+/turf/open/floor,
+/area/storage/tools)
 "PZ" = (
 /obj/effect/ai_node,
 /turf/open/floor,
@@ -5138,6 +5352,10 @@
 	},
 /turf/open/ground,
 /area/lv624/ground/caves/east1)
+"RO" = (
+/obj/effect/landmark/exodus/resourcespawner,
+/turf/open/floor/prison/yellow,
+/area/lv624/lazarus/engineering)
 "RT" = (
 /obj/structure/rack,
 /obj/effect/spawner/random/engineering/bomb_supply,
@@ -5155,6 +5373,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/tile/green/whitegreen,
 /area/lv624/lazarus/medbay)
+"Sc" = (
+/obj/effect/landmark/exodus/resourcespawner,
+/turf/open/floor/grimy,
+/area/lv624/lazarus/internal_affairs)
 "Sd" = (
 /obj/effect/landmark/corpsespawner/security{
 	corpsehelmet = /obj/item/clothing/head/helmet/riot;
@@ -5231,6 +5453,10 @@
 	dir = 4
 	},
 /area/lv624/lazarus/comms)
+"SX" = (
+/obj/effect/landmark/exodus/resourcespawner,
+/turf/open/floor/tile/green/whitegreen,
+/area/lv624/lazarus/medbay)
 "SZ" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -5248,14 +5474,9 @@
 /turf/open/floor/prison/yellow,
 /area/lv624/lazarus/engineering)
 "Th" = (
-/obj/effect/landmark/start/job/survivor,
-/obj/machinery/light{
-	dir = 8
-	},
-/obj/effect/landmark/start/job/survivor,
-/obj/effect/ai_node,
-/turf/open/floor/prison/yellow,
-/area/lv624/lazarus/engineering)
+/obj/effect/landmark/exodus/medicalspawner,
+/turf/open/floor,
+/area/lv624/lazarus/research)
 "To" = (
 /obj/machinery/door/airlock/glass,
 /turf/open/floor/tile/whiteyellow/corner{
@@ -5281,10 +5502,20 @@
 	},
 /turf/open/ground,
 /area/vapor_processing/caves/se)
+"TK" = (
+/obj/effect/landmark/exodus/blueprintspawner,
+/turf/open/floor/grimy,
+/area/lv624/lazarus/internal_affairs)
 "TS" = (
 /obj/effect/landmark/corpsespawner/syndicatesoldier,
 /turf/open/ground,
 /area/lv624/ground/caves/east1)
+"TU" = (
+/obj/machinery/light{
+	dir = 1
+	},
+/turf/open/floor/wood,
+/area/crew_quarters/sleep/bedrooms)
 "TV" = (
 /obj/effect/landmark/weed_node,
 /turf/open/ground,
@@ -5299,6 +5530,11 @@
 /obj/effect/ai_node,
 /turf/open/ground/grass/grass2,
 /area/lv624/ground/compound/n)
+"Uo" = (
+/obj/structure/cable,
+/obj/effect/landmark/exodus/toolspawner,
+/turf/open/floor/prison/sterilewhite,
+/area/lv624/lazarus/fitness)
 "Uu" = (
 /obj/machinery/door/poddoor/mainship{
 	dir = 2;
@@ -5320,6 +5556,12 @@
 	},
 /turf/open/floor/plating,
 /area/vapor_processing/cargo_maint_s)
+"Uz" = (
+/obj/effect/landmark/exodus/blueprintspawner,
+/turf/open/floor/tile/whiteyellow/corner{
+	dir = 1
+	},
+/area/vapor_processing/cargo3)
 "UB" = (
 /obj/effect/ai_node,
 /turf/open/floor/prison/whitepurple,
@@ -5354,6 +5596,13 @@
 	dir = 1
 	},
 /area/vapor_processing/cargo3)
+"UI" = (
+/obj/machinery/atmospherics/pipe/simple/supply/hidden/layer1,
+/obj/effect/landmark/exodus/toolspawner,
+/turf/open/floor/tile/blue/whiteblue{
+	dir = 4
+	},
+/area/lv624/lazarus/comms)
 "UK" = (
 /obj/structure/cable,
 /obj/effect/ai_node,
@@ -5401,7 +5650,6 @@
 /turf/open/floor,
 /area/shuttle/drop1/lz1)
 "VC" = (
-/obj/effect/landmark/start/job/survivor,
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 8;
 	on = 1
@@ -5456,6 +5704,11 @@
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor/prison/yellow/full,
 /area/lv624/lazarus/engineering)
+"Wo" = (
+/obj/structure/cable,
+/obj/effect/landmark/exodus/toolspawner,
+/turf/open/floor/grimy,
+/area/lv624/lazarus/internal_affairs)
 "Wt" = (
 /obj/machinery/door/airlock/glass,
 /turf/open/floor/tile/whiteyellow/corner{
@@ -5474,6 +5727,7 @@
 	dir = 8
 	},
 /obj/effect/ai_node,
+/obj/effect/landmark/exodus/toolspawner,
 /turf/open/floor/prison/yellow/full,
 /area/lv624/lazarus/engineering)
 "WF" = (
@@ -5507,9 +5761,9 @@
 /turf/open/floor/plating/ground/dirt,
 /area/lv624/ground/caves/east1)
 "WQ" = (
-/obj/effect/landmark/start/job/survivor,
-/turf/open/floor/grass,
-/area/lv624/ground/compound/se)
+/obj/effect/landmark/exodus/medicalspawner,
+/turf/open/floor/prison/yellow/full,
+/area/lv624/lazarus/engineering)
 "WR" = (
 /obj/effect/decal/cleanable/blood,
 /turf/open/floor,
@@ -5574,6 +5828,11 @@
 /obj/effect/ai_node,
 /turf/open/floor/wood,
 /area/shuttle/drop1/lz1)
+"Xy" = (
+/obj/effect/ai_node,
+/obj/effect/landmark/exodus/weapon_spawner,
+/turf/open/floor/prison/yellow,
+/area/lv624/lazarus/engineering)
 "XE" = (
 /obj/machinery/door/airlock/glass{
 	dir = 2
@@ -5642,6 +5901,10 @@
 /obj/effect/ai_node,
 /turf/open/floor/plating/dmg3,
 /area/lv624/lazarus/research)
+"Yp" = (
+/obj/effect/landmark/exodus/blueprintspawner,
+/turf/open/floor/wood/broken,
+/area/crew_quarters/sleep_male)
 "YA" = (
 /obj/structure/table/flipped,
 /obj/effect/spawner/random/engineering/powercell,
@@ -5675,6 +5938,11 @@
 /obj/effect/ai_node,
 /turf/open/floor/wood/broken,
 /area/crew_quarters/sleep_male)
+"YR" = (
+/obj/effect/decal/cleanable/blood,
+/obj/effect/landmark/exodus/blueprintspawner,
+/turf/open/floor/tile/green/whitegreen,
+/area/lv624/lazarus/medbay)
 "YT" = (
 /obj/machinery/door/airlock/mainship/generic{
 	dir = 2
@@ -5731,9 +5999,9 @@
 /turf/open/ground,
 /area/lv624/ground/caves/west1)
 "ZP" = (
-/obj/effect/landmark/exodus/utilityspawner,
-/turf/open/ground,
-/area/lv624/ground/caves/central1)
+/obj/effect/landmark/exodus/resourcespawner,
+/turf/open/floor/prison/sterilewhite,
+/area/lv624/lazarus/fitness)
 "ZR" = (
 /obj/effect/decal/cleanable/blood/oil,
 /turf/open/floor,
@@ -6534,7 +6802,7 @@ lv
 lv
 Pt
 mc
-mc
+AU
 Mz
 bZ
 bZ
@@ -6951,15 +7219,15 @@ bZ
 bZ
 bZ
 bZ
+BO
 bZ
-bZ
-bZ
+BO
 bZ
 cb
 bZ
+BO
 bZ
-bZ
-bZ
+BO
 bZ
 bZ
 bZ
@@ -7155,15 +7423,15 @@ bZ
 bZ
 bZ
 bZ
+BO
 bZ
+BO
 bZ
+BO
 bZ
+BO
 bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+BO
 bZ
 bZ
 bZ
@@ -7218,7 +7486,7 @@ ZT
 cs
 dX
 ee
-ee
+GE
 xW
 ee
 eX
@@ -7323,11 +7591,11 @@ ef
 zs
 eG
 Az
-ee
+GE
 Fl
 ly
 ly
-ly
+SX
 Sb
 ht
 fC
@@ -7348,7 +7616,7 @@ lt
 lD
 lv
 lt
-md
+xn
 ms
 ms
 Mz
@@ -7359,15 +7627,15 @@ bZ
 bZ
 bZ
 bZ
+BO
 bZ
+BO
 bZ
+BO
 bZ
+BO
 bZ
-bZ
-bZ
-bZ
-bZ
-bZ
+BO
 bZ
 bZ
 bZ
@@ -7552,9 +7820,9 @@ lt
 lt
 lt
 lt
-mc
+AU
 me
-mc
+AU
 Mz
 Ma
 bZ
@@ -7737,7 +8005,7 @@ fa
 fC
 Rz
 wL
-ly
+SX
 fC
 eK
 em
@@ -7756,24 +8024,24 @@ lt
 qS
 lL
 lt
+AU
 mc
-mc
-mc
+AU
 wM
+AU
 mc
+AU
 mc
-mc
-mc
-mc
+AU
 wM
-mc
+AU
 mc
 me
 me
-mc
+AU
 mr
 mc
-wD
+FL
 mc
 mc
 oX
@@ -7960,15 +8228,15 @@ lv
 lv
 Vn
 lv
+AU
 mc
-mc
-mc
+AU
 wM
+AU
 mc
-mc
-mc
+AU
 mX
-mc
+AU
 mc
 mr
 wM
@@ -8654,7 +8922,7 @@ eK
 fa
 fC
 gl
-Ve
+YR
 hA
 fC
 eK
@@ -8865,7 +9133,7 @@ eK
 em
 eo
 eo
-uU
+eo
 eo
 eo
 eo
@@ -9085,7 +9353,7 @@ lV
 lQ
 ze
 lQ
-lQ
+PY
 mK
 lQ
 lQ
@@ -9096,7 +9364,7 @@ nd
 nv
 nv
 nx
-nx
+vE
 nx
 nx
 ow
@@ -9153,7 +9421,7 @@ dy
 dz
 dy
 dz
-dz
+Sc
 cV
 ep
 eq
@@ -9178,7 +9446,7 @@ sh
 sh
 sh
 sr
-sh
+UI
 sw
 sC
 lH
@@ -9242,7 +9510,7 @@ cx
 vb
 cx
 cx
-cx
+Kp
 cx
 cx
 cs
@@ -9257,7 +9525,7 @@ dz
 dz
 dU
 cV
-vE
+ep
 ep
 eq
 eu
@@ -9277,7 +9545,7 @@ fk
 sd
 jx
 jx
-jx
+PV
 fJ
 jQ
 jx
@@ -9341,7 +9609,7 @@ ah
 bQ
 kI
 cx
-cx
+ZP
 cx
 cx
 cx
@@ -9352,12 +9620,12 @@ cs
 cs
 cs
 cX
-di
+Wo
 dz
+TK
 dz
-dz
-dz
-dz
+er
+er
 cV
 ep
 ep
@@ -9391,7 +9659,7 @@ sK
 sK
 sK
 sP
-sK
+Fm
 sK
 sK
 wj
@@ -9443,7 +9711,7 @@ bf
 bQ
 kn
 cC
-cC
+Uo
 cC
 kE
 cC
@@ -9455,7 +9723,7 @@ jL
 jL
 cY
 di
-dz
+Sc
 dz
 dy
 dy
@@ -9475,7 +9743,7 @@ et
 et
 et
 ep
-vE
+ep
 eu
 et
 ep
@@ -9494,7 +9762,7 @@ YA
 YA
 So
 lQ
-RX
+BB
 RX
 RX
 iG
@@ -9546,7 +9814,7 @@ bQ
 bR
 cx
 cx
-cx
+Fz
 cF
 bS
 cK
@@ -9607,7 +9875,7 @@ nx
 oi
 nN
 nx
-nx
+vE
 nN
 nx
 nx
@@ -9697,7 +9965,7 @@ lH
 mi
 lQ
 sQ
-lQ
+Gj
 QT
 mP
 lH
@@ -9790,7 +10058,7 @@ sh
 so
 sh
 ss
-sh
+UI
 sB
 sE
 iX
@@ -9881,7 +10149,7 @@ SJ
 Hb
 hh
 mO
-hh
+Kg
 bG
 fT
 eu
@@ -10187,7 +10455,7 @@ gQ
 Gx
 VZ
 Gy
-hh
+iM
 oh
 fT
 eu
@@ -10282,7 +10550,7 @@ ep
 eL
 eT
 Em
-fs
+xu
 Ih
 XE
 gS
@@ -10906,7 +11174,7 @@ im
 im
 rH
 im
-im
+yY
 UG
 hO
 ep
@@ -10998,7 +11266,7 @@ eq
 fh
 iJ
 jI
-jI
+Jy
 lx
 nB
 pa
@@ -11108,10 +11376,10 @@ hP
 rv
 Oi
 YL
-rH
+Ar
 im
 im
-im
+yY
 hO
 ep
 Za
@@ -11201,14 +11469,14 @@ ep
 ep
 fj
 fw
-fP
+wF
 fP
 gW
 fj
 ep
 hO
 hZ
-im
+Uz
 im
 rJ
 iZ
@@ -11311,7 +11579,7 @@ ep
 hO
 hZ
 im
-im
+jm
 rK
 im
 im
@@ -11414,7 +11682,7 @@ hO
 Xd
 im
 im
-rH
+uU
 im
 jB
 jB
@@ -11860,7 +12128,7 @@ lh
 le
 pf
 po
-pu
+Yp
 FY
 pJ
 pf
@@ -12027,10 +12295,10 @@ ep
 fY
 fZ
 rM
-vE
+ep
 ep
 et
-et
+CA
 et
 ep
 eq
@@ -12137,7 +12405,7 @@ et
 eq
 ep
 le
-le
+xb
 le
 le
 le
@@ -12198,7 +12466,7 @@ bB
 bB
 bB
 bB
-ZP
+bB
 bB
 bB
 bB
@@ -12258,7 +12526,7 @@ nt
 ny
 mQ
 tv
-mw
+Ev
 ZR
 mw
 mo
@@ -12330,7 +12598,7 @@ ep
 et
 ep
 fY
-hF
+Iq
 gZ
 rO
 fY
@@ -12354,7 +12622,7 @@ mw
 mw
 mw
 mw
-mw
+up
 mE
 mw
 mw
@@ -12404,7 +12672,7 @@ BP
 bB
 bB
 bB
-ZP
+bB
 bB
 bB
 LJ
@@ -12555,7 +12823,7 @@ lZ
 Gp
 Co
 mw
-mw
+KT
 mw
 mw
 Wu
@@ -12567,7 +12835,7 @@ tv
 Yo
 tP
 mw
-mw
+up
 mw
 mw
 Zs
@@ -12635,7 +12903,7 @@ Bg
 gZ
 Bg
 gZ
-gZ
+zT
 Lm
 iy
 rM
@@ -12658,7 +12926,7 @@ mF
 mo
 mM
 qI
-mw
+Th
 mw
 ZR
 mE
@@ -12670,7 +12938,7 @@ AP
 mo
 mo
 oz
-mw
+Ev
 mo
 le
 le
@@ -12841,7 +13109,7 @@ eN
 fY
 ib
 gZ
-gZ
+AW
 rP
 jd
 fY
@@ -12850,7 +13118,7 @@ fY
 Px
 eN
 eO
-WQ
+li
 lj
 yc
 li
@@ -13349,7 +13617,7 @@ eM
 fY
 hF
 hR
-hG
+xs
 fY
 pk
 rM
@@ -13471,7 +13739,7 @@ ll
 ll
 li
 fY
-Th
+AO
 gZ
 gZ
 gZ
@@ -13555,12 +13823,12 @@ hG
 hS
 id
 fY
-gZ
+AW
 rM
 jj
-UB
+Eo
 hG
-Wz
+Ca
 gY
 fY
 OF
@@ -13573,7 +13841,7 @@ MD
 MD
 MD
 fY
-gZ
+RO
 YW
 pe
 tf
@@ -13583,13 +13851,13 @@ nm
 KK
 li
 nJ
-Dr
+TU
 tM
 nJ
 Dr
 tX
 nJ
-yH
+MV
 tX
 nJ
 yH
@@ -13651,7 +13919,7 @@ eO
 eO
 eO
 fY
-gY
+Kb
 gY
 pe
 rt
@@ -13679,7 +13947,7 @@ rD
 rt
 NN
 JN
-gZ
+nT
 fY
 nn
 ll
@@ -13758,11 +14026,11 @@ wX
 pk
 gZ
 gZ
-gZ
+zT
 wX
 rW
 jb
-jb
+mx
 sk
 Gu
 jb
@@ -13771,7 +14039,7 @@ wi
 wi
 wi
 Hd
-wi
+CL
 wi
 pS
 wi
@@ -13788,12 +14056,12 @@ nn
 nn
 iw
 Qu
-nU
+BD
 nU
 CO
 ol
 nU
-Qu
+Cr
 nU
 pc
 EH
@@ -13866,7 +14134,7 @@ rM
 fY
 fY
 fY
-gY
+WQ
 gY
 fY
 qD
@@ -13957,7 +14225,7 @@ fl
 eM
 Px
 fY
-gY
+Cb
 Bi
 hG
 hH
@@ -14269,7 +14537,7 @@ fY
 fY
 Fp
 gY
-wX
+Xy
 gY
 Fp
 fY

@@ -988,3 +988,6 @@
 /// From [/datum/controller/subsystem/security_level/proc/set_level]
 /// `/datum/security_level/next_level`, `/datum/security_level/previous_level`
 #define COMSIG_SECURITY_LEVEL_CHANGED "security_level_changed"
+
+///Exodus signals
+#define COMSIG_GLOB_EXODUS_STAGE_CHANGE "exodus_stage_changed"

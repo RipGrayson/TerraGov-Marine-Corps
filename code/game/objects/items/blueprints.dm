@@ -12,3 +12,9 @@
 /obj/item/blueprints/escape_pod
 	name = "escape pod blueprints"
 	desc = "Blueprints of an escape pod. You could use these to build an means of escape, if you had the materials..."
+
+/obj/item/blueprints/escape_pod/attack_self(obj/item/attacking_item, mob/user, params)
+	. = ..()
+	var/turf/current_turf = get_turf(src)
+	if(is_blocked_turf(current_turf) || isgroundlessturf(current_turf))
+		to_chat("You can't build this here!")

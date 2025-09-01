@@ -14,6 +14,7 @@
 	config_tag = "Exodus"
 	required_players = 1
 	round_type_flags = MODE_NO_PERMANENT_WOUNDS|MODE_DEAD_GRAB_FORBIDDEN
+	base_random_chance = 25
 
 	///what threat stage we're in
 	var/stage = 1
@@ -56,6 +57,15 @@
 	///percentage of players that schematics spawn for
 	///note: to create conflict we do not set this to 1.00, some players will not escape by design
 	var/schematic_ratio = 0.70
+	///note: to create conflict we do not set this to 1.00, some players will not escape by design
+	var/weapon_ratio = 1.10
+
+	var/medical_ratio = 0.70
+	///note: to create conflict we do not set this to 1.00, some players will not escape by design
+	var/resource_ratio = 1.10
+	///note: to create conflict we do not set this to 1.00, some players will not escape by design
+	var/tool_ratio = 1.10
+
 
 	///The actual current alpha value of the area lighting overlay.
 	var/current_light_alpha = 0
@@ -67,6 +77,8 @@
 	var/target_light_color = COLOR_EVENING_BLUE
 	///How many alpha points to change per process() tick. Higher = faster transition.
 	var/light_transition_speed = 1
+	///Has the lighting changed? If so transition towards new value
+	var/lighting_changed = FALSE
 
 	valid_job_types = list(
 		/datum/job/survivor = -1,
@@ -228,24 +240,7 @@
 /// Runs before character creation to set up the map with loot.
 /datum/game_mode/exodus/pre_setup()
 	. = ..()
-
-	var/player_count = length(GLOB.ready_players)
-	if(player_count > 0)
-		var/schematic_count = ceil(player_count * schematic_ratio)
-		schematic_count = max(schematic_count, 1)
-
-		var/list/potential_spawn_locations = GLOB.exodus_blueprint_spawns.Copy()
-		if(!potential_spawn_locations.len)
-			CRASH("Exodus: No 'exodus_utility_spawn' landmarks found to spawn schematics.")
-
-		shuffle_inplace(potential_spawn_locations)
-
-		for(var/i in 1 to min(schematic_count, potential_spawn_locations.len))
-			var/obj/effect/landmark/spawn_landmark = pick_n_take(potential_spawn_locations)
-			if(spawn_landmark)
-				new /obj/item/blueprints/escape_pod(spawn_landmark.loc)
-				log_game("Exodus: Spawned escape pod schematic at [spawn_landmark.loc].")
-
+	distribute_loot()
 	return TRUE
 
 /datum/game_mode/exodus/setup()
@@ -361,7 +356,6 @@
 	else if(stage == STAGE_THRESHOLD_MEDIUM && threat_counter >= stage_3_threshold)
 		escalate_to_stage(STAGE_THRESHOLD_HIGH)
 
-	var/lighting_changed = FALSE
 	if(current_light_alpha < target_light_alpha)
 		current_light_alpha = min(current_light_alpha + light_transition_speed, target_light_alpha)
 		lighting_changed = TRUE
@@ -384,8 +378,8 @@
 		threat_counter = stage_3_threshold
 
 /// Escalates the threat to the next stage, making the game more difficult.
-/datum/game_mode/exodus/proc/escalate_to_stage(new_stage)
-	if(stage >= new_stage) return
+/datum/game_mode/exodus/proc/escalate_to_stage(new_stage, override_stage_control = FALSE)
+	if(stage >= new_stage && !override_stage_control) return
 
 	var/old_stage = stage
 	stage = new_stage
@@ -407,12 +401,18 @@
 
 	if(stage > old_stage)
 		switch(stage)
+			if(1) ///this can't be reached without admin intervention
+				priority_announce("Hostile biomass readings have returned to normal. Threat level has subsided, analysis: strange forces at work.", "Threat Escalation")
 			if(2)
 				priority_announce("Hostile biomass readings are surging. Threat level has escalated, analysis: escape advised.", "Threat Escalation")
 			if(3)
 				priority_announce("Hostile biomass readings have reached critical levels. Threat level has escalated, analysis: survival unlikely.", "Threat Escalation")
 		log_game("Exodus: Threat escalated to Stage [stage]. Current threat: [threat_counter]/[stage_3_threshold]")
-		///SEND_GLOBAL_SIGNAL(COMSIG_EXODUS_STAGE_CHANGED, stage)
+
+		if(override_stage_control)
+			current_light_color = target_light_color
+			lighting_changed = TRUE
+		SEND_GLOBAL_SIGNAL(COMSIG_GLOB_EXODUS_STAGE_CHANGE, stage)
 
 	// TODO: Spawn new AI/Player xenos and unlock higher-tier castes.
 
@@ -455,7 +455,7 @@
 		var/scaled_pvp_threat = LERP(threat_per_death, threat_per_pvp_kill, scaling_factor)
 		threat_counter += scaled_pvp_threat
 		message_admins("Exodus PvP Kill: [key_name(attacker)] killed [key_name(victim)]. Threat Added: [round(scaled_pvp_threat)].")
-		if(scaling_factor > 0.5 && prob(30)) {
+		if(scaling_factor > 0.5 && prob(30 * stage)) {
 			priority_announce("The sounds of infighting echo across the sector, drawing the hive's attention...", "Sudden Aggression Detected")
 		}
 	else
@@ -477,9 +477,6 @@
 	threat_counter = 0
 	stage = 1
 	initial_survivor_count = length(GLOB.alive_human_list)
-	if(initial_survivor_count <= 0)
-		initial_survivor_count = 1
-		message_admins("Somehow we passed initial checks but didn't?")
 	if(initial_survivor_count > 0) {
 		var/total_threat_budget = initial_survivor_count * threat_budget_per_survivor
 		stage_2_threshold = total_threat_budget * stage_2_threshold_percent
@@ -504,3 +501,65 @@
 	. = ..()
 	items += "Stage: [stage]"
 	items += "Threat Value: [threat_counter]"
+	items += "Stage 2 Threshold: [stage_2_threshold]"
+	items += "Stage 3 Threshold: [stage_3_threshold]"
+
+/datum/game_mode/exodus/proc/distribute_loot(needed_players = 0)
+	var/player_count
+	if(GLOB.ready_players.len < 0 && needed_players)
+		return
+	else if(GLOB.ready_players.len > 0)
+		player_count = GLOB.ready_players.len
+	else
+		player_count = needed_players
+	message_admins("Exodus now spawning items for [player_count] survivors.")
+	var/schematic_count = ceil(player_count * schematic_ratio)
+	schematic_count = max(schematic_count, 1)
+
+	var/list/potential_spawn_locations = GLOB.exodus_blueprint_spawns.Copy()
+	if(!potential_spawn_locations.len)
+		CRASH("Exodus: No 'exodus_blueprint_spawn' landmarks found to spawn schematics.")
+
+	shuffle_inplace(potential_spawn_locations)
+
+	for(var/i in 1 to min(schematic_count, potential_spawn_locations.len))
+		var/obj/effect/landmark/spawn_landmark = pick_n_take(potential_spawn_locations)
+		if(spawn_landmark)
+			new /obj/item/blueprints/escape_pod(spawn_landmark.loc)
+			log_game("Exodus: Spawned escape pod schematic at [spawn_landmark.loc].")
+
+	potential_spawn_locations = GLOB.exodus_weapon_spawns.Copy()
+	var/weapon_count = ceil(player_count * weapon_ratio)
+	weapon_count = max(weapon_count, 1)
+	for(var/i in 1 to min(weapon_count, potential_spawn_locations.len))
+		var/obj/effect/landmark/spawn_landmark = pick_n_take(potential_spawn_locations)
+		if(spawn_landmark)
+			new /obj/effect/spawner/random/weaponry/gun(spawn_landmark.loc)
+			log_game("Exodus: Spawned weapon at [spawn_landmark.loc].")
+
+	potential_spawn_locations = GLOB.exodus_resource_spawns.Copy()
+	var/resource_count = ceil(player_count * resource_ratio)
+	resource_count = max(resource_count, 1)
+	for(var/i in 1 to min(resource_count, potential_spawn_locations.len))
+		var/obj/effect/landmark/spawn_landmark = pick_n_take(potential_spawn_locations)
+		if(spawn_landmark)
+			new /obj/effect/spawner/random/weaponry/gun(spawn_landmark.loc)
+			log_game("Exodus: Spawned weapon at [spawn_landmark.loc].")
+
+	potential_spawn_locations = GLOB.exodus_medical_spawns.Copy()
+	var/medical_count = ceil(player_count * medical_ratio)
+	medical_count = max(medical_count, 1)
+	for(var/i in 1 to min(medical_count, potential_spawn_locations.len))
+		var/obj/effect/landmark/spawn_landmark = pick_n_take(potential_spawn_locations)
+		if(spawn_landmark)
+			new /obj/effect/spawner/random/medical/medbottle(spawn_landmark.loc)
+			log_game("Exodus: Spawned medical item at [spawn_landmark.loc].")
+
+	potential_spawn_locations = GLOB.exodus_tool_spawns.Copy()
+	var/tool_count = ceil(player_count * tool_ratio)
+	tool_count = max(tool_count, 1)
+	for(var/i in 1 to min(tool_count, potential_spawn_locations.len))
+		var/obj/effect/landmark/spawn_landmark = pick_n_take(potential_spawn_locations)
+		if(spawn_landmark)
+			new /obj/effect/spawner/random/engineering/tool(spawn_landmark.loc)
+			log_game("Exodus: Spawned tool at [spawn_landmark.loc].")

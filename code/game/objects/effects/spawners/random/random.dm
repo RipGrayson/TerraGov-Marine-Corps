@@ -39,6 +39,8 @@
 
 ///If the spawner has any loot defined, randomly picks some and spawns it. Does not cleanup the spawner.
 /obj/effect/spawner/random/proc/spawn_loot(lootcount_override)
+	if(SSticker.mode)
+		spawn_loot_chance += SSticker.mode.base_random_chance
 	if(!prob(spawn_loot_chance))
 		return
 

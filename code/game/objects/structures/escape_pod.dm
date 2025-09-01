@@ -14,8 +14,8 @@
 
 /obj/structure/escape_pod_frame
 	name = "Escape Pod Frame"
-	icon = 'icons/obj/stationobjs.dmi'
-	icon_state = "labcage1"
+	icon = 'icons/obj/structures/droppod.dmi'
+	icon_state = "singlepod_green_inactive"
 	desc = "An incomplete escape pod."
 	density = TRUE
 	anchored = TRUE

@@ -74,6 +74,8 @@ GLOBAL_VAR(common_report) //Contains common part of roundend report
 	var/enable_fun_tads = FALSE
 
 	var/roundstart_players = 0
+	///used to elevate the base chance of a random spawner activating
+	var/base_random_chance = 0
 
 
 /datum/game_mode/New()
