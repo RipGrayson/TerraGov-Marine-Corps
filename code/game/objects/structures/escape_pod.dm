@@ -37,13 +37,13 @@
 	///used for keeping track of how much cable we have inserted in a specific step
 	var/cable_invested = 0
 	///do we have an engine installed?
-	var/has_engine = FALSE
+	var/has_engine = TRUE
 	///do we have a fuel tank installed?
-	var/has_fuel_tank = FALSE
+	var/has_fuel_tank = TRUE
 	///do we have a console screen installed
-	var/has_console_screen = FALSE
+	var/has_console_screen = TRUE
 	///do we have a power cell installed?
-	var/has_power_cell
+	var/has_power_cell = TRUE
 
 /obj/structure/escape_pod_frame/examine(mob/user)
 	. = ..()
