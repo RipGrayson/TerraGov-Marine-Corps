@@ -281,7 +281,7 @@
 
 	var/list/chosen_bracket = null
 	switch(initial_survivor_count)
-		if(1 to 14) // Low Pop
+		if(0 to 14) // Low Pop
 			chosen_bracket = xeno_caste_slots_by_stage_poplow
 		if(15 to 24) // Mid Pop
 			chosen_bracket = xeno_caste_slots_by_stage_popmid
