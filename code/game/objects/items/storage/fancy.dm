@@ -230,7 +230,6 @@
 	icon_state = "cigarcase"
 	worn_icon_state = "cigarcase"
 	icon = 'icons/obj/items/cigarettes.dmi'
-	w_class = WEIGHT_CLASS_TINY
 	throwforce = 2
 	w_class = WEIGHT_CLASS_SMALL
 	equip_slot_flags = ITEM_SLOT_BELT
@@ -270,6 +269,18 @@
 	name = "vial storage box"
 	spawn_type = /obj/item/reagent_containers/glass/beaker/vial
 	spawn_number = 6
+
+/obj/item/storage/fancy/vials/Initialize(mapload, ...)
+	. = ..()
+	storage_datum.max_w_class = WEIGHT_CLASS_NORMAL
+	storage_datum.set_holdable(can_hold_list = list(/obj/item/reagent_containers/glass/beaker/vial))
+	storage_datum.max_storage_space = 14 //The sum of the w_classes of all the items in this storage item.
+	storage_datum.storage_slots = 6
+	update_icon()
+
+/obj/item/storage/fancy/vials/update_icon_state()
+	. = ..()
+	icon_state = "vialbox[length(contents)]"
 
 /obj/item/storage/fancy/vials/prison
 	icon = 'icons/obj/machines/virology.dmi'

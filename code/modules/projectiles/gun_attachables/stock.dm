@@ -109,6 +109,13 @@
 	pixel_shift_x = 32
 	pixel_shift_y = 13
 
+/obj/item/attachable/stock/icc_heavyshotgun
+	name = "\improper ML-101 stock"
+	desc = "A irremovable ML-101 stock."
+	icon_state = "ml101"
+	pixel_shift_x = 32
+	pixel_shift_y = 13
+
 /obj/item/attachable/stock/icc_pdw
 	name = "\improper L-40 stock"
 	desc = "A irremovable L-40 stock."
@@ -175,6 +182,10 @@
 	name = "PR-11 stock"
 	icon_state = "m41a"
 
+/obj/item/attachable/stock/m41a_custom
+	name = "PR-11 custom stock"
+	icon_state = "m41a_custom"
+
 /obj/item/attachable/stock/tx11
 	name = "AR-11 stock"
 	icon_state = "tx11"
@@ -225,3 +236,10 @@
 	recoil_mod = -2
 	pixel_shift_x = 30
 	pixel_shift_y = 14
+
+/obj/item/attachable/stock/at45stock
+	name = "\improper CC/AT45 stock"
+	desc = "A stock for a CC/AT45."
+	icon_state = "at45"
+	pixel_shift_x = 0
+	pixel_shift_y = 0
