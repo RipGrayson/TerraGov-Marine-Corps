@@ -2354,6 +2354,12 @@
 "nJ" = (
 /turf/closed/wall/wood,
 /area/crew_quarters/sleep/bedrooms)
+"nK" = (
+/obj/effect/wavelandmark{
+	landmark_id = 4
+	},
+/turf/open/ground,
+/area/lv624/ground/caves/east1)
 "nN" = (
 /obj/machinery/light{
 	dir = 8
@@ -4268,6 +4274,12 @@
 /obj/effect/ai_node,
 /turf/open/ground,
 /area/lv624/ground/compound/n)
+"Ef" = (
+/obj/effect/wavelandmark{
+	landmark_id = 2
+	},
+/turf/open/ground,
+/area/lv624/ground/compound/c)
 "Eg" = (
 /obj/structure/table/mainship,
 /obj/item/toy/deck,
@@ -4412,6 +4424,12 @@
 /obj/effect/ai_node,
 /turf/open/floor/scorched/two,
 /area/storage/tools)
+"Gm" = (
+/obj/effect/wavelandmark{
+	landmark_id = 1
+	},
+/turf/open/ground,
+/area/lv624/ground/caves/central2)
 "Gp" = (
 /obj/machinery/atmospherics/components/unary/vent_pump/layer1{
 	dir = 8;
@@ -4555,6 +4573,12 @@
 	},
 /turf/open/ground,
 /area/lv624/ground/compound/sw)
+"IY" = (
+/obj/effect/wavelandmark{
+	landmark_id = 3
+	},
+/turf/open/ground,
+/area/lv624/ground/caves/west1)
 "Je" = (
 /obj/machinery/door/airlock/mainship/generic,
 /turf/open/floor/plating,
@@ -10259,7 +10283,7 @@ Ii
 bb
 bb
 bb
-bb
+IY
 bb
 bb
 Ii
@@ -11714,7 +11738,7 @@ eu
 eu
 UM
 eu
-eu
+Ef
 eu
 eu
 vs
@@ -11984,7 +12008,7 @@ bc
 WF
 bc
 bc
-bc
+Gm
 bc
 bc
 bc
@@ -13328,7 +13352,7 @@ BJ
 Ww
 bE
 bE
-bE
+nK
 bE
 bE
 bE
