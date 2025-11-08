@@ -36,6 +36,15 @@
 	/// Internal timer for the process() loop.
 	var/next_process_time = 0
 
+    /// The minimum number of players before spawn rate starts to increase.
+    var/spawn_rate_min_pop = 5
+    /// The number of players at which the spawn rate reaches its maximum.
+    var/spawn_rate_max_pop = 30
+    /// The number of enemies to spawn per process tick at minimum population.
+    var/spawn_rate_min = 5
+    /// The maximum number of enemies to spawn per process tick at maximum population.
+    var/spawn_rate_max = 30
+
 	/// A FIFO queue of /datum/holdout_spawn_task.
 	var/list/spawn_queue = list()
 	/// The index of the next task in spawn_queue to process.
@@ -87,7 +96,6 @@
 	return ..()
 
 
-/// The main game loop for the mode, driven by SSprocessing.
 /datum/game_mode/holdout/process()
 	if(world.time < next_process_time) return
 	next_process_time = world.time + HOLDOUT_PROCESS_INTERVAL
@@ -98,27 +106,30 @@
 		round_finished = "Mission Objectives Lost"
 		declare_completion()
 		return PROCESS_KILL
+	
+	// Calculate a scaling factor (alpha) from 0.0 to 1.0 based on player count.
+	var/player_count = length(GLOB.player_list)
+	var/scaling_alpha = (player_count - spawn_rate_min_pop) / max(1, spawn_rate_max_pop - spawn_rate_min_pop)
+	scaling_alpha = clamp(scaling_alpha, 0, 1) // Ensure it's between 0.0 and 1.0
 
-	// --- Process the incremental spawn queue ---
+	// Linearly interpolate between the min and max spawn rates using the scaling factor.
+	var/max_spawns_per_tick = round(lerp(spawn_rate_min, spawn_rate_max, scaling_alpha))
+
 	var/spawns_this_tick = 0
-	var/max_spawns_per_tick = 5 // TUNABLE
 
 	if(spawn_queue.len > 0 && spawn_queue_cursor <= spawn_queue.len)
-		while(spawn_queue_cursor <= spawn_queue.len && spawns_this_tick < max_spawns_per_tick)
+		while(spawn_queue_cursor <= spawn_queue.len && spawns_this_tick < max_spawns_per_tick) 
 			var/datum/holdout_spawn_task/spawn_task = spawn_queue[spawn_queue_cursor]
-			if(spawn_task)
+			if(spawn_task) 
 				spawn_single_enemy(spawn_task.type_path, spawn_task.spawn_location)
-
+			
 			spawn_queue_cursor++
 			spawns_this_tick++
 
-
 		if(spawn_queue_cursor > spawn_queue.len)  // We finished the queue
-			QDEL_LIST(spawn_queue) // Clean up the task datums
+			QDEL_LIST(spawn_queue)
 			spawn_queue = list()
 			spawn_queue_cursor = 1
-
-
 
 	// After processing the queue, check the main game state
 	check_game_state()
