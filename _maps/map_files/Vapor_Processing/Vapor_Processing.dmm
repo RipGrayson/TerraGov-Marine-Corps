@@ -2356,7 +2356,7 @@
 /area/crew_quarters/sleep/bedrooms)
 "nK" = (
 /obj/effect/wavelandmark{
-	landmark_id = 4
+	landmark_id = "4"
 	},
 /turf/open/ground,
 /area/lv624/ground/caves/east1)
@@ -4276,7 +4276,7 @@
 /area/lv624/ground/compound/n)
 "Ef" = (
 /obj/effect/wavelandmark{
-	landmark_id = 2
+	landmark_id = "2"
 	},
 /turf/open/ground,
 /area/lv624/ground/compound/c)
@@ -4426,7 +4426,7 @@
 /area/storage/tools)
 "Gm" = (
 /obj/effect/wavelandmark{
-	landmark_id = 1
+	landmark_id = "1"
 	},
 /turf/open/ground,
 /area/lv624/ground/caves/central2)
@@ -4575,7 +4575,7 @@
 /area/lv624/ground/compound/sw)
 "IY" = (
 /obj/effect/wavelandmark{
-	landmark_id = 3
+	landmark_id = "3"
 	},
 /turf/open/ground,
 /area/lv624/ground/caves/west1)

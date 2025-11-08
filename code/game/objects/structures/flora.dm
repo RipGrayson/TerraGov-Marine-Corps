@@ -157,6 +157,18 @@
 	var/obj/item/G = new gift_type(src)
 	user.put_in_hands(G)
 
+/obj/structure/flora/tree/xmas/presents/mission_object
+	name = "Mission Critical Tree"
+	resistance_flags = XENO_DAMAGEABLE
+
+/obj/structure/flora/tree/xmas/presents/mission_object/Initialize(mapload)
+	. = ..()
+	GLOB.wave_mission_objects += src
+
+/obj/structure/flora/tree/xmas/presents/mission_object/Destroy()
+	. = ..()
+	GLOB.wave_mission_objects -= src
+
 /obj/structure/flora/tree/dead
 	icon = 'icons/obj/flora/deadtrees.dmi'
 	icon_state = "tree"

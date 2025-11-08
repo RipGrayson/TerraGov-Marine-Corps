@@ -90,3 +90,7 @@ GLOBAL_LIST_INIT(campaign_cas_disabler_by_faction, list(
 	FACTION_TERRAGOV = /datum/campaign_asset/asset_disabler/tgmc_cas/instant,
 	FACTION_SOM = /datum/campaign_asset/asset_disabler/som_cas/instant,
 ))
+
+GLOBAL_LIST_EMPTY(wave_spawned_enemies)
+GLOBAL_LIST_EMPTY(wavelandmarks)
+GLOBAL_LIST_EMPTY(wave_mission_objects)

@@ -1,21 +1,19 @@
-// In /datums/gamemodes/holdout.dm
+#define HOLDOUT_PROCESS_INTERVAL 5 // 0.5 seconds
 
-#define HOLDOUT_PROCESS_INTERVAL 5 // How often the mode's main logic ticks (0.5 seconds)
-
-// --- GLOBAL LISTS (in a global file like _globalvars/lists/game_modes.dm) ---
-GLOBAL_LIST_EMPTY(wave_mission_objects)
-GLOBAL_LIST_EMPTY(wave_spawned_enemies)
-GLOBAL_LIST_EMPTY(wavelandmarks) // Populated by /obj/effect/wavelandmark/Initialize()
+// --- DATA STRUCTURE FOR A SINGLE SPAWN TASK ---
+/datum/holdout_spawn_task
+	var/type_path
+	var/turf/spawn_location
 
 // --- LANDMARK DEFINITION ---
 /obj/effect/wavelandmark
 	name = "wave spawn"
 	/// The ID for this landmark, set in the map editor. Used by the map's JSON config.
-	var/landmark_id = 0
+	var/landmark_id = "" // Use a string to be safe with map editor input
 
 /obj/effect/wavelandmark/Initialize(mapload)
 	. = ..()
-	LAZYADD(GLOB.wavelandmarks, src)
+	GLOB.wavelandmarks += src // Assumes GLOB.wavelandmarks is a lazylist or initialized
 	return INITIALIZE_HINT_NORMAL
 
 // --- HOLDOUT GAME MODE ---
@@ -23,33 +21,31 @@ GLOBAL_LIST_EMPTY(wavelandmarks) // Populated by /obj/effect/wavelandmark/Initia
 	name = "Holdout"
 	config_tag = "Holdout"
 	required_players = 1 // Keep low for testing
-	
-	valid_job_types = list(
-		/datum/job/defender/rifleman = -1,
-		/datum/job/defender/engineer = 4,
-		/datum/job/defender/medic = 4
-	) // Assuming these job types exist
-	
+
 	/// The wave configuration loaded from the map JSON.
 	var/list/wave_config
 
-	/// The current wave number we are on (1-indexed).
+	/// The current wave number we are on (0 = pre-round, 1-indexed for active waves).
 	var/current_wave = 0
 	/// The total number of waves for this map.
 	var/total_waves = 0
-	/// The world.time when the next wave is scheduled to begin.
-	var/next_wave_time = 0
+	/// The world.time when the next wave or state transition is scheduled.
+	var/next_event_time = 0
 	/// The number of objectives at the start of the round.
 	var/initial_objectives_count = 0
+	/// Internal timer for the process() loop.
+	var/next_process_time = 0
 
-	/// A FIFO queue of spawn tasks. Each task is an assoc list: list("type" = /path, "turf" = /turf)
+	/// A FIFO queue of /datum/holdout_spawn_task.
 	var/list/spawn_queue = list()
-	
+	/// The index of the next task in spawn_queue to process.
+	var/spawn_queue_cursor = 1
+
 	// --- Game State Flags ---
-	#define HOLDOUT_STATE_PREP 0	  // The initial 20-minute wait
-	#define HOLDOUT_STATE_WAVE_IN_PROGRESS 1 // A wave is actively spawning/fighting
-	#define HOLDOUT_STATE_INTERMISSION 2   // In between waves
-	#define HOLDOUT_STATE_CLEANUP 3		// Final wave is over, cleaning up stragglers
+	#define HOLDOUT_STATE_PREP 0
+	#define HOLDOUT_STATE_WAVE_IN_PROGRESS 1
+	#define HOLDOUT_STATE_INTERMISSION 2
+	#define HOLDOUT_STATE_CLEANUP 3
 	/// The current state of the game mode.
 	var/holdout_state = HOLDOUT_STATE_PREP
 
@@ -57,9 +53,9 @@ GLOBAL_LIST_EMPTY(wavelandmarks) // Populated by /obj/effect/wavelandmark/Initia
 /datum/game_mode/holdout/pre_setup()
 	. = ..()
 	wave_config = SSmapping.configs[GROUND_MAP].holdout_config
-	if(!wave_config || !islist(wave_config["waves"])) {
-		CRASH("Holdout mode started on a map with no 'holdout_config' or 'waves' list in its JSON.")
-	}
+	if(!islist(wave_config) || !islist(wave_config["waves"]))
+		CRASH("Holdout mode started on a map with no valid 'holdout_config' in its JSON.")
+
 	total_waves = length(wave_config["waves"])
 	return TRUE
 
@@ -67,31 +63,27 @@ GLOBAL_LIST_EMPTY(wavelandmarks) // Populated by /obj/effect/wavelandmark/Initia
 	. = ..()
 
 	var/initial_delay = text2num(wave_config["initial_delay_minutes"]) * 1 MINUTES
-	if(initial_delay <= 0) initial_delay = 20 MINUTES // Default if not specified or zero
-	next_wave_time = world.time + initial_delay
-	
+	if(initial_delay <= 0) initial_delay = 20 MINUTES
+	next_event_time = world.time + initial_delay
+
 	priority_announce("You are defenders. Fortify your position and prepare to hold out. The first wave is expected in [DisplayTimeText(initial_delay)].", "Holdout Mission Briefing")
 
 	initial_objectives_count = length(GLOB.wave_mission_objects)
 	var/objective_health = text2num(wave_config["objective_health"])
-	if(objective_health > 0) {
-		for(var/atom/movable/objective_atom in GLOB.wave_mission_objects) {
-			if(HAS_TRAIT(objective_atom, TRAIT_HAS_INTEGRITY)) {
-				objective_atom.set_max_integrity(objective_health)
-				objective_atom.set_integrity(objective_atom.max_integrity)
-			}
-		}
-	}
-	
-	// We don't need a COMSIG_GLOB_MOB_DEATH handler. We will have the enemies
-	// signal us directly when they are deleted.
+	if(objective_health > 0)
+		for(var/obj/structure/objective_atom in GLOB.wave_mission_objects) // Use a more specific type if possible
+			objective_atom.max_integrity = objective_health
+			objective_atom.obj_integrity = objective_atom.max_integrity
+
 	START_PROCESSING(SSprocessing, src)
 	next_process_time = world.time
 	return TRUE
 
 /datum/game_mode/holdout/Destroy()
 	STOP_PROCESSING(SSprocessing, src)
-	// No signals to unregister if we do it on a per-mob basis
+	// No global signals registered, but if we did, unregister here.
+	// We unregister from individual mobs when they are qdel'd (handled by signal system).
+	QDEL_LIST(spawn_queue) // Clean up any remaining spawn task datums
 	return ..()
 
 
@@ -102,159 +94,204 @@ GLOBAL_LIST_EMPTY(wavelandmarks) // Populated by /obj/effect/wavelandmark/Initia
 
 	if(round_finished) return PROCESS_KILL
 
-	if(!check_objectives_are_valid()) {
+	if(!check_objectives_are_valid())
 		round_finished = "Mission Objectives Lost"
 		declare_completion()
 		return PROCESS_KILL
-	}
 
 	// --- Process the incremental spawn queue ---
-	// Spawn a burst of enemies each process tick until the queue is empty.
 	var/spawns_this_tick = 0
-	var/max_spawns_per_tick = 5 // TUNABLE: How many enemies to spawn per 0.5s tick.
-	while(spawn_queue.len > 0 && spawns_this_tick < max_spawns_per_tick) {
-		var/list/spawn_task = popleft(spawn_queue)
-		if(spawn_task) {
-			var/type_path = spawn_task["type"]
-			var/turf/spawn_location = spawn_task["turf"]
-			if(type_path && spawn_location && !QDELETED(spawn_location)) {
-				spawn_single_enemy(type_path, spawn_location)
-			}
-		}
-		spawns_this_tick++
-		
-		// This is a micro-optimization. Since spawning a mob is fast, we don't need a full CHECK_TICK,
-		// but we can stoplag briefly if we spawn a lot, to keep things smooth.
-		if(spawns_this_tick % 5 == 0) stoplag()
-	}
-	
+	var/max_spawns_per_tick = 5 // TUNABLE
+
+	if(spawn_queue.len > 0 && spawn_queue_cursor <= spawn_queue.len)
+		while(spawn_queue_cursor <= spawn_queue.len && spawns_this_tick < max_spawns_per_tick)
+			var/datum/holdout_spawn_task/spawn_task = spawn_queue[spawn_queue_cursor]
+			if(spawn_task)
+				spawn_single_enemy(spawn_task.type_path, spawn_task.spawn_location)
+
+			spawn_queue_cursor++
+			spawns_this_tick++
+
+
+		if(spawn_queue_cursor > spawn_queue.len)  // We finished the queue
+			QDEL_LIST(spawn_queue) // Clean up the task datums
+			spawn_queue = list()
+			spawn_queue_cursor = 1
+
+
+
 	// After processing the queue, check the main game state
 	check_game_state()
 
 /// Checks if all objectives are still intact.
 /datum/game_mode/holdout/proc/check_objectives_are_valid()
-	if(initial_objectives_count <= 0) return TRUE // No objectives to check
-
+	if(initial_objectives_count <= 0) return TRUE
 	list_clear_nulls(GLOB.wave_mission_objects)
-	if(GLOB.wave_mission_objects.len < initial_objectives_count) {
-		// An objective has been destroyed
+	if(GLOB.wave_mission_objects.len < initial_objectives_count)
 		return FALSE
-	}
 	return TRUE
 
-/// Signal handler in case an enemy is deleted. This is the primary way we track enemy deaths.
-/datum/game_mode/holdout/proc/handle_enemy_qdel(datum/source)
+/// Signal handler. Called when a spawned enemy is being deleted.
+/datum/game_mode/holdout/proc/handle_enemy_qdel(datum/source_enemy)
 	SIGNAL_HANDLER
-	GLOB.wave_spawned_enemies -= source
+	GLOB.wave_spawned_enemies -= source_enemy // 'source' is the enemy that sent the signal
 
 /// Checks for wave transitions and victory conditions
 /datum/game_mode/holdout/proc/check_game_state()
+	// This switch is structured to prevent fall-through and multiple state changes in one tick.
 	switch(holdout_state)
 		if(HOLDOUT_STATE_PREP)
-			if(world.time >= next_wave_time) {
+			if(world.time >= next_event_time)
 				holdout_state = HOLDOUT_STATE_WAVE_IN_PROGRESS
 				queue_up_next_wave()
-			}
+
 		if(HOLDOUT_STATE_WAVE_IN_PROGRESS)
-			if(spawn_queue.len == 0) { // Finished spawning the current wave
-				if(current_wave >= total_waves) {
+			if(spawn_queue.len == 0)  // Finished spawning this wave
+				if(current_wave >= total_waves)
 					holdout_state = HOLDOUT_STATE_CLEANUP
 					priority_announce("All enemy waves have been deployed! Eliminate the remaining hostiles to secure victory!", "Final Wave")
-				} else {
+				else
 					holdout_state = HOLDOUT_STATE_INTERMISSION
 					var/time_between_waves = text2num(wave_config["time_between_waves_minutes"]) * 1 MINUTES
-					if(time_between_waves <= 0) time_between_waves = 5 MINUTES // Default
-					next_wave_time = world.time + time_between_waves
-					priority_announce("Wave [current_wave] cleared! Prepare for the next wave, expected in [DisplayTimeText(time_between_waves)].", "Wave Cleared")
-				}
-			}
+					if(time_between_waves <= 0) time_between_waves = 5 MINUTES
+					next_event_time = world.time + time_between_waves
+
+
+
 		if(HOLDOUT_STATE_INTERMISSION)
-			if(world.time >= next_wave_time) {
+			if(world.time >= next_event_time)
 				holdout_state = HOLDOUT_STATE_WAVE_IN_PROGRESS
 				queue_up_next_wave()
-			}
+
 		if(HOLDOUT_STATE_CLEANUP)
-			// Victory condition: In cleanup phase and all enemies are gone.
-			if(GLOB.wave_spawned_enemies.len == 0) {
+			if(GLOB.wave_spawned_enemies.len == 0)
 				round_finished = "All Waves Cleared"
 				declare_completion()
-			}
 
-/// Reads the wave config and populates the spawn_queue.
+
 /datum/game_mode/holdout/proc/queue_up_next_wave()
 	current_wave++
-	priority_announce("Warning! Wave [current_wave] is inbound!", "Incoming Wave", 'sound/AI/hostile_detected.ogg')
-	
-	var/list/wave_data = wave_config["waves"][current_wave]
-	if(!wave_data || !islist(wave_data["spawns"])) {
-		log_warning("Holdout: Wave [current_wave] has no 'spawns' data in JSON.")
-		return
-	}
+	priority_announce("Warning! Wave [current_wave] is inbound!", "Incoming Wave", sound = 'sound/effects/snap.ogg')
 
+	// --- 1. Get Wave Data ---
+	// The wave list is 1-indexed in DM, but JSON might be 0-indexed if parsed naively.
+	// Assuming the parser handles it correctly and wave_config["waves"] is a 1-indexed list in DM.
+	if(current_wave > length(wave_config["waves"]))
+		CRASH("Holdout: Tried to queue up wave #[current_wave], but only [length(wave_config["waves"])] waves are defined.")
+
+	var/list/wave_data = wave_config["waves"][current_wave]
+	if(!islist(wave_data))
+		CRASH("Holdout: Wave data for wave #[current_wave] is not a valid list.")
+
+
+	// --- 2. Prepare for Spawning ---
 	var/player_count = length(GLOB.player_list)
 	var/list/spawn_definitions = wave_data["spawns"]
+
+
 	var/list/new_spawn_tasks = list()
 
-	for(var/list/spawn_info in spawn_definitions) {
+	//do this once per wave
+	var/list/available_landmarks = list() // Assoc list: "landmark_id" -> list of turfs
+	for(var/obj/effect/wavelandmark/L in GLOB.wavelandmarks)
+		if(L.landmark_id != "")  // Ensure landmark has an ID
+			LAZYINITLIST(available_landmarks[L.landmark_id])
+			available_landmarks[L.landmark_id] += L.loc
+
+
+
+	// --- 3. Process Each Spawn Definition in the Wave ---
+	for(var/list/spawn_info in spawn_definitions)
+
+		// A. Determine Spawn Locations for this group
 		var/list/landmark_ids = spawn_info["landmark_ids"]
 		var/list/spawn_turfs = list()
-		if(islist(landmark_ids)) {
-			for(var/id in landmark_ids) {
-				for(var/obj/effect/wavelandmark/L in GLOB.wavelandmarks) {
-					if(L.landmark_id == text2num(id)) {
-						spawn_turfs += L.loc
-					}
-				}
-			}
-		}
-		if(!spawn_turfs.len) {
-			log_warning("Holdout: Could not find wavelandmarks for wave [current_wave]. Using all landmarks as fallback.")
-			for(var/obj/effect/wavelandmark/L in GLOB.wavelandmarks) spawn_turfs += L.loc
-			if(!spawn_turfs.len) CRASH("Holdout: No wavelandmarks found on map at all.")
-		}
 
+		if(islist(landmark_ids))
+			for(var/id in landmark_ids)
+				if(available_landmarks[id])  // Check our lookup table
+					spawn_turfs |= available_landmarks[id] // |= to add unique turfs
+
+
+
+
+		// Fallback: If no valid landmark_ids were found or none were specified, use all available landmarks.
+		if(!spawn_turfs.len)
+			for(var/id in available_landmarks)
+				spawn_turfs |= available_landmarks[id]
+
+			if(!spawn_turfs.len) CRASH("Holdout: No wavelandmarks found on map at all for wave #[current_wave].")
+
+
+		// B. Determine Number of Mobs to Spawn
+		// Your JSON values are strings, so text2num is essential.
 		var/pop_scaler = text2num(spawn_info["pop_scaler"])
-		if(isnull(pop_scaler)) pop_scaler = 1.0 // Default if missing
+		if(isnull(pop_scaler) || pop_scaler < 0) pop_scaler = 1.0 // Default to 1.0 if not defined or invalid
+
 		var/number_to_spawn = ceil(player_count * pop_scaler)
-		number_to_spawn = max(number_to_spawn, 1)
 
+		// Add a "min_spawn" field to the JSON for a minimum number per group
+		var/min_spawn_count = text2num(spawn_info["min_spawn"]) // Will be null if not present
+		if(isnull(min_spawn_count)) min_spawn_count = 1 // Default to at least 1
+		number_to_spawn = max(number_to_spawn, min_spawn_count)
+
+		// C. Pick Mobs from the Pool and Create Tasks
 		var/list/mob_pool = spawn_info["mobs"]
-		if(!islist(mob_pool) || !mob_pool.len) {
-			log_warning("Holdout: Wave [current_wave] spawn entry has no 'mobs' defined.")
-			continue
-		}
+		if(!islist(mob_pool)) continue // Skip if no mobs are defined for this spawn group
 
-		for(var/i in 1 to number_to_spawn) {
+		for(var/i in 1 to number_to_spawn)
 			var/mob_type_string = pickweight(mob_pool)
-			if(!mob_type_string) continue
-			var/type_path = text2path(mob_type_string)
-			if(!ispath(type_path)) {
-				log_warning("Holdout: Invalid mob type path '[mob_type_string]' in wave [current_wave].")
+			if(!mob_type_string)
+				log_game("Holdout: pickweight failed for mob_pool in wave #[current_wave]. Check weights.")
 				continue
-			}
-			
-			LAZYADD(new_spawn_tasks, list("type" = type_path, "turf" = pick(spawn_turfs)))
-		}
-	}
 
-	shuffle_inplace(new_spawn_tasks)
-	spawn_queue = new_spawn_tasks // Use assignment, not +=, to replace old queue
+			var/type_path = text2path(mob_type_string)
+			if(!ispath(type_path))
+				log_game("Holdout: Invalid mob type path '[mob_type_string]' in wave #[current_wave].")
+				continue
+
+
+			// Use our datum for a clean, robust spawn task
+			var/datum/holdout_spawn_task/task = new
+			task.type_path = type_path
+			task.spawn_location = pick(spawn_turfs)
+			new_spawn_tasks += task
+
+
+
+	// --- 4. Finalize the Queue ---
+	shuffle_inplace(new_spawn_tasks) // Shuffle the final list to make spawn order less predictable
+	spawn_queue = new_spawn_tasks
+	spawn_queue_cursor = 1
 	log_game("Holdout: Queued [spawn_queue.len] enemies for wave [current_wave].")
 
 /// Spawns a single enemy and sets it up.
 /datum/game_mode/holdout/proc/spawn_single_enemy(type_path, turf/spawn_location)
 	var/mob/new_enemy = new type_path(spawn_location)
-	
-	if(new_enemy) {
-		// Only add a generic AI if the mob doesn't already have an AI preset.
-		if(isliving(new_enemy) && !new_enemy.GetComponent(/datum/component/ai_controller)) {
-			new_enemy.AddComponent(/datum/component/ai_controller, /datum/ai_behavior/hostile_simple)
-		}
-		GLOB.wave_spawned_enemies += new_enemy
-		// We listen for the QDELETING signal on each enemy. This is more robust than listening to GLOB_MOB_DEATH.
-		RegisterSignal(new_enemy, COMSIG_QDELETING, src, PROC_REF(handle_enemy_qdel))
-	} else {
-		log_error("Holdout: Failed to create new enemy of type '[type_path]'.")
-	}
+	if(new_enemy)
+		LAZYADD(GLOB.wave_spawned_enemies, new_enemy)
+		//handle enemies dying
+		RegisterSignal(new_enemy, COMSIG_MOB_DEATH, PROC_REF(handle_enemy_qdel))
+		//dunno if dying covers qdeleting, might as well listen for it too
+		RegisterSignal(new_enemy, COMSIG_QDELETING, PROC_REF(handle_enemy_qdel))
 
+
+/// Add gamemode related items to statpanel
+/datum/game_mode/holdout/get_status_tab_items(datum/dcs, mob/source, list/items)
+	. = ..()
+	switch(holdout_state)
+		if(HOLDOUT_STATE_PREP, HOLDOUT_STATE_INTERMISSION)
+			if(next_event_time > world.time)
+				items += "Time Until Next Wave: [DisplayTimeText(next_event_time - world.time)]"
+
+		if(HOLDOUT_STATE_WAVE_IN_PROGRESS, HOLDOUT_STATE_CLEANUP)
+			items += "Enemies Remaining: [length(GLOB.wave_spawned_enemies)]"
+
+	items += "Current Wave: [current_wave]/[total_waves]"
+
+// Cleanup defines
 #undef HOLDOUT_PROCESS_INTERVAL
+#undef HOLDOUT_STATE_PREP
+#undef HOLDOUT_STATE_WAVE_IN_PROGRESS
+#undef HOLDOUT_STATE_INTERMISSION
+#undef HOLDOUT_STATE_CLEANUP

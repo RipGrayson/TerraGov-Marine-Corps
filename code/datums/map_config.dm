@@ -36,6 +36,8 @@
 
 	var/squads_max_num = 4
 
+	var/list/holdout_config
+
 
 /proc/load_map_config(filename, default, delete_after, error_if_missing = TRUE)
 	var/datum/map_config/config = new
@@ -140,6 +142,8 @@
 	else if (!isnull(traits))
 		log_world("map_config traits is not a list!")
 		return
+
+	holdout_config = json["holdout_config"]
 
 	var/temp = json["space_empty_levels"]
 	if (isnum(temp))
