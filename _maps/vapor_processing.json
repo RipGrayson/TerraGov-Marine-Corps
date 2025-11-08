@@ -8,17 +8,18 @@
     "announce_text": "A faint distress signal...",
 	"traits":[ { "No Parallax": true, "Baseturf": "/turf/open/floor/plating" } ],
     "holdout_config": {
-        "initial_delay_minutes": "10",
-        "time_between_waves_minutes": "5",
+        "initial_delay_minutes": "1",
+        "time_between_waves_minutes": "1",
         "objective_health": "500",
         "waves": [
             {
                 "spawns": [
                     {
                         "landmark_ids": ["1", "2"],
-                        "pop_scaler": "0.5",
+                        "pop_scaler": "5.5",
                         "mobs": {
-                            "/mob/living/simple_animal/hostile/carp": 100
+                            "/mob/living/simple_animal/hostile/carp": 50,
+							"/mob/living/simple_animal/hostile/bear": 50
                         }
                     }
                 ]
@@ -27,7 +28,7 @@
                 "spawns": [
                     {
                         "landmark_ids": ["1", "2", "3"],
-                        "pop_scaler": "0.7",
+                        "pop_scaler": "5.7",
                         "mobs": {
                             "/mob/living/simple_animal/hostile/carp": 80,
                             "/mob/living/simple_animal/hostile/bear": 20
@@ -39,7 +40,7 @@
                 "spawns": [
                     {
                         "landmark_ids": ["3", "4"],
-                        "pop_scaler": "1.0",
+                        "pop_scaler": "5.3",
                         "mobs": {
                             "/mob/living/simple_animal/hostile/bear": 100
                         }
@@ -50,7 +51,7 @@
                 "spawns": [
                     {
                         "landmark_ids": ["1", "4"],
-                        "pop_scaler": "1.2",
+                        "pop_scaler": "5.2",
                         "mobs": {
                             "/mob/living/simple_animal/hostile/bear": 60,
                             "/mob/living/carbon/xenomorph/runner/ai": 40
@@ -106,7 +107,7 @@
                         "landmark_ids": ["1", "2", "3", "4"],
                         "pop_scaler": "1.0",
                         "mobs": {
-                            "/mob/living/carbon/xenomorph/crusher/ai": 100
+                            "/mob/living/carbon/xenomorph/queen/ai": 100
                         }
                     }
                 ]
