@@ -1,4 +1,11 @@
 //MAP CONVERTED BY dmm2tgm.py THIS HEADER COMMENT PREVENTS RECONVERSION, DO NOT REMOVE
+"aaa" = (
+/turf/open/floor/mainship/red/corner,
+/area/mainship/command/cic)
+"aab" = (
+/obj/item/reagent_containers/food/drinks/bottle/eggnog,
+/turf/open/floor/mainship/mono,
+/area/mainship/command/cic)
 "aam" = (
 /obj/machinery/door/airlock/mainship/generic/bathroom,
 /turf/open/floor/mainship/mono,
@@ -2476,12 +2483,6 @@
 	dir = 8
 	},
 /area/mainship/squads/req)
-"cSt" = (
-/obj/structure/prop/holidays/stocking{
-	pixel_y = 26
-	},
-/turf/open/floor/mainship/red/corner,
-/area/mainship/command/cic)
 "cSx" = (
 /obj/structure/table/mainship/nometal,
 /obj/machinery/light/mainship,
@@ -16366,13 +16367,6 @@
 	dir = 4
 	},
 /area/mainship/hallways/hangar)
-"taO" = (
-/obj/item/reagent_containers/food/drinks/bottle/eggnog,
-/obj/effect/spawner/random/food_or_drink/christmas_food{
-	pixel_x = 1
-	},
-/turf/open/floor/mainship/mono,
-/area/mainship/command/cic)
 "tbT" = (
 /obj/machinery/vending/armor_supply,
 /turf/open/floor/mainship/mono,
@@ -51289,7 +51283,7 @@ bSS
 qmr
 iou
 dNg
-cSt
+aaa
 qjH
 wAW
 wWQ
@@ -51545,7 +51539,7 @@ fXS
 svg
 nxC
 ycp
-taO
+aab
 uZw
 tOm
 oIr
