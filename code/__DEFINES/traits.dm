@@ -162,6 +162,9 @@
 /// inherited from riding vehicles
 #define VEHICLE_TRAIT "vehicle"
 
+///Given by charging
+#define CHARGING_TRAIT "charging_trait"
+
 ///AM is currently submerged
 #define TRAIT_SUBMERGED "trait_submerged"
 ///AM will not be submerged. Trait must ALWAYS be added via the add_nosubmerge_trait proc for correct behavior
@@ -227,6 +230,8 @@
 #define TRAIT_CAN_TEAR_HOLE "can_tear_hole"
 /// Allows xenomorphs to heal without needing to be on weeds.
 #define TRAIT_INNATE_HEALING "innate_healing"
+///is currently jumping
+#define TRAIT_IS_JUMPING "is_jumping"
 
 ///Traits for managing AM pass_flags
 #define TRAIT_PASS_LOW_STRUCTURE "pass_low_structure"
@@ -245,6 +250,7 @@
 /// Prevents usage of manipulation appendages (picking, holding or using items, manipulating storage).
 #define TRAIT_HANDS_BLOCKED "handsblocked"
 #define TRAIT_STUNIMMUNE "stun_immunity"
+#define TRAIT_NO_STUN_ATTACK "no_stun_attack"
 #define TRAIT_BATONIMMUNE "baton_immunity"
 #define TRAIT_SLEEPIMMUNE "sleep_immunity"
 #define TRAIT_FLASHBANGIMMUNE "flashbang_immunity"
@@ -312,6 +318,8 @@
 #define TRAIT_IS_RELOADING "is_reloading"
 ///is removing shrapnel
 #define TRAIT_IS_SHRAP_REMOVING "is_shrap_removing"
+///is equipping some item, probably clothing
+#define TRAIT_IS_EQUIPPING_ITEM "is_equipping_item"
 
 //All the traits for guns
 #define TRAIT_GUN_SAFETY "safety"

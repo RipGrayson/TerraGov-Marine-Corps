@@ -5,7 +5,6 @@
 	name = "Tail Sweep"
 	action_icon_state = "tail_sweep"
 	action_icon = 'icons/Xeno/actions/defender.dmi'
-	desc = "Hit all adjacent units around you, knocking them away and down."
 	ability_cost = 35
 	use_state_flags = ABILITY_USE_CRESTED
 	cooldown_duration = 12 SECONDS
@@ -23,6 +22,10 @@
 	var/damage_type = BRUTE
 	/// The multiplier of the damage to be applied.
 	var/damage_multiplier = 1
+
+/datum/action/ability/xeno_action/tail_sweep/New(Target)
+	. = ..()
+	desc = "Hit all adjacent units around you, knocking them away and stunning for [paralyze_duration / (1 SECONDS)] seconds. You can parry thrown objects with this."
 
 /datum/action/ability/xeno_action/tail_sweep/can_use_action(silent, override_flags, selecting)
 	. = ..()
@@ -87,7 +90,7 @@
 		return FALSE
 	if(get_dist(target, owner) > 1)
 		return FALSE
-	if(!can_use_action(override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
+	if(!can_use_action())
 		return FALSE
 	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
 		return FALSE
@@ -100,17 +103,23 @@
 	name = "Forward Charge"
 	action_icon_state = "pounce"
 	action_icon = 'icons/Xeno/actions/runner.dmi'
-	desc = "Charge up to 4 tiles and knockdown any targets in our way."
 	cooldown_duration = 10 SECONDS
 	ability_cost = 80
 	use_state_flags = ABILITY_USE_CRESTED|ABILITY_USE_FORTIFIED
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_FORWARD_CHARGE,
+		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_FORWARD_CHARGE_SELECT,
 	)
+	target_flags = ABILITY_HUMAN_TARGET //this is not really ideal since we might want to charge at nonhuman movables, but better than nother
 	paralyze_duration = 4 SECONDS
 	charge_range = DEFENDER_CHARGE_RANGE
 	/// How long is the windup before charging?
 	var/windup_time = 0.5 SECONDS
+
+/datum/action/ability/activable/xeno/charge/forward_charge/New(Target)
+	. = ..()
+	desc = "Charge up to [charge_range] tiles and stun any targets in our way for [paralyze_duration / (1 SECONDS)] seconds."
 
 /datum/action/ability/activable/xeno/charge/forward_charge/use_ability(atom/A)
 	if(!A)
@@ -175,7 +184,7 @@
 	name = "Toggle Crest Defense"
 	action_icon_state = "crest_defense"
 	action_icon = 'icons/Xeno/actions/defender.dmi'
-	desc = "Increase your resistance to projectiles at the cost of move speed. Can use abilities while in Crest Defense."
+	desc = "Increase your resistance to projectiles at the cost of slower move speed. Can use abilities while in crest defense."
 	use_state_flags = ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED // duh
 	cooldown_duration = 1 SECONDS
 	keybinding_signals = list(
@@ -228,7 +237,7 @@
 		GLOB.round_statistics.defender_crest_lowerings++
 		SSblackbox.record_feedback("tally", "round_statistics", 1, "defender_crest_lowerings")
 		ADD_TRAIT(xeno_owner, TRAIT_STAGGERIMMUNE, CREST_DEFENSE_TRAIT) //Can now endure impacts/damages that would make lesser xenos flinch
-		xeno_owner.move_resist = MOVE_FORCE_EXTREMELY_STRONG
+		xeno_owner.set_move_resist(MOVE_FORCE_EXTREMELY_STRONG)
 		xeno_owner.soft_armor = xeno_owner.soft_armor.modifyAllRatings(last_crest_bonus)
 		xeno_owner.add_movespeed_modifier(MOVESPEED_ID_CRESTDEFENSE, TRUE, 0, NONE, TRUE, xeno_owner.xeno_caste.crest_defense_slowdown)
 	else
@@ -237,7 +246,7 @@
 		GLOB.round_statistics.defender_crest_raises++
 		SSblackbox.record_feedback("tally", "round_statistics", 1, "defender_crest_raises")
 		REMOVE_TRAIT(xeno_owner, TRAIT_STAGGERIMMUNE, CREST_DEFENSE_TRAIT)
-		xeno_owner.move_resist = initial(xeno_owner.move_resist)
+		xeno_owner.set_move_resist(initial(xeno_owner.move_resist))
 		xeno_owner.soft_armor = xeno_owner.soft_armor.modifyAllRatings(-last_crest_bonus)
 		xeno_owner.remove_movespeed_modifier(MOVESPEED_ID_CRESTDEFENSE)
 
@@ -251,7 +260,7 @@
 	name = "Fortify"
 	action_icon_state = "fortify"
 	action_icon = 'icons/Xeno/actions/defender.dmi'
-	desc = "Plant yourself for a large defensive boost."
+	desc = "Plant yourself for a large defensive boost and stun resistance. Can use forward charge and regeneration in this state."
 	use_state_flags = ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED
 	cooldown_duration = 1 SECONDS
 	keybinding_signals = list(
@@ -361,7 +370,7 @@
 	action_icon_state = "regenerate_skin"
 	action_icon = 'icons/Xeno/actions/defender.dmi'
 	desc = "Regenerate your hard exoskeleton skin, restoring some health and removing all sunder."
-	use_state_flags = ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED|ABILITY_TARGET_SELF|ABILITY_IGNORE_SELECTED_ABILITY|ABILITY_KEYBIND_USE_ABILITY|ABILITY_USE_LYING
+	use_state_flags = ABILITY_USE_FORTIFIED|ABILITY_USE_CRESTED|ABILITY_TARGET_SELF|ABILITY_KEYBIND_USE_ABILITY|ABILITY_USE_LYING
 	ability_cost = 160
 	cooldown_duration = 1 MINUTES
 	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
@@ -391,7 +400,7 @@
 	if(!can_use_action(TRUE))
 		return fail_activate()
 
-	if(xeno_owner.on_fire && !resin_jelly_duration)
+	if(xeno_owner.is_on_fire() && !resin_jelly_duration)
 		to_chat(xeno_owner, span_xenowarning("We can't use that while on fire."))
 		return fail_activate()
 
@@ -423,13 +432,12 @@
 			status_effect.check_duration()
 	if(resin_jelly_duration)
 		xeno_owner.apply_status_effect(STATUS_EFFECT_RESIN_JELLY_COATING, resin_jelly_duration)
-		if(xeno_owner.on_fire)
+		if(xeno_owner.is_on_fire())
 			for (var/mob/living/carbon/human/nearby_human in orange(1, xeno_owner))
 				if(nearby_human.stat == DEAD || !xeno_owner.Adjacent(nearby_human))
 					continue
-				nearby_human.adjust_fire_stacks(xeno_owner.fire_stacks)
-				nearby_human.IgniteMob()
-			xeno_owner.ExtinguishMob()
+				nearby_human.adjust_burning(xeno_owner.amount_burning())
+			xeno_owner.extinguish_mob()
 	if(ally_unsunder_multiplier)
 		var/mob/living/carbon/xenomorph/ideal_xenomorph_target
 		for(var/mob/living/carbon/xenomorph/nearby_xenomorph in orange(1, xeno_owner))
@@ -469,7 +477,7 @@
 	name = "Centrifugal force"
 	action_icon_state = "centrifugal_force"
 	action_icon = 'icons/Xeno/actions/defender.dmi'
-	desc = "Rapidly spin and hit all adjacent humans around you, knocking them away and down. Uses double plasma when crest is active."
+	desc = "Rapidly tail sweep and hit all adjacent humans around you. Uses double plasma when crest is active."
 	ability_cost = 15
 	use_state_flags = ABILITY_USE_CRESTED
 	cooldown_duration = 30 SECONDS

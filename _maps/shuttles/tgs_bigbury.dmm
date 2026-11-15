@@ -284,10 +284,7 @@
 "bd" = (
 /obj/machinery/optable,
 /obj/item/tank/anesthetic,
-/obj/item/clothing/mask/breath/medical,
-/obj/structure/prop/holidays/string_lights{
-	dir = 1
-	},
+/obj/item/reagent_containers/blood/OMinus,
 /turf/open/floor/mainship/sterile/dark,
 /area/shuttle/canterbury/medical)
 "be" = (
@@ -323,9 +320,6 @@
 /obj/machinery/door_control{
 	id = "port_umbilical_outer";
 	name = "outer door-control"
-	},
-/obj/structure/barricade/folding{
-	dir = 8
 	},
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
@@ -463,14 +457,6 @@
 	id = "starboard_umbilical_outer";
 	name = "outer door-control"
 	},
-/obj/structure/barricade/folding{
-	dir = 4;
-	is_wired = 1;
-	linked = 1
-	},
-/obj/structure/prop/holidays/stocking{
-	pixel_y = 26
-	},
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
 "bD" = (
@@ -549,9 +535,7 @@
 /obj/machinery/power/apc/mainship{
 	dir = 1
 	},
-/obj/structure/prop/holidays/string_lights{
-	dir = 1
-	},
+/obj/effect/landmark/corrupted_larva,
 /turf/open/floor/mainship/blue{
 	dir = 6
 	},
@@ -576,9 +560,7 @@
 /obj/machinery/air_alarm{
 	dir = 1
 	},
-/obj/structure/prop/holidays/string_lights{
-	dir = 1
-	},
+/obj/effect/landmark/corrupted_larva,
 /turf/open/floor/mainship,
 /area/shuttle/canterbury/cic)
 "bT" = (
@@ -646,20 +628,7 @@
 /obj/item/storage/surgical_tray,
 /turf/open/floor/mainship/sterile/dark,
 /area/shuttle/canterbury/medical)
-"gv" = (
-/obj/structure/barricade/folding,
-/turf/open/floor/mainship/stripesquare,
-/area/shuttle/canterbury)
-"gy" = (
-/obj/effect/spawner/random/food_or_drink/christmas_food,
-/turf/open/floor/mainship,
-/area/shuttle/canterbury)
 "hc" = (
-/obj/structure/barricade/folding{
-	dir = 4;
-	is_wired = 1;
-	linked = 1
-	},
 /turf/open/floor/mainship/stripesquare,
 /area/shuttle/canterbury)
 "iy" = (
@@ -805,12 +774,6 @@
 /obj/machinery/vending/weapon/crash,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
-"pY" = (
-/obj/structure/barricade/folding{
-	dir = 8
-	},
-/turf/open/floor/mainship/stripesquare,
-/area/shuttle/canterbury)
 "qh" = (
 /obj/structure/rack,
 /obj/item/stack/sheet/metal/large_stack,
@@ -824,12 +787,12 @@
 	id = "Interior_Emergency_umbilical";
 	name = "Emergency door-control"
 	},
-/obj/item/storage/box/crate/sentry,
-/obj/item/storage/box/crate/sentry,
-/obj/item/storage/box/crate/sentry,
-/obj/structure/prop/holidays/stocking{
-	pixel_y = 26
-	},
+/obj/item/stack/sheet/plasteel/large_stack,
+/obj/item/stack/sheet/plasteel/small_stack,
+/obj/item/stack/sheet/plasteel/small_stack,
+/obj/effect/landmark/sentry,
+/obj/effect/landmark/sentry,
+/obj/effect/landmark/sentry,
 /turf/open/floor/mainship/cargo,
 /area/shuttle/canterbury)
 "qE" = (
@@ -1047,9 +1010,7 @@
 /obj/structure/window/reinforced{
 	dir = 8
 	},
-/obj/structure/prop/holidays/stocking{
-	pixel_y = 26
-	},
+/obj/effect/landmark/corrupted_larva,
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
 "CA" = (
@@ -1362,33 +1323,9 @@
 	},
 /turf/open/floor/mainship/mono,
 /area/shuttle/canterbury)
-"Td" = (
-/obj/effect/spawner/random/food_or_drink/christmas_food,
+"SS" = (
+/obj/effect/landmark/corrupted_larva,
 /turf/open/floor/mainship/mono,
-/area/shuttle/canterbury)
-"Tk" = (
-/obj/effect/spawner/random/misc/present{
-	pixel_x = 6;
-	pixel_y = -2
-	},
-/obj/effect/spawner/random/misc/present{
-	pixel_x = -8;
-	pixel_y = -2
-	},
-/obj/effect/spawner/random/misc/present{
-	pixel_x = -7;
-	pixel_y = 5
-	},
-/obj/effect/spawner/random/misc/present{
-	pixel_y = 5
-	},
-/turf/open/floor/plating/plating_catwalk,
-/area/shuttle/canterbury)
-"Tx" = (
-/obj/structure/prop/holidays/string_lights{
-	dir = 4
-	},
-/turf/closed/wall/mainship/outer/canterbury,
 /area/shuttle/canterbury)
 "TE" = (
 /obj/structure/cable,
@@ -1406,6 +1343,7 @@
 /obj/machinery/light{
 	dir = 8
 	},
+/obj/effect/landmark/zombie_vendor,
 /turf/open/floor/mainship/blue,
 /area/shuttle/canterbury/cic)
 "Ui" = (
@@ -1417,9 +1355,7 @@
 /area/shuttle/canterbury)
 "Ul" = (
 /obj/machinery/vending/nanomed,
-/obj/structure/prop/holidays/string_lights{
-	dir = 1
-	},
+/obj/effect/landmark/corrupted_larva,
 /turf/open/floor/mainship/blue{
 	dir = 10
 	},
@@ -1494,7 +1430,6 @@
 /turf/open/floor/mainship/sterile,
 /area/shuttle/canterbury/medical)
 "Xb" = (
-/obj/structure/barricade/folding,
 /obj/machinery/door_control{
 	dir = 8;
 	id = "aft_engine_podlock"
@@ -1636,9 +1571,9 @@ Ui
 By
 nl
 bi
-pY
-pY
-pY
+hc
+hc
+hc
 ab
 aS
 TE
@@ -1765,8 +1700,8 @@ uu
 bN
 oG
 FZ
-By
-oB
+SS
+ab
 uZ
 an
 ac
@@ -1818,7 +1753,7 @@ Yn
 qE
 XO
 ac
-gv
+hc
 bW
 Uo
 "}
@@ -1851,7 +1786,8 @@ Td
 ac
 ac
 ac
-gv
+ac
+hc
 bW
 Uo
 "}
@@ -1884,7 +1820,7 @@ an
 an
 an
 an
-gv
+hc
 bW
 Uo
 "}
@@ -1917,7 +1853,7 @@ ac
 ac
 ac
 ac
-gv
+hc
 bW
 Uo
 "}

@@ -86,10 +86,10 @@
 		qdel(src)
 		return
 
-	opacity = FALSE
+	set_opacity(FALSE)
 	alpha = 0
 	animate(src, 7 SECONDS, easing = CIRCULAR_EASING|EASE_IN, alpha = initial(alpha))
-	addtimer(VARSET_CALLBACK(src, opacity, initial(opacity)), 5 SECONDS)
+	addtimer(CALLBACK(src, TYPE_PROC_REF(/atom, set_opacity), initial(opacity)), 5 SECONDS)
 
 /obj/effect/particle_effect/smoke/effect_smoke(obj/effect/particle_effect/smoke/S)
 	. = ..()
@@ -113,7 +113,7 @@
 		return
 	var/should_turn_off_cloak = TRUE
 	var/turf/new_turf = get_turf(M)
-	for(var/obj/effect/particle_effect/smoke/smoke_inside_new_turf in new_turf.contents)
+	for(var/obj/effect/particle_effect/smoke/smoke_inside_new_turf in new_turf?.contents)
 		if(smoke_inside_new_turf.smoke_traits & SMOKE_CAMO)
 			if(!isxeno(M) && !(smoke_inside_new_turf.smoke_traits & SMOKE_XENO))
 				should_turn_off_cloak = FALSE

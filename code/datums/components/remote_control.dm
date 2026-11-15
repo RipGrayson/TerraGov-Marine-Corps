@@ -31,8 +31,11 @@
 
 
 /datum/component/remote_control/Destroy(force=FALSE, silent=FALSE)
+	if(is_controlling)
+		remote_control_off()
 	UnregisterSignal(controlled, COMSIG_PREQDELETED)
 	controlled = null
+	ctrl_click_proc = null
 	left_click_proc = null
 	right_click_proc = null
 	return ..()
@@ -71,6 +74,9 @@
 			left_click_proc = CALLBACK(src, PROC_REF(uv_handle_click))
 		if(TURRET_TYPE_EXPLOSIVE)
 			left_click_proc = CALLBACK(src, PROC_REF(uv_handle_click_explosive))
+		if(TURRET_TYPE_CLAW)
+			left_click_proc = CALLBACK(src, PROC_REF(uv_handle_click_claw))
+			right_click_proc = CALLBACK(src, PROC_REF(uv_handle_right_click_claw))
 		else
 			left_click_proc = null
 
@@ -106,6 +112,17 @@
 /datum/component/remote_control/proc/uv_handle_click_explosive(mob/user, atom/target, params)
 	explosion(get_turf(controlled), 1, 2, 3, 4, explosion_cause=user)
 	remote_control_off()
+	return TRUE
+
+///Called when a claw vehicle clicks and tries to grab/pull something
+/datum/component/remote_control/proc/uv_handle_click_claw(mob/user, atom/target, params)
+	var/obj/vehicle/unmanned/T = controlled
+	T.use_claw(target, user)
+	return TRUE
+
+/datum/component/remote_control/proc/uv_handle_right_click_claw(mob/user, atom/target, params)
+	var/obj/vehicle/unmanned/T = controlled
+	T.claw_shove(target, user)
 	return TRUE
 
 ///Self explanatory, toggles remote control

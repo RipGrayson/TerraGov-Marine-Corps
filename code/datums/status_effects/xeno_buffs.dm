@@ -206,12 +206,12 @@
 	if(!toggle)
 		QDEL_NULL(current_beam)
 		return
-	current_beam = link_owner.beam(link_target, icon_state= "medbeam", beam_type = /obj/effect/ebeam/essence_link)
+	current_beam = link_owner.beam(link_target, icon_state = "medbeam", beam_type = /obj/effect/ebeam/essence_link, override_origin_pixel_x = 0, override_target_pixel_x = 0)
 	update_beam()
 
 /// Updates the link's appearance.
 /datum/status_effect/stacking/essence_link/proc/update_beam()
-	current_beam?.visuals.alpha = round(255 / (max_stacks+1 - stacks))
+	current_beam?.alpha = round(255 / (max_stacks+1 - stacks))
 
 /// Ends the link prematurely via evolution/devolution.
 /datum/status_effect/stacking/essence_link/proc/end_link(datum/source)
@@ -464,8 +464,7 @@
 		RegisterSignal(target_mob, COMSIG_XENOMORPH_BRUTE_DAMAGE, PROC_REF(handle_brute_damage))
 		owner.add_filter(id, 2, outline_filter(2, PSYCHIC_LINK_COLOR))
 		target_mob.add_filter(id, 2, outline_filter(2, PSYCHIC_LINK_COLOR))
-		psylink_beam = owner.beam(target_mob, icon_state= "medbeam", beam_type = /obj/effect/ebeam/essence_link)
-		psylink_beam.visuals.alpha = 127
+		psylink_beam = owner.beam(target_mob, icon_state = "medbeam", beam_type = /obj/effect/ebeam/essence_link, override_origin_pixel_x = 0, override_target_pixel_x = 0, alpha = 127)
 		return
 	UnregisterSignal(target_mob, COMSIG_XENOMORPH_BURN_DAMAGE)
 	UnregisterSignal(target_mob, COMSIG_XENOMORPH_BRUTE_DAMAGE)
@@ -741,19 +740,9 @@
 	if(patient.recovery_aura)
 		total_heal_amount *= (1 + patient.recovery_aura * 0.05) //Recovery aura multiplier; 5% bonus per full level
 
-	//Healing pool has been calculated; now to decrement it
-	var/brute_amount = min(patient.bruteloss, total_heal_amount)
-	if(brute_amount)
-		patient.adjustBruteLoss(-brute_amount, updating_health = TRUE)
-		total_heal_amount = max(0, total_heal_amount - brute_amount) //Decrement from our heal pool the amount of brute healed
-
-	if(!total_heal_amount) //no healing left, no need to continue
-		return
-
-	var/burn_amount = min(patient.fireloss, total_heal_amount)
-	if(burn_amount)
-		patient.adjustFireLoss(-burn_amount, updating_health = TRUE)
-
+	var/leftover_healing = total_heal_amount
+	HEAL_XENO_DAMAGE(patient, leftover_healing, FALSE)
+	GLOB.round_statistics.hivelord_healing_infusion += (total_heal_amount - leftover_healing)
 
 ///Called when the target xeno regains Sunder via heal_wounds in life.dm
 /datum/status_effect/healing_infusion/proc/healing_infusion_sunder_regeneration(mob/living/carbon/xenomorph/patient, seconds_per_tick)
@@ -770,7 +759,8 @@
 
 	new /obj/effect/temp_visual/telekinesis(get_turf(patient)) //Visual confirmation
 
-	patient.adjust_sunder(-1.5 * (1 + patient.recovery_aura * 0.05) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD) //5% bonus per rank of our recovery aura
+	var/restored_sunder = patient.adjust_sunder(-1.5 * (1 + patient.recovery_aura * 0.05) * seconds_per_tick * XENO_PER_SECOND_LIFE_MOD) //5% bonus per rank of our recovery aura
+	GLOB.round_statistics.hivelord_healing_infusion_sunder += -restored_sunder
 
 /atom/movable/screen/alert/status_effect/healing_infusion
 	name = "Healing Infusion"

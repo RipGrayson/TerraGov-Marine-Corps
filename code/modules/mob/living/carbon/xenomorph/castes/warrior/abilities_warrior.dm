@@ -6,6 +6,7 @@
 
 /datum/action/ability/xeno_action/empower
 	name = "Empower"
+	desc = "You can be empowered by a primordial drone link."
 	/// Holds the fade-out timer.
 	var/fade_timer
 	/// The amount of abilities we've chained together.
@@ -83,6 +84,10 @@
 	. = ..()
 	desc = "Move on all fours and loosen our scales. Increases movement speed by [abs(speed_modifier)], but reduces all soft armor by [armor_modifier]. Automatically disabled after using an ability."
 
+/datum/action/ability/xeno_action/toggle_agility/update_button_icon()
+	action_icon_state = toggled ? "agility_off" : initial(action_icon_state)
+	return ..()
+
 /datum/action/ability/xeno_action/toggle_agility/action_activate()
 	GLOB.round_statistics.warrior_agility_toggles++
 	SSblackbox.record_feedback("tally", "round_statistics", 1, "warrior_agility_toggles")
@@ -105,6 +110,10 @@
 // ***************************************
 #define WARRIOR_IMPACT_DAMAGE_MULTIPLIER 1.0
 #define WARRIOR_DISPLACE_KNOCKDOWN 0.4 SECONDS
+
+/datum/action/ability/activable/xeno/warrior
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
+	target_flags = ABILITY_MOB_TARGET
 
 /datum/action/ability/activable/xeno/warrior/use_ability(atom/A)
 	var/datum/action/ability/xeno_action/toggle_agility/agility_action = xeno_owner.actions_by_path[/datum/action/ability/xeno_action/toggle_agility]
@@ -197,8 +206,8 @@
 	cooldown_duration = 20 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_LUNGE,
+		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_LUNGE_SELECT,
 	)
-	target_flags = ABILITY_MOB_TARGET
 	/// The starting amount of distance that Fling can go. Compared against euclidean distance. Rounded down for lunge throw.
 	var/starting_lunge_distance = WARRIOR_LUNGE_RANGE
 	/// The target of our lunge, we keep it to check if we are adjacent every time we move.
@@ -206,7 +215,7 @@
 
 /datum/action/ability/activable/xeno/warrior/lunge/New(Target)
 	. = ..()
-	desc = "Lunge towards a target within [starting_lunge_distance] tiles, putting them in our grasp. Usable on allies."
+	desc = "Lunge towards a target within [starting_lunge_distance] tiles, putting them in our grasp. Usable on allies and targets directly behind cover."
 
 /datum/action/ability/activable/xeno/warrior/lunge/on_cooldown_finish()
 	xeno_owner.balloon_alert(xeno_owner, "[initial(name)] ready")
@@ -263,6 +272,14 @@
 
 /// Do the grab on the target, and clean all previous vars
 /datum/action/ability/activable/xeno/warrior/lunge/proc/lunge_grab(atom/A)
+	if(ishuman(A) && (angle2dir(Get_Angle(xeno_owner.throw_source ? xeno_owner.throw_source : get_turf(xeno_owner), A)) in reverse_nearby_direction(A.dir)))
+		var/mob/living/carbon/human/human_target = A
+		if(!human_target.check_shields(COMBAT_TOUCH_ATTACK, 30, "melee"))
+			xeno_owner.Paralyze(XENO_POUNCE_SHIELD_STUN_DURATION)
+			xeno_owner.set_throwing(FALSE)
+			playsound(get_turf(A), 'sound/weapons/alien_knockdown.ogg', 75, TRUE)
+			xeno_owner.visible_message(span_xenowarning("[xeno_owner] is knocked back!"), span_xenowarning("We are knocked back!"))
+			return
 	clean_lunge_target()
 	xeno_owner.swap_hand()
 	if(xeno_owner.start_pulling(A) && isliving(A) && !xeno_owner.issamexenohive(A))
@@ -289,7 +306,7 @@
 		return FALSE
 	if(!line_of_sight(owner, target, 2))
 		return FALSE
-	if(!can_use_ability(target, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
+	if(!can_use_ability(target))
 		return FALSE
 	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
 		return FALSE
@@ -311,8 +328,8 @@
 	cooldown_duration = WARRIOR_FLING_TOSS_COOLDOWN
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_FLING,
+		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_FLING_SELECT,
 	)
-	target_flags = ABILITY_MOB_TARGET
 	/// The starting amount of distance that Fling can go.
 	var/starting_fling_distance = WARRIOR_FLING_DISTANCE
 	/// The multiplier used for the cooldown duration if the ability was used on an allied xenomorph.
@@ -379,7 +396,7 @@
 		return FALSE
 	if(get_dist(target, owner) > 1)
 		return FALSE
-	if(!can_use_ability(target, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
+	if(!can_use_ability(target))
 		return FALSE
 	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
 		return FALSE
@@ -403,6 +420,7 @@
 	cooldown_duration = WARRIOR_FLING_TOSS_COOLDOWN
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_GRAPPLE_TOSS,
+		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_GRAPPLE_TOSS_SELECT,
 	)
 	target_flags = ABILITY_TURF_TARGET
 	/// The starting amount of distance that Toss can go.
@@ -448,7 +466,7 @@
 			living_target.add_pass_flags(PASS_XENO, THROW_TRAIT)
 			shake_camera(living_target, 1, 1)
 			living_target.adjust_stagger(WARRIOR_GRAPPLE_TOSS_STAGGER)
-			living_target.add_slowdown(WARRIOR_GRAPPLE_TOSS_SLOWDOWN)
+			living_target.slowdown(WARRIOR_GRAPPLE_TOSS_SLOWDOWN)
 			living_target.adjust_blurriness(WARRIOR_GRAPPLE_TOSS_SLOWDOWN)
 			living_target.Paralyze(WARRIOR_GRAPPLE_TOSS_THROW_PARALYZE) // very important otherwise the guy can move right as you throw them
 			RegisterSignal(living_target, COMSIG_MOVABLE_IMPACT, PROC_REF(thrown_into))
@@ -486,10 +504,15 @@
 	desc = "Strike a target, inflicting stamina damage, stagger and slowdown. Deals double damage, stagger and slowdown to grappled targets. Deals quadruple damage to structures and machinery."
 	ability_cost = 15
 	cooldown_duration = 10 SECONDS
+	target_flags = NONE //punch is often used specifically to target nonmob things, so we give players the control
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_PUNCH,
+		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_PUNCH_SELECT,
 	)
-	target_flags = ABILITY_MOB_TARGET
+
+/datum/action/ability/activable/xeno/warrior/punch/encounter
+	keybinding_signals = null
+	cooldown_duration = 30 SECONDS
 
 /datum/action/ability/activable/xeno/warrior/punch/on_cooldown_finish()
 	xeno_owner.balloon_alert(xeno_owner, "[initial(name)] ready")
@@ -547,7 +570,7 @@
 		return FALSE
 	if(get_dist(target, owner) > 1)
 		return FALSE
-	if(!can_use_ability(target, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
+	if(!can_use_ability(target))
 		return FALSE
 	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
 		return FALSE
@@ -651,7 +674,7 @@
 	new visual_effect(get_turf(src))
 	playsound(src, sound_effect, 50, 1)
 	shake_camera(src, 1, 1)
-	add_slowdown(slowdown_stacks)
+	slowdown(slowdown_stacks)
 	adjust_stagger(stagger_stacks)
 	adjust_blurriness(slowdown_stacks)
 	apply_damage(punch_damage, BRUTE, target_limb ? target_limb : 0, MELEE, attacker = xeno)
@@ -694,11 +717,12 @@
 	name = "Flurry"
 	action_icon_state = "flurry"
 	action_icon = 'icons/Xeno/actions/warrior.dmi'
-	desc = "Strike at your target with blinding speed."
+	desc = "Strike at your target with blinding speed. Dealing less damage but blinding your target."
 	ability_cost = 10
 	cooldown_duration = 7 SECONDS
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_JAB,
+		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_JAB_SELECT,
 	)
 	/// The amount of charges we currently have. Initial value is assumed to be the maximum.
 	var/current_charges = 3

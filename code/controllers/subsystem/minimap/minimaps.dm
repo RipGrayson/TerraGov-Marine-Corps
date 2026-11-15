@@ -17,7 +17,10 @@
  */
 SUBSYSTEM_DEF(minimaps)
 	name = "Minimaps"
-	init_order = INIT_ORDER_MINIMAPS
+	dependencies = list(
+		/datum/controller/subsystem/mapping,
+		/datum/controller/subsystem/modularmapping,
+	)
 	priority = FIRE_PRIORITY_MINIMAPS
 	wait = 10
 	runlevels = RUNLEVEL_GAME | RUNLEVEL_POSTGAME
@@ -723,6 +726,8 @@ SUBSYSTEM_DEF(minimaps)
 
 ///Sets our map
 /datum/action/minimap/proc/set_map(z_level)
+	if((!QDELETED(map)) && map.tracked_z == z_level)
+		return
 	map = SSminimaps.fetch_minimap_object(z_level, minimap_flags)
 	RegisterSignal(map, COMSIG_QDELETING, PROC_REF(on_map_del))
 

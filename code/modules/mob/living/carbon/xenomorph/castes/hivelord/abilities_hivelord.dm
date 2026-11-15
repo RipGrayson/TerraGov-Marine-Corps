@@ -12,11 +12,14 @@
 	action_icon = 'icons/Xeno/actions/drone.dmi'
 	desc = "We deconstruct the body of a fellow fallen xenomorph to avoid marines from harvesting our sisters in arms."
 	use_state_flags = ABILITY_USE_STAGGERED //can't use while staggered, defender fortified or crest down
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_RECYCLE,
+		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_RECYCLE_SELECT,
 	)
+	target_flags = ABILITY_XENO_TARGET
 	ability_cost = 750
-	gamemode_flags = ABILITY_NUCLEARWAR
+	gamemode_flags = ABILITY_NUCLEARWAR|ABILITY_ENCOUNTER
 
 /datum/action/ability/activable/xeno/recycle/can_use_ability(atom/target, silent = FALSE, override_flags)
 	. = ..()
@@ -27,7 +30,7 @@
 		if(!silent)
 			xeno_owner.balloon_alert(xeno_owner, "too far!")
 		return FALSE
-	if(xeno_owner.on_fire)
+	if(xeno_owner.is_on_fire())
 		if(!silent)
 			xeno_owner.balloon_alert(xeno_owner, "not while on fire!")
 		return FALSE
@@ -61,12 +64,9 @@
 // *********** Resin building
 // ***************************************
 /datum/action/ability/activable/xeno/secrete_resin/hivelord
-	ability_cost = 100
+	ability_cost = 25
 	buildable_structures = list(
 		/turf/closed/wall/resin/regenerating/thick,
-		/turf/closed/wall/resin/regenerating/special/bulletproof,
-		/turf/closed/wall/resin/regenerating/special/fireproof,
-		/turf/closed/wall/resin/regenerating/special/hardy,
 		/obj/alien/resin/sticky,
 		/obj/structure/mineral_door/resin/thick,
 	)
@@ -195,85 +195,6 @@
 	armor_amount = new_armor_amount
 
 // ***************************************
-// *********** Tunnel
-// ***************************************
-/datum/action/ability/xeno_action/build_tunnel
-	name = "Dig Tunnel"
-	action_icon_state = "build_tunnel"
-	action_icon = 'icons/Xeno/actions/hivelord.dmi'
-	desc = "Create a tunnel entrance. Use again to create the tunnel exit."
-	ability_cost = 200
-	cooldown_duration = 120 SECONDS
-	keybinding_signals = list(
-		KEYBINDING_NORMAL = COMSIG_XENOABILITY_BUILD_TUNNEL,
-	)
-
-/datum/action/ability/xeno_action/build_tunnel/can_use_action(silent, override_flags, selecting)
-	. = ..()
-	if(!.)
-		return FALSE
-	var/turf/T = get_turf(owner)
-	if(locate(/obj/structure/xeno/tunnel) in T)
-		if(!silent)
-			T.balloon_alert(owner, "tunnel already here!")
-		return
-	if(!T.can_dig_xeno_tunnel())
-		if(!silent)
-			T.balloon_alert(owner, "bad terrain!")
-		return FALSE
-	if(owner.get_active_held_item())
-		if(!silent)
-			owner.balloon_alert(owner, "need an empty hand!")
-		return FALSE
-
-/datum/action/ability/xeno_action/build_tunnel/on_cooldown_finish()
-	to_chat(xeno_owner, span_notice("We are ready to dig a tunnel again."))
-	return ..()
-
-/datum/action/ability/xeno_action/build_tunnel/action_activate()
-	var/turf/T = get_turf(owner)
-
-	xeno_owner.balloon_alert(xeno_owner, "digging...")
-	xeno_owner.visible_message(span_xenonotice("[xeno_owner] begins digging out a tunnel entrance."), \
-	span_xenonotice("We begin digging out a tunnel entrance."), null, 5)
-	if(!do_after(xeno_owner, HIVELORD_TUNNEL_DIG_TIME, NONE, T, BUSY_ICON_BUILD))
-		xeno_owner.balloon_alert(xeno_owner, "digging aborted")
-		return fail_activate()
-
-	if(!can_use_action(TRUE))
-		return fail_activate()
-
-	T.balloon_alert(xeno_owner, "tunnel dug")
-	xeno_owner.visible_message(span_xenonotice("\The [xeno_owner] digs out a tunnel entrance."), \
-	span_xenonotice("We dig out a tunnel, connecting it to our network."), null, 5)
-	var/obj/structure/xeno/tunnel/newt = new(T, xeno_owner.get_xeno_hivenumber())
-
-	playsound(T, 'sound/weapons/pierce.ogg', 25, 1)
-
-	newt.creator = xeno_owner
-	newt.RegisterSignal(xeno_owner, COMSIG_QDELETING, TYPE_PROC_REF(/obj/structure/xeno/tunnel, clear_creator))
-
-	xeno_owner.tunnels.Add(newt)
-
-	add_cooldown()
-
-	to_chat(xeno_owner, span_xenonotice("We now have <b>[LAZYLEN(xeno_owner.tunnels)] of [HIVELORD_TUNNEL_SET_LIMIT]</b> tunnels."))
-
-	newt.tunnel_desc = "[get_area(newt)] (X: [newt.x], Y: [newt.y])"
-
-	xeno_message("[xeno_owner.name] has built a new tunnel at [newt.tunnel_desc]!", "xenoannounce", 5, xeno_owner.hivenumber)
-
-	if(LAZYLEN(xeno_owner.tunnels) > HIVELORD_TUNNEL_SET_LIMIT) //if we exceed the limit, delete the oldest tunnel set.
-		var/obj/structure/xeno/tunnel/old_tunnel = xeno_owner.tunnels[1]
-		old_tunnel.deconstruct(FALSE)
-		to_chat(xeno_owner, span_xenodanger("Having exceeding our tunnel limit, our oldest tunnel has collapsed."))
-
-	succeed_activate()
-	playsound(T, 'sound/weapons/pierce.ogg', 25, 1)
-
-
-
-// ***************************************
 // *********** plasma transfer
 // ***************************************
 /datum/action/ability/activable/xeno/transfer_plasma/improved
@@ -318,7 +239,7 @@
 
 	succeed_activate()
 
-	playsound(owner, SFX_ALIEN_RESIN_BUILD, 25)
+	playsound(owner, SFX_ALIEN_RESIN_BUILD, 25, FALSE, MEDIUM_SOUND_RANGE)
 	var/obj/structure/xeno/resin_jelly_pod/pod = new(T, owner.get_xeno_hivenumber())
 	to_chat(owner, span_xenonotice("We shape some resin into \a [pod]."))
 	add_cooldown()
@@ -334,6 +255,9 @@
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_CREATE_JELLY,
 	)
 	use_state_flags = ABILITY_USE_LYING|ABILITY_USE_BUCKLED
+
+/datum/action/ability/xeno_action/create_jelly/encounter
+	keybinding_signals = null
 
 /datum/action/ability/xeno_action/create_jelly/can_use_action(silent, override_flags, selecting)
 	. = ..()
@@ -361,11 +285,13 @@
 	desc = "Psychically infuses a friendly xeno with regenerative energies, greatly improving its natural healing. Doesn't work if the target can't naturally heal."
 	cooldown_duration = 12.5 SECONDS
 	ability_cost = 200
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HEALING_INFUSION,
+		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_HEALING_INFUSION_SELECT,
 	)
 	use_state_flags = ABILITY_USE_LYING
-	target_flags = ABILITY_MOB_TARGET
+	target_flags = ABILITY_XENO_TARGET
 	/// The range in which this ability can be used.
 	var/heal_range = HIVELORD_HEAL_RANGE
 	/// The length of deciseconds that the Resin Jelly Coating status effect will be applied.
@@ -423,9 +349,9 @@
 	owner.visible_message(span_xenodanger("\the [owner] infuses [target] with mysterious energy!"), \
 	span_xenodanger("We empower [target] with our [src]!"))
 
-	playsound(target, 'sound/effects/magic.ogg', 25) //Cool SFX
-	playsound(owner, 'sound/effects/magic.ogg', 25) //Cool SFX
-	owner.beam(target, "medbeam", time = 1 SECONDS, maxdistance = 10)
+	playsound(target, 'sound/effects/magic.ogg', 25, FALSE, MEDIUM_SOUND_RANGE) //Cool SFX
+	playsound(owner, 'sound/effects/magic.ogg', 25, FALSE, MEDIUM_SOUND_RANGE) //Cool SFX
+	owner.beam(target, icon_state = "medbeam", time = 1 SECONDS, max_distance = 10, override_origin_pixel_x = 0, override_target_pixel_x = 0)
 	new /obj/effect/temp_visual/telekinesis(get_turf(owner))
 	new /obj/effect/temp_visual/telekinesis(get_turf(target))
 	to_chat(target, span_xenodanger("Our wounds begin to knit and heal rapidly as [owner]'s healing energies infuse us.")) //Let the target know.
@@ -475,7 +401,7 @@
 	if(!xeno_owner.selected_plant)
 		return FALSE
 
-	playsound(src, SFX_ALIEN_RESIN_BUILD, 25)
+	playsound(src, SFX_ALIEN_RESIN_BUILD, 25, FALSE, MEDIUM_SOUND_RANGE)
 	new xeno_owner.selected_plant(get_turf(owner))
 	add_cooldown()
 	return succeed_activate()
@@ -547,6 +473,6 @@
 /datum/action/ability/xeno_action/place_recovery_pylon/action_activate()
 	var/obj/structure/xeno/recovery_pylon/recovery_pylon = new(get_turf(xeno_owner), xeno_owner.get_xeno_hivenumber(), radius, damage_modifier)
 	to_chat(xeno_owner, span_xenonotice("We shape some resin into \a [recovery_pylon]."))
-	playsound(xeno_owner, SFX_ALIEN_RESIN_BUILD, 25)
+	playsound(xeno_owner, SFX_ALIEN_RESIN_BUILD, 25, FALSE, MEDIUM_SOUND_RANGE)
 	succeed_activate()
 	add_cooldown()

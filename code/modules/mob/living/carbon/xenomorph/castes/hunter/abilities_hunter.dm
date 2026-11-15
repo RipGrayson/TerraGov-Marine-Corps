@@ -5,7 +5,6 @@
 	name = "Toggle Stealth"
 	action_icon_state = "hunter_invisibility"
 	action_icon = 'icons/Xeno/actions/hunter.dmi'
-	desc = "Become harder to see, almost invisible if you stand still, and ready a sneak attack. Uses plasma to move."
 	ability_cost = 10
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_STEALTH,
@@ -27,6 +26,10 @@
 	/// How much does a successful sneak attack blind for?
 	var/blinding_stacks = 0
 
+/datum/action/ability/xeno_action/stealth/New(Target)
+	. = ..()
+	desc = "Become harder to see, even harder to see when stalking, and almost invisible if you stand still. While invisible you sneak attack for a [sneak_attack_stun_duration / (1 SECONDS)] second stun. Uses plasma to move and lowers plasma gain."
+
 /datum/action/ability/xeno_action/stealth/remove_action(mob/living/L)
 	if(stealth)
 		cancel_stealth()
@@ -36,7 +39,7 @@
 	. = ..()
 	if(!.)
 		return FALSE
-	if(xeno_owner.on_fire)
+	if(xeno_owner.is_on_fire())
 		to_chat(xeno_owner, "<span class='warning'>We're too busy being on fire to enter Stealth!</span>")
 		return FALSE
 	return TRUE
@@ -183,7 +186,7 @@
 		return
 	if(can_sneak_attack)
 		M.adjust_stagger(3 SECONDS)
-		M.add_slowdown(1)
+		M.adjust_slowdown(1)
 		to_chat(owner, span_xenodanger("Pouncing from the shadows, we stagger our victim."))
 
 ///Special sneak attack when stealthed
@@ -209,7 +212,7 @@
 	owner.visible_message(span_danger("\The [owner] strikes [target] with [flavour] precision!"), \
 	span_danger("We strike [target] with [flavour] precision!"))
 	target.adjust_stagger(staggerslow_stacks SECONDS)
-	target.add_slowdown(staggerslow_stacks)
+	target.slowdown(staggerslow_stacks)
 	if(blinding_stacks)
 		target.blind_eyes(blinding_stacks)
 	if(sneak_attack_stun_duration)
@@ -246,7 +249,7 @@
 	name = "Disguise"
 	action_icon_state = "xenohide"
 	action_icon = 'icons/Xeno/actions/general.dmi'
-	desc = "Disguise yourself as the enemy. Uses plasma to move. Select your disguise with Hunter's Mark."
+	desc = "Disguise yourself as a mob or an object. Uses plasma to move. Select your disguise with Hunter's Mark."
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_TOGGLE_DISGUISE,
 	)
@@ -296,13 +299,14 @@
 
 /datum/action/ability/activable/xeno/pounce
 	name = "Pounce"
-	desc = "Leap at your target, tackling and disarming them."
 	action_icon_state = "pounce"
 	action_icon = 'icons/Xeno/actions/runner.dmi'
 	ability_cost = 20
 	cooldown_duration = 10 SECONDS
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_HUNTER_POUNCE,
+		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_HUNTER_POUNCE_SELECT,
 	)
 	use_state_flags = ABILITY_USE_BUCKLED
 	/// The range of this ability.
@@ -315,6 +319,10 @@
 	var/attack_on_pounce = FALSE
 	/// Pass_flags given when leaping.
 	var/leap_pass_flags = PASS_LOW_STRUCTURE|PASS_FIRE|PASS_XENO
+
+/datum/action/ability/activable/xeno/pounce/New(Target)
+	. = ..()
+	desc = "Leap at your target up to [HUNTER_POUNCE_RANGE] tiles away, stunning them for [XENO_POUNCE_STUN_DURATION / (1 SECONDS)] seconds."
 
 /datum/action/ability/activable/xeno/pounce/on_cooldown_finish()
 	owner.balloon_alert(owner, "pounce ready")
@@ -355,18 +363,20 @@
 	if(living_target.stat || isxeno(living_target)) //we leap past xenos
 		return
 
-	if(ishuman(living_target) && (angle_to_dir(Get_Angle(xeno_owner.throw_source, living_target)) in reverse_nearby_direction(living_target.dir)))
+	if(ishuman(living_target) && (angle2dir(Get_Angle(xeno_owner.throw_source, living_target)) in reverse_nearby_direction(living_target.dir)))
 		var/mob/living/carbon/human/human_target = living_target
 		if(!human_target.check_shields(COMBAT_TOUCH_ATTACK, 30, "melee"))
 			xeno_owner.Paralyze(XENO_POUNCE_SHIELD_STUN_DURATION)
 			xeno_owner.set_throwing(FALSE)
+			playsound(get_turf(living_target), 'sound/weapons/alien_knockdown.ogg', 75, TRUE)
+			xeno_owner.visible_message(span_xenowarning("[xeno_owner] is knocked back!"), span_xenowarning("We are knocked back!"))
 			return
 	trigger_pounce_effect(living_target)
 	pounce_complete()
 
 ///Triggers the effect of a successful pounce on the target.
 /datum/action/ability/activable/xeno/pounce/proc/trigger_pounce_effect(mob/living/living_target)
-	playsound(get_turf(living_target), 'sound/voice/alien/pounce.ogg', 25, TRUE)
+	playsound(get_turf(living_target), 'sound/voice/alien/pounce.ogg', 25, TRUE, MEDIUM_SOUND_RANGE)
 	xeno_owner.Immobilize(self_immobilize_duration)
 	xeno_owner.forceMove(get_turf(living_target))
 	living_target.Knockdown(stun_duration)
@@ -390,7 +400,7 @@
 		return FALSE
 	if(!line_of_sight(owner, target, pounce_range))
 		return FALSE
-	if(!can_use_ability(target, override_flags = ABILITY_IGNORE_SELECTED_ABILITY))
+	if(!can_use_ability(target))
 		return FALSE
 	if(target.get_xeno_hivenumber() == owner.get_xeno_hivenumber())
 		return FALSE
@@ -550,7 +560,6 @@
 	name = "Mirage"
 	action_icon_state = "mirror_image"
 	action_icon = 'icons/Xeno/actions/hunter.dmi'
-	desc = "Create mirror images of ourselves. Reactivate to swap with an illusion."
 	ability_cost = 50
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_MIRAGE,
@@ -572,6 +581,10 @@
 	var/mob/illusion/xeno/prioritized_illusion
 	/// The timer ID of the timer that clear all illusions.
 	var/timer_id
+
+/datum/action/ability/xeno_action/mirage/New(Target)
+	. = ..()
+	desc = "Create [illusion_count] mirror images of ourselves. Reactivate to swap with an illusion."
 
 /datum/action/ability/xeno_action/mirage/remove_action()
 	clean_illusions(FALSE) // No need to manually delete the illusions as the illusions will delete themselves once their life time expires.
@@ -652,8 +665,10 @@
 	action_icon = 'icons/Xeno/actions/hunter.dmi'
 	desc = "Impairs the ability of hostile living creatures we can see in a 5x5 area. Targets will be unable to speak and hear for 10 seconds, or 15 seconds if they're your Hunter Mark target."
 	ability_cost = 50
+	keybind_flags = ABILITY_KEYBIND_USE_ABILITY
 	keybinding_signals = list(
 		KEYBINDING_NORMAL = COMSIG_XENOABILITY_SILENCE,
+		KEYBINDING_ALTERNATE = COMSIG_XENOABILITY_SILENCE_SELECT,
 	)
 	cooldown_duration = HUNTER_SILENCE_COOLDOWN
 	/// The multiplier of Silence's effects to the victim that the owner has selected with Hunter's Mark.
@@ -702,7 +717,7 @@
 		target.adjust_stagger(HUNTER_SILENCE_STAGGER_DURATION * silence_multiplier)
 		target.adjust_blurriness(HUNTER_SILENCE_SENSORY_STACKS * silence_multiplier)
 		target.adjust_ear_damage(HUNTER_SILENCE_SENSORY_STACKS * silence_multiplier, HUNTER_SILENCE_SENSORY_STACKS * silence_multiplier)
-		target.apply_status_effect(/datum/status_effect/mute, HUNTER_SILENCE_MUTE_DURATION * silence_multiplier)
+		target.apply_status_effect(STATUS_EFFECT_MUTED, HUNTER_SILENCE_MUTE_DURATION * silence_multiplier)
 		victim_count++
 
 	if(!victim_count)
