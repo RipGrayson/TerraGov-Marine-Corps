@@ -38,6 +38,21 @@
 	toggleable = 1
 	actions_types = list(/datum/action/item_action/toggle)
 
+/obj/item/clothing/glasses/night/grinch
+	name = "\improper Grinch Eyes"
+	desc = "And as he saw TerraGov Marines a-coming, he said to himself, I must give them a thumping."
+	icon = 'icons/obj/clothing/glasses.dmi'
+	icon_state = "grincheye"
+	deactive_state = "grincheye"
+	vision_flags = SEE_TURFS
+	item_flags = DELONDROP
+	toggleable = 1
+	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 0, ENERGY = 15, BOMB = 35, BIO = 10, FIRE = 30, ACID = 120)
+	actions_types = list(/datum/action/item_action/toggle)
+
+/obj/item/clothing/glasses/glasses/night/grinch/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_ACTUAL_CHRISTMAS_GRINCH)
 
 /obj/item/clothing/glasses/night/m42_night_goggles/upp
 	name = "\improper Type 9 elite goggles"

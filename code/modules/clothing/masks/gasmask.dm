@@ -130,6 +130,21 @@
 /obj/item/clothing/mask/gas/swat/santa/eventspawn
 	anti_hug = 1
 
+/obj/item/clothing/mask/gas/swat/grinch
+	name = "\improper Grinch's Face"
+	desc = "It's the ugly mug of the Grinch! While not the most well-kept face in existence, the owner of this face finds it quite handsome."
+	icon_state = "grinchmask"
+	anti_hug = 125
+	breathy = FALSE
+	item_flags = DELONDROP
+	toggleable = FALSE
+	inventory_flags = COVERMOUTH|BLOCKGASEFFECT
+	soft_armor = list(MELEE = 75, BULLET = 35, LASER = 25, ENERGY = 25, BOMB = 25, BIO = 85, FIRE = 25, ACID = 125)
+
+/obj/item/clothing/mask/gas/swat/grinch/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_ACTUAL_CHRISTMAS_GRINCH)
+
 /obj/item/clothing/mask/gas/pmc/damaged
 	name = "damaged M8 pattern armored balaclava"
 	anti_hug = 0

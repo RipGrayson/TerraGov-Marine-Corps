@@ -334,21 +334,22 @@
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/explosive/grenade/pmc, SLOT_IN_BACKPACK)
 
-/datum/outfit/job/grinch //like ERT santa, but less OP
+/datum/outfit/job/grinch
 	name = "The Grinch"
 	jobtype = /datum/job/santa/grinch
 
 	id = /obj/item/card/id/gold
 	belt = /obj/item/storage/belt/hypospraybelt/full
-	ears = /obj/item/radio/headset/distress/commando
-	w_uniform = /obj/item/clothing/under/marine/veteran/pmc/commando
-	shoes = /obj/item/clothing/shoes/galoshes
+	ears = /obj/item/radio/headset/mainship/marine/grinch
+	w_uniform = /obj/item/clothing/under/grinch
+	shoes = /obj/item/clothing/shoes/grinch
 	wear_suit = /obj/item/clothing/suit/space/grinch
-	gloves = /obj/item/clothing/gloves/insulated
+	gloves = /obj/item/clothing/gloves/grinch
+	mask = /obj/item/clothing/mask/gas/swat/grinch
 	r_pocket = /obj/item/storage/pouch/tools/full
 	l_pocket = /obj/item/storage/pouch/construction/full
 	back = /obj/item/storage/backpack/santabag
-	glasses = /obj/item/clothing/glasses/welding/superior
+	glasses = /obj/item/clothing/glasses/night/grinch
 
 /datum/outfit/job/grinch/post_equip(mob/living/carbon/human/H, visualsOnly = FALSE)
 	. = ..()

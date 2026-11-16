@@ -299,14 +299,6 @@
 		var/mob/M = src.loc
 		M.update_inv_shoes()
 
-/obj/item/clothing/suit/space/santa
-	name = "Santa's suit"
-	desc = "Festive!"
-	icon_state = "santa"
-	worn_icon_state = "santa"
-	slowdown = 0
-	allowed = list(/obj/item) //for stuffing exta special presents
-
 /obj/item/clothing/suit/space/grinch
 	name = "Grinch's Hide"
 	desc = "Smells like old dumpster..."
@@ -315,14 +307,22 @@
 	inventory_flags = COVEREYES|BLOCKSHARPOBJ
 	inv_hide_flags = HIDEEARS|HIDEEYES|HIDEALLHAIR
 	slowdown = -1.0
-	allowed = list(/obj/item) //for stuffing exta special presents
-	soft_armor = list(MELEE = 55, BULLET = 90, LASER = 120, ENERGY = 65, BOMB = 80, BIO = 70, FIRE = 95, ACID = 25)
+	allowed = list(/obj/item)
+	soft_armor = list(MELEE = 55, BULLET = 90, LASER = 120, ENERGY = 80, BOMB = 80, BIO = 80, FIRE = 95, ACID = 125)
 	item_flags = DELONDROP
 
 /obj/item/clothing/suit/space/grinch/Initialize(mapload)
 	. = ..()
-	AddComponent(/datum/component/stun_mitigation, slot_override = SLOT_WEAR_SUIT, shield_cover = list(MELEE = 50, BULLET = 50, LASER = 50, ENERGY = 50, BOMB = 50, BIO = 50, FIRE = 50, ACID = 50))
+	AddComponent(/datum/component/stun_mitigation, slot_override = SLOT_WEAR_SUIT, shield_cover = list(MELEE = 80, BULLET = 90, LASER = 80, ENERGY = 80, BOMB = 80, BIO = 80, FIRE = 80, ACID = 125))
 	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_ACTUAL_CHRISTMAS_GRINCH)
+
+/obj/item/clothing/suit/space/santa
+	name = "Santa's suit"
+	desc = "Festive!"
+	icon_state = "santa"
+	worn_icon_state = "santa"
+	slowdown = 0
+	allowed = list(/obj/item) //for stuffing exta special presents
 
 /obj/item/clothing/suit/space/santa/special //for ERT, when santa has to give presents to REALLY naughty children
 	desc = "That's not red dye. That's red blood."

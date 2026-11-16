@@ -68,6 +68,22 @@
 	inventory_flags = NOSLIPPING
 	slowdown = SHOES_SLOWDOWN+1
 
+/obj/item/clothing/shoes/grinch
+	desc = "Stinky grinch feet... ew."
+	name = "grinch feet"
+	icon_state = "grinchshoe"
+	permeability_coefficient = 0.05
+	inventory_flags = NOSLIPPING
+	soft_armor = list(MELEE = 80, BULLET = 90, LASER = 90, ENERGY = 85, BOMB = 120, BIO = 85, FIRE = 75, ACID = 40)
+	armor_protection_flags = FEET
+	slowdown = SLOWDOWN_ARMOR_VERY_LIGHT
+	item_flags = DELONDROP
+	soft_armor = list(MELEE = 80, BULLET = 90, LASER = 90, ENERGY = 85, BOMB = 120, BIO = 85, FIRE = 75, ACID = 40)
+
+/obj/item/clothing/shoes/grinch/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_ACTUAL_CHRISTMAS_GRINCH)
+
 /obj/item/clothing/shoes/clown_shoes
 	desc = "The prankster's standard-issue clowning shoes. Damn they're huge!"
 	name = "clown shoes"

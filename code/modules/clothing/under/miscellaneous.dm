@@ -392,3 +392,20 @@
 	worn_icon_state = "tp_bodyrobes"
 	armor_protection_flags = CHEST|GROIN|LEGS|ARMS
 
+/obj/item/clothing/under/grinch
+	name = "\improper Grinch's shirt"
+	desc = "It's made from authentic reindeer leather. The tag on the back says 'made in China', whatever that means."
+	siemens_coefficient = 0
+	icon = 'icons/obj/clothing/uniforms/uniforms.dmi'
+	icon_state = "grinchshirt"
+	armor_protection_flags = CHEST|GROIN|LEGS|ARMS
+	cold_protection_flags = CHEST|GROIN|LEGS|ARMS
+	min_cold_protection_temperature = SPACE_SUIT_MIN_COLD_PROTECTION_TEMPERATURE
+	soft_armor = list(MELEE = 30, BULLET = 30, LASER = 30, ENERGY = 30, BOMB = 30, BIO = 30, FIRE = 30, ACID = 120)
+	gas_transfer_coefficient = 0.01
+	permeability_coefficient = 0.01
+	worn_icon_list = list(
+		slot_w_uniform_str = 'icons/mob/clothing/uniforms/uniforms.dmi',
+		slot_l_hand_str = 'icons/mob/inhands/items/items_left.dmi',
+		slot_r_hand_str = 'icons/mob/inhands/items/items_right.dmi',
+	)

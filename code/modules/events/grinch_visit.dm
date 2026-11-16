@@ -202,7 +202,7 @@
 /datum/action/innate/return_to_point/Activate()
 	if(!returning)
 		to_chat(usr, "You begin establishing this as a safe hide out to return to in the event of danger.")
-		if(!do_after(usr, 5 SECONDS, NONE))
+		if(!do_after(usr, 1 SECONDS, NONE))
 			to_chat(usr, "You give up establishing this as a safe area to return to.")
 			return
 		safezone = get_turf(usr)

@@ -596,6 +596,17 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	icon_state = "headset_marine_generic"
 	minimap_type = /datum/action/minimap/marine
 
+/obj/item/radio/headset/mainship/marine/grinch
+	name = "generic radio headset, grinch edition"
+	icon_state = "headset_marine_generic"
+	minimap_type = /datum/action/minimap/xeno
+	item_flags = DELONDROP
+	faction = FACTION_XENO
+
+/obj/item/radio/headset/mainship/marine/grinch/Initialize(mapload) ///more to keep people from stealing the headset upon grinch death than to keep the grinch from removing it
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_ACTUAL_CHRISTMAS_GRINCH)
+
 /obj/item/radio/headset/mainship/marine/generic/cas
 	name = "marine fire support specialist headset"
 	icon_state = "sec_headset"

@@ -30,6 +30,22 @@
 	heat_protection_flags = HANDS
 	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
 
+/obj/item/clothing/gloves/grinch
+	desc = "Due to a decade of avoiding handwashing, the Grinch's hands are immune to shocks by virtue of caked on dirt."
+	name = "Grinch hands"
+	icon_state = "grinchhands"
+	siemens_coefficient = 0
+	permeability_coefficient = 0.05
+	cold_protection_flags = HANDS
+	min_cold_protection_temperature = GLOVES_MIN_COLD_PROTECTION_TEMPERATURE
+	heat_protection_flags = HANDS
+	max_heat_protection_temperature = GLOVES_MAX_HEAT_PROTECTION_TEMPERATURE
+	item_flags = DELONDROP
+
+/obj/item/clothing/gloves/grinch/Initialize(mapload)
+	. = ..()
+	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_ACTUAL_CHRISTMAS_GRINCH)
+
 /obj/item/clothing/gloves/ruggedgloves
 	desc = "A pair of gloves used by workers in dangerous environments."
 	name = "rugged gloves"
