@@ -11246,6 +11246,11 @@
 /obj/machinery/vending/weapon,
 /turf/open/floor/mainship/floor,
 /area/mainship/living/mechpilotquarters)
+"ndh" = (
+/obj/machinery/computer/fire_support,
+/obj/structure/table/mainship/nometal,
+/turf/open/floor/mainship/mono,
+/area/mainship/command/cic)
 "ndA" = (
 /obj/machinery/vending/uniform_supply,
 /turf/open/floor/mainship/orange{
@@ -53851,7 +53856,7 @@ snn
 fXS
 fXS
 fgW
-yaz
+ndh
 yaz
 yaz
 fgW

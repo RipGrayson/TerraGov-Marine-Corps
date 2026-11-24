@@ -28397,6 +28397,13 @@
 /obj/machinery/vending/dinnerware,
 /turf/open/floor/prison/sterilewhite,
 /area/sulaco/cafeteria/kitchen)
+"wQE" = (
+/obj/machinery/computer/fire_support,
+/obj/structure/table/mainship/nometal,
+/turf/open/floor/prison/red{
+	dir = 9
+	},
+/area/sulaco/bridge)
 "wRq" = (
 /obj/structure/cable,
 /obj/machinery/atmospherics/pipe/simple/cyan/hidden/layer1{
@@ -47483,7 +47490,7 @@ nzi
 qDO
 aEH
 asP
-arZ
+wQE
 aqt
 asU
 atp

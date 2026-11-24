@@ -599,8 +599,8 @@
 
 	if(HAS_SPATIAL_GRID_CONTENTS(src))
 		if(old_turf && new_turf && (old_turf.z != new_turf.z \
-			|| ROUND_UP(old_turf.x / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.x / SPATIAL_GRID_CELLSIZE) \
-			|| ROUND_UP(old_turf.y / SPATIAL_GRID_CELLSIZE) != ROUND_UP(new_turf.y / SPATIAL_GRID_CELLSIZE)))
+			|| GET_SPATIAL_INDEX(old_turf.x) != GET_SPATIAL_INDEX(new_turf.x) \
+			|| GET_SPATIAL_INDEX(old_turf.y) != GET_SPATIAL_INDEX(new_turf.y)))
 
 			SSspatial_grid.exit_cell(src, old_turf)
 			SSspatial_grid.enter_cell(src, new_turf)
@@ -678,11 +678,23 @@
 
 /atom/movable/Exited(atom/movable/gone, direction)
 	. = ..()
-	if(LAZYLEN(gone.important_recursive_contents))
-		var/list/nested_locs = get_nested_locs(src) + src
-		for(var/channel in gone.important_recursive_contents)
-			for(var/atom/movable/location AS in nested_locs)
-				LAZYREMOVEASSOC(location.important_recursive_contents, channel, gone.important_recursive_contents[channel])
+	if(!LAZYLEN(gone.important_recursive_contents))
+		return
+	var/list/nested_locs = get_nested_locs(src) + src
+	for(var/channel in gone.important_recursive_contents)
+		for(var/atom/movable/location as anything in nested_locs)
+			LAZYINITLIST(location.important_recursive_contents)
+			var/list/recursive_contents = location.important_recursive_contents // blue hedgehog velocity
+			LAZYINITLIST(recursive_contents[channel])
+			recursive_contents[channel] -= gone.important_recursive_contents[channel]
+			switch(channel)
+				if(RECURSIVE_CONTENTS_CLIENT_MOBS, RECURSIVE_CONTENTS_HEARING_SENSITIVE)
+					if(!length(recursive_contents[channel]))
+						// This relies on a nice property of the linked recursive and gridmap types
+						// They're defined in relation to each other, so they have the same value
+						SSspatial_grid.remove_grid_awareness(location, channel)
+			ASSOC_UNSETEMPTY(recursive_contents, channel)
+			UNSETEMPTY(location.important_recursive_contents)
 
 /atom/movable/Entered(atom/movable/arrived, atom/old_loc)
 	. = ..()
@@ -781,6 +793,9 @@
 
 	throw_source = get_turf(src)	//store the origin turf
 
+	if((target.z == z + 1) && GET_TURF_ABOVE(origin) && zMove(UP, z_move_flags = ZMOVE_CHECK_PULLS))
+		range = max(0, range*0.5)
+
 	var/dist_x = abs(target.x - x)
 	var/dist_y = abs(target.y - y)
 
@@ -801,7 +816,7 @@
 	var/failed_to_move = FALSE
 	if(dist_x > dist_y)
 		var/error = dist_x/2 - dist_y
-		while(!gc_destroyed && target &&((((x < target.x && dx == EAST) || (x > target.x && dx == WEST))  && get_dist_euclidean(origin, src) < range) || isspaceturf(loc)) && (!failed_to_move && throwing) && istype(loc, /turf))
+		while(!gc_destroyed && target &&((((x < target.x && dx == EAST) || (x > target.x && dx == WEST))  && get_dist_euclidean_2d(origin, src) < range) || isspaceturf(loc)) && (!failed_to_move && throwing) && istype(loc, /turf))
 			// only stop when we've gone the whole distance (or max throw range) and are on a non-space tile, or hit something, or hit the end of the map, or someone picks it up
 			if(error < 0)
 				var/atom/step = get_step(src, dy)
@@ -827,7 +842,7 @@
 					sleep(0.1 SECONDS)
 	else
 		var/error = dist_y/2 - dist_x
-		while(!gc_destroyed && target &&((((y < target.y && dy == NORTH) || (y > target.y && dy == SOUTH)) && get_dist_euclidean(origin, src) < range) || isspaceturf(loc)) && (!failed_to_move && throwing) && istype(loc, /turf))
+		while(!gc_destroyed && target &&((((y < target.y && dy == NORTH) || (y > target.y && dy == SOUTH)) && get_dist_euclidean_2d(origin, src) < range) || isspaceturf(loc)) && (!failed_to_move && throwing) && istype(loc, /turf))
 			// only stop when we've gone the whole distance (or max throw range) and are on a non-space tile, or hit something, or hit the end of the map, or someone picks it up
 			if(error < 0)
 				var/atom/step = get_step(src, dx)
@@ -868,11 +883,12 @@
 	thrown_speed = 0
 	throw_source = null
 
-	if(!currently_z_moving) // I don't think you can zfall while thrown but hey, just in case.
+	SEND_SIGNAL(src, COMSIG_MOVABLE_POST_THROW)
+
+	if(!currently_z_moving) //after post throw, sigs, for e.g if they change the pass flags
 		var/turf/T = get_turf(src)
 		T?.zFall(src)
 
-	SEND_SIGNAL(src, COMSIG_MOVABLE_POST_THROW)
 	if(loc)
 		SEND_SIGNAL(loc, COMSIG_TURF_THROW_ENDED_HERE, src)
 

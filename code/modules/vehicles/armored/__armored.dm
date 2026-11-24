@@ -45,6 +45,8 @@
 	var/damage_icon_path
 	///Overlay for larger vehicles that need under parts
 	var/image/underlay
+	///image being used for the user created decal
+	var/image/user_decal
 
 	///reference to our interior datum if set, uses the typepath its set to
 	var/datum/interior/armored/interior
@@ -94,8 +96,6 @@
 	var/wreck_repair_stage = 0
 
 /obj/vehicle/sealed/armored/Initialize(mapload)
-	if(type != /obj/vehicle/sealed/armored/multitile) //TODO: TESTING ONLY, SO MRAP DOESN'T HAVE A VALUE OF 5 IN A SEPARATE PR
-		larva_value = 0
 	easy_load_list = typecacheof(easy_load_list)
 	if(interior)
 		interior = new interior(src, CALLBACK(src, PROC_REF(interior_exit)))
@@ -227,14 +227,35 @@
 /obj/vehicle/sealed/armored/update_overlays()
 	. = ..()
 	if(secondary_weapon_overlay)
-		. += secondary_weapon_overlay
+		//we shouldn't have to do this, but managed overlays for this are really cursed and create duplicates. Please fix
+		update_secondary_overlay()
 
 /obj/vehicle/sealed/armored/setDir(newdir)
 	. = ..()
 	if(secondary_weapon_overlay)
-		cut_overlay(secondary_weapon_overlay)
-		secondary_weapon_overlay.icon_state = secondary_weapon.icon_state + "_" + "[newdir]"
-		add_overlay(secondary_weapon_overlay)
+		update_secondary_overlay(newdir)
+
+	if(user_decal)
+		cut_overlay(user_decal)
+		update_decal_offsets()
+		add_overlay(user_decal)
+
+///update secondary weapon overlays for vehicles that only have a secondary weapon
+/obj/vehicle/sealed/armored/proc/update_secondary_overlay(armored_new_dir, secondary_new_dir)
+	//This only exists because managed overlays does not play nice when using an image that has its dir and icon_state changed constantly, leading to duplicate states.
+	if(!secondary_weapon_overlay)
+		return
+	cut_overlay(secondary_weapon_overlay)
+	if(secondary_new_dir)
+		secondary_weapon_overlay.dir = secondary_new_dir
+	if(armored_new_dir)
+		secondary_weapon_overlay.icon_state = secondary_weapon.icon_state + "_" + "[armored_new_dir]"
+	add_overlay(secondary_weapon_overlay)
+
+///called to update the offsets of the user created decal to fit on the tank properly. implemented on case by case basis based on the sprite
+/obj/vehicle/sealed/armored/proc/update_decal_offsets()
+	SHOULD_CALL_PARENT(FALSE)
+	return
 
 /obj/vehicle/sealed/armored/examine(mob/user)
 	. = ..()
@@ -582,6 +603,33 @@
 		var/obj/item/tank_module/mod = I
 		mod.on_equip(src, user)
 		return
+	if(istype(I, /obj/item/tool/soap))
+		if(!user_decal)
+			balloon_alert(user, "No decal to remove")
+			return
+		if(user.skills.getRating(SKILL_LARGE_VEHICLE) < required_entry_skill)
+			balloon_alert(user, "Not skilled enough to wash this vehicle")
+			return FALSE
+		if(!do_after(user, 1 SECONDS, NONE, src))
+			return
+		cut_overlay(user_decal)
+		user_decal = null
+		return
+	if(istype(I, /obj/item/facepaint))
+		if(!(armored_flags & ARMORED_ALLOW_DECALS))
+			balloon_alert(user, "This vehicle does not allow decals")
+			return
+		if(user_decal)
+			balloon_alert(user, "Already has a decal")
+			return
+		var/datum/custom_decal/decal = SScustom_decals.radial_poll_user_fav_decals(user, src)
+		if(!decal)
+			return
+
+		user_decal = image(decal.decal_icon, layer=layer+1)
+		update_decal_offsets()
+		add_overlay(user_decal)
+		return
 	if(!istype(I, /obj/item/ammo_magazine))
 		try_easy_load(I, user)
 		return
@@ -653,6 +701,7 @@
 /obj/vehicle/sealed/armored/welder_act(mob/user, obj/item/tool)
 	return welder_repair_act(user, tool, 50, 5 SECONDS, 0, SKILL_ENGINEER_METAL, 5, 2 SECONDS)
 
+
 /obj/vehicle/sealed/armored/crowbar_act(mob/user, obj/item/tool)
 	. = ..()
 	if(user.skills.getRating(SKILL_LARGE_VEHICLE) < required_entry_skill)
@@ -718,6 +767,8 @@
 
 ///Rotates the cannon overlay
 /obj/vehicle/sealed/armored/proc/swivel_turret(atom/A, new_weapon_dir)
+	if(!turret_overlay)
+		return
 	if(!new_weapon_dir)
 		new_weapon_dir = angle2dir_cardinal(Get_Angle(get_turf(src), get_turf(A)))
 	if(turret_overlay.dir == new_weapon_dir)
