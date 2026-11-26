@@ -70,7 +70,7 @@
 
 /obj/item/clothing/shoes/grinch
 	desc = "Stinky grinch feet... ew."
-	name = "grinch feet"
+	name = "Grinch's Feet"
 	icon_state = "grinchshoe"
 	permeability_coefficient = 0.05
 	inventory_flags = NOSLIPPING

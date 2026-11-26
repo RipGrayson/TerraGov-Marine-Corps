@@ -32,7 +32,7 @@
 
 /obj/item/clothing/gloves/grinch
 	desc = "Due to a decade of avoiding handwashing, the Grinch's hands are immune to shocks by virtue of caked on dirt."
-	name = "Grinch hands"
+	name = "Grinch's Hands"
 	icon_state = "grinchhands"
 	siemens_coefficient = 0
 	permeability_coefficient = 0.05

@@ -125,11 +125,11 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 				M.visible_message(span_warning("[M] tears into [present_receiver_name]'s gift with reckless abandon!"))
 				M.balloon_alert_to_viewers("Open's [present_receiver_name]'s gift" ,ignored_mobs = M)
 				log_game("[M] has opened a present that belonged to [present_receiver_name] at [AREACOORD(loc)]")
-				if(prob(70) || HAS_TRAIT(M, TRAIT_CHRISTMAS_GRINCH))
+				if(prob(70) || HAS_TRAIT(M, TRAIT_CHRISTMAS_GRINCH || HAS_TRAIT(M, TRAIT_ACTUAL_CHRISTMAS_GRINCH)))
 					GLOB.round_statistics.presents_grinched += 1
-					if(!HAS_TRAIT(M, TRAIT_CHRISTMAS_GRINCH))
+					if(!HAS_TRAIT(M, TRAIT_CHRISTMAS_GRINCH || HAS_TRAIT(M, TRAIT_ACTUAL_CHRISTMAS_GRINCH)))
 						GLOB.round_statistics.number_of_grinches += 1
-						ADD_TRAIT(M, TRAIT_CHRISTMAS_GRINCH, TRAIT_CHRISTMAS_GRINCH) //bad present openers are effectively cursed to receive nothing but coal for the rest of the round
+						ADD_TRAIT(M, TRAIT_CHRISTMAS_GRINCH, TRAIT_CHRISTMAS_GRINCH || HAS_TRAIT(M, TRAIT_ACTUAL_CHRISTMAS_GRINCH)) //bad present openers are effectively cursed to receive nothing but coal for the rest of the round
 						to_chat(M, span_boldannounce("Your heart feels three sizes smaller..."))
 						M.color = COLOR_LIME
 					spawnpresent(M) //they have the grinch trait, the presents will always spawn coal
@@ -157,7 +157,7 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 	present_receiver_name = present_receiver.real_name //assign real name for maximum readability on examine
 
 /obj/item/a_gift/proc/spawnpresent(mob/M, stolen_gift)
-	if(HAS_TRAIT(M, TRAIT_CHRISTMAS_GRINCH))
+	if(HAS_TRAIT(M, TRAIT_CHRISTMAS_GRINCH || HAS_TRAIT(M, TRAIT_ACTUAL_CHRISTMAS_GRINCH)))
 		var/obj/item/C = new /obj/item/ore/coal(get_turf(M))
 		to_chat(M, span_boldannounce("You feel the icy tug of Santa's magic envelop the present before you can open it!"))
 		M.put_in_hands(C)
@@ -327,6 +327,29 @@ GLOBAL_LIST_EMPTY(possible_gifts)
 	gift_type_list += subtypesof(/obj/item/mortal_shell)
 	gift_type_list += subtypesof(/obj/item/ore)
 	gift_type_list += subtypesof(/obj/item/storage/backpack)
+
+	gift_type_list -= /obj/item/clothing/under/spec_operative/elf
+	gift_type_list -= /obj/item/clothing/suit/space/elf/nodrop
+	gift_type_list -= /obj/item/clothing/head/helmet/space/elf/special
+	gift_type_list -= /obj/item/weapon/twohanded/spear/candycane/elf
+	gift_type_list -= /obj/item/clothing/under/spec_operative/elf
+	gift_type_list -= /obj/item/clothing/suit/space/elf/nodrop
+	gift_type_list -= /obj/item/clothing/head/helmet/space/elf/special
+	gift_type_list -= /obj/item/weapon/twohanded/spear/candycane/elf
+	gift_type_list -= /obj/item/radio/headset/distress/pmc
+	gift_type_list -= /obj/item/clothing/under/grinch
+	gift_type_list -= /obj/item/clothing/shoes/grinch
+	gift_type_list -= /obj/item/clothing/suit/space/grinch
+	gift_type_list -= /obj/item/clothing/gloves/grinch
+	gift_type_list -= /obj/item/clothing/mask/gas/swat/grinch
+	gift_type_list -= /obj/item/storage/backpack/santabag
+	gift_type_list -= /obj/item/clothing/glasses/night/grinch
+	gift_type_list -= /obj/item/storage/belt/coalbelt/full
+	gift_type_list -= /obj/item/clothing/shoes/galoshes/santa
+	gift_type_list -= /obj/item/clothing/suit/space/santa/special
+	gift_type_list -= /obj/item/clothing/gloves/marine/veteran/pmc/commando/santa
+	gift_type_list -= /obj/item/clothing/mask/gas/swat/santa
+	gift_type_list -= /obj/item/clothing/head/helmet/space/santahat/special
 	var/gift_type = pick(gift_type_list)
 
 	return gift_type

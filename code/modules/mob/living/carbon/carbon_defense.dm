@@ -59,8 +59,15 @@
 		to_chat(src, span_danger("Your eyes are burning!"))
 		blur_eyes(4)
 		reagents.add_reagent(/datum/reagent/toxin/satrapine, GAS_INHALE_REAGENT_TRANSFER_AMOUNT * S.strength)
+	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_GRINCHIUM))
+		to_chat(src, span_danger("Your eyes are burning!"))
+		blur_eyes(4)
+		reagents.add_reagent(/datum/reagent/concentrated_grinchium, GAS_INHALE_REAGENT_TRANSFER_AMOUNT * S.strength)
 	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_CHEM))
 		S.pre_chem_effect(src)
+	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_GRINCHIUM) && (internal || has_smoke_protection())) //either inhaled or this.
+		reagents.add_reagent(/datum/reagent/toxin/xeno_ozelomelyn, GAS_INHALE_REAGENT_TRANSFER_AMOUNT * S.strength)
+		to_chat(src, span_danger("You feel sick as the cloud of green gas envelopes you!"))
 
 /mob/living/carbon/smoke_contact(obj/effect/particle_effect/smoke/S)
 	var/bio_protection = ..()
@@ -95,3 +102,7 @@
 			src.apply_status_effect(STATUS_EFFECT_MELTING_FIRE, PYROGEN_MELTING_FIRE_EFFECT_STACK * S.strength)
 		if(prob(10 * S.strength))
 			to_chat(src, span_danger("Your skin burns with blue fire!"))
+	if(CHECK_BITFIELD(S.smoke_traits, SMOKE_GRINCHIUM) && (internal || has_smoke_protection())) //either inhaled or this.
+		reagents.add_reagent(/datum/reagent/concentrated_grinchium, round(GAS_INHALE_REAGENT_TRANSFER_AMOUNT * 0.6 * S.strength * bio_protection, 0.1))
+		if(prob(10 * S.strength * bio_protection))
+			to_chat(src, span_danger("You feel sick as the cloud of green gas envelopes you!"))

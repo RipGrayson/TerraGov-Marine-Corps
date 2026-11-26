@@ -154,14 +154,14 @@
 	icon_state = "dirt"
 	mouse_opacity = MOUSE_OPACITY_TRANSPARENT
 
-/obj/effect/decal/cleanable/grinch_decal1
+/obj/effect/decal/cleanable/grinch_decal/grinch_decal1
 	icon_state = "grinch1"
 
-/obj/effect/decal/cleanable/grinch_decal2
+/obj/effect/decal/cleanable/grinch_decal/grinch_decal2
 	icon_state = "grinch2"
 
-/obj/effect/decal/cleanable/grinch_decal3
+/obj/effect/decal/cleanable/grinch_decal/grinch_decal3
 	icon_state = "grinch3"
 
-/obj/effect/decal/cleanable/grinch_decal4
+/obj/effect/decal/cleanable/grinch_decal/grinch_decal4
 	icon_state = "grinch4"

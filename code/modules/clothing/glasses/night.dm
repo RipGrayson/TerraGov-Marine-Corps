@@ -39,7 +39,7 @@
 	actions_types = list(/datum/action/item_action/toggle)
 
 /obj/item/clothing/glasses/night/grinch
-	name = "\improper Grinch Eyes"
+	name = "\improper Grinch's Eyes"
 	desc = "And as he saw TerraGov Marines a-coming, he said to himself, I must give them a thumping."
 	icon = 'icons/obj/clothing/glasses.dmi'
 	icon_state = "grincheye"
@@ -50,7 +50,7 @@
 	soft_armor = list(MELEE = 40, BULLET = 40, LASER = 0, ENERGY = 15, BOMB = 35, BIO = 10, FIRE = 30, ACID = 120)
 	actions_types = list(/datum/action/item_action/toggle)
 
-/obj/item/clothing/glasses/glasses/night/grinch/Initialize(mapload)
+/obj/item/clothing/glasses/night/grinch/Initialize(mapload)
 	. = ..()
 	ADD_TRAIT(src, TRAIT_NODROP, TRAIT_ACTUAL_CHRISTMAS_GRINCH)
 

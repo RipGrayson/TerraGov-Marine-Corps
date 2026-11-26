@@ -31,6 +31,10 @@
 	if(.)
 		return
 
+	if(HAS_TRAIT(usr, TRAIT_ACTUAL_CHRISTMAS_GRINCH))
+		balloon_alert(user, "Access Denied")
+		return
+
 	if(istype(I, /obj/item/cell) && opened) //Trying to put a cell inside
 		if(user.skills.getRating(SKILL_ENGINEER) < SKILL_ENGINEER_ENGI)
 			user.visible_message(span_notice("[user] fumbles around figuring out how to fit [I] into [src]."),

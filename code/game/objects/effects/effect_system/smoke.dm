@@ -258,6 +258,15 @@
 	var/obj/effect/particle_effect/smoke/S = new smoke_type(_location, range, lifetime)
 	S.apply_smoke_effect(get_turf(S))
 
+/////////////////////////////////////////////
+// grinchium smoke
+/////////////////////////////////////////////
+
+/obj/effect/particle_effect/smoke/grinchium
+	lifetime = 3
+	color = "#92a94d"
+	strength = 1.5
+	smoke_traits = SMOKE_GRINCHIUM|SMOKE_NERF_BEAM|SMOKE_FOUL
 
 /////////////////////////////////////////////
 // Bad smoke
@@ -568,6 +577,9 @@
 
 /datum/effect_system/smoke_spread/xeno/pyrogen_fire/light
 	smoke_type = /obj/effect/particle_effect/smoke/xeno/pyrogen_fire/light
+
+/datum/effect_system/smoke_spread/xeno/grinchium
+	smoke_type = /obj/effect/particle_effect/smoke/grinchium
 
 /////////////////////////////////////////////
 // Chem smoke

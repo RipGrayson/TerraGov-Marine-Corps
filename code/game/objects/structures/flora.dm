@@ -205,7 +205,7 @@
 		return
 	if(!do_after(user, 3 SECONDS))
 		return
-	if(isxeno(user) || prob(1) || HAS_TRAIT(user, TRAIT_CHRISTMAS_GRINCH) ) //Santa hates xenos, he also hates really unlucky marines and grinches
+	if(isxeno(user) || prob(1) || HAS_TRAIT(user, TRAIT_CHRISTMAS_GRINCH) || HAS_TRAIT(user, TRAIT_ACTUAL_CHRISTMAS_GRINCH)) //Santa hates xenos, he also hates really unlucky marines and grinches
 		if(HAS_TRAIT(user, TRAIT_TOOK_COAL))
 			to_chat(user, span_warning("Santa already has punished you with coal, you should be less greedy."))
 			return

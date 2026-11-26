@@ -85,17 +85,19 @@
 
 /obj/item/storage/bag/trash/grinch/throw_impact(atom/hit_atom, speed, bounce)
 	. = ..()
-	var/list/nearbyturfs = list()
-	for(var/turf/near_turfs in range(3))
-		nearbyturfs += near_turfs
-	new /obj/effect/decal/cleanable/dirt(get_turf(hit_atom)) //spawn dirt where the bag originally hit
 	if(ishuman(hit_atom))
 		var/mob/living/carbon/human/unfortunatehuman = hit_atom
 		unfortunatehuman.Stun(6 SECONDS)
 		unfortunatehuman.Knockdown(3 SECONDS)
+		unfortunatehuman.reagents.add_reagent(/datum/reagent/concentrated_grinchium, 10)
 		to_chat(unfortunatehuman, span_notice("The garbage bag hits you right in the face, stunning you for a second..."))
-		balloon_alert_to_viewers("The [src] explodes into a pile trash as it hits [unfortunatehuman]'s face" ,ignored_mobs = unfortunatehuman)
-		unfortunatehuman.reagents.add_reagent(/datum/reagent/grinchium, 15)
+	var/datum/effect_system/smoke_spread/xeno/grinchium/grinchgas = new(get_turf(hit_atom))
+	grinchgas.set_up(1,src)
+	grinchgas.start()
+	var/list/nearbyturfs = list()
+	for(var/turf/near_turfs in range(3))
+		nearbyturfs += near_turfs
+	new /obj/effect/decal/cleanable/dirt(get_turf(hit_atom)) //spawn dirt where the bag originally hit
 	for(var/thrown_trashes in nearbyturfs)
 		if(prob(25) && !isclosedturf(thrown_trashes))
 			var/obj/item/trash/trashestothrow = pick(typesof(/obj/item/trash))
@@ -225,23 +227,34 @@
 	var/pieces_of_trash = 10
 
 /datum/action/innate/vandalize_area/Activate()
+	var/trashcount = 0
+	var/thrown_garbage = 0
+	var/list/turfsinlist = list()
 	to_chat(usr, "You start ruining the surrounding area...")
 	if(!do_after(usr, 3 SECONDS, NONE))
 		to_chat(usr, "You give up on ruining Christmas spirit through sheer property destruction.")
 		return
 	pieces_of_trash = rand(5,20)
 	for(var/turf/near_turfs in range(3))
-		nearbyturfs += near_turfs
-	for(var/trashestothrow in nearbyturfs)
-		if(prob(25) && !isclosedturf(trashestothrow))
+		turfsinlist += near_turfs
+	for(var/turf/turfs in turfsinlist) //necessary or we'll always spawn trashcount pieces of garbage before limit kicks in
+		if(locate(/obj/item/trash) in turfs || locate(/obj/effect/decal/cleanable/grinch_decal) in turfs)
+			trashcount += 1
+		if(locate(/obj/item/explosive/grenade/flare, turfs))
+			var/obj/item/explosive/grenade/flare/searchedflare = locate(/obj/item/explosive/grenade/flare, turfs)
+			searchedflare.turn_off()
+
+	for(var/turf/turfs in turfsinlist)
+		if(trashcount >= 10 || pieces_of_trash <= thrown_garbage)
+			return
+		if(isclosedturf(turfs) || iswater(turfs) || islava(turfs) || isspaceturf(turfs)) continue
+		if(prob(25))
 			var/obj/item/trash/selectedtrash = pick(typesof(/obj/item/trash))
-			new selectedtrash(trashestothrow)
-	for(var/turfsinlist in nearbyturfs)
-		if(locate(/obj/effect/decal/cleanable/grinch_decal) in turfsinlist)
-			continue
-		if(prob(25) && !isclosedturf(turfsinlist))
+			new selectedtrash(turfs)
+			thrown_garbage += 1
+		if(prob(25))
 			var/obj/effect/decal/cleanable/grinch_decal/selecteddecal = pick(typesof(/obj/effect/decal/cleanable/grinch_decal))
-			new selecteddecal(turfsinlist)
+			new selecteddecal(turfs)
 
 /datum/action/innate/summon_coal
 	name = "Summon Coal"
@@ -288,8 +301,8 @@
 	if(locate(/obj/item/beartrap) in get_turf(grinchmob))
 		to_chat(grinchmob, "There's a trap here already, better use that one instead.")
 		return
-	var/obj/item/beartrap/spawnedcoal = new (get_turf(grinchmob))
-	grinchmob.put_in_hands(spawnedcoal)
+	var/obj/item/beartrap/spawnedtrap = new (get_turf(grinchmob))
+	grinchmob.put_in_hands(spawnedtrap)
 
 /obj/item/beartrap
 	name = "bear trap"
@@ -315,8 +328,8 @@
 	if(ishuman(AM))
 		var/mob/living/carbon/crosser = AM
 		crosser.visible_message(span_warning("The [src] closes on [crosser]'s body!"), span_danger("You are gripped by [src]!"))
-		crosser.ParalyzeNoChain(6 SECONDS)
-		crosser.Stun(9 SECONDS)
+		crosser.Knockdown(1 SECONDS)
+		crosser.ImmobilizeNoChain(6 SECONDS)
 	qdel(src)
 
 /obj/item/beartrap/attack_self(mob/M)

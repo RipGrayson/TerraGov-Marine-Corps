@@ -12,3 +12,7 @@
 /obj/item/key/security
 	desc = "A keyring with a small steel key, and a rubber stun baton accessory."
 	icon_state = "keysec"
+
+/obj/item/key/grinch
+	name = "Dumpster key"
+	desc = "Used to unlock the wheels of a rolling garbage bin. Don't think too hard about it."

@@ -138,6 +138,18 @@
 	. = ..()
 	set_riding_offsets(RIDING_OFFSET_ALL, list(TEXT_NORTH = list(0, 4), TEXT_SOUTH = list(0, 4), TEXT_EAST = list(0, 4), TEXT_WEST = list(0, 4)))
 
+/datum/component/riding/vehicle/dumpster
+	keytype = /obj/item/key/grinch
+	ride_check_flags = RIDER_NEEDS_LEGS
+	vehicle_move_delay = 1.4
+
+/datum/component/riding/vehicle/dumpster/handle_specials()
+	. = ..()
+	set_vehicle_dir_layer(SOUTH, VEHICLE_LAYER)
+	set_vehicle_dir_layer(NORTH, VEHICLE_LAYER)
+	set_vehicle_dir_layer(EAST, VEHICLE_LAYER)
+	set_vehicle_dir_layer(WEST, VEHICLE_LAYER)
+
 /datum/component/riding/vehicle/wheelchair
 	vehicle_move_delay = 6
 	ride_check_flags = RIDER_NEEDS_ARMS

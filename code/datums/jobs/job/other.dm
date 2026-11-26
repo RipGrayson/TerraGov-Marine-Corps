@@ -340,7 +340,7 @@
 
 	id = /obj/item/card/id/gold
 	belt = /obj/item/storage/belt/hypospraybelt/full
-	ears = /obj/item/radio/headset/mainship/marine/grinch
+	ears = /obj/item/radio/headset/distress/pmc
 	w_uniform = /obj/item/clothing/under/grinch
 	shoes = /obj/item/clothing/shoes/grinch
 	wear_suit = /obj/item/clothing/suit/space/grinch
@@ -364,4 +364,4 @@
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/hypospray/advanced/big, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/clothing/glasses/thermal/syndi, SLOT_IN_BACKPACK)
 	H.equip_to_slot_or_del(new /obj/item/reagent_containers/food/snacks/sliceable/pastries/fruitcake, SLOT_IN_BACKPACK)
-
+	H.equip_to_slot_or_del(new 	/obj/item/key/grinch, SLOT_IN_BACKPACK)

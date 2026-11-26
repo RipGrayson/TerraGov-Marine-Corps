@@ -632,7 +632,7 @@
 	desc = "Ho ho ho. Merrry X-mas!"
 	icon_state = "santahat2"
 	inventory_flags = NOPRESSUREDMAGE|BLOCKSHARPOBJ
-	inv_hide_flags = HIDEEYES
+	inv_hide_flags = HIDEMASK|HIDEEARS|HIDEEYES|HIDEALLHAIR
 	armor_protection_flags = HEAD
 	soft_armor = list(MELEE = 15, BULLET = 15, LASER = 15, ENERGY = 15, BOMB = 10, BIO = 10, FIRE = 10, ACID = 10)
 	armor_features_flags = ARMOR_NO_DECAP
@@ -660,6 +660,7 @@
 	soft_armor = list(MELEE = 85, BULLET = 90, LASER = 90, ENERGY = 85, BOMB = 120, BIO = 85, FIRE = 75, ACID = 40)
 	item_flags = DELONDROP
 	inventory_flags = COVEREYES|COVERMOUTH|BLOCKSHARPOBJ|BLOCKGASEFFECT
+	inv_hide_flags = HIDEMASK|HIDEEARS|HIDEEYES|HIDEALLHAIR
 
 /obj/item/clothing/head/helmet/space/santahat/special/Initialize(mapload)
 	. = ..()

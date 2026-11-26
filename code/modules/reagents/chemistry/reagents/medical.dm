@@ -1291,6 +1291,73 @@
 		L.vomit()
 	L.reagent_shock_modifier -= PAIN_REDUCTION_VERY_HEAVY * 4 //Unlimited agony.
 
+///concentrated grinchium is more violent, but lasts a much shorter time
+/datum/reagent/concentrated_grinchium // this isn't under /medicine so things that purge /datum/reagent/medicine like neuro/larval don't purge it
+	name = "Concentrated Grinchium"
+	description = "A concentrated form of Grinchium, as if the regular wasn't bad enough."
+	color = COLOR_REAGENT_STIMULON
+	overdose_threshold = REAGENTS_OVERDOSE * 0.5
+	overdose_crit_threshold = REAGENTS_OVERDOSE_CRITICAL * 0.5
+	custom_metabolism = REAGENTS_METABOLISM * 1.25
+	purge_list = list(/datum/reagent/medicine)
+	purge_rate = 5
+	taste_description = "moldy tires"
+	taste_multi = 8
+
+/datum/reagent/concentrated_grinchium/on_mob_life(mob/living/L, metabolism)
+	if(HAS_TRAIT(L, TRAIT_ACTUAL_CHRISTMAS_GRINCH))
+		L.heal_overall_damage(2*effect_str, 0)
+		if(volume > 5)
+			L.reagent_pain_modifier += PAIN_REDUCTION_LIGHT
+		if(volume > 10)
+			L.reagent_pain_modifier += PAIN_REDUCTION_MEDIUM
+			L.heal_overall_damage(2.0*effect_str, 0)
+		return ..()
+	if(prob(30))
+		L.Stun(2 SECONDS)
+	if(prob(15))
+		L.Knockdown(1 SECONDS)
+	L.reagent_shock_modifier -= PAIN_REDUCTION_VERY_HEAVY //Significant pain while metabolized.
+	if(prob(70)) //causes vomiting
+		L.vomit()
+	return ..()
+
+/datum/reagent/concentrated_grinchium/overdose_process(mob/living/L, metabolism)
+	if(HAS_TRAIT(L, TRAIT_ACTUAL_CHRISTMAS_GRINCH))
+		L.heal_overall_damage(2*effect_str, 0)
+		if(volume > 5)
+			L.reagent_pain_modifier += PAIN_REDUCTION_LIGHT
+		if(volume > 10)
+			L.reagent_pain_modifier += PAIN_REDUCTION_LIGHT
+			L.heal_overall_damage(1.5*effect_str, 0)
+		return ..()
+	if(prob(40))
+		L.Stun(3 SECONDS)
+	if(prob(30))
+		L.Knockdown(1 SECONDS)
+	L.apply_damages(effect_str, effect_str)
+	if(prob(70)) //heavy vomiting
+		L.vomit()
+	L.reagent_shock_modifier -= PAIN_REDUCTION_VERY_HEAVY * 1.25//Massive pain.
+
+/datum/reagent/concentrated_grinchium/overdose_crit_process(mob/living/L, metabolism)
+	if(HAS_TRAIT(L, TRAIT_ACTUAL_CHRISTMAS_GRINCH))
+		L.heal_overall_damage(2*effect_str, 0)
+		if(volume > 5)
+			L.reagent_pain_modifier += PAIN_REDUCTION_LIGHT
+		if(volume > 10)
+			L.reagent_pain_modifier += PAIN_REDUCTION_LIGHT
+			L.heal_overall_damage(1.0*effect_str, 0)
+		return ..()
+	if(prob(50))
+		L.Stun(4 SECONDS)
+	if(prob(40))
+		L.Knockdown(1 SECONDS)
+	L.apply_damages(2*effect_str, 2*effect_str)
+	if(prob(80)) //violent vomiting
+		L.vomit()
+	L.reagent_shock_modifier -= PAIN_REDUCTION_SUPER_HEAVY * 4 //Unlimited agony.
+
 /datum/reagent/medicine/roulettium
 	name = "Roulettium"
 	description = "The concentrated essence of unga. Unsafe to ingest in any quantity"

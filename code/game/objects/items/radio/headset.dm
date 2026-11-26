@@ -597,7 +597,7 @@ GLOBAL_LIST_INIT(channel_tokens, list(
 	minimap_type = /datum/action/minimap/marine
 
 /obj/item/radio/headset/mainship/marine/grinch
-	name = "generic radio headset, grinch edition"
+	name = "Grinch's Headset"
 	icon_state = "headset_marine_generic"
 	minimap_type = /datum/action/minimap/xeno
 	item_flags = DELONDROP
